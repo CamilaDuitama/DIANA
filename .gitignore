@@ -1,6 +1,4 @@
 # Python
-data/test_data/splits/train_matrix.abundance.mat
-data/test_data/splits/train_matrix.pa.mat
 __pycache__/
 *.py[cod]
 *$py.class
@@ -40,10 +38,18 @@ env/
 
 # Data (large files)
 data/raw/*
-!data/metadata/.gitkeep
+!data/raw/.gitkeep
 data/splits/*
 !data/splits/.gitkeep
 data/matrices/*
+!data/matrices/.gitkeep
+
+# Test/dummy data (large matrix files)
+data/test_data/matrices/*
+!data/test_data/matrices/.gitkeep
+data/test_data/splits/*.mat
+data/test_data/splits/*.abundance.mat
+data/test_data/splits/*.pa.mat
 
 # Models (large files)
 models/**/*.pt
