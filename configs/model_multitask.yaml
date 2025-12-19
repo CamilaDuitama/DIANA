@@ -1,0 +1,16 @@
+# Multi-task model configuration
+
+model_type: "multitask"
+
+architecture:
+  hidden_dims: [512, 256, 128]
+  dropout: 0.5
+  activation: "relu"
+  batch_norm: true
+
+# Task weights for loss combination
+task_weights:
+  sample_type: 1.0
+  community_type: 1.0
+  sample_host: 1.0
+  material: 1.0

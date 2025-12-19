@@ -1,0 +1,27 @@
+# Data configuration
+
+# Paths
+metadata_path: "/pasteur/appa/scratch/cduitama/decOM/data/metadata/metadata_decOM_classify.tsv"
+matrix_path: "/pasteur/appa/scratch/cduitama/decOM/data/unitigs/matrices/large_matrix_3116"
+splits_dir: "data/splits"
+
+# Targets
+targets:
+  - sample_type
+  - community_type
+  - sample_host
+  - material
+
+# Number of classes per target
+num_classes:
+  sample_type: 2
+  community_type: 6
+  sample_host: 12
+  material: 13
+
+# Preprocessing
+preprocessing:
+  normalize: true
+  log_transform: false
+  feature_selection: null  # Options: null, "variance", "chi2"
+  max_features: null  # null = use all features
