@@ -17,7 +17,7 @@ from pathlib import Path
 from scipy import stats
 from typing import Tuple
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
 from diana.data.loader import MetadataLoader
 from diana.data.splitter import StratifiedSplitter

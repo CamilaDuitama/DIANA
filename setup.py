@@ -25,5 +25,11 @@ setup(
     ],
     extras_require={
         "dev": ["pytest", "black", "isort"],
+        "optim": ["optuna>=3.0.0"],  # For hyperparameter optimization
+    },
+    entry_points={
+        "console_scripts": [
+            "diana-train=diana.cli.train:main",
+        ],
     },
 )

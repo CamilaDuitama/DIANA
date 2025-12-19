@@ -16,7 +16,7 @@ import polars as pl
 from pathlib import Path
 import plotly.express as px
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
 from diana.data.loader import MetadataLoader
 from diana.data.splitter import StratifiedSplitter

@@ -1,4 +1,6 @@
 # Python
+data/test_data/splits/train_matrix.abundance.mat
+data/test_data/splits/train_matrix.pa.mat
 __pycache__/
 *.py[cod]
 *$py.class

@@ -14,7 +14,7 @@ import argparse
 import logging
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
 from diana.data.loader import MetadataLoader
 from diana.data.splitter import StratifiedSplitter
@@ -45,8 +45,8 @@ def main():
     logger.info(f"Train: {len(train_ids)}, Val: {len(val_ids)}, Test: {len(test_ids)}")
     
     output_dir = Path(config["splits_dir"])
-    splitter.save_splits(train_ids, val_ids, test_ids, output_dir)
-    logger.info(f"✓ Splits saved to {output_dir}")
+    splitter.save_splits(train_ids, val_ids, test_ids, output_dir, metadata=metadata, id_col="Run_accession")
+    logger.info(f"✓ Splits (IDs and metadata) saved to {output_dir}")
 
 if __name__ == "__main__":
     main()

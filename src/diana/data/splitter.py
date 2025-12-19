@@ -166,8 +166,19 @@ class StratifiedSplitter:
                    train_ids: List[str],
                    val_ids: List[str],
                    test_ids: List[str],
-                   output_dir: Path):
-        """Save splits to files."""
+                   output_dir: Path,
+                   metadata: Optional[Union[pd.DataFrame, pl.DataFrame]] = None,
+                   id_col: str = "Run_accession"):
+        """Save splits to files.
+        
+        Args:
+            train_ids: Training sample IDs
+            val_ids: Validation sample IDs
+            test_ids: Test sample IDs
+            output_dir: Directory to save splits
+            metadata: Optional metadata DataFrame to split and save
+            id_col: Column name containing sample IDs
+        """
         output_dir = Path(output_dir)
         output_dir.mkdir(parents=True, exist_ok=True)
         
@@ -181,6 +192,22 @@ class StratifiedSplitter:
         with open(output_dir / "test_ids.txt", 'w') as f:
             f.write('\n'.join(test_ids))
             
+        # Save metadata splits if provided
+        if metadata is not None:
+            # Convert to pandas if polars
+            if isinstance(metadata, pl.DataFrame):
+                metadata = metadata.to_pandas()
+            
+            train_meta = metadata[metadata[id_col].isin(train_ids)]
+            test_meta = metadata[metadata[id_col].isin(test_ids)]
+            
+            train_meta.to_csv(output_dir / "train_metadata.tsv", sep='\t', index=False)
+            test_meta.to_csv(output_dir / "test_metadata.tsv", sep='\t', index=False)
+            
+            if len(val_ids) > 0:
+                val_meta = metadata[metadata[id_col].isin(val_ids)]
+                val_meta.to_csv(output_dir / "val_metadata.tsv", sep='\t', index=False)
+        
         # Save configuration
         config = {
             "train_size": self.train_size,
