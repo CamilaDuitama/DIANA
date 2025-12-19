@@ -1,4 +1,5 @@
-# Diana\n\nAncient DNA sample classifier trained on the largest aDNA dataset available.
+# Diana
+## Ancient DNA sample classifier trained on the largest aDNA dataset available.
 
 <!-- TODO: Fill out project description -->
 
