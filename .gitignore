@@ -38,10 +38,10 @@ env/
 
 # Data (large files)
 data/raw/*
-data/metadata/*.tsv
 !data/metadata/.gitkeep
 data/splits/*
 !data/splits/.gitkeep
+data/matrices/*
 
 # Models (large files)
 models/**/*.pt
@@ -59,6 +59,8 @@ results/metrics/*
 # Logs
 logs/*.log
 logs/*.txt
+logs/*.err
+logs/*.out
 !logs/.gitkeep
 
 # OS
