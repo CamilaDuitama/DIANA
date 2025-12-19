@@ -1,4 +1,13 @@
-"""Plotting utilities for data analysis and evaluation using Plotly and Polars."""
+"""
+Plotting utilities for data analysis and evaluation using Plotly and Polars.
+
+Provides functions for creating publication-quality visualizations of:
+- Class distributions (numeric and categorical)
+- Split comparisons (train vs test)
+- Geographic distributions
+
+Used by: scripts/evaluation/02_plot_data_distribution.py
+"""
 
 import plotly.express as px
 import plotly.graph_objects as go
@@ -11,10 +20,15 @@ import numpy as np
 logger = logging.getLogger(__name__)
 
 def save_plot(fig, output_path: Path):
-    """Save plotly figure to static file and html."""
+    """
+    Save plotly figure to both HTML (interactive) and PNG (static).
+    
+    Args:
+        fig: Plotly figure object
+        output_path: Path for PNG output (HTML will have same name with .html extension)
+    """
     output_path.parent.mkdir(parents=True, exist_ok=True)
     
-    # Save HTML
     html_path = output_path.with_suffix('.html')
     try:
         fig.write_html(str(html_path))
@@ -22,9 +36,7 @@ def save_plot(fig, output_path: Path):
     except Exception as e:
         logger.error(f"Failed to save html plot to {html_path}: {e}")
 
-    # Save PNG
     try:
-        # Use kaleido for static image export
         fig.write_image(str(output_path), engine="kaleido", scale=2)
         logger.info(f"Saved plot to {output_path}")
     except Exception as e:
@@ -35,19 +47,20 @@ def plot_class_distribution(df: pl.DataFrame,
                           title: str, 
                           output_path: Path):
     """
-    Plot distribution for a specific target column.
-    Uses Violin/Box plots for numerical data and Bar plots for categorical.
+    Plot distribution for a single column.
+    
+    Automatically selects appropriate plot type:
+    - Violin/Box plot for numeric data
+    - Bar chart for categorical data
     
     Args:
-        df: Polars DataFrame containing the data
-        target_col: Column name to plot
+        df: Polars DataFrame
+        target_col: Column name to visualize
         title: Plot title
-        output_path: Path to save the plot
+        output_path: Output file path
     """
-    # Check if column is numerical
     is_numeric = df[target_col].dtype in [pl.Float32, pl.Float64, pl.Int32, pl.Int64, pl.UInt32, pl.UInt64]
     
-    # If numeric but low cardinality (e.g. < 10 unique values), treat as categorical
     if is_numeric and df[target_col].n_unique() < 10:
         is_numeric = False
 

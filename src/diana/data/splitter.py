@@ -12,7 +12,16 @@ import logging
 logger = logging.getLogger(__name__)
 
 class StratifiedSplitter:
-    """Create stratified train/val/test splits handling class imbalance."""
+    """
+    Create stratified train/val/test splits handling class imbalance.
+    
+    Implements robust splitting that handles:
+    - Singleton classes (only 1 sample)
+    - Small classes (2-5 samples)
+    - Regular classes with sufficient samples
+    
+    Used by: scripts/data_prep/01_create_splits.py
+    """
     
     def __init__(self, 
                  train_size: float = 0.7,
@@ -23,9 +32,9 @@ class StratifiedSplitter:
         Initialize splitter.
         
         Args:
-            train_size: Proportion for training
-            val_size: Proportion for validation
-            test_size: Proportion for testing
+            train_size: Proportion for training (e.g., 0.85)
+            val_size: Proportion for validation (e.g., 0.0 for nested CV)
+            test_size: Proportion for testing (e.g., 0.15)
             random_state: Random seed for reproducibility
         """
         assert abs(train_size + val_size + test_size - 1.0) < 1e-6
@@ -41,11 +50,12 @@ class StratifiedSplitter:
                      label_col: str) -> Tuple[pd.DataFrame, pd.DataFrame]:
         """
         Create stratified train-test split handling severe class imbalance.
-        Adapted from Logan's script.
+        
+        Separates classes by count and applies appropriate splitting strategy
+        for each group to maintain class distribution.
         """
         class_counts = df[label_col].value_counts()
         
-        # Separate classes by sample count
         singleton_classes = class_counts[class_counts == 1].index
         small_classes = class_counts[(class_counts > 1) & (class_counts <= 5)].index
         medium_classes = class_counts[(class_counts > 5) & (class_counts <= 20)].index

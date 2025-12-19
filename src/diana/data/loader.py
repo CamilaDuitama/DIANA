@@ -8,7 +8,12 @@ import scipy.sparse as sp
 
 
 class MatrixLoader:
-    """Load sparse unitig matrices from kmtricks/muset output."""
+    """
+    Load sparse unitig matrices from kmtricks/muset output.
+    
+    Currently not implemented - use scripts/data_prep/05_extract_and_split_matrices.py
+    for matrix extraction instead.
+    """
     
     def __init__(self, matrix_path: Path):
         """
@@ -30,8 +35,7 @@ class MatrixLoader:
         Returns:
             Tuple of (sparse matrix, loaded sample IDs)
         """
-        # TODO: Implement matrix loading from kmtricks format
-        raise NotImplementedError("Matrix loading to be implemented")
+        raise NotImplementedError("Use scripts/data_prep/05_extract_and_split_matrices.py instead")
         
     def get_available_samples(self) -> List[str]:
         """Get list of all samples available in the matrix."""
@@ -40,7 +44,12 @@ class MatrixLoader:
 
 
 class MetadataLoader:
-    """Load and process metadata for classification."""
+    """
+    Load and process metadata for classification.
+    
+    Handles loading of TSV-formatted metadata files and basic preprocessing.
+    Used by all data analysis and training scripts.
+    """
     
     def __init__(self, metadata_path: Path):
         """
