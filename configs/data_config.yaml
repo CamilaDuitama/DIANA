@@ -1,8 +1,8 @@
 # Data configuration
 
 # Paths
-metadata_path: "/pasteur/appa/scratch/cduitama/decOM/data/metadata/metadata_decOM_classify.tsv"
-matrix_path: "/pasteur/appa/scratch/cduitama/decOM/data/unitigs/matrices/large_matrix_3116"
+metadata_path: "data/metadata/DIANA_metadata.tsv"
+matrix_path: "data/matrices/large_matrix_3070_with_frac/kmer_matrix"
 splits_dir: "data/splits"
 
 # Targets

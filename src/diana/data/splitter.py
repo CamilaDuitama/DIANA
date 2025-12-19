@@ -1,15 +1,18 @@
 """Train/validation/test splitting with stratification."""
 
 import numpy as np
+import pandas as pd
 import polars as pl
 from pathlib import Path
-from typing import Tuple, List, Optional
+from typing import Tuple, List, Optional, Union
 from sklearn.model_selection import train_test_split
 import json
+import logging
 
+logger = logging.getLogger(__name__)
 
 class StratifiedSplitter:
-    """Create stratified train/val/test splits."""
+    """Create stratified train/val/test splits handling class imbalance."""
     
     def __init__(self, 
                  train_size: float = 0.7,
@@ -32,41 +35,122 @@ class StratifiedSplitter:
         self.test_size = test_size
         self.random_state = random_state
         
+    def _robust_split(self, 
+                     df: pd.DataFrame, 
+                     test_size: float, 
+                     label_col: str) -> Tuple[pd.DataFrame, pd.DataFrame]:
+        """
+        Create stratified train-test split handling severe class imbalance.
+        Adapted from Logan's script.
+        """
+        class_counts = df[label_col].value_counts()
+        
+        # Separate classes by sample count
+        singleton_classes = class_counts[class_counts == 1].index
+        small_classes = class_counts[(class_counts > 1) & (class_counts <= 5)].index
+        medium_classes = class_counts[(class_counts > 5) & (class_counts <= 20)].index
+        large_classes = class_counts[class_counts > 20].index
+        
+        train_indices = []
+        test_indices = []
+        
+        # Handle singleton classes - all go to training (the larger set)
+        for cls in singleton_classes:
+            cls_samples = df[df[label_col] == cls].index.tolist()
+            train_indices.extend(cls_samples)
+        
+        # Handle small classes (2-5 samples)
+        for cls in small_classes:
+            cls_samples = df[df[label_col] == cls].index.tolist()
+            np.random.seed(self.random_state)
+            np.random.shuffle(cls_samples)
+            
+            n_samples = len(cls_samples)
+            n_test = max(0, min(1, int(n_samples * test_size)))  # At most 1 to test
+            n_train = n_samples - n_test
+            
+            train_indices.extend(cls_samples[:n_train])
+            test_indices.extend(cls_samples[n_train:])
+            
+        # Handle medium classes
+        for cls in medium_classes:
+            cls_samples = df[df[label_col] == cls].index.tolist()
+            cls_labels = [cls] * len(cls_samples)
+            
+            if len(cls_samples) >= 4:
+                train_idx, test_idx = train_test_split(
+                    cls_samples, test_size=test_size, random_state=self.random_state,
+                    stratify=cls_labels
+                )
+            else:
+                np.random.seed(self.random_state)
+                np.random.shuffle(cls_samples)
+                n_test = max(1, int(len(cls_samples) * test_size))
+                test_idx = cls_samples[:n_test]
+                train_idx = cls_samples[n_test:]
+            
+            train_indices.extend(train_idx)
+            test_indices.extend(test_idx)
+            
+        # Handle large classes
+        if len(large_classes) > 0:
+            large_df = df[df[label_col].isin(large_classes)]
+            train_large, test_large = train_test_split(
+                large_df, test_size=test_size, random_state=self.random_state,
+                stratify=large_df[label_col]
+            )
+            train_indices.extend(train_large.index.tolist())
+            test_indices.extend(test_large.index.tolist())
+            
+        return df.loc[train_indices], df.loc[test_indices]
+
     def split(self, 
-             metadata: pl.DataFrame,
-             stratify_by: str = "sample_type") -> Tuple[List[str], List[str], List[str]]:
+             metadata: Union[pl.DataFrame, pd.DataFrame],
+             stratify_by: str = "sample_type",
+             id_col: str = "Run_accession") -> Tuple[List[str], List[str], List[str]]:
         """
         Create stratified splits.
         
         Args:
             metadata: Metadata DataFrame
             stratify_by: Column to use for stratification
+            id_col: Column containing sample IDs
             
         Returns:
             Tuple of (train_ids, val_ids, test_ids)
         """
-        sample_ids = metadata["Run_accession"].to_numpy()
-        stratify_labels = metadata[stratify_by].to_numpy()
-        
-        # First split: train vs (val + test)
-        train_ids, temp_ids, _, temp_labels = train_test_split(
-            sample_ids,
-            stratify_labels,
-            train_size=self.train_size,
-            random_state=self.random_state,
-            stratify=stratify_labels
+        if isinstance(metadata, pl.DataFrame):
+            df = metadata.to_pandas()
+        else:
+            df = metadata.copy()
+            
+        # 1. Split Test set from (Train + Val)
+        # The test_size passed to _robust_split should be self.test_size
+        train_val_df, test_df = self._robust_split(
+            df, 
+            test_size=self.test_size, 
+            label_col=stratify_by
         )
         
-        # Second split: val vs test
-        val_ratio = self.val_size / (self.val_size + self.test_size)
-        val_ids, test_ids = train_test_split(
-            temp_ids,
-            train_size=val_ratio,
-            random_state=self.random_state,
-            stratify=temp_labels
-        )
+        # 2. Split Val set from Train
+        if self.val_size > 0:
+            # The validation size relative to the remaining data (Train + Val)
+            val_ratio = self.val_size / (self.train_size + self.val_size)
+            
+            train_df, val_df = self._robust_split(
+                train_val_df,
+                test_size=val_ratio,
+                label_col=stratify_by
+            )
+        else:
+            train_df = train_val_df
+            val_df = pd.DataFrame(columns=df.columns)
         
-        return train_ids.tolist(), val_ids.tolist(), test_ids.tolist()
+        train_ids = train_df[id_col].tolist()
+        val_ids = val_df[id_col].tolist()
+        test_ids = test_df[id_col].tolist()
+        
+        return train_ids, val_ids, test_ids
         
     def save_splits(self, 
                    train_ids: List[str],

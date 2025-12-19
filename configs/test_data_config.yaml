@@ -1,0 +1,20 @@
+# Test Data configuration
+
+# Paths
+metadata_path: "data/test_data/metadata.tsv"
+matrix_path: "data/test_data/matrices"
+splits_dir: "data/test_data/splits"
+
+# Targets
+targets:
+  - sample_type
+  - community_type
+  - sample_host
+  - material
+
+# Number of classes per target
+num_classes:
+  sample_type: 2
+  community_type: 6
+  sample_host: 12
+  material: 13

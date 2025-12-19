@@ -4,6 +4,7 @@ channels:
   - nvidia
   - conda-forge
   - bioconda
+  - defaults
 dependencies:
   - python=3.10
   - pytorch>=2.0
@@ -16,7 +17,10 @@ dependencies:
   - pandas>=2.0
   - matplotlib>=3.7
   - seaborn>=0.12
+  - plotly
+  - python-kaleido=0.2.1
   - h5py
+  - pyarrow
   - jupyterlab
   - pytest
   - black
