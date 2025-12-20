@@ -1,0 +1,758 @@
+archive_accession	sample_name	sample_type	sample_source	sample_host	material	community_type	geo_loc_name	site_name	latitude	longitude	sample_age	sample_age_doi	project_name	publication_year	publication_doi
+SRS473742,SRS473743,SRS473744,SRS473745	B61	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Germany	Dalheim	51.565	8.84	900	10.1038/ng.2906	Warinner2014	2014	10.1038/ng.2906
+SRS473747,SRS473746,SRS473748,SRS473749,SRS473750	G12	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Germany	Dalheim	51.565	8.84	900	10.1038/ng.2906	Warinner2014	2014	10.1038/ng.2906
+SRS7890503	Sudan2	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Sudan	Al Khiday	15.441	32.381	5000	10.1038/nature21674	Weyrich2017	2017	10.1038/nature21674
+ERS2985742,ERS3881508	CS01	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985743,ERS3881509	CS02	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985744,ERS3881510	CS03	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985745,ERS3881511	CS04	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS3881513	CS06	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985746,ERS3881514	CS07	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985747,ERS3881515	CS08	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985748,ERS3881516	CS09	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985749,ERS3881517	CS10	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985750,ERS3881518	CS11	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985751,ERS3881519	CS12	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985752,ERS3881520	CS13	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985753,ERS3881521	CS14	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985754,ERS3881522	CS15	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985755,ERS3881523	CS16	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985756,ERS3881524	CS17	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985757,ERS3881525	CS18	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985758,ERS3881526	CS19	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985759,ERS3881527	CS20	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985760,ERS3881528	CS21	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985761,ERS3881529	CS22	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985762,ERS3881530	CS23	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985763,ERS3881531	CS24	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985764,ERS3881532	CS26	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985765,ERS3881533	CS27	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985766,ERS3881534	CS28	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985767,ERS3881535	CS29	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985768,ERS3881536	CS30	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985769,ERS3881537	CS31	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985770,ERS3881538	CS32	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985771,ERS3881539	CS33	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985772,ERS3881540	CS34	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985773,ERS3881541	CS35	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985774,ERS3881542	CS36	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985775,ERS3881543	CS37	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985776,ERS3881544	CS38	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985777,ERS3881545	CS39	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985778,ERS3881546	CS40	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985779,ERS3881547	CS42	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985780,ERS3881548	CS43	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985781,ERS3881549	CS44	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985782,ERS3881550	CS45	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985783,ERS3881551	CS46	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985784,ERS3881552	CS47	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS2985785,ERS3881553	CS48	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Radcliffe Infirmary	51.752	-1.257	200	10.1186/s40168-019-0717-3	Velsko2019	2019	10.1186/s40168-019-0717-3
+ERS3337752	Syltholm_1	ancient_metagenome	host_associated	Homo sapiens	birch pitch	oral	Denmark	Syltholm	54.66	11.35	5000	10.1038/s41467-019-13549-9	Jensen2019	2019	10.1038/s41467-019-13549-9
+ERS4042406,ERS4042407,ERS4042408,ERS4042409	3DT21	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Driffield Terrace	53.951	-1.1	1500	10.1016/j.jas.2020.105135	Fagernas2020	2020	10.1016/j.jas.2020.105135
+ERS4042435,ERS4042436,ERS4042437,ERS4042438	WG1561	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Wighill	53.91	-1.29	700	10.1016/j.jas.2020.105135	Fagernas2020	2020	10.1016/j.jas.2020.105135
+ERS4042423,ERS4042424,ERS4042425,ERS4042426	SMD 1441-1-1440(044)	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Spain	San Martín de Dulantzi	42.84	-2.517	1100	10.1016/j.jas.2020.105135	Fagernas2020	2020	10.1016/j.jas.2020.105135
+ERS4042427,ERS4042428,ERS4042429,ERS4042430	SMD 2591-1-2590(159)	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Spain	San Martín de Dulantzi	42.84	-2.517	1100	10.1016/j.jas.2020.105135	Fagernas2020	2020	10.1016/j.jas.2020.105135
+ERS4042431,ERS4042432,ERS4042433,ERS4042434	SMD 2711-1-2710(171)	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Spain	San Martín de Dulantzi	42.84	-2.517	1000	10.1016/j.jas.2020.105135	Fagernas2020	2020	10.1016/j.jas.2020.105135
+ERS4042419,ERS4042420,ERS4042421,ERS4042422	SK203	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Saint Helena	Rupert's Valley	-15.933	-5.75	100	10.1016/j.jas.2020.105135	Fagernas2020	2020	10.1016/j.jas.2020.105135
+SRS3078183,SRS3078182	KT01	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078185	KT04	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078115,SRS3078117	KT05	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078109,SRS3078099	KT08	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078097,SRS3078104	KT09	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078131,SRS3078137	KT13	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078134,SRS3078129	KT14	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078120	KT15	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078156,SRS3078146	KT24	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078197,SRS3078141	KT25	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078139,SRS3078145	KT26	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078091,SRS3078089	KT28	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078087,SRS3078085	KT29	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078158,SRS3078147	KT31	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078192,SRS3078187	KT32	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078170	KT33	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078163,SRS3078172	KT36	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078173	NF217	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	Norris Farms	40.23	-90.143	700	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078160	S108	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Netherlands	Middenbeemster	52.548	4.912	300	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078162	S40	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Nepal	Samdzong	29.27	84.03	1400	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078206	S41	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Nepal	Samdzong	29.27	84.03	1400	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078189	H10	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Mongolia	Khövsgöl	49.66	99.61	4400	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078110,SRS3078116	KT05	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078098,SRS3078100	KT08	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078102,SRS3078103	KT09	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078106	KT10	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078135,SRS3078136	KT13	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078121,SRS3078128	KT14	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078123	KT15	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078143,SRS3078157	KT24	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078140,SRS3078142	KT25	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078144,SRS3078138	KT26	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078090,SRS3078092	KT28	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078086,SRS3078088	KT29	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078190	KT30	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078188,SRS3078194	KT31	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078186,SRS3078191	KT32	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078168	KT34	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078164,SRS3078107	KT36	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Ireland	Kilteasheen	54.005	-8.201	1000	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078171	NF217	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	USA	Norris Farms	40.23	-90.143	700	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+SRS3078159	S108	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Netherlands	Middenbeemster	52.548	4.912	300	10.1038/s41598-018-28091-9	Mann2018	2018	10.1038/s41598-018-28091-9
+ERS4545903,ERS4545904,ERS4545905	Gb1	ancient_metagenome	host_associated	Gorilla beringei	dental calculus	oral	Democratic Republic of the Congo	Karisimbi	-1.508	29.445	100	10.1093/molbev/msaa135	Brealey2020	2020	10.1093/molbev/msaa135
+ERS4545906,ERS4545907,ERS4545908	Gb2	ancient_metagenome	host_associated	Gorilla beringei	dental calculus	oral	Democratic Republic of the Congo	Lulingu	-2.316	27.549	100	10.1093/molbev/msaa135	Brealey2020	2020	10.1093/molbev/msaa135
+ERS3887040	BB01	ancient_metagenome	host_associated	Papio hamadryas	dental calculus	oral	Egypt	Gabbanat al-Qurud	25.741	32.592	100	10.1038/s41598-019-56074-x	Ottoni2019	2019	10.1038/s41598-019-56074-x
+ERS3887041	BB05	ancient_metagenome	host_associated	Papio anubis	dental calculus	oral	Egypt	Gabbanat al-Qurud	25.741	32.592	100	10.1038/s41598-019-56074-x	Ottoni2019	2019	10.1038/s41598-019-56074-x
+ERS3887042	BB06	ancient_metagenome	host_associated	Papio anubis	dental calculus	oral	Egypt	Gabbanat al-Qurud	25.741	32.592	100	10.1038/s41598-019-56074-x	Ottoni2019	2019	10.1038/s41598-019-56074-x
+ERS3887043	BB08	ancient_metagenome	host_associated	Papio hamadryas	dental calculus	oral	Egypt	Gabbanat al-Qurud	25.741	32.592	100	10.1038/s41598-019-56074-x	Ottoni2019	2019	10.1038/s41598-019-56074-x
+ERS3887044	BB09	ancient_metagenome	host_associated	Papio hamadryas	dental calculus	oral	Egypt	Gabbanat al-Qurud	25.741	32.592	100	10.1038/s41598-019-56074-x	Ottoni2019	2019	10.1038/s41598-019-56074-x
+ERS3887045	BB11	ancient_metagenome	host_associated	Papio sp.	dental calculus	oral	Egypt	Gabbanat al-Qurud	25.741	32.592	100	10.1038/s41598-019-56074-x	Ottoni2019	2019	10.1038/s41598-019-56074-x
+ERS3887046	ANSP11833	ancient_metagenome	host_associated	Papio hamadryas	dental calculus	oral	USA	Zoological Society of Philadelphia	39.97	-75.19	100	10.1038/s41598-019-56074-x	Ottoni2019	2019	10.1038/s41598-019-56074-x
+ERS3887047	ANSP3271	ancient_metagenome	host_associated	Papio hamadryas	dental calculus	oral	USA	Zoological Society of Philadelphia	39.97	-75.19	100	10.1038/s41598-019-56074-x	Ottoni2019	2019	10.1038/s41598-019-56074-x
+calculus_lib1	SK152	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Norway	St. Olav's Cathedral	63.425	10.392	800	10.1016/j.cub.2018.05.058	Zhou2018	2018	10.1016/j.cub.2018.05.058
+SRS2213350	702	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	France	Le Mans	48.006	0.199	200	10.1371/journal.pone.0196482	Willmann2018	2018	10.1371/journal.pone.0196482
+SRS1052916	NF-217C-SG	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	Norris Farms	40.23	-90.143	700	10.1002/ajpa.22960	Ozga2016	2016	10.1002/ajpa.22960
+ERS942275,ERS942266	Iceman Stomach corpus, content I 1054	ancient_metagenome	host_associated	Homo sapiens	digestive tract contents	gut	Italy	Hauslabjoch	46.773	10.837	5300	10.1126/science.aad2545	Maixner2016	2016	10.1126/science.aad2545
+ERS942267,ERS942277	Iceman Stomach corpus, content II 1054	ancient_metagenome	host_associated	Homo sapiens	digestive tract contents	gut	Italy	Hauslabjoch	46.773	10.837	5300	10.1126/science.aad2545	Maixner2016	2016	10.1126/science.aad2545
+ERS942270,ERS942274,ERS942269	Iceman Stomach corpus, surface 1054	ancient_metagenome	host_associated	Homo sapiens	digestive tract contents	gut	Italy	Hauslabjoch	46.773	10.837	5300	10.1126/science.aad2545	Maixner2016	2016	10.1126/science.aad2545
+ERS942268,ERS942271	Iceman Stomach antrum, content 1051	ancient_metagenome	host_associated	Homo sapiens	digestive tract contents	gut	Italy	Hauslabjoch	46.773	10.837	5300	10.1126/science.aad2545	Maixner2016	2016	10.1126/science.aad2545
+ERS942265,ERS942273	Iceman Stomach antrum, surface 1051	ancient_metagenome	host_associated	Homo sapiens	digestive tract contents	gut	Italy	Hauslabjoch	46.773	10.837	5300	10.1126/science.aad2545	Maixner2016	2016	10.1126/science.aad2545
+ERS942279,ERS942280	Iceman Muscle tissue, Muscle 1 and 2	ancient_metagenome	host_associated	Homo sapiens	muscle tissue	soft tissue	Italy	Hauslabjoch	46.773	10.837	5300	10.1126/science.aad2545	Maixner2016	2016	10.1126/science.aad2545
+ERS4044029,ERS4044039,ERS4044041,ERS4044043,ERS4044047,ERS4044049,ERS4044052,ERS4044055,ERS4044057,ERS4044058	Zape2	ancient_metagenome	host_associated	Canis lupus	palaeofaeces	gut	Mexico	Cueva de los Muertos Chiquitos (Zape)	25.771	-105.786	1300	10.2307/277801	Hagan2019	2019	10.1002/ajpa.23978
+ERS4044025,ERS4044028,ERS4044033,ERS4044034,ERS4044036,ERS4044038,ERS4044040,ERS4044044,ERS4044046,ERS4044048	Zape5	ancient_metagenome	host_associated	Homo sapiens	palaeofaeces	gut	Mexico	Cueva de los Muertos Chiquitos (Zape)	25.771	-105.786	1300	10.2307/277801	Hagan2019	2019	10.1002/ajpa.23978
+ERS4044024,ERS4044027,ERS4044031,ERS4044032,ERS4044035,ERS4044042,ERS4044045,ERS4044051,ERS4044054,ERS4044056	Zape28	ancient_metagenome	host_associated	Homo sapiens	palaeofaeces	gut	Mexico	Cueva de los Muertos Chiquitos (Zape)	25.771	-105.786	1300	10.2307/277801	Hagan2019	2019	10.1002/ajpa.23978
+SRS428963	TP37	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Mexico	Teposcolula Yucundaa	17.49	-97.46	400	10.7183/1045-6635.23.4.467	Campana2014	2014	10.1186/1756-0500-7-111
+ERS3867520	BG-102	ancient_metagenome	host_associated	Ambrosia artemisiifolia	leaf	plant tissue	USA	Unknown	41.67	-91.53	100	10.1111/1755-0998.13253	Bieker2020	2020	10.1111/1755-0998.13174
+SRS1631717	PH-18	ancient_metagenome	host_associated	Ambrosia artemisiifolia	leaf	plant tissue	USA	Lansdowne, Delaware County, Pennsylvania	39.9	-75.2	100	10.1111/1755-0998.12610	Bieker2020	2020	10.1111/1755-0998.13174
+ERS2159300	JK2510	ancient_metagenome	host_associated	Arabidopsis thaliana	leaf	plant tissue	USA	Ohio (in Ohio State University)	39.688	-82.993	100	10.1371/journal.pgen.1007155	Bieker2020	2020	10.1111/1755-0998.13174
+ERS2159302	JK2512	ancient_metagenome	host_associated	Arabidopsis thaliana	leaf	plant tissue	USA	Ohio (in Ohio State University)	39.956	-81.953	100	10.1371/journal.pgen.1007155	Bieker2020	2020	10.1111/1755-0998.13174
+ERS2159303	JK2513	ancient_metagenome	host_associated	Arabidopsis thaliana	leaf	plant tissue	USA	Ohio (in Ohio State University)	41.102	-81.56	100	10.1371/journal.pgen.1007155	Bieker2020	2020	10.1111/1755-0998.13174
+ERS2159325	JK367	ancient_metagenome	host_associated	Arabidopsis thaliana	leaf	plant tissue	USA	New Jersey (in New York Botanical Garden)	40.924	-74.075	100	10.1371/journal.pgen.1007155	Bieker2020	2020	10.1111/1755-0998.13174
+ERS2159332	JK401	ancient_metagenome	host_associated	Arabidopsis thaliana	leaf	plant tissue	USA	Utah (In New York Botanical Garden)	40.643	-111.967	100	10.1371/journal.pgen.1007155	Bieker2020	2020	10.1111/1755-0998.13174
+ERS3635959	Abusir1518	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Egypt	Abusir el-Meleq	29.24	31.1	2900	10.1038/ncomms15694	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3636092,ERS3636091,ERS3635912,ERS3636090	Abusir1519	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Egypt	Abusir el-Meleq	29.24	31.1	4000	10.1186/s12915-020-00839-8	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3635969	Abusir1541	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Egypt	Abusir el-Meleq	29.24	31.1	2100	10.1038/ncomms15694	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3636025,ERS3636093,ERS3636094,ERS3636095,ERS3636096	Abusir1543	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Egypt	Abusir el-Meleq	29.24	31.1	1900	10.1371/journal.pone.0060307	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3636018,ERS3636097,ERS3636098,ERS3636099,ERS3636100,ERS3636101	Abusir1543	ancient_metagenome	host_associated	Homo sapiens	unknown	soft tissue	Egypt	Abusir el-Meleq	29.24	31.1	1900	10.1371/journal.pone.0060307	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3636016	Abusir1547	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Egypt	Abusir el-Meleq	29.24	31.1	1800	10.1038/ncomms15694	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3635922	Abusir1554	ancient_metagenome	host_associated	Homo sapiens	unknown	soft tissue	Egypt	Abusir el-Meleq	29.24	31.1	2300	10.1371/journal.pone.0060307	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3636036	Abusir1559	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Egypt	Abusir el-Meleq	29.24	31.1	1900	10.1186/s12915-020-00839-8	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3635972	Abusir1564	ancient_metagenome	host_associated	Homo sapiens	unknown	soft tissue	Egypt	Abusir el-Meleq	29.24	31.1	2200	10.1371/journal.pone.0060307	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3635992	Abusir1579	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Egypt	Abusir el-Meleq	29.24	31.1	2200	10.1186/s12915-020-00839-8	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3635973	Abusir1585	ancient_metagenome	host_associated	Homo sapiens	unknown	soft tissue	Egypt	Abusir el-Meleq	29.24	31.1	2300	10.1371/journal.pone.0060307	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3636014,ERS3636102,ERS3636103	Abusir1594	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Egypt	Abusir el-Meleq	29.24	31.1	2200	10.1038/ncomms15694	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3635941	Abusir1605	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Egypt	Abusir el-Meleq	29.24	31.1	2600	10.1038/ncomms15694	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3636032	Abusir1607	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Egypt	Abusir el-Meleq	29.24	31.1	1900	10.1186/s12915-020-00839-8	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3635923	Abusir1608	ancient_metagenome	host_associated	Homo sapiens	unknown	soft tissue	Egypt	Abusir el-Meleq	29.24	31.1	2700	10.1371/journal.pone.0060307	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3635924	Abusir1622	ancient_metagenome	host_associated	Homo sapiens	unknown	soft tissue	Egypt	Abusir el-Meleq	29.24	31.1	2800	10.1371/journal.pone.0060307	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3636009	Abusir1627	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Egypt	Abusir el-Meleq	29.24	31.1	2000	10.1038/ncomms15694	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3635976,ERS3636087,ERS3636088,ERS3636089	Abusir1630	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Egypt	Abusir el-Meleq	29.24	31.1	2200	10.1038/ncomms15694	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3635913	Abusir1642	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Egypt	Abusir el-Meleq	29.24	31.1	2300	10.1038/ncomms15694	Neukamm2020	2020	10.1186/s12915-020-00839-8
+ERS3635956	Abusir1673	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Egypt	Abusir el-Meleq	29.24	31.1	2600	10.1038/ncomms15694	Neukamm2020	2020	10.1186/s12915-020-00839-8
+SRS510175	4.453	ancient_metagenome	host_associated	Homo sapiens	palaeofaeces	gut	Belgium	Place d'Armes, Namur	50.46	4.86	600	10.1128/AEM.03242-13	Appelt2014	2014	10.1128/AEM.03242-13
+SRS6212660	A18020_Japan_Edo_1	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Japan	Tokyo	35.71	139.78	230	10.1098/rstb.2019.0578	Eisenhofer2020	2020	10.1098/rstb.2019.0578
+SRS6212656	A18016_Japan_Jomon_2	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Japan	Ikawazu	34.64	137.14	2700	10.1098/rstb.2019.0578	Eisenhofer2020	2020	10.1098/rstb.2019.0578
+SRS6212654	A18032_Japan_Edo_9	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Japan	Tokyo	35.71	139.78	230	10.1098/rstb.2019.0578	Eisenhofer2020	2020	10.1098/rstb.2019.0578
+SRS7212795	MAWB_12	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Belize	Chan Chich	17.53	-89.11	1300	10.1098/rstb.2019.0586	Jacobson2020	2020	10.1098/rstb.2019.0586
+SRS7212794	MAWB_11	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Belize	Chan Chich	17.53	-89.11	1300	10.1098/rstb.2019.0586	Jacobson2020	2020	10.1098/rstb.2019.0586
+SRS7212798	SA_004	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Italy	Lu Maccioni (Alghero)	40.544	8.321	3000	10.1098/rstb.2019.0586	Jacobson2020	2020	10.1098/rstb.2019.0586
+SRS1815278	PCA0015	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Poland	Kowalewko	52.699	17.605	1900	10.1186/s12864-020-06810-9	Philips2017	2017	10.1093/gigascience/gix044
+SRS1815331	PCA0048	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Poland	Kowalewko	52.699	17.605	1800	10.1186/s12864-020-06810-9	Philips2017	2017	10.1093/gigascience/gix044
+SRS1815410	PCA0053	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Poland	Kowalewko	52.699	17.605	1800	10.1186/s12864-020-06810-9	Philips2017	2017	10.1093/gigascience/gix044
+SRS1815421	PCA0167	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Poland	Łęgowo	54.226	18.642	900	10.1186/s12864-020-06810-9	Philips2017	2017	10.1093/gigascience/gix044
+SRS1815273	PCA0168	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Poland	Łęgowo	54.226	18.642	1000	10.1186/s12864-020-06810-9	Philips2017	2017	10.1093/gigascience/gix044
+SRS1815348	PCA0152	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Poland	Markowice	52.313	17.215	900	10.1186/s12864-020-06810-9	Philips2017	2017	10.1093/gigascience/gix044
+SRS1815424	PCA0156	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Poland	Markowice	52.313	17.215	1000	10.1186/s12864-020-06810-9	Philips2017	2017	10.1093/gigascience/gix044
+SRS1815351	PCA0125	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Poland	Niemcza	50.719	16.835	1000	10.1186/s12864-020-06810-9	Philips2017	2017	10.1093/gigascience/gix044
+SRS1815387	PCA0132	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Poland	Niemcza	50.719	16.835	1000	10.1186/s12864-020-06810-9	Philips2017	2017	10.1093/gigascience/gix044
+SRS1815398	PCA0116	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Poland	Niemcza	50.719	16.835	1000	10.1186/s12864-020-06810-9	Philips2017	2017	10.1093/gigascience/gix044
+SRS1815406	PCA0078	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Poland	Sowinki	52.211	16.893	900	10.1186/s12864-020-06810-9	Philips2017	2017	10.1093/gigascience/gix044
+SRS1815295	PCA0075	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Poland	Sowinki	52.211	16.893	900	10.1186/s12864-020-06810-9	Philips2017	2017	10.1093/gigascience/gix044
+ERS5073264	ZA_10C	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Latvia	St. Gertrude’s Church, Riga	56.958	24.121	400	10.3390/genes12020309	Kazarina2021	2021	10.3390/genes12020309
+ERS5359143	TORTC	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	France	Grotte des Tortues, les Monges	43.149	3.06	4000	10.1016/j.cub.2020.12.015	SeguinOrlando2021	2021	10.1016/j.cub.2020.12.015
+ERS5428032	ES1	ancient_metagenome	host_associated	Homo sapiens neanderthalensis	sediment	gut	Spain	El Salt	38.687	-0.508	52300	10.1038/s42003-021-01689-y	Rampelli2021	2021	10.1038/s42003-021-01689-y
+ERS5428038	ES7	ancient_metagenome	host_associated	Homo sapiens neanderthalensis	sediment	gut	Spain	El Salt	38.687	-0.508	52300	10.1038/s42003-021-01689-y	Rampelli2021	2021	10.1038/s42003-021-01689-y
+ERS5428041	V2	ancient_metagenome	host_associated	Homo sapiens neanderthalensis	sediment	gut	Spain	El Salt	38.687	-0.508	44700	10.1038/s42003-021-01689-y	Rampelli2021	2021	10.1038/s42003-021-01689-y
+SRS7205533	JBG 7298-2 (cop_JBG82)	ancient_metagenome	host_associated	Canis lupus	palaeofaeces	gut	USA	Janey B. Goode (11S1232), Brooklyn, Illinois	38.65	-90.17	850	10.1038/s41598-021-82362-6	Witt2021	2021	10.1038/s41598-021-82362-6
+ERS3774378	OME002.A	ancient_metagenome	host_associated	Alouatta palliata	dental calculus	oral	Nicaragua	Ometepe Island	11.41	-85.53	200	10.1073/pnas.2021655118	FellowsYates2021	2021	10.1073/pnas.2021655118
+ERS3774379	OME003.A	ancient_metagenome	host_associated	Alouatta palliata	dental calculus	oral	Nicaragua	Ometepe Island	11.41	-85.53	200	10.1073/pnas.2021655118	FellowsYates2021	2021	10.1073/pnas.2021655118
+ERS3774380	OME005.A	ancient_metagenome	host_associated	Alouatta palliata	dental calculus	oral	Nicaragua	Ometepe Island	11.41	-85.53	200	10.1073/pnas.2021655118	FellowsYates2021	2021	10.1073/pnas.2021655118
+ERS3774381	OME007.A	ancient_metagenome	host_associated	Alouatta palliata	dental calculus	oral	Nicaragua	Ometepe Island	11.41	-85.53	200	10.1073/pnas.2021655118	FellowsYates2021	2021	10.1073/pnas.2021655118
+ERS3774382	OME009.A	ancient_metagenome	host_associated	Alouatta palliata	dental calculus	oral	Nicaragua	Ometepe Island	11.41	-85.53	200	10.1073/pnas.2021655118	FellowsYates2021	2021	10.1073/pnas.2021655118
+ERS3774383	MTK001.A	ancient_metagenome	host_associated	Gorilla beringei beringei	dental calculus	oral	Democratic Republic of the Congo	Mount Karisimbi	-1.5	29.45	200	10.1073/pnas.2021655118	FellowsYates2021	2021	10.1073/pnas.2021655118
+ERS3774387	MTM004.A	ancient_metagenome	host_associated	Gorilla beringei beringei	dental calculus	oral	Democratic Republic of the Congo	Mount Mikeno	-1.46	29.42	200	10.1073/pnas.2021655118	FellowsYates2021	2021	10.1073/pnas.2021655118
+ERS3774389	MTM006.A	ancient_metagenome	host_associated	Gorilla beringei beringei	dental calculus	oral	Democratic Republic of the Congo	Mount Mikeno	-1.46	29.42	200	10.1073/pnas.2021655118	FellowsYates2021	2021	10.1073/pnas.2021655118
+ERS3774394	MTM013.A	ancient_metagenome	host_associated	Gorilla beringei beringei	dental calculus	oral	Democratic Republic of the Congo	Mount Mikeno	-1.46	29.42	200	10.1073/pnas.2021655118	FellowsYates2021	2021	10.1073/pnas.2021655118
+ERS3774396	MTS002.A	ancient_metagenome	host_associated	Gorilla beringei beringei	dental calculus	oral	Democratic Republic of the Congo	Mount Sabyinyo	-1.5	29.45	200	10.1073/pnas.2021655118	FellowsYates2021	2021	10.1073/pnas.2021655118
+ERS3774424	KNP007.A	ancient_metagenome	host_associated	Pan troglodytes schweinfurthii	dental calculus	oral	Uganda	Kanyawara, Kibale National Park	0.48	30.38	200	10.1073/pnas.2021655118	FellowsYates2021	2021	10.1073/pnas.2021655118
+ERS3774425	KNP009.A	ancient_metagenome	host_associated	Pan troglodytes schweinfurthii	dental calculus	oral	Uganda	Kanyawara, Kibale National Park	0.48	30.38	200	10.1073/pnas.2021655118	FellowsYates2021	2021	10.1073/pnas.2021655118
+ERS3774429	DJA007.A	ancient_metagenome	host_associated	Pan troglodytes ellioti	dental calculus	oral	Cameroon	Djaposten	3.41	13.53	200	10.1073/pnas.2021655118	FellowsYates2021	2021	10.1073/pnas.2021655118
+ERS3774430	EBO008.A	ancient_metagenome	host_associated	Pan troglodytes ellioti	dental calculus	oral	Cameroon	Ebolwa	2.91	11.15	200	10.1073/pnas.2021655118	FellowsYates2021	2021	10.1073/pnas.2021655118
+ERS3774443	SPM002.A	ancient_metagenome	host_associated	Homo sapiens neanderthalensis	dental calculus	oral	Spain	Sima de las Palomas del Cabezo Gordo	37.743	-0.953	55000	10.1073/pnas.2021655118	FellowsYates2021	2021	10.1073/pnas.2021655118
+ERS3774464	EMN001.A	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Spain	El Mirón	38.919	-0.121	18700	10.1073/pnas.2021655118	FellowsYates2021	2021	10.1073/pnas.2021655118
+ERS3774472	ESA004.A	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Morocco	Essaouira (Mogador)	31.51	-9.76	300	10.1073/pnas.2021655118	FellowsYates2021	2021	10.1073/pnas.2021655118
+ERS3774477	LIS001.A	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Portugal	Lisbon Metropolitan Area, Portugal	31.51	-9.76	300	10.1073/pnas.2021655118	FellowsYates2021	2021	10.1073/pnas.2021655118
+SRS7967587	Jewbury8809	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Jewbury	53.962	-1.075	800	10.1038/nature21674	Farrer2021	2021	10.1038/s41598-021-86100-w
+SRS7967566	Jewbury8843	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Jewbury	53.962	-1.075	800	10.1038/nature21674	Farrer2021	2021	10.1038/s41598-021-86100-w
+SRS7967569	Jewbury8855	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	Jewbury	53.962	-1.075	800	10.1038/nature21674	Farrer2021	2021	10.1038/s41598-021-86100-w
+ERS6256698	VL44	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Serbia	Vlasac	44.53	22.05	7600	10.1073/pnas.2102116118	Ottoni2021	2021	10.1073/pnas.2102116118
+ERS6955105	Ua012	ancient_metagenome	host_associated	Ursus arctos	dental calculus	oral	Sweden	Avaträsk	64.339	16.283	100	10.1016/j.cub.2021.08.010	Brealey2021	2021	10.1016/j.cub.2021.08.010
+ERS6955165	Ua032	ancient_metagenome	host_associated	Ursus arctos	dental calculus	oral	Sweden	Röström			100	10.1016/j.cub.2021.08.010	Brealey2021	2021	10.1016/j.cub.2021.08.010
+ERS6955113	Ua040	ancient_metagenome	host_associated	Ursus arctos	dental calculus	oral	Sweden	Rautojaure	67.416	20.015	100	10.1016/j.cub.2021.08.010	Brealey2021	2021	10.1016/j.cub.2021.08.010
+ERS6955117	Ua046	ancient_metagenome	host_associated	Ursus arctos	dental calculus	oral	Sweden	Murjek	66.482	20.881	100	10.1016/j.cub.2021.08.010	Brealey2021	2021	10.1016/j.cub.2021.08.010
+ERS6955139	Ua096	ancient_metagenome	host_associated	Ursus arctos	dental calculus	oral	Sweden	Klövsjö	62.528	14.194	100	10.1016/j.cub.2021.08.010	Brealey2021	2021	10.1016/j.cub.2021.08.010
+ERS6955180	Ua101	ancient_metagenome	host_associated	Ursus arctos	dental calculus	oral	Sweden	Noppikoski, Kvarnberget			100	10.1016/j.cub.2021.08.010	Brealey2021	2021	10.1016/j.cub.2021.08.010
+ERS6955146	Ua108	ancient_metagenome	host_associated	Ursus arctos	dental calculus	oral	Sweden	Lule Lappmark	67.0	22.5	100	10.1016/j.cub.2021.08.010	Brealey2021	2021	10.1016/j.cub.2021.08.010
+ERS6955149	Ua119	ancient_metagenome	host_associated	Ursus arctos	dental calculus	oral	Sweden	Tandsjöborg	61.706	14.718	100	10.1016/j.cub.2021.08.010	Brealey2021	2021	10.1016/j.cub.2021.08.010
+ERS6955155	Ua130	ancient_metagenome	host_associated	Ursus arctos	dental calculus	oral	Sweden	Espnäset - Skalsberget	64.05	15.474	100	10.1016/j.cub.2021.08.010	Brealey2021	2021	10.1016/j.cub.2021.08.010
+ERS6205391	2090	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Italy	Adige valley (Trentino), Montagna Pinzano/Montan Pinzon	46.32	11.29	1300	10.1016/j.quaint.2013.07.052	Granehall2021	2021	10.1186/s40168-021-01132-8
+ERS6205403	2104	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Italy	Isarco valley, Bressanone Elvas necropoli 17/Brixen Elvas	46.73	11.67	1300	10.1016/j.quaint.2013.07.052	Granehall2021	2021	10.1186/s40168-021-01132-8
+ERS7283094,ERS7283095	T2	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Latvia	St. Gertrude’s Church, Riga	56.958	24.121	400	10.1016/j.jasrep.2021.103213	Kazarina2021b	2021	10.1016/j.jasrep.2021.103213
+ERS7283096,ERS7283097	T3	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Latvia	St. Gertrude’s Church, Riga	56.958	24.121	400	10.1016/j.jasrep.2021.103213	Kazarina2021b	2021	10.1016/j.jasrep.2021.103213
+ERS7283098,ERS7283099	T9	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Latvia	St. Gertrude’s Church, Riga	56.958	24.121	400	10.1016/j.jasrep.2021.103213	Kazarina2021b	2021	10.1016/j.jasrep.2021.103213
+ERS7283100,ERS7283101	TZA3	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Latvia	Dom Square, Riga	56.949	24.104	400	10.1016/j.jasrep.2021.103213	Kazarina2021b	2021	10.1016/j.jasrep.2021.103213
+ERS7283102,ERS7283103	TZA4	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Latvia	St. Peter’s Church, Riga	56.947	24.109	500	10.1016/j.jasrep.2021.103213	Kazarina2021b	2021	10.1016/j.jasrep.2021.103213
+SRS9263822	PsP_6408	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Italy	Ponte San Pietro (Ischia di Castro)	42.527	11.601	3400	10.1016/j.quaint.2021.12.003	Modi2021	2021	10.1016/j.quaint.2021.12.003
+ERS6636086	CDM041.K	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Spain	Camino del Molino	38.102	-1.865	4700	10.1093/femsmc/xtac006	Fagernas2022	2022	10.1093/femsmc/xtac006
+ERS6636087	CDM041.U	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Spain	Camino del Molino	38.102	-1.865	4700	10.1093/femsmc/xtac006	Fagernas2022	2022	10.1093/femsmc/xtac006
+ERS6636099	CDM043.L	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Spain	Camino del Molino	38.102	-1.865	4700	10.1093/femsmc/xtac006	Fagernas2022	2022	10.1093/femsmc/xtac006
+ERS6636101	CDM043.T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Spain	Camino del Molino	38.102	-1.865	4700	10.1093/femsmc/xtac006	Fagernas2022	2022	10.1093/femsmc/xtac006
+ERS6636113	CDM045.S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Spain	Camino del Molino	38.102	-1.865	4700	10.1093/femsmc/xtac006	Fagernas2022	2022	10.1093/femsmc/xtac006
+ERS6636116	CDM046.B	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Spain	Camino del Molino	38.102	-1.865	4700	10.1093/femsmc/xtac006	Fagernas2022	2022	10.1093/femsmc/xtac006
+ERS6636123	CDM046.Y	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Spain	Camino del Molino	38.102	-1.865	4700	10.1093/femsmc/xtac006	Fagernas2022	2022	10.1093/femsmc/xtac006
+ERS6636133	CDM048.F	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Spain	Camino del Molino	38.102	-1.865	4700	10.1093/femsmc/xtac006	Fagernas2022	2022	10.1093/femsmc/xtac006
+ERS6636135	CDM048.K	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Spain	Camino del Molino	38.102	-1.865	4700	10.1093/femsmc/xtac006	Fagernas2022	2022	10.1093/femsmc/xtac006
+ERS6636147	CDM049.F	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Spain	Camino del Molino	38.102	-1.865	4700	10.1093/femsmc/xtac006	Fagernas2022	2022	10.1093/femsmc/xtac006
+ERS6636151	CDM049.P	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Spain	Camino del Molino	38.102	-1.865	4700	10.1093/femsmc/xtac006	Fagernas2022	2022	10.1093/femsmc/xtac006
+ERS11702730	ELR004	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Spain	El Raval	38.247	-0.808	500	10.1093/pnasnexus/pgac148	Velsko2022	2022	10.1093/pnasnexus/pgac148
+ERS11702733	ELR010	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Spain	El Raval	38.247	-0.808	500	10.1093/pnasnexus/pgac148	Velsko2022	2022	10.1093/pnasnexus/pgac148
+ERS11702736,ERS11702737	IVE005	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Spain	Iglesia de la Virgen de la Estrella	38.696	-2.862	900	10.1093/pnasnexus/pgac148	Velsko2022	2022	10.1093/pnasnexus/pgac148
+ERS11702746	MID029	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Netherlands	Middenbeemster	52.548	4.914	200	10.1093/pnasnexus/pgac148	Velsko2022	2022	10.1093/pnasnexus/pgac148
+ERS11702749	MID032	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Netherlands	Middenbeemster	52.548	4.914	200	10.1093/pnasnexus/pgac148	Velsko2022	2022	10.1093/pnasnexus/pgac148
+ERS11702750	MID033	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Netherlands	Middenbeemster	52.548	4.914	200	10.1093/pnasnexus/pgac148	Velsko2022	2022	10.1093/pnasnexus/pgac148
+ERS11702763	MID046	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Netherlands	Middenbeemster	52.548	4.914	200	10.1093/pnasnexus/pgac148	Velsko2022	2022	10.1093/pnasnexus/pgac148
+ERS11702770	MID053	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Netherlands	Middenbeemster	52.548	4.914	200	10.1093/pnasnexus/pgac148	Velsko2022	2022	10.1093/pnasnexus/pgac148
+ERS11702773	MID056	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Netherlands	Middenbeemster	52.548	4.914	200	10.1093/pnasnexus/pgac148	Velsko2022	2022	10.1093/pnasnexus/pgac148
+ERS11702774	MID057	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Netherlands	Middenbeemster	52.548	4.914	200	10.1093/pnasnexus/pgac148	Velsko2022	2022	10.1093/pnasnexus/pgac148
+ERS11702778	MID061	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Netherlands	Middenbeemster	52.548	4.914	200	10.1093/pnasnexus/pgac148	Velsko2022	2022	10.1093/pnasnexus/pgac148
+ERS11702785,ERS11702786	MID068	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Netherlands	Middenbeemster	52.548	4.914	200	10.1093/pnasnexus/pgac148	Velsko2022	2022	10.1093/pnasnexus/pgac148
+ERS11702792	MID075	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Netherlands	Middenbeemster	52.548	4.914	200	10.1093/pnasnexus/pgac148	Velsko2022	2022	10.1093/pnasnexus/pgac148
+ERS11702796	MID079	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Netherlands	Middenbeemster	52.548	4.914	200	10.1093/pnasnexus/pgac148	Velsko2022	2022	10.1093/pnasnexus/pgac148
+ERS11702802	MID085	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Netherlands	Middenbeemster	52.548	4.914	200	10.1093/pnasnexus/pgac148	Velsko2022	2022	10.1093/pnasnexus/pgac148
+ERS11702811	MID094	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Netherlands	Middenbeemster	52.548	4.914	200	10.1093/pnasnexus/pgac148	Velsko2022	2022	10.1093/pnasnexus/pgac148
+ERS9656254	G0012	ancient_metagenome	host_associated	Gorilla gorilla gorilla	dental calculus	oral	Cameroon	Zoulabot	3.17	14.02	100	10.1093/molbev/msac263	Moraitou2022	2022	10.1093/molbev/msac263
+ERS9656259	G0017	ancient_metagenome	host_associated	Gorilla beringei graueri	dental calculus	oral	Democratic Republic of the Congo	Shabunda	-2.42	27.2	100	10.1093/molbev/msac263	Moraitou2022	2022	10.1093/molbev/msac263
+ERS9656253	G0011	ancient_metagenome	host_associated	Gorilla beringei graueri	dental calculus	oral	Democratic Republic of the Congo	Ibatsero	-0.06	29.16	100	10.1093/molbev/msac263	Moraitou2022	2022	10.1093/molbev/msac263
+ERS9656255	G0013	ancient_metagenome	host_associated	Gorilla beringei graueri	dental calculus	oral	Democratic Republic of the Congo	Ibatsero	-0.06	29.16	100	10.1093/molbev/msac263	Moraitou2022	2022	10.1093/molbev/msac263
+ERS9656263	G0021	ancient_metagenome	host_associated	Gorilla beringei beringei	dental calculus	oral	Democratic Republic of the Congo	Virunga Massif	-1.46	29.42	100	10.1093/molbev/msac263	Moraitou2022	2022	10.1093/molbev/msac263
+SRS11653550	Kock	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Italy	Recanati-Cava Kock, Marche	43.36	13.51	5000	10.1038/s41467-022-34416-0	Quagliariello2022	2022	10.1038/s41467-022-34416-0
+SRS11653570	CND86	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Italy	Masseria Candelaro, Apulia	41.38	15.55	7300	10.1038/s41467-022-34416-0	Quagliariello2022	2022	10.1038/s41467-022-34416-0
+SRS11653551	MELT1	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Italy	Melfi, Basilicata	40.99	15.64	4800	10.1038/s41467-022-34416-0	Quagliariello2022	2022	10.1038/s41467-022-34416-0
+SRS11653565	PA.133	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Italy	Paglicci, Apulia	41.67	15.58	33000	10.1038/s41467-022-34416-0	Quagliariello2022	2022	10.1038/s41467-022-34416-0
+SRS11653569	PA.157	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Italy	Paglicci, Apulia	41.67	15.58	15500	10.1038/s41467-022-34416-0	Quagliariello2022	2022	10.1038/s41467-022-34416-0
+SRS11653580	Rip.USD304	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Italy	Ripatetta, Apulia	41.3	15.2	6300	10.1038/s41467-022-34416-0	Quagliariello2022	2022	10.1038/s41467-022-34416-0
+SRS11653588	Rip.USD625	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Italy	Ripatetta, Apulia	41.3	15.2	6300	10.1038/s41467-022-34416-0	Quagliariello2022	2022	10.1038/s41467-022-34416-0
+SRS11653593	Rip.USD687	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Italy	Ripatetta, Apulia	41.3	15.2	6300	10.1038/s41467-022-34416-0	Quagliariello2022	2022	10.1038/s41467-022-34416-0
+SRS11653605	TR177	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Italy	Troia, Apulia	41.22	15.18	5300	10.1038/s41467-022-34416-0	Quagliariello2022	2022	10.1038/s41467-022-34416-0
+ERS10216484	3041	ancient_metagenome	host_associated	Homo sapiens	skull	skeletal tissue	Switzerland	Barfüsserkirche/Franciscan church of Basel	47.554	7.589	200	10.1186/s12915-022-01509-7	Sarhan2023	2023	10.1186/s12915-022-01509-7
+ERS10216488	3045	ancient_metagenome	host_associated	Homo sapiens	brain	soft tissue	Switzerland	Barfüsserkirche/Franciscan church of Basel	47.554	7.589	200	10.1186/s12915-022-01509-7	Sarhan2023	2023	10.1186/s12915-022-01509-7
+ERS13577728	LZP18T	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Latvia	Lejasbiteni	56.606	25.285	1100	10.1111/1758-2229.13157	Kimsis2023	2023	10.1111/1758-2229.13157
+SRS15300797	WAMP24	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	Grant Site			700	10.1002/ajpa.24735	Honap2023	2023	10.1002/ajpa.24735
+ERS14581258	SLBT	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Italy	Grotta di Pietra Sant’Angelo (San Lorenzo Bellizzi)	39.89	16.33	6100	10.1038/s41598-023-39250-y	Fontani2023	2023	10.1038/s41598-023-39250-y
+SRS12960478	7405	ancient_metagenome	host_associated	Lithobates pipiens	intestine	gut	USA	Antioch	42.478	-88.096	100	10.1371/journal.pone.0291540	Madison2023	2023	10.1371/journal.pone.0291540
+SRS12960503	1489	ancient_metagenome	host_associated	Lithobates pipiens	intestine	gut	USA	Beaver Dam	43.464	-88.853	100	10.1371/journal.pone.0291540	Madison2023	2023	10.1371/journal.pone.0291540
+SRS12960473	1490	ancient_metagenome	host_associated	Lithobates pipiens	intestine	gut	USA	Beaver Dam	43.464	-88.853	100	10.1371/journal.pone.0291540	Madison2023	2023	10.1371/journal.pone.0291540
+SRS12960459	1491	ancient_metagenome	host_associated	Lithobates pipiens	intestine	gut	USA	Beaver Dam	43.464	-88.853	100	10.1371/journal.pone.0291540	Madison2023	2023	10.1371/journal.pone.0291540
+SRS12960447	4572	ancient_metagenome	host_associated	Lithobates pipiens	intestine	gut	USA	Bluff Creek	42.799	-88.682	100	10.1371/journal.pone.0291540	Madison2023	2023	10.1371/journal.pone.0291540
+SRS12960422	14914	ancient_metagenome	host_associated	Lithobates pipiens	intestine	gut	USA	Buffalo Slough	44.433	-91.787	100	10.1371/journal.pone.0291540	Madison2023	2023	10.1371/journal.pone.0291540
+SRS12960479	2194	ancient_metagenome	host_associated	Lithobates pipiens	intestine	gut	USA	Chemung	42.416	-88.665	100	10.1371/journal.pone.0291540	Madison2023	2023	10.1371/journal.pone.0291540
+SRS12960492	3007	ancient_metagenome	host_associated	Lithobates pipiens	intestine	gut	USA	Harrison township	42.384	-89.194	100	10.1371/journal.pone.0291540	Madison2023	2023	10.1371/journal.pone.0291540
+SRS12960402	1700	ancient_metagenome	host_associated	Lithobates pipiens	intestine	gut	USA	Lake Pistakee	42.386	-88.209	100	10.1371/journal.pone.0291540	Madison2023	2023	10.1371/journal.pone.0291540
+SRS12960469	1151	ancient_metagenome	host_associated	Lithobates pipiens	intestine	gut	USA	Marengo, Kishwaukee Riv.	42.25	-88.606	100	10.1371/journal.pone.0291540	Madison2023	2023	10.1371/journal.pone.0291540
+SRS12960506	2564	ancient_metagenome	host_associated	Lithobates pipiens	intestine	gut	USA	Pell lake	42.541	-88.358	100	10.1371/journal.pone.0291540	Madison2023	2023	10.1371/journal.pone.0291540
+DRS361428	TH62	ancient_metagenome	host_associated	Homo sapiens	palaeofaeces	gut	Japan	Torihama	35.557	135.898	6400	10.1371/journal.pone.0295924	Nishimura2024	2024	10.1371/journal.pone.0295924
+DRS361172	TH58	ancient_metagenome	host_associated	Homo sapiens	palaeofaeces	gut	Japan	Torihama	35.557	135.898	6400	10.1371/journal.pone.0295924	Nishimura2024	2024	10.1371/journal.pone.0295924
+DRS361450	TH74	ancient_metagenome	host_associated	Homo sapiens	palaeofaeces	gut	Japan	Torihama	35.557	135.898	6400	10.1371/journal.pone.0295924	Nishimura2024	2024	10.1371/journal.pone.0295924
+DRS361563	TH55	ancient_metagenome	host_associated	Homo sapiens	palaeofaeces	gut	Japan	Torihama	35.557	135.898	6400	10.1371/journal.pone.0295924	Nishimura2024	2024	10.1371/journal.pone.0295924
+SRS18297824	ble004	ancient_metagenome	host_associated	Homo sapiens	birch pitch	oral	Sweden	Huseby Klev	58.16	11.48	9700	10.1038/s41598-023-48762-6	Kirdok2024	2024	10.1038/s41598-023-48762-6
+SRS18297825	ble007	ancient_metagenome	host_associated	Homo sapiens	birch pitch	oral	Sweden	Huseby Klev	58.16	11.48	9700	10.1038/s41598-023-48762-6	Kirdok2024	2024	10.1038/s41598-023-48762-6
+SRS18297826	ble008	ancient_metagenome	host_associated	Homo sapiens	birch pitch	oral	Sweden	Huseby Klev	58.16	11.48	9700	10.1038/s41598-023-48762-6	Kirdok2024	2024	10.1038/s41598-023-48762-6
+ERS16464521	P18	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	St Leonard's Leper Hospital	52.576	-0.254	900	10.5284/1046113	Fiorin2024	2024	10.1038/s41598-024-52422-8
+ERS16464520	P68	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	St Leonard's Leper Hospital	52.576	-0.254	900	10.5284/1046113	Fiorin2024	2024	10.1038/s41598-024-52422-8
+ERS16464519	P45	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	St Leonard's Leper Hospital	52.576	-0.254	900	10.5284/1046113	Fiorin2024	2024	10.1038/s41598-024-52422-8
+ERS16464522	P112	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	United Kingdom	St Leonard's Leper Hospital	52.576	-0.254	900	10.5284/1046113	Fiorin2024	2024	10.1038/s41598-024-52422-8
+ERS15977755	KGH2-F	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Ireland	Killuragh	52.6	-8.33	3800	10.1093/molbev/msae017	Jackson2024	2024	10.1093/molbev/msae017
+ERS15977754	KGH2-B	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Ireland	Killuragh	52.6	-8.33	3800	10.1093/molbev/msae017	Jackson2024	2024	10.1093/molbev/msae017
+ERS15977753	KGH1-E	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Ireland	Killuragh	52.6	-8.33	3800	10.1093/molbev/msae017	Jackson2024	2024	10.1093/molbev/msae017
+ERS15977752	KGH1-A	ancient_metagenome	host_associated	Homo sapiens	tooth	oral	Ireland	Killuragh	52.6	-8.33	3800	10.1093/molbev/msae017	Jackson2024	2024	10.1093/molbev/msae017
+SRS8307107	ROM_5C	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Romania	Histria	44.55	28.78	1600	10.1016/j.jasrep.2024.104510	Wright2024	2024	10.1016/j.jasrep.2024.104510
+SRS8307108	ROM_5D	ancient_metagenome	host_associated	Homo sapiens	dentine	oral	Romania	Histria	44.55	28.78	1600	10.1016/j.jasrep.2024.104510	Wright2024	2024	10.1016/j.jasrep.2024.104510
+SRS8307110	ROM_10D	ancient_metagenome	host_associated	Homo sapiens	dentine	oral	Romania	Histria	44.55	28.78	1600	10.1016/j.jasrep.2024.104510	Wright2024	2024	10.1016/j.jasrep.2024.104510
+SRS8307109	ROM_9C	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Romania	Histria	44.55	28.78	1600	10.1016/j.jasrep.2024.104510	Wright2024	2024	10.1016/j.jasrep.2024.104510
+SRS19976950	ARP 1 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976925	ARP 10 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976930	ARP 11 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976927	ARP 12 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976914	ARP 13 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976924	ARP 14 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976923	ARP 15 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976922	ARP 16 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976920	ARP 17 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976916	ARP 18 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976910	ARP 19 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976947	ARP 2 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976909	ARP 20 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976946	ARP 3 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976945	ARP 4 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976939	ARP 5 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976934	ARP 6 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976933	ARP 7 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976932	ARP 8 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976928	ARP 9 T	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976919	ARP 21 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976913	ARP 30 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976918	ARP 31 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976951	ARP 32 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976917	ARP 33 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976911	ARP 34 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976949	ARP 35 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976944	ARP 36 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976943	ARP 37 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976941	ARP 38 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976940	ARP 39 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976938	ARP 22 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976936	ARP 23 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976935	ARP 24 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976931	ARP 25 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976929	ARP 26 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976921	ARP 27 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976912	ARP 28 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+SRS19976942	ARP 29 S	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	St. Louis and Missouri	38.65	-90.26	100	10.1038/s41598-024-64818-7	Austin2024	2024	10.1038/s41598-024-64818-7
+ERS16595011	MN0003	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Brazil	Mutum	-19.82	-41.44	100	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS16595020	MN0008	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Brazil	Rio Doce	-20.24	-42.9	100	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS16595017	MN0009	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Brazil	Rio Mucuri	-17.51	-41.34	200	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS16594997	MN00010	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Brazil	Itamacuari	-18.03	-41.68	100	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS16595018	MN00013	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Brazil	Mutum	-19.82	-41.44	100	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS16595006	MN00016	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Brazil	Itapimirim	-20.0	-40.0	400	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS16595013	MN00021	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Brazil	Mutum	-19.82	-41.44	100	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS16595004	MN00022	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Brazil	Mutum	-19.82	-41.44	100	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS16595003	MN00023	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Brazil	Rio Mucuri	-17.51	-41.34	100	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS16595002	MN00039	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Brazil	Mutum	-19.82	-41.44	100	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS16595007	MN00045	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Brazil	Mutum	-19.82	-41.44	200	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS16595019	MN00056	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Brazil	Mucuri (Itambacuari)	-18.03	-41.68	100	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS16595009	MN00064	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Brazil	Rio Doce	-20.24	-42.9	200	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS16595014	MN00067	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Brazil	Unknown	-13.0	-50.0	100	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS16595005	MN00068	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Brazil	Mutum	-19.82	-41.44	100	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS16595000	MN00069	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Brazil	Rio Mucuri	-17.51	-41.34	100	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS16595015	MN00346	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Brazil	Rio Prado	-16.61	-40.57	100	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS16594998	MN01701	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Brazil	Laguna	-28.48	-48.78	1900	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS16595001	MN1943	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Brazil	Serra de Babilonia	-18.0	-44.0	900	10.1101/2022.01.27.477466	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS1485721	V1_P	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	United Kingdom	Unknown			1000	10.1371/journal.pone.0170940	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS1485722	V1_T	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	United Kingdom	Unknown			1000	10.1371/journal.pone.0170940	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS1485689	H10_S	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Denmark	Unknown			200	10.1371/journal.pone.0170940	Bozzi2024	2024	10.1038/s41598-023-40246-x
+ERS1485714	H8_T	ancient_metagenome	host_associated	Homo sapiens	tooth	skeletal tissue	Denmark	Unknown			200	10.1371/journal.pone.0170940	Bozzi2024	2024	10.1038/s41598-023-40246-x
+SRS19454881	CHS01	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	The Anson Street African Burial Ground	32.786	-79.931	200	10.1038/s42003-024-06893-0	Fleskes2024	2024	10.1038/s42003-024-06893-0
+SRS19454882	CHS03	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	The Anson Street African Burial Ground	32.786	-79.931	200	10.1038/s42003-024-06893-0	Fleskes2024	2024	10.1038/s42003-024-06893-0
+SRS19454888	CHS13	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	The Anson Street African Burial Ground	32.786	-79.931	200	10.1038/s42003-024-06893-0	Fleskes2024	2024	10.1038/s42003-024-06893-0
+SRS19454889	CHS14	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	The Anson Street African Burial Ground	32.786	-79.931	200	10.1038/s42003-024-06893-0	Fleskes2024	2024	10.1038/s42003-024-06893-0
+SRS19454890	CHS20	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	The Anson Street African Burial Ground	32.786	-79.931	200	10.1038/s42003-024-06893-0	Fleskes2024	2024	10.1038/s42003-024-06893-0
+SRS19454891	CHS21	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	The Anson Street African Burial Ground	32.786	-79.931	200	10.1038/s42003-024-06893-0	Fleskes2024	2024	10.1038/s42003-024-06893-0
+SRS19454892	CHS22	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	The Anson Street African Burial Ground	32.786	-79.931	200	10.1038/s42003-024-06893-0	Fleskes2024	2024	10.1038/s42003-024-06893-0
+SRS19454893	CHS26	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	The Anson Street African Burial Ground	32.786	-79.931	200	10.1038/s42003-024-06893-0	Fleskes2024	2024	10.1038/s42003-024-06893-0
+SRS19454894	CHS27	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	The Anson Street African Burial Ground	32.786	-79.931	200	10.1038/s42003-024-06893-0	Fleskes2024	2024	10.1038/s42003-024-06893-0
+SRS19454895	CHS29	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	The Anson Street African Burial Ground	32.786	-79.931	200	10.1038/s42003-024-06893-0	Fleskes2024	2024	10.1038/s42003-024-06893-0
+SRS19454883	CHS31	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	The Anson Street African Burial Ground	32.786	-79.931	200	10.1038/s42003-024-06893-0	Fleskes2024	2024	10.1038/s42003-024-06893-0
+SRS19454884	CHS36	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	USA	The Anson Street African Burial Ground	32.786	-79.931	200	10.1038/s42003-024-06893-0	Fleskes2024	2024	10.1038/s42003-024-06893-0
+ERS15409338	RN50	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Chile	Akahanga Karava, Rapa Nui	-27.119	-109.357	300	10.2458/56.16923	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409339	RN14	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Chile	Ahu Kihi Kihi Rau Mea, Rapa Nui	-27.12	-109.363	300	10.2458/56.16923	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409340	RN28	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Chile	Ahu Kihi Kihi Rau Mea, Rapa Nui	-27.12	-109.363	300	10.2458/56.16923	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409341	RN20	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Chile	Ahu Mahatua, Rapa Nui	-27.106	-109.363	300	10.2458/56.16923	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409342	RN30	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Chile	Ahu Mahatua, Rapa Nui	-27.106	-109.363	300	10.2458/56.16923	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409343	RN36	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Chile	Ahu Mahatua, Rapa Nui	-27.106	-109.363	300	10.2458/56.16923	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409344	RN39	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Chile	Ahu Mahatua, Rapa Nui	-27.106	-109.363	300	10.2458/56.16923	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409345	RN58	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Chile	Ana Koe Hoko, Rapa Nui	-27.116	-109.384	300	10.2458/56.16923	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409346	RN70	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Chile	Ahu Nau Nau, Rapa Nui	-27.1	-109.343	300	10.2458/56.16923	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409347	RN93	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Chile	Ahu Nau Nau, Rapa Nui	-27.1	-109.343	300	10.2458/56.16923	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409348	RN09_NRN_1	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Chile	Ahu Nau Nau, Rapa Nui	-27.1	-109.343	300	10.2458/56.16923	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409349	RN91_NRN_2	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Chile	Ahu Nau Nau, Rapa Nui	-27.1	-109.343	300	10.2458/56.16923	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409350	RN65	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Chile	Ahu Onero, Rapa Nui	-27.1	-109.344	300	10.2458/56.16923	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409351	RN66	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Chile	Ahu Onero, Rapa Nui	-27.1	-109.344	300	10.2458/56.16923	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409352	RN02	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Chile	Ahu Tautira, Rapa Nui	-27.122	-109.537	300	10.2458/56.16923	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409353	RNAT_NRN_5	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Chile	Ahu Tautira, Rapa Nui	-27.122	-109.537	300	10.2458/56.16923	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409354	Mangaliliu_TP3	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Mangaliliu	-17.636	168.366	500	10.1016/j.cub.2018.02.051	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409355	Pangpang	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Pangpang	-17.675	168.545	1000	10.1038/s41467-024-53920-z	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409356	Banana Bay	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Banana Bay	-17.799	168.54	200	10.1016/j.cub.2018.02.051	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409357	Banana Bay	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Banana Bay	-17.799	168.54	200	10.1016/j.cub.2020.09.035	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409358	Banana Bay	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Banana Bay	-17.799	168.54	200	10.1038/s41467-024-53920-z	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409359	Furs 2, TR1 24-30	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Futuna	-19.512	170.23	1100	10.1016/j.cub.2018.02.051	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409360	Furs 9, 78	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Futuna	-19.512	170.23	300	10.1016/j.cub.2018.02.051	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409361	Furs 11	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Futuna	-19.512	170.23	400	10.1016/j.cub.2018.02.051	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409362	B08	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Teouma	-17.796	168.366	2900	10.1016/j.jas.2014.07.002	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409363	B16	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Teouma	-17.796	168.366	2900	10.1016/j.jas.2014.07.002	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409364	B19	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Teouma	-17.796	168.366	2900	10.1016/j.jas.2014.07.002	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409365	7c_B2b	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Teouma	-17.796	168.366	2500	10.1016/j.jas.2014.07.002	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409366	B10B	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Teouma	-17.796	168.366	2900	10.1016/j.cub.2018.02.051	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409367	B30A	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Teouma	-17.796	168.366	2900	10.1016/j.jas.2014.07.002	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409368	B10C	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Teouma	-17.796	168.366	2900	10.1016/j.cub.2020.09.035	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409369	B29M	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Teouma	-17.796	168.366	2900	10.1016/j.jas.2014.07.002	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409370	B29W	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Teouma	-17.796	168.366	2900	10.1016/j.jas.2014.07.002	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409371	B30C	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Teouma	-17.796	168.366	2900	10.1016/j.jas.2014.07.002	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409372	B02	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Uripiv	-16.09	167.458	2300	10.1371/journal.pone.0104071	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409373	B8	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Uripiv	-16.09	167.458	2600	10.1371/journal.pone.0104071	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409374	B05	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Vao	-15.898	167.309	2600	10.70460/jpa.v2i2.62	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409375	B05	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Vao	-15.898	167.309	2600	10.70460/jpa.v2i2.62	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409376	B06	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Vao	-15.898	167.309	2500	10.70460/jpa.v2i2.62	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409377	B14	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Teouma	-17.796	168.366	2900	10.1016/j.jas.2014.07.002	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409378	B19	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Uripiv	-16.09	167.458	2600	10.1371/journal.pone.0104071	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409379	B23	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Uripiv	-16.09	167.458	2300	10.1371/journal.pone.0104071	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409380	B18	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Uripiv	-16.09	167.458	2300	10.1371/journal.pone.0104071	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409381	B3	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Papua New Guinea	SAC site	-4.115	152.068	2500	10.1016/j.jas.2010.07.029	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409382	B53	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Teouma	-17.796	168.366	2900	10.1016/j.jas.2014.07.002	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409383	7c_B4	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Teouma	-17.796	168.366	2700	10.1016/j.jas.2014.07.002	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409384	B76	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Teouma	-17.796	168.366	2900	10.1038/s41467-024-53920-z	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409385	B02b	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Vao	-15.898	167.309	2200	10.70460/jpa.v2i2.62	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409386	B04	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Vao	-15.898	167.309	2200	10.70460/jpa.v2i2.62	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409387	B8	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Papua New Guinea	SAC site	-4.115	152.068	2500	10.7152/jipa.v40i0.14928	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409388	B59	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Teouma	-17.796	168.366	2900	10.1016/j.jas.2014.07.002	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409389	B60	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Teouma	-17.796	168.366	2900	10.1016/j.jas.2014.07.002	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409390	B33	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Vanuatu	Uripiv	-16.09	167.458	2300	10.1371/journal.pone.0104071	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409391	B1_1	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409392	B2	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409393	B11_1	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409394	B20	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409395	B21	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409396	B34	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409397	B54	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409398	B68	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409399	B70	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409400	B84	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409401	B88	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409402	B91	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409403	B104	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409404	B108	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409405	B109	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409406	B159	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409407	B194	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409408	PH16 (B23)	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Indonesia	Pain Haka	-8.622	120.919	2600	10.15184/aqy.2016.185	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409409	PH27_B7	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Indonesia	Pain Haka	-8.622	120.919	2600	10.15184/aqy.2016.185	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409410	PH06_B47a	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Indonesia	Pain Haka	-8.622	120.919	2600	10.15184/aqy.2016.185	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409412	RNA937_NRN_3	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Chile	Unknown	-27.106	-109.363	300	10.2458/56.16923	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409413	RNA944_NRN_4	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Chile	Unknown	-27.106	-109.363	300	10.2458/56.16923	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409414	SVF01	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409415	SVF02	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409416	SVF03	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409417	SVF08	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409418	SVF14	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409419	SVF19	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409420	03_1	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409421	17_3	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409422	21	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409423	26_1	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409424	29_1	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409425	32_2	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409426	60_1	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409427	65	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409428	69_1	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409429	72_1	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409430	79_1	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409431	Pieve d' investiture, Haurari	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	French Polynesia	Taputapuatea	-16.842	-151.387	100	10.1038/s41559-018-0498-2	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409432	Pieve d' investiture, Piquet 33	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	French Polynesia	Taputapuatea	-16.842	-151.387	100	10.1038/s41559-018-0498-2	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409433	SK3_1	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Tonga	Talasiu	-21.191	-175.192	2600	10.15184/aqy.2020.89	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409434	SK9_3	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Tonga	Talasiu	-21.191	-175.192	2600	10.15184/aqy.2020.89	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409435	SK10	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Tonga	Talasiu	-21.191	-175.192	2600	10.15184/aqy.2020.89	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409436	SK12	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Tonga	Talasiu	-21.191	-175.192	2600	10.15184/aqy.2020.89	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409437	SK14	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Tonga	Talasiu	-21.191	-175.192	2600	10.15184/aqy.2020.89	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15409438	BG3	ancient_metagenome	host_associated	Homo sapiens	dental calculus	oral	Tonga	Talasiu	-21.191	-175.192	2600	10.15184/aqy.2020.89	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977447	B1	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977448	B34	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977449	B54	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977450	B84	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977451	B88	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977452	B159	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977453	B21	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977454	B2	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977455	B20	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977456	B91	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Solomon Islands	Namu	-9.878	167.177	200	10.1002/ajpa.24179	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977457	1/1	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977458	1a	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977459	2b	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977460	3a	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977461	8a	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977462	14	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977463	17c	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977464	21/22a	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977465	21/22b	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+ERS15977466	21c	ancient_metagenome	host_associated	Homo sapiens	bone	skeletal tissue	Fiji	Sigatoka Dunes	-18.142	177.508	1500	10.1002/gea.20094	Velsko2024	2024	10.1038/s41467-024-53920-z
+101_S58	101	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	200	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+102_S59	102	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	200	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+103_S60	103	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	200	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+104_S61	104	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	300	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+105_S62	105	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	300	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+106_S63	106	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	300	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+107_S64	107	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	600	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+108_S65	108	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	100	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+109_S66	109	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	200	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+111_S68	111	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	200	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+112_S69	112	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	200	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+113_S70	113	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	300	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+114_S71	114	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	300	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+115_S72	115	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	300	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+116_S73	116	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	600	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+117_S74	117	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	600	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+118_S75	118	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	100	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+121_S78	121	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	100	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+122_S79	122	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	200	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+123_S80	123	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	200	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+124_S81	124	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	200	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+125_S82	125	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	200	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+126_S83	126	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	200	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+127_S84	127	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	200	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+128_S85	128	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	300	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+129_S86	129	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	300	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+130_S87	130	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	300	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+132_S88	132	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	300	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+133_S89	133	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	300	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+134_S90	134	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	300	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+135_S91	135	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	600	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+136_S92	136	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	600	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+137_S93	137	ancient_metagenome	host_associated	Rangifer tarandus	rib	skeletal tissue	Greenland	Aasivissuit	66.937	-53.658	600	10.1038/s42003-025-07616-9	Eriksen2025	2025	10.1038/s42003-025-07616-9
+SRS2040658	HA1.12	ancient_metagenome	environmental		lake sediment		Sweden	Hässeldala Port	56.16	15.01	13900	10.3389/fevo.2019.00189	Ahmed2018	2018	10.1016/j.quascirev.2017.11.037
+SRS2040653	HA6.1	ancient_metagenome	environmental		lake sediment		Sweden	Hässeldala Port	56.16	15.01	12000	10.3389/fevo.2019.00189	Ahmed2018	2018	10.1016/j.quascirev.2017.11.037
+ERS3605430	ELF001A_104_S78_ELFN1D3	ancient_metagenome	environmental		shallow marine sediment		North Sea	Unknown	53.322	1.118	6000	10.3390/geosciences10070270	Gaffney2020	2020	10.3390/geosciences10070270
+ERS3605442	ELF001A_149_G1_ELFN3D1	ancient_metagenome	environmental		shallow marine sediment		North Sea	Unknown	53.322	1.118	8100	10.3390/geosciences10070270	Gaffney2020	2020	10.3390/geosciences10070270
+ERS3605443	ELF001A_149_G2_ELFN3D2	ancient_metagenome	environmental		shallow marine sediment		North Sea	Unknown	53.322	1.118	8100	10.3390/geosciences10070270	Gaffney2020	2020	10.3390/geosciences10070270
+ERS3605455	ELF001A_282_S77_ELFM2D2	ancient_metagenome	environmental		shallow marine sediment		North Sea	Unknown	53.322	1.118	9200	10.3390/geosciences10070270	Gaffney2020	2020	10.3390/geosciences10070270
+ERS3605458	ELF001A_348_S74_ELFM1D1	ancient_metagenome	environmental		shallow marine sediment		North Sea	Unknown	53.322	1.118	9200	10.3390/geosciences10070270	Gaffney2020	2020	10.3390/geosciences10070270
+ERS1600712	SP3801	ancient_metagenome	environmental		sediment		France	'Caune de l''Arago'	42.839	2.752	438000	10.1126/science.aam9695	Slon2017	2017	10.1126/science.aam9695
+ERS1600718	SP3808	ancient_metagenome	environmental		sediment		France	'Caune de l''Arago'	42.839	2.752	346000	10.1126/science.aam9695	Slon2017	2017	10.1126/science.aam9695
+ERS1600719	SP3809	ancient_metagenome	environmental		sediment		France	'Caune de l''Arago'	42.839	2.752	550000	10.1126/science.aam9695	Slon2017	2017	10.1126/science.aam9695
+ERS1600728	SP3848	ancient_metagenome	environmental		sediment		Russia	Chagyrskaya Cave	51.442	83.155	53000	10.1126/science.aam9695	Slon2017	2017	10.1126/science.aam9695
+ERS1600729	SP3849	ancient_metagenome	environmental		sediment		Russia	Chagyrskaya Cave	51.442	83.155	304000	10.1126/science.aam9695	Slon2017	2017	10.1126/science.aam9695
+ERS1600738	SP3862	ancient_metagenome	environmental		sediment		Russia	Denisova Cave	51.397	84.676	127000	10.1126/science.aam9695	Slon2017	2017	10.1126/science.aam9695
+ERS1600740	SP3861	ancient_metagenome	environmental		sediment		Russia	Denisova Cave	51.397	84.676	127000	10.1126/science.aam9695	Slon2017	2017	10.1126/science.aam9695
+ERS1600765	SP3828	ancient_metagenome	environmental		sediment		Russia	Denisova Cave	51.397	84.676	57000	10.1126/science.aam9695	Slon2017	2017	10.1126/science.aam9695
+ERS1600766	SP3829	ancient_metagenome	environmental		sediment		Russia	Denisova Cave	51.397	84.676	57000	10.1126/science.aam9695	Slon2017	2017	10.1126/science.aam9695
+ERS1600770	SP3833	ancient_metagenome	environmental		sediment		Russia	Denisova Cave	51.397	84.676	112500	10.1126/science.aam9695	Slon2017	2017	10.1126/science.aam9695
+ERS1600775	SP3837	ancient_metagenome	environmental		sediment		Russia	Denisova Cave	51.397	84.676	112500	10.1126/science.aam9695	Slon2017	2017	10.1126/science.aam9695
+ERS1600792	SP3911	ancient_metagenome	environmental		sediment		Belgium	'Trou Al''Wesse'	50.46	5.29	46000	10.1126/science.aam9695	Slon2017	2017	10.1126/science.aam9695
+ERS510181	S308-2	ancient_metagenome	environmental		sediment		United Kingdom	Bouldnor Cliff	50.7	-1.5	8000	10.1126/science.1261278	Smith2015	2015	10.1126/science.1261278
+ERS510183	S308-4	ancient_metagenome	environmental		sediment		United Kingdom	Bouldnor Cliff	50.7	-1.5	8000	10.1126/science.1261278	Smith2015	2015	10.1126/science.1261278
+ERS4921370,ERS4921371	UE1204_Mex_13	ancient_metagenome	environmental		sediment		Mexico	Chiquihuite Cave	24.62	-101.15	12000	10.1038/s41586-020-2509-0	Ardelean2020	2020	10.1038/s41586-020-2509-0
+ERS4921375	UE1207A_Mex_62	ancient_metagenome	environmental		sediment		Mexico	Chiquihuite Cave	24.62	-101.15	13000	10.1038/s41586-020-2509-0	Ardelean2020	2020	10.1038/s41586-020-2509-0
+ERS4921378	UE1210_Mex_18	ancient_metagenome	environmental		sediment		Mexico	Chiquihuite Cave	24.62	-101.15	15600	10.1038/s41586-020-2509-0	Ardelean2020	2020	10.1038/s41586-020-2509-0
+ERS4921380	UE1210_Mex_2	ancient_metagenome	environmental		sediment		Mexico	Chiquihuite Cave	24.62	-101.15	15600	10.1038/s41586-020-2509-0	Ardelean2020	2020	10.1038/s41586-020-2509-0
+ERS4921381,ERS4921382	UE1210_Mex_3	ancient_metagenome	environmental		sediment		Mexico	Chiquihuite Cave	24.62	-101.15	15600	10.1038/s41586-020-2509-0	Ardelean2020	2020	10.1038/s41586-020-2509-0
+ERS4921386	UE1212_Mex_24	ancient_metagenome	environmental		sediment		Mexico	Chiquihuite Cave	24.62	-101.15	13900	10.1038/s41586-020-2509-0	Ardelean2020	2020	10.1038/s41586-020-2509-0
+ERS4921390,ERS4921391	UE1212_Mex_6	ancient_metagenome	environmental		sediment		Mexico	Chiquihuite Cave	24.62	-101.15	13900	10.1038/s41586-020-2509-0	Ardelean2020	2020	10.1038/s41586-020-2509-0
+ERS4921394	UE1217_Mex_56	ancient_metagenome	environmental		sediment		Mexico	Chiquihuite Cave	24.62	-101.15	11600	10.1038/s41586-020-2509-0	Ardelean2020	2020	10.1038/s41586-020-2509-0
+ERS4921395,ERS4921396	UE1218_Mex_10	ancient_metagenome	environmental		sediment		Mexico	Chiquihuite Cave	24.62	-101.15	21000	10.1038/s41586-020-2509-0	Ardelean2020	2020	10.1038/s41586-020-2509-0
+ERS4921398,ERS4921399	UE1218_Mex_9	ancient_metagenome	environmental		sediment		Mexico	Chiquihuite Cave	24.62	-101.15	21000	10.1038/s41586-020-2509-0	Ardelean2020	2020	10.1038/s41586-020-2509-0
+ERS4921400	UE1222_Mex_54	ancient_metagenome	environmental		sediment		Mexico	Chiquihuite Cave	24.62	-101.15	26200	10.1038/s41586-020-2509-0	Ardelean2020	2020	10.1038/s41586-020-2509-0
+SRS5416760	DNA-MUB17-2D-1L-SAMPLE18	ancient_metagenome	environmental		sediment		Uganda	Mubwindi Swamp, Bwindi Impenetrable Forest	-1.07	29.75	200	10.3389/fevo.2020.00218	Dommain2020	2020	10.3389/fevo.2020.00218
+SRS5416713	DNA-MUB17-2C-2L-SAMPLE22	ancient_metagenome	environmental		sediment		Uganda	Mubwindi Swamp, Bwindi Impenetrable Forest	-1.07	29.75	300	10.3389/fevo.2020.00218	Dommain2020	2020	10.3389/fevo.2020.00218
+SRS5416725	DNA-MUB17-2C-5L-SAMPLE42	ancient_metagenome	environmental		sediment		Uganda	Mubwindi Swamp, Bwindi Impenetrable Forest	-1.07	29.75	1100	10.3389/fevo.2020.00218	Dommain2020	2020	10.3389/fevo.2020.00218
+SRS5416727	DNA-MUB17-2C-6L-SAMPLE45	ancient_metagenome	environmental		sediment		Uganda	Mubwindi Swamp, Bwindi Impenetrable Forest	-1.07	29.75	1200	10.3389/fevo.2020.00218	Dommain2020	2020	10.3389/fevo.2020.00218
+SRS5416730	DNA-MUB17-2C-7L-SAMPLE50	ancient_metagenome	environmental		sediment		Uganda	Mubwindi Swamp, Bwindi Impenetrable Forest	-1.07	29.75	2200	10.3389/fevo.2020.00218	Dommain2020	2020	10.3389/fevo.2020.00218
+SRS5214220	20871_MI_5-6cm	ancient_metagenome	environmental		marine sediment		Tasman Sea	Maria Island	-42.845	148.24	100	10.1111/1755-0998.13162	Armbrecht2020	2020	10.1111/1755-0998.13162
+ERS1286099	CHL_133_11368	ancient_metagenome	environmental		lake sediment		Canada	Charlie Lake	56.33	-120.96	11400	10.1038/nature19085	Pedersen2016	2016	10.1038/nature19085
+ERS1286101	CHL_137_11575	ancient_metagenome	environmental		lake sediment		Canada	Charlie Lake	56.33	-120.96	11600	10.1038/nature19085	Pedersen2016	2016	10.1038/nature19085
+ERS1286109	CHL_157_12615	ancient_metagenome	environmental		lake sediment		Canada	Charlie Lake	56.33	-120.96	12600	10.1038/nature19085	Pedersen2016	2016	10.1038/nature19085
+ERS1286195	SPL_55_3112	ancient_metagenome	environmental		lake sediment		Canada	Spring Lake	55.51	-119.58	3100	10.1038/nature19085	Pedersen2016	2016	10.1038/nature19085
+ERS1286198	SPL_173_7782	ancient_metagenome	environmental		lake sediment		Canada	Spring Lake	55.51	-119.58	7800	10.1038/nature19085	Pedersen2016	2016	10.1038/nature19085
+SRS1424543	PH082_579	ancient_metagenome	environmental		lake sediment		USA	Lake Hill	57.178	-170.248	7300	10.1098/rsos.180145	Graham2016	2016	10.1073/pnas.1604903113
+SRS1424540	PH118-PH146_527	ancient_metagenome	environmental		lake sediment		USA	Lake Hill	57.178	-170.248	6100	10.1098/rsos.180145	Graham2016	2016	10.1073/pnas.1604903113
+SRS1424547	PH120-PH185-PH194_719	ancient_metagenome	environmental		lake sediment		USA	Lake Hill	57.178	-170.248	10900	10.1098/rsos.180145	Graham2016	2016	10.1073/pnas.1604903113
+SRS1424527	PH142_501	ancient_metagenome	environmental		lake sediment		USA	Lake Hill	57.178	-170.248	5600	10.1098/rsos.180145	Graham2016	2016	10.1073/pnas.1604903113
+SRS1424523	PH144_493	ancient_metagenome	environmental		lake sediment		USA	Lake Hill	57.178	-170.248	5500	10.1098/rsos.180145	Graham2016	2016	10.1073/pnas.1604903113
+SRS1424548	PH151_679	ancient_metagenome	environmental		lake sediment		USA	Lake Hill	57.178	-170.248	9800	10.1098/rsos.180145	Graham2016	2016	10.1073/pnas.1604903113
+SRS1596538	PH188_1000	ancient_metagenome	environmental		lake sediment		USA	Lake Hill	57.178	-170.248	13300	10.1111/jbi.13010	Wang2017	2017	10.1111/jbi.13010
+ERS1280179	S2	ancient_metagenome	environmental		sediment		Greenland	Sandnes	64.243	-50.178	600	10.1038/ncomms13389	Seersholm2016	2016	10.1038/ncomms13389
+ERS1280182	S4	ancient_metagenome	environmental		sediment		Greenland	Sandnes	64.243	-50.178	600	10.1038/ncomms13389	Seersholm2016	2016	10.1038/ncomms13389
+ERS1280190	S9	ancient_metagenome	environmental		sediment		Greenland	Sandnes	64.243	-50.178	600	10.1038/ncomms13389	Seersholm2016	2016	10.1038/ncomms13389
+ERS1280193	S10	ancient_metagenome	environmental		sediment		Greenland	Sandnes	64.243	-50.178	600	10.1038/ncomms13389	Seersholm2016	2016	10.1038/ncomms13389
+ERS1280168	FA3	ancient_metagenome	environmental		sediment		Greenland	Fladstrand	74.099	-21.187	300	10.1038/ncomms13389	Seersholm2016	2016	10.1038/ncomms13389
+ERS1280209	QA4	ancient_metagenome	environmental		sediment		Greenland	Qajaa	69.128	-50.702	2600	10.1038/ncomms13389	Seersholm2016	2016	10.1038/ncomms13389
+ERS1280211	QA5	ancient_metagenome	environmental		sediment		Greenland	Qajaa	69.128	-50.702	2600	10.1038/ncomms13389	Seersholm2016	2016	10.1038/ncomms13389
+ERS1280215,ERS1280214	QA6(seq1,seq2)	ancient_metagenome	environmental		sediment		Greenland	Qajaa	69.128	-50.702	2600	10.1038/ncomms13389	Seersholm2016	2016	10.1038/ncomms13389
+ERS1280220,ERS1280221,ERS1280222	QA8(seq1,seq2,seq3)	ancient_metagenome	environmental		sediment		Greenland	Qajaa	69.128	-50.702	2600	10.1038/ncomms13389	Seersholm2016	2016	10.1038/ncomms13389
+ERS1280200	QB3	ancient_metagenome	environmental		sediment		Greenland	Qajaa	69.128	-50.702	1600	10.1038/ncomms13389	Seersholm2016	2016	10.1038/ncomms13389
+ERS1280202	QB4	ancient_metagenome	environmental		sediment		Greenland	Qajaa	69.128	-50.702	1600	10.1038/ncomms13389	Seersholm2016	2016	10.1038/ncomms13389
+ERS1280227,ERS1280226	QT3(seq1,seq2)	ancient_metagenome	environmental		sediment		Greenland	Qeqertasussuk	68.593	-51.072	4000	10.1038/ncomms13389	Seersholm2016	2016	10.1038/ncomms13389
+ERS5428032	ES1	ancient_metagenome	environmental		sediment		Spain	El Salt	38.687	-0.508	52300	10.1038/s42003-021-01689-y	Rampelli2021	2021	10.1038/s42003-021-01689-y
+ERS5428038	ES7	ancient_metagenome	environmental		sediment		Spain	El Salt	38.687	-0.508	52300	10.1038/s42003-021-01689-y	Rampelli2021	2021	10.1038/s42003-021-01689-y
+ERS5428041	V2	ancient_metagenome	environmental		sediment		Spain	El Salt	38.687	-0.508	44700	10.1038/s42003-021-01689-y	Rampelli2021	2021	10.1038/s42003-021-01689-y
+SRS7756735,SRS7756736,SRS7756731,SRS7756732	Ch1_17_3_4	ancient_metagenome	environmental		permafrost		Russia	Cape Chukochii	70.08	159.92	35000	10.1186/s40168-021-01057-2	Liang2021	2021	10.1186/s40168-021-01057-2
+SRS7756739,SRS7756740,SRS7756737,SRS7756738	Ch1_17_5_8	ancient_metagenome	environmental		permafrost		Russia	Cape Chukochii	70.08	159.92	110000	10.1186/s40168-021-01057-2	Liang2021	2021	10.1186/s40168-021-01057-2
+SRS7756733,SRS7756734,SRS7756741,SRS7756742	Ch1_17_14_8	ancient_metagenome	environmental		permafrost		Russia	Cape Chukochii	70.08	159.92	110000	10.1186/s40168-021-01057-2	Liang2021	2021	10.1186/s40168-021-01057-2
+SRS4426901	200_4	ancient_metagenome	environmental		lake sediment		Mexico	Lake Chalco 	19.257	-98.991	11500	10.1038/s41598-021-92981-8 	Moguel2021	2021	10.1038/s41598-021-92981-8 
+SRS4426897	100_4	ancient_metagenome	environmental		lake sediment		Mexico	Lake Chalco 	19.257	-98.991	7700	10.1038/s41598-021-92981-8 	Moguel2021	2021	10.1038/s41598-021-92981-8 
+SRS14235649	U1538D-14H-1_145cm	ancient_metagenome	environmental		marine sediment		Antarctica	U1538 (Pirie Basin)	-57.442	-43.358	392000	10.1038/s41467-022-33494-4	Armbrecht2022	2022	10.1038/s41467-022-33494-4
+SRS14235644	U1538C-8H-3_145cm	ancient_metagenome	environmental		marine sediment		Antarctica	U1538 (Pirie Basin)	-57.442	-43.358	215000	10.1038/s41467-022-33494-4	Armbrecht2022	2022	10.1038/s41467-022-33494-4
+SRS14235643	U1538C-8H-2_145cm	ancient_metagenome	environmental		marine sediment		Antarctica	U1538 (Pirie Basin)	-57.442	-43.358	214000	10.1038/s41467-022-33494-4	Armbrecht2022	2022	10.1038/s41467-022-33494-4
+SRS14235633	U1538C-6F-1_144cm	ancient_metagenome	environmental		marine sediment		Antarctica	U1538 (Pirie Basin)	-57.442	-43.358	140000	10.1038/s41467-022-33494-4	Armbrecht2022	2022	10.1038/s41467-022-33494-4
+SRS14235607	U1536B-11H-6_145cm	ancient_metagenome	environmental		marine sediment		Antarctica	U1536B (Dove Basin)	-59.441	-41.061	405000	10.1038/s41467-022-33494-4	Armbrecht2022	2022	10.1038/s41467-022-33494-4
+SRS14235588	U1536B-1H-3_145cm	ancient_metagenome	environmental		marine sediment		Antarctica	U1536B (Dove Basin)	-59.441	-41.061	4000	10.1038/s41467-022-33494-4	Armbrecht2022	2022	10.1038/s41467-022-33494-4
+ERS5929362	B17-D-7	ancient_metagenome	environmental		permafrost		Russia	Batagay megaslump	67.581	134.772	23000	10.1017/qua.2021.27	Courtin2022	2022	10.1002/edn3.336
+ERS5929361	B17-D-10	ancient_metagenome	environmental		permafrost		Russia	Batagay megaslump	67.581	134.772	50000	10.1017/qua.2021.27	Courtin2022	2022	10.1002/edn3.336
+ERS4817945	LS-35-2	ancient_metagenome	environmental		lake sediment		Poland	Lake Slone	51.305	23.366	200	10.1016/j.palaeo.2012.08.016	Iwanska2022	2022	10.1038/s41598-022-12761-w
+SRS3730742	FRT504-1-6-19	ancient_metagenome	environmental		midden		USA	City of Rocks National Reserve	42.07	-113.7	300	10.1002/ece3.6082	Moore2020	2020	10.1002/ece3.6082
+SRS3730743	FRT511A-2-6-19	ancient_metagenome	environmental		midden		USA	City of Rocks National Reserve	42.07	-113.7	2900	10.1002/ece3.6082	Moore2020	2020	10.1002/ece3.6082
+SRS3730740	PPC529-PrA	ancient_metagenome	environmental		midden		USA	City of Rocks National Reserve	42.07	-113.7	3300	10.1002/ece3.6082	Moore2020	2020	10.1002/ece3.6082
+SRS11699675,SRS11699673,SRS11699663,SRS11699654,SRS11699652	S1	ancient_metagenome	environmental		soil		Chile	Lirima hydrothermal system	-19.851	-68.906	600	10.3390/microorganisms10081623	Perez2022	2022	10.3390/microorganisms10081623
+SRS11699679,SRS11699680,SRS11699678,SRS11699677,SRS11699676	S2	ancient_metagenome	environmental		soil		Chile	Lirima hydrothermal system	-19.851	-68.906	500	10.3390/microorganisms10081623	Perez2022	2022	10.3390/microorganisms10081623
+SRS11699658,SRS11699656,SRS11699657,SRS11699655,SRS11699653	S3	ancient_metagenome	environmental		soil		Chile	Lirima hydrothermal system	-19.851	-68.906	1100	10.3390/microorganisms10081623	Perez2022	2022	10.3390/microorganisms10081623
+SRS11699664,SRS11699662,SRS11699660,SRS11699661,SRS11699659	S4	ancient_metagenome	environmental		soil		Chile	Salar de Huasco wetlands	-20.287	-68.888	800	10.3390/microorganisms10081623	Perez2022	2022	10.3390/microorganisms10081623
+ERS14240265	119_B3_116_L0_KapK-12-1-25	ancient_metagenome	environmental		permafrost		Greenland	Kap København formation	82.496	-21.559	2000000	10.1038/s41586-022-05453-y	Kjaer2022	2022	10.1038/s41586-022-05453-y
+ERS14240279	119_B3_116_L2_KapK-12-1-44	ancient_metagenome	environmental		permafrost		Greenland	Kap København formation	82.496	-21.559	2000000	10.1038/s41586-022-05453-y	Kjaer2022	2022	10.1038/s41586-022-05453-y
+ERS14240282	119_B3_116_L3_KapK-12-1-47	ancient_metagenome	environmental		permafrost		Greenland	Kap København formation	82.496	-21.559	2000000	10.1038/s41586-022-05453-y	Kjaer2022	2022	10.1038/s41586-022-05453-y
+ERS14240285	119_B3_116_L4_KapK-12-1-50	ancient_metagenome	environmental		permafrost		Greenland	Kap København formation	82.496	-21.559	2000000	10.1038/s41586-022-05453-y	Kjaer2022	2022	10.1038/s41586-022-05453-y
+ERS14240275	69_B2_103_L0_KapK-12-1-39	ancient_metagenome	environmental		permafrost		Greenland	Kap København formation	82.494	-21.606	2000000	10.1038/s41586-022-05453-y	Kjaer2022	2022	10.1038/s41586-022-05453-y
+ERS14240303,ERS14240304,ERS14240305	74a_B1_83_L1_Lok-75-Sample-1	ancient_metagenome	environmental		permafrost		Greenland	Kap København formation	82.498	-21.219	2000000	10.1038/s41586-022-05453-y	Kjaer2022	2022	10.1038/s41586-022-05453-y
+ERS14240306,ERS14240307,ERS14240308	74a_B1_83_L2_Lok-75-Sample-2a	ancient_metagenome	environmental		permafrost		Greenland	Kap København formation	82.498	-21.219	2000000	10.1038/s41586-022-05453-y	Kjaer2022	2022	10.1038/s41586-022-05453-y
+ERS14240309,ERS14240310,ERS14240311,ERS14240312	74a_B1_83_L2_Lok-75-Sample-2b	ancient_metagenome	environmental		permafrost		Greenland	Kap København formation	82.498	-21.219	2000000	10.1038/s41586-022-05453-y	Kjaer2022	2022	10.1038/s41586-022-05453-y
+ERS14240313,ERS14240314,ERS14240315,ERS14240316	74a_B1_83_L3_Lok-75-Sample-3	ancient_metagenome	environmental		permafrost		Greenland	Kap København formation	82.498	-21.219	2000000	10.1038/s41586-022-05453-y	Kjaer2022	2022	10.1038/s41586-022-05453-y
+ERS14240317,ERS14240318	74a_B1_83_L4_Lok-75-Sample-4a	ancient_metagenome	environmental		permafrost		Greenland	Kap København formation	82.498	-21.219	2000000	10.1038/s41586-022-05453-y	Kjaer2022	2022	10.1038/s41586-022-05453-y
+ERS14240319,ERS14240320	74a_B1_83_L4_Lok-75-Sample-4b	ancient_metagenome	environmental		permafrost		Greenland	Kap København formation	82.498	-21.219	2000000	10.1038/s41586-022-05453-y	Kjaer2022	2022	10.1038/s41586-022-05453-y
+ERS14240294	75_B1_83_L1_KapK-203B	ancient_metagenome	environmental		permafrost		Greenland	Kap København formation	82.498	-21.219	2000000	10.1038/s41586-022-05453-y	Kjaer2022	2022	10.1038/s41586-022-05453-y
+ERS7649027	Yuk15 YuL15/Y4	ancient_metagenome	environmental		permafrost		Russia	Yukechi Yedoma lake	61.761	130.475	100	10.1093/femsml/uqac003	Rigou2022	2022	10.1093/femsml/uqac003
+ERS7183377	SO201-2-12KL_362-361cm	ancient_metagenome	environmental		marine sediment		Russia	Kamchatka	53.993	162.37	11560	10.1038/s41467-023-36845-x	Zimmermann2023	2023	10.1038/s41467-023-36845-x
+SRS17360671	VIC1901	ancient_metagenome	environmental		lake sediment		Australia	Lake Victoria	-38.03	147.6	300	10.1111/fwb.14182	Perez2023	2023	10.1111/fwb.14182
+SRS17360678	VIC1901	ancient_metagenome	environmental		lake sediment		Australia	Lake Victoria	-38.03	147.6	200	10.1111/fwb.14182	Perez2023	2023	10.1111/fwb.14182
+ERS16400045	StB108L.03_StB108L_StBE108_KL77-1_533_52700_sample	ancient_metagenome	environmental		marine sediment		Pacific Ocean	Shirshov Ridge	56.33	170.699	52700	10.1093/ismejo/wrad006	Buchwald2024	2024	10.1093/ismejo/wrad006
+ERS16400036	StB109L.04_StB109L_StBE073_KL77-1_1067_111630_sample	ancient_metagenome	environmental		marine sediment		Pacific Ocean	Shirshov Ridge	56.33	170.699	111600	10.1093/ismejo/wrad006	Buchwald2024	2024	10.1093/ismejo/wrad006
+ERS16400041	StB108L.07_StB108L_StBE079_KL77-1_1163_123860_sample	ancient_metagenome	environmental		marine sediment		Pacific Ocean	Shirshov Ridge	56.33	170.699	123900	10.1093/ismejo/wrad006	Buchwald2024	2024	10.1093/ismejo/wrad006
+ERS16400046	StB108L.02_StB108L_StBE106_KL77-1_423_40030_sample	ancient_metagenome	environmental		marine sediment		Pacific Ocean	Shirshov Ridge	56.33	170.699	40000	10.1093/ismejo/wrad006	Buchwald2024	2024	10.1093/ismejo/wrad006
+SRS18592596	MM12-118b	ancient_metagenome	environmental		permafrost		Canada	Upper Goldbottom	63.9	-138.99	9300	10.1038/s41467-021-27439-6	Murchie2023	2023	10.1002/edn3.493
+SRS18592602	LLII-12-84-3	ancient_metagenome	environmental		permafrost		Canada	Lucky Lady II	63.76	-138.89	13300	10.1038/s41467-021-27439-6	Murchie2023	2023	10.1002/edn3.493
+SRS18592522	LLII 12-217-8	ancient_metagenome	environmental		permafrost		Canada	Lucky Lady II	63.76	-138.89	15500	10.1038/s41467-021-27439-6	Murchie2023	2023	10.1002/edn3.493
+SRS18592524	BC 4-2B	ancient_metagenome	environmental		permafrost		Canada	Bear Creek	64.02	-139.24	30000	10.1038/s41467-021-27439-6	Murchie2023	2023	10.1002/edn3.493
+SRS18592483	MM12-118b	ancient_metagenome	environmental		permafrost		Canada	Upper Goldbottom	63.9	-138.99	9300	10.1038/s41467-021-27439-6	Murchie2023	2023	10.1002/edn3.493
+SRS18592488	LLII-12-84-3	ancient_metagenome	environmental		permafrost		Canada	Lucky Lady II	63.76	-138.89	13300	10.1038/s41467-021-27439-6	Murchie2023	2023	10.1002/edn3.493
+SRS18592492	LLII 12-217-8	ancient_metagenome	environmental		permafrost		Canada	Lucky Lady II	63.76	-138.89	15500	10.1038/s41467-021-27439-6	Murchie2023	2023	10.1002/edn3.493
+SRS18592498	BC 4-2B	ancient_metagenome	environmental		permafrost		Canada	Bear Creek	64.02	-139.24	30000	10.1038/s41467-021-27439-6	Murchie2023	2023	10.1002/edn3.493
+ERS18499307,ERS18499308	ESL001	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	17700	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499309,ERS18499310	ESL003	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	17400	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499311	ESL007	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	17000	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499312	ESL008	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	16600	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499313	ESL009	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	16300	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499316	ESL012	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	15900	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499317,ERS18499318	ESL015	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	15500	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499319	ESL018	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	15100	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499321,ERS18499322	ESL021	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	14700	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499324,ERS18499323	ESL026	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	14100	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499325	ESL028	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	13500	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499326	ESL029	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	13300	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499327,ERS18499328	ESL032	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	12600	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499329,ERS18499330	ESL034	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	12200	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499332,ERS18499331	ESL036	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	11700	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499333,ERS18499334	ESL038	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	11200	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499336,ERS18499337	ESL041	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	10300	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499338	ESL043	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	9300	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499340,ERS18499339	ESL044	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	9000	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499342,ERS18499341	ESL046	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	8200	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499344,ERS18499343	ESL048	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	7600	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499346,ERS18499347	ESL051	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	7200	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499348	ESL053	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	6800	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499349	ESL055	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	6600	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499350,ERS18499351	ESL057	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	6200	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499352	ESL058	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	5500	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499354	ESL061	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	5000	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499355	ESL063	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	4700	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499357,ERS18499356	ESL065	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	4300	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499358	ESL068	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	3500	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499359	ESL069	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	3100	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499361	ESL071	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	2500	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499362,ERS18499363	ESL072	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	2300	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499364	ESL073	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	1900	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499365	ESL074	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	1600	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499366	ESL075	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	1100	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499367	ESL076	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	900	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499368	ESL077	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	700	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499369	ESL078	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	500	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS18499370	ESL079	ancient_metagenome	environmental		lake sediment		China	Lake Naleng 	31.1	99.75	100	10.1007/s00334-009-0219-5	Liu2024	2024	10.1126/sciadv.adn8490
+ERS21136633,ERS21136615	BH194L-3_S25_210810_A00902_B_L002_APMG-38-1	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	100	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136634,ERS21136635	BH194L-4_S16_BH194L-4_S17	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	300	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136636,ERS21136616	BH194L-6_S26_210810_A00902_B_L002_APMG-38-2	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	700	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136637,ERS21136638	BH194L-7_S17_BH194L-7_S18	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	1200	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136640,ERS21136617	BH195L-1_S27_210810_A00902_B_L002_APMG-38-3	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	1900	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136641,ERS21136642	BH195L-2_S18_BH195L-2_S19	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	2500	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136665,ERS21136609	JK109L-6_S31_210810_A00902_B_L002_APMG-38-10	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	3000	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136643,ERS21136618	BH195L-3_S28_210810_A00902_B_L002_APMG-38-4	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	4400	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136644,ERS21136619	BH195L-4_S29_210810_A00902_B_L002_APMG-38-5	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	5200	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136624,ERS21136600	BH193L-1_S22_210810_A00902_B_L001_APMG-37-1	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	6400	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136626,ERS21136625	BH193L-2_S20_BH193L-2_S19	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	6900	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136664,ERS21136623	JK109L-5_S30_210810_A00902_B_L002_APMG-38-9	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	7600	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136627	BH193L-3_S20	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	8500	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136628,ERS21136601	BH193L-4_S23_210810_A00902_B_L001_APMG-37-2	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	9200	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136652	JK081L-1_S1	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	9800	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136661	JK105L-6_S21	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	10100	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136655	JK081L-3_S3	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	10400	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136629,ERS21136602	BH193L-5_S24_210810_A00902_B_L001_APMG-37-3	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	11500	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136656	JK081L-4_S4	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	11800	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136653,ERS21136654	JK081L-2_S16_JK081L-2_S2	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	13000	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136668	JK115L-4_S23	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	13600	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136603	210810_A00902_B_L001_APMG-37-4	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	13700	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136662,ERS21136663	JK109L-4_S21_JK109L-4_S22	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	13900	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136657	JK081L-6_S6	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	14000	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136658	JK081L-7_S7	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	14300	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136622	210810_A00902_B_L002_APMG-38-8	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	14700	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136659	JK081L-8_S8	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	15100	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136621	210810_A00902_B_L002_APMG-38-7	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	15600	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136660	JK081L-9_S9	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	16100	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136667	JK115L-2_S24	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	16500	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136614	210810_A00902_B_L002_APMG-38-15	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	17000	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136647	JK081L-11_S11	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	17200	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136595	210810_A00902_B_L001_APMG-37-11	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	17900	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136594	210810_A00902_B_L001_APMG-37-10	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	18700	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136648	JK081L-12_S12	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	19200	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136608	210810_A00902_B_L001_APMG-37-9	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	19600	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136631	BH194L-1_S25	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	20100	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136607	210810_A00902_B_L001_APMG-37-8	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	20600	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136649	JK081L-13_S13	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	21100	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136606	210810_A00902_B_L001_APMG-37-7	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	21800	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136632	BH194L-2_S26	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	22500	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+ERS21136605	210810_A00902_B_L001_APMG-37-6	ancient_metagenome	environmental		lake sediment		Russia	Lake Lama	69.554	90.255	23000	10.1126/sciadv.adj5527	vonHippel2025	2025	10.1126/sciadv.adj5527
+SRS23809828	LK21-ICst26_sec4_1.5cm	ancient_metagenome	environmental		marine sediment		Greenland	Melville Bay 26G	75.319	61.91	222	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809871	LK21-ICst26_sec4_5cm	ancient_metagenome	environmental		marine sediment		Greenland	Melville Bay 26G	75.319	61.91	904	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809854	LK21-ICst26_sec4_10cm	ancient_metagenome	environmental		marine sediment		Greenland	Melville Bay 26G	75.319	61.91	2231	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809853	LK21-ICst26_sec3_15cm	ancient_metagenome	environmental		marine sediment		Greenland	Melville Bay 26G	75.319	61.91	3411	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809859	LK21-ICst26_sec3_30cm	ancient_metagenome	environmental		marine sediment		Greenland	Melville Bay 26G	75.319	61.91	3992	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809826	LK21-ICst26_sec3_45cm	ancient_metagenome	environmental		marine sediment		Greenland	Melville Bay 26G	75.319	61.91	4704	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809832	LK21-ICst26_sec3_60cm	ancient_metagenome	environmental		marine sediment		Greenland	Melville Bay 26G	75.319	61.91	5497	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809839	LK21-ICst26_sec3_75cm	ancient_metagenome	environmental		marine sediment		Greenland	Melville Bay 26G	75.319	61.91	6268	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809845	LK21-ICst26_sec3_85cm	ancient_metagenome	environmental		marine sediment		Greenland	Melville Bay 26G	75.319	61.91	6792	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809851	LK21-ICst26_sec3_95cm	ancient_metagenome	environmental		marine sediment		Greenland	Melville Bay 26G	75.319	61.91	7309	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809852	LK21-ICst26_sec2_5cm	ancient_metagenome	environmental		marine sediment		Greenland	Melville Bay 26G	75.319	61.91	7814	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809848	LK21-ICst26_sec2_20cm	ancient_metagenome	environmental		marine sediment		Greenland	Melville Bay 26G	75.319	61.91	8582	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809840	LK21-ICst26_sec2_35cm	ancient_metagenome	environmental		marine sediment		Greenland	Melville Bay 26G	75.319	61.91	9280	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809831	LK21-ICst26_sec2_50cm	ancient_metagenome	environmental		marine sediment		Greenland	Melville Bay 26G	75.319	61.91	9940	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809838	LK21-ICst26_sec2_65cm	ancient_metagenome	environmental		marine sediment		Greenland	Melville Bay 26G	75.319	61.91	10666	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809844	LK21-ICst26_sec2_80cm	ancient_metagenome	environmental		marine sediment		Greenland	Melville Bay 26G	75.319	61.91	11415	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809850	LK21-ICst26_sec2_95cm	ancient_metagenome	environmental		marine sediment		Greenland	Melville Bay 26G	75.319	61.91	12178	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809835	Ryder19-24-PC1-sec1_10.5cm	ancient_metagenome	environmental		marine sediment		Greenland	Hall Basin 24PC	81.622	62.296	1218	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809829	Ryder19-24-PC1-sec1_20.5cm	ancient_metagenome	environmental		marine sediment		Greenland	Hall Basin 24PC	81.622	62.296	2444	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809887	Ryder19-24-PC1-sec1_30.5cm	ancient_metagenome	environmental		marine sediment		Greenland	Hall Basin 24PC	81.622	62.296	3671	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809825	Ryder19-24-PC1-sec1_40.5cm	ancient_metagenome	environmental		marine sediment		Greenland	Hall Basin 24PC	81.622	62.296	4897	10.1038/s41467-025-59731-0	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809841	Ryder19-12-GC1_sec1_0.5cm	ancient_metagenome	environmental		marine sediment		Greenland	Lincoln Sea 12-GC	82.578	52.528	134	10.1038/s43247-023-00720-w	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809834	Ryder19-12-GC1_sec1_15.5cm	ancient_metagenome	environmental		marine sediment		Greenland	Lincoln Sea 12-GC	82.578	52.528	4934	10.1038/s43247-023-00720-w	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809827	Ryder19-12-GC1_sec1_25.5cm	ancient_metagenome	environmental		marine sediment		Greenland	Lincoln Sea 12-GC	82.578	52.528	6510	10.1038/s43247-023-00720-w	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809881	Ryder19-12-GC1_sec1_35.5cm	ancient_metagenome	environmental		marine sediment		Greenland	Lincoln Sea 12-GC	82.578	52.528	7114	10.1038/s43247-023-00720-w	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809824	Ryder19-12-GC1_sec1_50.5cm	ancient_metagenome	environmental		marine sediment		Greenland	Lincoln Sea 12-GC	82.578	52.528	7494	10.1038/s43247-023-00720-w	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809861	DA17 st7 73G sect5 cm 0-1	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	286	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809882	DA17 st7 73G sect5 cm 9-10	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	505	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809878	DA17 st7 73G sect5 cm15-16	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	651	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809875	DA17 st7 73G sect4 cm1-2	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	810	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809872	DA17 st7 73G sect4 cm21-22	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	1296	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809868	DA17 st7 73G sect4 cm46-47	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	1904	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809864	DA17 st7 73G sect4 cm71-72	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	2518	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809860	DA17 st7 73G sect3 cm1-2	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	3135	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809880	DA17 st7 73G sect3 cm10-11	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	3360	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809877	DA17 st7 73G sect3 cm20-21	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	3609	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809873	DA17 st7 73G sect3 cm27-28	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	3784	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809870	DA17 st7 73G sect3 cm47-48	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	4283	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809867	DA17 st7 73G sect3 cm87-88	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	5281	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809857	DA17 st7 73G sect2 cm3-4	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	5680	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809863	DA17 st7 73G sect2 cm18-19	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	6052	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809879	DA17 st7 73G sect2 cm38-39	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	6562	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809876	DA17 st7 73G sect2 cm51-52	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	6949	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809874	DA17 st7 73G sect2 cm68-69	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	7454	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809869	DA17 st7 73G sect2 cm83-84	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	7900	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809866	DA17 st7 73G sect2 cm98-99	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	8374	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809862	DA17 st7 73G sect1 cm9-10	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	8724	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0
+SRS23809858	DA17 st7 73G sect1 cm24-25	ancient_metagenome	environmental		marine sediment		Greenland	North-East Greenland 73G	79.068	11.903	9202	10.5194/cp-18-103-2022	Schreiber2025	2025	10.1038/s41467-025-59731-0

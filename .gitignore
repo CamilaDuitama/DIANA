@@ -63,6 +63,7 @@ models/**/*.pkl
 results/experiments/*
 results/figures/*
 results/metrics/*
+results/test_integration/
 !results/**/.gitkeep
 
 # Logs
@@ -71,6 +72,10 @@ logs/*.txt
 logs/*.err
 logs/*.out
 !logs/.gitkeep
+
+# Test outputs
+tests/__pycache__/
+tests/.pytest_cache/
 
 # OS
 .DS_Store
