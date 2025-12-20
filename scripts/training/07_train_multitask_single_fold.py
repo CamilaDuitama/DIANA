@@ -97,12 +97,12 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
 from diana.models.multitask_mlp import MultiTaskMLP, MultiTaskLoss
 from diana.data.loader import MatrixLoader
+from diana.config import ConfigManager
+from diana.utils.config import setup_logging
+from diana.utils.checkpointing import CheckpointManager
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
+# Logger will be initialized in main() after args are parsed
+logger = None
 
 
 def load_matrix_data(matrix_path: str, metadata_path: str) -> Tuple[np.ndarray, pd.DataFrame]:
@@ -367,12 +367,6 @@ def train_outer_fold(
     fold_dir = output_dir / f"fold_{fold_id}"
     fold_dir.mkdir(parents=True, exist_ok=True)
     
-    # Setup logging
-    log_file = fold_dir / f"fold_{fold_id}_training_log_{timestamp}.txt"
-    file_handler = logging.FileHandler(log_file)
-    file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
-    logger.addHandler(file_handler)
-    
     logger.info(f"=== FOLD {fold_id}/{total_folds-1} ===")
     logger.info(f"Output directory: {fold_dir}")
     
@@ -478,9 +472,31 @@ def train_outer_fold(
         weight_decay=best_params["weight_decay"]
     )
     
+    # Initialize checkpoint manager
+    checkpoint_mgr = CheckpointManager(
+        output_dir=fold_dir,
+        save_best=True,
+        save_frequency=config.get("checkpoint_freq", 10),
+        save_final=True,
+        keep_last_n=5
+    )
+    
+    # Resume from checkpoint if requested
+    start_epoch = 0
+    if config.get("resume_from"):
+        try:
+            start_epoch = checkpoint_mgr.resume_from_checkpoint(
+                model, optimizer, config["resume_from"]
+            )
+            logger.info(f"Resumed from checkpoint at epoch {start_epoch}")
+        except Exception as e:
+            logger.warning(f"Could not resume from checkpoint: {e}")
+    
     # Train
     max_epochs = config.get("max_epochs", 200)
-    for epoch in range(max_epochs):
+    best_val_loss = float('inf')
+    
+    for epoch in range(start_epoch, max_epochs):
         model.train()
         outputs = model(X_train)
         total_loss, task_losses = criterion(outputs, y_train)
@@ -489,8 +505,34 @@ def train_outer_fold(
         total_loss.backward()
         optimizer.step()
         
-        if epoch % 20 == 0:
-            logger.info(f"Epoch {epoch}/{max_epochs}, Loss: {total_loss.item():.4f}")
+        # Validation (on test set for final model)
+        model.eval()
+        with torch.no_grad():
+            val_outputs = model(X_test)
+            val_loss, _ = criterion(val_outputs, y_test)
+        
+        # Save checkpoint
+        is_best = val_loss.item() < best_val_loss
+        if is_best:
+            best_val_loss = val_loss.item()
+        
+        checkpoint_mgr.save_checkpoint(
+            model=model,
+            optimizer=optimizer,
+            epoch=epoch + 1,
+            metrics={"train_loss": total_loss.item(), "val_loss": val_loss.item()},
+            hyperparams=best_params,
+            is_best=is_best
+        )
+        
+        if (epoch + 1) % 20 == 0:
+            logger.info(f"Epoch {epoch + 1}/{max_epochs}, Train Loss: {total_loss.item():.4f}, Val Loss: {val_loss.item():.4f}")
+    
+    # Load best model for final evaluation
+    best_checkpoint = checkpoint_mgr.load_best_model()
+    if best_checkpoint:
+        model.load_state_dict(best_checkpoint['model_state_dict'])
+        logger.info(f"Loaded best model (val_loss: {best_checkpoint['metrics']['val_loss']:.4f})")
     
     # Evaluate on test set
     model.eval()
@@ -511,10 +553,13 @@ def train_outer_fold(
             
             logger.info(f"{task} test metrics: {test_metrics[task]}")
     
-    # Save model
-    model_path = fold_dir / f"best_multitask_model_fold_{fold_id}_{timestamp}.pth"
-    torch.save(model.state_dict(), model_path)
-    logger.info(f"Model saved to {model_path}")
+    # Save final model with checkpoint manager
+    final_model_path = checkpoint_mgr.save_final_model(
+        model=model,
+        metrics=test_metrics,
+        hyperparams=best_params
+    )
+    logger.info(f"Final model saved to {final_model_path}")
     
     # Save results
     results = {
@@ -525,7 +570,8 @@ def train_outer_fold(
         "num_classes": num_classes,
         "best_params": best_params,
         "test_metrics": test_metrics,
-        "model_path": str(model_path),
+        "best_model_path": str(fold_dir / "best_model.pth"),
+        "final_model_path": str(final_model_path),
         "timestamp": timestamp
     }
     
@@ -534,60 +580,149 @@ def train_outer_fold(
         json.dump(results, f, indent=2)
     
     logger.info(f"Results saved to {results_path}")
-    logger.removeHandler(file_handler)
+    logger.info("=" * 80)
     
     return results
 
 
 def main():
     parser = argparse.ArgumentParser(description='Multi-task MLP hyperparameter optimization')
+    
+    # Configuration
+    parser.add_argument('--config', type=Path, help='YAML configuration file (overrides other args)')
+    
+    # Fold parameters
     parser.add_argument('--fold_id', type=int, required=True, help='Fold ID (0-indexed)')
     parser.add_argument('--total_folds', type=int, default=5, help='Total number of folds')
-    parser.add_argument('--features', type=str, required=True, help='Feature matrix path (.pa.mat file)')
-    parser.add_argument('--metadata', type=str, required=True, help='Metadata path (.tsv file)')
-    parser.add_argument('--output', type=str, default='results/multitask_gpu', help='Output directory')
+    
+    # Data paths
+    parser.add_argument('--features', type=str, help='Feature matrix path (.pa.mat file)')
+    parser.add_argument('--metadata', type=str, help='Metadata path (.tsv file)')
+    parser.add_argument('--output', type=str, default='results/experiments/multitask', help='Output directory')
+    
+    # Training parameters
     parser.add_argument('--n_trials', type=int, default=50, help='Number of Optuna trials')
     parser.add_argument('--max_epochs', type=int, default=200, help='Maximum training epochs')
     parser.add_argument('--patience', type=int, default=15, help='Early stopping patience')
-    parser.add_argument('--use_gpu', action='store_true', help='Use GPU if available')
-    parser.add_argument('--random_seed', type=int, default=42, help='Random seed')
     parser.add_argument('--n_inner_splits', type=int, default=3, help='Number of inner CV folds')
+    parser.add_argument('--random_seed', type=int, default=42, help='Random seed')
+    
+    # Hardware
+    parser.add_argument('--use_gpu', action='store_true', help='Use GPU if available')
+    
+    # Checkpointing
+    parser.add_argument('--resume_from', type=Path, help='Resume from checkpoint')
+    parser.add_argument('--checkpoint_freq', type=int, default=10, help='Save checkpoint every N epochs')
     
     args = parser.parse_args()
     
+    # Load configuration if provided
+    config = None
+    if args.config:
+        try:
+            config = ConfigManager.from_yaml(args.config)
+            logger_instance = setup_logging(
+                log_file=Path(args.output) / f"fold_{args.fold_id}_training.log",
+                level=config.get("logging.level", "INFO"),
+                log_to_console=config.get("logging.log_to_console", True),
+                log_to_file=config.get("logging.log_to_file", True)
+            )
+        except Exception as e:
+            print(f"Error loading config: {e}")
+            sys.exit(1)
+    else:
+        logger_instance = setup_logging(
+            log_file=Path(args.output) / f"fold_{args.fold_id}_training.log",
+            level="INFO",
+            log_to_console=True,
+            log_to_file=True
+        )
+    
+    # Set global logger
+    global logger
+    logger = logging.getLogger(__name__)
+    
+    logger.info("=" * 80)
+    logger.info("DIANA Multi-Task Hyperparameter Optimization")
+    logger.info("=" * 80)
+    
+    # Get parameters (config overrides command-line args)
+    features_path = config.get("data.train_matrix") if config else args.features
+    metadata_path = config.get("data.train_metadata") if config else args.metadata
+    output_dir = Path(config.get("output.base_dir") if config else args.output)
+    n_trials = config.get("training.n_trials") if config else args.n_trials
+    max_epochs = config.get("training.max_epochs") if config else args.max_epochs
+    patience = config.get("training.early_stopping_patience") if config else args.patience
+    n_inner_splits = config.get("training.n_inner_splits") if config else args.n_inner_splits
+    random_seed = config.get("training.random_seed") if config else args.random_seed
+    use_gpu = config.get("training.use_gpu") if config else args.use_gpu
+    checkpoint_freq = config.get("output.checkpoint_frequency") if config else args.checkpoint_freq
+    
+    # Validate required parameters
+    if not features_path or not metadata_path:
+        logger.error("Must provide --features and --metadata, or --config with data paths")
+        sys.exit(1)
+    
+    # Save configuration for reproducibility
+    fold_dir = output_dir / f"fold_{args.fold_id}"
+    fold_dir.mkdir(parents=True, exist_ok=True)
+    
+    if config:
+        config.save(fold_dir / "config_used.yaml")
+        logger.info(f"Configuration saved to {fold_dir / 'config_used.yaml'}")
+    
+    logger.info(f"Fold: {args.fold_id}/{args.total_folds}")
+    logger.info(f"Features: {features_path}")
+    logger.info(f"Metadata: {metadata_path}")
+    logger.info(f"Output: {output_dir}")
+    logger.info(f"Trials: {n_trials}, Max Epochs: {max_epochs}, Patience: {patience}")
+    logger.info(f"GPU: {use_gpu}, Random Seed: {random_seed}")
+    
     # Set random seeds
-    np.random.seed(args.random_seed)
-    torch.manual_seed(args.random_seed)
+    np.random.seed(random_seed)
+    torch.manual_seed(random_seed)
     if torch.cuda.is_available():
-        torch.cuda.manual_seed(args.random_seed)
+        torch.cuda.manual_seed(random_seed)
     
     # Load data
-    features, metadata = load_matrix_data(args.features, args.metadata)
+    try:
+        logger.info(f"Loading data from {features_path}")
+        features, metadata = load_matrix_data(features_path, metadata_path)
+        logger.info(f"Loaded {features.shape[0]} samples × {features.shape[1]} features")
+    except Exception as e:
+        logger.error(f"Failed to load data: {e}", exc_info=True)
+        sys.exit(1)
     
-    logger.info(f"Loaded {features.shape[0]} samples with {features.shape[1]} features")
-    
-    # Configuration
-    config = {
-        'n_trials': args.n_trials,
-        'max_epochs': args.max_epochs,
-        'patience': args.patience,
-        'use_gpu': args.use_gpu,
-        'n_inner_splits': args.n_inner_splits
+    # Configuration for training
+    train_config = {
+        'n_trials': n_trials,
+        'max_epochs': max_epochs,
+        'patience': patience,
+        'use_gpu': use_gpu,
+        'n_inner_splits': n_inner_splits,
+        'checkpoint_freq': checkpoint_freq,
+        'resume_from': args.resume_from
     }
     
     # Train fold
-    output_dir = Path(args.output)
-    results = train_outer_fold(
-        fold_id=args.fold_id,
-        total_folds=args.total_folds,
-        features=features,
-        metadata=metadata,
-        config=config,
-        output_dir=output_dir
-    )
-    
-    logger.info("=== FOLD COMPLETE ===")
-    logger.info(f"Results: {results['test_metrics']}")
+    try:
+        results = train_outer_fold(
+            fold_id=args.fold_id,
+            total_folds=args.total_folds,
+            features=features,
+            metadata=metadata,
+            config=train_config,
+            output_dir=output_dir
+        )
+        
+        logger.info("=" * 80)
+        logger.info("=== FOLD COMPLETE ===")
+        logger.info("=" * 80)
+        logger.info(f"Results: {results['test_metrics']}")
+        
+    except Exception as e:
+        logger.error(f"Training failed: {e}", exc_info=True)
+        sys.exit(1)
 
 
 if __name__ == "__main__":

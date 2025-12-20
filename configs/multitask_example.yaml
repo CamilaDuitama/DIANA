@@ -1,0 +1,79 @@
+# DIANA Multi-Task Training Configuration
+# =========================================
+# 
+# This is an example configuration file for training multi-task classifiers.
+# Override default settings by specifying values here.
+# 
+# Usage:
+#   diana-train multitask --config configs/multitask_example.yaml
+
+# Data paths
+data:
+  train_matrix: data/splits/train_matrix.pa.mat
+  train_metadata: data/splits/train_metadata.tsv
+  test_matrix: data/splits/test_matrix.pa.mat
+  test_metadata: data/splits/test_metadata.tsv
+
+# Output directories
+output:
+  base_dir: results/experiments/multitask
+  experiment_name: run_001  # Auto-generated if null
+  save_checkpoints: true
+  checkpoint_frequency: 10  # Save every N epochs
+
+# Training parameters
+training:
+  n_folds: 5
+  n_trials: 50  # Optuna hyperparameter search trials per fold
+  max_epochs: 200
+  batch_size: 32
+  n_inner_splits: 3  # Inner CV splits for validation
+  random_seed: 42
+  use_gpu: true
+  early_stopping_patience: 20
+
+# Model architecture (starting point for Optuna)
+model:
+  hidden_dims: [256, 128, 64]
+  activation: relu  # relu, gelu, selu
+  dropout: 0.3
+  batch_norm: true
+  task_weights:
+    sample_type: 1.0
+    community_type: 1.0
+    sample_host: 1.0
+    material: 1.0
+
+# Optimizer settings
+optimizer:
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  optimizer_type: adam  # adam, adamw, sgd
+
+# Hyperparameter search space (for Optuna)
+optuna:
+  n_layers: [2, 5]  # Min and max number of hidden layers
+  hidden_dim_min: 64
+  hidden_dim_max: 512
+  learning_rate_min: 0.00001
+  learning_rate_max: 0.01
+  dropout_min: 0.0
+  dropout_max: 0.5
+  activations: [relu, gelu, selu]
+  batch_sizes: [16, 32, 64, 128, 256]
+
+# Logging settings
+logging:
+  level: INFO  # DEBUG, INFO, WARNING, ERROR
+  log_to_file: true
+  log_to_console: true
+  tensorboard: false
+
+# SLURM settings (for --use-slurm mode)
+slurm:
+  partition: gpu
+  mem: 64G
+  cpus_per_task: 8
+  gres: gpu:1
+  qos: gpu
+  time: "48:00:00"
