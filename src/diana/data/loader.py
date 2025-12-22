@@ -59,26 +59,29 @@ logger = logging.getLogger(__name__)
 
 class MatrixLoader:
     """
-    Load k-mer matrices in .mat format (space-separated with sample IDs).
+    Load k-mer/unitig matrices in .mat format (space-separated with IDs).
     
-    Matrix format: Each row is a sample
-        Column 0: Sample ID (e.g., ERR001, SRR002)
-        Columns 1+: Feature values (k-mer presence/absence or counts)
+    Matrix format: Each row is a FEATURE (k-mer/unitig), NOT a sample
+        Column 0: Feature ID (unitig_id, k-mer sequence, etc.)
+        Columns 1+: Sample values (presence/absence, fractions, counts)
     
-    Example:
-        ERR001 0.0 1.0 0.0 1.0 ...
-        ERR002 1.0 0.0 1.0 0.0 ...
+    Example file format:
+        496659 0.0 1.0 0.0 1.0 ...  (feature ID 496659, values for each sample)
+        545130 1.0 0.0 1.0 0.0 ...  (feature ID 545130, values for each sample)
         ...
+    
+    Returns: Matrix is TRANSPOSED to (n_samples, n_features) for ML compatibility
     
     Features:
       - Fast polars-based CSV reading (10x faster than numpy.loadtxt)
-      - Automatic alignment with metadata
-      - Sample ID extraction and validation
+      - Auto-transposes to (samples × features) for sklearn/torch
+      - Sample ID extraction from file-of-files (FOF) when available
       - Memory-efficient processing
     
     Used by: 
       - scripts/training/07_train_multitask_single_fold.py
-      - Any script requiring k-mer matrix loading
+      - scripts/data_prep/06_analyze_unitigs.py
+      - Any script requiring k-mer/unitig matrix loading
     """
     
     def __init__(self, matrix_path: Path):
@@ -86,13 +89,15 @@ class MatrixLoader:
         Initialize matrix loader.
         
         Args:
-            matrix_path: Path to .pa.mat or .abundance.mat file
+            matrix_path: Path to .pa.mat, .frac.mat, or .abundance.mat file
         """
         self.matrix_path = Path(matrix_path)
         
     def load(self, return_pandas: bool = False) -> Tuple[np.ndarray, np.ndarray, Optional[pd.DataFrame]]:
         """
-        Load k-mer matrix using polars for fast I/O.
+        Load k-mer/unitig matrix using polars for fast I/O.
+        
+        Matrix file has features as rows. This method transposes to (samples × features).
         
         Args:
             return_pandas: If True, return sample IDs as pandas DataFrame for sklearn compatibility
@@ -100,7 +105,7 @@ class MatrixLoader:
         Returns:
             Tuple of (features_matrix, sample_ids, sample_ids_df)
             - features: np.ndarray of shape (n_samples, n_features)
-            - sample_ids: np.ndarray of sample IDs
+            - sample_ids: np.ndarray of sample IDs (extracted from directory or inferred)
             - sample_ids_df: Optional pandas DataFrame with 'Run_accession' column
         """
         logger.info(f"Loading matrix from {self.matrix_path}")
@@ -113,14 +118,21 @@ class MatrixLoader:
             infer_schema_length=0  # Load as strings first, then convert
         )
         
-        # Extract sample IDs (first column)
-        sample_ids = df[:, 0].to_numpy()
+        # Extract feature IDs (first column) - not used but shows we loaded correctly
+        feature_ids = df[:, 0].to_numpy()
         
-        # Extract features (remaining columns) as float32
-        features = df[:, 1:].to_numpy().astype(np.float32)
+        # Extract data (remaining columns) as float32
+        # Shape: (n_features, n_samples)
+        data = df[:, 1:].to_numpy().astype(np.float32)
         
-        logger.info(f"Loaded {features.shape[0]} samples × {features.shape[1]} features")
-        logger.info(f"Sample IDs: {sample_ids[:3]}...")
+        logger.info(f"Loaded {data.shape[0]} features × {data.shape[1]} samples (before transpose)")
+        
+        # Transpose to (n_samples, n_features) for ML compatibility
+        features = data.T
+        logger.info(f"Transposed to {features.shape[0]} samples × {features.shape[1]} features")
+        
+        # Try to get sample IDs from kmtricks.fof in parent directory
+        sample_ids = self._get_sample_ids(expected_count=features.shape[0])
         
         # Optionally return pandas DataFrame for sklearn compatibility
         sample_ids_df = None
@@ -128,6 +140,46 @@ class MatrixLoader:
             sample_ids_df = pd.DataFrame({'Run_accession': sample_ids})
         
         return features, sample_ids, sample_ids_df
+    
+    def _get_sample_ids(self, expected_count: int) -> np.ndarray:
+        """
+        Extract sample IDs from kmtricks.fof file or generate placeholder IDs.
+        
+        Args:
+            expected_count: Number of samples expected (for validation)
+            
+        Returns:
+            Array of sample IDs
+        """
+        # Look for kmtricks.fof in matrix directory structure
+        matrix_dir = self.matrix_path.parent
+        fof_candidates = [
+            matrix_dir / "kmer_matrix" / "kmtricks.fof",
+            matrix_dir.parent / "kmer_matrix" / "kmtricks.fof",
+            matrix_dir / "kmtricks.fof"
+        ]
+        
+        for fof_path in fof_candidates:
+            if fof_path.exists():
+                logger.info(f"Reading sample IDs from {fof_path}")
+                sample_ids = []
+                with open(fof_path, 'r') as f:
+                    for line in f:
+                        # FOF format: sample_id : /path/to/file
+                        sample_id = line.strip().split()[0]
+                        sample_ids.append(sample_id)
+                
+                if len(sample_ids) == expected_count:
+                    logger.info(f"Sample IDs: {sample_ids[:3]}...")
+                    return np.array(sample_ids)
+                else:
+                    logger.warning(f"FOF has {len(sample_ids)} IDs but matrix has {expected_count} samples")
+        
+        # Fallback: generate placeholder IDs
+        logger.warning(f"kmtricks.fof not found, generating placeholder sample IDs")
+        sample_ids = np.array([f"sample_{i:03d}" for i in range(expected_count)])
+        logger.info(f"Sample IDs: {sample_ids[:3]}...")
+        return sample_ids
     
     def load_with_metadata(
         self,

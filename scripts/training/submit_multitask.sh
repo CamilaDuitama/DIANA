@@ -55,10 +55,11 @@ MODE=${1:-prod}
 case $MODE in
     test)
         echo "Submitting TEST job (dummy data: 100 samples, 2 folds, 5 trials, 20 epochs)..."
-        FEATURES="data/test_data/splits/train_matrix_100feat.pa.mat" \
-        METADATA="data/test_data/splits/train_metadata.tsv" \
-        OUTPUT_DIR="results/multitask/hyperopt_test" \
-        LOG_DIR="logs/multitask/hyperopt_test" \
+        echo "Usage: Set FEATURES and METADATA environment variables, or use defaults"
+        FEATURES="${FEATURES:-data/test_data/splits/train_matrix_100feat.pa.mat}" \
+        METADATA="${METADATA:-data/test_data/splits/train_metadata.tsv}" \
+        OUTPUT_DIR="${OUTPUT_DIR:-results/multitask/hyperopt_test}" \
+        LOG_DIR="${LOG_DIR:-logs/multitask/hyperopt_test}" \
         TOTAL_FOLDS=2 \
         N_TRIALS=5 \
         MAX_EPOCHS=20 \
@@ -67,11 +68,21 @@ case $MODE in
         ;;
     
     prod)
-        echo "Submitting PRODUCTION job (full data: 2609 samples, 5 folds, 50 trials, 200 epochs)..."
-        FEATURES="data/splits/train_matrix.pa.mat" \
-        METADATA="data/splits/train_metadata.tsv" \
-        OUTPUT_DIR="results/multitask/hyperopt" \
-        LOG_DIR="logs/multitask/hyperopt" \
+        echo "Submitting PRODUCTION job (full data: 3070 samples, 5 folds, 50 trials, 200 epochs)..."
+        echo "Set FEATURES and METADATA environment variables to specify input data"
+        echo "Example: FEATURES=data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat \\"
+        echo "         METADATA=data/metadata/DIANA_metadata.tsv \\"
+        echo "         ./scripts/training/submit_multitask.sh prod"
+        
+        if [ -z "$FEATURES" ] || [ -z "$METADATA" ]; then
+            echo ""
+            echo "ERROR: FEATURES and METADATA environment variables must be set for prod mode"
+            echo "       This ensures you explicitly choose which matrix to use (.pa.mat, .frac.mat, etc.)"
+            exit 1
+        fi
+        
+        OUTPUT_DIR="${OUTPUT_DIR:-results/multitask/hyperopt}" \
+        LOG_DIR="${LOG_DIR:-logs/multitask/hyperopt}" \
         TOTAL_FOLDS=5 \
         N_TRIALS=50 \
         MAX_EPOCHS=200 \

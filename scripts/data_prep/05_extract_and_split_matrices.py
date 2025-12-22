@@ -6,10 +6,13 @@ Reads the large unitig matrix (104K features × 3K samples), extracts only the
 DIANA dataset samples (3070 samples), and splits them according to the
 stratified train/test split (85%/15%).
 
-Input: /pasteur/appa/scratch/cduitama/decOM/data/unitigs/matrices/large_matrix_3116/
-Output: data/test_data/matrices/ and data/test_data/splits/
+Usage:
+    python scripts/data_prep/05_extract_and_split_matrices.py \\
+        --source-matrix /path/to/large_matrix_3116 \\
+        --output data/extracted_matrices
 """
 
+import argparse
 import logging
 from pathlib import Path
 import polars as pl
@@ -19,11 +22,7 @@ import shutil
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-PROJECT_ROOT = Path(__file__).parent.parent
-SOURCE_MATRIX_DIR = Path("/pasteur/appa/scratch/cduitama/decOM/data/unitigs/matrices/large_matrix_3116")
-METADATA_PATH = PROJECT_ROOT / "data" / "metadata" / "DIANA_metadata.tsv"
-SPLITS_DIR = PROJECT_ROOT / "data" / "splits"
-OUTPUT_DIR = PROJECT_ROOT / "data" / "test_data"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 def load_sample_order(fof_path: Path) -> list[str]:
     """Load sample IDs from kmtricks.fof (defines matrix column order)."""
@@ -51,13 +50,32 @@ def save_matrix(matrix: np.ndarray, sample_ids: list[str], output_path: Path):
     logger.info(f"Saved {len(sample_ids)} samples × {matrix.shape[0]} features to {output_path.name}")
 
 def main():
+    parser = argparse.ArgumentParser(
+        description='Extract DIANA samples from full matrix and split into train/test',
+        formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    parser.add_argument('--source-matrix', type=Path, required=True,
+                       help='Path to source matrix directory (e.g., large_matrix_3116)')
+    parser.add_argument('--metadata', type=Path,
+                       default=PROJECT_ROOT / "data" / "metadata" / "DIANA_metadata.tsv",
+                       help='Path to DIANA metadata TSV')
+    parser.add_argument('--splits-dir', type=Path,
+                       default=PROJECT_ROOT / "data" / "splits",
+                       help='Path to directory with train/test split IDs')
+    parser.add_argument('--output', type=Path,
+                       default=PROJECT_ROOT / "data" / "test_data",
+                       help='Output directory for extracted matrices')
+    args = parser.parse_args()
+    
     logger.info("Starting matrix extraction and splitting...")
+    logger.info(f"Source matrix: {args.source_matrix}")
+    logger.info(f"Output directory: {args.output}")
     
     # Load sample metadata and splits
-    all_sample_ids = load_sample_order(SOURCE_MATRIX_DIR / "kmer_matrix" / "kmtricks.fof")
-    diana_samples = set(pl.read_csv(METADATA_PATH, separator='\t')['Run_accession'].to_list())
-    train_ids = load_split_ids(SPLITS_DIR / "train_ids.txt")
-    test_ids = load_split_ids(SPLITS_DIR / "test_ids.txt")
+    all_sample_ids = load_sample_order(args.source_matrix / "kmer_matrix" / "kmtricks.fof")
+    diana_samples = set(pl.read_csv(args.metadata, separator='\t')['Run_accession'].to_list())
+    train_ids = load_split_ids(args.splits_dir / "train_ids.txt")
+    test_ids = load_split_ids(args.splits_dir / "test_ids.txt")
     
     logger.info(f"Train: {len(train_ids)}, Test: {len(test_ids)}")
     
@@ -83,10 +101,10 @@ def main():
     logger.info(f"Found {len(diana_indices)} DIANA samples (Train: {len(train_sample_ids)}, Test: {len(test_sample_ids)})")
     
     # Process both PA and abundance matrices
-    for matrix_type in ['pa', 'abundance']:
+    for matrix_type in ['pa', 'abundance', 'frac']:
         logger.info(f"\nProcessing {matrix_type} matrix...")
         
-        matrix_file = SOURCE_MATRIX_DIR / f"unitigs.{matrix_type}.mat"
+        matrix_file = args.source_matrix / f"unitigs.{matrix_type}.mat"
         if not matrix_file.exists():
             logger.warning(f"Matrix not found: {matrix_file}")
             continue
@@ -96,26 +114,26 @@ def main():
         diana_matrix = matrix[:, diana_indices]
         
         # Save matrices
-        output_dir = OUTPUT_DIR / "matrices"
+        output_dir = args.output / "matrices"
         save_matrix(diana_matrix, diana_sample_ids, output_dir / f"unitigs.{matrix_type}.mat")
         save_matrix(diana_matrix[:, train_indices], train_sample_ids, 
-                   OUTPUT_DIR / "splits" / f"train_matrix.{matrix_type}.mat")
+                   args.output / "splits" / f"train_matrix.{matrix_type}.mat")
         save_matrix(diana_matrix[:, test_indices], test_sample_ids,
-                   OUTPUT_DIR / "splits" / f"test_matrix.{matrix_type}.mat")
+                   args.output / "splits" / f"test_matrix.{matrix_type}.mat")
     
     # Copy split configuration files
     logger.info("\nCopying split configuration...")
-    splits_output = OUTPUT_DIR / "splits"
+    splits_output = args.output / "splits"
     splits_output.mkdir(parents=True, exist_ok=True)
     
     for split_file in ['train_ids.txt', 'test_ids.txt', 'val_ids.txt', 'split_config.json']:
-        src = SPLITS_DIR / split_file
+        src = args.splits_dir / split_file
         if src.exists():
             shutil.copy(src, splits_output / split_file)
     
-    shutil.copy(METADATA_PATH, OUTPUT_DIR / "metadata.tsv")
+    shutil.copy(args.metadata, args.output / "metadata.tsv")
     
-    logger.info(f"\n✅ Matrix extraction complete! Output: {OUTPUT_DIR}")
+    logger.info(f"\n✅ Matrix extraction complete! Output: {args.output}")
 
 if __name__ == "__main__":
     main()
