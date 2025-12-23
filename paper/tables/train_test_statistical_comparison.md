@@ -8,8 +8,8 @@
 
 ## Summary
 
-- Significant differences: 1 / 46
-- Non-significant: 43 / 46
+- Significant differences: 1 / 49
+- Non-significant: 46 / 49
 
 ⚠️ **Variables with significant differences**:
 - **sample_host** (p = 0.0236)
@@ -64,3 +64,6 @@
 | size_contigs_before_compression | Numeric | Kolmogorov-Smirnov | 0.0384 | 0.6235 | No |  |
 | size_unitigs_before_compression | Numeric | Kolmogorov-Smirnov | 0.0328 | 0.7945 | No |  |
 | size_unitigs_after_compression | Numeric | Kolmogorov-Smirnov | 0.0338 | 0.7603 | No |  |
+| Unitigs per Sample (Sparsity) | Numeric | Kolmogorov-Smirnov | 0.0507 | 0.2557 | No |  |
+| Mean Fraction per Sample | Numeric | Kolmogorov-Smirnov | 0.0472 | 0.3349 | No |  |
+| GC Content of Present Unitigs (%) | Numeric | Kolmogorov-Smirnov | 0.0000 | 1.0000 | No |  |

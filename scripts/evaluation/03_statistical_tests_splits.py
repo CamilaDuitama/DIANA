@@ -78,6 +78,104 @@ def ks_test(train_series: pl.Series, test_series: pl.Series) -> Tuple[float, flo
         return np.nan, np.nan, f"Error: {str(e)}"
 
 
+def add_unitig_tests(train_ids, test_ids, config):
+    """Add statistical tests for unitig-level features (sparsity, GC content)."""
+    from diana.data.loader import MatrixLoader
+    from Bio import SeqIO
+    from Bio.SeqUtils import gc_fraction
+    
+    results = []
+    
+    # Load matrix and sequences
+    matrix_dir = Path(config.get("matrix_dir", "data/matrices/large_matrix_3070_with_frac"))
+    unitigs_frac = matrix_dir / "unitigs.frac.mat"
+    unitigs_fa = matrix_dir / "unitigs.fa"
+    
+    if not unitigs_frac.exists() or not unitigs_fa.exists():
+        logger.warning(f"Unitig files not found in {matrix_dir}, skipping unitig tests")
+        return results
+    
+    logger.info("Loading unitig matrix for split comparison...")
+    loader = MatrixLoader(unitigs_frac)
+    matrix, sample_ids, _ = loader.load()
+    
+    # Create sample masks
+    train_mask = np.array([sid in train_ids for sid in sample_ids])
+    test_mask = np.array([sid in test_ids for sid in sample_ids])
+    
+    train_matrix = matrix[train_mask]
+    test_matrix = matrix[test_mask]
+    
+    # Test 1: Sparsity per sample (unitigs per sample)
+    train_unitigs_per_sample = (train_matrix > 0).sum(axis=1)
+    test_unitigs_per_sample = (test_matrix > 0).sum(axis=1)
+    
+    stat, pval, test_name = ks_test(
+        pl.Series(train_unitigs_per_sample), 
+        pl.Series(test_unitigs_per_sample)
+    )
+    
+    results.append({
+        "Variable": "Unitigs per Sample (Sparsity)",
+        "Type": "Numeric",
+        "Test": test_name,
+        "Statistic": f"{stat:.4f}" if not np.isnan(stat) else "N/A",
+        "P-value": f"{pval:.4f}" if not np.isnan(pval) else "N/A",
+        "Significant": "Yes" if pval < 0.05 else "No" if not np.isnan(pval) else "N/A"
+    })
+    
+    # Test 2: Mean fraction per sample
+    train_mean_frac = train_matrix.mean(axis=1)
+    test_mean_frac = test_matrix.mean(axis=1)
+    
+    stat, pval, test_name = ks_test(
+        pl.Series(train_mean_frac),
+        pl.Series(test_mean_frac)
+    )
+    
+    results.append({
+        "Variable": "Mean Fraction per Sample",
+        "Type": "Numeric",
+        "Test": test_name,
+        "Statistic": f"{stat:.4f}" if not np.isnan(stat) else "N/A",
+        "P-value": f"{pval:.4f}" if not np.isnan(pval) else "N/A",
+        "Significant": "Yes" if pval < 0.05 else "No" if not np.isnan(pval) else "N/A"
+    })
+    
+    # Test 3: GC content distribution (requires computing from sequences)
+    logger.info("Computing GC content from unitig sequences...")
+    gc_contents = []
+    for record in SeqIO.parse(unitigs_fa, "fasta"):
+        gc_contents.append(gc_fraction(record.seq) * 100)
+    
+    if len(gc_contents) > 0:
+        # GC content is same for both splits, but test mean GC of present unitigs
+        gc_array = np.array(gc_contents)
+        
+        # Get which unitigs are present in each split
+        train_present = (train_matrix > 0).any(axis=0)  # Which unitigs present in train
+        test_present = (test_matrix > 0).any(axis=0)   # Which unitigs present in test
+        
+        train_gc = gc_array[train_present]
+        test_gc = gc_array[test_present]
+        
+        stat, pval, test_name = ks_test(
+            pl.Series(train_gc),
+            pl.Series(test_gc)
+        )
+        
+        results.append({
+            "Variable": "GC Content of Present Unitigs (%)",
+            "Type": "Numeric",
+            "Test": test_name,
+            "Statistic": f"{stat:.4f}" if not np.isnan(stat) else "N/A",
+            "P-value": f"{pval:.4f}" if not np.isnan(pval) else "N/A",
+            "Significant": "Yes" if pval < 0.05 else "No" if not np.isnan(pval) else "N/A"
+        })
+    
+    return results
+
+
 def main():
     parser = argparse.ArgumentParser(description='Statistical tests for train/test split comparison')
     parser.add_argument('--config', default='configs/data_config.yaml', help='Path to config file')
@@ -149,6 +247,11 @@ def main():
         results.append({"Variable": col, "Type": "Numeric" if is_numeric else "Categorical",
                        "Test": test_name, "Statistic": stat_str, "P-value": p_val_str,
                        "Significant": significant, "Note": "" if significant != "N/A" else test_name})
+    
+    # Add unitig-specific tests (sparsity and GC content)
+    logger.info("Adding unitig-level statistical tests...")
+    unitig_results = add_unitig_tests(train_ids, test_ids, config)
+    results.extend(unitig_results)
     
     # Write results
     output_dir = Path("paper/tables")

@@ -1,0 +1,33 @@
+2025-12-23 01:04:19 - root - INFO - Logging to file: results/multitask/hyperopt/fold_0_training.log
+2025-12-23 01:04:19 - __main__ - INFO - ================================================================================
+2025-12-23 01:04:19 - __main__ - INFO - DIANA Multi-Task Hyperparameter Optimization
+2025-12-23 01:04:19 - __main__ - INFO - ================================================================================
+2025-12-23 01:04:19 - __main__ - INFO - Fold: 0/5
+2025-12-23 01:04:19 - __main__ - INFO - Features: data/splits/train_matrix.pa.mat
+2025-12-23 01:04:19 - __main__ - INFO - Metadata: data/splits/train_metadata.tsv
+2025-12-23 01:04:19 - __main__ - INFO - Output: results/multitask/hyperopt
+2025-12-23 01:04:19 - __main__ - INFO - Trials: 50, Max Epochs: 200, Patience: 15
+2025-12-23 01:04:19 - __main__ - INFO - GPU: True, Random Seed: 42
+2025-12-23 01:04:19 - __main__ - INFO - Loading data from data/splits/train_matrix.pa.mat
+2025-12-23 01:04:19 - diana.data.loader - INFO - Loading matrix from data/splits/train_matrix.pa.mat
+2025-12-23 01:04:19 - __main__ - ERROR - Failed to load data: No such file or directory (os error 2): data/splits/train_matrix.pa.mat
+Traceback (most recent call last):
+  File "/pasteur/appa/scratch/cduitama/EDID/decOM-classify/scripts/training/07_train_multitask_single_fold.py", line 690, in main
+    features, metadata = load_matrix_data(features_path, metadata_path)
+  File "/pasteur/appa/scratch/cduitama/EDID/decOM-classify/scripts/training/07_train_multitask_single_fold.py", line 121, in load_matrix_data
+    features, metadata_pl = loader.load_with_metadata(
+  File "/pasteur/appa/scratch/cduitama/EDID/decOM-classify/src/diana/data/loader.py", line 200, in load_with_metadata
+    features, sample_ids, _ = self.load(return_pandas=False)
+  File "/pasteur/appa/scratch/cduitama/EDID/decOM-classify/src/diana/data/loader.py", line 114, in load
+    df = pl.read_csv(
+  File "/pasteur/appa/scratch/cduitama/EDID/decOM-classify/env/lib/python3.10/site-packages/polars/_utils/deprecation.py", line 128, in wrapper
+    return function(*args, **kwargs)
+  File "/pasteur/appa/scratch/cduitama/EDID/decOM-classify/env/lib/python3.10/site-packages/polars/_utils/deprecation.py", line 128, in wrapper
+    return function(*args, **kwargs)
+  File "/pasteur/appa/scratch/cduitama/EDID/decOM-classify/env/lib/python3.10/site-packages/polars/_utils/deprecation.py", line 128, in wrapper
+    return function(*args, **kwargs)
+  File "/pasteur/appa/scratch/cduitama/EDID/decOM-classify/env/lib/python3.10/site-packages/polars/io/csv/functions.py", line 549, in read_csv
+    df = _read_csv_impl(
+  File "/pasteur/appa/scratch/cduitama/EDID/decOM-classify/env/lib/python3.10/site-packages/polars/io/csv/functions.py", line 697, in _read_csv_impl
+    pydf = PyDataFrame.read_csv(
+FileNotFoundError: No such file or directory (os error 2): data/splits/train_matrix.pa.mat

@@ -45,15 +45,66 @@ WORKFLOW:
 5. Print summary and optionally save to JSON
 """
 
-import sys
 import json
 import argparse
 from pathlib import Path
 from typing import Dict, List, Any
 import numpy as np
 import pandas as pd
+from collections import Counter
 
-sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
+
+def format_hyperparameters(flat_params: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Convert flat Optuna hyperparameters to nested structure for final training.
+    
+    Args:
+        flat_params: Flat dictionary with keys like n_layers, hidden_dim_0, etc.
+        
+    Returns:
+        Nested dictionary with model_params, trainer_params, and batch_size
+    """
+    # Extract number of layers (rounded since it's averaged)
+    n_layers = int(round(flat_params['n_layers']))
+    
+    # Reconstruct hidden_dims list from hidden_dim_{i} keys
+    # Only use dimensions that exist (some folds may have had different n_layers)
+    hidden_dims = []
+    for i in range(n_layers):
+        key = f'hidden_dim_{i}'
+        if key in flat_params:
+            hidden_dims.append(int(round(flat_params[key])))
+        else:
+            # If this dimension wasn't present in all folds, skip or use default
+            # This shouldn't happen if averaging worked correctly
+            print(f"Warning: {key} not found, using 256 as default")
+            hidden_dims.append(256)
+    
+    # Extract task weights
+    task_weights = {
+        'sample_type': float(flat_params['task_weight_sample_type']),
+        'community_type': float(flat_params['task_weight_community']),
+        'sample_host': float(flat_params['task_weight_host']),
+        'material': float(flat_params['task_weight_material'])
+    }
+    
+    # Build nested structure
+    formatted = {
+        'model_params': {
+            'hidden_dims': hidden_dims,
+            'dropout': float(flat_params['dropout']),
+            'activation': flat_params['activation'],
+            'use_batch_norm': bool(flat_params['use_batch_norm'])
+        },
+        'trainer_params': {
+            'learning_rate': float(flat_params['learning_rate']),
+            'weight_decay': float(flat_params.get('weight_decay', 0.0)),
+            'task_weights': task_weights
+        },
+        'batch_size': int(round(flat_params['batch_size']))
+    }
+    
+    return formatted
 
 
 def collect_fold_results(results_dir: Path) -> List[Dict[str, Any]]:
@@ -73,7 +124,6 @@ def collect_fold_results(results_dir: Path) -> List[Dict[str, Any]]:
         result_files = list(fold_dir.glob("multitask_fold_*_results_*.json"))
         
         if not result_files:
-            print(f"Warning: No results found in {fold_dir}")
             continue
         
         # Get most recent
@@ -82,7 +132,6 @@ def collect_fold_results(results_dir: Path) -> List[Dict[str, Any]]:
         with open(result_file, 'r') as f:
             fold_results = json.load(f)
             results.append(fold_results)
-            print(f"Loaded {result_file.name}")
     
     return results
 
@@ -123,28 +172,56 @@ def aggregate_metrics(results: List[Dict[str, Any]]) -> pd.DataFrame:
 
 def get_best_hyperparameters(results: List[Dict[str, Any]]) -> Dict[str, Any]:
     """
-    Select best hyperparameters based on average performance.
+    Average hyperparameters across all folds for robust final configuration.
+    
+    P2: Instead of picking the single best fold, we compute mean/mode across all folds.
+    - Numeric hyperparameters: mean across folds
+    - Categorical hyperparameters: mode (most common value)
     
     Args:
         results: List of fold results
         
     Returns:
-        Best hyperparameters dictionary
+        Averaged hyperparameters dictionary
     """
-    # Compute average F1 weighted across all tasks for each fold
-    fold_scores = []
+    # Collect all hyperparameters from all folds
+    all_params = [fold_result['best_params'] for fold_result in results]
     
+    # Get union of all parameter keys (some folds may have different n_layers)
+    all_keys = set()
+    for params in all_params:
+        all_keys.update(params.keys())
+    
+    # Aggregate each parameter
+    aggregated_params = {}
+    
+    for key in all_keys:
+        # Only consider folds that have this key
+        values = [params[key] for params in all_params if key in params]
+        
+        if not values:
+            continue
+            
+        # Check if numeric or categorical
+        if isinstance(values[0], (int, float, np.integer, np.floating)):
+            # Numeric: compute mean
+            aggregated_params[key] = float(np.mean(values))
+        else:
+            # Categorical: use mode (most common)
+            counter = Counter(values)
+            aggregated_params[key] = counter.most_common(1)[0][0]
+    
+    # Compute average F1 across all folds for reporting
+    fold_scores = []
     for fold_result in results:
         test_metrics = fold_result['test_metrics']
         avg_f1 = np.mean([metrics['f1_weighted'] for metrics in test_metrics.values()])
-        fold_scores.append((fold_result['fold_id'], avg_f1, fold_result['best_params']))
+        fold_scores.append((fold_result['fold_id'], avg_f1))
     
-    # Find best fold
-    best_fold_id, best_score, best_params = max(fold_scores, key=lambda x: x[1])
+    overall_avg_f1 = np.mean([score for _, score in fold_scores])
+    print(f"\nAveraged across {len(results)} folds (Overall Avg F1: {overall_avg_f1:.4f})")
     
-    print(f"\nBest fold: {best_fold_id} (Avg F1: {best_score:.4f})")
-    
-    return best_params
+    return aggregated_params
 
 
 def print_summary(summary_df: pd.DataFrame, best_params: Dict[str, Any]):
@@ -163,12 +240,15 @@ def print_summary(summary_df: pd.DataFrame, best_params: Dict[str, Any]):
             print(f"  {row['metric']:20s}: {row['mean_std']}")
     
     print("\n" + "="*80)
-    print("BEST HYPERPARAMETERS (for final training)")
+    print("AVERAGED HYPERPARAMETERS (for final training)")
     print("="*80 + "\n")
     
+    # n_layers is averaged, so round it
+    n_layers = int(round(best_params['n_layers']))
+    
     print("Architecture:")
-    print(f"  Layers: {best_params['n_layers']}")
-    hidden_dims = [best_params[f'hidden_dim_{i}'] for i in range(best_params['n_layers'])]
+    print(f"  Avg layers: {best_params['n_layers']:.1f} (using {n_layers})")
+    hidden_dims = [int(round(best_params[f'hidden_dim_{i}'])) for i in range(n_layers) if f'hidden_dim_{i}' in best_params]
     print(f"  Hidden dims: {hidden_dims}")
     print(f"  Activation: {best_params['activation']}")
     print(f"  Batch norm: {best_params['use_batch_norm']}")
@@ -176,8 +256,8 @@ def print_summary(summary_df: pd.DataFrame, best_params: Dict[str, Any]):
     
     print("\nOptimization:")
     print(f"  Learning rate: {best_params['learning_rate']:.6f}")
-    print(f"  Weight decay: {best_params['weight_decay']:.6f}")
-    print(f"  Batch size: {best_params['batch_size']}")
+    print(f"  Weight decay: {best_params.get('weight_decay', 0.0):.6f}")
+    print(f"  Batch size: {int(round(best_params['batch_size']))}")
     
     print("\nTask Weights:")
     print(f"  sample_type: {best_params['task_weight_sample_type']:.4f}")
@@ -189,18 +269,22 @@ def print_summary(summary_df: pd.DataFrame, best_params: Dict[str, Any]):
 
 
 def save_best_config(best_params: Dict[str, Any], output_path: Path):
-    """Save best hyperparameters for final training."""
+    """Save best hyperparameters for final training in formatted nested structure."""
+    
+    # P1: Format hyperparameters into clean nested structure
+    formatted_params = format_hyperparameters(best_params)
     
     config = {
         "model_type": "MultiTaskMLP",
-        "description": "Best hyperparameters from 5-fold CV with Optuna optimization",
-        "hyperparameters": best_params
+        "description": "Best hyperparameters from 5-fold CV (averaged across all folds)",
+        "hyperparameters": formatted_params,
+        "_raw_averaged_params": best_params  # Keep raw for reference
     }
     
     with open(output_path, 'w') as f:
         json.dump(config, f, indent=2)
     
-    print(f"\nBest config saved to: {output_path}")
+    print(f"\nFormatted config saved to: {output_path}")
 
 
 def main():
@@ -227,14 +311,13 @@ def main():
         return
     
     # Collect results
-    print(f"Collecting results from {results_dir}...\n")
     results = collect_fold_results(results_dir)
     
     if not results:
         print("Error: No results found!")
         return
     
-    print(f"\nCollected {len(results)} folds")
+    print(f"Collected {len(results)} folds")
     
     # Aggregate metrics
     summary_df = aggregate_metrics(results)
@@ -257,8 +340,6 @@ def main():
     
     with open(output_path, 'w') as f:
         json.dump(summary_data, f, indent=2)
-    
-    print(f"\nFull summary saved to: {output_path}")
     
     # Save best config if requested
     if args.save_config:

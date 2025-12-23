@@ -1,0 +1,462 @@
+Run_accession	sample_type_pred_idx	sample_type_true_idx	sample_type_pred	sample_type_true	community_type_pred_idx	community_type_true_idx	community_type_pred	community_type_true	sample_host_pred_idx	sample_host_true_idx	sample_host_pred	sample_host_true	material_pred_idx	material_true_idx	material_pred	material_true
+ERR10114848	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR10114854	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	5	5	Homo sapiens neanderthalensis	Homo sapiens neanderthalensis	3	3	dental calculus	dental calculus
+ERR10114858	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	5	5	Homo sapiens neanderthalensis	Homo sapiens neanderthalensis	3	3	dental calculus	dental calculus
+ERR10114861	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	5	5	Homo sapiens neanderthalensis	Homo sapiens neanderthalensis	3	3	dental calculus	dental calculus
+ERR10114879	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR10167375	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR10430781	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR10493294	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	7	7	permafrost	permafrost
+ERR10493299	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	7	7	permafrost	permafrost
+ERR10493311	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	7	7	permafrost	permafrost
+ERR10493312	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	7	7	permafrost	permafrost
+ERR10493326	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	7	7	permafrost	permafrost
+ERR10493334	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	7	7	permafrost	permafrost
+ERR10493336	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	7	7	permafrost	permafrost
+ERR10493343	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	7	7	permafrost	permafrost
+ERR10493357	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	7	7	permafrost	permafrost
+ERR10493363	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	7	7	permafrost	permafrost
+ERR10841194	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR10878157	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR10878162	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1094782	0	0	ancient_metagenome	ancient_metagenome	1	1	gut	gut	4	4	Homo sapiens	Homo sapiens	4	4	digestive_contents	digestive_contents
+ERR1094785	0	0	ancient_metagenome	ancient_metagenome	1	1	gut	gut	4	4	Homo sapiens	Homo sapiens	4	4	digestive_contents	digestive_contents
+ERR1094787	0	0	ancient_metagenome	ancient_metagenome	1	1	gut	gut	4	4	Homo sapiens	Homo sapiens	4	4	digestive_contents	digestive_contents
+ERR1094793	0	0	ancient_metagenome	ancient_metagenome	1	1	gut	gut	4	4	Homo sapiens	Homo sapiens	4	4	digestive_contents	digestive_contents
+ERR12074344	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR12074352	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR12074362	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR12074380	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR12074385	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR12074396	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1474580	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	0	0	Oral	Oral
+ERR1560012	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1560013	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1560100	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1560107	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1560109	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1688752	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1688760	0	0	ancient_metagenome	ancient_metagenome	3	0	plant tissue	Not applicable - env sample	0	7	Ambrosia artemisiifolia	Not applicable - env sample	5	8	leaf	sediment
+ERR1777519	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR1777534	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR1777544	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR1777550	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR1777560	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR1883406	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1883410	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1883413	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1883418	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1883441	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1883443	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1883445	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1883454	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1883455	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1883461	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1883472	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1883474	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR1894880	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	9	9	shell	shell
+ERR1894908	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	9	9	shell	shell
+ERR1894910	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	9	9	shell	shell
+ERR1894918	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	9	9	shell	shell
+ERR1894919	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	9	9	shell	shell
+ERR2269779	0	0	ancient_metagenome	ancient_metagenome	3	3	plant tissue	plant tissue	1	1	Arabidopsis thaliana	Arabidopsis thaliana	5	5	leaf	leaf
+ERR2269792	0	0	ancient_metagenome	ancient_metagenome	3	3	plant tissue	plant tissue	1	1	Arabidopsis thaliana	Arabidopsis thaliana	5	5	leaf	leaf
+ERR2269795	0	0	ancient_metagenome	ancient_metagenome	3	3	plant tissue	plant tissue	1	1	Arabidopsis thaliana	Arabidopsis thaliana	5	5	leaf	leaf
+ERR2269796	0	0	ancient_metagenome	ancient_metagenome	3	3	plant tissue	plant tissue	1	1	Arabidopsis thaliana	Arabidopsis thaliana	5	5	leaf	leaf
+ERR2269802	0	0	ancient_metagenome	ancient_metagenome	3	3	plant tissue	plant tissue	1	1	Arabidopsis thaliana	Arabidopsis thaliana	5	5	leaf	leaf
+ERR3003627	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR3003632	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR3003636	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR3003645	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR3003652	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR3458790	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR3458791	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR3459718	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR3459721	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR3459734	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR3459742	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR3579673	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	5	5	Homo sapiens neanderthalensis	Homo sapiens neanderthalensis	3	3	dental calculus	dental calculus
+ERR3579676	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR3579688	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	5	5	Homo sapiens neanderthalensis	Homo sapiens neanderthalensis	3	3	dental calculus	dental calculus
+ERR3579700	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	9	9	Pan troglodytes	Pan troglodytes	3	3	dental calculus	dental calculus
+ERR3579706	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR3579715	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	9	9	Pan troglodytes	Pan troglodytes	3	3	dental calculus	dental calculus
+ERR3579729	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR3579732	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR3579745	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	5	5	Homo sapiens neanderthalensis	Homo sapiens neanderthalensis	3	3	dental calculus	dental calculus
+ERR3579748	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	5	5	Homo sapiens neanderthalensis	Homo sapiens neanderthalensis	3	3	dental calculus	dental calculus
+ERR3579750	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR3579759	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	9	9	Pan troglodytes	Pan troglodytes	3	3	dental calculus	dental calculus
+ERR3579761	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	9	9	Pan troglodytes	Pan troglodytes	3	3	dental calculus	dental calculus
+ERR3579763	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	9	9	Pan troglodytes	Pan troglodytes	3	3	dental calculus	dental calculus
+ERR3579766	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	9	9	Pan troglodytes	Pan troglodytes	3	3	dental calculus	dental calculus
+ERR3579781	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR3579782	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR3579787	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR3579811	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR3589326	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR3589328	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR3589330	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR3589336	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR3589350	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR3589351	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR3589353	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR3597286	0	0	ancient_metagenome	ancient_metagenome	3	3	plant tissue	plant tissue	0	0	Ambrosia artemisiifolia	Ambrosia artemisiifolia	5	5	leaf	leaf
+ERR3597287	0	0	ancient_metagenome	ancient_metagenome	3	3	plant tissue	plant tissue	0	0	Ambrosia artemisiifolia	Ambrosia artemisiifolia	5	5	leaf	leaf
+ERR3597294	0	0	ancient_metagenome	ancient_metagenome	3	3	plant tissue	plant tissue	0	0	Ambrosia artemisiifolia	Ambrosia artemisiifolia	5	5	leaf	leaf
+ERR3597295	0	0	ancient_metagenome	ancient_metagenome	3	3	plant tissue	plant tissue	0	0	Ambrosia artemisiifolia	Ambrosia artemisiifolia	5	5	leaf	leaf
+ERR3597481	0	0	ancient_metagenome	ancient_metagenome	3	3	plant tissue	plant tissue	0	0	Ambrosia artemisiifolia	Ambrosia artemisiifolia	5	5	leaf	leaf
+ERR3598356	0	0	ancient_metagenome	ancient_metagenome	3	3	plant tissue	plant tissue	0	0	Ambrosia artemisiifolia	Ambrosia artemisiifolia	5	5	leaf	leaf
+ERR3600831	0	0	ancient_metagenome	ancient_metagenome	3	3	plant tissue	plant tissue	0	0	Ambrosia artemisiifolia	Ambrosia artemisiifolia	5	5	leaf	leaf
+ERR3678176	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR3678187	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	5	Homo sapiens	Homo sapiens neanderthalensis	3	3	dental calculus	dental calculus
+ERR3678600	0	0	ancient_metagenome	ancient_metagenome	1	1	gut	gut	2	2	Canis lupus	Canis lupus	4	4	digestive_contents	digestive_contents
+ERR3678609	0	0	ancient_metagenome	ancient_metagenome	1	1	gut	gut	4	4	Homo sapiens	Homo sapiens	4	4	digestive_contents	digestive_contents
+ERR3678618	0	0	ancient_metagenome	ancient_metagenome	1	1	gut	gut	2	2	Canis lupus	Canis lupus	4	4	digestive_contents	digestive_contents
+ERR3678626	0	0	ancient_metagenome	ancient_metagenome	1	1	gut	gut	2	2	Canis lupus	Canis lupus	4	4	digestive_contents	digestive_contents
+ERR3678629	0	0	ancient_metagenome	ancient_metagenome	1	1	gut	gut	2	2	Canis lupus	Canis lupus	4	4	digestive_contents	digestive_contents
+ERR3728241	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR3761403	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	11	6	soil	midden
+ERR3761407	0	0	ancient_metagenome	ancient_metagenome	1	1	gut	gut	2	2	Canis lupus	Canis lupus	4	4	digestive_contents	digestive_contents
+ERR3772644	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR3804373	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR4172804	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR4172835	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	10	10	Rangifer tarandus	Rangifer tarandus	3	3	dental calculus	dental calculus
+ERR4172836	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	10	10	Rangifer tarandus	Rangifer tarandus	3	3	dental calculus	dental calculus
+ERR4172841	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	10	10	Rangifer tarandus	Rangifer tarandus	3	3	dental calculus	dental calculus
+ERR4172872	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	10	10	Rangifer tarandus	Rangifer tarandus	3	3	dental calculus	dental calculus
+ERR4172977	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	10	10	Rangifer tarandus	Rangifer tarandus	12	12	tooth	tooth
+ERR4173008	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR4173063	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR4173073	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR4334733	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR4373153	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR4373996	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR4374018	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR4374025	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR4374044	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR4374050	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR4374051	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR4374055	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR4374867	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR4374874	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR4374925	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR4375017	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR4375036	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR4375135	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR4375136	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR4375141	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR4408185	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR4426519	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR4426521	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR4426525	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR4426530	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR450858	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	1	1	Skin	Skin
+ERR450967	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	1	1	Skin	Skin
+ERR451220	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	1	1	Skin	Skin
+ERR451258	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	1	1	Skin	Skin
+ERR451472	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	1	1	Skin	Skin
+ERR451524	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	1	1	Skin	Skin
+ERR4596815	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR4596822	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR4863216	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR4863219	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR4863221	0	0	ancient_metagenome	ancient_metagenome	4	2	skeletal tissue	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR4863228	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR4863234	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR4863262	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR4863268	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR4863269	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR4863271	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR4863285	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR4863291	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR4863296	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR4863300	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR4863302	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR4863308	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR4863311	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR4903907	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR4903909	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR5295755	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR5295756	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR5295758	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR5295782	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR5295783	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR5295793	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR5295797	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR5295801	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR5295803	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR5295807	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR5295815	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR5295818	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR5295827	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR5295829	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR5295837	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR5295841	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR5295844	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR5295852	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR5295855	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+ERR5670955	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR5670960	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR567366	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR5729623	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR5729637	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR5729641	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR5729648	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR5729654	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR5766177	0	0	ancient_metagenome	ancient_metagenome	1	1	gut	gut	4	4	Homo sapiens	Homo sapiens	4	4	digestive_contents	digestive_contents
+ERR5766178	0	0	ancient_metagenome	ancient_metagenome	1	1	gut	gut	4	4	Homo sapiens	Homo sapiens	4	4	digestive_contents	digestive_contents
+ERR6093857	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6093862	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6093867	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6093877	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6093879	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6093888	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6093891	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6093896	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6093914	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6093928	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6093948	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6096536	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6096537	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6096539	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6096540	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6096541	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6096545	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6096576	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6096740	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6096822	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6096829	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6096927	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6096929	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6097629	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6098349	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6098552	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6098559	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6098983	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6098984	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6108965	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6108969	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6108971	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6108981	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6108993	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6108994	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6109001	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6109005	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6109012	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6109020	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6109022	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6109055	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	11	11	Ursus arctos	Ursus arctos	3	3	dental calculus	dental calculus
+ERR6178850	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178855	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178869	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178878	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178879	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178882	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178894	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178933	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178938	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178940	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178955	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178956	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178958	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178966	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178967	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178970	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178971	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178974	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178977	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178986	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6178988	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR6430830	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR6430836	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR6430848	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR6589629	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+ERR671914	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	11	11	soil	soil
+ERR671934	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	11	11	soil	soil
+ERR671935	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	11	11	soil	soil
+ERR671938	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	11	11	soil	soil
+ERR671939	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	11	11	soil	soil
+ERR6862847	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	7	7	permafrost	permafrost
+ERR6862852	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	7	7	permafrost	permafrost
+ERR687886	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	11	11	soil	soil
+ERR687889	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	11	11	soil	soil
+ERR687890	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	11	11	soil	soil
+ERR687891	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	11	11	soil	soil
+ERR7919459	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR7919464	0	0	ancient_metagenome	ancient_metagenome	0	2	Not applicable - env sample	oral	7	3	Not applicable - env sample	Gorilla sp.	8	3	sediment	dental calculus
+ERR7919466	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR7919469	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR7919473	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR7919481	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR7919482	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR7919487	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR7919488	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR7919489	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR7919490	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR7919495	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR7919503	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR7919509	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR7919517	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR7919529	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR7919534	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR7919541	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR7919548	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	3	3	Gorilla sp.	Gorilla sp.	3	3	dental calculus	dental calculus
+ERR9465622	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR9465627	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR9465629	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR9465630	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+ERR9612723	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612726	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612733	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612749	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612776	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612789	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612800	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612807	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612814	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612835	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612836	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612841	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612845	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612848	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612865	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612867	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612869	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612875	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612885	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612888	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612889	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612890	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9612894	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+ERR9690362	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	7	7	permafrost	permafrost
+SRR10156713	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR10156739	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR10156743	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR10156753	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR12455956	0	0	ancient_metagenome	ancient_metagenome	1	1	gut	gut	2	2	Canis lupus	Canis lupus	4	4	digestive_contents	digestive_contents
+SRR12455958	0	0	ancient_metagenome	ancient_metagenome	1	1	gut	gut	2	2	Canis lupus	Canis lupus	4	4	digestive_contents	digestive_contents
+SRR12455960	0	0	ancient_metagenome	ancient_metagenome	1	1	gut	gut	2	2	Canis lupus	Canis lupus	4	4	digestive_contents	digestive_contents
+SRR12462942	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR13263120	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR13263124	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	5	5	Homo sapiens neanderthalensis	Homo sapiens neanderthalensis	3	3	dental calculus	dental calculus
+SRR13263130	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	5	5	Homo sapiens neanderthalensis	Homo sapiens neanderthalensis	3	3	dental calculus	dental calculus
+SRR13263132	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR13355805	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR13355813	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR14894174	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR1519045	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	0	0	Oral	Oral
+SRR1519050	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	0	0	Oral	Oral
+SRR1519052	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	0	0	Oral	Oral
+SRR1519055	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	0	0	Oral	Oral
+SRR1519057	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	0	0	Oral	Oral
+SRR16071510	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR16071511	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR17604750	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR17604758	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR17604760	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR17604761	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR17604765	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR17604766	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR17604767	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR17604777	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR17604782	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR17604791	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR17604795	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR17604799	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR17651690	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	11	11	soil	soil
+SRR1794618	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	0	0	Oral	Oral
+SRR1950717	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	1	1	Skin	Skin
+SRR20576757	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR20576758	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR20576772	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR20576774	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR20576794	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR20576803	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR20576811	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR2096707	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	1	1	Skin	Skin
+SRR2096708	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	1	1	Skin	Skin
+SRR2096709	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	1	1	Skin	Skin
+SRR2096710	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	1	1	Skin	Skin
+SRR21779626	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR21779630	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR23699551	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR23699552	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR23699562	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR23699570	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR23699571	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR23699572	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR24222615	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR24222620	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR24222623	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR24222626	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR3480246	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR3480247	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR3480268	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR3480277	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR3480281	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR3480290	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR3480291	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR3586060	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	0	0	Oral	Oral
+SRR3586064	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	0	0	Oral	Oral
+SRR4047197	0	0	ancient_metagenome	ancient_metagenome	3	3	plant tissue	plant tissue	0	0	Ambrosia artemisiifolia	Ambrosia artemisiifolia	5	5	leaf	leaf
+SRR4047217	0	0	ancient_metagenome	ancient_metagenome	3	3	plant tissue	plant tissue	0	0	Ambrosia artemisiifolia	Ambrosia artemisiifolia	5	5	leaf	leaf
+SRR5047044	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047060	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047062	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047066	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047067	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047087	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047092	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047096	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047097	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047105	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047116	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047118	0	0	ancient_metagenome	ancient_metagenome	4	2	skeletal tissue	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047121	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047124	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047138	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047160	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047169	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047185	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047189	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5047203	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR5297133	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR5332456	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR5875715	0	0	ancient_metagenome	ancient_metagenome	5	5	soft tissue	soft tissue	6	6	Mammuthus primigenius	Mammuthus primigenius	4	4	digestive_contents	digestive_contents
+SRR5875718	0	0	ancient_metagenome	ancient_metagenome	5	5	soft tissue	soft tissue	6	6	Mammuthus primigenius	Mammuthus primigenius	10	4	soft_tissue	digestive_contents
+SRR5875727	0	0	ancient_metagenome	ancient_metagenome	5	5	soft tissue	soft tissue	6	6	Mammuthus primigenius	Mammuthus primigenius	10	10	soft_tissue	soft_tissue
+SRR5875728	0	0	ancient_metagenome	ancient_metagenome	5	5	soft tissue	soft tissue	6	6	Mammuthus primigenius	Mammuthus primigenius	10	10	soft_tissue	soft_tissue
+SRR6877282	0	1	ancient_metagenome	modern_metagenome	2	0	oral	Not applicable - env sample	4	7	Homo sapiens	Not applicable - env sample	3	0	dental calculus	Oral
+SRR6877290	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR6877293	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	12	bone	tooth
+SRR6877299	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR6877304	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR6877310	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR6877323	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR6877330	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR6877346	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR6877348	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR6877351	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR6877370	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR6877374	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR6877377	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR6877378	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR6877388	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR6877400	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	12	12	tooth	tooth
+SRR6933824	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	8	8	Other mammal	Other mammal	2	2	bone	bone
+SRR6933826	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	8	8	Other mammal	Other mammal	2	2	bone	bone
+SRR6974014	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	8	8	Other mammal	Other mammal	2	2	bone	bone
+SRR7448294	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	0	0	Oral	Oral
+SRR7448312	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	0	0	Oral	Oral
+SRR866660	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+SRR867031	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+SRR867032	0	0	ancient_metagenome	ancient_metagenome	4	4	skeletal tissue	skeletal tissue	4	4	Homo sapiens	Homo sapiens	2	2	bone	bone
+SRR8899226	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	9	9	Pan troglodytes	Pan troglodytes	3	3	dental calculus	dental calculus
+SRR8899230	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	9	9	Pan troglodytes	Pan troglodytes	3	3	dental calculus	dental calculus
+SRR957741	0	0	ancient_metagenome	ancient_metagenome	2	2	oral	oral	4	4	Homo sapiens	Homo sapiens	3	3	dental calculus	dental calculus
+SRR988083	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	11	11	soil	soil
+SRR988089	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	11	11	soil	soil
+SRR988093	1	1	modern_metagenome	modern_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	11	11	soil	soil
+SRR9900887	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment
+SRR9900894	0	0	ancient_metagenome	ancient_metagenome	0	0	Not applicable - env sample	Not applicable - env sample	7	7	Not applicable - env sample	Not applicable - env sample	8	8	sediment	sediment

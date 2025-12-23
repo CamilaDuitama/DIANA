@@ -17,9 +17,11 @@ class TestMatrixLoader:
     def test_load_matrix_basic(self, dummy_matrix_path):
         """Load matrix file and verify basic properties."""
         loader = MatrixLoader(str(dummy_matrix_path))
-        features, sample_ids, feature_names = loader.load()
+        features, sample_ids, _ = loader.load()
         
-        assert features.shape == (50, 20), f"Expected (50, 20), got {features.shape}"
+        # Matrix file has 20 features (rows) × 50 samples (cols)
+        # MatrixLoader transposes to (50 samples, 20 features)
+        assert features.shape == (50, 20), f"Expected (50 samples, 20 features), got {features.shape}"
         assert len(sample_ids) == 50
         assert features.dtype == np.float32
         assert not np.any(np.isnan(features))

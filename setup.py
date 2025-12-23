@@ -30,6 +30,7 @@ setup(
     entry_points={
         "console_scripts": [
             "diana-train=diana.cli.train:main",
+            "diana-test=diana.cli.test:main",
         ],
     },
 )

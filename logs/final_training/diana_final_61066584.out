@@ -1,0 +1,63 @@
+==========================================
+DIANA Final Training Job
+==========================================
+Job ID: 61066584
+Node: maestro-3011
+Start time: Tue Dec 23 17:15:11 CET 2025
+
+Using default config: results/full_training/final_training_config.json
+Loading configuration from: results/full_training/final_training_config.json
+
+Configuration:
+  Features: data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat
+  Metadata: data/metadata/DIANA_metadata.tsv
+  Output: results/full_training
+  Hyperparameters: {"model_params": {"hidden_dims": [307, 474, 272], "dropout": 0.1916894511329029, "activation": "relu", "use_batch_norm": false}, "trainer_params": {"learning_rate": 0.001723369322527049, "weight_decay": 3.75062679509968e-05, "task_weights": {"sample_type": 0.9307526054899867, "community_type": 1.6222031999590159, "sample_host": 1.1909289698749999, "material": 1.810458861595924}}, "batch_size": 96}
+
+
+GPU Information:
+name, memory.total [MiB], memory.free [MiB]
+NVIDIA A40, 46068 MiB, 45515 MiB
+
+==========================================
+Starting final model training...
+==========================================
+
+
+Epoch 10/200
+Train Loss: 0.8026, Val Loss: 1.8995
+  sample_type: Train Acc=0.9852, Val Acc=0.9935
+  community_type: Train Acc=0.9352, Val Acc=0.9023
+  sample_host: Train Acc=0.9613, Val Acc=0.9479
+  material: Train Acc=0.9225, Val Acc=0.8795
+
+Epoch 20/200
+Train Loss: 0.5704, Val Loss: 1.9316
+  sample_type: Train Acc=0.9841, Val Acc=0.9967
+  community_type: Train Acc=0.9620, Val Acc=0.9218
+  sample_host: Train Acc=0.9689, Val Acc=0.9381
+  material: Train Acc=0.9584, Val Acc=0.9218
+
+Epoch 30/200
+Train Loss: 0.4360, Val Loss: 1.4422
+  sample_type: Train Acc=0.9852, Val Acc=0.9967
+  community_type: Train Acc=0.9783, Val Acc=0.9283
+  sample_host: Train Acc=0.9819, Val Acc=0.9577
+  material: Train Acc=0.9689, Val Acc=0.9218
+
+Epoch 40/200
+Train Loss: 0.2586, Val Loss: 2.5263
+  sample_type: Train Acc=0.9928, Val Acc=0.9967
+  community_type: Train Acc=0.9866, Val Acc=0.9446
+  sample_host: Train Acc=0.9870, Val Acc=0.9544
+  material: Train Acc=0.9815, Val Acc=0.9349
+
+Early stopping at epoch 49
+Best validation loss: 1.3549
+
+Loaded best model from epoch 29
+
+==========================================
+Job completed successfully!
+End time: Tue Dec 23 17:17:39 CET 2025
+==========================================

@@ -64,7 +64,16 @@ results/experiments/*
 results/figures/*
 results/metrics/*
 results/test_integration/
+results/full_training/*.pth
+results/full_training/cv_results/
 !results/**/.gitkeep
+
+# External tools (installed separately)
+external/muset/
+external/seqdd/
+external/back_to_sequences/
+!external/.gitkeep
+!external/README.md
 
 # Logs
 logs/*.log

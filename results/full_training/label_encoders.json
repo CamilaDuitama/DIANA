@@ -1,0 +1,51 @@
+{
+  "sample_type": {
+    "classes": [
+      "ancient_metagenome",
+      "modern_metagenome"
+    ]
+  },
+  "community_type": {
+    "classes": [
+      "Not applicable - env sample",
+      "gut",
+      "oral",
+      "plant tissue",
+      "skeletal tissue",
+      "soft tissue"
+    ]
+  },
+  "sample_host": {
+    "classes": [
+      "Ambrosia artemisiifolia",
+      "Arabidopsis thaliana",
+      "Canis lupus",
+      "Gorilla sp.",
+      "Homo sapiens",
+      "Homo sapiens neanderthalensis",
+      "Mammuthus primigenius",
+      "Not applicable - env sample",
+      "Other mammal",
+      "Pan troglodytes",
+      "Rangifer tarandus",
+      "Ursus arctos"
+    ]
+  },
+  "material": {
+    "classes": [
+      "Oral",
+      "Skin",
+      "bone",
+      "dental calculus",
+      "digestive_contents",
+      "leaf",
+      "midden",
+      "permafrost",
+      "sediment",
+      "shell",
+      "soft_tissue",
+      "soil",
+      "tooth"
+    ]
+  }
+}

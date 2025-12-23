@@ -89,9 +89,19 @@ def compute_sparsity_stats(matrix):
     
     # Matrix is (samples x unitigs), so axis=0 is samples, axis=1 is unitigs
     # Per-unitig statistics (across all samples)
+    import numpy as np
+    
+    # Calculate mean non-zero fraction (average among only samples where detected)
+    mean_nonzero = np.zeros(matrix.shape[1])
+    for i in range(matrix.shape[1]):
+        unitig_vals = matrix[:, i]
+        nonzero_vals = unitig_vals[unitig_vals > 0]
+        mean_nonzero[i] = nonzero_vals.mean() if len(nonzero_vals) > 0 else 0
+    
     unitig_stats = {
         'n_samples_present': (matrix > 0).sum(axis=0),  # Sum over samples for each unitig
-        'mean_value': matrix.mean(axis=0),
+        'mean_value': matrix.mean(axis=0),  # Mean across all samples (including zeros)
+        'mean_nonzero_value': mean_nonzero,  # Mean among only samples where detected
         'max_value': matrix.max(axis=0),
         'std_value': matrix.std(axis=0)
     }
@@ -310,6 +320,119 @@ def plot_combined_length_sparsity(seq_stats_df, unitig_stats_df, output_path):
     logger.info(f"Saved length-sparsity relationship plot to {output_path}")
 
 
+def plot_length_vs_fraction_hexbin(seq_stats_df, unitig_stats_df, output_path):
+    """
+    Plot hexbin density plot of unitig length vs mean non-zero fraction value.
+    Shows clustering patterns and relationship between sequence length and detection intensity.
+    Mean non-zero fraction = average fraction among only samples where unitig is detected.
+    """
+    logger.info("Plotting length vs mean non-zero fraction hexbin...")
+    
+    # Merge sequence stats with unitig stats (both should have same order)
+    # Convert Polars to pandas for merging if needed
+    if hasattr(unitig_stats_df, 'to_pandas'):
+        unitig_stats_pd = unitig_stats_df.to_pandas()
+    else:
+        unitig_stats_pd = unitig_stats_df
+    
+    # Add index to both dataframes to align them
+    seq_stats_df['unitig_idx'] = range(len(seq_stats_df))
+    unitig_stats_pd['unitig_idx'] = range(len(unitig_stats_pd))
+    
+    # Merge on index (use mean_nonzero_value for better interpretability)
+    merged = seq_stats_df.merge(unitig_stats_pd[['unitig_idx', 'mean_nonzero_value']], on='unitig_idx')
+    
+    # Create figure with marginal plots
+    fig = make_subplots(
+        rows=2, cols=2,
+        column_widths=[0.85, 0.15],
+        row_heights=[0.15, 0.85],
+        horizontal_spacing=0.02,
+        vertical_spacing=0.02,
+        specs=[
+            [{"type": "histogram"}, None],
+            [{"type": "scatter"}, {"type": "histogram"}]
+        ]
+    )
+    
+    # Main hexbin plot (using density scatter as plotly doesn't have native hexbin)
+    # Use log scale for length
+    import numpy as np
+    log_length = np.log10(merged['length'] + 1)  # +1 to handle zeros
+    
+    # Create 2D histogram for hexbin effect
+    hist, xedges, yedges = np.histogram2d(
+        log_length, 
+        merged['mean_nonzero_value'],
+        bins=[50, 50]
+    )
+    
+    # Create heatmap
+    fig.add_trace(
+        go.Heatmap(
+            x=xedges[:-1],
+            y=yedges[:-1],
+            z=hist.T,
+            colorscale='Viridis',
+            colorbar=dict(
+                title="Count",
+                x=1.12,
+                len=0.7,
+                y=0.425
+            ),
+            hovertemplate='Length (log10): %{x:.2f}<br>Mean Non-Zero Fraction: %{y:.3f}<br>Count: %{z}<extra></extra>'
+        ),
+        row=2, col=1
+    )
+    
+    # Top marginal: length distribution
+    fig.add_trace(
+        go.Histogram(
+            x=log_length,
+            nbinsx=50,
+            marker_color='steelblue',
+            showlegend=False,
+            hovertemplate='Length (log10): %{x:.2f}<br>Count: %{y}<extra></extra>'
+        ),
+        row=1, col=1
+    )
+    
+    # Right marginal: mean non-zero fraction distribution
+    fig.add_trace(
+        go.Histogram(
+            y=merged['mean_nonzero_value'],
+            nbinsy=50,
+            marker_color='steelblue',
+            showlegend=False,
+            hovertemplate='Mean Non-Zero Fraction: %{y:.3f}<br>Count: %{x}<extra></extra>'
+        ),
+        row=2, col=2
+    )
+    
+    # Update axes
+    fig.update_xaxes(title_text="Length (log10 bp)", row=2, col=1)
+    fig.update_yaxes(title_text="Mean Non-Zero Fraction", row=2, col=1)
+    
+    # Hide axes for marginals
+    fig.update_xaxes(showticklabels=False, row=1, col=1)
+    fig.update_yaxes(showticklabels=False, row=2, col=2)
+    
+    # Calculate correlation
+    corr = np.corrcoef(log_length, merged['mean_nonzero_value'])[0, 1]
+    
+    fig.update_layout(
+        title_text=f"Unitig Length vs Mean Non-Zero Fraction (Correlation: {corr:.3f})",
+        height=700,
+        width=800,
+        showlegend=False
+    )
+    
+    # Save both formats
+    fig.write_html(str(output_path).replace('.png', '.html'))
+    fig.write_image(output_path, width=800, height=700, scale=2)
+    logger.info(f"Saved hexbin plot to {output_path}")
+
+
 def save_summary_tables(seq_summary, unitig_stats_df, sample_stats_df, output_dir):
     """Save summary statistics tables."""
     logger.info("Saving summary tables...")
@@ -479,17 +602,21 @@ def compare_train_test_splits(frac_matrix, sample_ids, train_ids_file, test_ids_
     train_unitig_stats, train_sample_stats = compute_sparsity_stats(train_matrix)
     test_unitig_stats, test_sample_stats = compute_sparsity_stats(test_matrix)
     
+    # Create data_splits subdirectory
+    splits_output_dir = output_dir.parent / "data_splits"
+    splits_output_dir.mkdir(parents=True, exist_ok=True)
+    
     # 1. Compare unitigs per sample
     plot_split_unitigs_per_sample(train_sample_stats, test_sample_stats, 
-                                   output_dir / "unitig_split_comparison_per_sample.png")
+                                   splits_output_dir / "unitig_split_comparison_per_sample.png")
     
     # 2. Compare mean fraction per unitig
     plot_split_unitig_prevalence(train_unitig_stats, test_unitig_stats,
-                                 output_dir / "unitig_split_comparison_prevalence.png")
+                                 splits_output_dir / "unitig_split_comparison_prevalence.png")
     
     # 3. Compare unitig presence across splits
     plot_split_unitig_presence(train_unitig_stats, test_unitig_stats,
-                               output_dir / "unitig_split_comparison_presence.png")
+                               splits_output_dir / "unitig_split_comparison_presence.png")
     
     logger.info("Train/test split comparison complete")
 
@@ -777,12 +904,18 @@ def main():
     plot_combined_length_sparsity(seq_stats_df, unitig_stats_df, 
                                    figures_dir / "unitig_length_vs_sparsity.png")
     
-    # 6. PCA dimensionality reduction (colored by metadata)
+    # 6. Length vs Fraction hexbin (only for fraction matrix)
+    if args.matrix_type == 'frac':
+        logger.info("Generating length vs fraction hexbin plot...")
+        plot_length_vs_fraction_hexbin(seq_stats_df, unitig_stats_df,
+                                       figures_dir / "unitig_length_vs_fraction_hexbin.png")
+    
+    # 7. PCA dimensionality reduction (colored by metadata)
     logger.info("Generating PCA plots...")
     plot_pca_colored_by_metadata(matrix, sample_ids, metadata_df, 
                                  figures_dir / "unitig_pca_by_metadata.png")
     
-    # 7. Save summary tables
+    # 8. Save summary tables
     save_summary_tables(seq_summary, unitig_stats_df, sample_stats_df, tables_dir)
     
     # 8. Train/test split comparison (if splits available)

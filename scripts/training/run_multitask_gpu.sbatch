@@ -80,15 +80,28 @@ export CUDA_VISIBLE_DEVICES=$SLURM_LOCALID
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 # Configuration with defaults (can be overridden by environment variables)
-FOLD_ID=$SLURM_ARRAY_TASK_ID
-TOTAL_FOLDS=${TOTAL_FOLDS:-5}
-N_TRIALS=${N_TRIALS:-50}
-MAX_EPOCHS=${MAX_EPOCHS:-200}
-N_INNER_SPLITS=${N_INNER_SPLITS:-3}
+# If RUN_CONFIG is set, read from JSON config file (new CLI approach)
+if [ -n "$RUN_CONFIG" ] && [ -f "$RUN_CONFIG" ]; then
+    echo "Reading configuration from: $RUN_CONFIG"
+    FEATURES=$(python -c "import json; print(json.load(open('$RUN_CONFIG'))['features_path'])")
+    METADATA=$(python -c "import json; print(json.load(open('$RUN_CONFIG'))['metadata_path'])")
+    OUTPUT_DIR=$(python -c "import json; print(json.load(open('$RUN_CONFIG'))['output_dir'])")
+    TOTAL_FOLDS=$(python -c "import json; print(json.load(open('$RUN_CONFIG'))['n_folds'])")
+    N_TRIALS=$(python -c "import json; print(json.load(open('$RUN_CONFIG'))['n_trials'])")
+    MAX_EPOCHS=$(python -c "import json; print(json.load(open('$RUN_CONFIG'))['max_epochs'])")
+    N_INNER_SPLITS=$(python -c "import json; print(json.load(open('$RUN_CONFIG'))['n_inner_splits'])")
+else
+    # Use environment variables or defaults (old approach)
+    FEATURES=${FEATURES:-"data/splits/train_matrix.pa.mat"}
+    METADATA=${METADATA:-"data/splits/train_metadata.tsv"}
+    OUTPUT_DIR=${OUTPUT_DIR:-"results/multitask/hyperopt"}
+    TOTAL_FOLDS=${TOTAL_FOLDS:-5}
+    N_TRIALS=${N_TRIALS:-50}
+    MAX_EPOCHS=${MAX_EPOCHS:-200}
+    N_INNER_SPLITS=${N_INNER_SPLITS:-3}
+fi
 
-FEATURES=${FEATURES:-"data/splits/train_matrix.pa.mat"}
-METADATA=${METADATA:-"data/splits/train_metadata.tsv"}
-OUTPUT_DIR=${OUTPUT_DIR:-"results/multitask/hyperopt"}
+FOLD_ID=$SLURM_ARRAY_TASK_ID
 LOG_DIR=${LOG_DIR:-"logs/multitask/hyperopt"}
 
 # Create output and log directories
