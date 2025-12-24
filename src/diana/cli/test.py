@@ -158,6 +158,7 @@ def evaluate_model(model, X_test, y_test, task_names, device, batch_size=96):
     
     model.eval()
     predictions = {task: [] for task in task_names}
+    probabilities = {task: [] for task in task_names}
     
     # Run inference in batches
     with torch.no_grad():
@@ -166,11 +167,17 @@ def evaluate_model(model, X_test, y_test, task_names, device, batch_size=96):
             outputs = model(batch_X)
             
             for task in task_names:
+                # Get predicted classes
                 preds = torch.argmax(outputs[task], dim=1).cpu().numpy()
                 predictions[task].extend(preds)
+                
+                # Get probabilities (apply softmax to logits)
+                probs = torch.softmax(outputs[task], dim=1).cpu().numpy()
+                probabilities[task].extend(probs)
     
     # Convert to arrays
     predictions = {task: np.array(preds) for task, preds in predictions.items()}
+    probabilities = {task: np.array(probs) for task, probs in probabilities.items()}
     
     # Compute metrics for each task
     results = {}
@@ -194,10 +201,10 @@ def evaluate_model(model, X_test, y_test, task_names, device, batch_size=96):
         logger.info(f"{task}: Accuracy={task_results['accuracy']:.4f}, "
                    f"F1={task_results['f1_weighted']:.4f}")
     
-    return predictions, results
+    return predictions, probabilities, results
 
 
-def save_results(results: dict, predictions: dict, y_test: dict, 
+def save_results(results: dict, predictions: dict, probabilities: dict, y_test: dict, 
                 metadata: 'pd.DataFrame', output_dir: Path, encoders_data: dict):
     """
     Save evaluation results.
@@ -205,6 +212,7 @@ def save_results(results: dict, predictions: dict, y_test: dict,
     Args:
         results: Metrics dictionary
         predictions: Predictions dictionary
+        probabilities: Probability distributions dictionary
         y_test: True labels
         metadata: Test metadata
         output_dir: Output directory
@@ -230,6 +238,11 @@ def save_results(results: dict, predictions: dict, y_test: dict,
         encoder_classes = encoders_data[task]['classes']
         predictions_df[f'{task}_pred'] = [encoder_classes[idx] for idx in predictions[task]]
         predictions_df[f'{task}_true'] = [encoder_classes[idx] for idx in y_test[task]]
+        
+        # Add probabilities for each class
+        task_probs = probabilities[task]
+        for i, class_name in enumerate(encoder_classes):
+            predictions_df[f'{task}_prob_{i}'] = task_probs[:, i]
     
     predictions_path = output_dir / 'test_predictions.tsv'
     predictions_df.to_csv(predictions_path, sep='\t', index=False)
@@ -335,12 +348,12 @@ def main():
     logger.info("Model loaded successfully")
     
     # Run evaluation
-    predictions, results = evaluate_model(
+    predictions, probabilities, results = evaluate_model(
         model, X_test, y_test, task_names, args.device, args.batch_size
     )
     
     # Save results
-    save_results(results, predictions, y_test, metadata_test, args.output, encoders_data)
+    save_results(results, predictions, probabilities, y_test, metadata_test, args.output, encoders_data)
     
     logger.info("\nEvaluation complete!")
 

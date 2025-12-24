@@ -1,0 +1,15 @@
+Parameter,Value
+Hidden Dimensions,"[307, 474, 272]"
+Dropout Rate,0.1917
+Activation Function,relu
+Batch Normalization,False
+Learning Rate,0.001723
+Weight Decay,0.000038
+Batch Size,96
+Max Epochs,200
+Early Stopping Patience,20
+Validation Split,0.1
+Task Weight (sample_type),0.9308
+Task Weight (community_type),1.6222
+Task Weight (sample_host),1.1909
+Task Weight (material),1.8105

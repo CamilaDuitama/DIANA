@@ -1,0 +1,49 @@
+# Feature Analysis Configuration
+# ================================
+# Configuration for extracting and analyzing discriminant features
+
+# Data paths (should match training config)
+data:
+  matrix_path: data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat
+  metadata_path: data/metadata/DIANA_metadata.tsv
+  test_ids_path: data/splits/test_ids.txt
+
+# Model paths
+model:
+  checkpoint_path: results/full_training/best_model.pth
+  config_path: results/full_training/final_training_config.json
+  label_encoders_path: results/full_training/label_encoders.json
+
+# Feature importance methods
+feature_importance:
+  methods:
+    - weight  # Fast, weight-based analysis
+    - gradient  # Slower, gradient-based attribution
+    # - permutation  # Very slow, only enable for final analysis
+  
+  top_k: 100  # Number of top features to extract
+  batch_size: 64  # For gradient/permutation methods
+
+# Sequence analysis
+sequence_analysis:
+  enabled: true
+  top_k: 50  # Number of top features to analyze sequences
+  compute_gc_content: true
+  compute_complexity: true
+
+# BLAST annotation
+blast:
+  database_path: /local/databases/rel/nt/current/blast+/2.10.0/nt
+  num_threads: 16
+  max_target_seqs: 5
+  evalue: 1e-05
+
+# Output paths
+output:
+  figures_dir: paper/figures/feature_analyses
+  tables_dir: paper/tables/feature_analyses
+
+# Execution
+execution:
+  device: cpu  # Use 'cuda' if running on GPU node
+  use_slurm: false  # Set true to submit as SLURM job

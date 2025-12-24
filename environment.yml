@@ -19,9 +19,12 @@ dependencies:
   - seaborn>=0.12
   - plotly
   - python-kaleido=0.2.1
+  - tabulate
   - h5py
   - pyarrow
   - jupyterlab
+  - ete3
+  - seqkit
   - pytest
   - black
   - isort
