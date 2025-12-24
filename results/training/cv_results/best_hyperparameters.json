@@ -1,0 +1,17 @@
+{
+  "n_layers": 2.6,
+  "hidden_dim_0": 307.2,
+  "hidden_dim_1": 358.4,
+  "hidden_dim_2": 224.0,
+  "hidden_dim_3": 512.0,
+  "dropout": 0.24008941768262765,
+  "learning_rate": 0.0018070735350860004,
+  "weight_decay": 0.00013646152308693173,
+  "batch_size": 89.6,
+  "use_batch_norm": 0.0,
+  "activation": "relu",
+  "task_weight_sample_type": 1.2191664079885853,
+  "task_weight_community": 1.5572400633917634,
+  "task_weight_host": 1.336836008310497,
+  "task_weight_material": 1.581606959759543
+}

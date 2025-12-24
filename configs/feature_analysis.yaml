@@ -27,7 +27,7 @@ feature_importance:
 # Sequence analysis
 sequence_analysis:
   enabled: true
-  top_k: 50  # Number of top features to analyze sequences
+  top_k: 100  # Number of top features to analyze sequences
   compute_gc_content: true
   compute_complexity: true
 

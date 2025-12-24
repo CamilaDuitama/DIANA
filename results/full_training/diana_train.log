@@ -232,3 +232,15 @@
 2025-12-23 16:34:38 - diana.cli.train - INFO - Check logs in: results/logs
 2025-12-23 16:34:38 - diana.cli.train - INFO - Model will be saved to: results/full_training/best_model.pth
 2025-12-23 16:34:38 - diana.cli.train - INFO - Pipeline complete!
+2025-12-24 21:53:34 - root - INFO - Logging to file: results/full_training/diana_train.log
+2025-12-24 21:53:34 - diana.cli.train - INFO - Using CPU
+2025-12-24 21:53:34 - diana.cli.train - INFO - ==================================================
+2025-12-24 21:53:34 - diana.cli.train - INFO - Training final model with validation-based early stopping
+2025-12-24 21:53:34 - diana.cli.train - INFO - ==================================================
+2025-12-24 21:53:34 - diana.cli.train - INFO - Loading hyperparameters from results/hyperopt/cv_results/best_hyperparameters.json
+2025-12-24 21:58:28 - root - INFO - Logging to file: results/full_training/diana_train.log
+2025-12-24 21:58:28 - diana.cli.train - INFO - Using CPU
+2025-12-24 21:58:28 - diana.cli.train - INFO - ==================================================
+2025-12-24 21:58:28 - diana.cli.train - INFO - Training final model with validation-based early stopping
+2025-12-24 21:58:28 - diana.cli.train - INFO - ==================================================
+2025-12-24 21:58:28 - diana.cli.train - INFO - Loading hyperparameters from results/hyperopt/cv_results/best_hyperparameters.json

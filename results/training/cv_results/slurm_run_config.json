@@ -1,0 +1,16 @@
+{
+  "features_path": "data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat",
+  "metadata_path": "data/splits/train_metadata.tsv",
+  "output_dir": "results/training/cv_results",
+  "n_folds": 5,
+  "n_trials": 50,
+  "max_epochs": 200,
+  "n_inner_splits": 3,
+  "task_names": [
+    "sample_type",
+    "community_type",
+    "sample_host",
+    "material"
+  ],
+  "task_weights": {}
+}

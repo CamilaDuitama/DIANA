@@ -1,0 +1,57 @@
+{
+  "fold_id": 2,
+  "total_folds": 5,
+  "n_train": 2087,
+  "n_test": 522,
+  "num_classes": {
+    "sample_type": 2,
+    "community_type": 6,
+    "sample_host": 12,
+    "material": 13
+  },
+  "best_params": {
+    "n_layers": 3,
+    "hidden_dim_0": 320,
+    "hidden_dim_1": 384,
+    "hidden_dim_2": 384,
+    "dropout": 0.2889478520889971,
+    "learning_rate": 0.0009852953287440701,
+    "weight_decay": 0.00032221189398952096,
+    "batch_size": 64,
+    "use_batch_norm": false,
+    "activation": "relu",
+    "task_weight_sample_type": 1.00302048686334,
+    "task_weight_community": 1.5408206201341554,
+    "task_weight_host": 1.7949965537197596,
+    "task_weight_material": 1.7827366440733545
+  },
+  "test_metrics": {
+    "sample_type": {
+      "accuracy": 0.9827586206896551,
+      "f1_weighted": 0.982658431392948,
+      "f1_macro": 0.9383747622483112,
+      "balanced_accuracy": 0.933350622406639
+    },
+    "community_type": {
+      "accuracy": 0.89272030651341,
+      "f1_weighted": 0.8988138246737584,
+      "f1_macro": 0.8707437131152301,
+      "balanced_accuracy": 0.9170944177506933
+    },
+    "sample_host": {
+      "accuracy": 0.9425287356321839,
+      "f1_weighted": 0.9495395851624995,
+      "f1_macro": 0.7891507111791123,
+      "balanced_accuracy": 0.9523065925494594
+    },
+    "material": {
+      "accuracy": 0.8620689655172413,
+      "f1_weighted": 0.8654905464781119,
+      "f1_macro": 0.7579055373436057,
+      "balanced_accuracy": 0.8068866535402276
+    }
+  },
+  "best_model_path": "results/training/cv_results/fold_2/best_model.pth",
+  "final_model_path": "results/training/cv_results/fold_2/final_model_20251224_221503.pth",
+  "timestamp": "20251224_220832"
+}

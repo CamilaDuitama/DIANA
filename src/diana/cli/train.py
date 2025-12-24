@@ -64,7 +64,7 @@ WORKFLOW:
 COMPARISON TO SCRIPTS:
 ----------------------
 This CLI is a high-level wrapper that calls:
-  - scripts/training/07_train_multitask_single_fold.py (via SLURM or local)
+  - scripts/training/01_train_multitask_single_fold.py (via SLURM or local)
   - scripts/evaluation/08_collect_multitask_results.py
   - Additional training logic
 
@@ -358,16 +358,85 @@ class MultiTaskTrainingPipeline:
         
         return output
     
+    def aggregate_results(self) -> Dict[str, Any]:
+        """
+        Public method to aggregate completed fold results.
+        
+        This is a standalone operation that reads existing fold results from
+        cv_results/ directory and aggregates them into best_hyperparameters.json.
+        
+        Use this after hyperparameter optimization jobs complete to prepare
+        for final model training.
+        
+        Returns:
+            Dictionary with aggregated metrics and best hyperparameters
+        """
+        logger.info("Aggregating fold results from cv_results/ directory...")
+        
+        # Check if fold results exist
+        fold_dirs = list(self.cv_dir.glob("fold_*"))
+        if not fold_dirs:
+            raise FileNotFoundError(
+                f"No fold results found in {self.cv_dir}. "
+                f"Run hyperparameter optimization first with --mode optimize"
+            )
+        
+        logger.info(f"Found {len(fold_dirs)} fold result directories")
+        
+        # Call internal aggregation method
+        results = self._aggregate_cv_results([])
+        
+        logger.info(f"Aggregation complete!")
+        logger.info(f"Best hyperparameters saved to: {self.cv_dir / 'best_hyperparameters.json'}")
+        logger.info(f"Aggregated metrics saved to: {self.cv_dir / 'aggregated_results.json'}")
+        
+        return results
+    
     def _train_final_slurm(self, hyperparams: Dict[str, Any]) -> Dict[str, Any]:
         """Submit SLURM job for final model training."""
         logger.info("Submitting SLURM job for final training...")
+        
+        # Convert flat Optuna hyperparameters to nested structure
+        # Extract n_layers and build hidden_dims list
+        n_layers = int(round(hyperparams.get('n_layers', 3)))
+        hidden_dims = []
+        for i in range(n_layers):
+            dim_key = f'hidden_dim_{i}'
+            if dim_key in hyperparams:
+                hidden_dims.append(int(round(hyperparams[dim_key])))
+        
+        # Build nested hyperparameter structure
+        nested_hyperparams = {
+            'model_params': {
+                'hidden_dims': hidden_dims,
+                'dropout': hyperparams.get('dropout', 0.3),
+                'activation': hyperparams.get('activation', 'relu'),
+                'use_batch_norm': bool(hyperparams.get('use_batch_norm', 0))
+            },
+            'trainer_params': {
+                'learning_rate': hyperparams.get('learning_rate', 0.001),
+                'weight_decay': hyperparams.get('weight_decay', 0.0001),
+                'task_weights': {
+                    'sample_type': hyperparams.get('task_weight_sample_type', 1.0),
+                    'community_type': hyperparams.get('task_weight_community', 1.0),
+                    'sample_host': hyperparams.get('task_weight_host', 1.0),
+                    'material': hyperparams.get('task_weight_material', 1.0)
+                }
+            },
+            'batch_size': int(round(hyperparams.get('batch_size', 64)))
+        }
+        
+        logger.info(f"Converted hyperparameters to nested structure:")
+        logger.info(f"  Model params: {nested_hyperparams['model_params']}")
+        logger.info(f"  Trainer params: {nested_hyperparams['trainer_params']}")
+        logger.info(f"  Batch size: {nested_hyperparams['batch_size']}")
         
         # Save training configuration
         train_config = {
             'features_path': str(self.features_path),
             'metadata_path': str(self.metadata_path),
             'output_dir': str(self.output_dir),
-            'hyperparameters': hyperparams,
+            'hyperparameters': nested_hyperparams,
             'task_names': self.config.get('model', {}).get('task_names', []),
             'task_weights': self.config.get('training', {}).get('task_weights', {}),
             'validation_split': self.config.get('training', {}).get('validation_split', 0.1),
@@ -619,8 +688,13 @@ def main():
                                    help='Path to configuration YAML file (contains all data paths and training parameters)')
     multitask_parser.add_argument('--output', type=Path, required=True,
                                    help='Output directory for results')
-    multitask_parser.add_argument('--mode', choices=['optimize', 'train', 'full'],
-                                   default='full', help='Training mode (default: full)')
+    multitask_parser.add_argument('--mode', choices=['optimize', 'aggregate', 'train', 'full'],
+                                   default='full', 
+                                   help='Training mode: '
+                                        '"optimize" = hyperparameter search (5-fold CV + Optuna), exits after submitting SLURM jobs; '
+                                        '"aggregate" = aggregate completed fold results into best hyperparameters; '
+                                        '"train" = final model training with best hyperparams from optimization; '
+                                        '"full" = optimize+train (only works automatically if use_slurm=false, otherwise same as optimize)')
     multitask_parser.add_argument('--hyperparams', type=Path,
                                    help='Path to hyperparameters JSON (for train mode, optional if using CV results)')
     
@@ -649,8 +723,16 @@ def main():
             logger.info("="*50)
             logger.info("The pipeline will exit now. Jobs are running on SLURM.")
             logger.info("After jobs complete, continue with:")
+            logger.info(f"  diana-train multitask --config {args.config} --output {args.output} --mode aggregate")
+            logger.info(f"Then train the final model with:")
             logger.info(f"  diana-train multitask --config {args.config} --output {args.output} --mode train")
             return
+    
+    if args.mode == 'aggregate':
+        pipeline.aggregate_results()
+        logger.info("Aggregation complete! Continue with:")
+        logger.info(f"  diana-train multitask --config {args.config} --output {args.output} --mode train")
+        return
     
     if args.mode in ['train', 'full']:
         model_path = pipeline.train_final_model(

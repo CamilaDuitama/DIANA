@@ -592,12 +592,11 @@ def create_enhanced_summary_tables(
     df_blast: pl.DataFrame,
     task_names: List[str],
     output_dir: Path,
+    tables_dir: Path,
     top_k: int = 20
 ):
     """Create enhanced summary tables with BLAST annotations."""
     logger.info("Creating enhanced summary tables with taxonomy...")
-    
-    tables_dir = output_dir.parent.parent / 'tables' / 'feature_analyses'
     
     # Initialize taxonomic resolver
     tax_resolver = TaxonomicResolver()
@@ -1145,7 +1144,7 @@ def main():
     
     # Create enhanced tables
     print(f"Creating enhanced annotation tables...", flush=True)
-    create_enhanced_summary_tables(df_features, df_blast, task_names, output_dir, args.top_k)
+    create_enhanced_summary_tables(df_features, df_blast, task_names, output_dir, tables_dir, args.top_k)
     
     # Create taxonomic visualizations
     if len(df_blast) > 0:

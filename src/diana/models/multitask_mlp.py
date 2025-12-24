@@ -16,7 +16,7 @@ class MultiTaskMLP(nn.Module):
     Architecture:
         Input → Shared Encoder → Task-specific Heads → Outputs
     
-    Used by: scripts/training/07_train_multitask_single_fold.py
+    Used by: scripts/training/01_train_multitask_single_fold.py
     """
     
     def __init__(self,

@@ -538,7 +538,10 @@ def save_feature_tables(
     """Save tables of top features per task."""
     print("\nSaving feature importance tables...")
     
-    tables_dir = output_dir.parent.parent / 'tables' / 'feature_analyses'
+    # Get tables directory from config (parallel to figures_dir)
+    # output_dir is paper/figures/feature_analysis
+    # Need to go up 2 levels: parent.parent = paper/
+    tables_dir = output_dir.parent.parent / 'tables' / 'feature_analysis'
     tables_dir.mkdir(parents=True, exist_ok=True)
     
     for method in importance_scores.keys():

@@ -24,6 +24,17 @@ echo "Node: $(hostname)"
 echo "Start time: $(date)"
 echo ""
 
+# Initialize conda/mamba
+echo "Initializing mamba..."
+eval "$(conda shell.bash hook)"
+if ! mamba --version > /dev/null 2>&1; then
+    echo "Mamba not available, using conda"
+    CONDA_CMD="conda"
+else
+    echo "Using mamba"
+    CONDA_CMD="mamba"
+fi
+
 # Load training configuration
 if [ -z "$TRAIN_CONFIG" ]; then
     # Use default config if not provided
@@ -68,7 +79,7 @@ echo "Starting final model training..."
 echo "=========================================="
 echo ""
 
-mamba run -p ./env python scripts/training/train_final_model.py "$TRAIN_CONFIG"
+$CONDA_CMD run -p ./env python scripts/training/02_train_final_model.py "$TRAIN_CONFIG"
 
 echo ""
 echo "=========================================="

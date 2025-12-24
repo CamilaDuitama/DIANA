@@ -251,15 +251,50 @@ def create_sequence_analysis_plots(
             (pl.col('task') == task) & (pl.col('rank') <= top_k)
         )
         
+        # Add box plot
         fig.add_trace(go.Box(
             y=task_data['length'].to_list(),
             name=task.replace('_', ' ').title(),
-            boxmean='sd'
+            boxmean='sd',
+            marker=dict(opacity=0.5),
+            showlegend=True
+        ))
+        
+        # Add individual points with hover info
+        hover_text = []
+        for row in task_data.iter_rows(named=True):
+            parts = [
+                f"Feature: {row['feature_index']}",
+                f"Length: {row['length']} bp",
+                f"Rank: {row['rank']}"
+            ]
+            if 'best_hit_species' in row and row['best_hit_species']:
+                parts.append(f"Species: {row['best_hit_species']}")
+            if 'prevalence_pct' in row:
+                parts.append(f"Prevalence: {row['prevalence_pct']:.1f}%")
+            hover_text.append('<br>'.join(parts))
+        
+        fig.add_trace(go.Scatter(
+            y=task_data['length'].to_list(),
+            x=[task.replace('_', ' ').title()] * len(task_data),
+            mode='markers',
+            marker=dict(
+                size=6,
+                color=task_data['importance_score'].to_list(),
+                colorscale='Viridis',
+                showscale=(task == task_names[0]),
+                colorbar=dict(title='Importance') if task == task_names[0] else None,
+                line=dict(width=1, color='white')
+            ),
+            text=hover_text,
+            hovertemplate='%{text}<extra></extra>',
+            showlegend=False
         ))
     
     fig.update_layout(
         title=f'Unitig Length Distribution for Top {top_k} Features',
         yaxis_title='Unitig Length (bp)',
+        xaxis_title='Task',
         height=500,
         width=800,
         template='plotly_white'
@@ -316,7 +351,9 @@ def create_feature_summary_table(
     """Create comprehensive summary table of top features with sequences."""
     logger.info("Creating feature summary tables...")
     
-    tables_dir = output_dir.parent.parent / 'tables' / 'feature_analyses'
+    # output_dir is paper/figures/feature_analysis
+    # Need to go up 2 levels: parent.parent = paper/
+    tables_dir = output_dir.parent.parent / 'tables' / 'feature_analysis'
     
     for task in task_names:
         task_data = df_merged.filter(pl.col('task') == task).sort('rank').head(top_k)
@@ -341,6 +378,10 @@ def create_feature_summary_table(
                 'median_frac_present'
             ])
         
+        # Add BLAST annotation if available
+        if 'best_hit_species' in task_data.columns:
+            cols_to_include.append('best_hit_species')
+        
         # Select columns that exist
         available_cols = [col for col in cols_to_include if col in task_data.columns]
         summary = task_data.select(available_cols)
@@ -357,16 +398,30 @@ def create_feature_summary_table(
             
             # Build header based on available columns
             has_frac = 'prevalence_pct' in task_data.columns
-            if has_frac:
+            has_blast = 'best_hit_species' in task_data.columns
+            
+            if has_frac and has_blast:
+                f.write("| Rank | Feature | Unitig ID | Length | GC% | Complexity | Importance | Prevalence% | N Samples | Mean Frac | Median Frac | Species |\n")
+                f.write("|------|---------|-----------|--------|-----|------------|------------|-------------|-----------|-----------|-------------|----------|\n")
+            elif has_frac:
                 f.write("| Rank | Feature | Unitig ID | Length | GC% | Complexity | Importance | Prevalence% | N Samples | Mean Frac | Median Frac |\n")
                 f.write("|------|---------|-----------|--------|-----|------------|------------|-------------|-----------|-----------|-------------|\n")
+            elif has_blast:
+                f.write("| Rank | Feature Index | Unitig ID | Length (bp) | GC (%) | Complexity | Importance | Species |\n")
+                f.write("|------|---------------|-----------|-------------|--------|------------|------------|----------|\n")
             else:
                 f.write("| Rank | Feature Index | Unitig ID | Length (bp) | GC (%) | Complexity | Importance |\n")
                 f.write("|------|---------------|-----------|-------------|--------|------------|------------|\n")
             
             for row in summary.iter_rows():
-                if has_frac:
+                if has_frac and has_blast:
+                    species = row[11] if row[11] else 'No hit'
+                    f.write(f"| {row[0]} | {row[1]} | {row[2]} | {row[3]} | {row[4]:.1f} | {row[5]:.2f} | {row[6]:.4f} | {row[7]:.1f} | {row[8]} | {row[9]:.3f} | {row[10]:.3f} | {species} |\n")
+                elif has_frac:
                     f.write(f"| {row[0]} | {row[1]} | {row[2]} | {row[3]} | {row[4]:.1f} | {row[5]:.2f} | {row[6]:.4f} | {row[7]:.1f} | {row[8]} | {row[9]:.3f} | {row[10]:.3f} |\n")
+                elif has_blast:
+                    species = row[7] if row[7] else 'No hit'
+                    f.write(f"| {row[0]} | {row[1]} | {row[2]} | {row[3]} | {row[4]:.2f} | {row[5]:.3f} | {row[6]:.6f} | {species} |\n")
                 else:
                     f.write(f"| {row[0]} | {row[1]} | {row[2]} | {row[3]} | {row[4]:.2f} | {row[5]:.3f} | {row[6]:.6f} |\n")
         

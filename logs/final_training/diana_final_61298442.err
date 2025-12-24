@@ -1,0 +1,64 @@
+/pasteur/appa/homes/cduitama/miniconda3/lib/python3.9/site-packages/conda_package_streaming/package_streaming.py:25: UserWarning: zstandard could not be imported. Running without .conda support.
+  warnings.warn("zstandard could not be imported. Running without .conda support.")
+/pasteur/appa/homes/cduitama/miniconda3/lib/python3.9/site-packages/conda_package_handling/api.py:29: UserWarning: Install zstandard Python bindings for .conda support
+  _warnings.warn("Install zstandard Python bindings for .conda support")
+/pasteur/appa/homes/cduitama/miniconda3/lib/python3.9/site-packages/conda_package_streaming/package_streaming.py:25: UserWarning: zstandard could not be imported. Running without .conda support.
+  warnings.warn("zstandard could not be imported. Running without .conda support.")
+/pasteur/appa/homes/cduitama/miniconda3/lib/python3.9/site-packages/conda_package_handling/api.py:29: UserWarning: Install zstandard Python bindings for .conda support
+  _warnings.warn("Install zstandard Python bindings for .conda support")
+2025-12-24 22:50:22,461 - __main__ - INFO - ==================================================
+2025-12-24 22:50:22,461 - __main__ - INFO - Training final model with best hyperparameters
+2025-12-24 22:50:22,461 - __main__ - INFO - ==================================================
+2025-12-24 22:50:22,461 - __main__ - INFO - Model params: {
+  "hidden_dims": [
+    307,
+    358,
+    224
+  ],
+  "dropout": 0.24008941768262765,
+  "activation": "relu",
+  "use_batch_norm": false
+}
+2025-12-24 22:50:22,462 - __main__ - INFO - Trainer params: {
+  "learning_rate": 0.0018070735350860004,
+  "weight_decay": 0.00013646152308693173,
+  "task_weights": {
+    "sample_type": 1.2191664079885853,
+    "community_type": 1.5572400633917634,
+    "sample_host": 1.336836008310497,
+    "material": 1.581606959759543
+  }
+}
+2025-12-24 22:50:22,462 - __main__ - INFO - Batch size: 90
+2025-12-24 22:50:22,462 - __main__ - INFO - Loading matrix from data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat
+2025-12-24 22:50:22,462 - diana.data.loader - INFO - Loading matrix from data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat
+2025-12-24 22:51:49,703 - diana.data.loader - INFO - Loaded 107480 features × 3070 samples (before transpose)
+2025-12-24 22:51:49,703 - diana.data.loader - INFO - Transposed to 3070 samples × 107480 features
+2025-12-24 22:51:49,704 - diana.data.loader - INFO - Reading sample IDs from data/matrices/large_matrix_3070_with_frac/kmer_matrix/kmtricks.fof
+2025-12-24 22:51:49,707 - diana.data.loader - INFO - Sample IDs: ['ERR10114844', 'ERR10114845', 'ERR10114846']...
+2025-12-24 22:51:49,996 - diana.data.loader - INFO - Loading metadata from data/splits/train_metadata.tsv
+2025-12-24 22:51:50,005 - diana.data.loader - INFO - Metadata: 2609 rows × 48 columns
+2025-12-24 22:51:50,007 - diana.data.loader - INFO - Filtering matrix: 3070 → 2609 samples
+2025-12-24 22:51:50,247 - diana.data.loader - INFO - Metadata aligned to matrix sample order
+2025-12-24 22:51:50,259 - __main__ - INFO - Full matrix shape: (2609, 107480)
+2025-12-24 22:51:50,259 - __main__ - INFO - Total samples in matrix: 2609
+2025-12-24 22:51:50,260 - __main__ - INFO - Loading train IDs from data/splits/train_ids.txt
+2025-12-24 22:51:50,437 - __main__ - INFO - Training data shape (after filtering to train set): (2609, 107480)
+2025-12-24 22:51:50,438 - __main__ - INFO - Train samples: 2609
+2025-12-24 22:51:50,439 - __main__ - INFO - Task 'sample_type': 2 classes
+2025-12-24 22:51:50,439 - __main__ - INFO - Task 'community_type': 6 classes
+2025-12-24 22:51:50,440 - __main__ - INFO - Task 'sample_host': 12 classes
+2025-12-24 22:51:50,441 - __main__ - INFO - Task 'material': 13 classes
+2025-12-24 22:51:50,441 - __main__ - INFO - Creating validation split: 10% for validation
+2025-12-24 22:51:50,619 - __main__ - INFO - Sub-train samples: 2348
+2025-12-24 22:51:50,620 - __main__ - INFO - Validation samples: 261
+2025-12-24 22:51:50,620 - __main__ - INFO - Using device: cuda
+2025-12-24 22:51:52,700 - __main__ - INFO - Starting training with validation-based early stopping...
+/pasteur/appa/scratch/cduitama/EDID/decOM-classify/src/diana/training/trainer.py:191: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(best_model_path)
+2025-12-24 22:52:35,341 - __main__ - INFO - Final model saved to: results/training/best_model.pth
+2025-12-24 22:52:35,345 - __main__ - INFO - Training history saved to: results/training/training_history.json
+2025-12-24 22:52:35,345 - __main__ - INFO - Label encoders saved to: results/training/label_encoders.json
+2025-12-24 22:52:35,346 - __main__ - INFO - ==================================================
+2025-12-24 22:52:35,346 - __main__ - INFO - Final training complete!
+2025-12-24 22:52:35,346 - __main__ - INFO - ==================================================

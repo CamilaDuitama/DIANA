@@ -42,7 +42,7 @@ features, metadata = loader.load_with_metadata(
 )
 
 Used by:
-  - scripts/training/07_train_multitask_single_fold.py
+  - scripts/training/01_train_multitask_single_fold.py
   - All training and evaluation scripts requiring matrix data
 """
 
@@ -79,8 +79,8 @@ class MatrixLoader:
       - Memory-efficient processing
     
     Used by: 
-      - scripts/training/07_train_multitask_single_fold.py
-      - scripts/data_prep/06_analyze_unitigs.py
+      - scripts/training/01_train_multitask_single_fold.py
+      - scripts/data_prep/03_analyze_unitigs.py
       - Any script requiring k-mer/unitig matrix loading
     """
     
@@ -184,14 +184,17 @@ class MatrixLoader:
     def load_with_metadata(
         self,
         metadata_path: Path,
-        align_to_matrix: bool = True
+        align_to_matrix: bool = True,
+        filter_matrix_to_metadata: bool = True
     ) -> Tuple[np.ndarray, pl.DataFrame]:
         """
-        Load matrix and align metadata to match sample order.
+        Load matrix and align with metadata.
         
         Args:
             metadata_path: Path to metadata TSV
             align_to_matrix: If True, reorder metadata to match matrix sample order
+            filter_matrix_to_metadata: If True, filter matrix to only samples in metadata
+                                      (useful for train/test splits)
             
         Returns:
             Tuple of (features_matrix, metadata_df)
@@ -204,8 +207,18 @@ class MatrixLoader:
         metadata = pl.read_csv(metadata_path, separator='\t')
         logger.info(f"Metadata: {metadata.height} rows × {metadata.width} columns")
         
+        if filter_matrix_to_metadata:
+            # Filter matrix to only samples present in metadata
+            metadata_samples = set(metadata['Run_accession'].to_list())
+            sample_mask = np.array([sid in metadata_samples for sid in sample_ids])
+            
+            if sample_mask.sum() < len(sample_ids):
+                logger.info(f"Filtering matrix: {len(sample_ids)} → {sample_mask.sum()} samples")
+                features = features[sample_mask]
+                sample_ids = sample_ids[sample_mask]
+        
         if align_to_matrix:
-            # Filter to samples present in matrix
+            # Filter metadata to samples present in matrix
             metadata = metadata.filter(
                 pl.col('Run_accession').is_in(sample_ids)
             )
