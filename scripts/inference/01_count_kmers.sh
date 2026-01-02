@@ -29,9 +29,20 @@ echo "Reference k-mers: $REFERENCE_KMERS"
 echo "Minimum abundance: $MIN_ABUNDANCE"
 echo "Output: $OUTPUT_COUNTS"
 
-# Run back_to_sequences
+
+# Run back_to_sequences (robust path check)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BACK_TO_SEQUENCES=""
+if [ -x "$SCRIPT_DIR/../../external/muset/bin/back_to_sequences" ]; then
+    BACK_TO_SEQUENCES="$SCRIPT_DIR/../../external/muset/bin/back_to_sequences"
+elif [ -x "$SCRIPT_DIR/../../external/back_to_sequences/target/release/back_to_sequences" ]; then
+    BACK_TO_SEQUENCES="$SCRIPT_DIR/../../external/back_to_sequences/target/release/back_to_sequences"
+else
+    echo "[ERROR] back_to_sequences binary not found in muset/bin or back_to_sequences/target/release. Exiting." >&2
+    exit 2
+fi
 TMP_COUNTS="${OUTPUT_COUNTS}.tmp"
-~/.local/bin/back_to_sequences \
+"$BACK_TO_SEQUENCES" \
     --in-kmers "$REFERENCE_KMERS" \
     --in-sequences "$SAMPLE_FASTQ" \
     --out-kmers "$TMP_COUNTS" \

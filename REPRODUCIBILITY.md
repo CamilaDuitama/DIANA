@@ -128,19 +128,55 @@ grep "Best trial" logs/*.err  # See best hyperparams per fold
 ```
 results/training/cv_results/
 ├── fold_0/
-│   ├── best_hyperparameters.json
+│   ├── multitask_fold_0_results_<timestamp>.json
 │   ├── optuna_study.db
 │   └── training_log.txt
 ├── fold_1/
 ├── fold_2/
 ├── fold_3/
-├── fold_4/
-└── best_hyperparameters.json  # Aggregated best params
+└── fold_4/
 ```
 
 **⚠️ WAIT:** All 5 SLURM jobs must complete before Step 2! Check with `squeue -j <job_id>`
 
-### Step 2: Train Final Model
+### Step 2: Aggregate Fold Results
+
+After all folds complete, aggregate results to determine best hyperparameters:
+
+```bash
+# Aggregate 5 fold results into best hyperparameters
+mamba run -p ./env diana-train multitask \
+  --config configs/train_config.yaml \
+  --output results/training \
+  --mode aggregate
+```
+
+**What happens:**
+- Reads results from all 5 folds in `results/training/cv_results/fold_*/`
+- Aggregates hyperparameters (mean for numeric, mode for categorical)
+- Computes mean ± std for metrics across folds
+- Saves aggregated results
+
+**Expected outputs:**
+```
+results/training/cv_results/
+├── fold_0/ ... fold_4/               # From Step 1
+├── best_hyperparameters.json         # Aggregated best params
+└── aggregated_results.json           # Metrics summary
+```
+
+**Example aggregated hyperparameters:**
+```json
+{
+  "learning_rate": 0.0021,
+  "weight_decay": 0.0001,
+  "hidden_dims": [512, 256, 128],
+  "dropout": 0.3,
+  "batch_size": 64
+}
+```
+
+### Step 3: Train Final Model
 
 ```bash
 # Train on full training set with aggregated best hyperparameters
@@ -163,8 +199,9 @@ results/training/
 ├── training_history.json             # Loss/accuracy curves
 ├── label_encoders.json               # Class mappings for each task
 ├── final_training_config.json        # Full config used for training
-└── cv_results/                       # From Step 1
-    └── best_hyperparameters.json
+└── cv_results/                       # From Steps 1-2
+    ├── best_hyperparameters.json
+    └── aggregated_results.json
 ```
 
 **Training time:** ~10-30 minutes on GPU (depends on early stopping)
@@ -173,7 +210,7 @@ results/training/
 
 ## Model Evaluation
 
-### Step 3: Test on Held-Out Set
+### Step 4: Test on Held-Out Set
 
 ```bash
 # Evaluate on test set (461 samples, never seen during training or optimization)
@@ -195,7 +232,7 @@ results/test_evaluation/
 └── classification_reports/           # Detailed per-class metrics
 ```
 
-### Step 4: Generate Performance Plots and Tables
+### Step 5: Generate Performance Plots and Tables
 
 ```bash
 # Create publication-ready figures and tables
@@ -205,12 +242,12 @@ mamba run -p ./env python scripts/evaluation/04_model_performance_metrics.py \
   --config results/training/final_training_config.json \
   --predictions results/test_evaluation/test_predictions.tsv \
   --label-encoders results/training/label_encoders.json \
-  --output-dir results/figures
+  --output-dir paper/figures
 ```
 
 **Expected outputs:**
 ```
-results/figures/model_evaluation/
+paper/figures/model_evaluation/
 ├── test_set_multitask_performance_summary.html
 ├── test_set_confusion_matrix_sample_type.png
 ├── test_set_confusion_matrix_community_type.png
@@ -220,7 +257,7 @@ results/figures/model_evaluation/
 ├── test_set_pr_curves_sample_type.html
 └── training_loss_curves.html
 
-results/tables/model_evaluation/
+paper/tables/model_evaluation/
 ├── test_set_performance_summary.csv
 ├── test_set_per_class_metrics_sample_type.csv
 ├── test_set_per_class_metrics_community_type.csv
@@ -233,53 +270,58 @@ results/tables/model_evaluation/
 
 ## Feature Analysis
 
-### Step 5: Extract Feature Importance
+### Step 6: Extract Feature Importance
 
 ```bash
-# Compute gradient-based importance scores for top features
+# Compute gradient-based and weight-based importance scores
 mamba run -p ./env python scripts/feature_analysis/01_extract_feature_importance.py \
-  --model results/training/best_model.pth \
-  --config results/training/final_training_config.json \
-  --matrix data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat \
-  --metadata data/splits/test_metadata.tsv \
-  --output results/feature_analysis
+  --config configs/feature_analysis.yaml
 ```
 
 **Expected outputs:**
 ```
-results/feature_analysis/
-├── importance_sample_type.csv        # Top 50 features for sample_type
-├── importance_community_type.csv
-├── importance_sample_host.csv
-├── importance_material.csv
-└── importance_scores_summary.json    # Statistics across all tasks
+paper/tables/feature_analysis/
+├── top_100_features_weight_based.csv    # Top 100 features per task (weight method)
+├── top_100_features_weight_based.md     # Markdown summary
+├── top_100_features_gradient_based.csv  # Top 100 features per task (gradient method)
+└── top_100_features_gradient_based.md   # Markdown summary
+
+paper/figures/feature_analysis/
+├── feature_importance_heatmap_weight_based.html
+├── feature_importance_heatmap_weight_based.png
+├── feature_importance_heatmap_gradient_based.html
+├── feature_importance_heatmap_gradient_based.png
+├── feature_overlap_weight_based.html
+├── feature_overlap_weight_based.png
+├── feature_overlap_gradient_based.html
+├── feature_overlap_gradient_based.png
+├── feature_importance_comparison.html
+└── feature_importance_comparison.png
 ```
 
-### Step 6: Analyze Feature Sequences
+### Step 7: Analyze Feature Sequences
 
 ```bash
 # Compute sequence properties (GC content, length, complexity)
 mamba run -p ./env python scripts/feature_analysis/02_analyze_feature_sequences.py \
-  --importance-dir results/feature_analysis \
-  --unitigs-fa data/matrices/large_matrix_3070_with_frac/unitigs.fa \
-  --unitigs-mat data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat \
-  --output results/feature_analysis
+  --config configs/feature_analysis.yaml
 ```
 
 **Expected outputs:**
 ```
-results/feature_analysis/
+paper/tables/feature_analysis/
 ├── sequence_properties_sample_type.csv       # GC%, length, complexity
 ├── sequence_properties_community_type.csv
 ├── sequence_properties_sample_host.csv
-├── sequence_properties_material.csv
-└── figures/
-    ├── gc_content_distribution.html
-    ├── length_distribution.html
-    └── fraction_prevalence.html
+└── sequence_properties_material.csv
+
+paper/figures/feature_analysis/
+├── gc_content_distribution.html
+├── length_distribution.html
+└── fraction_prevalence.html
 ```
 
-### Step 7: Taxonomic Annotation with BLAST
+### Step 8: Taxonomic Annotation with BLAST
 
 ```bash
 # Run BLAST against NCBI nt database (takes several hours)
@@ -287,24 +329,22 @@ sbatch scripts/feature_analysis/run_blast_annotation.sbatch
 
 # Wait for BLAST jobs to complete, then parse results
 mamba run -p ./env python scripts/feature_analysis/03_annotate_features.py \
-  --importance-dir results/feature_analysis \
-  --blast-results results/blast/blast_results.tsv \
-  --unitigs-fa data/matrices/large_matrix_3070_with_frac/unitigs.fa \
-  --output results/feature_analysis
+  --config configs/feature_analysis.yaml
 ```
 
 **Expected outputs:**
 ```
-results/feature_analysis/
+paper/tables/feature_analysis/
 ├── annotated_features_sample_type.csv        # With taxonomic assignments
 ├── annotated_features_community_type.csv
 ├── annotated_features_sample_host.csv
-├── annotated_features_material.csv
-└── figures/
-    ├── taxonomy_phylum_sample_type.html
-    ├── taxonomy_family_sample_type.html
-    ├── taxonomy_genus_sample_type.html
-    └── taxonomy_sunburst_sample_type.html    # Interactive hierarchy
+└── annotated_features_material.csv
+
+paper/figures/feature_analysis/
+├── taxonomy_phylum_sample_type.html
+├── taxonomy_family_sample_type.html
+├── taxonomy_genus_sample_type.html
+└── taxonomy_sunburst_sample_type.html    # Interactive hierarchy
 ```
 
 ---
@@ -445,17 +485,6 @@ configs/
 ├── data_config.yaml                  # Data processing config
 └── feature_analysis.yaml             # Feature analysis config
 ```
-
----
-
-## Key Points for Reproducibility
-
-1. **No Data Leakage:** Test set (461 samples) completely held out until final evaluation
-2. **Train Set Filtering:** All scripts use `train_metadata.tsv` which filters the full matrix to 2609 training samples
-3. **Fixed Random Seed:** `random_state=42` for all splits and cross-validation
-4. **Stratification:** Train/test split stratified by `sample_type` to maintain class balance
-5. **Hyperparameter Search:** Nested CV on training set only (5 outer folds × 3 inner folds)
-6. **Early Stopping:** 10% of training set used as validation to prevent overfitting
 
 ---
 

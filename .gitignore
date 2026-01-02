@@ -44,6 +44,7 @@ data/splits/*
 !data/splits/.gitkeep
 data/matrices/*
 !data/matrices/.gitkeep
+data/validation/raw/
 
 # Test/dummy data (large matrix files)
 data/test_data/matrices/*

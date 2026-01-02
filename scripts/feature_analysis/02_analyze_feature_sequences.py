@@ -151,11 +151,18 @@ def create_sequence_analysis_plots(
     for idx, task in enumerate(task_names):
         row = idx // 2 + 1
         col = idx % 2 + 1
-        
         task_data = df_merged.filter(
             (pl.col('task') == task) & (pl.col('rank') <= top_k)
         ).sort('rank')
-        
+        # Build customdata for hover: species, genus, phylum
+        customdata = []
+        for row_ in task_data.iter_rows(named=True):
+            customdata.append([
+                row_.get('best_hit_species', ''),
+                row_.get('genus', ''),
+                row_.get('phylum', ''),
+                row_.get('prevalence_pct', None)
+            ])
         fig.add_trace(
             go.Scatter(
                 x=task_data['rank'].to_list(),
@@ -170,11 +177,14 @@ def create_sequence_analysis_plots(
                     line=dict(width=0.5, color='white')
                 ),
                 text=[f"F{i}" for i in task_data['feature_index'].to_list()],
-                customdata=task_data.select(['best_hit_species']).to_numpy() if 'best_hit_species' in task_data.columns else None,
+                customdata=customdata,
                 hovertemplate='<b>Feature %{text}</b><br>' +
                              'Rank: %{x}<br>' +
                              'GC: %{y:.1f}%<br>' +
-                             ('Species: %{customdata[0]}<br>' if 'best_hit_species' in task_data.columns else '') +
+                             'Species: %{customdata[0]}<br>' +
+                             'Genus: %{customdata[1]}<br>' +
+                             'Phylum: %{customdata[2]}<br>' +
+                             'Prevalence: %{customdata[3]:.1f}%<br>' +
                              '<extra></extra>',
                 name=task,
                 showlegend=False
@@ -210,19 +220,32 @@ def create_sequence_analysis_plots(
     
     # 2. Sequence complexity vs importance
     plot_data = df_merged.filter(pl.col('rank') <= top_k).to_pandas()
-    
-    # Prepare hover data
-    hover_cols = ['feature_index', 'rank', 'id', 'gc_content']
-    if 'best_hit_species' in plot_data.columns:
-        hover_cols.append('best_hit_species')
-    
+    # Build custom hover text
+    hover_text = []
+    for _, row_ in plot_data.iterrows():
+        parts = [
+            f"Feature: {row_['feature_index']}",
+            f"Rank: {row_['rank']}",
+            f"Length: {row_['length']} bp",
+            f"GC: {row_['gc_content']:.1f}%",
+            f"Complexity: {row_['complexity']:.3f}",
+            f"Importance: {row_['importance_score']:.4f}"
+        ]
+        if 'best_hit_species' in row_ and row_['best_hit_species']:
+            parts.append(f"Species: {row_['best_hit_species']}")
+        if 'genus' in row_ and row_['genus']:
+            parts.append(f"Genus: {row_['genus']}")
+        if 'phylum' in row_ and row_['phylum']:
+            parts.append(f"Phylum: {row_['phylum']}")
+        if 'prevalence_pct' in row_:
+            parts.append(f"Prevalence: {row_['prevalence_pct']:.1f}%")
+        hover_text.append('<br>'.join(parts))
     fig = px.scatter(
         plot_data,
         x='complexity',
         y='importance_score',
         color='task',
         size='length',
-        hover_data=hover_cols,
         title='Sequence Complexity vs Feature Importance',
         labels={
             'complexity': 'Sequence Complexity (Shannon Entropy)', 
@@ -230,6 +253,7 @@ def create_sequence_analysis_plots(
             'length': 'Length (bp)'
         }
     )
+    fig.update_traces(hovertext=hover_text, hoverinfo='text')
     
     fig.update_layout(
         height=600,
@@ -243,14 +267,12 @@ def create_sequence_analysis_plots(
     fig.write_image(png_path, width=1000, height=600, scale=2)
     logger.info(f"Saved {html_path} and {png_path}")
     
-    # 3. Unitig length distribution per task
+    # 3. Unitig length distribution per task (box + scatter, with BLAST hover)
     fig = go.Figure()
-    
     for task in task_names:
         task_data = df_merged.filter(
             (pl.col('task') == task) & (pl.col('rank') <= top_k)
         )
-        
         # Add box plot
         fig.add_trace(go.Box(
             y=task_data['length'].to_list(),
@@ -259,7 +281,6 @@ def create_sequence_analysis_plots(
             marker=dict(opacity=0.5),
             showlegend=True
         ))
-        
         # Add individual points with hover info
         hover_text = []
         for row in task_data.iter_rows(named=True):
@@ -270,10 +291,13 @@ def create_sequence_analysis_plots(
             ]
             if 'best_hit_species' in row and row['best_hit_species']:
                 parts.append(f"Species: {row['best_hit_species']}")
+            if 'genus' in row and row['genus']:
+                parts.append(f"Genus: {row['genus']}")
+            if 'phylum' in row and row['phylum']:
+                parts.append(f"Phylum: {row['phylum']}")
             if 'prevalence_pct' in row:
                 parts.append(f"Prevalence: {row['prevalence_pct']:.1f}%")
             hover_text.append('<br>'.join(parts))
-        
         fig.add_trace(go.Scatter(
             y=task_data['length'].to_list(),
             x=[task.replace('_', ' ').title()] * len(task_data),
@@ -290,7 +314,6 @@ def create_sequence_analysis_plots(
             hovertemplate='%{text}<extra></extra>',
             showlegend=False
         ))
-    
     fig.update_layout(
         title=f'Unitig Length Distribution for Top {top_k} Features',
         yaxis_title='Unitig Length (bp)',
@@ -299,7 +322,6 @@ def create_sequence_analysis_plots(
         width=800,
         template='plotly_white'
     )
-    
     html_path = output_dir / 'unitig_length_distribution.html'
     png_path = output_dir / 'unitig_length_distribution.png'
     fig.write_html(html_path)
@@ -307,11 +329,25 @@ def create_sequence_analysis_plots(
     logger.info(f"Saved {html_path} and {png_path}")
     
     # 4. Length vs GC content colored by importance
-    # Prepare hover data
-    hover_cols_length = ['feature_index', 'rank', 'id']
-    if 'best_hit_species' in plot_data.columns:
-        hover_cols_length.append('best_hit_species')
-    
+    # Build custom hover text
+    hover_text = []
+    for _, row_ in plot_data.iterrows():
+        parts = [
+            f"Feature: {row_['feature_index']}",
+            f"Rank: {row_['rank']}",
+            f"Length: {row_['length']} bp",
+            f"GC: {row_['gc_content']:.1f}%",
+            f"Importance: {row_['importance_score']:.4f}"
+        ]
+        if 'best_hit_species' in row_ and row_['best_hit_species']:
+            parts.append(f"Species: {row_['best_hit_species']}")
+        if 'genus' in row_ and row_['genus']:
+            parts.append(f"Genus: {row_['genus']}")
+        if 'phylum' in row_ and row_['phylum']:
+            parts.append(f"Phylum: {row_['phylum']}")
+        if 'prevalence_pct' in row_:
+            parts.append(f"Prevalence: {row_['prevalence_pct']:.1f}%")
+        hover_text.append('<br>'.join(parts))
     fig = px.scatter(
         plot_data,
         x='length',
@@ -319,7 +355,6 @@ def create_sequence_analysis_plots(
         color='importance_score',
         facet_col='task',
         facet_col_wrap=2,
-        hover_data=hover_cols_length,
         title='Unitig Length vs GC Content',
         labels={
             'length': 'Length (bp)',
@@ -328,13 +363,12 @@ def create_sequence_analysis_plots(
         },
         color_continuous_scale='Viridis'
     )
-    
+    fig.update_traces(hovertext=hover_text, hoverinfo='text')
     fig.update_layout(
         height=800,
         width=1400,
         template='plotly_white'
     )
-    
     html_path = output_dir / 'length_vs_gc_by_task.html'
     png_path = output_dir / 'length_vs_gc_by_task.png'
     fig.write_html(html_path)
@@ -521,12 +555,29 @@ def main():
         )
         logger.info("Merged BLAST annotations with feature data")
     
+    # Ensure BLAST annotation columns are always present and filled
+    for col in ["best_hit_species", "genus", "phylum"]:
+        if col not in df_merged.columns:
+            logger.warning(f"Column '{col}' missing from merged dataframe. Filling with 'No blast hit'.")
+            df_merged = df_merged.with_columns(pl.lit('No blast hit').alias(col))
+        else:
+            n_missing = df_merged[col].is_null().sum() + (df_merged[col] == '').sum()
+            if n_missing > 0:
+                logger.warning(f"Column '{col}' has {n_missing} missing/empty values. Filling with 'No blast hit'.")
+                df_merged = df_merged.with_columns(
+                    pl.when((pl.col(col).is_null()) | (pl.col(col) == '')).then(pl.lit('No blast hit')).otherwise(pl.col(col)).alias(col)
+                )
+            # Warn if all values are 'No blast hit'
+            n_no_blast = (df_merged[col] == 'No blast hit').sum()
+            if n_no_blast == len(df_merged):
+                logger.warning(f"Column '{col}' is 'No blast hit' for all features. BLAST annotation may be missing.")
+
     # Create visualizations
     create_sequence_analysis_plots(df_merged, task_names, output_dir, top_k)
-    
+
     # Create summary tables
     create_feature_summary_table(df_merged, task_names, output_dir, top_k=top_k)
-    
+
     logger.info("\n✅ Sequence analysis complete!")
     logger.info(f"Figures saved to: {output_dir}")
     logger.info(f"Tables saved to: {tables_dir}")

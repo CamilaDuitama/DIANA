@@ -368,27 +368,41 @@ def create_feature_importance_plots(
             scores = importance_scores[method][task]
             for j, feat_idx in enumerate(feature_list):
                 heatmap_data[i, j] = scores[feat_idx]
-                
-                # Build hover text
                 hover_parts = [
                     f"Task: {task}",
                     f"Feature: {feat_idx}",
                     f"Importance: {scores[feat_idx]:.6f}"
                 ]
-                
-                # Add species annotation if available
+                # Add BLAST annotation if available
                 if blast_annotations is not None and len(blast_annotations) > 0:
                     try:
+                        # Try to match by task and feature_index
                         annot = blast_annotations.filter(
                             (pl.col('task') == task) & (pl.col('feature_index') == feat_idx)
                         )
+                        # If not found, try matching by id (unitig id)
+                        if len(annot) == 0:
+                            # Try to get id from blast_annotations and feature_list
+                            if 'id' in blast_annotations.columns:
+                                # Get id for this feature_index from any annotation row
+                                id_candidates = blast_annotations.filter(pl.col('feature_index') == feat_idx)
+                                if len(id_candidates) > 0:
+                                    unitig_id = id_candidates['id'][0]
+                                    annot = blast_annotations.filter(
+                                        (pl.col('task') == task) & (pl.col('id') == unitig_id)
+                                    )
                         if len(annot) > 0:
-                            species = annot['best_hit_species'][0]
+                            species = annot['best_hit_species'][0] if 'best_hit_species' in annot.columns else ''
+                            genus = annot['genus'][0] if 'genus' in annot.columns else ''
+                            phylum = annot['phylum'][0] if 'phylum' in annot.columns else ''
                             if species and str(species) != '' and str(species) != 'None':
                                 hover_parts.append(f"Species: {species}")
-                    except:
-                        pass
-                
+                            if genus and str(genus) != '' and str(genus) != 'None':
+                                hover_parts.append(f"Genus: {genus}")
+                            if phylum and str(phylum) != '' and str(phylum) != 'None':
+                                hover_parts.append(f"Phylum: {phylum}")
+                    except Exception as e:
+                        hover_parts.append(f"[BLAST lookup error: {e}]")
                 hover_text[i][j] = '<br>'.join(hover_parts)
         
         # Create heatmap

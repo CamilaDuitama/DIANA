@@ -829,61 +829,65 @@ def create_taxonomic_visualizations(
     # 2. Sunburst plot showing hierarchical taxonomy for each task
     for task in task_names:
         task_data = df_merged.filter(pl.col('task') == task).head(top_k)
-        
+        # Warn if taxonomy columns are empty
+        if (
+            ('phylum' not in task_data.columns or task_data['phylum'].is_null().all()) and
+            ('family' not in task_data.columns or task_data['family'].is_null().all()) and
+            ('genus' not in task_data.columns or task_data['genus'].is_null().all())
+        ):
+            logger.warning(f"No taxonomy annotation found for task {task}. Sunburst will be empty.")
         # Build hierarchical taxonomy: Phylum -> Family -> Genus
-        # Track importance at each level
         phylum_imp = defaultdict(float)
         family_imp = defaultdict(lambda: defaultdict(float))  # phylum -> family -> imp
         genus_imp = defaultdict(lambda: defaultdict(lambda: defaultdict(float)))  # phylum -> family -> genus -> imp
-        
+        genus_species_map = defaultdict(lambda: defaultdict(lambda: defaultdict(str)))  # phylum -> family -> genus -> species
         for row in task_data.iter_rows(named=True):
             importance = row['importance_score']
             phylum = row.get('phylum') or 'Unknown Phylum'
             family = row.get('family') or 'Unknown Family'
             genus = row.get('genus') or 'Unknown Genus'
-            
+            species = row.get('best_hit_species') or ''
             phylum_imp[phylum] += importance
             family_imp[phylum][family] += importance
             genus_imp[phylum][family][genus] += importance
-        
+            if species:
+                genus_species_map[phylum][family][genus] = species
         # Prepare data for sunburst (hierarchical structure)
-        # Use unique labels to avoid collisions
         labels = []
         parents = []
         values = []
-        
+        customdata = []
         # Root
         root = task.replace('_', ' ').title()
         labels.append(root)
         parents.append('')
-        values.append(0)  # Root gets 0, children sum up
-        
+        values.append(0)
+        customdata.append('')
         # Add phyla
         for phylum, phylum_total in phylum_imp.items():
             phylum_label = f"{phylum}"
             labels.append(phylum_label)
             parents.append(root)
             values.append(phylum_total)
-            
+            customdata.append('')
             # Add families within this phylum
             for family, family_total in family_imp[phylum].items():
-                # Make family labels unique by including phylum
                 family_label = f"{family} ({phylum[:10]})"
                 labels.append(family_label)
                 parents.append(phylum_label)
                 values.append(family_total)
-                
+                customdata.append('')
                 # Add genera within this family
                 for genus, genus_total in genus_imp[phylum][family].items():
-                    # Make genus labels unique by including family
                     genus_label = f"{genus}"
-                    # If genus appears in multiple families, make it unique
                     if labels.count(genus_label) > 0:
                         genus_label = f"{genus} ({family[:10]})"
                     labels.append(genus_label)
                     parents.append(family_label)
                     values.append(genus_total)
-        
+                    # Add species annotation to customdata for genus
+                    species = genus_species_map[phylum][family][genus]
+                    customdata.append(species)
         fig = go.Figure(go.Sunburst(
             labels=labels,
             parents=parents,
@@ -893,16 +897,15 @@ def create_taxonomic_visualizations(
                 colorscale='Viridis',
                 line=dict(width=2)
             ),
-            hovertemplate='<b>%{label}</b><br>Total Importance: %{value:.2f}<extra></extra>'
+            customdata=customdata,
+            hovertemplate='<b>%{label}</b><br>Total Importance: %{value:.2f}<br>BLAST Species: %{customdata}<extra></extra>'
         ))
-        
         fig.update_layout(
             title=f'Taxonomic Hierarchy: {task.replace("_", " ").title()}<br><sub>Phylum → Family → Genus</sub>',
             height=700,
             width=700,
             template='plotly_white'
         )
-        
         html_path = output_dir / f'taxonomy_sunburst_{task}.html'
         png_path = output_dir / f'taxonomy_sunburst_{task}.png'
         fig.write_html(html_path)
@@ -947,7 +950,7 @@ def create_taxonomic_visualizations(
         y=top_genera_names,
         colorscale='Viridis',
         colorbar=dict(title='Total<br>Importance'),
-        hovetemplate='<b>%{y}</b><br>%{x}<br>Importance: %{z:.4f}<extra></extra>'
+        hovertemplate='<b>%{y}</b><br>%{x}<br>Importance: %{z:.4f}<extra></extra>'
     ))
     
     fig.update_layout(

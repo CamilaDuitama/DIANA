@@ -51,30 +51,73 @@ class Predictor:
         
     def _load_model(self):
         """Load model from checkpoint."""
-        checkpoint = torch.load(self.model_path, map_location=self.device)
+        checkpoint = torch.load(self.model_path, map_location=self.device, weights_only=False)
+        
+        model_state = checkpoint['model_state_dict']
         
         # Determine model type from checkpoint
         if 'model_type' in checkpoint:
             model_type = checkpoint['model_type']
         else:
-            # Infer from architecture
-            model_type = 'multitask' if 'heads' in checkpoint['model_state_dict'] else 'single_task'
+            # Infer from state dict keys
+            state_keys = list(model_state.keys())
+            model_type = 'multitask' if any('heads' in k for k in state_keys) else 'single_task'
         
         self.model_type = model_type
         self.config = checkpoint.get('config', {})
         
-        # Reconstruct model
+        # Reconstruct model architecture from state dict
         if model_type == 'multitask':
+            # Infer input_dim from first layer
+            input_dim = model_state['backbone.0.weight'].shape[1]
+            
+            # Check if BatchNorm was used (look for running_mean/running_var)
+            use_batch_norm = any('running_mean' in k or 'running_var' in k for k in model_state.keys())
+            
+            # Infer hidden dims from backbone Linear layers
+            # Linear layers have .weight that are NOT running_mean/running_var
+            hidden_dims = []
+            for key in sorted(model_state.keys()):
+                if key.startswith('backbone.') and key.endswith('.weight'):
+                    # Extract layer output dimension
+                    layer_output_dim = model_state[key].shape[0]
+                    hidden_dims.append(layer_output_dim)
+            
+            # Infer num_classes for each task from heads
+            # Find the final (output) layer for each task
+            num_classes = {}
+            for key in model_state.keys():
+                if key.startswith('heads.') and key.endswith('.weight'):
+                    parts = key.split('.')
+                    task_name = parts[1]
+                    layer_idx = int(parts[2])
+                    output_dim = model_state[key].shape[0]
+                    
+                    # Keep the largest layer index (final output layer)
+                    if task_name not in num_classes:
+                        num_classes[task_name] = {'dim': output_dim, 'idx': layer_idx}
+                    elif layer_idx > num_classes[task_name]['idx']:
+                        num_classes[task_name] = {'dim': output_dim, 'idx': layer_idx}
+            
+            # Extract just the dimensions
+            num_classes = {task: info['dim'] for task, info in num_classes.items()}
+            
+            # Infer dropout (default to 0.5 if not in checkpoint)
+            dropout = checkpoint.get('dropout', 0.5)
+            
+            logger.info(f"Inferred architecture: input_dim={input_dim}, hidden_dims={hidden_dims}, num_classes={num_classes}, use_batch_norm={use_batch_norm}")
+            
             self.model = MultiTaskMLP(
-                input_dim=checkpoint['input_dim'],
-                hidden_dims=checkpoint.get('hidden_dims', [512, 256, 128]),
-                num_classes=checkpoint['num_classes'],
-                dropout=checkpoint.get('dropout', 0.5)
+                input_dim=input_dim,
+                hidden_dims=hidden_dims,
+                num_classes=num_classes,
+                dropout=dropout,
+                use_batch_norm=use_batch_norm
             )
         else:
             raise NotImplementedError("Single-task model loading not yet implemented")
         
-        self.model.load_state_dict(checkpoint['model_state_dict'])
+        self.model.load_state_dict(model_state)
         self.model.to(self.device)
         self.model.eval()
         
