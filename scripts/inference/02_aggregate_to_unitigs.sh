@@ -3,12 +3,6 @@
 
 set -e
 
-# Load GCC 13.2.0 and set library path (required for MUSET binaries)
-if command -v module >/dev/null 2>&1; then
-    module load gcc/13.2.0 2>/dev/null || true
-    export LD_LIBRARY_PATH=/opt/gensoft/exe/gcc/13.2.0/lib64:$LD_LIBRARY_PATH
-fi
-
 if [ "$#" -lt 5 ]; then
     echo "Usage: $0 <kmer_counts> <unitigs_fa> <kmer_size> <out_abundance> [out_fraction]"
     echo ""
@@ -32,13 +26,16 @@ echo "Unitigs: $UNITIGS_FA"
 echo "K-mer size: $KMER_SIZE"
 echo "Output: $OUT_ABUNDANCE"
 
-# back_to_sequences output is already in the correct format for kmat_tools!
-# Format: "KMER COUNT" (space-separated)
-# No conversion needed for single-sample inference
+# Use kmat_tools from external directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+KMAT_TOOLS="$SCRIPT_DIR/../../external/muset/bin/kmat_tools"
 
-# Use existing kmat_tools unitig from MUSET (not the conda one!)
+if [ ! -x "$KMAT_TOOLS" ]; then
+    echo "[ERROR] kmat_tools not found at $KMAT_TOOLS"
+    exit 2
+fi
+
 OUTPUT_PREFIX="${OUT_ABUNDANCE%_abundance.txt}"
-KMAT_TOOLS="/pasteur/appa/scratch/cduitama/EDID/decOM-classify/external/muset/bin/kmat_tools"
 
 CMD="$KMAT_TOOLS unitig \
     -k $KMER_SIZE \

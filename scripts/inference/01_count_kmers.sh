@@ -4,11 +4,12 @@
 set -e
 
 if [ "$#" -lt 4 ]; then
-    echo "Usage: $0 <reference_kmers_fasta> <sample_fastq> <output_counts> <threads> [min_abundance]"
+    echo "Usage: $0 <reference_kmers_fasta> <sample_fastq_or_filelist> <output_counts> <threads> [min_abundance]"
     echo ""
     echo "Count reference k-mers in a new sample"
     echo ""
     echo "Arguments:"
+    echo "  sample_fastq_or_filelist - Single FASTQ file OR path to file list (one FASTQ per line)"
     echo "  min_abundance - Minimum k-mer count to consider present (default: 2)"
     echo "                  K-mers with count < min_abundance are set to 0"
     echo "                  This filters sequencing errors"
@@ -16,12 +17,12 @@ if [ "$#" -lt 4 ]; then
 fi
 
 REFERENCE_KMERS=$1
-SAMPLE_FASTQ=$2
+SAMPLE_INPUT=$2  # Can be single FASTQ or file list
 OUTPUT_COUNTS=$3
 THREADS=$4
 MIN_ABUNDANCE=${5:-2}  # Default minimum abundance = 2 (filter sequencing errors)
 
-SAMPLE_NAME=$(basename "$SAMPLE_FASTQ" | sed 's/\.[^.]*$//')
+SAMPLE_NAME=$(basename "$SAMPLE_INPUT" | sed 's/\.[^.]*$//' | sed 's/_filelist$//')
 
 echo "=== Step 1: Count K-mers in Sample ==="
 echo "Sample: $SAMPLE_NAME"
@@ -29,24 +30,50 @@ echo "Reference k-mers: $REFERENCE_KMERS"
 echo "Minimum abundance: $MIN_ABUNDANCE"
 echo "Output: $OUTPUT_COUNTS"
 
-
-# Run back_to_sequences (robust path check)
+# Use back_to_sequences from external directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-BACK_TO_SEQUENCES=""
-if [ -x "$SCRIPT_DIR/../../external/muset/bin/back_to_sequences" ]; then
-    BACK_TO_SEQUENCES="$SCRIPT_DIR/../../external/muset/bin/back_to_sequences"
-elif [ -x "$SCRIPT_DIR/../../external/back_to_sequences/target/release/back_to_sequences" ]; then
-    BACK_TO_SEQUENCES="$SCRIPT_DIR/../../external/back_to_sequences/target/release/back_to_sequences"
-else
-    echo "[ERROR] back_to_sequences binary not found in muset/bin or back_to_sequences/target/release. Exiting." >&2
+B2S_PATH="$SCRIPT_DIR/../../external/back_to_sequences/target/release/back_to_sequences"
+
+if [ ! -x "$B2S_PATH" ]; then
+    echo "[ERROR] back_to_sequences not found at $B2S_PATH"
     exit 2
 fi
+
 TMP_COUNTS="${OUTPUT_COUNTS}.tmp"
-"$BACK_TO_SEQUENCES" \
-    --in-kmers "$REFERENCE_KMERS" \
-    --in-sequences "$SAMPLE_FASTQ" \
-    --out-kmers "$TMP_COUNTS" \
-    --threads "$THREADS"
+
+# Check if input is a file list (text file with multiple FASTQ paths)
+if [ -f "$SAMPLE_INPUT" ] && file "$SAMPLE_INPUT" | grep -q "ASCII text"; then
+    # Check if it contains FASTQ paths (likely a file list)
+    if head -1 "$SAMPLE_INPUT" | grep -qE '\.(fastq|fq)(\.gz)?$'; then
+        echo "Detected file list input (paired-end or multiple files)"
+        NUM_FILES=$(wc -l < "$SAMPLE_INPUT")
+        echo "  Files to process: $NUM_FILES"
+        
+        # Use seqkit concat for robust FASTQ concatenation
+        # seqkit handles compression automatically and preserves FASTQ format
+        echo "  Using seqkit concat for file concatenation"
+        seqkit concat $(cat "$SAMPLE_INPUT") | "$B2S_PATH" \
+            --in-kmers "$REFERENCE_KMERS" \
+            --out-kmers "$TMP_COUNTS" \
+            --threads "$THREADS"
+    else
+        # Single FASTQ file
+        echo "Detected single FASTQ file"
+        "$B2S_PATH" \
+            --in-kmers "$REFERENCE_KMERS" \
+            --in-sequences "$SAMPLE_INPUT" \
+            --out-kmers "$TMP_COUNTS" \
+            --threads "$THREADS"
+    fi
+else
+    # Single FASTQ file
+    echo "Detected single FASTQ file"
+    "$B2S_PATH" \
+        --in-kmers "$REFERENCE_KMERS" \
+        --in-sequences "$SAMPLE_INPUT" \
+        --out-kmers "$TMP_COUNTS" \
+        --threads "$THREADS"
+fi
 
 # Filter k-mers by minimum abundance (avoid sequencing errors)
 # Set count to 0 if below threshold
