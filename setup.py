@@ -31,6 +31,7 @@ setup(
         "console_scripts": [
             "diana-train=diana.cli.train:main",
             "diana-test=diana.cli.test:main",
+            "diana-predict=diana.cli.predict:main",
         ],
     },
 )

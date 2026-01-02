@@ -4,6 +4,7 @@ channels:
   - nvidia
   - conda-forge
   - bioconda
+  - camiladuitama
   - defaults
 dependencies:
   - python=3.10
@@ -18,16 +19,25 @@ dependencies:
   - matplotlib>=3.7
   - seaborn>=0.12
   - plotly
-  - python-kaleido=0.2.1
+  - python-kaleido>=1.0.0
   - tabulate
   - h5py
   - pyarrow
   - jupyterlab
   - ete3
   - seqkit
+  - pigz  # Parallel gzip for fast decompression
   - pytest
   - black
   - isort
+  # External tools (pre-built binaries)
+  - muset  # K-mer matrix tools from camiladuitama channel
+  # Build tools for compiling back_to_sequences
+  - cmake>=3.20
+  - make
+  - rust>=1.70
+  - gxx>=13.0  # Modern C++ compiler with C++17 support
+  - gcc>=13.0
   - pip
   - pip:
       - pyyaml>=6.0

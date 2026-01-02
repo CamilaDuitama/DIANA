@@ -34,7 +34,7 @@ class TestEndToEnd:
         
         cmd = [
             sys.executable,
-            "scripts/training/07_train_multitask_single_fold.py",
+            "scripts/training/01_train_multitask_single_fold.py",
             "--fold_id", "0",
             "--total_folds", "2",
             "--features", str(dummy_matrix_path),
