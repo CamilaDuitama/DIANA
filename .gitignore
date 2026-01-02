@@ -67,6 +67,9 @@ results/metrics/*
 results/test_integration/
 results/full_training/*.pth
 results/full_training/cv_results/
+results/training/cv_results/*/checkpoint_*.pth  # Training checkpoints (large!)
+results/training/*/checkpoint_*.pth  # Any checkpoint files
+results/inference/  # Inference outputs
 !results/**/.gitkeep
 
 # External tools (installed separately)
