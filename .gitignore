@@ -60,6 +60,11 @@ models/**/*.h5
 models/**/*.pkl
 !models/.gitkeep
 
+# Training results (large model checkpoints)
+results/training/**/*.pth
+results/full_training/**/*.pth
+results/multitask/**/*.pth
+
 # Results
 results/experiments/*
 results/figures/*
