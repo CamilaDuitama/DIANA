@@ -24,12 +24,6 @@ MIN_ABUNDANCE=${5:-2}  # Default minimum abundance = 2 (filter sequencing errors
 
 SAMPLE_NAME=$(basename "$SAMPLE_INPUT" | sed 's/\.[^.]*$//' | sed 's/_filelist$//')
 
-echo "=== Step 1: Count K-mers in Sample ==="
-echo "Sample: $SAMPLE_NAME"
-echo "Reference k-mers: $REFERENCE_KMERS"
-echo "Minimum abundance: $MIN_ABUNDANCE"
-echo "Output: $OUTPUT_COUNTS"
-
 # Use back_to_sequences from external directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 B2S_PATH="$SCRIPT_DIR/../../external/back_to_sequences/target/release/back_to_sequences"
@@ -45,20 +39,14 @@ TMP_COUNTS="${OUTPUT_COUNTS}.tmp"
 if [ -f "$SAMPLE_INPUT" ] && file "$SAMPLE_INPUT" | grep -q "ASCII text"; then
     # Check if it contains FASTQ paths (likely a file list)
     if head -1 "$SAMPLE_INPUT" | grep -qE '\.(fastq|fq)(\.gz)?$'; then
-        echo "Detected file list input (paired-end or multiple files)"
-        NUM_FILES=$(wc -l < "$SAMPLE_INPUT")
-        echo "  Files to process: $NUM_FILES"
-        
         # Use seqkit concat for robust FASTQ concatenation
         # seqkit handles compression automatically and preserves FASTQ format
-        echo "  Using seqkit concat for file concatenation"
         seqkit concat $(cat "$SAMPLE_INPUT") | "$B2S_PATH" \
             --in-kmers "$REFERENCE_KMERS" \
             --out-kmers "$TMP_COUNTS" \
             --threads "$THREADS"
     else
         # Single FASTQ file
-        echo "Detected single FASTQ file"
         "$B2S_PATH" \
             --in-kmers "$REFERENCE_KMERS" \
             --in-sequences "$SAMPLE_INPUT" \
@@ -67,7 +55,6 @@ if [ -f "$SAMPLE_INPUT" ] && file "$SAMPLE_INPUT" | grep -q "ASCII text"; then
     fi
 else
     # Single FASTQ file
-    echo "Detected single FASTQ file"
     "$B2S_PATH" \
         --in-kmers "$REFERENCE_KMERS" \
         --in-sequences "$SAMPLE_INPUT" \

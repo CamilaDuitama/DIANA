@@ -73,6 +73,13 @@ def predict_single_sample(
     """
     Run inference on a single sample (single-end or paired-end).
     
+    Orchestrates the pipeline by calling individual scripts directly:
+      1. Extract reference k-mers (if needed)
+      2. Count k-mers in sample
+      3. Aggregate k-mer counts to unitigs
+      4. Run model inference
+      5. Generate plots (optional)
+    
     Args:
         sample_paths: List of FASTQ file paths (1 for single-end, 2 for paired-end)
         model_path: Path to trained model
@@ -99,60 +106,136 @@ def predict_single_sample(
     logger.info(f"Processing sample: {sample_id}")
     if len(sample_paths) > 1:
         logger.info(f"  Paired-end: {len(sample_paths)} files")
-    logger.info(f"Output directory: {sample_output_dir}")
+    logger.info(f"  Output directory: {sample_output_dir}")
     
-    # Get the project root directory (where scripts/ is located)
+    # Get the project root and script paths
     project_root = Path(__file__).parent.parent.parent.parent
-    pipeline_script = project_root / "scripts" / "inference" / "inference_pipeline.sh"
+    scripts_dir = project_root / "scripts" / "inference"
     
-    if not pipeline_script.exists():
-        raise FileNotFoundError(f"Pipeline script not found: {pipeline_script}")
+    # Define file paths
+    reference_kmers = muset_matrix_dir / "reference_kmers.fasta"
+    unitigs_fa = muset_matrix_dir / "unitigs.fa"
+    kmer_counts = sample_output_dir / f"{sample_id}_kmer_counts.txt"
+    unitig_abundance = sample_output_dir / f"{sample_id}_unitig_abundance.txt"
+    unitig_fraction = sample_output_dir / f"{sample_id}_unitig_fraction.txt"
+    predictions_json = sample_output_dir / f"{sample_id}_predictions.json"
+    plots_dir = sample_output_dir / "plots"
     
-    # Build command - pass all FASTQ files then sample_id
-    cmd = [
-        "bash",
-        str(pipeline_script),
-        *[str(p) for p in sample_paths],  # All FASTQ files
-        sample_id  # Sample ID as last argument
-    ]
-    
-    # Set environment variables for configuration
-    env = {
-        "MUSET_MATRIX_DIR": str(muset_matrix_dir),
-        "MODEL_PATH": str(model_path),
-        "OUTPUT_DIR": str(sample_output_dir),
-        "KMER_SIZE": str(kmer_size),
-        "MIN_ABUNDANCE": str(min_abundance),
-        "THREADS": str(threads),
-        "GENERATE_PLOTS": "1" if generate_plots else "0"
-    }
-    
-    # Run pipeline
     start_time = time.time()
-    logger.info(f"Running inference pipeline...")
     logger.info("-" * 60)
     
     try:
-        # Run with output streaming to console (no capture_output)
-        # This allows user to see real-time progress from the bash script
-        result = subprocess.run(
-            cmd,
-            check=True,
-            env={**subprocess.os.environ, **env}
-        )
+        # ====================================================================
+        # Step 0: Verify reference k-mers exist (should be in shared location)
+        # ====================================================================
+        if not reference_kmers.exists():
+            logger.warning(f"Reference k-mers not found: {reference_kmers}")
+            logger.info("Generating reference k-mers (this is a one-time operation)...")
+            logger.info("TIP: Run install.sh to download pre-generated file from Zenodo")
+            step_start = time.time()
+            
+            result = subprocess.run([
+                "bash",
+                str(scripts_dir / "00_extract_reference_kmers.sh"),
+                str(muset_matrix_dir),
+                str(reference_kmers)
+            ], check=True, capture_output=True, text=True)
+            
+            logger.info(f"  ✓ Reference k-mers generated ({time.time() - step_start:.1f}s)")
+        else:
+            logger.debug(f"Using shared reference k-mers: {reference_kmers}")
+        
+        # ====================================================================
+        # Step 1: Count k-mers in sample
+        # ====================================================================
+        logger.info("Step 1: Counting k-mers in sample...")
+        step_start = time.time()
+        
+        # Create file list for paired-end samples
+        if len(sample_paths) > 1:
+            fastq_filelist = sample_output_dir / f"{sample_id}_fastq_filelist.txt"
+            with open(fastq_filelist, 'w') as f:
+                for fq in sample_paths:
+                    f.write(f"{fq}\\n")
+            kmer_input = str(fastq_filelist)
+        else:
+            kmer_input = str(sample_paths[0])
+        
+        result = subprocess.run([
+            "bash",
+            str(scripts_dir / "01_count_kmers.sh"),
+            str(reference_kmers),
+            kmer_input,
+            str(kmer_counts),
+            str(threads),
+            str(min_abundance)
+        ], check=True, capture_output=True, text=True)
+        
+        logger.info(f"  ✓ K-mer counting complete ({time.time() - step_start:.1f}s)")
+        
+        # ====================================================================
+        # Step 2: Aggregate k-mer counts to unitigs
+        # ====================================================================
+        logger.info("Step 2: Aggregating k-mers to unitigs...")
+        step_start = time.time()
+        
+        result = subprocess.run([
+            "bash",
+            str(scripts_dir / "02_aggregate_to_unitigs.sh"),
+            str(kmer_counts),
+            str(unitigs_fa),
+            str(kmer_size),
+            str(unitig_abundance),
+            str(unitig_fraction)
+        ], check=True, capture_output=True, text=True)
+        
+        logger.info(f"  ✓ Unitig aggregation complete ({time.time() - step_start:.1f}s)")
+        
+        # ====================================================================
+        # Step 3: Run model inference
+        # ====================================================================
+        logger.info("Step 3: Running model inference...")
+        step_start = time.time()
+        
+        result = subprocess.run([
+            "python",
+            str(scripts_dir / "03_run_inference.py"),
+            "--model", str(model_path),
+            "--input", str(unitig_fraction),
+            "--output", str(predictions_json),
+            "--sample-id", sample_id
+        ], check=True, capture_output=True, text=True)
+        
+        logger.info(f"  ✓ Model inference complete ({time.time() - step_start:.1f}s)")
+        
+        # ====================================================================
+        # Step 4: Generate plots (optional)
+        # ====================================================================
+        if generate_plots:
+            logger.info("Step 4: Generating plots...")
+            step_start = time.time()
+            
+            result = subprocess.run([
+                "python",
+                str(scripts_dir / "04_plot_results.py"),
+                "--predictions", str(predictions_json),
+                "--output_dir", str(plots_dir),
+                "--sample_id", sample_id
+            ], check=True, capture_output=True, text=True)
+            
+            logger.info(f"  ✓ Plots generated ({time.time() - step_start:.1f}s)")
         
         logger.info("-" * 60)
         elapsed_time = time.time() - start_time
         logger.info(f"Pipeline completed in {elapsed_time:.1f}s")
         
         # Load predictions
-        predictions_file = sample_output_dir / f"{sample_id}_predictions.json"
-        if predictions_file.exists():
-            with open(predictions_file) as f:
+        if predictions_json.exists():
+            with open(predictions_json) as f:
                 predictions = json.load(f)
         else:
             predictions = None
-            logger.warning(f"Predictions file not found: {predictions_file}")
+            logger.warning(f"Predictions file not found: {predictions_json}")
         
         return {
             "sample_id": sample_id,
@@ -166,13 +249,33 @@ def predict_single_sample(
         logger.info("-" * 60)
         elapsed_time = time.time() - start_time
         logger.error(f"Pipeline failed after {elapsed_time:.1f}s")
+        logger.error(f"Command: {' '.join(e.cmd)}")
         logger.error(f"Exit code: {e.returncode}")
+        
+        # Log stderr if available
+        if e.stderr:
+            logger.error(f"Error output:\\n{e.stderr}")
         
         return {
             "sample_id": sample_id,
             "status": "failed",
             "elapsed_time": elapsed_time,
-            "error": f"Pipeline failed with exit code {e.returncode}",
+            "error": f"Pipeline failed: {e.stderr if e.stderr else 'Unknown error'}",
+            "exit_code": e.returncode,
+            "output_dir": str(sample_output_dir)
+        }
+    
+    except Exception as e:
+        logger.info("-" * 60)
+        elapsed_time = time.time() - start_time
+        logger.error(f"Unexpected error after {elapsed_time:.1f}s")
+        logger.error(f"Error: {str(e)}")
+        
+        return {
+            "sample_id": sample_id,
+            "status": "failed",
+            "elapsed_time": elapsed_time,
+            "error": str(e),
             "output_dir": str(sample_output_dir)
         }
 

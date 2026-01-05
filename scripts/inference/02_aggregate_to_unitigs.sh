@@ -19,13 +19,6 @@ OUT_FRACTION=$5
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SAMPLE_NAME=$(basename "$OUT_ABUNDANCE" | sed 's/_unitig_abundance.txt//')
 
-echo "=== Step 2: Aggregate K-mers to Unitigs ==="
-echo "Sample: $SAMPLE_NAME"
-echo "K-mer counts: $KMER_COUNTS"
-echo "Unitigs: $UNITIGS_FA"
-echo "K-mer size: $KMER_SIZE"
-echo "Output: $OUT_ABUNDANCE"
-
 # Use kmat_tools from external directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 KMAT_TOOLS="$SCRIPT_DIR/../../external/muset/bin/kmat_tools"
@@ -48,7 +41,6 @@ fi
 # Pass back_to_sequences output directly to kmat_tools
 CMD="$CMD $UNITIGS_FA $KMER_COUNTS"
 
-echo "Running: $CMD"
 eval $CMD
 
 # Rename outputs to match expected names
@@ -65,5 +57,3 @@ fi
 
 # Cleanup
 rm -f "$MATRIX_FILE"
-
-echo "✓ Done!"

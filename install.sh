@@ -84,6 +84,97 @@ echo "✓ MUSET tools available from conda package"
 echo ""
 
 # ============================================================================
+# Download reference k-mers from Zenodo (if not present)
+# ============================================================================
+echo "[3/3] Checking reference k-mers file..."
+
+# Define the target location, Zenodo URL, and the expected checksum
+KMER_FILE="$SCRIPT_DIR/data/matrices/large_matrix_3070_with_frac/reference_kmers.fasta"
+KMER_URL="YOUR_ZENODO_DOWNLOAD_URL_HERE"  # <-- PASTE YOUR ZENODO URL HERE (should end in .fasta.gz)
+EXPECTED_CHECKSUM="YOUR_SHA256_CHECKSUM_HERE"  # <-- PASTE SHA256 OF THE .GZ FILE HERE
+
+# Ensure the target directory exists
+mkdir -p "$(dirname "$KMER_FILE")"
+
+# Check if the file already exists and is valid
+NEEDS_DOWNLOAD=false
+if [ -f "$KMER_FILE" ]; then
+    echo "Reference k-mers file found. Verifying integrity..."
+    ACTUAL_CHECKSUM=$(sha256sum "$KMER_FILE" | awk '{print $1}')
+    if [ "$ACTUAL_CHECKSUM" == "$EXPECTED_CHECKSUM" ]; then
+        echo "✓ File is valid. Skipping download."
+    else
+        echo "⚠️  Checksum mismatch. Re-downloading the file."
+        rm "$KMER_FILE"  # Remove corrupted file before downloading
+        NEEDS_DOWNLOAD=true
+    fi
+else
+    NEEDS_DOWNLOAD=true
+fi
+
+if [ "$NEEDS_DOWNLOAD" = true ]; then
+    if [ "$KMER_URL" = "YOUR_ZENODO_DOWNLOAD_URL_HERE" ]; then
+        echo "[INFO] Reference k-mers file not found: $KMER_FILE"
+        echo "[INFO] Zenodo URL not configured yet"
+        echo ""
+        echo "TO GENERATE AND UPLOAD TO ZENODO:"
+        echo "  1. Generate the file:"
+        echo "     bash scripts/inference/00_extract_reference_kmers.sh \\"
+        echo "          data/matrices/large_matrix_3070_with_frac \\"
+        echo "          reference_kmers.fasta"
+        echo "  2. Compress: gzip reference_kmers.fasta"
+        echo "  3. Calculate checksum: sha256sum reference_kmers.fasta.gz"
+        echo "  4. Upload to Zenodo (approx. 179 MB compressed)"
+        echo "  5. Update KMER_URL and EXPECTED_CHECKSUM in install.sh"
+        echo ""
+        echo "[INFO] For now, the file will be generated on first inference run (slower)"
+    else
+        echo "Downloading reference k-mers (approx. 179 MB compressed)..."
+        KMER_GZ="$KMER_FILE.gz"
+        
+        if command -v wget >/dev/null 2>&1; then
+            if ! wget -O "$KMER_GZ" "$KMER_URL"; then
+                echo "[ERROR] Download failed. Please check your internet connection and the URL."
+                rm -f "$KMER_GZ"  # Clean up partial download
+                exit 1
+            fi
+        elif command -v curl >/dev/null 2>&1; then
+            if ! curl -L -o "$KMER_GZ" "$KMER_URL"; then
+                echo "[ERROR] Download failed. Please check your internet connection and the URL."
+                rm -f "$KMER_GZ"  # Clean up partial download
+                exit 1
+            fi
+        else
+            echo "[ERROR] Neither wget nor curl found. Cannot download reference file."
+            echo "Please download manually from: $KMER_URL"
+            echo "Save to: $KMER_GZ and decompress with: gunzip $KMER_GZ"
+            exit 1
+        fi
+        
+        echo "Verifying downloaded file..."
+        ACTUAL_CHECKSUM=$(sha256sum "$KMER_GZ" | awk '{print $1}')
+        
+        if [ "$ACTUAL_CHECKSUM" != "$EXPECTED_CHECKSUM" ]; then
+            echo "[ERROR] Checksum mismatch! The downloaded file may be corrupt."
+            rm "$KMER_GZ"
+            exit 1
+        fi
+        echo "✓ Download verified."
+        
+        echo "Decompressing file..."
+        gunzip "$KMER_GZ"
+        
+        if [ ! -f "$KMER_FILE" ]; then
+            echo "[ERROR] Decompression failed"
+            exit 1
+        fi
+        
+        echo "✓ Reference k-mers ready."
+    fi
+fi
+echo ""
+
+# ============================================================================
 # Verify installation
 # ============================================================================
 echo "============================================"
