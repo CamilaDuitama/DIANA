@@ -37,7 +37,7 @@ python -c "import torch, polars, plotly; print('✓ Environment ready')"
 
 ## Data Preparation
 
-### 1. Build k-mer Matrix with muset
+### 1. Build Unitig Matrix with muset
 
 ```bash
 # Build muset tool (one-time setup)
@@ -182,7 +182,7 @@ results/training/cv_results/
 # Train on full training set with aggregated best hyperparameters
 mamba run -p ./env diana-train multitask \
   --config configs/train_config.yaml \
-  --output results/training \
+  --output results/full_training \
   --mode train
 ```
 
@@ -194,12 +194,12 @@ mamba run -p ./env diana-train multitask \
 
 **Expected outputs:**
 ```
-results/training/
+results/full_training/
 ├── best_model.pth                    # Trained model weights
 ├── training_history.json             # Loss/accuracy curves
 ├── label_encoders.json               # Class mappings for each task
 ├── final_training_config.json        # Full config used for training
-└── cv_results/                       # From Steps 1-2
+└── cv_results/                       # From Steps 1-2 (symlink or copied)
     ├── best_hyperparameters.json
     └── aggregated_results.json
 ```
@@ -215,8 +215,8 @@ results/training/
 ```bash
 # Evaluate on test set (461 samples, never seen during training or optimization)
 mamba run -p ./env diana-test \
-  --model results/training/best_model.pth \
-  --config results/training/final_training_config.json \
+  --model results/full_training/best_model.pth \
+  --config results/full_training/final_training_config.json \
   --matrix data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat \
   --metadata data/splits/test_metadata.tsv \
   --test-ids data/splits/test_ids.txt \
@@ -238,10 +238,10 @@ results/test_evaluation/
 # Create publication-ready figures and tables
 mamba run -p ./env python scripts/evaluation/04_model_performance_metrics.py \
   --metrics results/test_evaluation/test_metrics.json \
-  --history results/training/training_history.json \
-  --config results/training/final_training_config.json \
+  --history results/full_training/training_history.json \
+  --config results/full_training/final_training_config.json \
   --predictions results/test_evaluation/test_predictions.tsv \
-  --label-encoders results/training/label_encoders.json \
+  --label-encoders results/full_training/label_encoders.json \
   --output-dir paper/figures
 ```
 
@@ -374,7 +374,7 @@ sbatch --array=1-879%20 scripts/validation/04_convert_sra_to_fastq.sbatch
 # Extract k-mers and predict
 bash scripts/inference/inference_pipeline.sh \
   --input data/validation/raw \
-  --model results/training/best_model.pth \
+  --model results/full_training/best_model.pth \
   --output results/validation_predictions
 ```
 
@@ -398,14 +398,18 @@ decOM-classify/
 │       └── test_metadata.tsv         # Test metadata
 │
 ├── results/
-│   ├── training/                     # Model training outputs
+│   ├── training/                     # CV hyperparameter optimization
+│   │   └── cv_results/               # 5-fold CV results
+│   │       ├── best_hyperparameters.json  # Aggregated best params
+│   │       ├── aggregated_results.json    # CV performance summary
+│   │       └── fold_{0-4}/           # Per-fold results
+│   │
+│   ├── full_training/                # Final model training
 │   │   ├── best_model.pth            # Final trained model
 │   │   ├── training_history.json     # Loss/accuracy curves
 │   │   ├── label_encoders.json       # Class label mappings
 │   │   ├── final_training_config.json
-│   │   └── cv_results/               # Hyperparameter optimization
-│   │       ├── best_hyperparameters.json  # Aggregated best params
-│   │       └── fold_{0-4}/           # Per-fold results
+│   │   └── cv_results/               # Symlink to ../training/cv_results
 │   │
 │   ├── test_evaluation/              # Test set performance
 │   │   ├── test_metrics.json         # Accuracy, F1, etc.

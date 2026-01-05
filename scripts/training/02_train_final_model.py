@@ -141,9 +141,14 @@ def main():
         verbose=True
     )
 
-    # Save final model
+    # The best model is already saved by trainer.fit() to checkpoint_dir/best_model.pth
+    # and loaded back into the trainer. Just verify it exists.
     model_path = Path(config['output_dir']) / 'best_model.pth'
-    logger.info(f'Final model saved to: {model_path}')
+    if model_path.exists():
+        logger.info(f'Final model saved to: {model_path}')
+    else:
+        logger.error(f'ERROR: Model file not found at {model_path}')
+        raise FileNotFoundError(f'Training completed but model not saved to {model_path}')
 
     # P2: Save training history with proper type conversion
     history_path = Path(config['output_dir']) / 'training_history.json'

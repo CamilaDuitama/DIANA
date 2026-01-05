@@ -1,29 +1,29 @@
 {
   "features_path": "data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat",
   "metadata_path": "data/splits/train_metadata.tsv",
-  "output_dir": "results/training",
+  "output_dir": "results/full_training",
   "hyperparameters": {
     "model_params": {
       "hidden_dims": [
         307,
-        358,
-        224
+        474,
+        272
       ],
-      "dropout": 0.24008941768262765,
+      "dropout": 0.1916894511329029,
       "activation": "relu",
       "use_batch_norm": false
     },
     "trainer_params": {
-      "learning_rate": 0.0018070735350860004,
-      "weight_decay": 0.00013646152308693173,
+      "learning_rate": 0.001723369322527049,
+      "weight_decay": 3.75062679509968e-05,
       "task_weights": {
-        "sample_type": 1.2191664079885853,
-        "community_type": 1.5572400633917634,
-        "sample_host": 1.336836008310497,
-        "material": 1.581606959759543
+        "sample_type": 0.9307526054899865,
+        "community_type": 1.6222031999590159,
+        "sample_host": 1.1909289698749994,
+        "material": 1.8104588615959236
       }
     },
-    "batch_size": 90
+    "batch_size": 96
   },
   "task_names": [
     "sample_type",
