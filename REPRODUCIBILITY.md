@@ -357,7 +357,7 @@ paper/figures/feature_analysis/
 # Expand metadata with ENA run accessions
 mamba run -p ./env python scripts/validation/01_expand_metadata.py \
   --input data/validation/validation_metadata_v25.09.0.tsv \
-  --output data/validation/validation_metadata_expanded.tsv
+  --output data/validation/validation_metadata_expanded_raw.tsv
 
 # Prefetch .sra files (880 samples)
 bash scripts/validation/03_prefetch_all.sh
@@ -368,129 +368,13 @@ sbatch --array=1-879%20 scripts/validation/04_convert_sra_to_fastq.sbatch
 
 **Output:** `data/validation/raw/{accession}/*.fastq.gz`
 
-### Run Inference
+### Run Inference on Validation Set
 
 ```bash
-# Extract k-mers and predict
-bash scripts/inference/inference_pipeline.sh \
-  --input data/validation/raw \
-  --model results/full_training/best_model.pth \
-  --output results/validation_predictions
+sbatch --array=1-629%10 scripts/validation/05_run_predictions.sbatch
 ```
 
 ---
 
-## Output Structure
-
-After completing all steps, you should have:
-
-```
-decOM-classify/
-├── data/
-│   ├── matrices/large_matrix_3070_with_frac/
-│   │   ├── unitigs.frac.mat          # 3070×107480 k-mer matrix
-│   │   └── unitigs.fa                # Unitig sequences (FASTA)
-│   ├── metadata/DIANA_metadata.tsv   # Full metadata (3070 samples)
-│   └── splits/                       # 85/15 train/test split
-│       ├── train_ids.txt             # 2609 sample IDs
-│       ├── test_ids.txt              # 461 sample IDs
-│       ├── train_metadata.tsv        # Training metadata
-│       └── test_metadata.tsv         # Test metadata
-│
-├── results/
-│   ├── training/                     # CV hyperparameter optimization
-│   │   └── cv_results/               # 5-fold CV results
-│   │       ├── best_hyperparameters.json  # Aggregated best params
-│   │       ├── aggregated_results.json    # CV performance summary
-│   │       └── fold_{0-4}/           # Per-fold results
-│   │
-│   ├── full_training/                # Final model training
-│   │   ├── best_model.pth            # Final trained model
-│   │   ├── training_history.json     # Loss/accuracy curves
-│   │   ├── label_encoders.json       # Class label mappings
-│   │   ├── final_training_config.json
-│   │   └── cv_results/               # Symlink to ../training/cv_results
-│   │
-│   ├── test_evaluation/              # Test set performance
-│   │   ├── test_metrics.json         # Accuracy, F1, etc.
-│   │   ├── test_predictions.tsv      # Model predictions
-│   │   ├── confusion_matrices/
-│   │   └── classification_reports/
-│   │
-│   ├── feature_analysis/             # Important features
-│   │   ├── importance_{task}.csv     # Top 50 features per task
-│   │   ├── annotated_features_{task}.csv  # With taxonomy
-│   │   ├── sequence_properties_{task}.csv
-│   │   └── figures/
-│   │
-│   └── figures/                      # Publication figures
-│       └── model_evaluation/
-│           ├── test_set_confusion_matrix_{task}.png
-│           ├── test_set_roc_curves_{task}.html
-│           └── training_loss_curves.html
-│
-└── logs/                             # SLURM job logs
-    ├── diana_train_*.err
-    └── blast_*.err
-```
-
----
-
-## Script Organization
-
-All scripts are organized in numbered sequence within functional subdirectories:
-
-```
-scripts/
-├── create_umat/                      # K-mer matrix generation
-│   ├── 01_build_muset.sh            # Build MUSET tool
-│   └── 02_regenerate_matrix_with_frac.sbatch  # Generate unitig matrix
-│
-├── data_prep/                        # Data preparation
-│   ├── 01_create_splits.py          # Train/test split
-│   ├── 02_extract_and_split_matrices.py
-│   └── 03_analyze_unitigs.py
-│
-├── training/                         # Model training
-│   ├── 01_train_multitask_single_fold.py  # CV fold training
-│   ├── 02_train_final_model.py      # Final model training
-│   ├── run_multitask_gpu.sbatch     # SLURM submission for CV
-│   └── run_final_training_gpu.sbatch
-│
-├── evaluation/                       # Model evaluation
-│   ├── 01_plot_data_distribution.py
-│   ├── 02_statistical_tests_splits.py
-│   ├── 03_collect_multitask_results.py
-│   └── 04_model_performance_metrics.py  # Main evaluation script
-│
-├── feature_analysis/                 # Feature importance
-│   ├── 01_extract_feature_importance.py
-│   ├── 02_analyze_feature_sequences.py
-│   ├── 03_annotate_features.py
-│   └── run_blast_annotation.sbatch
-│
-├── inference/                        # Production inference
-│   ├── 00_extract_reference_kmers.sh
-│   ├── 01_count_kmers.sh
-│   ├── 02_aggregate_to_unitigs.sh
-│   └── inference_pipeline.sh
-│
-└── validation/                       # External validation
-    ├── 01_expand_metadata.py
-    ├── 02_prepare_download.py
-    ├── 03_prefetch_all.sh
-    └── 04_convert_sra_to_fastq.sbatch
-```
-
-**Configuration files:**
-```
-configs/
-├── train_config.yaml                 # Main training configuration
-├── data_config.yaml                  # Data processing config
-└── feature_analysis.yaml             # Feature analysis config
-```
-
----
-
-**Last Updated:** December 24, 2025  
+**Last Updated:** January 2026
 **Contact:** cduitama@pasteur.fr

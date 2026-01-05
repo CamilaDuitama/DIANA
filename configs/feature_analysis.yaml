@@ -10,9 +10,9 @@ data:
 
 # Model paths
 model:
-  checkpoint_path: results/training/best_model.pth
-  config_path: results/training/final_training_config.json
-  label_encoders_path: results/training/label_encoders.json
+  checkpoint_path: results/full_training/best_model.pth
+  config_path: results/full_training/final_training_config.json
+  label_encoders_path: results/full_training/label_encoders.json
 
 # Feature importance methods
 feature_importance:

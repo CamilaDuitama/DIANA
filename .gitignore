@@ -45,6 +45,10 @@ data/splits/*
 data/matrices/*
 !data/matrices/.gitkeep
 data/validation/raw/
+reference_kmers.fasta*
+
+# Large BLAST results
+paper/blast_results/blast_results.txt
 
 # Test/dummy data (large matrix files)
 data/test_data/matrices/*

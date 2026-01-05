@@ -215,12 +215,16 @@ def predict_single_sample(
             logger.info("Step 4: Generating plots...")
             step_start = time.time()
             
+            # Get label encoders path from model directory
+            label_encoders_dir = model_path.parent
+            
             result = subprocess.run([
                 "python",
                 str(scripts_dir / "04_plot_results.py"),
                 "--predictions", str(predictions_json),
                 "--output_dir", str(plots_dir),
-                "--sample_id", sample_id
+                "--sample_id", sample_id,
+                "--label_encoders", str(label_encoders_dir)
             ], check=True, capture_output=True, text=True)
             
             logger.info(f"  ✓ Plots generated ({time.time() - step_start:.1f}s)")
@@ -306,7 +310,7 @@ Examples:
         '--sample', '-s',
         type=str,
         nargs='+',
-        help='Path(s) to FASTQ file(s) (supports wildcards)'
+        help='Path(s) to non-empty gzipped FASTQ file(s) (*.fastq.gz or *.fq.gz, supports wildcards)'
     )
     input_group.add_argument(
         '--batch', '-b',
@@ -435,6 +439,25 @@ Examples:
                 "sample_id": sample_files[0].stem,
                 "status": "not_found",
                 "error": f"File(s) not found: {missing}"
+            })
+            continue
+        
+        # Validate files are non-empty gzipped FASTQ
+        invalid_files = []
+        for f in sample_files:
+            # Check file extension
+            if not (f.suffix == '.gz' and f.stem.endswith(('.fastq', '.fq'))):
+                invalid_files.append(f"{f}: not a gzipped FASTQ file (*.fastq.gz or *.fq.gz)")
+            # Check file is not empty
+            elif f.stat().st_size == 0:
+                invalid_files.append(f"{f}: empty file (0 bytes)")
+        
+        if invalid_files:
+            logger.error(f"Invalid sample file(s): {'; '.join(invalid_files)}")
+            results.append({
+                "sample_id": sample_files[0].stem,
+                "status": "invalid",
+                "error": f"Invalid file(s): {'; '.join(invalid_files)}"
             })
             continue
         

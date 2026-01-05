@@ -2,103 +2,103 @@
 
 | Rank | Feature | Unitig ID | Length | GC% | Complexity | Importance | Phylum | Family | Genus | Species | Identity% | E-value | Bitscore |
 |------|---------|-----------|--------|-----|------------|------------|--------|--------|-------|---------|-----------|---------|----------|
-| 1 | 55208 | 2576579 | 70 | 45.7 | 1.946 | 3.553849 | Bacillota | Streptococcaceae | Streptococcus | Streptococcus parasanguinis | 100.0 | 3.77e-25 | 127.0 |
-| 2 | 2732 | 2378701 | 61 | 59.0 | 1.939 | 3.013825 | Actinomycetota | Propionibacteriaceae | Cutibacterium | Cutibacterium acnes | 100.0 | 2.11e-20 | 111.0 |
-| 3 | 34226 | 2505245 | 62 | 56.5 | 1.979 | 2.545602 | Bacillota | Streptococcaceae | Lactococcus | Lactococcus lactis | 100.0 | 6.30e-21 | 113.0 |
-| 4 | 35508 | 2511119 | 62 | 53.2 | 1.935 | 2.479816 | Pseudomonadota | Moraxellaceae | Acinetobacter | Acinetobacter sp. | 100.0 | 6.30e-21 | 113.0 |
-| 5 | 61486 | 2599697 | 77 | 66.2 | 1.912 | 2.425624 | Nitrospirota | Nitrospiraceae | Nitrospira | MAG: Nitrospira | 93.4 | 2.81e-21 | 115.0 |
-| 6 | 81533 | 2667129 | 61 | 50.8 | 1.946 | 2.369745 | Pseudomonadota | Neisseriaceae | Neisseria | Neisseria oralis | 100.0 | 2.11e-20 | 111.0 |
-| 7 | 22015 | 2454622 | 77 | 46.8 | 1.969 | 2.131841 | Bacillota | Clostridiaceae | Clostridium | Clostridium butyricum | 100.0 | 7.07e-29 | 140.0 |
-| 8 | 44596 | 2540445 | 63 | 31.7 | 1.840 | 2.105901 | Chordata | Rhinolophidae | Rhinolophus | Rhinolophus hipposideros | 100.0 | 1.88e-21 | 114.0 |
-| 9 | 58044 | 2587432 | 72 | 48.6 | 1.979 | 2.072567 | Pseudomonadota | Steroidobacteraceae | Steroidobacter | Steroidobacter denitrificans | 100.0 | 3.19e-26 | 131.0 |
-| 10 | 1305 | 2372602 | 92 | 54.3 | 1.900 | 1.997199 | Actinomycetota | Propionibacteriaceae | Arachnia | Pseudopropionibacterium propionicum | 100.0 | 7.04e-37 | 167.0 |
-| 11 | 106873 | 2754620 | 116 | 52.6 | 1.958 | 1.983559 | Pseudomonadota | Pasteurellaceae | Aggregatibacter | Aggregatibacter aphrophilus | 100.0 | 9.39e-50 | 210.0 |
-| 12 | 56071 | 2580978 | 63 | 50.8 | 1.918 | 1.933371 | Actinomycetota | Propionibacteriaceae | Arachnia | Arachnia propionica | 100.0 | 1.88e-21 | 114.0 |
-| 13 | 65915 | 2614178 | 62 | 59.7 | 1.924 | 1.879970 | Actinomycetota | Propionibacteriaceae | Cutibacterium | Cutibacterium acnes | 100.0 | 6.30e-21 | 113.0 |
-| 14 | 96298 | 2716541 | 80 | 51.2 | 1.949 | 1.879361 | Bacillota | Selenomonadaceae | Selenomonas | Selenomonas infelix | 100.0 | 1.79e-30 | 145.0 |
-| 15 | 17198 | 2438938 | 61 | 59.0 | 1.952 | 1.871288 | Actinomycetota | Streptosporangiaceae | Nonomuraea | Nonomuraea sp. | 100.0 | 2.11e-20 | 111.0 |
-| 16 | 34788 | 2506732 | 61 | 54.1 | 1.938 | 1.867079 | Actinomycetota | Actinomycetaceae | Schaalia | Schaalia odontolytica | 100.0 | 2.11e-20 | 111.0 |
-| 17 | 62885 | 2604750 | 61 | 59.0 | 1.941 | 1.847068 | Actinomycetota | Unknown | Unknown | Uncultured Actinomycetales | 100.0 | 2.11e-20 | 111.0 |
-| 18 | 89071 | 2692552 | 78 | 56.4 | 1.935 | 1.826403 | Bacillota | Clostridiaceae | Clostridium | Clostridium perfringens | 100.0 | 2.08e-29 | 141.0 |
-| 19 | 35098 | 2507108 | 209 | 45.9 | 1.953 | 1.824205 | Unknown | Unknown | Unknown | Uncultured bacterium | 100.0 | 6.72e-100 | 378.0 |
-| 20 | 59916 | 2593274 | 61 | 50.8 | 1.951 | 1.821252 | Pseudomonadota | Moraxellaceae | Acinetobacter | Acinetobacter lwoffii | 100.0 | 2.11e-20 | 111.0 |
-| 21 | 81527 | 2667104 | 61 | 49.2 | 1.950 | 1.817171 | Pseudomonadota | Neisseriaceae | Neisseria | Neisseria elongata | 100.0 | 2.11e-20 | 111.0 |
-| 22 | 89294 | 2693636 | 64 | 59.4 | 1.963 | 1.815497 | Bacillota | Clostridiaceae | Clostridium | Clostridium cochlearium | 100.0 | 4.29e-17 | 100.0 |
-| 23 | 58162 | 2587591 | 61 | 49.2 | 1.508 | 1.792615 | None | None | None | No hit | N/A | N/A | N/A |
-| 24 | 74184 | 2642386 | 69 | 63.8 | 1.930 | 1.749713 | Actinomycetota | Streptosporangiaceae | Streptosporangium | Streptosporangium sp. | 100.0 | 1.28e-24 | 125.0 |
-| 25 | 105830 | 2749102 | 63 | 47.6 | 1.925 | 1.743937 | Bacillota | Streptococcaceae | Streptococcus | Streptococcus agalactiae | 100.0 | 1.88e-21 | 114.0 |
-| 26 | 86507 | 2684330 | 61 | 52.5 | 1.927 | 1.732580 | Unknown | Unknown | Unknown | Uncultured bacterium | 100.0 | 2.11e-20 | 111.0 |
-| 27 | 4825 | 2385023 | 61 | 59.0 | 1.925 | 1.713950 | Bacillota | Unknown | Anoxybacter | Anoxybacter fermentans | 98.4 | 8.97e-19 | 106.0 |
-| 28 | 23230 | 2460569 | 70 | 57.1 | 1.937 | 1.713220 | Unknown | Unknown | Unknown | uncultured bacterium | 100.0 | 3.77e-25 | 127.0 |
-| 29 | 2 | 610007 | 61 | 47.5 | 1.103 | 1.700765 | None | None | None | No hit | N/A | N/A | N/A |
-| 30 | 44502 | 2539970 | 61 | 44.3 | 1.923 | 1.699097 | Bacillota | Streptococcaceae | Streptococcus | Streptococcus oralis | 100.0 | 2.11e-20 | 111.0 |
-| 31 | 11007 | 2417501 | 67 | 61.2 | 1.955 | 1.691574 | Actinomycetota | Propionibacteriaceae | Arachnia | Arachnia propionica | 100.0 | 1.46e-23 | 122.0 |
-| 32 | 69444 | 2626120 | 61 | 54.1 | 1.990 | 1.660922 | Thermodesulfobacteriota | Desulfobulbaceae | Desulfobulbus | Desulfobulbus oralis | 100.0 | 2.11e-20 | 111.0 |
-| 33 | 80500 | 2662285 | 92 | 44.6 | 1.949 | 1.652776 | Bacillota | Clostridiaceae | Clostridium | Clostridium botulinum | 100.0 | 7.04e-37 | 167.0 |
-| 34 | 81434 | 2666828 | 73 | 64.4 | 1.898 | 1.651466 | Nitrospirota | Nitrospiraceae | Nitrospira | MAG: Nitrospira | 100.0 | 1.15e-25 | 129.0 |
-| 35 | 61739 | 2600048 | 69 | 58.0 | 1.963 | 1.635266 | Bacillota | Gemellaceae | Gemella | Gemella morbillorum | 100.0 | 1.28e-24 | 125.0 |
-| 36 | 12934 | 2425100 | 63 | 61.9 | 1.934 | 1.633754 | Unknown | Unknown | Unknown | MAG TPA_asm: | 100.0 | 2.79e-19 | 107.0 |
-| 37 | 15447 | 2432745 | 83 | 63.9 | 1.910 | 1.612154 | Actinomycetota | Propionibacteriaceae | Arachnia | Arachnia propionica | 100.0 | 4.51e-32 | 150.0 |
-| 38 | 89058 | 2692458 | 61 | 63.9 | 1.908 | 1.600244 | Actinomycetota | Actinomycetaceae | Actinomyces | Actinomyces naeslundii | 100.0 | 2.11e-20 | 111.0 |
-| 39 | 49573 | 2557712 | 96 | 57.3 | 1.976 | 1.590817 | Pseudomonadota | Phreatobacteraceae | Phreatobacter | Phreatobacter stygius | 100.0 | 5.10e-39 | 174.0 |
-| 40 | 34795 | 2506748 | 68 | 51.5 | 1.982 | 1.553933 | Unknown | Unknown | Unknown | Uncultured bacterium | 100.0 | 4.32e-24 | 123.0 |
-| 41 | 3041 | 2379160 | 88 | 63.6 | 1.936 | 1.540680 | Actinomycetota | Propionibacteriaceae | Arachnia | Arachnia propionica | 100.0 | 9.67e-35 | 159.0 |
-| 42 | 89082 | 2692683 | 61 | 72.1 | 1.832 | 1.536233 | Actinomycetota | Propionibacteriaceae | Arachnia | Arachnia propionica | 100.0 | 2.11e-20 | 111.0 |
-| 43 | 85193 | 2679705 | 61 | 59.0 | 1.932 | 1.531874 | Bacillota | Paenibacillaceae | Insulibacter | Insulibacter thermoxylanivorax | 100.0 | 2.11e-20 | 111.0 |
-| 44 | 11194 | 2417721 | 77 | 51.9 | 1.997 | 1.514988 | Pseudomonadota | Steroidobacteraceae | Unknown | MAG: Steroidobacteraceae | 100.0 | 7.07e-29 | 140.0 |
-| 45 | 53107 | 2569730 | 64 | 64.1 | 1.941 | 1.511043 | Pseudomonadota | Chromobacteriaceae | Chromobacterium | Chromobacterium violaceum | 100.0 | 5.58e-22 | 116.0 |
-| 46 | 48061 | 2551664 | 64 | 59.4 | 1.900 | 1.495659 | Actinomycetota | Mycobacteriaceae | Mycolicibacterium | Mycolicibacterium chitae | 100.0 | 5.58e-22 | 116.0 |
-| 47 | 59001 | 2590209 | 66 | 48.5 | 1.966 | 1.442789 | Bacillota | Clostridiaceae | Clostridium | Clostridium sporogenes | 100.0 | 4.92e-23 | 120.0 |
-| 48 | 9544 | 2402872 | 64 | 29.7 | 1.784 | 1.436767 | Bacteroidota | Bacteroidaceae | Bacteroides | Bacteroides zoogleoformans | 100.0 | 5.58e-22 | 116.0 |
-| 49 | 64069 | 2606528 | 91 | 59.3 | 1.953 | 1.428564 | Actinomycetota | Micrococcaceae | Rothia | Rothia mucilaginosa | 100.0 | 2.41e-36 | 165.0 |
-| 50 | 8316 | 2398538 | 70 | 55.7 | 1.932 | 1.424363 | Bacillota | Peptostreptococcaceae | Clostridioides | Clostridioides difficile | 100.0 | 3.77e-25 | 127.0 |
-| 51 | 24280 | 2461903 | 103 | 53.4 | 1.986 | 1.423819 | Pseudomonadota | Enterobacteriaceae | Shigella | Shigella sonnei | 100.0 | 9.05e-43 | 187.0 |
-| 52 | 72772 | 2637543 | 63 | 60.3 | 1.946 | 1.422018 | Actinomycetota | Propionibacteriaceae | Arachnia | Arachnia propionica | 100.0 | 1.88e-21 | 114.0 |
-| 53 | 22777 | 2455731 | 71 | 59.2 | 1.971 | 1.418108 | Actinomycetota | Corynebacteriaceae | Corynebacterium | Corynebacterium sanguinis | 100.0 | 1.08e-25 | 129.0 |
-| 54 | 99091 | 2726756 | 66 | 56.1 | 1.962 | 1.408718 | Unknown | Unknown | Unknown | Uncultured bacterium | 100.0 | 4.92e-23 | 120.0 |
-| 55 | 41128 | 2529645 | 69 | 58.0 | 1.980 | 1.401012 | Pseudomonadota | Unknown | Unknown | MAG: uncultured | 100.0 | 1.28e-24 | 125.0 |
-| 56 | 101395 | 2733414 | 64 | 54.7 | 1.967 | 1.400480 | Bacillota | Bacillaceae | Bacillus | Bacillus velezensis | 100.0 | 5.58e-22 | 116.0 |
-| 57 | 5039 | 2385778 | 79 | 58.2 | 1.978 | 1.394700 | Actinomycetota | Propionibacteriaceae | Arachnia | Pseudopropionibacterium propionicum | 100.0 | 6.10e-30 | 143.0 |
-| 58 | 75809 | 2647627 | 63 | 49.2 | 1.969 | 1.393987 | Ascomycota | Nectriaceae | Fusarium | Fusarium sp. | 100.0 | 1.88e-21 | 114.0 |
-| 59 | 81940 | 2667705 | 94 | 50.0 | 1.985 | 1.383874 | Bacteroidota | Tannerellaceae | Tannerella | Tannerella forsythia | 100.0 | 5.99e-38 | 170.0 |
-| 60 | 84880 | 2679018 | 61 | 62.3 | 1.919 | 1.373792 | Bacillota | Streptococcaceae | Lactococcus | Lactococcus garvieae | 100.0 | 2.11e-20 | 111.0 |
-| 61 | 94266 | 2711232 | 61 | 67.2 | 1.891 | 1.365745 | Actinomycetota | Actinomycetaceae | Actinomyces | Actinomyces oris | 100.0 | 2.11e-20 | 111.0 |
-| 62 | 15406 | 2432694 | 79 | 54.4 | 1.983 | 1.358102 | Pseudomonadota | Neisseriaceae | Kingella | Kingella kingae | 100.0 | 6.10e-30 | 143.0 |
-| 63 | 79819 | 2660861 | 61 | 67.2 | 1.856 | 1.352269 | Unknown | Unknown | Unknown | Uncultured bacterium | 100.0 | 2.11e-20 | 111.0 |
-| 64 | 63664 | 2606110 | 86 | 47.7 | 1.888 | 1.349790 | Bacillota | Anaerovoracaceae | Unknown | [Eubacterium] brachy | 97.7 | 5.86e-31 | 147.0 |
-| 65 | 73483 | 2638325 | 123 | 29.3 | 1.871 | 1.346659 | None | None | None | No hit | N/A | N/A | N/A |
-| 66 | 67866 | 2620864 | 74 | 70.3 | 1.877 | 1.345904 | Actinomycetota | Propionibacteriaceae | Arachnia | Arachnia propionica | 100.0 | 2.77e-27 | 134.0 |
-| 67 | 49282 | 2557133 | 61 | 52.5 | 1.982 | 1.345850 | Bacillota | Lachnospiraceae | Blautia | Blautia pseudococcoides | 100.0 | 2.11e-20 | 111.0 |
-| 68 | 60405 | 2594922 | 86 | 52.3 | 1.941 | 1.343848 | Bacillota | Anaerovoracaceae | Unknown | Eubacterium minutum | 100.0 | 1.13e-33 | 156.0 |
-| 69 | 42855 | 2535506 | 61 | 62.3 | 1.938 | 1.343009 | Bacillota | Paenibacillaceae | Paenibacillus | Paenibacillus cellulosilyticus | 98.4 | 8.97e-19 | 106.0 |
-| 70 | 71228 | 2631981 | 88 | 62.5 | 1.933 | 1.339994 | Actinomycetota | Propionibacteriaceae | Arachnia | Arachnia propionica | 100.0 | 9.67e-35 | 159.0 |
-| 71 | 83626 | 2673571 | 85 | 57.6 | 1.953 | 1.335530 | Actinomycetota | Propionibacteriaceae | Arachnia | Arachnia propionica | 100.0 | 3.87e-33 | 154.0 |
-| 72 | 67868 | 2620871 | 66 | 66.7 | 1.899 | 1.330668 | Actinomycetota | Mycobacteriaceae | Mycobacterium | Mycobacterium tuberculosis | 100.0 | 4.92e-23 | 120.0 |
-| 73 | 19983 | 2448399 | 86 | 50.0 | 1.877 | 1.329484 | Bacteroidota | Tannerellaceae | Tannerella | Tannerella forsythia | 97.7 | 5.86e-31 | 147.0 |
-| 74 | 98856 | 2725821 | 61 | 75.4 | 1.781 | 1.323276 | Actinomycetota | Actinomycetaceae | Actinomyces | Actinomyces naeslundii | 100.0 | 2.11e-20 | 111.0 |
-| 75 | 101979 | 2735795 | 74 | 51.4 | 1.979 | 1.322983 | Bacteroidota | Prevotellaceae | Prevotella | Uncultured Prevotella | 100.0 | 2.77e-27 | 134.0 |
-| 76 | 48083 | 2551808 | 61 | 36.1 | 1.910 | 1.320507 | Chordata | Hominidae | Homo | Homo sapiens | 100.0 | 2.11e-20 | 111.0 |
-| 77 | 31893 | 2489691 | 74 | 54.1 | 1.993 | 1.318803 | Actinomycetota | Corynebacteriaceae | Corynebacterium | Corynebacterium pseudotuberculosis | 100.0 | 2.77e-27 | 134.0 |
-| 78 | 3975 | 2382759 | 87 | 57.5 | 1.926 | 1.314063 | Bacillota | Bacillaceae | Oceanobacillus | Oceanobacillus sp. | 96.6 | 7.29e-30 | 144.0 |
-| 79 | 5799 | 2390147 | 61 | 41.0 | 1.971 | 1.314043 | Heterolobosea | Vahlkampfiidae | Naegleria | Naegleria fowleri | 100.0 | 2.11e-20 | 111.0 |
-| 80 | 60694 | 2595220 | 109 | 68.8 | 1.865 | 1.309223 | Actinomycetota | Propionibacteriaceae | Arachnia | Arachnia propionica | 100.0 | 5.47e-46 | 197.0 |
-| 81 | 51389 | 2563789 | 76 | 51.3 | 1.993 | 1.306757 | Bacillota | Gemellaceae | Gemella | Gemella sp. | 100.0 | 2.40e-28 | 138.0 |
-| 82 | 52699 | 2569103 | 68 | 55.9 | 1.949 | 1.303908 | Bacillota | Bacillaceae | Bacillus | Bacillus sp. | 97.1 | 2.24e-21 | 114.0 |
-| 83 | 23624 | 2461222 | 88 | 50.0 | 1.978 | 1.297751 | Actinomycetota | Corynebacteriaceae | Corynebacterium | Corynebacterium matruchotii | 100.0 | 9.67e-35 | 159.0 |
-| 84 | 41084 | 2529265 | 61 | 52.5 | 1.871 | 1.289677 | Actinomycetota | Propionibacteriaceae | Arachnia | Pseudopropionibacterium propionicum | 100.0 | 2.11e-20 | 111.0 |
-| 85 | 57775 | 2586713 | 62 | 46.8 | 1.926 | 1.283336 | Unknown | Unknown | Unknown | Uncultured bacterium | 100.0 | 6.30e-21 | 113.0 |
-| 86 | 99287 | 2727055 | 61 | 34.4 | 1.882 | 1.280970 | Heterolobosea | Vahlkampfiidae | Naegleria | Naegleria fowleri | 100.0 | 2.11e-20 | 111.0 |
-| 87 | 83577 | 2673505 | 76 | 73.7 | 1.821 | 1.280679 | Actinomycetota | Unknown | Unknown | MAG: uncultured | 100.0 | 2.40e-28 | 138.0 |
-| 88 | 89125 | 2693025 | 70 | 57.1 | 1.963 | 1.278913 | Pseudomonadota | Ferrovaceae | Ferrovum | MAG: Ferrovum | 100.0 | 3.77e-25 | 127.0 |
-| 89 | 25485 | 2467075 | 124 | 62.1 | 1.954 | 1.278134 | Actinomycetota | Propionibacteriaceae | Arachnia | Arachnia propionica | 100.0 | 4.71e-54 | 224.0 |
-| 90 | 48150 | 2551989 | 82 | 53.7 | 1.959 | 1.275070 | Uroviricota | Unknown | Unknown | MAG TPA_asm: | 97.6 | 7.97e-29 | 140.0 |
-| 91 | 34819 | 2506793 | 66 | 54.5 | 1.936 | 1.269898 | Bacillota | Streptococcaceae | Streptococcus | Streptococcus parasanguinis | 100.0 | 4.92e-23 | 120.0 |
-| 92 | 35356 | 2510694 | 61 | 67.2 | 1.854 | 1.268351 | Actinomycetota | Streptomycetaceae | Streptomyces | Streptomyces harbinensis | 100.0 | 2.11e-20 | 111.0 |
-| 93 | 66645 | 2615824 | 91 | 47.3 | 1.972 | 1.265672 | Bacteroidota | Tannerellaceae | Tannerella | Tannerella serpentiformis | 100.0 | 2.41e-36 | 165.0 |
-| 94 | 71097 | 2631803 | 69 | 60.9 | 1.942 | 1.265069 | Actinomycetota | Actinomycetaceae | Actinomyces | Actinomyces israelii | 97.1 | 6.62e-22 | 116.0 |
-| 95 | 94419 | 2711679 | 67 | 56.7 | 1.973 | 1.262938 | Bacillota | Clostridiaceae | Clostridium | Clostridium botulinum | 100.0 | 1.46e-23 | 122.0 |
-| 96 | 87006 | 2685654 | 69 | 66.7 | 1.896 | 1.262503 | Actinomycetota | Atopobiaceae | Olsenella | Olsenella sp. | 100.0 | 1.28e-24 | 125.0 |
-| 97 | 31104 | 2486826 | 71 | 67.6 | 1.849 | 1.257902 | Actinomycetota | Propionibacteriaceae | Arachnia | Pseudopropionibacterium propionicum | 100.0 | 1.08e-25 | 129.0 |
-| 98 | 36992 | 2516516 | 72 | 54.2 | 1.945 | 1.256890 | Bacillota | Gottschalkiaceae | Gottschalkia | Gottschalkia acidurici | 97.2 | 1.65e-23 | 122.0 |
-| 99 | 87142 | 2685837 | 72 | 54.2 | 1.948 | 1.254414 | Actinomycetota | Actinomycetaceae | Schaalia | Schaalia odontolytica | 100.0 | 3.19e-26 | 131.0 |
-| 100 | 88473 | 2689193 | 84 | 52.4 | 1.975 | 1.253848 | Unknown | Unknown | Unknown | Bacterium strain | 100.0 | 1.32e-32 | 152.0 |
+| 1 | 34226 | 2505245 | 62 | 56.5 | 1.979 | 6.237095 | Bacillota | Streptococcaceae | Streptococcus | Lactococcus lactis | 100.0 | 6.30e-21 | 113.0 |
+| 2 | 55208 | 2576579 | 70 | 45.7 | 1.946 | 6.127719 | Bacillota | Streptococcaceae | Streptococcus | Streptococcus parasanguinis | 100.0 | 3.77e-25 | 127.0 |
+| 3 | 2732 | 2378701 | 61 | 59.0 | 1.939 | 5.618299 | Actinomycetota | Propionibacteriaceae | Cutibacterium | Cutibacterium acnes | 100.0 | 2.11e-20 | 111.0 |
+| 4 | 61486 | 2599697 | 77 | 66.2 | 1.912 | 5.474247 | Nitrospirota | Nitrospiraceae | Nitrospira | MAG: Nitrospira | 93.4 | 2.81e-21 | 115.0 |
+| 5 | 44596 | 2540445 | 63 | 31.7 | 1.840 | 5.006666 | Chordata | Rhinolophidae | Rhinolophus | Rhinolophus hipposideros | 100.0 | 1.88e-21 | 114.0 |
+| 6 | 81533 | 2667129 | 61 | 50.8 | 1.946 | 4.592536 | Pseudomonadota | Neisseriaceae | Neisseria | Neisseria oralis | 100.0 | 2.11e-20 | 111.0 |
+| 7 | 17198 | 2438938 | 61 | 59.0 | 1.952 | 4.535480 | Actinomycetota | Thermomonosporaceae | Actinomadura | Nonomuraea sp. | 100.0 | 2.11e-20 | 111.0 |
+| 8 | 106873 | 2754620 | 116 | 52.6 | 1.958 | 4.408643 | Pseudomonadota | Pasteurellaceae | Aggregatibacter | Aggregatibacter aphrophilus | 100.0 | 9.39e-50 | 210.0 |
+| 9 | 81434 | 2666828 | 73 | 64.4 | 1.898 | 4.198244 | Nitrospirota | Nitrospiraceae | Nitrospira | MAG: Nitrospira | 100.0 | 1.15e-25 | 129.0 |
+| 10 | 1305 | 2372602 | 92 | 54.3 | 1.900 | 4.174762 | Actinomycetota | Propionibacteriaceae | Arachnia | Pseudopropionibacterium propionicum | 100.0 | 7.04e-37 | 167.0 |
+| 11 | 80915 | 2662712 | 162 | 40.1 | 1.966 | 4.152755 | Chordata | Hominidae | Homo | No blast hit | 100.0 | 1.60e-74 | 293.0 |
+| 12 | 25485 | 2467075 | 124 | 62.1 | 1.954 | 3.836165 | Actinomycetota | Propionibacteriaceae | Arachnia | Arachnia propionica | 100.0 | 4.71e-54 | 224.0 |
+| 13 | 96496 | 2716765 | 73 | 42.5 | 1.967 | 3.761319 | Chordata | Felidae | Panthera | No blast hit | 100.0 | 3.29e-26 | 131.0 |
+| 14 | 42769 | 2532208 | 5416 | 44.7 | 1.985 | 3.754761 | Bacillota | Staphylococcaceae | Staphylococcus | No blast hit | 100.0 | N/A | 9229.0 |
+| 15 | 62885 | 2604750 | 61 | 59.0 | 1.941 | 3.729723 | Actinomycetota | Unknown | Unknown | Uncultured Actinomycetales | 100.0 | 2.11e-20 | 111.0 |
+| 16 | 74184 | 2642386 | 69 | 63.8 | 1.930 | 3.706243 | Actinomycetota | Streptomycetaceae | Kitasatospora | Streptosporangium sp. | 100.0 | 1.28e-24 | 125.0 |
+| 17 | 81527 | 2667104 | 61 | 49.2 | 1.950 | 3.679738 | Pseudomonadota | Neisseriaceae | Neisseria | Neisseria elongata | 100.0 | 2.11e-20 | 111.0 |
+| 18 | 58044 | 2587432 | 72 | 48.6 | 1.979 | 3.640913 | Pseudomonadota | Steroidobacteraceae | Steroidobacter | Steroidobacter denitrificans | 100.0 | 3.19e-26 | 131.0 |
+| 19 | 23230 | 2460569 | 70 | 57.1 | 1.937 | 3.604605 | Unknown | Unknown | Unknown | uncultured bacterium | 100.0 | 3.77e-25 | 127.0 |
+| 20 | 32293 | 2490168 | 110 | 60.9 | 1.965 | 3.496608 | Thermodesulfobacteriota | Desulfobulbaceae | Desulfobulbus | No blast hit | 98.2 | 8.23e-44 | 190.0 |
+| 21 | 84880 | 2679018 | 61 | 62.3 | 1.919 | 3.483489 | Bacillota | Streptococcaceae | Lactococcus | Lactococcus garvieae | 100.0 | 2.11e-20 | 111.0 |
+| 22 | 31157 | 2486910 | 63 | 54.0 | 1.964 | 3.462582 | Bacillota | Streptococcaceae | Streptococcus | No blast hit | 100.0 | 1.88e-21 | 114.0 |
+| 23 | 27032 | 2474611 | 69 | 59.4 | 1.947 | 3.458232 | Pseudomonadota | Neisseriaceae | Neisseria | No blast hit | 100.0 | 1.28e-24 | 125.0 |
+| 24 | 35098 | 2507108 | 209 | 45.9 | 1.953 | 3.432360 | Unknown | Unknown | Unknown | Uncultured bacterium | 100.0 | 6.72e-100 | 378.0 |
+| 25 | 40227 | 2525913 | 86 | 40.7 | 1.973 | 3.347870 | Chordata | Hominidae | Homo | No blast hit | 100.0 | 1.13e-33 | 156.0 |
+| 26 | 35508 | 2511119 | 62 | 53.2 | 1.935 | 3.339069 | Pseudomonadota | Moraxellaceae | Acinetobacter | Acinetobacter sp. | 100.0 | 6.30e-21 | 113.0 |
+| 27 | 63548 | 2605991 | 78 | 48.7 | 1.995 | 3.321068 | Bacillota | Streptococcaceae | Streptococcus | No blast hit | 100.0 | 2.08e-29 | 141.0 |
+| 28 | 60405 | 2594922 | 86 | 52.3 | 1.941 | 3.320903 | Bacillota | Anaerovoracaceae | Unknown | Eubacterium minutum | 100.0 | 1.13e-33 | 156.0 |
+| 29 | 61060 | 2598635 | 61 | 60.7 | 1.959 | 3.300165 | Actinomycetota | Actinomycetaceae | Actinomyces | No blast hit | 100.0 | 2.11e-20 | 111.0 |
+| 30 | 86507 | 2684330 | 61 | 52.5 | 1.927 | 3.282263 | Actinomycetota | Corynebacteriaceae | Corynebacterium | Uncultured bacterium | 100.0 | 2.11e-20 | 111.0 |
+| 31 | 56071 | 2580978 | 63 | 50.8 | 1.918 | 3.252300 | Unknown | Unknown | Unknown | Arachnia propionica | 100.0 | 1.88e-21 | 114.0 |
+| 32 | 105344 | 2748481 | 64 | 53.1 | 1.990 | 3.237755 | Actinomycetota | Streptomycetaceae | Streptomyces | No blast hit | 100.0 | 5.58e-22 | 116.0 |
+| 33 | 34819 | 2506793 | 66 | 54.5 | 1.936 | 3.180240 | Bacillota | Streptococcaceae | Streptococcus | Streptococcus parasanguinis | 100.0 | 4.92e-23 | 120.0 |
+| 34 | 96298 | 2716541 | 80 | 51.2 | 1.949 | 3.173637 | Bacillota | Selenomonadaceae | Selenomonas | Selenomonas infelix | 100.0 | 1.79e-30 | 145.0 |
+| 35 | 37361 | 2517232 | 82 | 47.6 | 1.987 | 3.169577 | Bacillota | Streptococcaceae | Streptococcus | No blast hit | 100.0 | 1.54e-31 | 149.0 |
+| 36 | 83626 | 2673571 | 85 | 57.6 | 1.953 | 3.149482 | Actinomycetota | Propionibacteriaceae | Arachnia | Arachnia propionica | 100.0 | 3.87e-33 | 154.0 |
+| 37 | 54110 | 2570952 | 61 | 55.7 | 1.967 | 3.144262 | Bacillota | Enterococcaceae | Enterococcus | No blast hit | 100.0 | 2.11e-20 | 111.0 |
+| 38 | 5799 | 2390147 | 61 | 41.0 | 1.971 | 3.118783 | Chordata | Hominidae | Homo | Naegleria fowleri | 100.0 | 2.11e-20 | 111.0 |
+| 39 | 41084 | 2529265 | 61 | 52.5 | 1.871 | 3.111733 | Actinomycetota | Propionibacteriaceae | Arachnia | Pseudopropionibacterium propionicum | 100.0 | 2.11e-20 | 111.0 |
+| 40 | 92889 | 2705683 | 89 | 36.0 | 1.875 | 3.099728 | Chordata | Hominidae | Homo | No blast hit | 100.0 | 2.83e-35 | 161.0 |
+| 41 | 11194 | 2417721 | 77 | 51.9 | 1.997 | 3.077394 | Pseudomonadota | Steroidobacteraceae | Unknown | MAG: Steroidobacteraceae | 100.0 | 7.07e-29 | 140.0 |
+| 42 | 37425 | 2517329 | 91 | 58.2 | 1.961 | 3.054840 | Actinomycetota | Propionibacteriaceae | Arachnia | No blast hit | 100.0 | 2.41e-36 | 165.0 |
+| 43 | 5039 | 2385778 | 79 | 58.2 | 1.978 | 3.052606 | Actinomycetota | Propionibacteriaceae | Arachnia | Pseudopropionibacterium propionicum | 100.0 | 6.10e-30 | 143.0 |
+| 44 | 105395 | 2748556 | 61 | 54.1 | 1.971 | 3.052482 | Actinomycetota | Actinomycetaceae | Actinomyces | No blast hit | 100.0 | 2.11e-20 | 111.0 |
+| 45 | 25004 | 2466523 | 62 | 50.0 | 1.950 | 3.035095 | Bacillota | Peptoniphilaceae | Parvimonas | No blast hit | 100.0 | 6.30e-21 | 113.0 |
+| 46 | 22015 | 2454622 | 77 | 46.8 | 1.969 | 3.028738 | Bacillota | Clostridiaceae | Clostridium | Clostridium butyricum | 100.0 | 7.07e-29 | 140.0 |
+| 47 | 65915 | 2614178 | 62 | 59.7 | 1.924 | 3.022183 | Actinomycetota | Propionibacteriaceae | Cutibacterium | Cutibacterium acnes | 100.0 | 6.30e-21 | 113.0 |
+| 48 | 55247 | 2576623 | 96 | 51.0 | 1.994 | 3.021311 | Bacillota | Streptococcaceae | Streptococcus | No blast hit | 100.0 | 5.10e-39 | 174.0 |
+| 49 | 34788 | 2506732 | 61 | 54.1 | 1.938 | 3.010901 | Actinomycetota | Actinomycetaceae | Schaalia | Schaalia odontolytica | 100.0 | 2.11e-20 | 111.0 |
+| 50 | 11007 | 2417501 | 67 | 61.2 | 1.955 | 2.982775 | Actinomycetota | Propionibacteriaceae | Arachnia | Arachnia propionica | 100.0 | 1.46e-23 | 122.0 |
+| 51 | 7016 | 2392895 | 77 | 68.8 | 1.868 | 2.938056 | Actinomycetota | Actinomycetaceae | Actinomyces | No blast hit | 100.0 | 7.07e-29 | 140.0 |
+| 52 | 31929 | 2489735 | 99 | 62.6 | 1.942 | 2.886853 | Actinomycetota | Propionibacteriaceae | Arachnia | No blast hit | 100.0 | 1.26e-40 | 179.0 |
+| 53 | 101395 | 2733414 | 64 | 54.7 | 1.967 | 2.862319 | Bacillota | Bacillaceae | Bacillus | Bacillus velezensis | 100.0 | 5.58e-22 | 116.0 |
+| 54 | 55968 | 2580706 | 62 | 50.0 | 1.996 | 2.840886 | Pseudomonadota | Comamonadaceae | Delftia | No blast hit | 100.0 | 6.30e-21 | 113.0 |
+| 55 | 50841 | 2562375 | 66 | 63.6 | 1.940 | 2.837924 | Synergistota | Aminobacteriaceae | Fretibacterium | No blast hit | 89.4 | 2.91e-13 | 88.7 |
+| 56 | 71228 | 2631981 | 88 | 62.5 | 1.933 | 2.833436 | Actinomycetota | Propionibacteriaceae | Arachnia | Arachnia propionica | 100.0 | 9.67e-35 | 159.0 |
+| 57 | 75809 | 2647627 | 63 | 49.2 | 1.969 | 2.792680 | Ascomycota | Chaetomiaceae | Chaetomium | Fusarium sp. | 100.0 | 1.88e-21 | 114.0 |
+| 58 | 3041 | 2379160 | 88 | 63.6 | 1.936 | 2.791977 | Actinomycetota | Propionibacteriaceae | Arachnia | Arachnia propionica | 100.0 | 9.67e-35 | 159.0 |
+| 59 | 35356 | 2510694 | 61 | 67.2 | 1.854 | 2.773784 | Actinomycetota | Streptomycetaceae | Streptomyces | Streptomyces harbinensis | 100.0 | 2.11e-20 | 111.0 |
+| 60 | 23694 | 2461301 | 79 | 48.1 | 1.947 | 2.755504 | Pseudomonadota | Cardiobacteriaceae | Cardiobacterium | No blast hit | 100.0 | 6.10e-30 | 143.0 |
+| 61 | 97570 | 2721879 | 102 | 62.7 | 1.879 | 2.743400 | Actinomycetota | Propionibacteriaceae | Arachnia | No blast hit | 100.0 | 3.11e-42 | 185.0 |
+| 62 | 41110 | 2529501 | 71 | 49.3 | 2.000 | 2.732810 | Pseudomonadota | Enterobacteriaceae | Enterobacter | No blast hit | 100.0 | 1.08e-25 | 129.0 |
+| 63 | 83577 | 2673505 | 76 | 73.7 | 1.821 | 2.731198 | Actinomycetota | Unknown | Unknown | MAG: uncultured | 100.0 | 2.40e-28 | 138.0 |
+| 64 | 81940 | 2667705 | 94 | 50.0 | 1.985 | 2.721208 | Bacteroidota | Tannerellaceae | Tannerella | Tannerella forsythia | 100.0 | 5.99e-38 | 170.0 |
+| 65 | 71530 | 2632330 | 64 | 70.3 | 1.865 | 2.711423 | Actinomycetota | Actinomycetaceae | Actinomyces | No blast hit | 100.0 | 5.58e-22 | 116.0 |
+| 66 | 14338 | 2428611 | 67 | 37.3 | 1.915 | 2.708438 | Chordata | Danionidae | Danio | No blast hit | 100.0 | 1.46e-23 | 122.0 |
+| 67 | 32623 | 2491491 | 65 | 63.1 | 1.946 | 2.705255 | Actinomycetota | Propionibacteriaceae | Arachnia | No blast hit | 98.5 | 7.05e-21 | 113.0 |
+| 68 | 60481 | 2595005 | 93 | 57.0 | 1.981 | 2.688326 | Pseudomonadota | Neisseriaceae | Neisseria | No blast hit | 100.0 | 2.05e-37 | 168.0 |
+| 69 | 59233 | 2590710 | 86 | 48.8 | 1.881 | 2.670094 | Bacillota | Streptococcaceae | Streptococcus | No blast hit | 100.0 | 1.13e-33 | 156.0 |
+| 70 | 89294 | 2693636 | 64 | 59.4 | 1.963 | 2.632995 | Bacillota | Clostridiaceae | Clostridium | Clostridium cochlearium | 100.0 | 4.29e-17 | 100.0 |
+| 71 | 473 | 2369877 | 61 | 49.2 | 1.103 | 2.629130 | None | None | None | No blast hit | N/A | N/A | N/A |
+| 72 | 90963 | 2699365 | 79 | 65.8 | 1.912 | 2.621798 | Actinomycetota | Propionibacteriaceae | Arachnia | No blast hit | 100.0 | 6.10e-30 | 143.0 |
+| 73 | 61739 | 2600048 | 69 | 58.0 | 1.963 | 2.615380 | Bacillota | Gemellaceae | Gemella | Gemella morbillorum | 100.0 | 1.28e-24 | 125.0 |
+| 74 | 105830 | 2749102 | 63 | 47.6 | 1.925 | 2.613796 | Bacillota | Streptococcaceae | Streptococcus | Streptococcus agalactiae | 100.0 | 1.88e-21 | 114.0 |
+| 75 | 41089 | 2529298 | 61 | 52.5 | 1.984 | 2.611207 | Bacillota | Unknown | Unknown | No blast hit | 100.0 | 2.11e-20 | 111.0 |
+| 76 | 101463 | 2733511 | 70 | 61.4 | 1.953 | 2.568843 | Actinomycetota | Actinomycetaceae | Actinomyces | No blast hit | 100.0 | 3.77e-25 | 127.0 |
+| 77 | 1750 | 2374570 | 61 | 57.4 | 1.955 | 2.568524 | Candidatus Saccharimonadota | Unknown | Unknown | No blast hit | 100.0 | 2.11e-20 | 111.0 |
+| 78 | 102615 | 2738669 | 66 | 37.9 | 1.900 | 2.558568 | Chordata | Balaenopteridae | Balaenoptera | No blast hit | 100.0 | 4.92e-23 | 120.0 |
+| 79 | 3928 | 2382614 | 64 | 67.2 | 1.842 | 2.555372 | Actinomycetota | Actinomycetaceae | Actinomyces | No blast hit | 100.0 | 5.58e-22 | 116.0 |
+| 80 | 49573 | 2557712 | 96 | 57.3 | 1.976 | 2.547016 | Pseudomonadota | Phreatobacteraceae | Phreatobacter | Phreatobacter stygius | 100.0 | 5.10e-39 | 174.0 |
+| 81 | 31893 | 2489691 | 74 | 54.1 | 1.993 | 2.540420 | Actinomycetota | Corynebacteriaceae | Corynebacterium | Corynebacterium pseudotuberculosis | 100.0 | 2.77e-27 | 134.0 |
+| 82 | 16753 | 2436106 | 61 | 47.5 | 1.959 | 2.535771 | Bacillota | Staphylococcaceae | Staphylococcus | No blast hit | 100.0 | 2.11e-20 | 111.0 |
+| 83 | 35561 | 2511206 | 73 | 64.4 | 1.909 | 2.527742 | Fusobacteriota | Leptotrichiaceae | Leptotrichia | No blast hit | 100.0 | 9.41e-27 | 132.0 |
+| 84 | 51721 | 2564180 | 72 | 65.3 | 1.872 | 2.523261 | Actinomycetota | Actinomycetaceae | Actinomyces | No blast hit | 100.0 | 3.19e-26 | 131.0 |
+| 85 | 99091 | 2726756 | 66 | 56.1 | 1.962 | 2.521736 | Unknown | Unknown | Unknown | Uncultured bacterium | 100.0 | 4.92e-23 | 120.0 |
+| 86 | 54628 | 2575413 | 61 | 50.8 | 1.967 | 2.520725 | Synergistota | Aminobacteriaceae | Fretibacterium | No blast hit | 100.0 | 2.11e-20 | 111.0 |
+| 87 | 66098 | 2614914 | 71 | 47.9 | 1.995 | 2.520686 | Bacillota | Gemellaceae | Gemella | No blast hit | 100.0 | 1.08e-25 | 129.0 |
+| 88 | 24983 | 2466493 | 62 | 54.8 | 1.990 | 2.519463 | Pseudomonadota | Neisseriaceae | Neisseria | No blast hit | 100.0 | 6.30e-21 | 113.0 |
+| 89 | 64069 | 2606528 | 91 | 59.3 | 1.953 | 2.507146 | Actinomycetota | Micrococcaceae | Rothia | Rothia mucilaginosa | 100.0 | 2.41e-36 | 165.0 |
+| 90 | 43007 | 2536092 | 74 | 59.5 | 1.918 | 2.504510 | Pseudomonadota | Lysobacteraceae | Luteimonas | No blast hit | 100.0 | 2.77e-27 | 134.0 |
+| 91 | 9544 | 2402872 | 64 | 29.7 | 1.784 | 2.492240 | Bacteroidota | Bacteroidaceae | Bacteroides | Bacteroides zoogleoformans | 100.0 | 5.58e-22 | 116.0 |
+| 92 | 104255 | 2743630 | 64 | 42.2 | 1.791 | 2.483587 | Chordata | Hominidae | Homo | No blast hit | 100.0 | 5.58e-22 | 116.0 |
+| 93 | 58312 | 2587780 | 91 | 56.0 | 1.950 | 2.476138 | Actinomycetota | Corynebacteriaceae | Corynebacterium | No blast hit | 100.0 | 2.41e-36 | 165.0 |
+| 94 | 44743 | 2540816 | 63 | 58.7 | 1.975 | 2.475541 | Bacillota | Streptococcaceae | Streptococcus | No blast hit | 100.0 | 1.88e-21 | 114.0 |
+| 95 | 60694 | 2595220 | 109 | 68.8 | 1.865 | 2.464912 | Actinomycetota | Propionibacteriaceae | Arachnia | Arachnia propionica | 100.0 | 5.47e-46 | 197.0 |
+| 96 | 17443 | 2439615 | 98 | 65.3 | 1.923 | 2.460975 | Actinomycetota | Propionibacteriaceae | Arachnia | No blast hit | 100.0 | 4.33e-40 | 178.0 |
+| 97 | 44502 | 2539970 | 61 | 44.3 | 1.923 | 2.455487 | Bacillota | Streptococcaceae | Streptococcus | Streptococcus oralis | 100.0 | 2.11e-20 | 111.0 |
+| 98 | 24825 | 2466180 | 66 | 66.7 | 1.915 | 2.454211 | Actinomycetota | Unknown | Pengzhenrongella | No blast hit | 97.0 | 2.55e-20 | 111.0 |
+| 99 | 31993 | 2489817 | 76 | 53.9 | 1.980 | 2.430660 | Bacillota | Caryophanaceae | Planococcus | No blast hit | 100.0 | 2.40e-28 | 138.0 |
+| 100 | 92494 | 2704547 | 66 | 25.8 | 1.766 | 2.426454 | Chordata | Hominidae | Homo | No blast hit | 100.0 | 4.92e-23 | 120.0 |

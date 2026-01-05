@@ -90,8 +90,8 @@ echo "[3/3] Checking reference k-mers file..."
 
 # Define the target location, Zenodo URL, and the expected checksum
 KMER_FILE="$SCRIPT_DIR/data/matrices/large_matrix_3070_with_frac/reference_kmers.fasta"
-KMER_URL="YOUR_ZENODO_DOWNLOAD_URL_HERE"  # <-- PASTE YOUR ZENODO URL HERE (should end in .fasta.gz)
-EXPECTED_CHECKSUM="YOUR_SHA256_CHECKSUM_HERE"  # <-- PASTE SHA256 OF THE .GZ FILE HERE
+KMER_URL="https://zenodo.org/records/18157419/files/reference_kmers.fasta.gz"
+EXPECTED_CHECKSUM="87499b6235eef4aae0cdd5630f5eb7f51fc39de054fa93f5bacffa97cf0130f4"
 
 # Ensure the target directory exists
 mkdir -p "$(dirname "$KMER_FILE")"
