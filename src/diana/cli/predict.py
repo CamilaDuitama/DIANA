@@ -6,18 +6,66 @@ DIANA Predict: Command-line interface for running inference on new samples.
 import argparse
 import logging
 import sys
+import shutil
+import re
 from pathlib import Path
 import time
 import json
+import subprocess
 
 logger = logging.getLogger(__name__)
+
+
+def run_command_streaming(cmd: list, step_name: str) -> None:
+    """
+    Execute a command and stream output in real-time.
+    
+    Args:
+        cmd: Command and arguments as list
+        step_name: Name of the step for logging
+    
+    Raises:
+        subprocess.CalledProcessError: If command fails
+    """
+    logger.info(f"{step_name}...")
+    step_start = time.time()
+    
+    process = subprocess.Popen(
+        cmd,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+        bufsize=1
+    )
+    
+    # Stream output in real-time
+    output_lines = []
+    if process.stdout:
+        for line in process.stdout:
+            line = line.rstrip()
+            if line:  # Only log non-empty lines
+                logger.debug(f"  {line}")
+                output_lines.append(line)
+    
+    # Wait for process to complete
+    returncode = process.wait()
+    
+    if returncode != 0:
+        error_output = '\n'.join(output_lines[-20:])  # Last 20 lines
+        raise subprocess.CalledProcessError(
+            returncode, 
+            cmd, 
+            stderr=error_output
+        )
+    
+    logger.info(f"  ✓ {step_name} complete ({time.time() - step_start:.1f}s)")
 
 
 def detect_paired_end(sample_path: Path) -> list:
     """
     Detect if a sample is paired-end and return all FASTQ files.
     
-    Checks for common paired-end naming patterns:
+    Uses regex to match paired-end patterns at the end of the filename stem:
     - sample_1.fastq.gz / sample_2.fastq.gz
     - sample_R1.fastq.gz / sample_R2.fastq.gz
     - sample.1.fastq.gz / sample.2.fastq.gz
@@ -28,23 +76,30 @@ def detect_paired_end(sample_path: Path) -> list:
     Returns:
         List of Path objects (1 for single-end, 2+ for paired-end)
     """
-    # Patterns to check for paired-end
+    # Remove .fastq.gz or .fq.gz extension
+    name = sample_path.name
+    name = re.sub(r'\.(fastq|fq)(\.gz)?$', '', name)
+    
+    # Patterns to check for paired-end (anchored to end of filename)
     patterns = [
-        ('_1.', '_2.'),
-        ('_R1.', '_R2.'),
-        ('.1.', '.2.'),
-        ('_1_', '_2_'),
+        (r'_1$', '_2'),
+        (r'_R1$', '_R2'),
+        (r'\.1$', '.2'),
+        (r'_1_$', '_2_'),
     ]
     
-    sample_str = str(sample_path)
-    
-    for p1, p2 in patterns:
-        if p1 in sample_str:
-            # Try to find the paired file
-            pair_path = Path(sample_str.replace(p1, p2))
+    for pattern, replacement in patterns:
+        match = re.search(pattern, name)
+        if match:
+            # Build the paired filename
+            pair_name = re.sub(pattern, replacement, name)
+            # Reconstruct full path with original extension
+            original_ext = sample_path.name[len(name):]
+            pair_path = sample_path.parent / (pair_name + original_ext)
+            
             if pair_path.exists():
                 logger.debug(f"Detected paired-end: {sample_path.name} + {pair_path.name}")
-                return sorted([sample_path, pair_path])  # Sort to ensure consistent order
+                return sorted([sample_path, pair_path])
     
     # Not paired-end or pair not found
     return [sample_path]
@@ -61,7 +116,7 @@ def setup_logging(verbose: bool = False):
 
 
 def predict_single_sample(
-    sample_paths: list,  # Changed to list to support paired-end
+    sample_paths: list,
     model_path: Path,
     muset_matrix_dir: Path,
     output_dir: Path,
@@ -73,7 +128,7 @@ def predict_single_sample(
     """
     Run inference on a single sample (single-end or paired-end).
     
-    Orchestrates the pipeline by calling individual scripts directly:
+    Orchestrates the pipeline by calling individual scripts:
       1. Extract reference k-mers (if needed)
       2. Count k-mers in sample
       3. Aggregate k-mer counts to unitigs
@@ -93,12 +148,10 @@ def predict_single_sample(
     Returns:
         Dictionary with timing and results information
     """
-    import subprocess
-    
-    # Extract sample_id from first file (remove _1, _2, _R1, _R2 suffixes)
-    sample_id = sample_paths[0].stem
-    sample_id = sample_id.replace('.fastq', '').replace('.fq', '')
-    sample_id = sample_id.replace('_1', '').replace('_2', '').replace('_R1', '').replace('_R2', '')
+    # Extract sample_id using regex to remove paired-end suffixes
+    sample_name = sample_paths[0].name
+    sample_name = re.sub(r'\.(fastq|fq)(\.gz)?$', '', sample_name)
+    sample_id = re.sub(r'(_R?[12]|\.R?[12])(_.*)?$', '', sample_name)
     
     sample_output_dir = output_dir / sample_id
     sample_output_dir.mkdir(parents=True, exist_ok=True)
@@ -107,10 +160,6 @@ def predict_single_sample(
     if len(sample_paths) > 1:
         logger.info(f"  Paired-end: {len(sample_paths)} files")
     logger.info(f"  Output directory: {sample_output_dir}")
-    
-    # Get the project root and script paths
-    project_root = Path(__file__).parent.parent.parent.parent
-    scripts_dir = project_root / "scripts" / "inference"
     
     # Define file paths
     reference_kmers = muset_matrix_dir / "reference_kmers.fasta"
@@ -126,32 +175,24 @@ def predict_single_sample(
     
     try:
         # ====================================================================
-        # Step 0: Verify reference k-mers exist (should be in shared location)
+        # Step 0: Verify reference k-mers exist
         # ====================================================================
         if not reference_kmers.exists():
             logger.warning(f"Reference k-mers not found: {reference_kmers}")
-            logger.info("Generating reference k-mers (this is a one-time operation)...")
+            logger.info("Generating reference k-mers (one-time operation)...")
             logger.info("TIP: Run install.sh to download pre-generated file from Zenodo")
-            step_start = time.time()
             
-            result = subprocess.run([
-                "bash",
-                str(scripts_dir / "00_extract_reference_kmers.sh"),
+            run_command_streaming([
+                "00_extract_reference_kmers.sh",
                 str(muset_matrix_dir),
                 str(reference_kmers)
-            ], check=True, capture_output=True, text=True)
-            
-            logger.info(f"  ✓ Reference k-mers generated ({time.time() - step_start:.1f}s)")
+            ], "Extracting reference k-mers")
         else:
             logger.debug(f"Using shared reference k-mers: {reference_kmers}")
         
         # ====================================================================
         # Step 1: Count k-mers in sample
         # ====================================================================
-        logger.info("Step 1: Counting k-mers in sample...")
-        step_start = time.time()
-        
-        # Create file list for paired-end samples
         if len(sample_paths) > 1:
             fastq_filelist = sample_output_dir / f"{sample_id}_fastq_filelist.txt"
             with open(fastq_filelist, 'w') as f:
@@ -161,73 +202,50 @@ def predict_single_sample(
         else:
             kmer_input = str(sample_paths[0])
         
-        result = subprocess.run([
-            "bash",
-            str(scripts_dir / "01_count_kmers.sh"),
+        run_command_streaming([
+            "01_count_kmers.sh",
             str(reference_kmers),
             kmer_input,
             str(kmer_counts),
             str(threads),
             str(min_abundance)
-        ], check=True, capture_output=True, text=True)
-        
-        logger.info(f"  ✓ K-mer counting complete ({time.time() - step_start:.1f}s)")
+        ], "Step 1: Counting k-mers in sample")
         
         # ====================================================================
         # Step 2: Aggregate k-mer counts to unitigs
         # ====================================================================
-        logger.info("Step 2: Aggregating k-mers to unitigs...")
-        step_start = time.time()
-        
-        result = subprocess.run([
-            "bash",
-            str(scripts_dir / "02_aggregate_to_unitigs.sh"),
+        run_command_streaming([
+            "02_aggregate_to_unitigs.sh",
             str(kmer_counts),
             str(unitigs_fa),
             str(kmer_size),
             str(unitig_abundance),
             str(unitig_fraction)
-        ], check=True, capture_output=True, text=True)
-        
-        logger.info(f"  ✓ Unitig aggregation complete ({time.time() - step_start:.1f}s)")
+        ], "Step 2: Aggregating k-mers to unitigs")
         
         # ====================================================================
         # Step 3: Run model inference
         # ====================================================================
-        logger.info("Step 3: Running model inference...")
-        step_start = time.time()
-        
-        result = subprocess.run([
-            "python",
-            str(scripts_dir / "03_run_inference.py"),
+        run_command_streaming([
+            "03_run_inference.py",
             "--model", str(model_path),
             "--input", str(unitig_fraction),
             "--output", str(predictions_json),
             "--sample-id", sample_id
-        ], check=True, capture_output=True, text=True)
-        
-        logger.info(f"  ✓ Model inference complete ({time.time() - step_start:.1f}s)")
+        ], "Step 3: Running model inference")
         
         # ====================================================================
         # Step 4: Generate plots (optional)
         # ====================================================================
         if generate_plots:
-            logger.info("Step 4: Generating plots...")
-            step_start = time.time()
-            
-            # Get label encoders path from model directory
             label_encoders_dir = model_path.parent
-            
-            result = subprocess.run([
-                "python",
-                str(scripts_dir / "04_plot_results.py"),
+            run_command_streaming([
+                "04_plot_results.py",
                 "--predictions", str(predictions_json),
                 "--output_dir", str(plots_dir),
                 "--sample_id", sample_id,
                 "--label_encoders", str(label_encoders_dir)
-            ], check=True, capture_output=True, text=True)
-            
-            logger.info(f"  ✓ Plots generated ({time.time() - step_start:.1f}s)")
+            ], "Step 4: Generating plots")
         
         logger.info("-" * 60)
         elapsed_time = time.time() - start_time
@@ -257,14 +275,44 @@ def predict_single_sample(
         logger.error(f"Exit code: {e.returncode}")
         
         # Log stderr if available
+        error_msg = e.stderr if e.stderr else 'Unknown error'
         if e.stderr:
-            logger.error(f"Error output:\\n{e.stderr}")
+            logger.error(f"Error output:\n{e.stderr}")
+            
+            # Detect OOM symptoms and provide helpful guidance
+            oom_indicators = [
+                "Is the file empty?",
+                "Failed to read the first two bytes",
+                "Broken pipe",
+                "std::bad_alloc",
+                "Cannot allocate memory"
+            ]
+            if any(indicator in e.stderr for indicator in oom_indicators):
+                logger.error("")
+                logger.error("=" * 60)
+                logger.error("DEBUGGING HINT: Possible Out-Of-Memory (OOM) Issue")
+                logger.error("=" * 60)
+                logger.error("The error message suggests insufficient memory allocation.")
+                logger.error("")
+                logger.error("Solutions:")
+                logger.error("  1. Check scheduler logs for OOM kill messages:")
+                logger.error("     - SLURM: Check .err file for 'oom_kill' or 'OOM'")
+                logger.error("     - Look for: 'Detected X oom_kill event'")
+                logger.error("")
+                logger.error("  2. Increase memory allocation in your job:")
+                logger.error("     - SLURM: Use --mem=24G or higher")
+                logger.error("     - SGE: Use -l mem_free=24G")
+                logger.error("")
+                logger.error("  3. For very large samples (>500MB), consider:")
+                logger.error("     - Using --mem=32G or --mem=48G")
+                logger.error("     - Processing on a high-memory node")
+                logger.error("=" * 60)
         
         return {
             "sample_id": sample_id,
             "status": "failed",
             "elapsed_time": elapsed_time,
-            "error": f"Pipeline failed: {e.stderr if e.stderr else 'Unknown error'}",
+            "error": f"Pipeline failed: {error_msg}",
             "exit_code": e.returncode,
             "output_dir": str(sample_output_dir)
         }
@@ -301,6 +349,13 @@ Examples:
   # Batch mode with sample list
   diana-predict --batch samples.txt --model results/training/best_model.pth \\
                 --muset-matrix data/matrices/matrix/ --output results/inference/
+
+Resource Requirements:
+  Memory: Processing large FASTQ files (>100MB) requires substantial RAM.
+          Allocate at least 24GB for large samples. For cluster jobs, use:
+          --mem=24G (SLURM) or -l mem_free=24G (SGE)
+  
+  Threads: Use 6-10 threads for optimal performance (--threads flag)
         """
     )
     
@@ -374,6 +429,32 @@ Examples:
     
     args = parser.parse_args()
     setup_logging(args.verbose)
+    
+    # ========================================================================
+    # Verify all required pipeline scripts are in PATH
+    # ========================================================================
+    required_scripts = [
+        "00_extract_reference_kmers.sh",
+        "01_count_kmers.sh",
+        "02_aggregate_to_unitigs.sh",
+        "03_run_inference.py",
+        "04_plot_results.py"
+    ]
+    
+    missing_scripts = []
+    for script in required_scripts:
+        if not shutil.which(script):
+            missing_scripts.append(script)
+    
+    if missing_scripts:
+        logger.error("Required pipeline scripts not found in PATH:")
+        for script in missing_scripts:
+            logger.error(f"  - {script}")
+        logger.error("")
+        logger.error("Please ensure DIANA is properly installed:")
+        logger.error("  1. Run: pip install -e .")
+        logger.error("  2. Or add scripts/inference/ to your PATH")
+        sys.exit(1)
     
     # Validate paths
     if not args.model.exists():
