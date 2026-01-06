@@ -28,6 +28,9 @@ env/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+
+# Paper outputs (tracked in local-results branch only)
+paper/
 *.ipynb_checkpoints/
 
 # IDE
