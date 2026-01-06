@@ -1,0 +1,68 @@
+sample_id	true_label	pred_label	confidence
+ERR7919519	Gorilla gorilla gorilla	Gorilla sp.	0.999931812286377
+ERR3579772	Pan troglodytes schweinfurthii	Pan troglodytes	1.0
+SRR19160147	Lithobates pipiens	Homo sapiens	0.6369051933288574
+SRR19160175	Lithobates pipiens	Homo sapiens	0.6517918705940247
+ERR14128652	Pan troglodytes schweinfurthii	Pan troglodytes	1.0
+ERR3678178	Gorilla beringei beringei	Gorilla sp.	1.0
+ERR7919463	Gorilla beringei graueri	Gorilla sp.	0.5049654841423035
+ERR3579794	Alouatta palliata	Ursus arctos	0.9989417195320129
+ERR14128655	Gorilla beringei beringei	Gorilla sp.	1.0
+ERR4172752	Gorilla beringei	Ursus arctos	0.9022776484489441
+ERR3579725	Pan troglodytes ellioti	Pan troglodytes	0.9999994039535522
+ERR3579798	Alouatta palliata	Ursus arctos	0.9812338948249817
+ERR7919523	Gorilla gorilla gorilla	Gorilla sp.	0.9999350309371948
+ERR7919530	Gorilla beringei graueri	Gorilla sp.	1.0
+ERR3609659	Papio sp.	Homo sapiens	0.6643814444541931
+ERR3609661	Papio hamadryas	Homo sapiens	0.9697343111038208
+ERR3678185	Gorilla beringei beringei	Gorilla sp.	1.0
+ERR4172754	Gorilla beringei	Ursus arctos	0.8373571038246155
+ERR7919506	Gorilla beringei graueri	Gorilla sp.	1.0
+ERR3609657	Papio anubis	Homo sapiens	0.8267630934715271
+ERR7919500	Gorilla beringei beringei	Gorilla sp.	1.0
+ERR3579724	Pan troglodytes ellioti	Pan troglodytes	1.0
+ERR3579771	Pan troglodytes schweinfurthii	Pan troglodytes	1.0
+SRR19160161	Lithobates pipiens	Homo sapiens	0.9086869359016418
+ERR7919479	Gorilla beringei beringei	Gorilla sp.	1.0
+ERR3678183	Gorilla beringei beringei	Gorilla sp.	1.0
+SRR19160184	Lithobates pipiens	Homo sapiens	0.9021803140640259
+ERR3609653	Papio anubis	Homo sapiens	0.8695041537284851
+SRR19160150	Lithobates pipiens	Homo sapiens	0.45889511704444885
+ERR7919528	Gorilla beringei graueri	Gorilla sp.	1.0
+ERR3579796	Alouatta palliata	Ursus arctos	0.9673530459403992
+ERR7919537	Gorilla gorilla gorilla	Gorilla sp.	0.9999614953994751
+SRR19160206	Lithobates pipiens	Homo sapiens	0.833641529083252
+ERR7919478	Gorilla beringei graueri	Gorilla sp.	1.0
+SRR19160194	Lithobates pipiens	Homo sapiens	0.9234129190444946
+ERR7919485	Gorilla beringei graueri	Gorilla sp.	0.3436568081378937
+ERR3579792	Alouatta palliata	Ursus arctos	0.9631161689758301
+SRR19160231	Lithobates pipiens	Homo sapiens	0.9346866607666016
+ERR14128653	Gorilla beringei beringei	Gorilla sp.	1.0
+ERR3609654	Papio anubis	Homo sapiens	0.2631502151489258
+ERR4172565	Gorilla beringei	Gorilla sp.	0.6163926720619202
+ERR3579684	Gorilla beringei beringei	Gorilla sp.	0.9999908208847046
+ERR7919538	Gorilla beringei graueri	Gorilla sp.	0.3541806638240814
+ERR3609655	Papio hamadryas	Homo sapiens	0.6521891951560974
+ERR7919521	Gorilla beringei beringei	Gorilla sp.	1.0
+SRR19160180	Lithobates pipiens	Homo sapiens	0.9136350750923157
+ERR3609656	Papio hamadryas	Homo sapiens	0.7187523245811462
+ERR3579778	Gorilla beringei beringei	Gorilla sp.	1.0
+ERR7919542	Gorilla beringei graueri	Gorilla sp.	1.0
+ERR3579780	Gorilla beringei beringei	Gorilla sp.	1.0
+ERR7919483	Gorilla gorilla gorilla	Gorilla sp.	0.9998262524604797
+ERR4172564	Gorilla beringei	Gorilla sp.	0.5312315821647644
+ERR3579799	Alouatta palliata	Ursus arctos	0.9435008764266968
+ERR7919508	Gorilla beringei graueri	Gorilla sp.	1.0
+ERR7919518	Gorilla beringei beringei	Gorilla sp.	1.0
+ERR3579718	Pan troglodytes ellioti	Pan troglodytes	1.0
+ERR3609652	Papio hamadryas	Homo sapiens	0.8981978297233582
+ERR7919536	Gorilla beringei graueri	Gorilla sp.	1.0
+ERR3579679	Gorilla beringei beringei	Gorilla sp.	1.0
+SRR19160174	Lithobates pipiens	Homo sapiens	0.8320043087005615
+ERR3579769	Pan troglodytes schweinfurthii	Pan troglodytes	1.0
+ERR3579717	Pan troglodytes ellioti	Pan troglodytes	1.0
+ERR7919493	Gorilla beringei graueri	Gorilla sp.	0.3762587606906891
+ERR7919514	Gorilla beringei graueri	Gorilla sp.	1.0
+ERR3609660	Papio hamadryas	Homo sapiens	0.5863962173461914
+SRR19160251	Lithobates pipiens	Homo sapiens	0.547565758228302
+ERR3579686	Gorilla beringei beringei	Gorilla sp.	1.0
