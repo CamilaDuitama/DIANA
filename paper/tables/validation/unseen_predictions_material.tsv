@@ -2,7 +2,7 @@ sample_id	true_label	pred_label	confidence
 SRR19160147	intestine	digestive_contents	0.6870756149291992
 SRR19160175	intestine	soft_tissue	0.5528280735015869
 SRR25280085	birch pitch	digestive_contents	0.37572208046913147
-ERR8202909	brain	bone	0.5023081302642822
+ERR8202909	brain	bone	0.502308189868927
 ERR3250144	birch pitch	bone	0.7905153036117554
 SRR25280099	birch pitch	Oral	0.8724735379219055
 SRR25280102	birch pitch	Skin	0.790567934513092
@@ -94,6 +94,7 @@ SRR25280059	birch pitch	Skin	0.925062358379364
 SRR25280077	birch pitch	Skin	0.9870942234992981
 SRR25280115	birch pitch	Oral	0.657975971698761
 SRR25280051	birch pitch	digestive_contents	0.40215638279914856
+ERR3678628	palaeofaeces	digestive_contents	0.9999991655349731
 ERR3678627	palaeofaeces	digestive_contents	1.0
 SRR25280076	birch pitch	Oral	0.3731467127799988
 SRR25280063	birch pitch	sediment	0.9646585583686829
