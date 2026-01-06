@@ -14,7 +14,7 @@ from pathlib import Path
 import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
-from sklearn.metrics import roc_curve, auc, precision_recall_curve
+from sklearn.metrics import roc_curve, auc, precision_recall_curve, average_precision_score
 
 
 # ============================================================================
@@ -500,13 +500,17 @@ def plot_confidence_distribution(df, task, output_dir, quiet=False):
 
 
 def plot_roc_pr_curves(df, task, label_encoders, output_dir, quiet=False):
-    """Generate ROC and Precision-Recall curves using macro-average for multi-class tasks."""
+    """Generate separate ROC and PR curves with one line per class (matching model_evaluation style)."""
     from sklearn.preprocessing import label_binarize
+    import plotly.express as px
     
     task_df = df[df['task'] == task]
     task_title = task.replace('_', ' ').title()
     classes = label_encoders[task]['classes']
     n_classes = len(classes)
+    
+    # Use the same color palette as model_evaluation
+    COLOR_PALETTE = px.colors.qualitative.Set2
     
     # Build arrays of true labels and probability scores
     y_true_labels = []
@@ -544,101 +548,102 @@ def plot_roc_pr_curves(df, task, label_encoders, output_dir, quiet=False):
             print(f"  ⚠ Skipping ROC/PR for {task}: insufficient data")
         return
     
-    # Compute macro-average ROC curve and AUC
-    fpr_dict = {}
-    tpr_dict = {}
-    roc_auc_dict = {}
+    # ========== ROC CURVES ==========
+    fig_roc = go.Figure()
     
+    # Plot ROC curve for each class
     for i in range(n_classes):
         if np.sum(y_true_bin[:, i]) > 0:  # Only if class exists in data
-            fpr_dict[i], tpr_dict[i], _ = roc_curve(y_true_bin[:, i], y_scores[:, i])
-            roc_auc_dict[i] = auc(fpr_dict[i], tpr_dict[i])
-    
-    # Compute macro-average (interpolate all ROC curves)
-    all_fpr = np.unique(np.concatenate([fpr_dict[i] for i in fpr_dict.keys()]))
-    mean_tpr = np.zeros_like(all_fpr)
-    for i in fpr_dict.keys():
-        mean_tpr += np.interp(all_fpr, fpr_dict[i], tpr_dict[i])
-    mean_tpr /= len(fpr_dict)
-    
-    fpr_macro = all_fpr
-    tpr_macro = mean_tpr
-    roc_auc_macro = auc(fpr_macro, tpr_macro)
-    
-    # Compute macro-average PR curve
-    precision_dict = {}
-    recall_dict = {}
-    pr_auc_dict = {}
-    
-    for i in range(n_classes):
-        if np.sum(y_true_bin[:, i]) > 0:
-            precision_dict[i], recall_dict[i], _ = precision_recall_curve(y_true_bin[:, i], y_scores[:, i])
-            pr_auc_dict[i] = auc(recall_dict[i], precision_dict[i])
-    
-    # Compute macro-average PR (interpolate all curves)
-    all_recall = np.unique(np.concatenate([recall_dict[i] for i in recall_dict.keys()]))
-    all_recall = np.sort(all_recall)
-    mean_precision = np.zeros_like(all_recall)
-    for i in precision_dict.keys():
-        mean_precision += np.interp(all_recall, recall_dict[i][::-1], precision_dict[i][::-1])
-    mean_precision /= len(precision_dict)
-    
-    recall_macro = all_recall
-    precision_macro = mean_precision
-    pr_auc_macro = auc(recall_macro, precision_macro)
-    
-    # Create subplot with macro-average curves
-    fig = make_subplots(
-        rows=1, cols=2,
-        subplot_titles=(
-            f'ROC Curve (Macro AUC = {roc_auc_macro:.3f})',
-            f'Precision-Recall (Macro AUC = {pr_auc_macro:.3f})'
-        )
-    )
-    
-    # ROC curve - macro average
-    fig.add_trace(
-        go.Scatter(x=fpr_macro, y=tpr_macro, mode='lines',
-                   name=f'Macro-avg (AUC={roc_auc_macro:.2f})',
-                   line=dict(color='#2E86AB', width=3)),
-        row=1, col=1
-    )
+            y_true_binary = y_true_bin[:, i]
+            y_score = y_scores[:, i]
+            
+            fpr, tpr, _ = roc_curve(y_true_binary, y_score)
+            roc_auc = auc(fpr, tpr)
+            
+            # Get color from palette (cycle if more classes than colors)
+            color = COLOR_PALETTE[i % len(COLOR_PALETTE)]
+            
+            fig_roc.add_trace(go.Scatter(
+                x=fpr,
+                y=tpr,
+                mode='lines',
+                name=f'{classes[i]} (AUC={roc_auc:.3f})',
+                line=dict(width=2, color=color)
+            ))
     
     # Add diagonal reference line
-    fig.add_trace(
-        go.Scatter(x=[0, 1], y=[0, 1], mode='lines',
-                   line=dict(color='gray', dash='dash', width=1),
-                   showlegend=False),
-        row=1, col=1
+    fig_roc.add_trace(go.Scatter(
+        x=[0, 1],
+        y=[0, 1],
+        mode='lines',
+        name='Random',
+        line=dict(dash='dash', color='gray', width=1)
+    ))
+    
+    fig_roc.update_layout(
+        title=f'ROC Curves - {task_title} (Validation Set)',
+        xaxis_title='False Positive Rate',
+        yaxis_title='True Positive Rate',
+        template='plotly_white',
+        font=dict(size=12),
+        xaxis=dict(range=[0, 1]),
+        yaxis=dict(range=[0, 1]),
+        legend=dict(x=0.6, y=0.1),
+        height=600,
+        width=800
     )
     
-    # PR curve - macro average  
-    fig.add_trace(
-        go.Scatter(x=recall_macro, y=precision_macro, mode='lines',
-                   name=f'Macro-avg (AUC={pr_auc_macro:.2f})',
-                   line=dict(color='#A23B72', width=3)),
-        row=1, col=2
-    )
-    
-    # Update axes
-    fig.update_xaxes(title_text="False Positive Rate", row=1, col=1, range=[0, 1])
-    fig.update_yaxes(title_text="True Positive Rate", row=1, col=1, range=[0, 1])
-    fig.update_xaxes(title_text="Recall", row=1, col=2, range=[0, 1])
-    fig.update_yaxes(title_text="Precision", row=1, col=2, range=[0, 1])
-    
-    fig.update_layout(
-        title=f"{task_title} - Performance Curves (n={len(task_df)}, {n_classes} classes)",
-        height=500,
-        width=1200,
-        showlegend=False
-    )
-    
-    html_file = output_dir / f"roc_pr_curves_{task}.html"
-    png_file = output_dir / f"roc_pr_curves_{task}.png"
-    fig.write_html(html_file)
-    fig.write_image(png_file, width=1200, height=500)
+    # Save ROC curves
+    roc_html_file = output_dir / f"roc_curves_{task}.html"
+    roc_png_file = output_dir / f"roc_curves_{task}.png"
+    fig_roc.write_html(roc_html_file)
+    fig_roc.write_image(roc_png_file, width=800, height=600)
     if not quiet:
-        print(f"  ✓ {png_file.name}")
+        print(f"  ✓ {roc_png_file.name}")
+    
+    # ========== PRECISION-RECALL CURVES ==========
+    fig_pr = go.Figure()
+    
+    # Plot PR curve for each class
+    for i in range(n_classes):
+        if np.sum(y_true_bin[:, i]) > 0:
+            y_true_binary = y_true_bin[:, i]
+            y_score = y_scores[:, i]
+            
+            precision, recall, _ = precision_recall_curve(y_true_binary, y_score)
+            avg_precision = average_precision_score(y_true_binary, y_score)
+            
+            # Get color from palette (cycle if more classes than colors)
+            color = COLOR_PALETTE[i % len(COLOR_PALETTE)]
+            
+            fig_pr.add_trace(go.Scatter(
+                x=recall,
+                y=precision,
+                mode='lines',
+                name=f'{classes[i]} (AP={avg_precision:.3f})',
+                line=dict(width=2, color=color)
+            ))
+    
+    fig_pr.update_layout(
+        title=f'Precision-Recall Curves - {task_title} (Validation Set)',
+        xaxis_title='Recall',
+        yaxis_title='Precision',
+        template='plotly_white',
+        font=dict(size=12),
+        xaxis=dict(range=[0, 1]),
+        yaxis=dict(range=[0, 1.05]),
+        legend=dict(x=0.05, y=0.2),
+        height=600,
+        width=800
+    )
+    
+    # Save PR curves
+    pr_html_file = output_dir / f"pr_curves_{task}.html"
+    pr_png_file = output_dir / f"pr_curves_{task}.png"
+    fig_pr.write_html(pr_html_file)
+    fig_pr.write_image(pr_png_file, width=800, height=600)
+    if not quiet:
+        print(f"  ✓ {pr_png_file.name}")
 
 
 # ============================================================================
