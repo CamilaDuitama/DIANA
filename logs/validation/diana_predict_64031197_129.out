@@ -1,0 +1,16 @@
+======================================
+DIANA Validation Predictions
+======================================
+Job Array ID: 64031197
+Task ID: 129
+Node: maestro-2499
+Started: Tue Jan  6 05:42:04 CET 2026
+
+Sample 129/629: ERR3579686
+Found FASTQ files:
+data/validation/raw/ERR3579686/ERR3579686.fastq.gz
+
+Running diana-predict...
+
+Completed: Tue Jan  6 05:42:53 CET 2026
+======================================

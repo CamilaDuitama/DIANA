@@ -1,0 +1,20 @@
+error    libmamba Could not set lock (Resource temporarily unavailable)
+warning  libmamba Cannot lock '/pasteur/appa/homes/cduitama/.cache/mamba/proc'
+    Waiting for other mamba process to finish
+2026-01-06 13:25:10 - diana.cli.predict - INFO - Found 2 sample(s) to process
+2026-01-06 13:25:10 - diana.cli.predict - DEBUG - Detected paired-end: ERR3003630_1.fastq.gz + ERR3003630_2.fastq.gz
+2026-01-06 13:25:10 - diana.cli.predict - INFO - Detected 1 unique sample(s) to process
+2026-01-06 13:25:10 - diana.cli.predict - INFO -   1 paired-end samples
+2026-01-06 13:25:10 - diana.cli.predict - INFO -   0 single-end samples
+2026-01-06 13:25:10 - diana.cli.predict - INFO - [1/1] Processing ERR3003630_1.fastq.gz + 1 more
+2026-01-06 13:25:10 - diana.cli.predict - INFO - Processing sample: ERR3003630
+2026-01-06 13:25:10 - diana.cli.predict - INFO -   Paired-end: 2 files
+2026-01-06 13:25:10 - diana.cli.predict - INFO -   Output directory: results/validation_predictions/ERR3003630
+2026-01-06 13:25:10 - diana.cli.predict - INFO - ------------------------------------------------------------
+2026-01-06 13:25:10 - diana.cli.predict - DEBUG - Using shared reference k-mers: data/matrices/large_matrix_3070_with_frac/reference_kmers.fasta
+2026-01-06 13:25:10 - diana.cli.predict - INFO - Step 1: Counting k-mers in sample...
+2026-01-06 13:25:10 - diana.cli.predict - DEBUG -   [INFO][0m read file: data/validation/raw/ERR3003630/ERR3003630_1.fastq.gz
+2026-01-06 13:25:22 - diana.cli.predict - DEBUG -   Indexed 18953119 kmers, each of size 31
+2026-01-06 13:25:22 - diana.cli.predict - DEBUG -   No output file provided, only the kmers with their count is output
+2026-01-06 13:25:49 - diana.cli.predict - DEBUG -   [INFO][0m 18863447 records loaded from file: data/validation/raw/ERR3003630/ERR3003630_1.fastq.gz
+[2026-01-06T13:26:05.414] error: *** JOB 64146996 ON maestro-2010 CANCELLED AT 2026-01-06T13:26:05 DUE to SIGNAL Terminated ***

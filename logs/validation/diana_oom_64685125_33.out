@@ -1,0 +1,15 @@
+======================================
+DIANA OOM Retry (192GB)
+======================================
+Job Array ID: 64685125
+Task ID: 33
+Node: maestro-2010
+Started: Tue Jan  6 18:55:43 CET 2026
+
+Retrying OOM sample: SRR27336798
+Sample size: 14G
+Found FASTQ files:
+data/validation/raw/SRR27336798/SRR27336798_1.fastq.gz
+data/validation/raw/SRR27336798/SRR27336798_2.fastq.gz
+
+Running diana-predict (192GB memory)...

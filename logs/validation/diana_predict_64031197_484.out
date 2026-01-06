@@ -1,0 +1,16 @@
+======================================
+DIANA Validation Predictions
+======================================
+Job Array ID: 64031197
+Task ID: 484
+Node: maestro-2010
+Started: Tue Jan  6 07:01:32 CET 2026
+
+Sample 484/629: ERR12206698
+Found FASTQ files:
+data/validation/raw/ERR12206698/ERR12206698.fastq.gz
+
+Running diana-predict...
+
+Completed: Tue Jan  6 07:08:29 CET 2026
+======================================

@@ -1,0 +1,17 @@
+======================================
+DIANA Validation Predictions
+======================================
+Job Array ID: 64031197
+Task ID: 78
+Node: maestro-2010
+Started: Tue Jan  6 05:35:26 CET 2026
+
+Sample 78/629: ERR4374914
+Found FASTQ files:
+data/validation/raw/ERR4374914/ERR4374914_1.fastq.gz
+data/validation/raw/ERR4374914/ERR4374914_2.fastq.gz
+
+Running diana-predict...
+
+Completed: Tue Jan  6 05:36:22 CET 2026
+======================================

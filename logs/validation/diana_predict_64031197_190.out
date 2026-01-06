@@ -1,0 +1,18 @@
+======================================
+DIANA Validation Predictions
+======================================
+Job Array ID: 64031197
+Task ID: 190
+Node: maestro-2010
+Started: Tue Jan  6 05:52:54 CET 2026
+
+Sample 190/629: ERR6178852
+Found FASTQ files:
+data/validation/raw/ERR6178852/ERR6178852_1.fastq.gz
+data/validation/raw/ERR6178852/ERR6178852_2.fastq.gz
+data/validation/raw/ERR6178852/ERR6178852.fastq.gz
+
+Running diana-predict...
+
+Completed: Tue Jan  6 05:55:30 CET 2026
+======================================

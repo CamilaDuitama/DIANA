@@ -1,0 +1,244 @@
+2026-01-06 06:20:48 - diana.cli.predict - INFO - Found 3 sample(s) to process
+2026-01-06 06:20:48 - diana.cli.predict - DEBUG - Detected paired-end: SRR25280100_1.fastq.gz + SRR25280100_2.fastq.gz
+2026-01-06 06:20:48 - diana.cli.predict - INFO - Detected 2 unique sample(s) to process
+2026-01-06 06:20:48 - diana.cli.predict - INFO -   1 paired-end samples
+2026-01-06 06:20:48 - diana.cli.predict - INFO -   1 single-end samples
+2026-01-06 06:20:48 - diana.cli.predict - INFO - [1/2] Processing SRR25280100_1.fastq.gz + 1 more
+2026-01-06 06:20:48 - diana.cli.predict - INFO - Processing sample: SRR25280100
+2026-01-06 06:20:48 - diana.cli.predict - INFO -   Paired-end: 2 files
+2026-01-06 06:20:48 - diana.cli.predict - INFO -   Output directory: results/validation_predictions/SRR25280100
+2026-01-06 06:20:48 - diana.cli.predict - INFO - ------------------------------------------------------------
+2026-01-06 06:20:48 - diana.cli.predict - DEBUG - Using shared reference k-mers: data/matrices/large_matrix_3070_with_frac/reference_kmers.fasta
+2026-01-06 06:20:48 - diana.cli.predict - INFO - Step 1: Counting k-mers in sample...
+2026-01-06 06:20:48 - diana.cli.predict - DEBUG -   [INFO][0m read file: data/validation/raw/SRR25280100/SRR25280100_1.fastq.gz
+2026-01-06 06:20:50 - diana.cli.predict - DEBUG -   [INFO][0m 1463890 records loaded from file: data/validation/raw/SRR25280100/SRR25280100_1.fastq.gz
+2026-01-06 06:20:51 - diana.cli.predict - DEBUG -   [INFO][0m read file: data/validation/raw/SRR25280100/SRR25280100_2.fastq.gz
+2026-01-06 06:20:54 - diana.cli.predict - DEBUG -   [INFO][0m 1463890 records loaded from file: data/validation/raw/SRR25280100/SRR25280100_2.fastq.gz
+2026-01-06 06:21:00 - diana.cli.predict - DEBUG -   Indexed 18953119 kmers, each of size 31
+2026-01-06 06:21:00 - diana.cli.predict - DEBUG -   No output file provided, only the kmers with their count is output
+2026-01-06 06:21:08 - diana.cli.predict - DEBUG -   Number of nucleotides seen 302068602
+2026-01-06 06:21:08 - diana.cli.predict - DEBUG -   Number of kmer seen 258151902, number of kmer match 61193933 ratio 23.70462
+2026-01-06 06:21:10 - diana.cli.predict - DEBUG -   kmers with their number of occurrences in the original sequences are in file results/validation_predictions/SRR25280100/SRR25280100_kmer_counts.txt
+2026-01-06 06:21:13 - diana.cli.predict - DEBUG -   ✓ Done!
+2026-01-06 06:21:13 - diana.cli.predict - INFO -   ✓ Step 1: Counting k-mers in sample complete (24.9s)
+2026-01-06 06:21:13 - diana.cli.predict - INFO - Step 2: Aggregating k-mers to unitigs...
+2026-01-06 06:21:13 - diana.cli.predict - DEBUG -   [2026-01-06 06:21:13] [info] Command: unitig
+2026-01-06 06:21:13 - diana.cli.predict - DEBUG -   [2026-01-06 06:21:13] [info] building k-mer dictionary
+2026-01-06 06:21:16 - diana.cli.predict - DEBUG -   [2026-01-06 06:21:16] [info] saving SSHash dictionary to results/validation_predictions/SRR25280100/SRR25280100_unitig.sshash.dict
+2026-01-06 06:21:16 - diana.cli.predict - DEBUG -   dumping super-k-mers to file 'results/validation_predictions/SRR25280100/SRR25280100_unitig.sshash.dict'...
+2026-01-06 06:21:20 - diana.cli.predict - DEBUG -   DONE
+2026-01-06 06:21:20 - diana.cli.predict - DEBUG -   [2026-01-06 06:21:20] [info] SSHash dictionary saved (130804916 bytes)
+2026-01-06 06:21:20 - diana.cli.predict - DEBUG -   [2026-01-06 06:21:20] [info] aggregating k-mer counts
+2026-01-06 06:21:20 - diana.cli.predict - DEBUG -   [2026-01-06 06:21:20] [info] Computing mean (mean) for unitigs.
+2026-01-06 06:21:20 - diana.cli.predict - DEBUG -   [2026-01-06 06:21:20] [info] writing unitig matrix
+2026-01-06 06:21:20 - diana.cli.predict - INFO -   ✓ Step 2: Aggregating k-mers to unitigs complete (7.7s)
+2026-01-06 06:21:20 - diana.cli.predict - INFO - Step 3: Running model inference...
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:Loading model from results/full_training/best_model.pth
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:diana.inference.predictor:Loading model from results/full_training/best_model.pth
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:diana.inference.predictor:Using device: cpu
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:diana.inference.predictor:Inferred architecture: input_dim=107480, hidden_dims=[307, 474, 272], num_classes={'sample_type': 2, 'community_type': 6, 'sample_host': 12, 'material': 13}, use_batch_norm=False
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:diana.inference.predictor:Loaded multitask model successfully
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:Loading unitig fractions from results/validation_predictions/SRR25280100/SRR25280100_unitig_fraction.txt
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:Loaded 107480 unitig fractions
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:  Non-zero features: 1341 (1.25%)
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:  Mean fraction: 0.0027
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:  Max fraction: 1.0000
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:Running inference...
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:Saving predictions to results/validation_predictions/SRR25280100/SRR25280100_predictions.json
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:\n============================================================
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:Predictions for sample: SRR25280100
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:============================================================
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:\nsample_type:
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:  Predicted: ancient (confidence: 0.637)
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:  Probabilities:
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    ancient: 0.637
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    modern: 0.363
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:\ncommunity_type:
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:  Predicted: 0 (confidence: 0.842)
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:  Probabilities:
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    0: 0.842
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    1: 0.005
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    2: 0.108
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    3: 0.030
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    4: 0.010
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    5: 0.005
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:\nsample_host:
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:  Predicted: 7 (confidence: 0.791)
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:  Probabilities:
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    0: 0.030
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    1: 0.006
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    2: 0.020
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    3: 0.057
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    4: 0.073
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    5: 0.011
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    6: 0.002
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    7: 0.791
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    8: 0.001
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    9: 0.004
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    10: 0.000
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    11: 0.006
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:\nmaterial:
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:  Predicted: 1 (confidence: 0.220)
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:  Probabilities:
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    0: 0.104
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    1: 0.220
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    2: 0.009
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    3: 0.130
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    4: 0.018
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    5: 0.025
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    6: 0.073
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    7: 0.093
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    8: 0.201
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    9: 0.012
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    10: 0.015
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    11: 0.076
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:    12: 0.024
+2026-01-06 06:21:24 - diana.cli.predict - DEBUG -   INFO:__main__:============================================================
+2026-01-06 06:21:25 - diana.cli.predict - INFO -   ✓ Step 3: Running model inference complete (4.7s)
+2026-01-06 06:21:25 - diana.cli.predict - INFO - Step 4: Generating plots...
+2026-01-06 06:21:25 - diana.cli.predict - DEBUG -   /pasteur/appa/scratch/cduitama/EDID/decOM-classify/scripts/inference/04_plot_results.py:101: DeprecationWarning:
+2026-01-06 06:21:25 - diana.cli.predict - DEBUG -   Support for Kaleido versions less than 1.0.0 is deprecated and will be removed after September 2025.
+2026-01-06 06:21:25 - diana.cli.predict - DEBUG -   Please upgrade Kaleido to version 1.0.0 or greater (`pip install 'kaleido>=1.0.0'` or `pip install 'plotly[kaleido]'`).
+2026-01-06 06:21:27 - diana.cli.predict - DEBUG -   /pasteur/appa/scratch/cduitama/EDID/decOM-classify/scripts/inference/04_plot_results.py:101: DeprecationWarning:
+2026-01-06 06:21:27 - diana.cli.predict - DEBUG -   Support for Kaleido versions less than 1.0.0 is deprecated and will be removed after September 2025.
+2026-01-06 06:21:27 - diana.cli.predict - DEBUG -   Please upgrade Kaleido to version 1.0.0 or greater (`pip install 'kaleido>=1.0.0'` or `pip install 'plotly[kaleido]'`).
+2026-01-06 06:21:27 - diana.cli.predict - DEBUG -   /pasteur/appa/scratch/cduitama/EDID/decOM-classify/scripts/inference/04_plot_results.py:101: DeprecationWarning:
+2026-01-06 06:21:27 - diana.cli.predict - DEBUG -   Support for Kaleido versions less than 1.0.0 is deprecated and will be removed after September 2025.
+2026-01-06 06:21:27 - diana.cli.predict - DEBUG -   Please upgrade Kaleido to version 1.0.0 or greater (`pip install 'kaleido>=1.0.0'` or `pip install 'plotly[kaleido]'`).
+2026-01-06 06:21:27 - diana.cli.predict - DEBUG -   /pasteur/appa/scratch/cduitama/EDID/decOM-classify/scripts/inference/04_plot_results.py:101: DeprecationWarning:
+2026-01-06 06:21:27 - diana.cli.predict - DEBUG -   Support for Kaleido versions less than 1.0.0 is deprecated and will be removed after September 2025.
+2026-01-06 06:21:27 - diana.cli.predict - DEBUG -   Please upgrade Kaleido to version 1.0.0 or greater (`pip install 'kaleido>=1.0.0'` or `pip install 'plotly[kaleido]'`).
+2026-01-06 06:21:27 - diana.cli.predict - DEBUG -   Interactive plot saved: results/validation_predictions/SRR25280100/plots/SRR25280100_sample_type_barplot.html
+2026-01-06 06:21:27 - diana.cli.predict - DEBUG -   Static plot saved: results/validation_predictions/SRR25280100/plots/SRR25280100_sample_type_barplot.png
+2026-01-06 06:21:27 - diana.cli.predict - DEBUG -   Interactive plot saved: results/validation_predictions/SRR25280100/plots/SRR25280100_community_type_barplot.html
+2026-01-06 06:21:27 - diana.cli.predict - DEBUG -   Static plot saved: results/validation_predictions/SRR25280100/plots/SRR25280100_community_type_barplot.png
+2026-01-06 06:21:27 - diana.cli.predict - DEBUG -   Interactive plot saved: results/validation_predictions/SRR25280100/plots/SRR25280100_sample_host_barplot.html
+2026-01-06 06:21:27 - diana.cli.predict - DEBUG -   Static plot saved: results/validation_predictions/SRR25280100/plots/SRR25280100_sample_host_barplot.png
+2026-01-06 06:21:27 - diana.cli.predict - DEBUG -   Interactive plot saved: results/validation_predictions/SRR25280100/plots/SRR25280100_material_barplot.html
+2026-01-06 06:21:27 - diana.cli.predict - DEBUG -   Static plot saved: results/validation_predictions/SRR25280100/plots/SRR25280100_material_barplot.png
+2026-01-06 06:21:27 - diana.cli.predict - INFO -   ✓ Step 4: Generating plots complete (1.9s)
+2026-01-06 06:21:27 - diana.cli.predict - INFO - ------------------------------------------------------------
+2026-01-06 06:21:27 - diana.cli.predict - INFO - Pipeline completed in 39.2s
+2026-01-06 06:21:27 - diana.cli.predict - INFO - [2/2] Processing SRR25280100.fastq.gz
+2026-01-06 06:21:27 - diana.cli.predict - INFO - Processing sample: SRR25280100
+2026-01-06 06:21:27 - diana.cli.predict - INFO -   Output directory: results/validation_predictions/SRR25280100
+2026-01-06 06:21:27 - diana.cli.predict - INFO - ------------------------------------------------------------
+2026-01-06 06:21:27 - diana.cli.predict - DEBUG - Using shared reference k-mers: data/matrices/large_matrix_3070_with_frac/reference_kmers.fasta
+2026-01-06 06:21:27 - diana.cli.predict - INFO - Step 1: Counting k-mers in sample...
+2026-01-06 06:21:39 - diana.cli.predict - DEBUG -   Indexed 18953119 kmers, each of size 31
+2026-01-06 06:21:39 - diana.cli.predict - DEBUG -   No output file provided, only the kmers with their count is output
+2026-01-06 06:23:07 - diana.cli.predict - DEBUG -   Number of nucleotides seen 5290561619
+2026-01-06 06:23:07 - diana.cli.predict - DEBUG -   Number of kmer seen 2916253859, number of kmer match 10253529 ratio 0.35160
+2026-01-06 06:23:12 - diana.cli.predict - DEBUG -   kmers with their number of occurrences in the original sequences are in file results/validation_predictions/SRR25280100/SRR25280100_kmer_counts.txt
+2026-01-06 06:23:15 - diana.cli.predict - DEBUG -   ✓ Done!
+2026-01-06 06:23:15 - diana.cli.predict - INFO -   ✓ Step 1: Counting k-mers in sample complete (107.9s)
+2026-01-06 06:23:15 - diana.cli.predict - INFO - Step 2: Aggregating k-mers to unitigs...
+2026-01-06 06:23:15 - diana.cli.predict - DEBUG -   [2026-01-06 06:23:15] [info] Command: unitig
+2026-01-06 06:23:15 - diana.cli.predict - DEBUG -   [2026-01-06 06:23:15] [info] building k-mer dictionary
+2026-01-06 06:23:19 - diana.cli.predict - DEBUG -   [2026-01-06 06:23:19] [info] saving SSHash dictionary to results/validation_predictions/SRR25280100/SRR25280100_unitig.sshash.dict
+2026-01-06 06:23:19 - diana.cli.predict - DEBUG -   dumping super-k-mers to file 'results/validation_predictions/SRR25280100/SRR25280100_unitig.sshash.dict'...
+2026-01-06 06:23:22 - diana.cli.predict - DEBUG -   DONE
+2026-01-06 06:23:22 - diana.cli.predict - DEBUG -   [2026-01-06 06:23:22] [info] SSHash dictionary saved (130804916 bytes)
+2026-01-06 06:23:22 - diana.cli.predict - DEBUG -   [2026-01-06 06:23:22] [info] aggregating k-mer counts
+2026-01-06 06:23:22 - diana.cli.predict - DEBUG -   [2026-01-06 06:23:22] [info] Computing mean (mean) for unitigs.
+2026-01-06 06:23:23 - diana.cli.predict - DEBUG -   [2026-01-06 06:23:23] [info] writing unitig matrix
+2026-01-06 06:23:23 - diana.cli.predict - INFO -   ✓ Step 2: Aggregating k-mers to unitigs complete (8.3s)
+2026-01-06 06:23:23 - diana.cli.predict - INFO - Step 3: Running model inference...
+2026-01-06 06:23:27 - diana.cli.predict - DEBUG -   INFO:__main__:Loading model from results/full_training/best_model.pth
+2026-01-06 06:23:27 - diana.cli.predict - DEBUG -   INFO:diana.inference.predictor:Loading model from results/full_training/best_model.pth
+2026-01-06 06:23:27 - diana.cli.predict - DEBUG -   INFO:diana.inference.predictor:Using device: cpu
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:diana.inference.predictor:Inferred architecture: input_dim=107480, hidden_dims=[307, 474, 272], num_classes={'sample_type': 2, 'community_type': 6, 'sample_host': 12, 'material': 13}, use_batch_norm=False
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:diana.inference.predictor:Loaded multitask model successfully
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:Loading unitig fractions from results/validation_predictions/SRR25280100/SRR25280100_unitig_fraction.txt
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:Loaded 107480 unitig fractions
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:  Non-zero features: 8344 (7.76%)
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:  Mean fraction: 0.0223
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:  Max fraction: 1.0000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:Running inference...
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:Saving predictions to results/validation_predictions/SRR25280100/SRR25280100_predictions.json
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:\n============================================================
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:Predictions for sample: SRR25280100
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:============================================================
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:\nsample_type:
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:  Predicted: modern (confidence: 0.988)
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:  Probabilities:
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    ancient: 0.012
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    modern: 0.988
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:\ncommunity_type:
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:  Predicted: 0 (confidence: 1.000)
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:  Probabilities:
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    0: 1.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    1: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    2: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    3: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    4: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    5: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:\nsample_host:
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:  Predicted: 7 (confidence: 1.000)
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:  Probabilities:
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    0: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    1: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    2: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    3: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    4: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    5: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    6: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    7: 1.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    8: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    9: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    10: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    11: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:\nmaterial:
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:  Predicted: 1 (confidence: 0.884)
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:  Probabilities:
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    0: 0.107
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    1: 0.884
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    2: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    3: 0.006
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    4: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    5: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    6: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    7: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    8: 0.002
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    9: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    10: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    11: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:    12: 0.000
+2026-01-06 06:23:28 - diana.cli.predict - DEBUG -   INFO:__main__:============================================================
+2026-01-06 06:23:29 - diana.cli.predict - INFO -   ✓ Step 3: Running model inference complete (5.5s)
+2026-01-06 06:23:29 - diana.cli.predict - INFO - Step 4: Generating plots...
+2026-01-06 06:23:29 - diana.cli.predict - DEBUG -   /pasteur/appa/scratch/cduitama/EDID/decOM-classify/scripts/inference/04_plot_results.py:101: DeprecationWarning:
+2026-01-06 06:23:29 - diana.cli.predict - DEBUG -   Support for Kaleido versions less than 1.0.0 is deprecated and will be removed after September 2025.
+2026-01-06 06:23:29 - diana.cli.predict - DEBUG -   Please upgrade Kaleido to version 1.0.0 or greater (`pip install 'kaleido>=1.0.0'` or `pip install 'plotly[kaleido]'`).
+2026-01-06 06:23:30 - diana.cli.predict - DEBUG -   /pasteur/appa/scratch/cduitama/EDID/decOM-classify/scripts/inference/04_plot_results.py:101: DeprecationWarning:
+2026-01-06 06:23:30 - diana.cli.predict - DEBUG -   Support for Kaleido versions less than 1.0.0 is deprecated and will be removed after September 2025.
+2026-01-06 06:23:30 - diana.cli.predict - DEBUG -   Please upgrade Kaleido to version 1.0.0 or greater (`pip install 'kaleido>=1.0.0'` or `pip install 'plotly[kaleido]'`).
+2026-01-06 06:23:30 - diana.cli.predict - DEBUG -   /pasteur/appa/scratch/cduitama/EDID/decOM-classify/scripts/inference/04_plot_results.py:101: DeprecationWarning:
+2026-01-06 06:23:30 - diana.cli.predict - DEBUG -   Support for Kaleido versions less than 1.0.0 is deprecated and will be removed after September 2025.
+2026-01-06 06:23:30 - diana.cli.predict - DEBUG -   Please upgrade Kaleido to version 1.0.0 or greater (`pip install 'kaleido>=1.0.0'` or `pip install 'plotly[kaleido]'`).
+2026-01-06 06:23:30 - diana.cli.predict - DEBUG -   /pasteur/appa/scratch/cduitama/EDID/decOM-classify/scripts/inference/04_plot_results.py:101: DeprecationWarning:
+2026-01-06 06:23:30 - diana.cli.predict - DEBUG -   Support for Kaleido versions less than 1.0.0 is deprecated and will be removed after September 2025.
+2026-01-06 06:23:30 - diana.cli.predict - DEBUG -   Please upgrade Kaleido to version 1.0.0 or greater (`pip install 'kaleido>=1.0.0'` or `pip install 'plotly[kaleido]'`).
+2026-01-06 06:23:30 - diana.cli.predict - DEBUG -   Interactive plot saved: results/validation_predictions/SRR25280100/plots/SRR25280100_sample_type_barplot.html
+2026-01-06 06:23:30 - diana.cli.predict - DEBUG -   Static plot saved: results/validation_predictions/SRR25280100/plots/SRR25280100_sample_type_barplot.png
+2026-01-06 06:23:30 - diana.cli.predict - DEBUG -   Interactive plot saved: results/validation_predictions/SRR25280100/plots/SRR25280100_community_type_barplot.html
+2026-01-06 06:23:30 - diana.cli.predict - DEBUG -   Static plot saved: results/validation_predictions/SRR25280100/plots/SRR25280100_community_type_barplot.png
+2026-01-06 06:23:30 - diana.cli.predict - DEBUG -   Interactive plot saved: results/validation_predictions/SRR25280100/plots/SRR25280100_sample_host_barplot.html
+2026-01-06 06:23:30 - diana.cli.predict - DEBUG -   Static plot saved: results/validation_predictions/SRR25280100/plots/SRR25280100_sample_host_barplot.png
+2026-01-06 06:23:30 - diana.cli.predict - DEBUG -   Interactive plot saved: results/validation_predictions/SRR25280100/plots/SRR25280100_material_barplot.html
+2026-01-06 06:23:30 - diana.cli.predict - DEBUG -   Static plot saved: results/validation_predictions/SRR25280100/plots/SRR25280100_material_barplot.png
+2026-01-06 06:23:31 - diana.cli.predict - INFO -   ✓ Step 4: Generating plots complete (2.0s)
+2026-01-06 06:23:31 - diana.cli.predict - INFO - ------------------------------------------------------------
+2026-01-06 06:23:31 - diana.cli.predict - INFO - Pipeline completed in 123.7s
+2026-01-06 06:23:31 - diana.cli.predict - INFO - 
+============================================================
+2026-01-06 06:23:31 - diana.cli.predict - INFO - SUMMARY
+2026-01-06 06:23:31 - diana.cli.predict - INFO - ============================================================
+2026-01-06 06:23:31 - diana.cli.predict - INFO - Total samples: 2
+2026-01-06 06:23:31 - diana.cli.predict - INFO - Successful: 2
+2026-01-06 06:23:31 - diana.cli.predict - INFO - Failed: 0
+2026-01-06 06:23:31 - diana.cli.predict - INFO - Total time: 162.9s (2.7min)
+2026-01-06 06:23:31 - diana.cli.predict - INFO - Average time per sample: 81.5s
+2026-01-06 06:23:31 - diana.cli.predict - INFO - 
+Summary saved to: results/validation_predictions/diana_predict_summary.json
+2026-01-06 06:23:31 - diana.cli.predict - INFO - ============================================================

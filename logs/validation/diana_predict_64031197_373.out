@@ -1,0 +1,16 @@
+======================================
+DIANA Validation Predictions
+======================================
+Job Array ID: 64031197
+Task ID: 373
+Node: maestro-2014
+Started: Tue Jan  6 06:40:39 CET 2026
+
+Sample 373/629: ERR11658334
+Found FASTQ files:
+data/validation/raw/ERR11658334/ERR11658334.fastq.gz
+
+Running diana-predict...
+
+Completed: Tue Jan  6 06:41:17 CET 2026
+======================================

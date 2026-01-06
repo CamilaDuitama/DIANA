@@ -1,0 +1,18 @@
+error    libmamba Could not set lock (Resource temporarily unavailable)
+warning  libmamba Cannot lock '/pasteur/appa/homes/cduitama/.cache/mamba/proc'
+    Waiting for other mamba process to finish
+2026-01-06 22:45:19 - diana.cli.predict - INFO - Found 2 sample(s) to process
+2026-01-06 22:45:19 - diana.cli.predict - DEBUG - Detected paired-end: ERR3579797_1.fastq.gz + ERR3579797_2.fastq.gz
+2026-01-06 22:45:19 - diana.cli.predict - INFO - Detected 1 unique sample(s) to process
+2026-01-06 22:45:19 - diana.cli.predict - INFO -   1 paired-end samples
+2026-01-06 22:45:19 - diana.cli.predict - INFO -   0 single-end samples
+2026-01-06 22:45:19 - diana.cli.predict - INFO - [1/1] Processing ERR3579797_1.fastq.gz + 1 more
+2026-01-06 22:45:19 - diana.cli.predict - INFO - Processing sample: ERR3579797
+2026-01-06 22:45:19 - diana.cli.predict - INFO -   Paired-end: 2 files
+2026-01-06 22:45:19 - diana.cli.predict - INFO -   Output directory: results/validation_predictions/ERR3579797
+2026-01-06 22:45:19 - diana.cli.predict - INFO - ------------------------------------------------------------
+2026-01-06 22:45:19 - diana.cli.predict - DEBUG - Using shared reference k-mers: data/matrices/large_matrix_3070_with_frac/reference_kmers.fasta
+2026-01-06 22:45:19 - diana.cli.predict - INFO - Step 1: Counting k-mers in sample...
+2026-01-06 22:45:19 - diana.cli.predict - DEBUG -   [INFO][0m read file: data/validation/raw/ERR3579797/ERR3579797_1.fastq.gz
+2026-01-06 22:45:33 - diana.cli.predict - DEBUG -   Indexed 18953119 kmers, each of size 31
+2026-01-06 22:45:33 - diana.cli.predict - DEBUG -   No output file provided, only the kmers with their count is output

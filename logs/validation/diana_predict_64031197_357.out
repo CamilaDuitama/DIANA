@@ -1,0 +1,17 @@
+======================================
+DIANA Validation Predictions
+======================================
+Job Array ID: 64031197
+Task ID: 357
+Node: maestro-2010
+Started: Tue Jan  6 06:37:23 CET 2026
+
+Sample 357/629: ERR11660430
+Found FASTQ files:
+data/validation/raw/ERR11660430/ERR11660430_1.fastq.gz
+data/validation/raw/ERR11660430/ERR11660430_2.fastq.gz
+
+Running diana-predict...
+
+Completed: Tue Jan  6 06:38:12 CET 2026
+======================================

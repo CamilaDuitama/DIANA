@@ -1,0 +1,17 @@
+======================================
+DIANA Validation Predictions
+======================================
+Job Array ID: 64031197
+Task ID: 252
+Node: maestro-2010
+Started: Tue Jan  6 06:08:47 CET 2026
+
+Sample 252/629: ERR7919518
+Found FASTQ files:
+data/validation/raw/ERR7919518/ERR7919518_1.fastq.gz
+data/validation/raw/ERR7919518/ERR7919518_2.fastq.gz
+
+Running diana-predict...
+
+Completed: Tue Jan  6 06:12:53 CET 2026
+======================================

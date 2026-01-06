@@ -1,0 +1,17 @@
+======================================
+DIANA Validation Predictions
+======================================
+Job Array ID: 64031197
+Task ID: 145
+Node: maestro-2010
+Started: Tue Jan  6 05:45:41 CET 2026
+
+Sample 145/629: ERR3579773
+Found FASTQ files:
+data/validation/raw/ERR3579773/ERR3579773_1.fastq.gz
+data/validation/raw/ERR3579773/ERR3579773_2.fastq.gz
+
+Running diana-predict...
+
+Completed: Tue Jan  6 05:50:28 CET 2026
+======================================

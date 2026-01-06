@@ -1,0 +1,18 @@
+======================================
+DIANA Validation Predictions
+======================================
+Job Array ID: 64031197
+Task ID: 283
+Node: maestro-2014
+Started: Tue Jan  6 06:18:04 CET 2026
+
+Sample 283/629: SRR25280077
+Found FASTQ files:
+data/validation/raw/SRR25280077/SRR25280077_1.fastq.gz
+data/validation/raw/SRR25280077/SRR25280077_2.fastq.gz
+data/validation/raw/SRR25280077/SRR25280077.fastq.gz
+
+Running diana-predict...
+
+Completed: Tue Jan  6 06:19:38 CET 2026
+======================================

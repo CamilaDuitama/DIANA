@@ -1,0 +1,15 @@
+======================================
+DIANA OOM Retry (256GB)
+======================================
+Job Array ID: 65024993
+Task ID: 3
+Node: maestro-2499
+Started: Tue Jan  6 22:45:07 CET 2026
+
+Retrying OOM sample: ERR3579770
+Sample size: 7.9G
+Found FASTQ files:
+data/validation/raw/ERR3579770/ERR3579770_1.fastq.gz
+data/validation/raw/ERR3579770/ERR3579770_2.fastq.gz
+
+Running diana-predict (256GB memory)...

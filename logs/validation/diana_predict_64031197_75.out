@@ -1,0 +1,17 @@
+======================================
+DIANA Validation Predictions
+======================================
+Job Array ID: 64031197
+Task ID: 75
+Node: maestro-2010
+Started: Tue Jan  6 05:34:28 CET 2026
+
+Sample 75/629: ERR4374041
+Found FASTQ files:
+data/validation/raw/ERR4374041/ERR4374041_1.fastq.gz
+data/validation/raw/ERR4374041/ERR4374041_2.fastq.gz
+
+Running diana-predict...
+
+Completed: Tue Jan  6 05:35:24 CET 2026
+======================================

@@ -1,0 +1,16 @@
+======================================
+DIANA Validation Predictions
+======================================
+Job Array ID: 64031197
+Task ID: 18
+Node: maestro-2010
+Started: Tue Jan  6 05:18:01 CET 2026
+
+Sample 18/629: ERR3250152
+Found FASTQ files:
+data/validation/raw/ERR3250152/ERR3250152.fastq.gz
+
+Running diana-predict...
+
+Completed: Tue Jan  6 05:23:33 CET 2026
+======================================

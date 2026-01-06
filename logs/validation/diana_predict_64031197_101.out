@@ -1,0 +1,16 @@
+======================================
+DIANA Validation Predictions
+======================================
+Job Array ID: 64031197
+Task ID: 101
+Node: maestro-2499
+Started: Tue Jan  6 05:37:37 CET 2026
+
+Sample 101/629: ERR5295821
+Found FASTQ files:
+data/validation/raw/ERR5295821/ERR5295821.fastq.gz
+
+Running diana-predict...
+
+Completed: Tue Jan  6 05:38:45 CET 2026
+======================================

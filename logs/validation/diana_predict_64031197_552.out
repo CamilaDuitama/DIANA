@@ -1,0 +1,17 @@
+======================================
+DIANA Validation Predictions
+======================================
+Job Array ID: 64031197
+Task ID: 552
+Node: maestro-2010
+Started: Tue Jan  6 07:28:30 CET 2026
+
+Sample 552/629: ERR11413701
+Found FASTQ files:
+data/validation/raw/ERR11413701/ERR11413701_1.fastq.gz
+data/validation/raw/ERR11413701/ERR11413701_2.fastq.gz
+
+Running diana-predict...
+
+Completed: Tue Jan  6 07:29:28 CET 2026
+======================================
