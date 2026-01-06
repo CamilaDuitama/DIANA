@@ -4,7 +4,7 @@
 #SBATCH --error=logs/validation/diana_predict_%A_%a.err
 #SBATCH --array=1-629%10
 #SBATCH --cpus-per-task=6
-#SBATCH --mem=12G
+#SBATCH --mem=24G
 #SBATCH --partition=seqbio
 
 # SLURM array job to run diana-predict on validation samples (seqbio partition, no time limit)
@@ -51,6 +51,9 @@ fi
 echo "Found FASTQ files:"
 printf '%s\n' "${FASTQ_ARRAY[@]}"
 echo ""
+
+# Add inference scripts to PATH
+export PATH="$(pwd)/scripts/inference:$PATH"
 
 # Run diana-predict
 echo "Running diana-predict..."
