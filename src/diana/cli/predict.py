@@ -156,7 +156,7 @@ def predict_single_sample(
             fastq_filelist = sample_output_dir / f"{sample_id}_fastq_filelist.txt"
             with open(fastq_filelist, 'w') as f:
                 for fq in sample_paths:
-                    f.write(f"{fq}\\n")
+                    f.write(f"{fq}\n")
             kmer_input = str(fastq_filelist)
         else:
             kmer_input = str(sample_paths[0])

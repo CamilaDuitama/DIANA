@@ -40,22 +40,22 @@ if [ ! -d "$SAMPLE_DIR" ]; then
     exit 1
 fi
 
-# Find fastq.gz files
-FASTQ_FILES=$(find "$SAMPLE_DIR" -name "*.fastq.gz" -o -name "*.fq.gz")
+# Find fastq.gz files and convert to array
+mapfile -t FASTQ_ARRAY < <(find "$SAMPLE_DIR" -name "*.fastq.gz" -o -name "*.fq.gz" | sort)
 
-if [ -z "$FASTQ_FILES" ]; then
+if [ ${#FASTQ_ARRAY[@]} -eq 0 ]; then
     echo "ERROR: No FASTQ files found in $SAMPLE_DIR"
     exit 1
 fi
 
 echo "Found FASTQ files:"
-echo "$FASTQ_FILES"
+printf '%s\n' "${FASTQ_ARRAY[@]}"
 echo ""
 
 # Run diana-predict
 echo "Running diana-predict..."
 mamba run -p ./env diana-predict \
-  --sample $FASTQ_FILES \
+  --sample "${FASTQ_ARRAY[@]}" \
   --model results/full_training/best_model.pth \
   --muset-matrix data/matrices/large_matrix_3070_with_frac \
   --output results/validation_predictions \
