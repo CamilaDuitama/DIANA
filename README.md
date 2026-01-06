@@ -18,6 +18,10 @@ DIANA is a deep learning tool that predicts four key characteristics of ancient 
 - [Usage](#usage)
   - [Predict on New Samples](#predict-on-new-samples)
   - [Training](#training)
+- [FAQ](#faq)
+  - [Memory Requirements](#memory-requirements)
+  - [Out-of-Memory (OOM) Errors](#out-of-memory-oom-errors)
+  - [Measuring K-mer Complexity](#measuring-k-mer-complexity)
 - [License](#license)
 
 ---
@@ -162,6 +166,82 @@ mamba run -p ./env diana-train multitask \
 ```
 
 For detailed training instructions, see [docs/TRAINING.md](docs/TRAINING.md).
+
+---
+
+## FAQ
+
+### Memory Requirements
+
+**Q: How much RAM do I need?**
+
+Memory usage depends on k-mer complexity during the `back_to_sequences` indexing step, not just input file size.
+
+**Typical requirements:**
+- **Ancient DNA (low diversity):** 64-128 GB
+- **Modern/environmental samples:** 128-256 GB  
+- **High-diversity oral metagenomes:** >128 GB (3% of samples may need >128 GB)
+
+**Important:** A small file (260 MB) may require >128 GB if it has high k-mer diversity, while a large file (7 GB) may need only 64 GB if it has lower diversity.
+
+### Out-of-Memory (OOM) Errors
+
+**Q: My job failed with "OUT_OF_MEMORY" or "oom_kill" error. What should I do?**
+
+OOM failures occur during **Step 1 (k-mer counting)** when `back_to_sequences` (from SSHash) exhausts available RAM while building the in-memory k-mer index.
+
+**Diagnosis:**
+1. Check memory usage:
+   ```bash
+   seff <job_id>  # or reportseff <job_id> on SLURM systems
+   ```
+2. If memory efficiency is >95%, the job truly needs more RAM
+
+**Solutions:**
+- **Retry with 2× RAM:** If job used 64 GB at 100%, retry with 128 GB
+- **High-diversity samples:** Dental calculus and oral metagenomes often need >256 GB
+- **Check k-mer complexity:** Samples with high microbial diversity require more memory (see below)
+
+**Technical details:**
+- Failure point: Step 1 - Counting k-mers in sample
+- Tool: `back_to_sequences` (SSHash library)
+- Bottleneck: In-memory k-mer deduplication during indexing
+- Memory = f(reference k-mers + sample k-mer diversity)
+
+### Measuring K-mer Complexity
+
+**Q: How can I estimate if my sample will need high memory before running?**
+
+**Suggested approaches to measure k-mer complexity:**
+
+1. **Pre-screen with k-mer counting tools:**
+   - Use lightweight tools like `jellyfish`, `KMC`, or `ntCard` to count unique k-mers
+   - Higher unique k-mer count → higher memory needs
+   - Example:
+     ```bash
+     jellyfish count -m 31 -s 100M -t 4 sample.fastq.gz
+     jellyfish stats mer_counts.jf  # Check "Unique" count
+     ```
+
+2. **Estimate from sample metadata:**
+   - **Oral/dental calculus samples:** Typically highest diversity → >128 GB
+   - **Gut samples:** Moderate diversity → 64-128 GB
+   - **Ancient bone/tooth:** Lower diversity → 64 GB usually sufficient
+   - **Modern environmental:** High diversity → 128-256 GB
+
+3. **Quick test run:**
+   - Monitor memory usage during Step 1 with `top` or `htop`
+   - If memory climbs rapidly toward limit, kill and restart with more RAM
+
+4. **K-mer entropy/diversity metrics:**
+   - Calculate Shannon entropy of k-mer distribution
+   - Use tools like `GenomeScope` or `smudgeplot` to profile k-mer spectra
+   - Higher complexity → steeper memory requirements
+
+**Validation data insights:**
+- 97% of ancient metagenomes succeeded with ≤128 GB
+- Memory expansion ranges from 10× to 1513× input file size (median: 37×)
+- File size is **not** a reliable predictor of memory needs
 
 ---
 

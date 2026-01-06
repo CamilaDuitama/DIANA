@@ -79,6 +79,8 @@ results/full_training/cv_results/
 results/training/cv_results/*/checkpoint_*.pth  # Training checkpoints (large!)
 results/training/*/checkpoint_*.pth  # Any checkpoint files
 results/inference/  # Inference outputs
+results/validation_predictions/  # Validation outputs (regenerable, 134GB)
+results/validation_memory_analysis.csv
 !results/**/.gitkeep
 
 # External tools (installed separately)
@@ -93,6 +95,9 @@ logs/*.log
 logs/*.txt
 logs/*.err
 logs/*.out
+logs/validation/
+logs/inference/
+logs/final_training/
 !logs/.gitkeep
 
 # Test outputs
@@ -106,4 +111,9 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.bak
+*.tmp.*.bin
 tmp/
+
+# Paper outputs (HTML files are regenerable, keep PNGs for publication)
+paper/figures/**/*.html
+paper/tables/**/*.html

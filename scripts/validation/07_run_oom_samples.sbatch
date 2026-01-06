@@ -1,18 +1,18 @@
 #!/bin/bash
-#SBATCH --job-name=diana-val
-#SBATCH --output=logs/validation/diana_predict_%A_%a.out
-#SBATCH --error=logs/validation/diana_predict_%A_%a.err
-#SBATCH --array=1-616%10
+#SBATCH --job-name=diana-oom
+#SBATCH --output=logs/validation/diana_oom_%A_%a.out
+#SBATCH --error=logs/validation/diana_oom_%A_%a.err
+#SBATCH --array=1-45%5
 #SBATCH --cpus-per-task=6
-#SBATCH --mem=64G
+#SBATCH --mem=192G
 #SBATCH --partition=seqbio
 
-# SLURM array job to run diana-predict on validation samples (seqbio partition, no time limit)
+# SLURM array job to retry OOM failures with 192GB memory (3x 64GB)
 
 set -e
 
 echo "======================================"
-echo "DIANA Validation Predictions"
+echo "DIANA OOM Retry (192GB)"
 echo "======================================"
 echo "Job Array ID: ${SLURM_ARRAY_JOB_ID}"
 echo "Task ID: ${SLURM_ARRAY_TASK_ID}"
@@ -20,17 +20,11 @@ echo "Node: $(hostname)"
 echo "Started: $(date)"
 echo ""
 
-# Create log directory
-mkdir -p logs/validation
+# Get the run_accession from the OOM samples list
+OOM_LIST="data/validation/oom_samples.txt"
+RUN_ACCESSION=$(sed -n "${SLURM_ARRAY_TASK_ID}p" "$OOM_LIST")
 
-# Get sample from metadata file (skip header, get Nth line)
-METADATA="data/validation/validation_metadata_expanded.tsv"
-SAMPLE_LINE=$(sed -n "$((SLURM_ARRAY_TASK_ID + 1))p" "$METADATA")
-
-# Extract run_accession (column 17)
-RUN_ACCESSION=$(echo "$SAMPLE_LINE" | cut -f17)
-
-echo "Sample ${SLURM_ARRAY_TASK_ID}/616: $RUN_ACCESSION"
+echo "Retrying OOM sample: $RUN_ACCESSION"
 
 # Find FASTQ file(s) for this run accession
 SAMPLE_DIR="data/validation/raw/${RUN_ACCESSION}"
@@ -48,6 +42,7 @@ if [ ${#FASTQ_ARRAY[@]} -eq 0 ]; then
     exit 1
 fi
 
+echo "Sample size: $(du -sh $SAMPLE_DIR | cut -f1)"
 echo "Found FASTQ files:"
 printf '%s\n' "${FASTQ_ARRAY[@]}"
 echo ""
@@ -55,8 +50,8 @@ echo ""
 # Add inference scripts to PATH
 export PATH="$(pwd)/scripts/inference:$PATH"
 
-# Run diana-predict
-echo "Running diana-predict..."
+# Run diana-predict with 192GB
+echo "Running diana-predict (192GB memory)..."
 mamba run -p ./env diana-predict \
   --sample "${FASTQ_ARRAY[@]}" \
   --model results/full_training/best_model.pth \
