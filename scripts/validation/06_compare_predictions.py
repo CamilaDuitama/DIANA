@@ -538,6 +538,10 @@ def plot_roc_pr_curves(df, task, label_encoders, output_dir, quiet=False):
     y_true_bin = label_binarize([classes.index(lbl) if lbl in classes else -1 for lbl in y_true_labels], 
                                  classes=list(range(n_classes)))
     
+    # Convert to dense array if sparse (label_binarize may return sparse matrix)
+    if hasattr(y_true_bin, 'toarray'):
+        y_true_bin = y_true_bin.toarray()
+    
     # Check if we have valid data
     if y_true_bin.shape[0] == 0 or np.sum(y_true_bin) == 0:
         if not quiet:
