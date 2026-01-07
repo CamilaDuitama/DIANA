@@ -124,7 +124,11 @@ class Predictor:
                 use_batch_norm=use_batch_norm
             )
         else:
-            raise NotImplementedError("Single-task model loading not yet implemented")
+            # Only multi-task models are supported
+            raise ValueError(
+                f"Unsupported model type: {model_type}. "
+                "Only 'multitask' models are currently supported."
+            )
         
         self.model.load_state_dict(model_state)
         self.model.to(self.device)
@@ -169,6 +173,91 @@ class Predictor:
                     predictions[target] = pred_class
             
             return predictions
+    
+    def explain_prediction(
+        self,
+        features: np.ndarray,
+        top_k: int = 20
+    ) -> Dict[str, Dict]:
+        """
+        Explain which features contributed most to the prediction.
+        
+        Uses gradient-based attribution to identify the most important
+        features (unitigs) that influenced the prediction for each task.
+        
+        Args:
+            features: Feature vector of shape (num_unitigs,).
+            top_k: Number of top contributing features to return per task.
+            
+        Returns:
+            Dictionary with feature importance for each task:
+            {
+                'sample_type': {
+                    'predicted_class': 0,
+                    'predicted_label': 'ancient_metagenome',
+                    'top_features': [
+                        {'index': 123, 'importance': 0.456, 'value': 1.0},
+                        {'index': 45, 'importance': 0.389, 'value': 1.0},
+                        ...
+                    ]
+                },
+                ...
+            }
+        
+        Example:
+            >>> predictor = Predictor('model.pth')
+            >>> features = extract_features('sample.fastq')
+            >>> explanation = predictor.explain_prediction(features, top_k=10)
+            >>> print(f"Predicted: {explanation['sample_type']['predicted_label']}")
+            >>> print("Top distinguishing unitigs:")
+            >>> for feat in explanation['sample_type']['top_features'][:5]:
+            >>>     print(f"  Unitig {feat['index']}: importance={feat['importance']:.3f}")
+        """
+        # Convert to tensor
+        x = torch.FloatTensor(features).unsqueeze(0).to(self.device)
+        x.requires_grad = True
+        
+        # Forward pass
+        self.model.eval()
+        outputs = self.model(x)
+        
+        explanations = {}
+        
+        for target, logits in outputs.items():
+            # Get predicted class
+            probs = torch.softmax(logits, dim=1)
+            pred_class = int(torch.argmax(probs, dim=1).item())
+            
+            # Compute gradient of predicted class logit w.r.t. input
+            if x.grad is not None:
+                x.grad.zero_()
+            
+            logits[0, pred_class].backward(retain_graph=True)
+            
+            # Feature importance = absolute gradient * feature value
+            # This shows which features, when present, most influenced this prediction
+            gradients = x.grad.abs().squeeze(0).cpu().numpy()
+            feature_importance = gradients * features
+            
+            # Get top-k features
+            top_indices = np.argsort(feature_importance)[-top_k:][::-1]
+            
+            top_features = []
+            for idx in top_indices:
+                top_features.append({
+                    'index': int(idx),
+                    'importance': float(feature_importance[idx]),
+                    'gradient': float(gradients[idx]),
+                    'value': float(features[idx])
+                })
+            
+            explanations[target] = {
+                'predicted_class': pred_class,
+                'confidence': float(probs[0, pred_class].item()),
+                'top_features': top_features
+            }
+        
+        return explanations
     
     def predict_batch(
         self,

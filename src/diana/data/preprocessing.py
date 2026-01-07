@@ -56,15 +56,6 @@ class MatrixNormalizer:
         row_norms[row_norms == 0] = 1  # Avoid division by zero
         return X.multiply(1 / row_norms[:, np.newaxis])
         
-    @staticmethod
-    def standard_scale(X: sp.csr_matrix, 
-                      mean: Optional[np.ndarray] = None,
-                      std: Optional[np.ndarray] = None) -> sp.csr_matrix:
-        """Standard scale sparse matrix."""
-        # TODO: Implement sparse standard scaling
-        raise NotImplementedError
-
-
 class LabelPreprocessor:
     """Encode labels for classification."""
     

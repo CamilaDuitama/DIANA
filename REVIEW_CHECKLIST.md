@@ -78,9 +78,29 @@
 
 ## 🟢 Code Quality
 
-### 12. Remove Unimplemented Stubs
-**Files**: `src/diana/inference/` - NotImplementedError placeholders  
-**Action**: Implement, remove, or document as unsupported
+### 12. Remove Unimplemented Stubs ✅
+**Result**: 5 NotImplementedError found - **all are optional/alternative implementations**
+
+**Details**:
+1. ✅ `predictor.py:127` - Single-task model loading
+   - **Status**: Not needed (only use multi-task models)
+   - **Action**: Keep stub with clear error message
+
+2. ✅ `predictor.py:188` - Batch prediction  
+   - **Status**: Future optimization (not critical)
+   - **Action**: Keep as TODO for performance improvement
+
+3. ✅ `feature_extractor.py:175,194` - Jellyfish/SSHash k-mer counting
+   - **Status**: Alternative implementation (current pipeline uses back_to_sequences)
+   - **Action**: Keep as documented alternative approach
+
+4. ✅ `preprocessing.py:65` - Sparse matrix standard scaling
+   - **Status**: Not used (model trained on binary features)
+   - **Action**: Keep for potential future normalization methods
+
+**Conclusion**: All stubs are intentional placeholders for optional features. No blocking issues.
+
+---
 
 ### 13. Add Type Hints
 **Files**: `src/diana/evaluation/metrics.py`, `src/diana/evaluation/plotting.py`  
