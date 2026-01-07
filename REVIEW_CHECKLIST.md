@@ -42,8 +42,25 @@ for i in range(y_true_array.shape[1]):
 ### ✅ 4. Create Inference Pipeline Tests
 **Goal**: Validate prediction pipeline works end-to-end  
 **Files**: Created `tests/test_inference.py`  
-**Status**: 8 tests created, **all 8 passing** ✅  
-**Coverage**: Model loading, predictions, paired-end detection, architecture reconstruction
+**Status**: **18 tests created, all 18 passing** ✅  
+**Coverage**: 
+- Model loading and checkpoint compatibility
+- Prediction output format and structure
+- Paired-end file detection
+- Architecture reconstruction (hidden dims, batch norm)
+- Label encoding/decoding with JSON format
+- Feature validation (wrong dims, NaN, zeros)
+- Batch predictions
+- JSON serialization
+
+**Tests**:
+- `TestPredictor`: 3 tests for model loading and inference
+- `TestPairedEndDetection`: 3 tests for R1/R2 file detection
+- `TestModelArchitectureReconstruction`: 2 tests for checkpoint parsing
+- `TestLabelDecoding`: 3 tests for encoding/decoding workflow
+- `TestPredictionOutputFormat`: 2 tests for JSON structure
+- `TestFeatureValidation`: 3 tests for input validation
+- `TestModelCheckpointCompatibility`: 2 tests for different checkpoint formats
 
 ---
 
@@ -70,75 +87,8 @@ for i in range(y_true_array.shape[1]):
 **Files**: `src/diana/inference/predictor.py` (lines 76-90)  
 **Issue**: Was extracting ALL weight layers instead of just Linear layers  
 **Fix**: Filter out BatchNorm layers when inferring hidden dimensions  
-**Impact**: ✅ **All 30 tests now pass**  
+**Impact**: ✅ **All tests now pass (48 total)**  
 **Production**: ✅ Verified production model still works correctly
-
----
-
-### ☐ 4. Create Inference Pipeline Tests (UPDATED)
-**Goal**: Validate prediction pipeline works end-to-end  
-**Files**: Create `tests/test_inference.py`  
-**What to add**:
-```python
-def test_predictor_loads_checkpoint(temp_dir):
-    """Verify Predictor loads saved models correctly"""
-    # Test with dummy checkpoint from fixtures
-    
-def test_prediction_output_format():
-    """Verify prediction JSON has all required fields"""
-    # Check keys: sample_type, community_type, sample_host, material
-    # Verify probabilities sum to 1.0
-
-def test_paired_end_detection():
-    """Test R1/R2 file detection"""
-    # Create mock R1/R2 files, verify both detected
-```
-**Test**: `pytest tests/test_inference.py -v`  
-**Success**: All 3+ tests pass
-
----
-
-### ☐ 5. Create Preprocessing Tests
-**Goal**: Ensure data preprocessing is correct  
-**Files**: Create `tests/test_preprocessing.py`  
-**What to add**:
-```python
-def test_l2_normalization():
-    """Test sparse matrix L2 normalization"""
-    # Create test sparse matrix
-    # Verify row norms ≈ 1.0
-    
-def test_label_encoder_reversibility():
-    """Test encode→decode returns original labels"""
-    
-def test_metadata_alignment():
-    """Test sample IDs match between matrix and metadata"""
-    # Mismatched IDs should raise clear error
-```
-**Test**: `pytest tests/test_preprocessing.py -v`  
-**Success**: All tests pass
-
----
-
-### ☐ 6. Create Error Handling Tests
-**Goal**: Verify graceful failure on bad inputs  
-**Files**: Create `tests/test_error_handling.py`  
-**What to add**:
-```python
-def test_missing_metadata_column():
-    """Missing required column raises clear error"""
-    
-def test_corrupted_checkpoint():
-    """Corrupted .pth file raises informative error"""
-    
-def test_wrong_feature_dimensions():
-    """New sample with different feature count fails gracefully"""
-    
-def test_empty_fastq():
-    """Empty FASTQ file raises clear error"""
-```
-**Test**: `pytest tests/test_error_handling.py -v`  
-**Success**: All edge cases handled with clear error messages
 
 ---
 

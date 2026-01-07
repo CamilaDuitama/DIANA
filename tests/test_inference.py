@@ -10,6 +10,7 @@ import json
 import torch
 import numpy as np
 from pathlib import Path
+from sklearn.preprocessing import LabelEncoder
 
 from diana.inference.predictor import Predictor
 from diana.models.multitask_mlp import MultiTaskMLP
@@ -252,3 +253,380 @@ class TestModelArchitectureReconstruction:
         features = np.random.rand(100).astype(np.float32)
         predictions = predictor.predict(features)
         assert 'task1' in predictions
+
+
+class TestLabelDecoding:
+    """Test label encoding/decoding for predictions."""
+    
+    def test_label_encoder_creation_and_usage(self, temp_dir):
+        """Test creating and using sklearn label encoders."""
+        labels = ['ancient', 'modern', 'environmental']
+        encoder = LabelEncoder()
+        encoder.fit(labels)
+        
+        # Test encoding
+        encoded = encoder.transform(['ancient', 'modern'])
+        assert len(encoded) == 2
+        assert encoded[0] != encoded[1]
+        
+        # Test decoding
+        decoded = encoder.inverse_transform(encoded)
+        assert list(decoded) == ['ancient', 'modern']
+        
+        # Test classes
+        assert list(encoder.classes_) == sorted(labels)
+    
+    def test_label_encoder_json_format(self, temp_dir):
+        """Test saving/loading label encoders in JSON format (project convention)."""
+        # Create encoders
+        encoders = {
+            'sample_type': LabelEncoder(),
+            'material': LabelEncoder()
+        }
+        encoders['sample_type'].fit(['ancient', 'modern', 'environmental'])
+        encoders['material'].fit(['bone', 'soil', 'sediment', 'calculus'])
+        
+        # Save in JSON format (as done in training)
+        encoders_json = {}
+        for task_name, encoder in encoders.items():
+            encoders_json[task_name] = {
+                'classes': list(encoder.classes_)
+            }
+        
+        json_path = temp_dir / "label_encoders.json"
+        with open(json_path, 'w') as f:
+            json.dump(encoders_json, f, indent=2)
+        
+        # Load and reconstruct
+        with open(json_path, 'r') as f:
+            loaded_json = json.load(f)
+        
+        loaded_encoders = {}
+        for task_name, encoder_data in loaded_json.items():
+            encoder = LabelEncoder()
+            encoder.classes_ = np.array(encoder_data['classes'])
+            loaded_encoders[task_name] = encoder
+        
+        # Test loaded encoders work
+        for task_name in encoders.keys():
+            original_classes = list(encoders[task_name].classes_)
+            loaded_classes = list(loaded_encoders[task_name].classes_)
+            assert original_classes == loaded_classes
+    
+    def test_predictions_with_label_decoding(self, temp_dir):
+        """Test full prediction workflow with label decoding."""
+        # Create model and label encoders
+        input_dim = 50
+        num_classes = {"sample_type": 3, "material": 4}
+        
+        model = MultiTaskMLP(
+            input_dim=input_dim,
+            hidden_dims=[32],
+            num_classes=num_classes
+        )
+        
+        # Create label encoders
+        encoders = {
+            'sample_type': LabelEncoder(),
+            'material': LabelEncoder()
+        }
+        encoders['sample_type'].fit(['ancient', 'modern', 'environmental'])
+        encoders['material'].fit(['bone', 'soil', 'sediment', 'calculus'])
+        
+        # Save model
+        model_path = temp_dir / "model.pth"
+        torch.save({
+            'model_state_dict': model.state_dict(),
+            'model_type': 'multitask',
+            'config': {'input_dim': input_dim}
+        }, model_path)
+        
+        # Save encoders in JSON format
+        encoders_json = {}
+        for task_name, encoder in encoders.items():
+            encoders_json[task_name] = {'classes': list(encoder.classes_)}
+        
+        with open(temp_dir / "label_encoders.json", 'w') as f:
+            json.dump(encoders_json, f)
+        
+        # Make predictions
+        predictor = Predictor(model_path, device='cpu')
+        features = np.random.rand(input_dim).astype(np.float32)
+        predictions = predictor.predict(features, return_probabilities=True)
+        
+        # Decode predictions
+        for task_name in num_classes.keys():
+            encoder = encoders[task_name]
+            pred_class_idx = predictions[task_name]['class']
+            decoded_label = encoder.inverse_transform([pred_class_idx])[0]
+            
+            # Should be one of the valid labels
+            assert decoded_label in encoder.classes_
+
+
+class TestPredictionOutputFormat:
+    """Test the structure and validity of prediction outputs."""
+    
+    def test_json_output_structure(self, temp_dir):
+        """Test that predictions can be serialized to JSON with correct structure."""
+        # Create simple model
+        input_dim = 30
+        num_classes = {
+            "sample_type": 2,
+            "community_type": 3,
+            "sample_host": 4,
+            "material": 5
+        }
+        
+        model = MultiTaskMLP(
+            input_dim=input_dim,
+            hidden_dims=[16],
+            num_classes=num_classes
+        )
+        
+        model_path = temp_dir / "model.pth"
+        torch.save({
+            'model_state_dict': model.state_dict(),
+            'model_type': 'multitask',
+            'config': {'input_dim': input_dim}
+        }, model_path)
+        
+        # Make predictions
+        predictor = Predictor(model_path, device='cpu')
+        features = np.random.rand(input_dim).astype(np.float32)
+        predictions = predictor.predict(features, return_probabilities=True)
+        
+        # Convert to JSON
+        json_path = temp_dir / "predictions.json"
+        with open(json_path, 'w') as f:
+            json.dump(predictions, f, indent=2)
+        
+        # Load and validate
+        with open(json_path, 'r') as f:
+            loaded_predictions = json.load(f)
+        
+        # Check all tasks present
+        assert set(loaded_predictions.keys()) == set(num_classes.keys())
+        
+        # Check each task has required fields
+        for task_name, pred in loaded_predictions.items():
+            assert 'class' in pred
+            assert 'probabilities' in pred
+            assert isinstance(pred['class'], int)
+            assert isinstance(pred['probabilities'], list)
+            assert len(pred['probabilities']) == num_classes[task_name]
+            
+            # All probabilities should be non-negative floats
+            assert all(isinstance(p, float) for p in pred['probabilities'])
+            assert all(p >= 0.0 for p in pred['probabilities'])
+            
+            # Sum should be close to 1.0
+            prob_sum = sum(pred['probabilities'])
+            assert 0.99 <= prob_sum <= 1.01
+    
+    def test_batch_predictions(self, temp_dir):
+        """Test making predictions on multiple samples."""
+        input_dim = 25
+        num_classes = {"task1": 3}
+        
+        model = MultiTaskMLP(
+            input_dim=input_dim,
+            hidden_dims=[16],
+            num_classes=num_classes
+        )
+        
+        model_path = temp_dir / "model.pth"
+        torch.save({
+            'model_state_dict': model.state_dict(),
+            'model_type': 'multitask',
+            'config': {'input_dim': input_dim}
+        }, model_path)
+        
+        predictor = Predictor(model_path, device='cpu')
+        
+        # Create batch of features
+        n_samples = 5
+        batch_features = [
+            np.random.rand(input_dim).astype(np.float32)
+            for _ in range(n_samples)
+        ]
+        
+        # Make predictions for each sample
+        batch_predictions = []
+        for features in batch_features:
+            preds = predictor.predict(features, return_probabilities=True)
+            batch_predictions.append(preds)
+        
+        # All predictions should have same structure
+        assert len(batch_predictions) == n_samples
+        for preds in batch_predictions:
+            assert 'task1' in preds
+            assert 'class' in preds['task1']
+            assert 'probabilities' in preds['task1']
+
+
+class TestFeatureValidation:
+    """Test validation of input features."""
+    
+    def test_wrong_feature_dimensions_raises_error(self, temp_dir):
+        """Test that features with wrong dimensions raise clear error."""
+        input_dim = 100
+        num_classes = {"task1": 2}
+        
+        model = MultiTaskMLP(
+            input_dim=input_dim,
+            hidden_dims=[32],
+            num_classes=num_classes
+        )
+        
+        model_path = temp_dir / "model.pth"
+        torch.save({
+            'model_state_dict': model.state_dict(),
+            'model_type': 'multitask',
+            'config': {'input_dim': input_dim}
+        }, model_path)
+        
+        predictor = Predictor(model_path, device='cpu')
+        
+        # Try to predict with wrong dimensions
+        wrong_features = np.random.rand(50).astype(np.float32)  # Should be 100
+        
+        with pytest.raises((RuntimeError, ValueError)):
+            predictor.predict(wrong_features)
+    
+    def test_nan_features_handling(self, temp_dir):
+        """Test handling of NaN values in features."""
+        input_dim = 30
+        num_classes = {"task1": 2}
+        
+        model = MultiTaskMLP(
+            input_dim=input_dim,
+            hidden_dims=[16],
+            num_classes=num_classes
+        )
+        
+        model_path = temp_dir / "model.pth"
+        torch.save({
+            'model_state_dict': model.state_dict(),
+            'model_type': 'multitask',
+            'config': {'input_dim': input_dim}
+        }, model_path)
+        
+        predictor = Predictor(model_path, device='cpu')
+        
+        # Create features with NaN
+        features = np.random.rand(input_dim).astype(np.float32)
+        features[5] = np.nan
+        
+        # Should either raise an error or handle gracefully
+        # (depending on implementation)
+        try:
+            predictions = predictor.predict(features)
+            # If it doesn't raise, predictions should still be valid
+            assert 'task1' in predictions
+        except (ValueError, RuntimeError):
+            # Expected behavior - rejecting invalid input
+            pass
+    
+    def test_zero_features(self, temp_dir):
+        """Test prediction on all-zero features."""
+        input_dim = 20
+        num_classes = {"task1": 2}
+        
+        model = MultiTaskMLP(
+            input_dim=input_dim,
+            hidden_dims=[16],
+            num_classes=num_classes
+        )
+        
+        model_path = temp_dir / "model.pth"
+        torch.save({
+            'model_state_dict': model.state_dict(),
+            'model_type': 'multitask',
+            'config': {'input_dim': input_dim}
+        }, model_path)
+        
+        predictor = Predictor(model_path, device='cpu')
+        
+        # All zeros (empty sample)
+        features = np.zeros(input_dim, dtype=np.float32)
+        predictions = predictor.predict(features, return_probabilities=True)
+        
+        # Should still make a prediction
+        assert 'task1' in predictions
+        assert 'probabilities' in predictions['task1']
+        
+        # Probabilities should still sum to 1
+        prob_sum = sum(predictions['task1']['probabilities'])
+        assert 0.99 <= prob_sum <= 1.01
+
+
+class TestModelCheckpointCompatibility:
+    """Test loading models from different checkpoint formats."""
+    
+    def test_load_checkpoint_with_history(self, temp_dir):
+        """Test loading checkpoint that includes training history."""
+        input_dim = 40
+        num_classes = {"task1": 2}
+        
+        model = MultiTaskMLP(
+            input_dim=input_dim,
+            hidden_dims=[24],
+            num_classes=num_classes
+        )
+        
+        # Save with extensive metadata
+        model_path = temp_dir / "model.pth"
+        torch.save({
+            'epoch': 50,
+            'model_state_dict': model.state_dict(),
+            'model_type': 'multitask',
+            'config': {
+                'input_dim': input_dim,
+                'hidden_dims': [24],
+                'dropout': 0.3
+            },
+            'val_loss': 0.234,
+            'val_accuracy': 0.876,
+            'history': {
+                'loss': [1.0, 0.8, 0.6, 0.4, 0.234],
+                'accuracy': [0.5, 0.6, 0.7, 0.8, 0.876]
+            },
+            'optimizer_state_dict': None  # Not needed for inference
+        }, model_path)
+        
+        # Should load successfully
+        predictor = Predictor(model_path, device='cpu')
+        assert predictor.model is not None
+        
+        # Should be able to make predictions
+        features = np.random.rand(input_dim).astype(np.float32)
+        predictions = predictor.predict(features)
+        assert 'task1' in predictions
+    
+    def test_load_checkpoint_minimal(self, temp_dir):
+        """Test loading minimal checkpoint (just state dict)."""
+        input_dim = 30
+        num_classes = {"task1": 3}
+        
+        model = MultiTaskMLP(
+            input_dim=input_dim,
+            hidden_dims=[20],
+            num_classes=num_classes
+        )
+        
+        # Save minimal checkpoint
+        model_path = temp_dir / "model_minimal.pth"
+        torch.save({
+            'model_state_dict': model.state_dict(),
+            'model_type': 'multitask'
+        }, model_path)
+        
+        # Should still load
+        predictor = Predictor(model_path, device='cpu')
+        assert predictor.model is not None
+        
+        features = np.random.rand(input_dim).astype(np.float32)
+        predictions = predictor.predict(features)
+        assert 'task1' in predictions
+
