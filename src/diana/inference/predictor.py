@@ -74,14 +74,23 @@ class Predictor:
             # Check if BatchNorm was used (look for running_mean/running_var)
             use_batch_norm = any('running_mean' in k or 'running_var' in k for k in model_state.keys())
             
-            # Infer hidden dims from backbone Linear layers
-            # Linear layers have .weight that are NOT running_mean/running_var
+            # Infer hidden dims from backbone Linear layers only
+            # Pattern: backbone.{idx}.weight where idx corresponds to nn.Linear layers
+            # Skip BatchNorm layers (they also have .weight but are followed by .running_mean)
             hidden_dims = []
-            for key in sorted(model_state.keys()):
-                if key.startswith('backbone.') and key.endswith('.weight'):
-                    # Extract layer output dimension
-                    layer_output_dim = model_state[key].shape[0]
-                    hidden_dims.append(layer_output_dim)
+            backbone_keys = sorted([k for k in model_state.keys() if k.startswith('backbone.')])
+            
+            for key in backbone_keys:
+                if key.endswith('.weight'):
+                    # Check if this is a Linear layer (not BatchNorm)
+                    # BatchNorm layers have corresponding .running_mean keys
+                    base_key = key.replace('.weight', '')
+                    is_batch_norm = f'{base_key}.running_mean' in model_state
+                    
+                    if not is_batch_norm:
+                        # This is a Linear layer
+                        layer_output_dim = model_state[key].shape[0]
+                        hidden_dims.append(layer_output_dim)
             
             # Infer num_classes for each task from heads
             # Find the final (output) layer for each task
