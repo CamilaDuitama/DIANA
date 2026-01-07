@@ -1,254 +1,113 @@
 # DIANA Code Review - Action Checklist
 
-## 🐛 Bug Fixes (Critical)
+## ✅ Completed
 
-### ✅ 1. Fix Type Errors in Validation Script
-**Goal**: Enable validation comparison script to run without errors  
-**Files**: `scripts/validation/06_compare_predictions.py`  
-**Changes**:
-```python
-# Line 546 - Convert spmatrix to array before np.sum
-y_true_array = np.asarray(y_true_bin)
-if y_true_array.shape[0] == 0 or np.sum(y_true_array) == 0:
+### 1. Fix Type Errors in Validation Script
+**Files**: `scripts/validation/06_compare_predictions.py` (line 542)  
+**Fix**: Convert sparse matrix to dense before operations  
+**Result**: ✅ Script runs without errors
 
-# Lines 556-557, 609-610 - Use array indexing
-for i in range(y_true_array.shape[1]):
-    if np.sum(y_true_array[:, i]) > 0:
-        y_true_binary = y_true_array[:, i]
-```
-**Test**: `python scripts/validation/06_compare_predictions.py --metadata data/validation/validation_metadata_expanded.tsv`  
-**Success**: Script runs without type errors, generates figures in `paper/`
+### 2. Create Inference Pipeline Tests  
+**Files**: `tests/test_inference.py`  
+**Result**: ✅ 18 tests passing (model loading, predictions, label encoding, validation)
 
----
+### 3. Create Preprocessing Tests
+**Files**: `tests/test_preprocessing.py`  
+**Result**: ✅ 10 tests passing (data integrity, metadata alignment)
 
-### ~~2. Implement Sparse Matrix Normalization~~ (NOT NEEDED)
-**Status**: Classes are exported but never used in training/inference pipeline  
-**Reason**: Model trained on raw binary k-mer features (0/1) works perfectly (85-92% accuracy)  
-**Action**: Moved to optional cleanup (Item #11)
+### 4. Create Error Handling Tests
+**Files**: `tests/test_error_handling.py`  
+**Result**: ✅ 12 tests passing (missing files, corrupted data, edge cases)
 
----
-
-### ~~2. Fix Security Warning in Model Loading~~ (NOT A BUG)
-**Status**: `weights_only=False` is correct for this use case  
-**Reason**: Checkpoints contain Python objects (dicts, lists for history/config)  
-**Security**: Safe because only loading trusted checkpoints from your own training  
-**Note**: `weights_only=True` only for loading untrusted/third-party models  
-**Action**: No change needed - current implementation is correct
-
----
-
-## 🧪 New Tests (High Priority)
-
-### ✅ 4. Create Inference Pipeline Tests
-**Goal**: Validate prediction pipeline works end-to-end  
-**Files**: Created `tests/test_inference.py`  
-**Status**: **18 tests created, all 18 passing** ✅  
-**Coverage**: 
-- Model loading and checkpoint compatibility
-- Prediction output format and structure
-- Paired-end file detection
-- Architecture reconstruction (hidden dims, batch norm)
-- Label encoding/decoding with JSON format
-- Feature validation (wrong dims, NaN, zeros)
-- Batch predictions
-- JSON serialization
-
-**Tests**:
-- `TestPredictor`: 3 tests for model loading and inference
-- `TestPairedEndDetection`: 3 tests for R1/R2 file detection
-- `TestModelArchitectureReconstruction`: 2 tests for checkpoint parsing
-- `TestLabelDecoding`: 3 tests for encoding/decoding workflow
-- `TestPredictionOutputFormat`: 2 tests for JSON structure
-- `TestFeatureValidation`: 3 tests for input validation
-- `TestModelCheckpointCompatibility`: 2 tests for different checkpoint formats
-
----
-
-### ✅ 5. Create Preprocessing Tests
-**Goal**: Ensure data preprocessing is correct  
-**Files**: Created `tests/test_preprocessing.py`  
-**Status**: 10 tests created, **all 10 passing** ✅  
-**Coverage**: Label encoding, metadata alignment, data integrity, matrix loading
-
----
-
-### ✅ 6. Create Error Handling Tests
-**Goal**: Verify graceful failure on bad inputs  
-**Files**: Created `tests/test_error_handling.py`  
-**Status**: 12 tests created, **all 12 passing** ✅  
-**Coverage**: Missing files, corrupted data, dimension mismatches, invalid values
-
----
-
-## 🐛 Bug Fixed
-
-### ✅ 13. Fix Predictor Model Reconstruction
-**Goal**: Fix Predictor to correctly infer model architecture from checkpoints  
+### 5. Fix Predictor Architecture Bug
 **Files**: `src/diana/inference/predictor.py` (lines 76-90)  
-**Issue**: Was extracting ALL weight layers instead of just Linear layers  
-**Fix**: Filter out BatchNorm layers when inferring hidden dimensions  
-**Impact**: ✅ **All tests now pass (48 total)**  
-**Production**: ✅ Verified production model still works correctly
+**Fix**: Filter BatchNorm layers when inferring hidden dimensions  
+**Result**: ✅ All 68 tests passing, production model verified
 
 ---
 
-## 🚀 Performance Improvements (Medium Priority)
+## 🔴 Critical - Data Integrity
 
-### ☐ 7. Profile Memory Usage for OOM Samples
-**Goal**: Identify why ~40 samples failed with OOM  
-**Files**: `src/diana/cli/predict.py`, `src/diana/inference/feature_extraction.py`  
-**Changes**:
-```python
-# Add memory profiling
-import tracemalloc
+### 6. Review Data Leakage & Splits
+**Goal**: Verify no overlap between train/val/test sets  
+**Check**:
+- [ ] No sample IDs appear in multiple splits
+- [ ] Validation samples not in training data
+- [ ] Test evaluation uses correct data splits
+- [ ] Cross-validation folds properly isolated
 
-def predict_single_sample(...):
-    tracemalloc.start()
-    # ... existing code ...
-    current, peak = tracemalloc.get_traced_memory()
-    logger.info(f"Memory: peak={peak/1e9:.2f}GB")
-    tracemalloc.stop()
-```
-**Test**: Run on failed samples from `data/validation/oom_failed_tasks.txt`  
-**Success**: Memory logs identify bottleneck (likely k-mer counting step)
+**Files to check**:
+- `data/splits/*.txt` - train/val/test IDs
+- `scripts/training/*.py` - data loading logic
+- `scripts/evaluation/*.py` - evaluation paths
+- `data/validation/accessions.txt` - validation sample IDs
+
+**Test**: Compare sample IDs across all splits, check for duplicates
 
 ---
 
-### ☐ 8. Implement Batch Prediction
-**Goal**: Process multiple samples more efficiently  
-**Files**: `src/diana/inference/predictor.py` (line 179)  
-**Changes**:
-```python
-def predict_batch(self, features_list: List[np.ndarray]) -> List[Dict]:
-    """Predict on multiple samples efficiently"""
-    # Stack features, run single forward pass
-    # Return list of prediction dicts
-```
-**Test**: Create `tests/test_inference.py::test_batch_prediction()`  
-**Success**: Batch prediction 2-3x faster than sequential
+### 7. Review Hardcoded Paths
+**Goal**: Find and document all hardcoded paths  
+**Search**: `grep -r "'/pasteur\|/home\|/data" src/ scripts/ --include="*.py"`  
+**Files to check**:
+- Config files: `configs/*.yaml`
+- Training scripts: `scripts/training/`
+- Inference scripts: `scripts/inference/`
+- Validation scripts: `scripts/validation/`
+
+**Action**: Create path configuration or use environment variables
 
 ---
 
-## 📊 Validation & Analysis (Medium Priority)
+### 8. Review TODOs in Code
+**Goal**: Identify unfinished work or technical debt  
+**Search**: `grep -r "TODO\|FIXME\|HACK\|XXX" src/ scripts/ --include="*.py"`  
+**Categorize**:
+- Critical: Blocks functionality
+- Important: Should be done soon
+- Optional: Nice to have
+- Remove: No longer relevant
 
-### ☐ 9. Analyze OOM Failure Pattern
-**Goal**: Understand what makes samples fail  
-**Files**: Create `scripts/validation/analyze_oom_failures.py`  
-**What to do**:
-```python
-# Load failed sample IDs from oom_failed_tasks.txt
-# Extract metadata for failed samples
-# Compare: file size, k-mer complexity, host organism
-# Generate summary table
-```
-**Test**: `python scripts/validation/analyze_oom_failures.py`  
-**Success**: Report showing common characteristics of OOM samples
+**Action**: Create GitHub issues or remove obsolete TODOs
 
 ---
 
-### ☐ 10. Add Memory Tests
-**Goal**: Prevent memory regressions  
-**Files**: Create `tests/test_memory.py`  
-**What to add**:
-```python
-@pytest.mark.slow
-def test_large_matrix_loading():
-    """Matrix >1GB loads without OOM"""
-    
-@pytest.mark.slow  
-def test_prediction_memory_stable():
-    """Memory doesn't grow with batch size"""
-```
-**Test**: `pytest tests/test_memory.py -v -m slow`  
-**Success**: No memory leaks detected
+## 🟡 Performance
+
+### 9. Profile Memory Usage (OOM Issues)
+**Goal**: Why ~40 validation samples failed with OOM  
+**Files**: Add profiling to `src/diana/cli/predict.py`  
+**Test**: Run on failed samples from `data/validation/oom_failed_tasks.txt`
+
+### 10. Implement Batch Prediction
+**Goal**: Process multiple samples efficiently  
+**Files**: `src/diana/inference/predictor.py`  
+**Benefit**: 2-3x faster inference
+
+### 11. Analyze OOM Failure Patterns
+**Goal**: Understand sample characteristics causing OOM  
+**Create**: `scripts/validation/analyze_oom_failures.py`  
+**Output**: Summary table of failed samples
 
 ---
 
-## 🔍 Code Quality (Low Priority)
+## 🟢 Code Quality
 
-### ☐ 11. Remove Unimplemented Stubs
-**Goal**: Clean up NotImplementedError placeholders  
-**Files**: 
-- `src/diana/inference/feature_extractor.py` (lines 175, 194)
-- `src/diana/inference/predictor.py` (line 118)
+### 12. Remove Unimplemented Stubs
+**Files**: `src/diana/inference/` - NotImplementedError placeholders  
+**Action**: Implement, remove, or document as unsupported
 
-**Options**:
-1. Implement functionality (e.g., single-task model loading)
-2. Remove unused code paths
-3. Document as "not yet supported"
-
-**Test**: `grep -r "raise NotImplementedError" src/`  
-**Success**: Only intentional unimplemented features remain
-
----
-
-### ☐ 12. Add Type Hints
-**Goal**: Improve code maintainability  
+### 13. Add Type Hints
 **Files**: `src/diana/evaluation/metrics.py`, `src/diana/evaluation/plotting.py`  
-**Changes**: Add type hints to all function signatures  
-**Test**: `mypy src/diana/ --ignore-missing-imports`  
-**Success**: No type errors reported
+**Test**: `mypy src/diana/ --ignore-missing-imports`
 
 ---
 
-## 📈 Results Summary
+## Summary
 
-**Current Status**:
-- ✅ Training: Excellent (5-fold CV, 85-92% accuracy)
-- ✅ Architecture: Well-designed, modular
-- ✅ Core tests: Basic coverage exists
-- ⚠️ Validation: 608/650 successful (93%)
-- ⚠️ Type errors: 1 script with errors
-- ⚠️ Missing tests: Inference, preprocessing, edge cases
+**Tests**: 68 passing (40 new tests created)  
+**Bugs Fixed**: 2 (validation script, predictor architecture)  
+**Training**: 85-92% accuracy (5-fold CV)  
+**Validation**: 608/650 samples successful (93%)  
 
-**After Completing Checklist**:
-- All critical bugs fixed
-- Comprehensive test coverage
-- Production-ready inference pipeline
-- Memory issues understood/mitigated
-- Clear error messages for edge cases
-
----
-
-## Quick Start - Fix Critical Issues (30 min)
-
-```bash
-# 1. Fix validation script type errors ✅ DONE
-python scripts/validation/06_compare_predictions.py \
-  --metadata data/validation/validation_metadata_expanded.tsv
-
-# 2-3. Skipped (not actual bugs - see notes above)
-
-# 4. Run existing tests to verify nothing broken
-python scripts/validation/06_compare_predictions.py --metadata data/validation/validation_metadata_expanded.tsv
-
-# 4. Run existing tests
-pytest tests/ -v
-
-# Done! Critical issues resolved.
-```
-
----
-
-**Priority Order**: #1 ✅ → ~~#2~~ → ~~#3~~ → #4 → #5 → #6 → #7 → #9 → #8 → #10 → #11 → #12
-
-**Estimated Total Time**: 
-- Critical fixes (1): 30 min ✅
-- New bug fix (13): 1 hour
-- High priority tests (4-6): 2 hours ✅ (tests created, found 1 bug)
-- Performance (7-8): 6 hours  
-- Analysis & cleanup (9-12): 4 hours
-- **Total**: ~14 hours remaining
-
----
-
-## Test Summary
-
-**Created**: 30 new tests across 3 files
-- `tests/test_inference.py`: 8 tests (**all passing** ✅)
-- `tests/test_preprocessing.py`: 10 tests (**all passing** ✅)
-- `tests/test_error_handling.py`: 12 tests (**all passing** ✅)
-
-**Total**: **30/30 passing (100%)** ✅
-
-**Bug Found & Fixed**: Predictor architecture reconstruction (Item #13)
+**Next Priority**: Items #6-8 (data integrity verification)
