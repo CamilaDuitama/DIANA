@@ -244,3 +244,37 @@
 2025-12-24 21:58:28 - diana.cli.train - INFO - Training final model with validation-based early stopping
 2025-12-24 21:58:28 - diana.cli.train - INFO - ==================================================
 2025-12-24 21:58:28 - diana.cli.train - INFO - Loading hyperparameters from results/hyperopt/cv_results/best_hyperparameters.json
+2026-01-05 21:54:17 - root - INFO - Logging to file: results/full_training/diana_train.log
+2026-01-05 21:54:17 - diana.cli.train - INFO - Using CPU
+2026-01-05 21:54:17 - diana.cli.train - INFO - ==================================================
+2026-01-05 21:54:17 - diana.cli.train - INFO - Training final model with validation-based early stopping
+2026-01-05 21:54:17 - diana.cli.train - INFO - ==================================================
+2026-01-05 21:54:17 - diana.cli.train - INFO - Loading best hyperparameters from results/full_training/cv_results/best_hyperparameters.json
+2026-01-05 21:54:17 - diana.cli.train - INFO - Hyperparameters: {
+  "n_layers": 3.4,
+  "hidden_dim_0": 307.2,
+  "hidden_dim_1": 473.6,
+  "hidden_dim_2": 272.0,
+  "hidden_dim_3": 256.0,
+  "dropout": 0.1916894511329029,
+  "learning_rate": 0.001723369322527049,
+  "weight_decay": 3.75062679509968e-05,
+  "batch_size": 96.0,
+  "use_batch_norm": 0.0,
+  "activation": "relu",
+  "task_weight_sample_type": 0.9307526054899865,
+  "task_weight_community": 1.6222031999590159,
+  "task_weight_host": 1.1909289698749994,
+  "task_weight_material": 1.8104588615959236
+}
+2026-01-05 21:54:17 - diana.cli.train - INFO - Submitting SLURM job for final training...
+2026-01-05 21:54:17 - diana.cli.train - INFO - Converted hyperparameters to nested structure:
+2026-01-05 21:54:17 - diana.cli.train - INFO -   Model params: {'hidden_dims': [307, 474, 272], 'dropout': 0.1916894511329029, 'activation': 'relu', 'use_batch_norm': False}
+2026-01-05 21:54:17 - diana.cli.train - INFO -   Trainer params: {'learning_rate': 0.001723369322527049, 'weight_decay': 3.75062679509968e-05, 'task_weights': {'sample_type': 0.9307526054899865, 'community_type': 1.6222031999590159, 'sample_host': 1.1909289698749994, 'material': 1.8104588615959236}}
+2026-01-05 21:54:17 - diana.cli.train - INFO -   Batch size: 96
+2026-01-05 21:54:17 - diana.cli.train - INFO - Saved training config to results/full_training/final_training_config.json
+2026-01-05 21:54:17 - diana.cli.train - INFO - Submitted SLURM job: 63962933
+2026-01-05 21:54:17 - diana.cli.train - INFO - Monitor with: squeue -j 63962933
+2026-01-05 21:54:17 - diana.cli.train - INFO - Check logs in: results/logs
+2026-01-05 21:54:17 - diana.cli.train - INFO - Model will be saved to: results/full_training/best_model.pth
+2026-01-05 21:54:17 - diana.cli.train - INFO - Pipeline complete!
