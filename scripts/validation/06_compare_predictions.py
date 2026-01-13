@@ -141,11 +141,13 @@ def load_data(metadata_file, predictions_dir, label_encoders_file, quiet=False):
             confidence = pred_info['confidence']
             probs = pred_info.get('probabilities', {})
             
-            # Check if seen in training (normalize classes for sample_type comparison)
+            # Check if seen in training
+            # For sample_type, we need to normalize both the true label and training classes
+            # because predictions use 'ancient'/'modern' but metadata uses 'ancient_metagenome'/'modern_metagenome'
             if task_name == 'sample_type':
-                # Normalize training classes for comparison
-                training_classes = [SAMPLE_TYPE_MAP.get(c, c) for c in label_encoders[task_name]['classes']]
-                is_seen = true_label in training_classes
+                normalized_true = SAMPLE_TYPE_MAP.get(true_label, true_label)
+                normalized_training = [SAMPLE_TYPE_MAP.get(c, c) for c in label_encoders[task_name]['classes']]
+                is_seen = normalized_true in normalized_training
             else:
                 is_seen = true_label in label_encoders[task_name]['classes']
             
@@ -654,7 +656,7 @@ def plot_roc_pr_curves(df, task, label_encoders, output_dir, quiet=False):
 # TABLE GENERATION
 # ============================================================================
 
-def save_tables(df, summary_df, output_dir, quiet=False):
+def save_tables(df, summary_df, label_encoders, output_dir, quiet=False):
     """Save summary tables to TSV and HTML."""
     if not quiet:
         print("\nGenerating tables...")
@@ -677,6 +679,60 @@ def save_tables(df, summary_df, output_dir, quiet=False):
             if not quiet:
                 print(f"  ✓ {filename}")
     
+    # Table 2b: Wrong predictions for seen labels per task
+    for task in TASKS:
+        task_df = df[df['task'] == task]
+        # Get seen labels that were predicted incorrectly
+        wrong_seen_df = task_df[task_df['is_seen'] & ~task_df['is_correct']]
+        
+        if len(wrong_seen_df) > 0:
+            wrong_export = wrong_seen_df[['sample_id', 'true_label', 'pred_label', 'confidence', 'probabilities']].copy()
+            
+            # Get label names for this task
+            task_classes = label_encoders[task]['classes']
+            
+            # Extract top 3 predictions with their probabilities
+            def get_top_predictions(probs_dict, n=3):
+                """Get top n predictions sorted by probability, converting indices to labels"""
+                if not probs_dict or not isinstance(probs_dict, dict):
+                    return {}
+                
+                # Convert numeric string keys to actual labels
+                label_probs = {}
+                for key, prob in probs_dict.items():
+                    if isinstance(key, str) and key.isdigit():
+                        # Numeric key - map to label name
+                        idx = int(key)
+                        if idx < len(task_classes):
+                            label_probs[task_classes[idx]] = prob
+                    else:
+                        # Already a label name
+                        label_probs[key] = prob
+                
+                sorted_probs = sorted(label_probs.items(), key=lambda x: x[1], reverse=True)
+                result = {}
+                for i, (label, prob) in enumerate(sorted_probs[:n]):
+                    result[f'rank_{i+1}_label'] = label
+                    result[f'rank_{i+1}_prob'] = prob
+                return result
+            
+            # Add top-3 prediction columns
+            top_preds = wrong_export['probabilities'].apply(lambda x: get_top_predictions(x, n=3))
+            for col in ['rank_1_label', 'rank_1_prob', 'rank_2_label', 'rank_2_prob', 'rank_3_label', 'rank_3_prob']:
+                wrong_export[col] = top_preds.apply(lambda x: x.get(col, ''))
+            
+            # Reorder columns: sample_id, true_label, then top-3 predictions
+            cols = ['sample_id', 'true_label', 'rank_1_label', 'rank_1_prob', 
+                    'rank_2_label', 'rank_2_prob', 'rank_3_label', 'rank_3_prob']
+            wrong_export = wrong_export[cols]
+            
+            # Sort by rank_1_prob (descending) to see most confident mistakes first
+            wrong_export = wrong_export.sort_values('rank_1_prob', ascending=False)
+            filename = f"wrong_predictions_seen_{task}.tsv"
+            wrong_export.to_csv(output_dir / filename, sep='\t', index=False)
+            if not quiet:
+                print(f"  ✓ {filename}")
+    
     # Table 3: Detailed results JSON (save in same directory as tables)
     output_file = output_dir / "validation_comparison.json"
     
@@ -687,10 +743,17 @@ def save_tables(df, summary_df, output_dir, quiet=False):
         
         for subset_name, subset_df in [('all', task_df), ('seen', task_df[task_df['is_seen']])]:
             if len(subset_df) > 0:
+                # Build confusion matrix
+                confusion = {}
+                for _, row in subset_df.iterrows():
+                    key = f"{row['true_label']}_to_{row['pred_label']}"
+                    confusion[key] = confusion.get(key, 0) + 1
+                
                 output_json[task][subset_name] = {
                     'accuracy': subset_df['is_correct'].mean(),
                     'correct': int(subset_df['is_correct'].sum()),
-                    'total': len(subset_df)
+                    'total': len(subset_df),
+                    'confusion_matrix': confusion
                 }
     
     with open(output_file, 'w') as f:
@@ -1054,7 +1117,7 @@ def main():
     # Save tables
     if not args.quiet:
         print("="*80)
-    save_tables(df, summary_df, tables_dir, quiet=args.quiet)
+    save_tables(df, summary_df, label_encoders, tables_dir, quiet=args.quiet)
     
     # Job performance analysis
     if not args.quiet:
