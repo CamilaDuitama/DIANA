@@ -351,30 +351,94 @@ paper/figures/feature_analysis/
 
 ## Validation
 
-### Download External Dataset
+### Prepare Validation Dataset
+
+The validation set combines ancient samples from AncientMetagenomeDir and modern samples from MGnify to match training distribution.
+
+#### 1. Get Ancient Samples from AncientMetagenomeDir
 
 ```bash
-# Expand metadata with ENA run accessions
-mamba run -p ./env python scripts/validation/01_expand_metadata.py \
-  --input data/validation/validation_metadata_v25.09.0.tsv \
-  --output data/validation/validation_metadata_expanded_raw.tsv
+# Combine host-associated and environmental samples
+mamba run -p ./env python scripts/validation/00_prepare_combined_metadata.py
 
-# Prefetch .sra files (880 samples)
+# Expand to run accessions via ENA API
+mamba run -p ./env python scripts/validation/01_expand_metadata.py
+
+# Remove train/test overlaps
+mamba run -p ./env python scripts/validation/01b_remove_overlap.py
+
+# Prepare download list
+mamba run -p ./env python scripts/validation/02_prepare_download.py
+```
+
+**Output:** `data/validation/accessions.txt` (~938 ancient samples)
+
+#### 2. Get Modern Samples from MGnify (Optional)
+
+```bash
+# Query MGnify API for modern samples
+mamba run -p ./env python scripts/validation/10_simple_mgnify_query.py
+
+# Expand sample accessions to run accessions via ENA
+mamba run -p ./env python scripts/validation/11_expand_modern_samples.py
+
+# Balance to match training distribution
+mamba run -p ./env python scripts/validation/12_balance_modern_samples.py
+```
+
+**Output:** `data/validation/modern_accessions_balanced.txt` (~145 modern samples)
+
+#### 3. Download All Samples
+
+```bash
+# Append modern accessions to ancient accessions
+cat data/validation/modern_accessions_balanced.txt >> data/validation/accessions.txt
+
+# Download all (script skips already downloaded files via cache check)
 bash scripts/validation/03_prefetch_all.sh
 
 # Convert to FASTQ
-sbatch --array=1-879%20 scripts/validation/04_convert_sra_to_fastq.sbatch
+sbatch --array=1-1082%20 scripts/validation/04_convert_sra_to_fastq.sbatch
 ```
 
-**Output:** `data/validation/raw/{accession}/*.fastq.gz`
+**Output:** `data/validation/sra/{accession}/*.fastq.gz`
 
 ### Run Inference on Validation Set
 
 ```bash
-sbatch --array=1-629%10 scripts/validation/05_run_predictions.sbatch
+# Run DIANA predictions on all validation samples (1082 total: 937 ancient + 145 modern)
+# Note: Script has built-in cache checking - will skip already-completed samples
+sbatch --array=1-1082%10 scripts/validation/05_run_predictions.sbatch
 ```
+
+**What happens:**
+- Submits SLURM array job with 1082 tasks (one per sample in validation metadata)
+- Runs max 10 tasks in parallel (`%10` limit)
+- **Cache checking**: Automatically skips samples with existing predictions
+- Average time: ~30-60 seconds per sample
+
+**Monitor progress:**
+```bash
+# Check job status
+squeue -j <job_id>
+
+# Count completed predictions
+find results/validation_predictions -name "*_predictions.json" | wc -l
+
+# Check recent logs
+tail -f logs/validation/diana_predict_<job_id>_*.err
+```
+
+**After completion, generate validation metrics and figures:**
+```bash
+# Compare predictions to true labels and generate tables/figures
+mamba run -p ./env python scripts/validation/06_compare_predictions.py
+
+# Regenerate paper figures (includes ROC curves with both ancient/modern samples)
+mamba run -p ./env python scripts/paper/generate_paper_figures.py
+```
+
 
 ---
 
 **Last Updated:** January 2026
-**Contact:** cduitama@pasteur.fr

@@ -37,7 +37,7 @@ def parse_arguments():
     parser.add_argument(
         '--metadata',
         type=str,
-        default='data/validation/validation_metadata_expanded.tsv',
+        default='paper/metadata/validation_metadata.tsv',
         help='Path to validation metadata TSV file'
     )
     parser.add_argument(
@@ -272,9 +272,10 @@ def plot_confusion_matrix(df, task, output_dir, quiet=False):
     task_df = df[df['task'] == task]
     task_title = task.replace('_', ' ').title()
     
-    # Get confusion matrix
-    confusion = task_df.groupby(['true_label', 'pred_label']).size().reset_index(name='count')
-    all_labels = sorted(set(task_df['true_label'].unique()) | set(task_df['pred_label'].unique()))
+    # Get confusion matrix (filter out NaN values)
+    task_df_clean = task_df.dropna(subset=['true_label', 'pred_label'])
+    confusion = task_df_clean.groupby(['true_label', 'pred_label']).size().reset_index(name='count')
+    all_labels = sorted(set(task_df_clean['true_label'].unique()) | set(task_df_clean['pred_label'].unique()))
     
     # Build matrix
     cm = np.zeros((len(all_labels), len(all_labels)))
@@ -321,14 +322,15 @@ def plot_per_class_performance(df, task, output_dir, quiet=False):
     task_df = df[df['task'] == task]
     task_title = task.replace('_', ' ').title()
     
-    # Calculate per-class metrics
-    all_labels = sorted(task_df['true_label'].unique())
+    # Calculate per-class metrics (filter out NaN values)
+    task_df_clean = task_df.dropna(subset=['true_label', 'pred_label'])
+    all_labels = sorted(task_df_clean['true_label'].unique())
     class_metrics = []
     
     for label in all_labels:
-        tp = len(task_df[(task_df['true_label'] == label) & (task_df['pred_label'] == label)])
-        total_true = len(task_df[task_df['true_label'] == label])
-        total_pred = len(task_df[task_df['pred_label'] == label])
+        tp = len(task_df_clean[(task_df_clean['true_label'] == label) & (task_df_clean['pred_label'] == label)])
+        total_true = len(task_df_clean[task_df_clean['true_label'] == label])
+        total_pred = len(task_df_clean[task_df_clean['pred_label'] == label])
         
         precision = tp / total_pred if total_pred > 0 else 0
         recall = tp / total_true if total_true > 0 else 0
@@ -395,6 +397,8 @@ def plot_per_class_performance(df, task, output_dir, quiet=False):
 def plot_accuracy_comparison(df, task, output_dir, quiet=False):
     """Compare accuracy on SEEN vs ALL labels."""
     task_df = df[df['task'] == task]
+    # Filter out NaN values for accuracy calculations
+    task_df = task_df.dropna(subset=['true_label', 'pred_label'])
     task_title = task.replace('_', ' ').title()
     
     acc_data = []
@@ -450,6 +454,8 @@ def plot_confidence_distribution(df, task, output_dir, quiet=False):
     Creates box plot with jittered points showing model calibration.
     """
     task_df = df[df['task'] == task]
+    # Filter out NaN values
+    task_df = task_df.dropna(subset=['true_label', 'pred_label'])
     task_title = task.replace('_', ' ').title()
     
     # Create category combinations
@@ -504,6 +510,8 @@ def plot_roc_pr_curves(df, task, label_encoders, output_dir, quiet=False):
     from sklearn.preprocessing import label_binarize
     
     task_df = df[df['task'] == task]
+    # Filter out NaN values
+    task_df = task_df.dropna(subset=['true_label', 'pred_label'])
     task_title = task.replace('_', ' ').title()
     classes = label_encoders[task]['classes']
     n_classes = len(classes)
@@ -555,8 +563,27 @@ def plot_roc_pr_curves(df, task, label_encoders, output_dir, quiet=False):
     
     for i in range(n_classes):
         if np.sum(y_true_bin[:, i]) > 0:  # Only if class exists in data
+<<<<<<< Updated upstream
             fpr_dict[i], tpr_dict[i], _ = roc_curve(y_true_bin[:, i], y_scores[:, i])
             roc_auc_dict[i] = auc(fpr_dict[i], tpr_dict[i])
+=======
+            y_true_binary = y_true_bin[:, i]
+            y_score = y_scores[:, i]
+            
+            fpr, tpr, _ = roc_curve(y_true_binary, y_score)
+            roc_auc = auc(fpr, tpr)
+            
+            # Get color from palette (cycle if more classes than colors)
+            color = COLOR_PALETTE[i % len(COLOR_PALETTE)]
+            
+            fig_roc.add_trace(go.Scatter(
+                x=fpr,
+                y=tpr,
+                mode='lines',
+                name=f'{classes[i]} (AUC={roc_auc:.3f})',
+                line=dict(width=3, color=color)
+            ))
+>>>>>>> Stashed changes
     
     # Compute macro-average (interpolate all ROC curves)
     all_fpr = np.unique(np.concatenate([fpr_dict[i] for i in fpr_dict.keys()]))
@@ -576,8 +603,27 @@ def plot_roc_pr_curves(df, task, label_encoders, output_dir, quiet=False):
     
     for i in range(n_classes):
         if np.sum(y_true_bin[:, i]) > 0:
+<<<<<<< Updated upstream
             precision_dict[i], recall_dict[i], _ = precision_recall_curve(y_true_bin[:, i], y_scores[:, i])
             pr_auc_dict[i] = auc(recall_dict[i], precision_dict[i])
+=======
+            y_true_binary = y_true_bin[:, i]
+            y_score = y_scores[:, i]
+            
+            precision, recall, _ = precision_recall_curve(y_true_binary, y_score)
+            avg_precision = average_precision_score(y_true_binary, y_score)
+            
+            # Get color from palette (cycle if more classes than colors)
+            color = COLOR_PALETTE[i % len(COLOR_PALETTE)]
+            
+            fig_pr.add_trace(go.Scatter(
+                x=recall,
+                y=precision,
+                mode='lines',
+                name=f'{classes[i]} (AP={avg_precision:.3f})',
+                line=dict(width=3, color=color)
+            ))
+>>>>>>> Stashed changes
     
     # Compute macro-average PR (interpolate all curves)
     all_recall = np.unique(np.concatenate([recall_dict[i] for i in recall_dict.keys()]))

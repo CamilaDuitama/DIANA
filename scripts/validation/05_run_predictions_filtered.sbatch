@@ -2,12 +2,12 @@
 #SBATCH --job-name=diana-val
 #SBATCH --output=logs/validation/diana_predict_%A_%a.out
 #SBATCH --error=logs/validation/diana_predict_%A_%a.err
-#SBATCH --array=1-1082%10
 #SBATCH --cpus-per-task=6
 #SBATCH --mem=64G
 #SBATCH --partition=seqbio
 
-# SLURM array job to run diana-predict on validation samples (seqbio partition, no time limit)
+# SLURM array job to run diana-predict ONLY on samples that need prediction
+# NOTE: --array parameter should be set via sbatch command line (see 04b_find_samples_to_predict.py)
 
 set -e
 
@@ -23,14 +23,22 @@ echo ""
 # Create log directory
 mkdir -p logs/validation
 
-# Get sample from metadata file (skip header, get Nth line)
-METADATA="paper/metadata/validation_metadata.tsv"
+# Use filtered metadata (only samples needing prediction)
+METADATA="data/validation/samples_to_predict.tsv"
+
+if [ ! -f "$METADATA" ]; then
+    echo "ERROR: Filtered metadata not found: $METADATA"
+    echo "Run: ./env/bin/python scripts/validation/04b_find_samples_to_predict.py"
+    exit 1
+fi
+
+# Get sample from filtered metadata (skip header, get Nth line)
 SAMPLE_LINE=$(sed -n "$((SLURM_ARRAY_TASK_ID + 1))p" "$METADATA")
 
 # Extract run_accession (column 17)
 RUN_ACCESSION=$(echo "$SAMPLE_LINE" | cut -f17)
 
-echo "Sample ${SLURM_ARRAY_TASK_ID}/974: $RUN_ACCESSION"
+echo "Sample ${SLURM_ARRAY_TASK_ID}: $RUN_ACCESSION"
 
 # Find FASTQ file(s) for this run accession
 SAMPLE_DIR="data/validation/raw/${RUN_ACCESSION}"
@@ -61,10 +69,10 @@ TOTAL_SIZE_GB=$(echo "scale=2; $TOTAL_SIZE_BYTES / 1024 / 1024 / 1024" | bc)
 echo "Total FASTQ size: ${TOTAL_SIZE_GB} GB"
 echo ""
 
-# Check if predictions already exist (cache check)
+# Double-check if predictions already exist (safety check)
 PREDICTION_FILE="results/validation_predictions/${RUN_ACCESSION}/${RUN_ACCESSION}_predictions.json"
 if [ -f "$PREDICTION_FILE" ]; then
-    echo "✓ Predictions already exist, skipping: $PREDICTION_FILE"
+    echo "⚠️  Predictions already exist (should not happen with filtered list): $PREDICTION_FILE"
     echo "Completed: $(date)"
     exit 0
 fi

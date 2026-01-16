@@ -11,6 +11,10 @@ import numpy as np
 from pathlib import Path
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import (
+    accuracy_score, balanced_accuracy_score,
+    f1_score, precision_score, recall_score
+)
 import logging
 
 # Setup logging
@@ -183,6 +187,44 @@ def main():
     with open(encoders_path, 'w') as f:
         json.dump(encoders_data, f, indent=2)
     logger.info(f'Label encoders saved to: {encoders_path}')
+
+    # Evaluate on full training set
+    logger.info('='*50)
+    logger.info('Evaluating on FULL training set...')
+    logger.info('='*50)
+    
+    model.eval()
+    with torch.no_grad():
+        # Get predictions on full training set
+        X_tensor = torch.FloatTensor(X_full).to(device)
+        predictions = model(X_tensor)
+        
+        # Calculate metrics for each task
+        training_metrics = {}
+        for task_name in task_names:
+            y_pred = predictions[task_name].argmax(dim=1).cpu().numpy()
+            y_true = y_full[task_name]
+            
+            training_metrics[task_name] = {
+                'accuracy': float(accuracy_score(y_true, y_pred)),
+                'balanced_accuracy': float(balanced_accuracy_score(y_true, y_pred)),
+                'f1_weighted': float(f1_score(y_true, y_pred, average='weighted', zero_division=0)),
+                'precision_macro': float(precision_score(y_true, y_pred, average='macro', zero_division=0)),
+                'recall_macro': float(recall_score(y_true, y_pred, average='macro', zero_division=0))
+            }
+            
+            logger.info(f"\n{task_name}:")
+            logger.info(f"  Accuracy: {training_metrics[task_name]['accuracy']:.4f}")
+            logger.info(f"  Balanced Accuracy: {training_metrics[task_name]['balanced_accuracy']:.4f}")
+            logger.info(f"  F1 Weighted: {training_metrics[task_name]['f1_weighted']:.4f}")
+            logger.info(f"  Precision Macro: {training_metrics[task_name]['precision_macro']:.4f}")
+            logger.info(f"  Recall Macro: {training_metrics[task_name]['recall_macro']:.4f}")
+    
+    # Save training metrics
+    metrics_path = Path(config['output_dir']) / 'training_set_metrics.json'
+    with open(metrics_path, 'w') as f:
+        json.dump(training_metrics, f, indent=2)
+    logger.info(f'\nTraining set metrics saved to: {metrics_path}')
 
     logger.info('='*50)
     logger.info('Final training complete!')
