@@ -1,0 +1,72 @@
+\begin{table*}[!t]
+\caption{Sample distribution across classes for each dataset\label{tab:class_distribution}}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llcccc@{\extracolsep{\fill}}}
+\toprule
+Task & Class & Training & Test & Validation & Total \\
+\midrule
+\multirow{2}{*}{Sample Type} & ancient\_metagenome & 2410 & 424 & 937 & 3771 \\
+ & modern\_metagenome & 199 & 37 & 145 & 381 \\
+\addlinespace
+\multirow{6}{*}{Community Type} & Not applicable - env sample & 755 & 133 & 325 & 1213 \\
+ & gut & 86 & 15 & 64 & 165 \\
+ & oral & 1401 & 248 & 583 & 2232 \\
+ & plant tissue & 81 & 14 & 13 & 108 \\
+ & skeletal tissue & 267 & 47 & 85 & 399 \\
+ & soft tissue & 19 & 4 & 12 & 35 \\
+\addlinespace
+\multirow{23}{*}{Sample Host} & Alouatta palliata & 0 & 0 & 8 & 8 \\
+ & Ambrosia artemisiifolia & 57 & 9 & 3 & 69 \\
+ & Arabidopsis thaliana & 24 & 5 & 5 & 34 \\
+ & Canis lupus & 11 & 8 & 2 & 21 \\
+ & Gorilla beringei & 0 & 0 & 4 & 4 \\
+ & Gorilla beringei beringei & 0 & 0 & 16 & 16 \\
+ & Gorilla beringei graueri & 0 & 0 & 13 & 13 \\
+ & Gorilla gorilla gorilla & 0 & 0 & 5 & 5 \\
+ & Gorilla sp. & 110 & 25 & 0 & 135 \\
+ & Homo sapiens & 1290 & 207 & 636 & 2133 \\
+ & Homo sapiens neanderthalensis & 25 & 10 & 9 & 44 \\
+ & Lithobates pipiens & 0 & 0 & 11 & 11 \\
+ & Mammuthus primigenius & 12 & 4 & 0 & 16 \\
+ & Not applicable - env sample & 755 & 133 & 305 & 1193 \\
+ & Other mammal & 9 & 3 & 0 & 12 \\
+ & Pan troglodytes & 40 & 8 & 0 & 48 \\
+ & Pan troglodytes ellioti & 0 & 0 & 4 & 4 \\
+ & Pan troglodytes schweinfurthii & 0 & 0 & 7 & 7 \\
+ & Papio anubis & 0 & 0 & 4 & 4 \\
+ & Papio hamadryas & 0 & 0 & 5 & 5 \\
+ & Papio sp. & 0 & 0 & 1 & 1 \\
+ & Rangifer tarandus & 19 & 5 & 0 & 24 \\
+ & Ursus arctos & 257 & 44 & 39 & 340 \\
+\addlinespace
+\multirow{22}{*}{Material} & Oral & 67 & 12 & 50 & 129 \\
+ & Skin & 69 & 11 & 20 & 100 \\
+ & birch pitch & 0 & 0 & 79 & 79 \\
+ & bone & 195 & 41 & 52 & 288 \\
+ & brain & 0 & 0 & 1 & 1 \\
+ & dental calculus & 1103 & 204 & 358 & 1665 \\
+ & dentine & 0 & 0 & 2 & 2 \\
+ & digestive\_contents & 92 & 17 & 1 & 110 \\
+ & gut & 0 & 0 & 40 & 40 \\
+ & intestine & 0 & 0 & 11 & 11 \\
+ & lake sediment & 0 & 0 & 139 & 139 \\
+ & leaf & 81 & 14 & 8 & 103 \\
+ & marine sediment & 0 & 0 & 66 & 66 \\
+ & midden & 11 & 1 & 3 & 15 \\
+ & palaeofaeces & 0 & 0 & 9 & 9 \\
+ & permafrost & 58 & 13 & 21 & 92 \\
+ & sediment & 454 & 78 & 42 & 574 \\
+ & shallow marine sediment & 0 & 0 & 5 & 5 \\
+ & shell & 19 & 5 & 0 & 24 \\
+ & soft\_tissue & 13 & 2 & 0 & 15 \\
+ & soil & 77 & 13 & 32 & 122 \\
+ & tooth & 370 & 50 & 127 & 547 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}
+\item Training and test samples from curated AncientMetagenomeDir dataset (Logan et al.).
+\item Validation samples from AncientMetagenomeDir v25.09.0 and MGnify modern samples, excluding overlaps with train/test.
+\item Validation set: 1,082 samples (937 ancient + 145 modern; 772 host-associated, 305 environmental; 28.2\% environmental).
+\item Classes with 0 validation samples were present in training but not in external validation set.
+\item Classes with 0 training samples are UNSEEN by the model and cannot be correctly predicted.
+\end{tablenotes}
+\end{table*}

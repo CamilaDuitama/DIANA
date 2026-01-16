@@ -1,0 +1,63 @@
+Task	Class	Training (n=2609)	Test (n=461)	Validation (n=1082)	Total
+Sample Type	ancient_metagenome	2410	424	937	3771
+Sample Type	modern_metagenome	199	37	145	381
+Community Type	oral	1401	248	533	2182
+Community Type	Not applicable - env sample	755	133	275	1163
+Community Type	skeletal tissue	267	47	85	399
+Community Type	gut	86	15	24	125
+Community Type	plant tissue	81	14	8	103
+Community Type	human oral	0	0	50	50
+Community Type	human gut	0	0	40	40
+Community Type	soft tissue	19	4	12	35
+Community Type	soil	0	0	30	30
+Community Type	human skin	0	0	20	20
+Community Type	plant	0	0	5	5
+Sample Host	Homo sapiens	1290	207	636	2133
+Sample Host	Not applicable - env sample	755	133	305	1193
+Sample Host	Ursus arctos	257	44	39	340
+Sample Host	Gorilla sp.	110	25	0	135
+Sample Host	Ambrosia artemisiifolia	57	9	3	69
+Sample Host	Pan troglodytes	40	8	0	48
+Sample Host	Homo sapiens neanderthalensis	25	10	9	44
+Sample Host	Arabidopsis thaliana	24	5	5	34
+Sample Host	Rangifer tarandus	19	5	0	24
+Sample Host	Canis lupus	11	8	2	21
+Sample Host	Gorilla beringei beringei	0	0	16	16
+Sample Host	Mammuthus primigenius	12	4	0	16
+Sample Host	Gorilla beringei graueri	0	0	13	13
+Sample Host	Other mammal	9	3	0	12
+Sample Host	Lithobates pipiens	0	0	11	11
+Sample Host	Alouatta palliata	0	0	8	8
+Sample Host	Pan troglodytes schweinfurthii	0	0	7	7
+Sample Host	Gorilla gorilla gorilla	0	0	5	5
+Sample Host	Papio hamadryas	0	0	5	5
+Sample Host	Gorilla beringei	0	0	4	4
+Sample Host	Pan troglodytes ellioti	0	0	4	4
+Sample Host	Papio anubis	0	0	4	4
+Sample Host	Papio sp.	0	0	1	1
+Material	dental calculus	1103	204	358	1665
+Material	sediment	454	78	42	574
+Material	tooth	370	50	127	547
+Material	bone	195	41	51	287
+Material	lake sediment	0	0	139	139
+Material	soil	77	13	32	122
+Material	digestive_contents	92	17	0	109
+Material	leaf	81	14	8	103
+Material	permafrost	58	13	21	92
+Material	Skin	69	11	0	80
+Material	Oral	67	12	0	79
+Material	birch pitch	0	0	79	79
+Material	marine sediment	0	0	66	66
+Material	oral	0	0	50	50
+Material	gut	0	0	40	40
+Material	shell	19	5	0	24
+Material	skin	0	0	20	20
+Material	midden	11	1	3	15
+Material	soft_tissue	13	2	0	15
+Material	intestine	0	0	11	11
+Material	palaeofaeces	0	0	9	9
+Material	shallow marine sediment	0	0	5	5
+Material	dentine	0	0	2	2
+Material	brain	0	0	1	1
+Material	digestive tract contents	0	0	1	1
+Material	skull	0	0	1	1

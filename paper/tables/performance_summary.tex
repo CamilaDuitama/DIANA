@@ -1,0 +1,31 @@
+\begin{table*}[!t]
+\caption{Final model performance across training, test, and validation datasets\label{tab:performance_summary}}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llcccccc@{\extracolsep{\fill}}}
+\toprule
+Task & Dataset & n & Accuracy (\%) & Balanced Acc (\%) & F1 Weighted (\%) & Precision Macro (\%) & Recall Macro (\%) \\
+\midrule
+Sample Type (ancient/modern) & Training & 2,609 & 98.7 & 92.1 & 98.6 & 98.2 & 92.1 \\
+ & Test & 461 & 99.8 & 98.7 & 99.8 & 99.9 & 98.7 \\
+ & Validation (seen) & 608 & 93.1 & 93.1 & 96.4 & 50.0 & 93.1 \\
+\addlinespace
+Community Type & Training & 2,609 & 97.5 & 97.7 & 97.5 & 98.5 & 97.7 \\
+ & Test & 461 & 98.9 & 99.6 & 98.9 & 98.0 & 99.6 \\
+ & Validation (seen) & 608 & 70.7 & 46.8 & 65.1 & 49.2 & 46.8 \\
+\addlinespace
+Sample Host (species) & Training & 2,609 & 97.9 & 94.1 & 97.8 & 97.8 & 94.1 \\
+ & Test & 461 & 99.1 & 98.7 & 99.1 & 99.0 & 98.7 \\
+ & Validation (seen) & 538 & 80.9 & 63.4 & 83.5 & 61.2 & 63.4 \\
+\addlinespace
+Material & Training & 2,609 & 97.5 & 94.2 & 97.4 & 95.8 & 94.2 \\
+ & Test & 461 & 98.7 & 90.9 & 98.6 & 88.4 & 90.9 \\
+ & Validation (seen) & 508 & 75.2 & 69.7 & 63.4 & 26.0 & 69.7 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}
+\item Training: Performance on full training set (2,609 samples) after training.
+\item Test: Held-out test set (461 samples, 0\% overlap with training).
+\item Validation (seen): External validation showing only samples with labels seen during training.
+\item Balanced Accuracy: Accounts for class imbalance by averaging per-class recall.
+\item F1 Weighted: Weighted average of per-class F1 scores (weights = class frequencies).
+\end{tablenotes}
+\end{table*}

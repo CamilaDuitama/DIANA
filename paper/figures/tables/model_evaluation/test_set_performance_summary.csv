@@ -1,5 +1,0 @@
-Task,Accuracy,Balanced Accuracy,F1-Macro,F1-Weighted,Precision-Macro,Recall-Macro
-Sample Type,0.9957,0.9730,0.9849,0.9956,0.9977,0.9730
-Community Type,0.9284,0.8924,0.9050,0.9285,0.9239,0.8924
-Sample Host,0.9371,0.7813,0.8287,0.9311,0.9580,0.7813
-Material,0.9089,0.8038,0.7878,0.9090,0.7805,0.8038
