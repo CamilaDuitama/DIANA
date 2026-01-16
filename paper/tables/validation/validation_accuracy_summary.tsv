@@ -1,0 +1,9 @@
+Task	Subset	Correct	Total	Accuracy (%)
+Sample Type	SEEN ONLY	762	817	93.3
+Sample Type	ALL SAMPLES	762	817	93.3
+Community Type	SEEN ONLY	593	817	72.6
+Community Type	ALL SAMPLES	593	817	72.6
+Sample Host	SEEN ONLY	601	742	81.0
+Sample Host	ALL SAMPLES	601	817	73.6
+Material	SEEN ONLY	451	617	73.1
+Material	ALL SAMPLES	451	808	55.8

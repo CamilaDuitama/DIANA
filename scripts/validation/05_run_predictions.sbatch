@@ -2,14 +2,17 @@
 #SBATCH --job-name=diana-val
 #SBATCH --output=logs/validation/diana_predict_%A_%a.out
 #SBATCH --error=logs/validation/diana_predict_%A_%a.err
-#SBATCH --array=1-616%10
+#SBATCH --array=1-957%10
 #SBATCH --cpus-per-task=6
-#SBATCH --mem=64G
+#SBATCH --mem=128G
 #SBATCH --partition=seqbio
 
 # SLURM array job to run diana-predict on validation samples (seqbio partition, no time limit)
 
 set -e
+
+# Fix libssh2 library issue on some nodes
+export LD_LIBRARY_PATH="$(pwd)/env/lib:$LD_LIBRARY_PATH"
 
 echo "======================================"
 echo "DIANA Validation Predictions"

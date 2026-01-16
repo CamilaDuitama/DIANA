@@ -362,19 +362,56 @@ mamba run -p ./env python scripts/validation/01_expand_metadata.py \
 # Prefetch .sra files (880 samples)
 bash scripts/validation/03_prefetch_all.sh
 
-# Convert to FASTQ
+# Convert to FASTQ (takes several hours)
 sbatch --array=1-879%20 scripts/validation/04_convert_sra_to_fastq.sbatch
 ```
 
-**Output:** `data/validation/raw/{accession}/*.fastq.gz`
+**Output:** `data/validation/raw/{accession}/*.fastq.gz` (957 samples with FASTQ data)
+
+**Note:** 125 samples from AncientMetagenome database lacked FASTQ files and were filtered out from downstream analysis.
 
 ### Run Inference on Validation Set
 
 ```bash
-sbatch --array=1-629%10 scripts/validation/05_run_predictions.sbatch
+# Run predictions on all samples (957 samples: 870 ancient + 87 modern)
+# Uses 128GB RAM, processes 10 samples in parallel
+sbatch scripts/validation/05_run_predictions.sbatch
 ```
 
----
+**What happens:**
+- Converts FASTQ → k-mer unitig matrix using diana-predict
+- Loads trained model from `models/multitask/final/best_model.pth`
+- Generates predictions for all 4 tasks per sample
+- Uses caching to skip already completed samples
+
+**Expected outputs:**
+```
+results/validation_predictions/
+├── {accession}_predictions.tsv       # One file per sample (957 total)
+└── ...
+```
+
+**⚠️ WAIT:** Monitor job completion with `squeue -u $USER`
+
+### Compare Predictions to Ground Truth
+
+After predictions complete, evaluate model performance on external validation set:
+
+```bash
+# Compare predictions to AncientMetagenome metadata (ground truth)
+mamba run -p ./env python scripts/validation/06_compare_predictions.py \
+  --predictions-dir results/validation_predictions \
+  --metadata paper/metadata/validation_metadata.tsv \
+  --output-dir paper
+```
+
+### Generate Final Paper Figures
+
+```bash
+# Create publication-ready multi-panel figures
+mamba run -p ./env python scripts/paper/generate_paper_figures.py
+```
+
 
 **Last Updated:** January 2026
 **Contact:** cduitama@pasteur.fr
