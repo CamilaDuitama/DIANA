@@ -2,10 +2,11 @@
 """
 Generate main paper figures for DIANA multi-task classifier.
 
-Creates 3 main figures:
+Creates 4 main figures:
 1. Multi-task performance comparison (Accuracy + Balanced Accuracy)
 2. 2x2 grid of confusion matrices (all 4 tasks)
-3. ROC curves for complex tasks (Community Type + Material)
+3. 2x2 grid of ROC curves (all 4 tasks)
+4. 2x2 grid of Precision-Recall curves (all 4 tasks)
 """
 
 import json
@@ -342,6 +343,73 @@ def create_figure3_roc_curves():
     return None
 
 
+def create_figure4_pr_curves():
+    """Create Figure 4: Precision-Recall curves for all tasks (2x2 grid layout)."""
+    print("Creating Figure 4: Precision-Recall curves for all tasks...")
+    
+    from PIL import Image, ImageDraw, ImageFont
+    
+    # All tasks have PR curves
+    tasks = ['sample_type', 'community_type', 'sample_host', 'material']
+    task_labels = ['(A) Sample Type', '(B) Community Type', '(C) Sample Host', '(D) Material']
+    
+    # Load existing PR curve images
+    images = []
+    for task in tasks:
+        img_path = FIGURES_DIR / 'validation' / f'pr_curves_{task}.png'
+        if img_path.exists():
+            images.append(Image.open(img_path))
+        else:
+            print(f"  ⚠ Warning: PR curve not found for {task}")
+            # Create placeholder
+            placeholder = Image.new('RGB', (800, 600), (255, 255, 255))
+            draw = ImageDraw.Draw(placeholder)
+            text = f"PR curve not available\nfor {TASK_NAMES[task]}"
+            try:
+                font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 24)
+            except:
+                font = None
+            bbox = draw.textbbox((0, 0), text, font=font)
+            text_width = bbox[2] - bbox[0]
+            text_height = bbox[3] - bbox[1]
+            x = (800 - text_width) / 2
+            y = (600 - text_height) / 2
+            draw.text((x, y), text, fill=(100, 100, 100), font=font, align='center')
+            images.append(placeholder)
+    
+    if len(images) == 4:
+        # Create 2x2 grid
+        widths, heights = zip(*(i.size for i in images))
+        max_width = max(widths)
+        max_height = max(heights)
+        
+        # Create 2x2 grid with padding
+        padding = 30
+        total_width = max_width * 2 + padding * 3
+        total_height = max_height * 2 + padding * 3
+        
+        composite = Image.new('RGB', (total_width, total_height), (255, 255, 255))
+        
+        # Position images in 2x2 grid
+        positions = [
+            (padding, padding),  # top-left (sample_type)
+            (max_width + padding * 2, padding),  # top-right (community_type)
+            (padding, max_height + padding * 2),  # bottom-left (sample_host)
+            (max_width + padding * 2, max_height + padding * 2)  # bottom-right (material)
+        ]
+        
+        for img, pos in zip(images, positions):
+            composite.paste(img, pos)
+        
+        output_path = FIGURES_DIR / 'figure4_pr_curves_combined.png'
+        composite.save(output_path, dpi=(300, 300))
+        print(f"  ✓ Saved to {output_path}")
+    else:
+        print(f"  ⚠ Could not create PR grid ({len(images)}/4 images). Run validation first.")
+    
+    return None
+
+
 def main():
     """Generate all paper figures."""
     print("="*80)
@@ -359,6 +427,8 @@ def main():
         create_figure2_confusion_matrices()
         print()
         create_figure3_roc_curves()
+        print()
+        create_figure4_pr_curves()
         print()
         print("="*80)
         print("✅ All figures generated successfully!")

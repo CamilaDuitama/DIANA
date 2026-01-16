@@ -11,9 +11,6 @@
 
 set -e
 
-# Fix libssh2 library issue on some nodes
-export LD_LIBRARY_PATH="$(pwd)/env/lib:$LD_LIBRARY_PATH"
-
 echo "======================================"
 echo "DIANA Validation Predictions"
 echo "======================================"
@@ -55,8 +52,21 @@ echo "Found FASTQ files:"
 printf '%s\n' "${FASTQ_ARRAY[@]}"
 echo ""
 
+# Check if prediction already exists
+PREDICTION_FILE="results/validation_predictions/${RUN_ACCESSION}/${RUN_ACCESSION}_predictions.json"
+if [ -f "$PREDICTION_FILE" ]; then
+    echo "Prediction already exists: $PREDICTION_FILE"
+    echo "Skipping..."
+    echo "Completed: $(date)"
+    echo "======================================"
+    exit 0
+fi
+
 # Add inference scripts to PATH
 export PATH="$(pwd)/scripts/inference:$PATH"
+
+# Fix libssh2 library issue - must be set before mamba is invoked
+export LD_LIBRARY_PATH="$(pwd)/env/lib:$LD_LIBRARY_PATH"
 
 # Run diana-predict
 echo "Running diana-predict..."
