@@ -372,24 +372,60 @@ sbatch --array=1-879%20 scripts/validation/04_convert_sra_to_fastq.sbatch
 
 ### Run Inference on Validation Set
 
+**Automated retry system with memory scaling:**
+
 ```bash
-# Run predictions on all samples (957 samples: 870 ancient + 87 modern)
-# Uses 128GB RAM, processes 10 samples in parallel
-sbatch scripts/validation/05_run_predictions.sbatch
+# Submit validation predictions with automatic OOM retry
+bash scripts/validation/submit_validation_with_retry.sh
 ```
 
-**What happens:**
-- Converts FASTQ → k-mer unitig matrix using diana-predict
-- Loads trained model from `models/multitask/final/best_model.pth`
-- Generates predictions for all 4 tasks per sample
-- Uses caching to skip already completed samples
+**How it works:**
+1. **Initial run:** All 957 samples start with 32GB memory
+2. **Monitoring:** Each sample tracks job metadata (`.jobinfo`) and memory history (`.memory_history`)
+3. **Cache check:** Skips samples with `"status": "SUCCESS"` in `.jobinfo`
+4. **OOM detection:** Failed jobs are retried with doubled memory (32→64→128→256→512GB)
+5. **Re-run:** Simply execute the script again after jobs complete to retry OOM failures
 
-**Expected outputs:**
+**Example workflow:**
+```bash
+# First submission (all samples @ 32GB)
+bash scripts/validation/submit_validation_with_retry.sh
+# → Job ID: 5627689
+
+# Monitor progress
+squeue -u $USER
+reportseff 5627689
+
+# After completion, retry OOM failures @ 64GB
+bash scripts/validation/submit_validation_with_retry.sh
+
+# Continue until all samples complete or hit 512GB limit
+bash scripts/validation/submit_validation_with_retry.sh
+```
+
+**Output structure per sample:**
 ```
 results/validation_predictions/
-├── {accession}_predictions.tsv       # One file per sample (957 total)
+├── {accession}/
+│   ├── {accession}_predictions.json   # Prediction output
+│   ├── .jobinfo                       # Job metadata (job_id, memory, runtime, status)
+│   └── .memory_history                # Memory allocations tried (MB, one per line)
+└── ...
+
+logs/validation/
+├── diana_predict_{JOB_ID}_{TASK_ID}.out   # stdout
+├── diana_predict_{JOB_ID}_{TASK_ID}.err   # stderr
 └── ...
 ```
+
+**Resource profiling:**
+- Job metadata in `.jobinfo` tracks runtime, memory usage, CPU efficiency
+- Used for task 12 in TODO.md: resource profiling analysis
+
+**Scripts involved:**
+- `scripts/validation/submit_validation_with_retry.sh` - Orchestrator (groups by memory tier)
+- `scripts/validation/05_run_predictions_single.sbatch` - Worker (runs diana-predict)
+- `paper/metadata/validation_metadata.tsv` - 957 validation samples
 
 **⚠️ WAIT:** Monitor job completion with `squeue -u $USER`
 
