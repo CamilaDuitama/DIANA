@@ -7,6 +7,8 @@ Creates 4 main figures:
 2. 2x2 grid of confusion matrices (all 4 tasks)
 3. 2x2 grid of ROC curves (all 4 tasks)
 4. 2x2 grid of Precision-Recall curves (all 4 tasks)
+
+Also creates validation resource statistics table.
 """
 
 import json
@@ -16,6 +18,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from pathlib import Path
 import sys
+import subprocess
 
 # Add src to path
 sys.path.append(str(Path(__file__).parent.parent.parent / 'src'))
@@ -410,6 +413,203 @@ def create_figure4_pr_curves():
     return None
 
 
+def create_validation_resource_table():
+    """Create LaTeX table with resource statistics for successful validation samples."""
+    print("Creating validation resource statistics table...")
+    
+    # Directories
+    predictions_dir = BASE_DIR / 'results' / 'validation_predictions'
+    metadata_file = BASE_DIR / 'paper' / 'metadata' / 'validation_metadata.tsv'
+    
+    # Load metadata to get file sizes
+    metadata = pd.read_csv(metadata_file, sep='\t')
+    # Convert fastq_bytes to numeric (handle strings like "123;456")
+    metadata['fastq_bytes'] = pd.to_numeric(
+        metadata['fastq_bytes'].astype(str).str.split(';').str[0],
+        errors='coerce'
+    )
+    metadata['file_size_gb'] = metadata['fastq_bytes'] / (1024**3)  # Convert to GB
+    
+    # Collect resource statistics from successful predictions
+    data = []
+    
+    for sample_dir in sorted(predictions_dir.iterdir()):
+        if not sample_dir.is_dir():
+            continue
+        
+        jobinfo_file = sample_dir / '.jobinfo'
+        if not jobinfo_file.exists():
+            continue
+        
+        # Read jobinfo
+        with open(jobinfo_file) as f:
+            jobinfo = json.load(f)
+        
+        # Only include successful predictions
+        if jobinfo.get('status') != 'SUCCESS':
+            continue
+        
+        run_accession = jobinfo.get('run_accession', sample_dir.name)
+        job_id = jobinfo.get('job_id', 'N/A')
+        task_id = jobinfo.get('task_id', 'N/A')
+        memory_mb = jobinfo.get('memory_mb', 0)
+        cpus = jobinfo.get('cpus', 0)
+        elapsed_sec = jobinfo.get('elapsed_seconds', 0)
+        node = jobinfo.get('node', 'unknown')
+        
+        # Get file size from metadata
+        sample_meta = metadata[metadata['run_accession'] == run_accession]
+        if len(sample_meta) > 0:
+            file_size_gb = sample_meta['file_size_gb'].values[0]
+        else:
+            file_size_gb = 0
+        
+        # Get efficiency from SLURM if job_id is available
+        mem_efficiency = None
+        cpu_efficiency = None
+        
+        if job_id != 'N/A' and task_id != 'N/A':
+            try:
+                # Query sacct for efficiency data
+                cmd = [
+                    'sacct', '-j', f'{job_id}.{task_id}',
+                    '--format=JobID,MaxRSS,TotalCPU,CPUTime,Elapsed',
+                    '--parsable2', '--noheader'
+                ]
+                result = subprocess.run(cmd, capture_output=True, text=True, timeout=5)
+                
+                if result.returncode == 0 and result.stdout.strip():
+                    lines = result.stdout.strip().split('\n')
+                    # Get the first line (main job step)
+                    if lines:
+                        fields = lines[0].split('|')
+                        if len(fields) >= 5:
+                            max_rss = fields[1]  # e.g., "1234567K"
+                            total_cpu = fields[2]  # e.g., "00:05:30"
+                            cpu_time = fields[3]  # e.g., "00:30:00"
+                            
+                            # Parse MaxRSS (remove K suffix and convert to MB)
+                            if max_rss.endswith('K'):
+                                max_rss_mb = float(max_rss[:-1]) / 1024
+                            elif max_rss.endswith('M'):
+                                max_rss_mb = float(max_rss[:-1])
+                            elif max_rss.endswith('G'):
+                                max_rss_mb = float(max_rss[:-1]) * 1024
+                            else:
+                                max_rss_mb = 0
+                            
+                            # Calculate memory efficiency
+                            if memory_mb > 0 and max_rss_mb > 0:
+                                mem_efficiency = (max_rss_mb / memory_mb) * 100
+                            
+                            # Parse CPU times (HH:MM:SS format)
+                            def parse_time(time_str):
+                                if not time_str or time_str == '':
+                                    return 0
+                                parts = time_str.split(':')
+                                if len(parts) == 3:
+                                    return int(parts[0]) * 3600 + int(parts[1]) * 60 + float(parts[2])
+                                return 0
+                            
+                            total_cpu_sec = parse_time(total_cpu)
+                            cpu_time_sec = parse_time(cpu_time)
+                            
+                            # Calculate CPU efficiency
+                            if cpu_time_sec > 0:
+                                cpu_efficiency = (total_cpu_sec / cpu_time_sec) * 100
+            except Exception as e:
+                # If sacct fails, leave efficiency as None
+                pass
+        
+        data.append({
+            'run_accession': run_accession,
+            'memory_gb': memory_mb / 1024,
+            'cpus': cpus,
+            'elapsed_min': elapsed_sec / 60,
+            'mem_efficiency': mem_efficiency,
+            'cpu_efficiency': cpu_efficiency,
+            'file_size_gb': file_size_gb,
+            'node': node
+        })
+    
+    # Create DataFrame
+    df = pd.DataFrame(data)
+    
+    if len(df) == 0:
+        print("  ⚠ No successful predictions found")
+        return
+    
+    # Sort by memory allocation
+    df = df.sort_values('memory_gb')
+    
+    # Calculate summary statistics
+    print(f"  Total samples: {len(df)}")
+    print(f"  Memory range: {df['memory_gb'].min():.1f} - {df['memory_gb'].max():.1f} GB")
+    print(f"  File size range: {df['file_size_gb'].min():.2f} - {df['file_size_gb'].max():.2f} GB")
+    
+    # Create LaTeX table
+    VALIDATION_DIR.mkdir(exist_ok=True, parents=True)
+    output_file = VALIDATION_DIR / 'resource_statistics.tex'
+    
+    with open(output_file, 'w') as f:
+        # Write table header
+        f.write("\\begin{table}[ht]\n")
+        f.write("\\centering\n")
+        f.write("\\caption{Resource usage statistics for validation predictions}\n")
+        f.write("\\label{tab:validation_resources}\n")
+        f.write("\\begin{tabular}{lrrrrr}\n")
+        f.write("\\toprule\n")
+        f.write("Sample & Memory & CPUs & Mem Eff. & CPU Eff. & File Size \\\\\n")
+        f.write("       & (GB)   &      & (\\%)     & (\\%)     & (GB) \\\\\n")
+        f.write("\\midrule\n")
+        
+        # Write table rows (first 50 samples)
+        for i, row in df.head(50).iterrows():
+            mem_eff_str = f"{row['mem_efficiency']:.1f}" if pd.notna(row['mem_efficiency']) else "---"
+            cpu_eff_str = f"{row['cpu_efficiency']:.1f}" if pd.notna(row['cpu_efficiency']) else "---"
+            
+            f.write(f"{row['run_accession']} & "
+                   f"{row['memory_gb']:.0f} & "
+                   f"{row['cpus']:.0f} & "
+                   f"{mem_eff_str} & "
+                   f"{cpu_eff_str} & "
+                   f"{row['file_size_gb']:.2f} \\\\\n")
+        
+        if len(df) > 50:
+            f.write("\\midrule\n")
+            f.write(f"\\multicolumn{{6}}{{c}}{{... {len(df) - 50} more samples ...}} \\\\\n")
+        
+        f.write("\\midrule\n")
+        
+        # Summary statistics
+        f.write(f"\\textbf{{Mean}} & "
+               f"{df['memory_gb'].mean():.1f} & "
+               f"{df['cpus'].mean():.1f} & "
+               f"{df['mem_efficiency'].mean():.1f} & "
+               f"{df['cpu_efficiency'].mean():.1f} & "
+               f"{df['file_size_gb'].mean():.2f} \\\\\n")
+        
+        f.write(f"\\textbf{{Median}} & "
+               f"{df['memory_gb'].median():.1f} & "
+               f"{df['cpus'].median():.1f} & "
+               f"{df['mem_efficiency'].median():.1f} & "
+               f"{df['cpu_efficiency'].median():.1f} & "
+               f"{df['file_size_gb'].median():.2f} \\\\\n")
+        
+        f.write("\\bottomrule\n")
+        f.write("\\end{tabular}\n")
+        f.write("\\end{table}\n")
+    
+    print(f"  ✓ Saved to {output_file}")
+    
+    # Also save as CSV for reference
+    csv_file = VALIDATION_DIR / 'resource_statistics.csv'
+    df.to_csv(csv_file, index=False)
+    print(f"  ✓ CSV saved to {csv_file}")
+    
+    return df
+
+
 def main():
     """Generate all paper figures."""
     print("="*80)
@@ -430,9 +630,12 @@ def main():
         print()
         create_figure4_pr_curves()
         print()
+        create_validation_resource_table()
+        print()
         print("="*80)
-        print("✅ All figures generated successfully!")
+        print("✅ All figures and tables generated successfully!")
         print(f"Output directory: {FIGURES_DIR}")
+        print(f"Tables directory: {VALIDATION_DIR}")
         print("="*80)
         
     except Exception as e:

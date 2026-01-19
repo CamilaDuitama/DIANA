@@ -64,6 +64,35 @@ PLOT_CONFIG = {
 
 
 # ============================================================================
+# HELPER FUNCTIONS
+# ============================================================================
+
+def filter_valid_labels(df: pd.DataFrame, subset: List[str] = None) -> pd.DataFrame:
+    """
+    Filter dataframe to remove rows with missing or empty labels.
+    
+    Args:
+        df: Input dataframe
+        subset: List of columns to check (default: ['true_label', 'pred_label'])
+    
+    Returns:
+        Filtered dataframe with only valid (non-null, non-empty) labels
+    """
+    if subset is None:
+        subset = ['true_label', 'pred_label']
+    
+    # Remove NaN/None values
+    df_clean = df.dropna(subset=subset).copy()
+    
+    # Remove empty strings
+    for col in subset:
+        if col in df_clean.columns:
+            df_clean = df_clean[df_clean[col].astype(str).str.strip() != '']
+    
+    return df_clean
+
+
+# ============================================================================
 # ARGUMENT PARSING
 # ============================================================================
 
@@ -203,7 +232,8 @@ def calculate_summary_metrics(df: pd.DataFrame, quiet: bool = False) -> pd.DataF
     summary_data = []
     
     for task in TASKS:
-        task_df = df[df['task'] == task].dropna(subset=['true_label', 'pred_label'])
+        task_df = df[df['task'] == task]
+        task_df = filter_valid_labels(task_df)
         
         if len(task_df) == 0:
             continue
@@ -239,7 +269,8 @@ def calculate_summary_metrics(df: pd.DataFrame, quiet: bool = False) -> pd.DataF
 
 def plot_confusion_matrix(df: pd.DataFrame, task: str, output_dir: Path, quiet: bool = False) -> None:
     """Generate confusion matrix heatmap using scikit-learn."""
-    task_df = df[df['task'] == task].dropna(subset=['true_label', 'pred_label'])
+    task_df = df[df['task'] == task]
+    task_df = filter_valid_labels(task_df)
     
     if len(task_df) == 0:
         return
@@ -281,7 +312,8 @@ def plot_confusion_matrix(df: pd.DataFrame, task: str, output_dir: Path, quiet: 
 
 def plot_per_class_performance(df: pd.DataFrame, task: str, output_dir: Path, quiet: bool = False) -> None:
     """Generate per-class performance metrics using classification_report."""
-    task_df = df[df['task'] == task].dropna(subset=['true_label', 'pred_label'])
+    task_df = df[df['task'] == task]
+    task_df = filter_valid_labels(task_df)
     
     if len(task_df) == 0:
         return
@@ -356,7 +388,8 @@ def plot_roc_pr_curves(
     quiet: bool = False
 ) -> None:
     """Generate ROC and PR curves with explicit positive class for binary tasks."""
-    task_df = df[df['task'] == task].dropna(subset=['true_label', 'pred_label'])
+    task_df = df[df['task'] == task]
+    task_df = filter_valid_labels(task_df)
     
     if len(task_df) == 0:
         return
@@ -428,7 +461,7 @@ def plot_roc_pr_curves(
                 x=fpr, y=tpr,
                 mode='lines',
                 name=f'{classes[i]} (AUC={roc_auc:.3f})',
-                line=dict(width=2, color=PLOT_CONFIG['colors']['palette'][i % len(PLOT_CONFIG['colors']['palette'])])
+                line=dict(width=4, color=PLOT_CONFIG['colors']['palette'][i % len(PLOT_CONFIG['colors']['palette'])])
             ))
     
     fig_roc.add_trace(go.Scatter(
@@ -453,7 +486,7 @@ def plot_roc_pr_curves(
     
     roc_png = output_dir / f"roc_curves_{task}.png"
     fig_roc.write_html(str(roc_png.with_suffix('.html')))
-    fig_roc.write_image(str(roc_png), width=800, height=600)
+    fig_roc.write_image(str(roc_png), width=1000, height=800)
     
     if not quiet:
         print(f"  ✓ {roc_png.name}")
@@ -470,7 +503,7 @@ def plot_roc_pr_curves(
                 x=recall, y=precision,
                 mode='lines',
                 name=f'{classes[i]} (AP={avg_precision:.3f})',
-                line=dict(width=2, color=PLOT_CONFIG['colors']['palette'][i % len(PLOT_CONFIG['colors']['palette'])])
+                line=dict(width=4, color=PLOT_CONFIG['colors']['palette'][i % len(PLOT_CONFIG['colors']['palette'])])
             ))
     
     fig_pr.update_layout(
@@ -488,7 +521,7 @@ def plot_roc_pr_curves(
     
     pr_png = output_dir / f"pr_curves_{task}.png"
     fig_pr.write_html(str(pr_png.with_suffix('.html')))
-    fig_pr.write_image(str(pr_png), width=800, height=600)
+    fig_pr.write_image(str(pr_png), width=1000, height=800)
     
     if not quiet:
         print(f"  ✓ {pr_png.name}")
@@ -496,7 +529,8 @@ def plot_roc_pr_curves(
 
 def plot_confidence_distribution(df: pd.DataFrame, task: str, output_dir: Path, quiet: bool = False) -> None:
     """Plot confidence distribution by correctness and label type."""
-    task_df = df[df['task'] == task].dropna(subset=['true_label', 'pred_label']).copy()
+    task_df = df[df['task'] == task]
+    task_df = filter_valid_labels(task_df).copy()
     
     if len(task_df) == 0:
         return
@@ -542,7 +576,8 @@ def plot_confidence_distribution(df: pd.DataFrame, task: str, output_dir: Path, 
 
 def plot_accuracy_comparison(df: pd.DataFrame, task: str, output_dir: Path, quiet: bool = False) -> None:
     """Compare accuracy on SEEN vs ALL labels."""
-    task_df = df[df['task'] == task].dropna(subset=['true_label', 'pred_label'])
+    task_df = df[df['task'] == task]
+    task_df = filter_valid_labels(task_df)
     
     if len(task_df) == 0:
         return

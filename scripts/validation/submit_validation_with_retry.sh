@@ -98,6 +98,9 @@ echo "  256GB: ${#TIER_256GB[@]} samples"
 echo "  512GB: ${#TIER_512GB[@]} samples"
 echo ""
 
+# Track submitted job IDs
+declare -a SUBMITTED_JOBS=()
+
 # Function to submit array job for a tier
 submit_tier() {
     local MEMORY=$1
@@ -110,54 +113,39 @@ submit_tier() {
         return
     fi
     
-    # Create temporary task mapping file
-    MAPPING_FILE=$(mktemp)
-    for i in "${!SAMPLES[@]}"; do
-        echo "$((i + 1)) ${SAMPLES[$i]}" >> "$MAPPING_FILE"
-    done
+    local NUM_SAMPLES=${#SAMPLES[@]}
     
-    local ARRAY_SIZE=${#SAMPLES[@]}
+    # Convert array to comma-separated list for SLURM --array
+    local TASK_LIST=$(IFS=,; echo "${SAMPLES[*]}")
     
-    echo "Submitting ${TIER_NAME} tier: ${ARRAY_SIZE} samples with ${MEMORY}MB memory"
+    # For large lists, truncate for display
+    if [ $NUM_SAMPLES -le 20 ]; then
+        echo "Submitting ${TIER_NAME} tier: ${NUM_SAMPLES} samples with ${MEMORY}MB memory (tasks: $TASK_LIST)"
+    else
+        # Show first 10 and last 10 task IDs
+        local FIRST_TEN="${SAMPLES[@]:0:10}"
+        local LAST_TEN_START=$((NUM_SAMPLES - 10))
+        local LAST_TEN="${SAMPLES[@]:$LAST_TEN_START:10}"
+        echo "Submitting ${TIER_NAME} tier: ${NUM_SAMPLES} samples with ${MEMORY}MB memory"
+        echo "  First 10 tasks: $(IFS=,; echo "${FIRST_TEN// /,}")"
+        echo "  Last 10 tasks: $(IFS=,; echo "${LAST_TEN// /,}")"
+    fi
     
-    # Create modified sbatch script that reads from mapping file
-    TEMP_SBATCH=$(mktemp --suffix=.sbatch)
-    cat > "$TEMP_SBATCH" <<'SBATCH_SCRIPT'
-#!/bin/bash
-#SBATCH --job-name=diana-val-TIER
-#SBATCH --output=logs/validation/diana_predict_%A_%a.out
-#SBATCH --error=logs/validation/diana_predict_%A_%a.err
-#SBATCH --cpus-per-task=6
-#SBATCH --partition=seqbio
-#SBATCH --exclude=maestro-2010
-
-# Read actual task ID from mapping file
-ACTUAL_TASK_ID=$(awk -v idx="$SLURM_ARRAY_TASK_ID" '$1 == idx {print $2}' "$TASK_MAPPING")
-
-# Export for the main script to use
-export OVERRIDE_TASK_ID=$ACTUAL_TASK_ID
-
-# Run main prediction script
-bash scripts/validation/05_run_predictions_single.sbatch
-SBATCH_SCRIPT
-    
-    # Replace TIER placeholder
-    sed -i "s/diana-val-TIER/diana-val-${TIER_NAME}/" "$TEMP_SBATCH"
-    
-    # Submit with memory override and mapping file
+    # Submit with specific task IDs (no mapping file needed!)
     JOB_ID=$(sbatch \
-        --array=1-${ARRAY_SIZE}%10 \
+        --array=${TASK_LIST}%10 \
         --mem=${MEMORY} \
-        --export=TASK_MAPPING="$MAPPING_FILE" \
-        "$TEMP_SBATCH" | awk '{print $4}')
+        --job-name=diana-val-${TIER_NAME} \
+        --output=logs/validation/diana_predict_%A_%a.out \
+        --error=logs/validation/diana_predict_%A_%a.err \
+        --cpus-per-task=6 \
+        --partition=seqbio \
+        --exclude=maestro-2010 \
+        scripts/validation/05_run_predictions_single.sbatch | awk '{print $4}')
     
     echo "  → Job ID: $JOB_ID"
-    echo "  → Mapping file: $MAPPING_FILE (saved for job duration)"
     
-    # Save mapping file with job ID for cleanup later
-    cp "$MAPPING_FILE" "data/validation/task_mapping_${JOB_ID}.txt"
-    
-    rm "$TEMP_SBATCH"
+    SUBMITTED_JOBS+=($JOB_ID)
 }
 
 # Submit jobs for each tier
@@ -169,10 +157,16 @@ submit_tier 512000 "512GB" "${TIER_512GB[@]}"
 
 echo ""
 echo "========================================"
-echo "All jobs submitted!"
+if [ ${#SUBMITTED_JOBS[@]} -eq 0 ]; then
+    echo "No jobs submitted - all samples already completed!"
+else
+    echo "Submitted ${#SUBMITTED_JOBS[@]} job(s): ${SUBMITTED_JOBS[*]}"
+fi
 echo ""
 echo "Monitor with: squeue -u $USER"
-echo "Check efficiency: reportseff <job_id>"
+if [ ${#SUBMITTED_JOBS[@]} -gt 0 ]; then
+    echo "Check efficiency: reportseff ${SUBMITTED_JOBS[0]}"
+fi
 echo ""
 echo "After jobs complete, re-run this script to retry OOM failures."
 echo "========================================"
