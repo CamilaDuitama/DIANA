@@ -84,6 +84,23 @@ mamba run -p ./env python scripts/data_prep/01_create_splits.py \
 
 **Critical:** Test set is held out for final evaluation only. Never used during training or hyperparameter optimization.
 
+### 3. Visualize Split Quality
+
+```bash
+# Generate data distribution plots to verify unbiased splits
+mamba run -p ./env python scripts/evaluation/01_plot_data_distribution.py \
+  --config configs/data_config.yaml
+```
+
+**Output:** `paper/figures/data_distribution/` (100+ distribution plots)
+
+**Key figures for validating split quality:**
+- `distribution_community_type_splits.png` - Verifies stratification worked (train/test have same class proportions)
+- `distribution_publication_year_splits.png` - Shows no temporal bias (train/test span same years)
+- `splits_world_map.html` - Interactive map showing no geographic bias (train/test cover same regions)
+
+These plots demonstrate that the 85/15 train/test split maintains representative distributions across all metadata dimensions, ensuring model evaluation reflects real-world performance.
+
 ---
 
 ## Model Training
@@ -418,34 +435,31 @@ logs/validation/
 └── ...
 ```
 
-**Resource profiling:**
-- Job metadata in `.jobinfo` tracks runtime, memory usage, CPU efficiency
-- Used for task 12 in TODO.md: resource profiling analysis
+### Analyze Validation Results
 
-**Scripts involved:**
-- `scripts/validation/submit_validation_with_retry.sh` - Orchestrator (groups by memory tier)
-- `scripts/validation/05_run_predictions_single.sbatch` - Worker (runs diana-predict)
-- `paper/metadata/validation_metadata.tsv` - 957 validation samples
+After predictions complete, generate all validation metrics, figures, and tables for the paper.
 
-**⚠️ WAIT:** Monitor job completion with `squeue -u $USER`
+**⚠️ IMPORTANT:** Run scripts in this exact order - later steps depend on outputs from earlier ones.
 
-### Compare Predictions to Ground Truth
+#### Step 1: Compare Validation Predictions
 
-After predictions complete, evaluate model performance on external validation set:
+This script computes **all validation metrics** (accuracy, balanced_accuracy, f1_macro) and generates validation figures:
 
 ```bash
-# Compare predictions to AncientMetagenome metadata (ground truth)
+# Compute validation metrics and generate individual task figures
 mamba run -p ./env python scripts/validation/06_compare_predictions.py \
   --predictions-dir results/validation_predictions \
   --metadata paper/metadata/validation_metadata.tsv \
   --output-dir paper
 ```
 
-### Generate Final Paper Figures
+#### Step 2: Generate All Paper Figures and Tables
+
+Generate all remaining figures and LaTeX tables in one command:
 
 ```bash
-# Create publication-ready multi-panel figures
-mamba run -p ./env python scripts/paper/generate_paper_figures.py
+# Generate all paper outputs (figures + tables)
+mamba run -p ./env python scripts/paper/generate_all_outputs.py
 ```
 
 

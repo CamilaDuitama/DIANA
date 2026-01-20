@@ -22,7 +22,9 @@ from sklearn.metrics import (
     roc_curve,
     auc,
     precision_recall_curve,
-    average_precision_score
+    average_precision_score,
+    balanced_accuracy_score,
+    f1_score
 )
 from sklearn.preprocessing import label_binarize
 
@@ -43,11 +45,11 @@ BINARY_POSITIVE_CLASS = {'sample_type': 'modern'}
 # Centralized plotting configuration
 PLOT_CONFIG = {
     'colors': {
-        'correct_seen': '#2E86AB',
-        'incorrect_seen': '#A6192E',
-        'correct_unseen': '#6A994E',
-        'incorrect_unseen': '#F77F00',
-        'palette': px.colors.qualitative.Set2
+        'correct_seen': '#636EFA',  # Blue
+        'incorrect_seen': '#EF553B',  # Red
+        'correct_unseen': '#00CC96',  # Green
+        'incorrect_unseen': '#FFA15A',  # Orange
+        'palette': px.colors.qualitative.Plotly  # Vivid, colorful palette
     },
     'template': 'plotly_white',
     'font_size': 12,
@@ -240,25 +242,45 @@ def calculate_summary_metrics(df: pd.DataFrame, quiet: bool = False) -> pd.DataF
         
         task_title = task.replace('_', ' ').title()
         
+        # Filter out rows with NaN labels before computing metrics
+        task_df_valid = filter_valid_labels(task_df)
+        
         # Seen-only metrics
-        seen_df = task_df[task_df['is_seen']]
+        seen_df = task_df_valid[task_df_valid['is_seen']]
         if len(seen_df) > 0:
+            y_true = seen_df['true_label'].values
+            y_pred = seen_df['pred_label'].values
+            
+            # Get all unique labels for this subset
+            seen_labels = sorted(set(y_true) | set(y_pred))
+            
             summary_data.append({
                 'Task': task_title,
                 'Subset': 'SEEN ONLY',
                 'Correct': seen_df['is_correct'].sum(),
                 'Total': len(seen_df),
-                'Accuracy (%)': f"{seen_df['is_correct'].mean() * 100:.1f}"
+                'Accuracy (%)': f"{seen_df['is_correct'].mean() * 100:.1f}",
+                'Balanced Accuracy (%)': f"{balanced_accuracy_score(y_true, y_pred) * 100:.1f}",
+                'F1 Score (%)': f"{f1_score(y_true, y_pred, labels=seen_labels, average='macro', zero_division=0) * 100:.1f}"
             })
         
-        # All samples
-        summary_data.append({
-            'Task': task_title,
-            'Subset': 'ALL SAMPLES',
-            'Correct': task_df['is_correct'].sum(),
-            'Total': len(task_df),
-            'Accuracy (%)': f"{task_df['is_correct'].mean() * 100:.1f}"
-        })
+        # All samples (with valid labels only)
+        if len(task_df_valid) > 0:
+            y_true = task_df_valid['true_label'].values
+            y_pred = task_df_valid['pred_label'].values
+            
+            # Get all unique labels for this subset
+            all_labels = sorted(set(y_true) | set(y_pred))
+            
+            summary_data.append({
+                'Task': task_title,
+                'Subset': 'ALL SAMPLES',
+                'Correct': task_df_valid['is_correct'].sum(),
+                'Total': len(task_df_valid),
+                'Accuracy (%)': f"{task_df_valid['is_correct'].mean() * 100:.1f}",
+                'Balanced Accuracy (%)': f"{balanced_accuracy_score(y_true, y_pred) * 100:.1f}",
+                'F1 Score (%)': f"{f1_score(y_true, y_pred, labels=all_labels, average='macro', zero_division=0) * 100:.1f}"
+            })
     
     return pd.DataFrame(summary_data)
 
@@ -456,11 +478,12 @@ def plot_roc_pr_curves(
         if np.sum(y_true_bin[:, i]) > 0:
             fpr, tpr, _ = roc_curve(y_true_bin[:, i], y_scores[:, i])
             roc_auc = auc(fpr, tpr)
+            n_samples = int(np.sum(y_true_bin[:, i]))
             
             fig_roc.add_trace(go.Scatter(
                 x=fpr, y=tpr,
                 mode='lines',
-                name=f'{classes[i]} (AUC={roc_auc:.3f})',
+                name=f'{classes[i]} (AUC={roc_auc:.3f}, n={n_samples})',
                 line=dict(width=4, color=PLOT_CONFIG['colors']['palette'][i % len(PLOT_CONFIG['colors']['palette'])])
             ))
     
@@ -498,11 +521,12 @@ def plot_roc_pr_curves(
         if np.sum(y_true_bin[:, i]) > 0:
             precision, recall, _ = precision_recall_curve(y_true_bin[:, i], y_scores[:, i])
             avg_precision = average_precision_score(y_true_bin[:, i], y_scores[:, i])
+            n_samples = int(np.sum(y_true_bin[:, i]))
             
             fig_pr.add_trace(go.Scatter(
                 x=recall, y=precision,
                 mode='lines',
-                name=f'{classes[i]} (AP={avg_precision:.3f})',
+                name=f'{classes[i]} (AP={avg_precision:.3f}, n={n_samples})',
                 line=dict(width=4, color=PLOT_CONFIG['colors']['palette'][i % len(PLOT_CONFIG['colors']['palette'])])
             ))
     
@@ -568,7 +592,7 @@ def plot_confidence_distribution(df: pd.DataFrame, task: str, output_dir: Path, 
     
     png_file = output_dir / f"confidence_distribution_{task}.png"
     fig.write_html(str(png_file.with_suffix('.html')))
-    fig.write_image(str(png_file), width=900, height=500)
+    fig.write_image(str(png_file), width=500, height=400)
     
     if not quiet:
         print(f"  ✓ {png_file.name}")
@@ -623,7 +647,7 @@ def plot_accuracy_comparison(df: pd.DataFrame, task: str, output_dir: Path, quie
     
     png_file = output_dir / f"accuracy_comparison_{task}.png"
     fig.write_html(str(png_file.with_suffix('.html')))
-    fig.write_image(str(png_file), width=500, height=400)
+    fig.write_image(str(png_file), width=900, height=500)
     
     if not quiet:
         print(f"  ✓ {png_file.name}")
@@ -669,15 +693,29 @@ def save_tables(
         
         for subset_name, subset_df in [('all', task_df), ('seen', task_df[task_df['is_seen']])]:
             if len(subset_df) > 0:
+                # Filter out rows with NaN true labels (missing metadata)
+                valid_subset = subset_df[subset_df['true_label'].notna()]
+                
+                if len(valid_subset) == 0:
+                    continue
+                
+                y_true = valid_subset['true_label'].values
+                y_pred = valid_subset['pred_label'].values
+                
+                # Get all unique labels (union of true and predicted)
+                all_labels = sorted(set(y_true) | set(y_pred))
+                
                 cm = {}
-                for _, row in subset_df.iterrows():
+                for _, row in valid_subset.iterrows():
                     key = f"{row['true_label']}_to_{row['pred_label']}"
                     cm[key] = cm.get(key, 0) + 1
                 
                 output_json[task][subset_name] = {
-                    'accuracy': float(subset_df['is_correct'].mean()),
-                    'correct': int(subset_df['is_correct'].sum()),
-                    'total': len(subset_df),
+                    'accuracy': float(valid_subset['is_correct'].mean()),
+                    'balanced_accuracy': float(balanced_accuracy_score(y_true, y_pred)),
+                    'f1_macro': float(f1_score(y_true, y_pred, labels=all_labels, average='macro', zero_division=0)),
+                    'correct': int(valid_subset['is_correct'].sum()),
+                    'total': len(valid_subset),
                     'confusion_matrix': cm
                 }
     
@@ -686,6 +724,118 @@ def save_tables(
     
     if not quiet:
         print(f"\n  ✓ Saved all tables")
+
+
+def create_paper_grid_figures(validation_dir: Path, quiet: bool = False) -> None:
+    """
+    Create publication-ready 2x2 grid figures by combining individual task plots.
+    
+    Generates:
+    - main_01_roc_curves.png: ROC curves for all 4 tasks
+    - main_02_pr_curves.png: PR curves for all 4 tasks  
+    - sup_01_confusion_matrices.png: Confusion matrices for all 4 tasks
+    - sup_02_confidence_scores.png: Confidence distributions for all 4 tasks
+    
+    Args:
+        validation_dir: Directory containing individual validation plot PNGs
+        quiet: If True, suppress output messages
+    """
+    try:
+        from PIL import Image
+    except ImportError:
+        if not quiet:
+            print("\n⚠ PIL/Pillow not available, skipping paper grid figures")
+        return
+    
+    if not quiet:
+        print("\nGenerating paper-ready grid figures...")
+    
+    paper_dir = Path("paper/figures")
+    paper_dir.mkdir(parents=True, exist_ok=True)
+    
+    tasks = ['sample_type', 'community_type', 'sample_host', 'material']
+    
+    # Define grid figure specifications
+    grids = [
+        {
+            'name': 'main_01_roc_curves',
+            'pattern': 'roc_curves_{}.png',
+            'description': 'ROC Curves'
+        },
+        {
+            'name': 'main_02_pr_curves',
+            'pattern': 'pr_curves_{}.png',
+            'description': 'PR Curves'
+        },
+        {
+            'name': 'sup_01_confusion_matrices',
+            'pattern': 'confusion_matrix_{}.png',
+            'description': 'Confusion Matrices'
+        },
+        {
+            'name': 'sup_02_confidence_scores',
+            'pattern': 'confidence_distribution_{}.png',
+            'description': 'Confidence Distributions'
+        }
+    ]
+    
+    for grid_spec in grids:
+        try:
+            # Load images for all 4 tasks
+            images = []
+            for task in tasks:
+                img_path = validation_dir / grid_spec['pattern'].format(task)
+                if not img_path.exists():
+                    if not quiet:
+                        print(f"  ⚠ Missing {img_path.name}, skipping {grid_spec['name']}")
+                    break
+                images.append(Image.open(img_path))
+            
+            if len(images) != 4:
+                continue
+            
+            # Get max dimensions
+            widths = [img.width for img in images]
+            heights = [img.height for img in images]
+            max_width = max(widths)
+            max_height = max(heights)
+            
+            # Resize all to same size (maintaining aspect ratio)
+            resized_images = []
+            for img in images:
+                if img.width != max_width or img.height != max_height:
+                    # Create white canvas
+                    canvas = Image.new('RGB', (max_width, max_height), 'white')
+                    # Center the image
+                    x_offset = (max_width - img.width) // 2
+                    y_offset = (max_height - img.height) // 2
+                    canvas.paste(img, (x_offset, y_offset))
+                    resized_images.append(canvas)
+                else:
+                    resized_images.append(img)
+            
+            # Create 2x2 grid (NO LABELS as per user request)
+            grid_width = max_width * 2
+            grid_height = max_height * 2
+            grid = Image.new('RGB', (grid_width, grid_height), 'white')
+            
+            # Paste images: top-left, top-right, bottom-left, bottom-right
+            grid.paste(resized_images[0], (0, 0))
+            grid.paste(resized_images[1], (max_width, 0))
+            grid.paste(resized_images[2], (0, max_height))
+            grid.paste(resized_images[3], (max_width, max_height))
+            
+            # Save with high resolution
+            output_path = paper_dir / f"{grid_spec['name']}.png"
+            grid.save(output_path, dpi=(300, 300))
+            
+            if not quiet:
+                size_kb = output_path.stat().st_size / 1024
+                print(f"  ✓ {grid_spec['description']}: {output_path.name} ({size_kb:.0f} KB)")
+        
+        except Exception as e:
+            if not quiet:
+                print(f"  ⚠ Error creating {grid_spec['name']}: {e}")
 
 
 # ============================================================================
@@ -733,6 +883,9 @@ def main() -> None:
     
     # Save tables
     save_tables(df, summary_df, tables_dir, quiet=args.quiet)
+    
+    # Generate paper-ready grid figures
+    create_paper_grid_figures(figures_dir, quiet=args.quiet)
     
     if not args.quiet:
         print(f"\n{'='*80}")
