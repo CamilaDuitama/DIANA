@@ -1,9 +1,9 @@
-Task	Subset	Correct	Total	Accuracy (%)
-Sample Type	SEEN ONLY	762	817	93.3
-Sample Type	ALL SAMPLES	762	817	93.3
-Community Type	SEEN ONLY	593	817	72.6
-Community Type	ALL SAMPLES	593	817	72.6
-Sample Host	SEEN ONLY	601	742	81.0
-Sample Host	ALL SAMPLES	601	817	73.6
-Material	SEEN ONLY	451	617	73.1
-Material	ALL SAMPLES	451	808	55.8
+Task	Subset	Correct	Total	Accuracy (%)	Balanced Accuracy (%)	F1 Score (%)
+Sample Type	SEEN ONLY	886	950	93.3	85.4	81.8
+Sample Type	ALL SAMPLES	886	950	93.3	85.4	81.8
+Community Type	SEEN ONLY	689	950	72.5	56.0	51.7
+Community Type	ALL SAMPLES	689	950	72.5	56.0	51.7
+Sample Host	SEEN ONLY	698	873	80.0	66.9	47.3
+Sample Host	ALL SAMPLES	698	950	73.5	26.0	20.7
+Material	SEEN ONLY	471	676	69.7	58.4	37.0
+Material	ALL SAMPLES	471	939	50.2	32.1	17.0

@@ -1,0 +1,22 @@
+\begin{table}[!t]
+\centering
+\caption{Computational resources for pipeline steps}
+\label{tab:resources}
+\begin{tabular}{lrrr}
+\toprule
+Pipeline Step & Samples & Time (h) & Memory (GB) \\
+\midrule
+Unitig matrix generation & 3,070 & 48 & 64 \\
+Model training (5-fold CV) & 2,609 & 12 & 32 \\
+Feature importance analysis & 461 & 0.5 & 16 \\
+BLAST annotation & 244 & 6 & 8 \\
+Validation inference (per sample) & 1 & 0.02 & 32--512 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item Time estimates are for typical single-CPU execution unless noted.
+\item Unitig matrix used kmtricks with k=31, allowing 1\% sequencing errors.
+\item Model training parallelized across 5 GPU nodes (NVIDIA A100).
+\item Validation inference memory scales with sample complexity (OOM auto-retry 32→512 GB).
+\end{tablenotes}
+\end{table}

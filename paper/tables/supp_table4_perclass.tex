@@ -1,0 +1,60 @@
+\begin{table*}[!p]
+\caption{Per-class performance on validation set (seen labels only)\label{tab:perclass_performance}}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}llrrrrr@{\extracolsep{\fill}}}
+\toprule
+Task & Class Label & n & Accuracy & Precision & Recall & F1-Score \\
+\midrule
+\multicolumn{7}{l}{\textbf{Sample Type}} \\
+\addlinespace[0.5em]
+ & ancient & 863 & 95.0\% & 97.5\% & 95.0\% & 96.2\% \\
+ & modern & 87 & 75.9\% & 60.6\% & 75.9\% & 67.3\% \\
+\addlinespace
+\multicolumn{7}{l}{\textbf{Community Type}} \\
+\addlinespace[0.5em]
+ & Not applicable - env sample & 246 & 93.5\% & 60.2\% & 93.5\% & 73.2\% \\
+ & gut & 25 & 36.0\% & 47.4\% & 36.0\% & 40.9\% \\
+ & oral & 578 & 69.6\% & 90.1\% & 69.6\% & 78.5\% \\
+ & plant tissue & 7 & 85.7\% & 50.0\% & 85.7\% & 63.2\% \\
+ & skeletal tissue & 82 & 51.2\% & 57.5\% & 51.2\% & 54.2\% \\
+ & soft tissue & 12 & 0.0\% & 0.0\% & 0.0\% & 0.0\% \\
+\addlinespace
+\multicolumn{7}{l}{\textbf{Sample Host}} \\
+\addlinespace[0.5em]
+ & \textit{Ambrosia artemisiifolia} & 3 & 100.0\% & 50.0\% & 100.0\% & 66.7\% \\
+ & \textit{Arabidopsis thaliana} & 4 & 50.0\% & 33.3\% & 50.0\% & 40.0\% \\
+ & \textit{Canis lupus} & 2 & 50.0\% & 100.0\% & 50.0\% & 66.7\% \\
+ & \textit{Gorilla sp.} & 0 & 0.0\% & 0.0\% & 0.0\% & 0.0\% \\
+ & \textit{Homo sapiens} & 579 & 74.1\% & 97.7\% & 74.1\% & 84.3\% \\
+ & \textit{Homo sapiens neanderthalensis} & 9 & 0.0\% & 0.0\% & 0.0\% & 0.0\% \\
+ & \textit{Mammuthus primigenius} & 0 & 0.0\% & 0.0\% & 0.0\% & 0.0\% \\
+ & \textit{Not applicable - env sample} & 237 & 94.5\% & 59.6\% & 94.5\% & 73.1\% \\
+ & \textit{Other mammal} & 0 & 0.0\% & 0.0\% & 0.0\% & 0.0\% \\
+ & \textit{Pan troglodytes} & 0 & 0.0\% & 0.0\% & 0.0\% & 0.0\% \\
+ & \textit{Rangifer tarandus} & 0 & 0.0\% & 0.0\% & 0.0\% & 0.0\% \\
+ & \textit{Ursus arctos} & 39 & 100.0\% & 90.7\% & 100.0\% & 95.1\% \\
+\addlinespace
+\multicolumn{7}{l}{\textbf{Material}} \\
+\addlinespace[0.5em]
+ & Oral & 47 & 4.3\% & 50.0\% & 4.3\% & 7.8\% \\
+ & Skin & 9 & 100.0\% & 13.4\% & 100.0\% & 23.7\% \\
+ & bone & 50 & 50.0\% & 64.1\% & 50.0\% & 56.2\% \\
+ & dental calculus & 356 & 90.7\% & 87.5\% & 90.7\% & 89.1\% \\
+ & digestive contents & 1 & 100.0\% & 9.1\% & 100.0\% & 16.7\% \\
+ & leaf & 7 & 71.4\% & 45.5\% & 71.4\% & 55.6\% \\
+ & midden & 1 & 0.0\% & 0.0\% & 0.0\% & 0.0\% \\
+ & permafrost & 14 & 71.4\% & 76.9\% & 71.4\% & 74.1\% \\
+ & sediment & 37 & 94.6\% & 76.1\% & 94.6\% & 84.3\% \\
+ & shell & 0 & 0.0\% & 0.0\% & 0.0\% & 0.0\% \\
+ & soft tissue & 0 & 0.0\% & 0.0\% & 0.0\% & 0.0\% \\
+ & soil & 28 & 14.3\% & 40.0\% & 14.3\% & 21.1\% \\
+ & tooth & 126 & 45.2\% & 64.0\% & 45.2\% & 53.0\% \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}
+\item Accuracy: proportion of samples in each class correctly classified.
+\item Precision: proportion of predictions for a class that were correct.
+\item Recall: proportion of true instances of a class that were correctly predicted.
+\item F1-Score: harmonic mean of precision and recall.
+\item For Sample Host and Material, only top 15 classes by sample count shown.
+\end{tablenotes}
+\end{table*}

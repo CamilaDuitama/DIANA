@@ -1,0 +1,35 @@
+\begin{table*}[!t]
+\centering
+\caption{Final model performance across training, test, and validation datasets\label{tab:performance}}
+\small
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrr@{\extracolsep{\fill}}}
+\toprule
+Task & Dataset & n & Acc (\%) & Bal Acc (\%) & F1 Score (\%) \\
+\midrule
+Sample Type (ancient/modern) & Training & 2,348 & 98.9 & 97.3 & 98.5 \\
+ & Test & 461 & 99.6 & 97.3 & 98.5 \\
+ & Validation & 950 & 93.3 & 85.4 & 81.8 \\
+\addlinespace
+Community Type (6 types) & Training & 2,348 & 92.3 & 89.2 & 90.5 \\
+ & Test & 461 & 92.8 & 89.2 & 90.5 \\
+ & Validation & 950 & 72.5 & 56.0 & 51.7 \\
+\addlinespace
+Sample Host (12 species) & Training & 2,348 & 96.9 & 78.1 & 82.9 \\
+ & Test & 461 & 93.7 & 78.1 & 82.9 \\
+ & Validation & 873 & 80.0 & 66.9 & 47.3 \\
+\addlinespace
+Material (13 types) & Training & 2,348 & 89.3 & 80.4 & 78.8 \\
+ & Test & 461 & 90.9 & 80.4 & 78.8 \\
+ & Validation & 676 & 69.7 & 58.4 & 37.0 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}
+\item Training: Performance on 10\% validation split during model training (2,348 samples trained, 261 validated).
+\item Test: Held-out test set (461 samples), never seen during training or optimization.
+\item Validation: External samples from AncientMetagenome database with labels seen during training.
+\item Acc: Accuracy. Bal Acc: Balanced Accuracy (average per-class recall). F1 Score: Macro-averaged F1-score.
+\item All metrics computed from seen labels only for validation set.
+\item Sample Type: ancient vs modern metagenome. Community Type: oral, gut, skeletal tissue, plant tissue, soft tissue, env sample.
+\item Sample Host: 12 species (Homo sapiens, Sus scrofa, Bos taurus, etc.). Material: 13 types (dental calculus, bone, tooth, sediment, etc.).
+\end{tablenotes}
+\end{table*}
