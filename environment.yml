@@ -18,7 +18,7 @@ dependencies:
   - pandas>=2.0
   - matplotlib>=3.7
   - seaborn>=0.12
-  - plotly
+  - plotly>=5.0,<6.0  # plotly 5.x works with python-kaleido 1.2.0 for PNG generation
   - python-kaleido>=1.0.0
   - tabulate
   - h5py
