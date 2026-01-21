@@ -35,6 +35,28 @@ import logging
 from diana.data.unitig_analyzer import UnitigAnalyzer
 from diana.data.loader import MatrixLoader
 
+# Plotly vivid color palette (consistent with paper figures)
+PLOTLY_VIVID_COLORS = [
+    '#636EFA',  # blue
+    '#EF553B',  # red
+    '#00CC96',  # green
+    '#AB63FA',  # purple
+    '#FFA15A',  # orange
+    '#19D3F3',  # cyan
+    '#FF6692',  # pink
+    '#B6E880',  # lime
+    '#FF97FF',  # magenta
+    '#FECB52',  # yellow
+]
+
+# Task color mapping (consistent across all figures)
+TASK_COLOR_MAP = {
+    'sample_type': PLOTLY_VIVID_COLORS[0],     # blue
+    'community_type': PLOTLY_VIVID_COLORS[1],  # red
+    'sample_host': PLOTLY_VIVID_COLORS[2],     # green
+    'material': PLOTLY_VIVID_COLORS[3]         # purple
+}
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -246,6 +268,7 @@ def create_sequence_analysis_plots(
         y='importance_score',
         color='task',
         size='length',
+        color_discrete_map=TASK_COLOR_MAP,
         title='Sequence Complexity vs Feature Importance',
         labels={
             'complexity': 'Sequence Complexity (Shannon Entropy)', 
@@ -269,16 +292,19 @@ def create_sequence_analysis_plots(
     
     # 3. Unitig length distribution per task (box + scatter, with BLAST hover)
     fig = go.Figure()
-    for task in task_names:
+    for idx, task in enumerate(task_names):
         task_data = df_merged.filter(
             (pl.col('task') == task) & (pl.col('rank') <= top_k)
         )
+        task_color = TASK_COLOR_MAP.get(task, PLOTLY_VIVID_COLORS[idx])
+        
         # Add box plot
         fig.add_trace(go.Box(
             y=task_data['length'].to_list(),
             name=task.replace('_', ' ').title(),
             boxmean='sd',
-            marker=dict(opacity=0.5),
+            marker=dict(color=task_color, opacity=0.5),
+            line=dict(color=task_color),
             showlegend=True
         ))
         # Add individual points with hover info

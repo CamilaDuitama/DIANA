@@ -3,11 +3,8 @@
 # ===============================================
 # This downloads .sra files from NCBI to local storage
 # Must run on submit node (has internet access)
-#
-# Usage: bash 03_prefetch_all.sh [accession_file]
-# Default: data/validation/accessions.txt
 
-ACCESSION_LIST="${1:-data/validation/accessions.txt}"
+ACCESSION_LIST="data/validation/accessions.txt"
 SRA_DIR="data/validation/sra"
 FAILED_LOG="${SRA_DIR}/failed_prefetch.txt"
 

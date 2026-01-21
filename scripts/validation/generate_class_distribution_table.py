@@ -2,6 +2,8 @@
 """
 Generate complete class distribution table for all tasks showing ALL labels
 across train/test/validation datasets.
+
+IMPORTANT: Validation counts include ONLY samples with successful predictions.
 """
 
 import polars as pl
@@ -12,7 +14,22 @@ PROJECT_ROOT = Path("/pasteur/appa/scratch/cduitama/EDID/decOM-classify")
 # Load datasets from paper/metadata
 train = pl.read_csv(PROJECT_ROOT / "paper" / "metadata" / "train_metadata.tsv", separator='\t')
 test = pl.read_csv(PROJECT_ROOT / "paper" / "metadata" / "test_metadata.tsv", separator='\t')
-val = pl.read_csv(PROJECT_ROOT / "paper" / "metadata" / "validation_metadata.tsv", separator='\t')
+val_full = pl.read_csv(PROJECT_ROOT / "paper" / "metadata" / "validation_metadata.tsv", separator='\t')
+
+# Filter validation to only samples with predictions
+predictions_dir = PROJECT_ROOT / "results" / "validation_predictions"
+successful_samples = []
+for sample_dir in predictions_dir.iterdir():
+    if sample_dir.is_dir():
+        jobinfo_file = sample_dir / ".jobinfo"
+        if jobinfo_file.exists():
+            import json
+            with open(jobinfo_file, 'r') as f:
+                jobinfo = json.load(f)
+                if jobinfo.get("status") == "SUCCESS":
+                    successful_samples.append(sample_dir.name)
+
+val = val_full.filter(pl.col('run_accession').is_in(successful_samples))
 
 tasks = {
     'sample_type': 'Sample Type',
@@ -31,7 +48,7 @@ latex.append(r"Task & Class & Training & Test & Validation & Total \\")
 latex.append(r"\midrule")
 
 for task_col, task_name in tasks.items():
-    # Get all unique labels across all datasets (filter out None/NaN)
+    # Get all unique labels across all datasets (filter out None)
     train_labels = set(l for l in train[task_col].unique().to_list() if l is not None)
     test_labels = set(l for l in test[task_col].unique().to_list() if l is not None)
     val_labels = set(l for l in val[task_col].unique().to_list() if l is not None)
@@ -69,46 +86,19 @@ latex.append(r"\bottomrule")
 latex.append(r"\end{tabular*}")
 latex.append(r"\begin{tablenotes}")
 latex.append(r"\item Training and test samples from curated AncientMetagenomeDir dataset (Logan et al.).")
-latex.append(r"\item Validation samples from AncientMetagenomeDir v25.09.0 and MGnify modern samples, excluding overlaps with train/test.")
-latex.append(r"\item Validation set: 1082 samples (937 ancient + 145 modern; 772 host-associated, 305 environmental; 28.2\% environmental).")
+latex.append(r"\item Validation samples from AncientMetagenomeDir v25.09.0, excluding overlaps with train/test.")
+latex.append(fr"\item Validation set: {len(successful_samples)} samples with successful predictions (out of 957 total).")
 latex.append(r"\item Classes with 0 validation samples were present in training but not in external validation set.")
 latex.append(r"\item Classes with 0 training samples are UNSEEN by the model and cannot be correctly predicted.")
 latex.append(r"\end{tablenotes}")
 latex.append(r"\end{table*}")
 
-# Write LaTeX to file
+# Write to file
 output_file = PROJECT_ROOT / "paper" / "tables" / "class_distribution.tex"
 with open(output_file, 'w') as f:
     f.write('\n'.join(latex))
 
-print(f"✓ LaTeX table written to {output_file}")
-
-# Also save as TSV for easy viewing
-tsv_lines = [f"Task\tClass\tTraining (n={len(train)})\tTest (n={len(test)})\tValidation (n={len(val)})\tTotal"]
-for task_col, task_name in tasks.items():
-    train_labels = set(l for l in train[task_col].unique().to_list() if l is not None)
-    test_labels = set(l for l in test[task_col].unique().to_list() if l is not None)
-    val_labels = set(l for l in val[task_col].unique().to_list() if l is not None)
-    all_labels = sorted(train_labels | test_labels | val_labels)
-    
-    counts = []
-    for label in all_labels:
-        train_count = train.filter(pl.col(task_col) == label).shape[0]
-        test_count = test.filter(pl.col(task_col) == label).shape[0]
-        val_count = val.filter(pl.col(task_col) == label).shape[0]
-        total = train_count + test_count + val_count
-        counts.append((label, train_count, test_count, val_count, total))
-    
-    counts.sort(key=lambda x: x[4], reverse=True)
-    
-    for label, train_c, test_c, val_c, total in counts:
-        tsv_lines.append(f"{task_name}\t{label}\t{train_c}\t{test_c}\t{val_c}\t{total}")
-
-tsv_file = PROJECT_ROOT / "paper" / "tables" / "class_distribution.tsv"
-with open(tsv_file, 'w') as f:
-    f.write('\n'.join(tsv_lines))
-
-print(f"✓ TSV table written to {tsv_file}")
+print(f"✓ Table written to {output_file}")
 print(f"\nTotal unique classes per task:")
 for task_col, task_name in tasks.items():
     train_labels = set(train[task_col].unique().to_list())

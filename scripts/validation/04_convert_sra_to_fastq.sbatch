@@ -6,7 +6,7 @@
 #SBATCH --time=12:00:00
 #SBATCH --mem=8G
 #SBATCH --cpus-per-task=4
-#SBATCH --array=1-1075%20
+#SBATCH --array=1-880%20
 
 # Step 2: Convert .sra to FASTQ on seqbio partition
 # ==================================================

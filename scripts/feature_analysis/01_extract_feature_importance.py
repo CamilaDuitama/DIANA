@@ -41,6 +41,20 @@ import yaml
 from diana.data.loader import MatrixLoader
 from diana.models.multitask_mlp import MultiTaskMLP
 
+# Plotly vivid color palette (consistent with paper figures)
+PLOTLY_VIVID_COLORS = [
+    '#636EFA',  # blue
+    '#EF553B',  # red
+    '#00CC96',  # green
+    '#AB63FA',  # purple
+    '#FFA15A',  # orange
+    '#19D3F3',  # cyan
+    '#FF6692',  # pink
+    '#B6E880',  # lime
+    '#FF97FF',  # magenta
+    '#FECB52',  # yellow
+]
+
 
 def load_config(config_path: str) -> Dict:
     """Load configuration from YAML file."""
@@ -443,11 +457,11 @@ def create_feature_importance_plots(
         horizontal_spacing=0.12
     )
     
-    # Define colors for each method
+    # Define colors for each method (Plotly vivid palette)
     method_colors = {
-        'weight_based': '#1f77b4',
-        'gradient_based': '#ff7f0e',
-        'permutation': '#2ca02c'
+        'weight_based': PLOTLY_VIVID_COLORS[0],  # blue
+        'gradient_based': PLOTLY_VIVID_COLORS[1],  # red
+        'permutation': PLOTLY_VIVID_COLORS[2]  # green
     }
     
     for idx, task in enumerate(task_names):
