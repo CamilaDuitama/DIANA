@@ -56,6 +56,28 @@ except ImportError:
 
 from diana.data.unitig_analyzer import UnitigAnalyzer
 
+# Plotly vivid color palette (consistent with paper figures)
+PLOTLY_VIVID_COLORS = [
+    '#636EFA',  # blue
+    '#EF553B',  # red
+    '#00CC96',  # green
+    '#AB63FA',  # purple
+    '#FFA15A',  # orange
+    '#19D3F3',  # cyan
+    '#FF6692',  # pink
+    '#B6E880',  # lime
+    '#FF97FF',  # magenta
+    '#FECB52',  # yellow
+]
+
+# Task color mapping (consistent across all figures)
+TASK_COLOR_MAP = {
+    'sample_type': PLOTLY_VIVID_COLORS[0],     # blue
+    'community_type': PLOTLY_VIVID_COLORS[1],  # red
+    'sample_host': PLOTLY_VIVID_COLORS[2],     # green
+    'material': PLOTLY_VIVID_COLORS[3]         # purple
+}
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -544,13 +566,13 @@ def create_blast_hit_rate_plot(
     pct_hits = (num_hits / num_total * 100) if num_total > 0 else 0
     pct_no_hits = (num_no_hits / num_total * 100) if num_total > 0 else 0
     
-    # Create pie chart
+    # Create pie chart (using Plotly vivid color palette)
     fig = go.Figure(data=[go.Pie(
         labels=['BLAST Hits Found', 'No BLAST Hits'],
         values=[num_hits, num_no_hits],
         hole=0.3,
         marker=dict(
-            colors=['#2ecc71', '#e74c3c'],
+            colors=[PLOTLY_VIVID_COLORS[0], PLOTLY_VIVID_COLORS[1]],  # blue and red
             line=dict(color='white', width=2)
         ),
         textinfo='label+percent+value',
@@ -800,11 +822,10 @@ def create_taxonomic_visualizations(
                 y=genera_names,
                 orientation='h',
                 marker=dict(
-                    color=counts,
-                    colorscale='Viridis',
-                    showscale=(idx == 0)
+                    color=TASK_COLOR_MAP.get(task, PLOTLY_VIVID_COLORS[idx]),
+                    opacity=0.8
                 ),
-                name=task,
+                name=task.replace('_', ' ').title(),
                 showlegend=False
             ),
             row=row, col=col

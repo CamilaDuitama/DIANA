@@ -1,22 +1,21 @@
 \begin{table}[!t]
 \centering
-\caption{Computational resources for pipeline steps}
+\caption{Validation inference computational resources stratified by memory tier (950 samples)}
 \label{tab:resources}
-\begin{tabular}{lrrr}
+\begin{tabular}{lrrrr}
 \toprule
-Pipeline Step & Samples & Time (h) & Memory (GB) \\
+Memory (GB) & N & Runtime (min) & Input size (GB) \\
 \midrule
-Unitig matrix generation & 3,070 & 48 & 64 \\
-Model training (5-fold CV) & 2,609 & 12 & 32 \\
-Feature importance analysis & 461 & 0.5 & 16 \\
-BLAST annotation & 244 & 6 & 8 \\
-Validation inference (per sample) & 1 & 0.02 & 32--512 \\
+31 & 707 & 1.66 $\pm$ 1.34 & 0.89 $\pm$ 2.16 \\
+62 & 117 & 4.44 $\pm$ 1.75 & 1.21 $\pm$ 0.54 \\
+125 & 50 & 8.85 $\pm$ 2.50 & 3.37 $\pm$ 1.13 \\
+250 & 64 & 14.86 $\pm$ 5.57 & 5.73 $\pm$ 1.82 \\
+500 & 12 & 28.39 $\pm$ 8.13 & 10.78 $\pm$ 3.04 \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}
-\item Time estimates are for typical single-CPU execution unless noted.
-\item Unitig matrix used kmtricks with k=31, allowing 1\% sequencing errors.
-\item Model training parallelized across 5 GPU nodes (NVIDIA A100).
-\item Validation inference memory scales with sample complexity (OOM auto-retry 32→512 GB).
+\item Runtime includes MUSET unitig extraction, matrix building, and neural network inference.
+\item Memory tiers result from auto-scaling retry system (32→64→128→256→512 GB) for OOM failures.
+\item Larger input files require longer processing time and higher memory allocation.
 \end{tablenotes}
 \end{table}

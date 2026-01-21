@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Generate data split validation figure (2x2 grid, 3 data panels + world map note).
+Generate data split validation figure (2x2 grid, 3 data panels + world map).
 
 Output: paper/figures/sup_03_data_split_validation.png
 """
 import logging
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -16,30 +16,19 @@ def main():
     output = Path("paper/figures/sup_03_data_split_validation.png")
     output.parent.mkdir(parents=True, exist_ok=True)
     
-    # Load panels (no labels as per user request)
+    # Load all 4 panels (no labels as per user request)
     a = Image.open(fdir / "distribution_community_type_splits.png")
     b = Image.open(fdir / "distribution_publication_year_splits.png")
     c = Image.open(fdir / "distribution_unitig_size_gb_splits.png")
-    
-    # Create note panel D
-    mw = max(a.width, b.width, c.width)
-    mh = max(a.height, b.height, c.height)
-    d = Image.new('RGB', (mw, mh), (250, 250, 250))
-    draw = ImageDraw.Draw(d)
-    try:
-        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 28)
-    except:
-        font = ImageFont.load_default()
-    
-    txt = "World Map\n\nSee interactive version:\nsplits_world_map.html"
-    bbox = draw.textbbox((0, 0), txt, font=font)
-    tw = bbox[2]
-    draw.text(((mw-tw)//2, mh//3), txt, fill=(80, 80, 80), font=font, align='center')
+    d = Image.open(fdir / "splits_world_map.png")
     
     # Resize to same size
+    mw = max(a.width, b.width, c.width, d.width)
+    mh = max(a.height, b.height, c.height, d.height)
     a = a.resize((mw, mh), Image.Resampling.LANCZOS)
     b = b.resize((mw, mh), Image.Resampling.LANCZOS)
     c = c.resize((mw, mh), Image.Resampling.LANCZOS)
+    d = d.resize((mw, mh), Image.Resampling.LANCZOS)
     
     # Create 2x2 grid
     grid = Image.new('RGB', (mw*2, mh*2), (255, 255, 255))

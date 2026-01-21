@@ -38,6 +38,7 @@ env/
 *~
 
 # Data (large files)
+*tar.gz
 data/raw/*
 !data/raw/.gitkeep
 data/splits/*
@@ -46,6 +47,8 @@ data/matrices/*
 !data/matrices/.gitkeep
 data/validation/raw/
 reference_kmers.fasta*
+data/validation/task_mapping*
+data/validation/sra/
 
 # Large BLAST results
 paper/blast_results/blast_results.txt

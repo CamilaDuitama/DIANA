@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate world map PNG using matplotlib scatter plot.
+Generate world map PNG using matplotlib with Natural Earth coastlines.
 Simple approach with no external GIS dependencies.
 
 Output: paper/figures/data_distribution/splits_world_map.png
@@ -10,6 +10,8 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 import logging
 from collections import Counter
+import urllib.request
+import json
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -109,8 +111,61 @@ def extract_country(location_str):
     country = parts[0].strip()
     return country if country else None
 
+def download_world_geojson():
+    """Download simplified world coastlines from Natural Earth."""
+    cache_file = Path("paper/figures/.world_coastlines.json")
+    
+    if cache_file.exists():
+        logger.info("Using cached world coastlines")
+        with open(cache_file) as f:
+            return json.load(f)
+    
+    logger.info("Downloading world coastlines from Natural Earth...")
+    url = "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson"
+    
+    try:
+        with urllib.request.urlopen(url, timeout=30) as response:
+            data = json.loads(response.read().decode())
+        
+        # Cache for future use
+        cache_file.parent.mkdir(parents=True, exist_ok=True)
+        with open(cache_file, 'w') as f:
+            json.dump(data, f)
+        
+        logger.info("✓ Downloaded and cached world coastlines")
+        return data
+    except Exception as e:
+        logger.warning(f"Failed to download coastlines: {e}")
+        return None
+
+def plot_world_borders(ax, geojson_data):
+    """Plot country borders from GeoJSON data."""
+    if not geojson_data:
+        return
+    
+    for feature in geojson_data.get('features', []):
+        geom = feature.get('geometry', {})
+        geom_type = geom.get('type')
+        coords = geom.get('coordinates', [])
+        
+        if geom_type == 'Polygon':
+            for polygon in coords:
+                xs = [pt[0] for pt in polygon]
+                ys = [pt[1] for pt in polygon]
+                ax.plot(xs, ys, color='#666666', linewidth=0.5, alpha=0.6, zorder=1)
+        
+        elif geom_type == 'MultiPolygon':
+            for multi_polygon in coords:
+                for polygon in multi_polygon:
+                    xs = [pt[0] for pt in polygon]
+                    ys = [pt[1] for pt in polygon]
+                    ax.plot(xs, ys, color='#666666', linewidth=0.5, alpha=0.6, zorder=1)
+
 def main():
     logger.info("Loading train/test metadata...")
+    
+    # Download world borders
+    world_data = download_world_geojson()
     
     # Load splits
     train_df = pl.read_csv("data/splits/train_metadata.tsv", separator='\t')
@@ -130,54 +185,53 @@ def main():
     logger.info(f"Mapped {len(train_counts)} countries in train set")
     logger.info(f"Mapped {len(test_counts)} countries in test set")
     
+    # Log sample distribution to verify size variation
+    if train_counts:
+        train_min, train_max = min(train_counts.values()), max(train_counts.values())
+        logger.info(f"Train samples per country: {train_min} to {train_max}")
+    if test_counts:
+        test_min, test_max = min(test_counts.values()), max(test_counts.values())
+        logger.info(f"Test samples per country: {test_min} to {test_max}")
+    
     # Create figure
     fig, ax = plt.subplots(figsize=(20, 10))
     
-    # Plot train samples (larger circles for more samples)
+    # Set background and limits first
+    ax.set_facecolor('#d4e6f1')  # Light blue ocean
+    ax.set_xlim(-180, 180)
+    ax.set_ylim(-90, 90)
+    
+    # Plot world borders
+    plot_world_borders(ax, world_data)
+    
+    # Plot train samples (marker size proportional to sample count)
     if train_counts:
         train_lats = [COUNTRY_COORDS[c][0] for c in train_counts.keys()]
         train_lons = [COUNTRY_COORDS[c][1] for c in train_counts.keys()]
-        train_sizes = [train_counts[c] * 15 for c in train_counts.keys()]
+        # Scale markers: smaller multiplier (20) to avoid overlap
+        train_sizes = [train_counts[c] * 20 for c in train_counts.keys()]
         
         ax.scatter(train_lons, train_lats, s=train_sizes, c=COLORS['Train'],
-                   alpha=0.7, edgecolors='black', linewidth=1.0, label='Train', zorder=3)
+                   alpha=0.7, edgecolors='black', linewidth=0.8, label='Train', zorder=3)
     
-    # Plot test samples
+    # Plot test samples (marker size proportional to sample count)
     if test_counts:
         test_lats = [COUNTRY_COORDS[c][0] for c in test_counts.keys()]
         test_lons = [COUNTRY_COORDS[c][1] for c in test_counts.keys()]
-        test_sizes = [test_counts[c] * 15 for c in test_counts.keys()]
+        # Scale markers: smaller multiplier (20) to avoid overlap
+        test_sizes = [test_counts[c] * 20 for c in test_counts.keys()]
         
         ax.scatter(test_lons, test_lats, s=test_sizes, c=COLORS['Test'],
-                   alpha=0.7, edgecolors='black', linewidth=1.0, label='Test', zorder=3)
+                   alpha=0.7, edgecolors='black', linewidth=0.8, label='Test', zorder=3)
     
     # Style the map
-    ax.set_xlim(-180, 180)
-    ax.set_ylim(-90, 90)
     ax.set_xlabel('Longitude', fontsize=16, fontweight='bold')
     ax.set_ylabel('Latitude', fontsize=16, fontweight='bold')
     ax.set_title('Geographic Distribution of Train and Test Samples', 
                  fontsize=20, fontweight='bold', pad=20)
-    ax.grid(True, alpha=0.3, linestyle='--', linewidth=0.5)
-    ax.legend(fontsize=14, loc='lower left', framealpha=0.9)
-    ax.set_facecolor('#e6f2ff')  # Light blue background
-    
-    # Add reference lines (equator and prime meridian)
-    ax.axhline(y=0, color='gray', linewidth=1, alpha=0.4, linestyle=':')
-    ax.axvline(x=0, color='gray', linewidth=1, alpha=0.4, linestyle=':')
-    
-    # Add continent labels for context
-    continents = [
-        ("North America", 45, -100),
-        ("South America", -15, -60),
-        ("Europe", 50, 10),
-        ("Africa", 0, 20),
-        ("Asia", 30, 90),
-        ("Australia", -25, 135),
-    ]
-    for name, lat, lon in continents:
-        ax.text(lon, lat, name, fontsize=11, alpha=0.4, style='italic',
-                ha='center', va='center', color='gray')
+    ax.grid(True, alpha=0.2, linestyle='--', linewidth=0.5, zorder=2)
+    ax.legend(fontsize=16, loc='upper left', framealpha=0.95, 
+              edgecolor='black', fancybox=False, shadow=False, markerscale=0.4)
     
     # Save figure
     output_dir = Path("paper/figures/data_distribution")

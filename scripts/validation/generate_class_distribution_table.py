@@ -2,6 +2,8 @@
 """
 Generate complete class distribution table for all tasks showing ALL labels
 across train/test/validation datasets.
+
+IMPORTANT: Validation counts include ONLY samples with successful predictions.
 """
 
 import polars as pl
@@ -12,7 +14,22 @@ PROJECT_ROOT = Path("/pasteur/appa/scratch/cduitama/EDID/decOM-classify")
 # Load datasets from paper/metadata
 train = pl.read_csv(PROJECT_ROOT / "paper" / "metadata" / "train_metadata.tsv", separator='\t')
 test = pl.read_csv(PROJECT_ROOT / "paper" / "metadata" / "test_metadata.tsv", separator='\t')
-val = pl.read_csv(PROJECT_ROOT / "paper" / "metadata" / "validation_metadata.tsv", separator='\t')
+val_full = pl.read_csv(PROJECT_ROOT / "paper" / "metadata" / "validation_metadata.tsv", separator='\t')
+
+# Filter validation to only samples with predictions
+predictions_dir = PROJECT_ROOT / "results" / "validation_predictions"
+successful_samples = []
+for sample_dir in predictions_dir.iterdir():
+    if sample_dir.is_dir():
+        jobinfo_file = sample_dir / ".jobinfo"
+        if jobinfo_file.exists():
+            import json
+            with open(jobinfo_file, 'r') as f:
+                jobinfo = json.load(f)
+                if jobinfo.get("status") == "SUCCESS":
+                    successful_samples.append(sample_dir.name)
+
+val = val_full.filter(pl.col('run_accession').is_in(successful_samples))
 
 tasks = {
     'sample_type': 'Sample Type',
@@ -31,10 +48,10 @@ latex.append(r"Task & Class & Training & Test & Validation & Total \\")
 latex.append(r"\midrule")
 
 for task_col, task_name in tasks.items():
-    # Get all unique labels across all datasets
-    train_labels = set(train[task_col].unique().to_list())
-    test_labels = set(test[task_col].unique().to_list())
-    val_labels = set(val[task_col].unique().to_list())
+    # Get all unique labels across all datasets (filter out None)
+    train_labels = set(l for l in train[task_col].unique().to_list() if l is not None)
+    test_labels = set(l for l in test[task_col].unique().to_list() if l is not None)
+    val_labels = set(l for l in val[task_col].unique().to_list() if l is not None)
     all_labels = sorted(train_labels | test_labels | val_labels)
     
     # Count samples for each label
@@ -70,7 +87,7 @@ latex.append(r"\end{tabular*}")
 latex.append(r"\begin{tablenotes}")
 latex.append(r"\item Training and test samples from curated AncientMetagenomeDir dataset (Logan et al.).")
 latex.append(r"\item Validation samples from AncientMetagenomeDir v25.09.0, excluding overlaps with train/test.")
-latex.append(r"\item Validation set: 974 samples (696 host-associated, 278 environmental; 28.5\% environmental).")
+latex.append(fr"\item Validation set: {len(successful_samples)} samples with successful predictions (out of 957 total).")
 latex.append(r"\item Classes with 0 validation samples were present in training but not in external validation set.")
 latex.append(r"\item Classes with 0 training samples are UNSEEN by the model and cannot be correctly predicted.")
 latex.append(r"\end{tablenotes}")

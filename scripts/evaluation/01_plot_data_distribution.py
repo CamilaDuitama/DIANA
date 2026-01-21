@@ -122,7 +122,18 @@ def main():
         return
         
     logger.info("Loading splits...")
-    train_ids, val_ids, test_ids = StratifiedSplitter.load_splits(splits_dir)
+    # Load train and test splits (val is optional)
+    with open(splits_dir / "train_ids.txt") as f:
+        train_ids = [line.strip() for line in f]
+    
+    with open(splits_dir / "test_ids.txt") as f:
+        test_ids = [line.strip() for line in f]
+    
+    # Val is optional - load if exists, otherwise empty
+    val_ids = []
+    if (splits_dir / "val_ids.txt").exists():
+        with open(splits_dir / "val_ids.txt") as f:
+            val_ids = [line.strip() for line in f if line.strip()]
     
     id_col = "Run_accession"
     train_df = df.filter(pl.col(id_col).is_in(train_ids))
