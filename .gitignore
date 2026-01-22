@@ -36,6 +36,8 @@ paper/figures/
 paper/notebooks/
 paper/tables/
 paper/blast_results/
+paper/metadata/backups*/  # Metadata backups
+paper/metadata/*.backup  # Metadata backup files
 *.ipynb_checkpoints/
 
 # IDE
@@ -53,10 +55,11 @@ data/splits/*
 data/matrices/*
 !data/matrices/.gitkeep
 data/validation/raw/
-data/validation/sra/  # Downloaded SRA FASTQ files (950+ sample directories)
+data/validation/sra/
 data/validation/*.mat  # Validation matrix files (regenerable)
-data/validation/*.txt  # Task mapping files
+data/validation/*.txt  # Task mapping and sample ID files
 data/validation/*.fof  # kmtricks file-of-files
+data/validation/backups*/  # Metadata backups
 reference_kmers.fasta*
 
 # Test/dummy data (large matrix files)
@@ -71,8 +74,8 @@ models/**/*.pt
 models/**/*.pth
 models/**/*.h5
 models/**/*.pkl
-models/calibration_plots/  # Temperature scaling plots (regenerable)
-models/optimal_temperatures.json  # Calibration outputs (regenerable)
+models/calibration_plots/
+models/optimal_temperatures.json
 !models/.gitkeep
 
 # Training results (large model checkpoints)
@@ -92,9 +95,10 @@ results/training/*/checkpoint_*.pth  # Any checkpoint files
 results/inference/  # Inference outputs
 results/validation_predictions/  # Validation outputs (regenerable, 134GB)
 results/validation_memory_analysis.csv
-results/consistency_check/  # Calibration outputs (regenerable)
-results/mc_dropout*/  # MC dropout outputs (regenerable)
-results/ood_detection/  # OOD detection outputs (regenerable)
+results/consistency_check/  # Calibration outputs
+results/mc_dropout*/  # MC dropout outputs - directories
+results/mc_dropout*.tsv  # MC dropout outputs - TSV files
+results/ood_detection/  # OOD detection outputs
 results_backup*/  # Temporary backups
 !results/**/.gitkeep
 
@@ -110,12 +114,12 @@ logs/*.log
 logs/*.txt
 logs/*.err
 logs/*.out
-logs/*.tar.gz  # Archived logs
+logs/*.tar.gz
 logs/validation/
 logs/inference/
 logs/final_training/
 logs/multitask/
-logs/downloads/  # Download logs
+logs/downloads/
 !logs/.gitkeep
 
 # Test outputs
