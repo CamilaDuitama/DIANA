@@ -31,8 +31,6 @@ mamba activate ./env
 python -c "import torch, polars, plotly; print('✓ Environment ready')"
 ```
 
-**Requirements:** Python 3.10, PyTorch, Polars, Plotly, scikit-learn, Optuna, ETE3, Biopython, seqkit
-
 ---
 
 ## Data Preparation
@@ -49,22 +47,50 @@ bash scripts/create_umat/01_build_muset.sh
 sbatch scripts/create_umat/02_regenerate_matrix_with_frac.sbatch
 ```
 
-**Output:** `unitigs.frac.mat` (3070 samples × 107,480 features, 1.6GB)
+**Output:** `unitigs.frac.mat` (107,480 features × 3,071 samples, 1.6GB)
+
+> **Note:** Matrix is stored in transposed format (samples as rows). The 107,480 rows represent unitigs, and 3,071 columns represent samples. When loaded by `MatrixLoader`, it's automatically transposed to (3,070 samples × 107,480 features).
 
 ### 2. Prepare Metadata
 
-Metadata file: `data/metadata/DIANA_metadata.tsv`
+Metadata files are located in `paper/metadata/`:
+- `train_metadata.tsv` (2,609 samples)
+- `test_metadata.tsv` (461 samples)
+- `validation_metadata.tsv` (950 samples)
 
-Required columns:
+**All three files have identical 48 columns** (standardized format).
+
+**Training + Test combined: 3,070 samples**
+
+**Task columns and classes (train/test):**
+- `sample_type`: 2 classes (ancient_metagenome, modern_metagenome)
+- `material`: 13 classes (dental calculus, sediment, tooth, bone, digestive_contents, etc.)
+- `sample_host`: 12 classes (Homo sapiens, Not applicable - env sample, Ursus arctos, Gorilla sp., etc.)
+- `community_type`: 6 classes (oral, Not applicable - env sample, skeletal tissue, soft tissue, gut, plant tissue)
+
+**Key columns:**
 - `Run_accession`: Sample identifier
-- `sample_type`: ancient_metagenome | modern_metagenome
-- `community_type`: oral | gut | skeletal tissue | plant tissue | soft tissue | env sample
-- `sample_host`: Homo sapiens | Ursus arctos | environmental | etc. (12 classes)
-- `material`: dental calculus | tooth | bone | sediment | etc. (13 classes)
+- `sample_type`, `material`, `sample_host`, `community_type`: Target labels
+- Plus 44 additional metadata columns (SRA fields, sequence stats, etc.)
+
+> **Note:** Validation set contains additional classes not in training (20 material types, 18 host species) due to broader ancient sample diversity.
 
 ---
 
 ## Train/Test Split
+
+The train/test split is **already prepared** in `data/splits/`:
+- `train_ids.txt` (2,609 samples, 85%)
+- `test_ids.txt` (461 samples, 15%)
+
+Metadata files in `paper/metadata/` are filtered versions:
+- `train_metadata.tsv` - Contains only training samples
+- `test_metadata.tsv` - Contains only test samples
+
+**Critical:** Test set is held out for final evaluation only. Never used during training or hyperparameter optimization.
+
+<details>
+<summary>To regenerate splits from scratch (optional)</summary>
 
 ```bash
 # Create stratified 85/15 train/test split
@@ -76,13 +102,9 @@ mamba run -p ./env python scripts/data_prep/01_create_splits.py \
   --random-state 42
 ```
 
-**Output:**
-- `data/splits/train_ids.txt` (2609 samples)
-- `data/splits/test_ids.txt` (461 samples)
-- `data/splits/train_metadata.tsv`
-- `data/splits/test_metadata.tsv`
+This will regenerate `train_ids.txt`, `test_ids.txt`, and metadata files.
 
-**Critical:** Test set is held out for final evaluation only. Never used during training or hyperparameter optimization.
+</details>
 
 ---
 
@@ -91,8 +113,9 @@ mamba run -p ./env python scripts/data_prep/01_create_splits.py \
 **Configuration:** `configs/train_config.yaml`
 
 Key settings:
-- **Data:** Uses `train_metadata.tsv` (2609 samples only)
-- **Tasks:** sample_type, community_type, sample_host, material
+- **Data:** Uses `paper/metadata/train_metadata.tsv` (2,609 samples only)
+- **Tasks:** sample_type, material, sample_host, community_type
+- **Class imbalance:** Automatic class-weighted loss (minority classes weighted higher)
 - **CV:** 5-fold outer CV, 3-fold inner CV
 - **Optimization:** 50 Optuna trials per fold
 - **Execution:** SLURM GPU array jobs (`use_slurm: true`)
@@ -188,9 +211,13 @@ mamba run -p ./env diana-train multitask \
 
 **What happens:**
 - Automatically loads `results/training/cv_results/best_hyperparameters.json`
-- Trains on 90% of 2609 train samples (2348 samples)
+- Computes class weights for handling imbalanced classes (e.g., Homo sapiens majority)
+- Trains on 90% of 2,609 train samples (2,348 samples)
 - Uses 10% for validation and early stopping (261 samples)
 - Saves model when validation loss plateaus
+
+**Class weighting formula:** `w_i = total / (n_classes * count_i)`  
+Minority classes get higher weights in CrossEntropyLoss, making misclassifications more costly.
 
 **Expected outputs:**
 ```
@@ -218,7 +245,7 @@ mamba run -p ./env diana-test \
   --model results/full_training/best_model.pth \
   --config results/full_training/final_training_config.json \
   --matrix data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat \
-  --metadata data/splits/test_metadata.tsv \
+  --metadata paper/metadata/test_metadata.tsv \
   --test-ids data/splits/test_ids.txt \
   --output results/test_evaluation
 ```

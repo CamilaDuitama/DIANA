@@ -30,7 +30,12 @@ env/
 .ipynb_checkpoints
 
 # Paper outputs (tracked in local-results branch only)
-paper/
+# NOTE: paper/metadata/ IS tracked (essential training/test/validation metadata)
+paper/experiments/
+paper/figures/
+paper/notebooks/
+paper/tables/
+paper/blast_results/
 *.ipynb_checkpoints/
 
 # IDE
@@ -48,10 +53,11 @@ data/splits/*
 data/matrices/*
 !data/matrices/.gitkeep
 data/validation/raw/
+data/validation/sra/  # Downloaded SRA FASTQ files (950+ sample directories)
+data/validation/*.mat  # Validation matrix files (regenerable)
+data/validation/*.txt  # Task mapping files
+data/validation/*.fof  # kmtricks file-of-files
 reference_kmers.fasta*
-
-# Large BLAST results
-paper/blast_results/blast_results.txt
 
 # Test/dummy data (large matrix files)
 data/test_data/matrices/*
@@ -65,6 +71,8 @@ models/**/*.pt
 models/**/*.pth
 models/**/*.h5
 models/**/*.pkl
+models/calibration_plots/  # Temperature scaling plots (regenerable)
+models/optimal_temperatures.json  # Calibration outputs (regenerable)
 !models/.gitkeep
 
 # Training results (large model checkpoints)
@@ -84,6 +92,10 @@ results/training/*/checkpoint_*.pth  # Any checkpoint files
 results/inference/  # Inference outputs
 results/validation_predictions/  # Validation outputs (regenerable, 134GB)
 results/validation_memory_analysis.csv
+results/consistency_check/  # Calibration outputs (regenerable)
+results/mc_dropout*/  # MC dropout outputs (regenerable)
+results/ood_detection/  # OOD detection outputs (regenerable)
+results_backup*/  # Temporary backups
 !results/**/.gitkeep
 
 # External tools (installed separately)
@@ -98,9 +110,12 @@ logs/*.log
 logs/*.txt
 logs/*.err
 logs/*.out
+logs/*.tar.gz  # Archived logs
 logs/validation/
 logs/inference/
 logs/final_training/
+logs/multitask/
+logs/downloads/  # Download logs
 !logs/.gitkeep
 
 # Test outputs
@@ -115,8 +130,6 @@ Thumbs.db
 *.tmp
 *.bak
 *.tmp.*.bin
+*.tar.gz  # Archive files (DIANA_paper_outputs, validation_outputs, etc.)
 tmp/
 
-# Paper outputs (HTML files are regenerable, keep PNGs for publication)
-paper/figures/**/*.html
-paper/tables/**/*.html
