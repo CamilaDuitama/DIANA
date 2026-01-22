@@ -516,6 +516,7 @@ def save_no_hit_sequences(
     logger.info("Identifying sequences with no BLAST hits...")
     
     blast_dir = output_dir.parent.parent / 'blast_results'
+    blast_dir.mkdir(exist_ok=True, parents=True)
     
     # Find features with no BLAST hits
     if len(df_blast) > 0:

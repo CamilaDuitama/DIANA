@@ -26,6 +26,15 @@
     * Should be: sample_host="Homo sapiens", community_type="skin" (they are human skin microbiome studies)
   - Original decOM metadata shows Organism="human skin metagenome" confirming these are microbiome samples
   - Same issue likely affects Oral material samples
-  - Validation Skin samples (20) currently have correct sample_host="Homo sapiens" but community_type="Not applicable - env sample" (inconsistent)
+  - Validation Skin samples (9) currently have correct sample_host="Homo sapiens" but community_type="Not applicable - env sample" (inconsistent)
+  - **VALIDATION EVIDENCE (Jan 22, 2026):**
+    * Material predictions: 9/9 correct (74.5% avg confidence) ✓
+    * Host predictions: 0/9 correct (81.7% avg confidence on WRONG predictions!) - all predicted environmental
+    * Community predictions: 7/9 "correct" only because validation metadata also mislabeled as environmental
+    * Model confidently learned wrong pattern from training data
   - Decision needed: Fix train/test metadata to proper labels OR document as limitation
   - Fixing requires: update metadata → retrain models → rerun all validation → regenerate all tables/figures
+  - **WHEN RE-TRAINING:**
+    * ✅ Use class-weighted loss (highest priority) to handle class imbalance during training
+    * ✅ Consider focal loss for material task (hardest task)
+    * Schedule: Tomorrow (Jan 23, 2026)
