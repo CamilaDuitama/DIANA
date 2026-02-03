@@ -458,12 +458,28 @@ tail -f logs/validation/diana_predict_*.err
 
 **After all predictions complete, generate validation metrics and figures:**
 ```bash
-# Compare predictions to true labels and generate tables/figures
-# All paths use script defaults, so minimal command:
-mamba run -p ./env python scripts/validation/06_compare_predictions.py
+# Load validation predictions with metadata (shared utility)
+# This creates a standardized DataFrame used by all paper scripts
+mamba run -p ./env python scripts/validation/load_validation_data.py
 
+# Output: DataFrame with columns - sample_id, task, true_label, pred_label, 
+#         confidence, is_correct, is_seen
+
+# Generate all publication-ready figures and tables
+bash scripts/paper/generate_all_paper_materials.sh
+
+# Or generate individual outputs:
+# - Figures: main_01-04 (confusion, ROC/PR, features, BLAST)
+# - Figures: sup_01-02 (runtime, data split)  
+# - Tables: main_table_01-02 (performance summary, computational resources)
+# - Tables: sup_table_01-06 (class distribution, unseen labels, per-class performance, 
+#                             hyperparameters, wrong predictions, BLAST summary)
+
+# Legacy comparison script (still functional):
+mamba run -p ./env python scripts/validation/06_compare_predictions.py
 ```
+
 ---
 
-**Last Updated:** January 2026
+**Last Updated:** February 2026
 
