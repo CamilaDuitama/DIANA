@@ -467,36 +467,41 @@ def main():
     
     # Load trained model
     logger.info(f"Loading model from {args.model}...")
+    
+    # Load model config
+    config_path = Path(args.model).parent / "final_training_config.json"
+    if config_path.exists():
+        logger.info(f"Loading config from {config_path}...")
+        with open(config_path) as f:
+            config = json.load(f)
+        model_params = config["hyperparameters"]["model_params"]
+        hidden_dims = model_params["hidden_dims"]
+        dropout = model_params["dropout"]
+        use_batch_norm = model_params["use_batch_norm"]
+        activation = model_params["activation"]
+    else:
+        logger.warning(f"Config not found at {config_path}, using defaults")
+        hidden_dims = [512, 256, 128]
+        dropout = 0.5
+        use_batch_norm = True
+        activation = "relu"
+    
     checkpoint = torch.load(args.model, map_location=device)
     
-    # Extract model state and hyperparameters
+    # Extract model state
     if "model_state_dict" in checkpoint:
         model_state = checkpoint["model_state_dict"]
-        hyperparams = checkpoint.get("hyperparams", {})
     else:
         model_state = checkpoint
-        hyperparams = {}
     
-    # Reconstruct hidden_dims from checkpoint format
-    # Checkpoint stores as: hidden_dim_0, hidden_dim_1, ... and n_layers
-    if "n_layers" in hyperparams:
-        hidden_dims = [
-            hyperparams[f"hidden_dim_{i}"]
-            for i in range(hyperparams["n_layers"])
-        ]
-    else:
-        hidden_dims = hyperparams.get("hidden_dims", [512, 256, 128])
-    
-    # Initialize model with same architecture
-    # NOTE: Default hyperparameters should match those used during training.
-    # If hyperparameters are missing from checkpoint, these defaults are used.
+    # Initialize model with same architecture as training
     model = MultiTaskMLP(
         input_dim=X_val.shape[1],
         hidden_dims=hidden_dims,
         num_classes=num_classes,
-        dropout=hyperparams.get("dropout", 0.5),
-        use_batch_norm=hyperparams.get("use_batch_norm", True),
-        activation=hyperparams.get("activation", "relu")
+        dropout=dropout,
+        use_batch_norm=use_batch_norm,
+        activation=activation
     )
     
     model.load_state_dict(model_state)

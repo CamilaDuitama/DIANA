@@ -26,7 +26,8 @@ logger = logging.getLogger(__name__)
 
 # Plotly theme configuration
 TEMPLATE = 'plotly_white'
-COLOR_PALETTE = px.colors.qualitative.Set2
+# Vivid color palette for discrete values (colorblind-friendly)
+COLOR_PALETTE = ['#0077BB', '#33BBEE', '#EE7733', '#CC3311', '#009988', '#EE3377']
 
 
 def load_data(metrics_path: Path, history_path: Path, config_path: Path, 
@@ -56,12 +57,16 @@ def save_figure(fig, output_path: Path, width=1200, height=800):
     # Save HTML (interactive)
     html_path = output_path.with_suffix('.html')
     fig.write_html(str(html_path))
-    logger.info(f"Saved HTML: {html_path}")
+    logger.info(f"✓ Saved HTML: {html_path}")
     
-    # Save PNG (static)
+    # Save PNG (let Plotly auto-detect kaleido)
     png_path = output_path.with_suffix('.png')
-    fig.write_image(str(png_path), width=width, height=height, scale=2)
-    logger.info(f"Saved PNG: {png_path}")
+    try:
+        fig.write_image(str(png_path), width=width, height=height, scale=2)  # High resolution
+        logger.info(f"✓ Saved PNG: {png_path}")
+    except Exception as e:
+        logger.warning(f"Could not save PNG: {e}")
+        logger.info(f"HTML version available at: {html_path}")
 
 
 def plot_multitask_performance_summary(metrics: Dict, output_path: Path):
@@ -131,7 +136,7 @@ def plot_confusion_matrix(cm: np.ndarray, class_names: List[str],
         textfont=dict(size=10),
         hovertext=hover_text,
         hoverinfo='text',
-        colorscale='Blues',
+        colorscale='Teal',
         colorbar=dict(title='Count')
     ))
     
@@ -523,8 +528,8 @@ def main():
     
     # Create output directories
     output_dir = Path(args.output_dir)
-    figures_dir = output_dir / 'figures' / 'model_evaluation'
-    tables_dir = output_dir / 'tables' / 'model_evaluation'
+    figures_dir = output_dir / 'figures'
+    tables_dir = output_dir / 'tables'
     figures_dir.mkdir(parents=True, exist_ok=True)
     tables_dir.mkdir(parents=True, exist_ok=True)
     
@@ -536,7 +541,13 @@ def main():
         Path(args.predictions), Path(args.label_encoders)
     )
     
+    # Count total figures to generate
+    total_figures = 1 + (len(metrics) * 4) + 1  # 1 summary + (4 per task) + 1 training curves
+    current = 0
+    
     # 1. Multi-Task Performance Summary
+    current += 1
+    logger.info(f"\n[{current}/{total_figures}] Generating multi-task performance summary...")
     plot_multitask_performance_summary(
         metrics,
         figures_dir / 'test_set_multitask_performance_summary'
@@ -547,6 +558,8 @@ def main():
         class_names = encoders[task_name]['classes']
         
         # Confusion Matrix
+        current += 1
+        logger.info(f"\n[{current}/{total_figures}] Generating confusion matrix for {task_name}...")
         cm = np.array(task_metrics['confusion_matrix'])
         plot_confusion_matrix(
             cm, class_names, task_name,
@@ -554,6 +567,8 @@ def main():
         )
         
         # Per-Class Metrics Bar Chart
+        current += 1
+        logger.info(f"\n[{current}/{total_figures}] Generating per-class metrics for {task_name}...")
         plot_per_class_metrics(
             task_metrics['classification_report'],
             task_name,
@@ -568,6 +583,8 @@ def main():
         )
     
     # 4. Training & Validation Loss
+    current += 1
+    logger.info(f"\n[{current}/{total_figures}] Generating training curves...")
     plot_training_curves(
         history,
         figures_dir / 'training_set_loss_curves'
@@ -577,11 +594,15 @@ def main():
     for task_name in metrics.keys():
         class_names = encoders[task_name]['classes']
         
+        current += 1
+        logger.info(f"\n[{current}/{total_figures}] Generating ROC curves for {task_name}...")
         plot_roc_curves(
             predictions_df, task_name, class_names,
             figures_dir / f'test_set_roc_curves_{task_name}'
         )
         
+        current += 1
+        logger.info(f"\n[{current}/{total_figures}] Generating precision-recall curves for {task_name}...")
         plot_precision_recall_curves(
             predictions_df, task_name, class_names,
             figures_dir / f'test_set_pr_curves_{task_name}'

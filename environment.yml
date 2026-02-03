@@ -19,7 +19,6 @@ dependencies:
   - matplotlib>=3.7
   - seaborn>=0.12
   - plotly
-  - python-kaleido>=1.0.0
   - tabulate
   - h5py
   - pyarrow
@@ -46,3 +45,5 @@ dependencies:
       - tqdm
       - wandb
       - scikit-multilearn
+      - optuna>=3.0  # Hyperparameter optimization
+      - kaleido==0.2.1  # PNG export for plotly (stable version for HPC)

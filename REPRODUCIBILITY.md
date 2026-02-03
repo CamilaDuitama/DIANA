@@ -27,6 +27,9 @@ mamba env create -f environment.yml -p ./env
 # Activate environment
 mamba activate ./env
 
+#Install diana-train
+mamba run -p ./env pip install -e .
+
 # Verify installation
 python -c "import torch, polars, plotly; print('✓ Environment ready')"
 ```
@@ -56,7 +59,7 @@ sbatch scripts/create_umat/02_regenerate_matrix_with_frac.sbatch
 Metadata files are located in `paper/metadata/`:
 - `train_metadata.tsv` (2,609 samples)
 - `test_metadata.tsv` (461 samples)
-- `validation_metadata.tsv` (950 samples)
+- `validation_metadata.tsv` (1,029 samples)
 
 **All three files have identical 48 columns** (standardized format).
 
@@ -120,7 +123,15 @@ Key settings:
 - **Optimization:** 50 Optuna trials per fold
 - **Execution:** SLURM GPU array jobs (`use_slurm: true`)
 
-### Step 1: Hyperparameter Optimization
+### Two Training Approaches
+
+You can use either the **CLI workflow** (recommended for reproducibility) or the **direct SBATCH submission** (for manual control).
+
+---
+
+#### Approach A: CLI Workflow (Recommended)
+
+**Step 1: Hyperparameter Optimization**
 
 ```bash
 # Submit 5-fold CV hyperparameter search (SLURM array job)
@@ -130,120 +141,43 @@ mamba run -p ./env diana-train multitask \
   --mode optimize
 ```
 
+This internally submits `scripts/training/run_multitask_gpu.sbatch` as a SLURM array job.
+
+**Step 2: Train Final Model**
+
+After all folds complete (`squeue -j <job_id>` shows no jobs):
+
+```bash
+# Train on full training set with best hyperparameters from CV
+mamba run -p ./env diana-train multitask \
+  --config configs/train_config.yaml \
+  --output results/training \
+  --mode train
+```
+
 **What happens:**
-- Submits SLURM array job with 5 tasks (fold_0 through fold_4)
-- Each fold runs 50 Optuna trials with 3-fold inner CV
-- Jobs run in parallel on GPU nodes
-- Command exits immediately after submission
+- Automatically aggregates fold results if `best_hyperparameters.json` doesn't exist
+- Trains on 90% of training set (2,348 samples)
+- Uses 10% for validation and early stopping (261 samples)
+- Saves final model when validation loss plateaus
 
-**Monitor jobs:**
+**Optional:** To manually aggregate fold results before training:
 ```bash
-# Check job status (use job ID from diana-train output)
-squeue -j <job_id>
-sacct -j <job_id> --format=JobID,State,ExitCode,Elapsed
-
-# Check logs (created in logs/ directory)
-tail -f logs/*.err
-grep "Best trial" logs/*.err  # See best hyperparams per fold
-```
-
-**Expected outputs:**
-```
-results/training/cv_results/
-├── fold_0/
-│   ├── multitask_fold_0_results_<timestamp>.json
-│   ├── optuna_study.db
-│   └── training_log.txt
-├── fold_1/
-├── fold_2/
-├── fold_3/
-└── fold_4/
-```
-
-**⚠️ WAIT:** All 5 SLURM jobs must complete before Step 2! Check with `squeue -j <job_id>`
-
-### Step 2: Aggregate Fold Results
-
-After all folds complete, aggregate results to determine best hyperparameters:
-
-```bash
-# Aggregate 5 fold results into best hyperparameters
 mamba run -p ./env diana-train multitask \
   --config configs/train_config.yaml \
   --output results/training \
   --mode aggregate
 ```
 
-**What happens:**
-- Reads results from all 5 folds in `results/training/cv_results/fold_*/`
-- Aggregates hyperparameters (mean for numeric, mode for categorical)
-- Computes mean ± std for metrics across folds
-- Saves aggregated results
-
-**Expected outputs:**
-```
-results/training/cv_results/
-├── fold_0/ ... fold_4/               # From Step 1
-├── best_hyperparameters.json         # Aggregated best params
-└── aggregated_results.json           # Metrics summary
-```
-
-**Example aggregated hyperparameters:**
-```json
-{
-  "learning_rate": 0.0021,
-  "weight_decay": 0.0001,
-  "hidden_dims": [512, 256, 128],
-  "dropout": 0.3,
-  "batch_size": 64
-}
-```
-
-### Step 3: Train Final Model
-
-```bash
-# Train on full training set with aggregated best hyperparameters
-mamba run -p ./env diana-train multitask \
-  --config configs/train_config.yaml \
-  --output results/full_training \
-  --mode train
-```
-
-**What happens:**
-- Automatically loads `results/training/cv_results/best_hyperparameters.json`
-- Computes class weights for handling imbalanced classes (e.g., Homo sapiens majority)
-- Trains on 90% of 2,609 train samples (2,348 samples)
-- Uses 10% for validation and early stopping (261 samples)
-- Saves model when validation loss plateaus
-
-**Class weighting formula:** `w_i = total / (n_classes * count_i)`  
-Minority classes get higher weights in CrossEntropyLoss, making misclassifications more costly.
-
-**Expected outputs:**
-```
-results/full_training/
-├── best_model.pth                    # Trained model weights
-├── training_history.json             # Loss/accuracy curves
-├── label_encoders.json               # Class mappings for each task
-├── final_training_config.json        # Full config used for training
-└── cv_results/                       # From Steps 1-2 (symlink or copied)
-    ├── best_hyperparameters.json
-    └── aggregated_results.json
-```
-
-**Training time:** ~10-30 minutes on GPU (depends on early stopping)
-
----
-
 ## Model Evaluation
 
-### Step 4: Test on Held-Out Set
+### Step 3: Test on Held-Out Set
 
 ```bash
 # Evaluate on test set (461 samples, never seen during training or optimization)
 mamba run -p ./env diana-test \
-  --model results/full_training/best_model.pth \
-  --config results/full_training/final_training_config.json \
+  --model results/training/best_model.pth \
+  --config results/training/final_training_config.json \
   --matrix data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat \
   --metadata paper/metadata/test_metadata.tsv \
   --test-ids data/splits/test_ids.txt \
@@ -259,45 +193,39 @@ results/test_evaluation/
 └── classification_reports/           # Detailed per-class metrics
 ```
 
-### Step 5: Generate Performance Plots and Tables
+### Step 4: Generate Performance Plots and Tables
 
 ```bash
 # Create publication-ready figures and tables
 mamba run -p ./env python scripts/evaluation/04_model_performance_metrics.py \
   --metrics results/test_evaluation/test_metrics.json \
-  --history results/full_training/training_history.json \
-  --config results/full_training/final_training_config.json \
+  --history results/training/training_history.json \
+  --config results/training/final_training_config.json \
   --predictions results/test_evaluation/test_predictions.tsv \
-  --label-encoders results/full_training/label_encoders.json \
-  --output-dir paper/figures
+  --label-encoders results/training/label_encoders.json \
+  --output-dir paper
 ```
 
 **Expected outputs:**
 ```
-paper/figures/model_evaluation/
-├── test_set_multitask_performance_summary.html
-├── test_set_confusion_matrix_sample_type.png
-├── test_set_confusion_matrix_community_type.png
-├── test_set_confusion_matrix_sample_host.png
-├── test_set_confusion_matrix_material.png
-├── test_set_roc_curves_sample_type.html
-├── test_set_pr_curves_sample_type.html
-└── training_loss_curves.html
+paper/figures/
+├── test_set_multitask_performance_summary.html + .png
+├── test_set_confusion_matrix_{task}.html + .png       # 4 tasks
+├── test_set_per_class_metrics_{task}.html + .png      # 4 tasks
+├── test_set_roc_curves_{task}.html + .png             # 4 tasks
+├── test_set_pr_curves_{task}.html + .png              # 4 tasks
+└── training_set_loss_curves.html + .png
 
-paper/tables/model_evaluation/
-├── test_set_performance_summary.csv
-├── test_set_per_class_metrics_sample_type.csv
-├── test_set_per_class_metrics_community_type.csv
-├── test_set_per_class_metrics_sample_host.csv
-├── test_set_per_class_metrics_material.csv
-└── hyperparameters.csv
+paper/tables/
+├── test_set_performance_summary.csv + .tex + .html + .png
+├── test_set_per_class_metrics_{task}.csv + .tex       # 4 tasks
+└── hyperparameters.csv + .tex + .html + .png
 ```
-
 ---
 
 ## Feature Analysis
 
-### Step 6: Extract Feature Importance
+### Step 5: Extract Feature Importance
 
 ```bash
 # Compute gradient-based and weight-based importance scores
@@ -305,28 +233,7 @@ mamba run -p ./env python scripts/feature_analysis/01_extract_feature_importance
   --config configs/feature_analysis.yaml
 ```
 
-**Expected outputs:**
-```
-paper/tables/feature_analysis/
-├── top_100_features_weight_based.csv    # Top 100 features per task (weight method)
-├── top_100_features_weight_based.md     # Markdown summary
-├── top_100_features_gradient_based.csv  # Top 100 features per task (gradient method)
-└── top_100_features_gradient_based.md   # Markdown summary
-
-paper/figures/feature_analysis/
-├── feature_importance_heatmap_weight_based.html
-├── feature_importance_heatmap_weight_based.png
-├── feature_importance_heatmap_gradient_based.html
-├── feature_importance_heatmap_gradient_based.png
-├── feature_overlap_weight_based.html
-├── feature_overlap_weight_based.png
-├── feature_overlap_gradient_based.html
-├── feature_overlap_gradient_based.png
-├── feature_importance_comparison.html
-└── feature_importance_comparison.png
-```
-
-### Step 7: Analyze Feature Sequences
+### Step 6: Analyze Feature Sequences
 
 ```bash
 # Compute sequence properties (GC content, length, complexity)
@@ -348,11 +255,11 @@ paper/figures/feature_analysis/
 └── fraction_prevalence.html
 ```
 
-### Step 8: Taxonomic Annotation with BLAST
+### Step 7: Taxonomic Annotation with BLAST
 
 ```bash
-# Run BLAST against NCBI nt database (takes several hours)
-sbatch scripts/feature_analysis/run_blast_annotation.sbatch
+# Run BLAST against NCBI nt database for all 107,480 unitig features (4-12 hours)
+sbatch scripts/feature_analysis/run_blast_all_features.sbatch
 
 # Wait for BLAST jobs to complete, then parse results
 mamba run -p ./env python scripts/feature_analysis/03_annotate_features.py \
@@ -374,13 +281,37 @@ paper/figures/feature_analysis/
 └── taxonomy_sunburst_sample_type.html    # Interactive hierarchy
 ```
 
+### Step 8: Aggregate Feature Analysis for Paper Figures
+
+```bash
+# Create aggregated TSV files for validation comparison plots
+mamba run -p ./env python scripts/feature_analysis/05_aggregate_for_validation.py
+```
+
+**Expected outputs:**
+```
+results/feature_analysis/
+├── feature_importance_by_genus.tsv     # Genus counts per task (for main figure)
+└── blast_annotations.tsv               # BLAST hit rates (for main figure)
+```
+
 ---
 
 ## Validation
 
 ### Prepare Validation Dataset
 
-The validation set combines ancient samples from AncientMetagenomeDir and modern samples from MGnify to match training distribution.
+The validation set combines:
+- **Ancient samples** from AncientMetagenomeDir (863 samples, highly curated)
+- **Modern samples** from interactive review (166 metagenomics samples, improved distribution)
+
+**Key principle:** Match the training set's sample type distribution (84% ancient, 16% modern)
+while testing model generalization to completely unseen samples.
+
+> **Starting fresh vs continuing:** 
+> - If you have existing downloads: Scripts will **skip existing files** automatically
+> - If starting from scratch: Follow all steps below  
+> - If you only want to re-query modern samples: Skip to [step 2](#2-get-modern-samples-from-mgnify-recommended)
 
 #### 1. Get Ancient Samples from AncientMetagenomeDir
 
@@ -398,74 +329,141 @@ mamba run -p ./env python scripts/validation/01b_remove_overlap.py
 mamba run -p ./env python scripts/validation/02_prepare_download.py
 ```
 
-**Output:** `data/validation/accessions.txt` (~938 ancient samples)
+**Output:** `data/validation/accessions.txt` (863 ancient samples initially)
 
-#### 2. Get Modern Samples from MGnify (Optional)
+#### 2. Add Modern Samples via Interactive Review
+
+Modern samples were added through manual curation using interactive review:
 
 ```bash
-# Query MGnify API for modern samples
-mamba run -p ./env python scripts/validation/10_simple_mgnify_query.py
+# Interactive review of modern samples with SRA metadata
+# (Already completed - 166 modern samples approved and merged into validation_metadata.tsv)
+mamba run -p ./env python scripts/validation/interactive_label_review.py
 
-# Expand sample accessions to run accessions via ENA
-mamba run -p ./env python scripts/validation/11_expand_modern_samples.py
-
-# Balance to match training distribution
-mamba run -p ./env python scripts/validation/12_balance_modern_samples.py
+# Merge reviewed samples into validation_metadata.tsv
+# (Already completed - validation_metadata.tsv now contains 1,029 samples)
+mamba run -p ./env python scripts/validation/merge_reviewed_samples.py
 ```
 
-**Output:** `data/validation/modern_accessions_balanced.txt` (~145 modern samples)
+**Modern sample distribution (166 samples):**
+- soil: 65 (39%)
+- plaque: 24 (14%)
+- faeces: 24 (14%)
+- skin: 24 (14%)
+- saliva: 17 (10%)
+- Other oral/environmental: 12 (9%)
+
+> **Note:** Modern samples exclude RNA-based sequencing (transcriptomics, miRNA-seq, etc.) but include AMPLICON (16S/ITS) and WGS metagenomics.
 
 #### 3. Download All Samples
 
-```bash
-# Append modern accessions to ancient accessions
-cat data/validation/modern_accessions_balanced.txt >> data/validation/accessions.txt
+> **Note:** If you already have validation samples downloaded, these scripts will **skip existing files**
+> automatically. They check for:
+> - Existing SRA files in `data/validation/sra/`
+> The accessions.txt file is automatically updated when merging reviewed samples
+# It now contains all 1,010 unique run accessions from validation_metadata.tsv
 
-# Download all (script skips already downloaded files via cache check)
+# Will only download the ~89 newly added modern samples
 bash scripts/validation/03_prefetch_all.sh
 
-# Convert to FASTQ
-sbatch --array=1-1082%20 scripts/validation/04_convert_sra_to_fastq.sbatch
+# Convert SRA → FASTQ (auto-skips existing)
+# Update array size to match total accessions
+sbatch --array=1-1171%20 scripts/validation/04_convert_sra_to_fastq.sbatch
 ```
 
-**Output:** `data/validation/sra/{accession}/*.fastq.gz`
+**Output:** `data/validation/sra/{accession}/*.sra` and `data/validation/raw/{accession}/*.fastq.gz`
+
+```
+
+**Output:** `data/validation/sra/{accession}/*.sra` and `data/validation/raw/{accession}/*.fastq.gz`
+
+
+**To check download progress:**
+```bash
+# Count downloaded SRA files
+find data/validation/sra -name "*.sra" | wc -l
+1,010 unique run accessions (some samples have multiple runs)
+```
+
+> **Distribution Summary:**
+> - Ancient samples: 84% (863 from AncientMetagenomeDir, highly curated)
+> - Modern samples: 16% (166 from interactive review, improved balance)
+> - Modern material distribution: soil 39%, plaque 14%, faeces 14%, skin 14%, saliva 10%
+> **Distribution Summary:**
+> - Ancient samples: 93% (from AncientMetagenomeDir, high quality curated)
+> - Modern samples: 7% (from MGnify, matches training 7.6% modern proportion)
+> - Material distribution in modern samples matches training exactly
 
 ### Run Inference on Validation Set
 
+**Automated retry system with memory scaling:**
+
 ```bash
-# Run DIANA predictions on all validation samples (1082 total: 937 ancient + 145 modern)
-# Note: Script has built-in cache checking - will skip already-completed samples
-sbatch --array=1-1082%10 scripts/validation/05_run_predictions.sbatch
+# Submit validation predictions with automatic OOM retry
+bash scripts/validation/submit_validation_with_retry.sh
 ```
 
-**What happens:**
-- Submits SLURM array job with 1082 tasks (one per sample in validation metadata)
-- Runs max 10 tasks in parallel (`%10` limit)
-- **Cache checking**: Automatically skips samples with existing predictions
-- Average time: ~30-60 seconds per sample
+**How it works:**
+1. **Initial run:** All samples start with 32GB memory
+2. **Monitoring:** Each sample tracks job metadata (`.jobinfo`) and memory history (`.memory_history`)
+3. **Cache check:** Skips samples with `"status": "SUCCESS"` in `.jobinfo`
+4. **OOM detection:** Failed jobs are retried with doubled memory (32→64→128→256→512GB)
+5. **Re-run:** Simply execute the script again after jobs complete to retry OOM failures
+
+**Example workflow:**
+```bash
+# First submission (all samples @ 32GB)
+bash scripts/validation/submit_validation_with_retry.sh
+# → Submits array jobs for each memory tier
+
+# Monitor progress
+squeue -u $USER
+reportseff <job_id>
+
+# After completion, retry OOM failures @ doubled memory
+bash scripts/validation/submit_validation_with_retry.sh
+
+# Continue until all samples complete or hit 512GB limit
+bash scripts/validation/submit_validation_with_retry.sh
+```
+
+**Output structure per sample:**
+```
+results/validation_predictions/
+├── {accession}/
+│   ├── {accession}_predictions.json   # Prediction output
+│   ├── .jobinfo                       # Job metadata (job_id, memory, runtime, status)
+│   └── .memory_history                # Memory allocations tried (MB, one per line)
+└── ...
+
+logs/validation/
+├── diana_predict_{JOB_ID}_{TASK_ID}.out   # stdout
+├── diana_predict_{JOB_ID}_{TASK_ID}.err   # stderr
+└── ...
+```
 
 **Monitor progress:**
 ```bash
 # Check job status
-squeue -j <job_id>
+squeue -u $USER
 
 # Count completed predictions
 find results/validation_predictions -name "*_predictions.json" | wc -l
 
+# Expected: ~1000 samples from paper/metadata/validation_metadata.tsv
+1,029
 # Check recent logs
-tail -f logs/validation/diana_predict_<job_id>_*.err
+tail -f logs/validation/diana_predict_*.err
 ```
 
-**After completion, generate validation metrics and figures:**
+**After all predictions complete, generate validation metrics and figures:**
 ```bash
 # Compare predictions to true labels and generate tables/figures
+# All paths use script defaults, so minimal command:
 mamba run -p ./env python scripts/validation/06_compare_predictions.py
 
-# Regenerate paper figures (includes ROC curves with both ancient/modern samples)
-mamba run -p ./env python scripts/paper/generate_paper_figures.py
 ```
-
-
 ---
 
 **Last Updated:** January 2026
+

@@ -26,15 +26,12 @@ from diana.models.multitask_mlp import MultiTaskMLP
 
 
 def main():
-    # Limit PyTorch CPU threads to avoid oversubscription with DataLoader workers
-    torch.set_num_threads(8)
-    
     logger.info("="*60)
     logger.info("Evaluating Final Model on FULL Training Set")
     logger.info("="*60)
     
     # Load training config to get model architecture
-    config_path = Path("results/full_training/final_training_config.json")
+    config_path = Path("results/training/final_training_config.json")
     logger.info(f"\nLoading config from {config_path}")
     with open(config_path) as f:
         config = json.load(f)
@@ -42,7 +39,7 @@ def main():
     hyperparams = config['hyperparameters']
     
     # Load model
-    model_path = Path("results/full_training/best_model.pth")
+    model_path = Path("results/training/best_model.pth")
     logger.info(f"Loading model from {model_path}")
     
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -56,7 +53,7 @@ def main():
     
     loader = MatrixLoader(matrix_path)
     X_train, metadata_pl = loader.load_with_metadata(
-        metadata_path=Path("data/splits/train_metadata.tsv"),
+        metadata_path=Path("paper/metadata/train_metadata.tsv"),
         align_to_matrix=True,
         filter_matrix_to_metadata=True  # Only load training samples
     )
@@ -67,7 +64,7 @@ def main():
     logger.info(f"Feature dim: {X_train.shape[1]}")
     
     # Load label encoders
-    with open("results/full_training/label_encoders.json") as f:
+    with open("results/training/label_encoders.json") as f:
         encoders_data = json.load(f)
     
     task_names = list(encoders_data.keys())
@@ -99,38 +96,16 @@ def main():
         encoder.classes_ = np.array(encoders_data[task]['classes'])
         y_true[task] = encoder.transform(metadata_train[task].values)
     
-    # Make predictions using DataLoader for parallel batch loading
+    # Make predictions - single forward pass
     logger.info("\nMaking predictions...")
     
-    # Create PyTorch dataset and DataLoader for parallel loading
-    from torch.utils.data import TensorDataset, DataLoader
-    import multiprocessing
+    X_tensor = torch.FloatTensor(X_train).to(device)
     
-    X_tensor = torch.FloatTensor(X_train)
-    dataset = TensorDataset(X_tensor)
-    
-    # Use multiple workers for parallel data loading (optimized for 20 cores, 100GB RAM)
-    num_workers = 10  # Half the cores for parallel data loading
-    batch_size = 2048  # Large batches for efficiency
-    
-    dataloader = DataLoader(
-        dataset,
-        batch_size=batch_size,
-        shuffle=False,
-        num_workers=num_workers,
-        pin_memory=True if device.type == 'cuda' else False
-    )
-    
-    predictions = {task: [] for task in task_names}
-    
+    predictions = {}
     with torch.no_grad():
-        for batch_tuple in dataloader:
-            batch = batch_tuple[0].to(device)
-            outputs = model(batch)
-            
-            for task in task_names:
-                preds = outputs[task].argmax(dim=1).cpu().numpy()
-                predictions[task].extend(preds)
+        outputs = model(X_tensor)
+        for task in task_names:
+            predictions[task] = outputs[task].argmax(dim=1).cpu().numpy()
     
     # Calculate metrics
     logger.info("\n" + "="*60)
@@ -155,7 +130,7 @@ def main():
             logger.info(f"  {metric:20s}: {value:.4f} ({value*100:.2f}%)")
     
     # Save metrics
-    output_path = Path("results/full_training/training_set_metrics.json")
+    output_path = Path("results/training/training_set_metrics.json")
     with open(output_path, 'w') as f:
         json.dump(training_metrics, f, indent=2)
     

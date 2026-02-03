@@ -136,4 +136,4 @@ Thumbs.db
 *.tmp.*.bin
 *.tar.gz  # Archive files (DIANA_paper_outputs, validation_outputs, etc.)
 tmp/
-
+DIANA_paper_outputs_20260120.tar.gz

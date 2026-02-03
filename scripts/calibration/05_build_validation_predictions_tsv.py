@@ -22,7 +22,7 @@ def build_consolidated_predictions():
     # Paths
     predictions_dir = Path('results/validation_predictions')
     metadata_file = Path('paper/metadata/validation_metadata.tsv')
-    label_encoders_path = Path('results/full_training/label_encoders.json')
+    label_encoders_path = Path('results/training/label_encoders.json')
     output_file = Path('results/validation_predictions/validation_predictions.tsv')
     
     print(f"Loading metadata from {metadata_file}...")

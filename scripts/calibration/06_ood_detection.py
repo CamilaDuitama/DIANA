@@ -208,6 +208,7 @@ def analyze_ood_vs_accuracy(
     predictions_file: str,
     is_ood: np.ndarray,
     min_distances: np.ndarray,
+    val_sample_ids: np.ndarray,
     output_dir: Path
 ):
     """Analyze relationship between OOD status and prediction accuracy."""
@@ -217,9 +218,21 @@ def analyze_ood_vs_accuracy(
     # Load predictions
     preds = pd.read_csv(predictions_file, sep='\t')
     
-    # Add OOD flags and distances
-    preds['is_ood'] = is_ood
-    preds['min_distance'] = min_distances
+    # Create DataFrame with sample IDs for alignment
+    ood_df = pd.DataFrame({
+        'sample_id': val_sample_ids,
+        'is_ood': is_ood,
+        'min_distance': min_distances
+    })
+    
+    # Merge with predictions (inner join to only keep samples with predictions)
+    preds = preds.merge(ood_df, on='sample_id', how='left')
+    
+    # Report any missing OOD info
+    n_missing = preds['is_ood'].isna().sum()
+    if n_missing > 0:
+        print(f"  Warning: {n_missing} samples in predictions but not in matrix")
+        preds = preds.dropna(subset=['is_ood'])
     
     # Analyze for each task
     tasks = ['sample_type', 'community_type', 'sample_host', 'material']
@@ -359,6 +372,7 @@ def test_multiple_thresholds(
     val_embeddings: np.ndarray,
     train_embeddings: np.ndarray,
     nn_distances_train: np.ndarray,
+    val_sample_ids: np.ndarray,
     predictions_file: str,
     output_dir: Path,
     percentiles: list = [90, 95, 99]
@@ -385,13 +399,21 @@ def test_multiple_thresholds(
         threshold = np.percentile(nn_distances_train, percentile)
         is_ood = val_min_distances > threshold
         
+        # Align with predictions using sample IDs
+        ood_df = pd.DataFrame({
+            'sample_id': val_sample_ids,
+            'is_ood': is_ood
+        })
+        preds_aligned = preds.merge(ood_df, on='sample_id', how='left')
+        preds_aligned = preds_aligned.dropna(subset=['is_ood'])
+        
         print(f"\n{percentile}th percentile (threshold={threshold:.4f}):")
         print(f"  OOD samples: {is_ood.sum()} ({is_ood.sum()/len(is_ood)*100:.1f}%)")
         
         for task in tasks:
-            correct = preds[f'{task}_pred'] == preds[f'{task}_true']
-            in_dist_acc = correct[~is_ood].mean() * 100
-            ood_acc = correct[is_ood].mean() * 100 if is_ood.sum() > 0 else 0
+            correct = preds_aligned[f'{task}_pred'] == preds_aligned[f'{task}_true']
+            in_dist_acc = correct[~preds_aligned['is_ood']].mean() * 100
+            ood_acc = correct[preds_aligned['is_ood']].mean() * 100 if preds_aligned['is_ood'].sum() > 0 else 0
             
             results.append({
                 'percentile': percentile,
@@ -518,7 +540,7 @@ def main():
     
     # Step 5-6: Analyze OOD vs accuracy
     results_df, preds_df = analyze_ood_vs_accuracy(
-        args.predictions, is_ood, min_distances, output_dir
+        args.predictions, is_ood, min_distances, val_sample_ids, output_dir
     )
     
     # Step 7: Create visualizations
@@ -526,7 +548,7 @@ def main():
     
     # Step 8: Test different thresholds
     threshold_results = test_multiple_thresholds(
-        val_embeddings, train_embeddings, nn_distances_train,
+        val_embeddings, train_embeddings, nn_distances_train, val_sample_ids,
         args.predictions, output_dir, percentiles=[90, 95, 99]
     )
     

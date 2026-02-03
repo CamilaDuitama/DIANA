@@ -55,10 +55,14 @@
 # OUTPUT:
 #   For each fold (0 to TOTAL_FOLDS-1):
 #     - SLURM logs: logs/multitask_gpu_{JOBID}_{FOLD}.out/.err
-#     - Results: results/{OUTPUT_DIR}/fold_{FOLD}/
-#       * best_multitask_model_fold_{FOLD}_{timestamp}.pth
+#     - Results: results/{OUTPUT_DIR}/cv_results/fold_{FOLD}/
+#       * best_model.pth
+#       * final_model_{timestamp}.pth
 #       * multitask_fold_{FOLD}_results_{timestamp}.json
-#       * fold_{FOLD}_training_log_{timestamp}.txt
+#       * checkpoint_epoch_*.pth (last 5 epochs)
+#
+#   Note: Results are saved in cv_results/ subdirectory for compatibility
+#         with diana-train CLI, which expects this structure.
 #
 # NEXT STEPS:
 #   After all folds complete, aggregate results:
@@ -83,6 +87,11 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 echo "Initializing mamba..."
 eval "$(/pasteur/appa/homes/cduitama/miniconda3/bin/conda shell.bash hook)"
 
+# Activate the local environment
+conda activate ./env
+echo "Python: $(which python)"
+echo "Python version: $(python --version)"
+
 # Configuration with defaults (can be overridden by environment variables)
 # If RUN_CONFIG is set, read from JSON config file (new CLI approach)
 if [ -n "$RUN_CONFIG" ] && [ -f "$RUN_CONFIG" ]; then
@@ -94,19 +103,28 @@ if [ -n "$RUN_CONFIG" ] && [ -f "$RUN_CONFIG" ]; then
     N_TRIALS=$(python -c "import json; print(json.load(open('$RUN_CONFIG'))['n_trials'])")
     MAX_EPOCHS=$(python -c "import json; print(json.load(open('$RUN_CONFIG'))['max_epochs'])")
     N_INNER_SPLITS=$(python -c "import json; print(json.load(open('$RUN_CONFIG'))['n_inner_splits'])")
+    # CLI already adds cv_results/ to output_dir, so don't add it again
+    USE_CLI=true
 else
     # Use environment variables or defaults (old approach)
-    FEATURES=${FEATURES:-"data/splits/train_matrix.pa.mat"}
+    FEATURES=${FEATURES:-"data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat"}
     METADATA=${METADATA:-"data/splits/train_metadata.tsv"}
     OUTPUT_DIR=${OUTPUT_DIR:-"results/multitask/hyperopt"}
     TOTAL_FOLDS=${TOTAL_FOLDS:-5}
     N_TRIALS=${N_TRIALS:-50}
     MAX_EPOCHS=${MAX_EPOCHS:-200}
     N_INNER_SPLITS=${N_INNER_SPLITS:-3}
+    USE_CLI=false
 fi
 
 FOLD_ID=$SLURM_ARRAY_TASK_ID
 LOG_DIR=${LOG_DIR:-"logs/multitask/hyperopt"}
+
+# For compatibility with diana-train CLI, results go in cv_results/ subdirectory
+# But only add it if not using CLI (CLI already adds it)
+if [ "$USE_CLI" = "false" ]; then
+    OUTPUT_DIR="${OUTPUT_DIR}/cv_results"
+fi
 
 # Create output and log directories
 mkdir -p "$OUTPUT_DIR" "$LOG_DIR"
@@ -131,7 +149,7 @@ fi
 
 # Run training
 echo "Starting hyperparameter optimization for fold $FOLD_ID..."
-mamba run -p ./env python scripts/training/01_train_multitask_single_fold.py \
+python scripts/training/01_train_multitask_single_fold.py \
     --fold_id $FOLD_ID \
     --total_folds $TOTAL_FOLDS \
     --features "$FEATURES" \

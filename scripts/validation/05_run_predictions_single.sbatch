@@ -24,8 +24,8 @@ mkdir -p logs/validation
 METADATA="paper/metadata/validation_metadata.tsv"
 SAMPLE_LINE=$(sed -n "$((TASK_ID + 1))p" "$METADATA")
 
-# Extract run_accession (column 17)
-RUN_ACCESSION=$(echo "$SAMPLE_LINE" | cut -f17)
+# Extract run_accession (column 2)
+RUN_ACCESSION=$(echo "$SAMPLE_LINE" | cut -f2)
 
 echo "Sample ${TASK_ID}/957: $RUN_ACCESSION"
 echo "Memory allocation: ${SLURM_MEM_PER_NODE}MB"
@@ -80,6 +80,13 @@ export PATH="$(pwd)/scripts/inference:$PATH"
 # Fix libssh2 library issue - must be set before mamba is invoked
 export LD_LIBRARY_PATH="$(pwd)/env/lib:$LD_LIBRARY_PATH"
 
+# Initialize conda/mamba
+eval "$(conda shell.bash hook)"
+conda activate ./env
+
+# Ensure conda environment binaries take precedence over ~/.local/bin
+export PATH="$(pwd)/env/bin:$PATH"
+
 # Write job metadata before running
 cat > "$JOBINFO_FILE" <<EOF
 {
@@ -102,9 +109,9 @@ echo "${SLURM_MEM_PER_NODE}" >> "$MEMORY_HISTORY"
 echo "Running diana-predict..."
 START_TIME=$(date +%s)
 
-if mamba run -p ./env diana-predict \
+if diana-predict \
   --sample "${FASTQ_ARRAY[@]}" \
-  --model results/full_training/best_model.pth \
+  --model results/training/best_model.pth \
   --muset-matrix data/matrices/large_matrix_3070_with_frac \
   --output results/validation_predictions \
   --threads $SLURM_CPUS_PER_TASK \
