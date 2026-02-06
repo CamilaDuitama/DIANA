@@ -149,12 +149,24 @@ def main():
     else:
         print("✓ All samples retrieved successfully!")
     
-    # Save to file
-    df = pl.DataFrame(metadata_list)
-    output_file = PROJECT_ROOT / "data/validation/all_modern_sra_metadata.tsv"
-    df.write_csv(output_file, separator='\t')
+    # Save to JSON first to preserve all data
+    import json
+    json_file = PROJECT_ROOT / "data/validation/all_modern_sra_metadata.json"
+    with open(json_file, 'w') as f:
+        json.dump(metadata_list, f, indent=2)
+    print(f"\n💾 Saved raw metadata to: {json_file}")
     
-    print(f"\n💾 Saved metadata to: {output_file}")
+    # Convert to TSV using pandas to avoid polars schema issues
+    import pandas as pd
+    df_pandas = pd.DataFrame(metadata_list)
+    output_file = PROJECT_ROOT / "data/validation/all_modern_sra_metadata.tsv"
+    df_pandas.to_csv(output_file, sep='\t', index=False)
+    
+    print(f"💾 Saved metadata to: {output_file}")
+    
+    # Also create a polars version for consistency
+    df = pl.from_pandas(df_pandas)
+    print(f"\n✓ Metadata shape: {df.shape[0]} samples × {df.shape[1]} columns")
     
     # Show summary
     print("\n" + "="*80)
