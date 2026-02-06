@@ -39,6 +39,7 @@ paper/blast_results/
 paper/metadata/backups*/  # Metadata backups
 paper/metadata/*.backup  # Metadata backup files
 *.ipynb_checkpoints/
+paper/diana_manuscript_materials_*.tar.gz
 
 # IDE
 .vscode/

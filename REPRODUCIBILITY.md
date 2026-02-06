@@ -385,15 +385,6 @@ find data/validation/sra -name "*.sra" | wc -l
 1,010 unique run accessions (some samples have multiple runs)
 ```
 
-> **Distribution Summary:**
-> - Ancient samples: 84% (863 from AncientMetagenomeDir, highly curated)
-> - Modern samples: 16% (166 from interactive review, improved balance)
-> - Modern material distribution: soil 39%, plaque 14%, faeces 14%, skin 14%, saliva 10%
-> **Distribution Summary:**
-> - Ancient samples: 93% (from AncientMetagenomeDir, high quality curated)
-> - Modern samples: 7% (from MGnify, matches training 7.6% modern proportion)
-> - Material distribution in modern samples matches training exactly
-
 ### Run Inference on Validation Set
 
 **Automated retry system with memory scaling:**
@@ -442,20 +433,6 @@ logs/validation/
 └── ...
 ```
 
-**Monitor progress:**
-```bash
-# Check job status
-squeue -u $USER
-
-# Count completed predictions
-find results/validation_predictions -name "*_predictions.json" | wc -l
-
-# Expected: ~1000 samples from paper/metadata/validation_metadata.tsv
-1,029
-# Check recent logs
-tail -f logs/validation/diana_predict_*.err
-```
-
 **After all predictions complete, generate validation metrics and figures:**
 ```bash
 # Load validation predictions with metadata (shared utility)
@@ -467,13 +444,6 @@ mamba run -p ./env python scripts/validation/load_validation_data.py
 
 # Generate all publication-ready figures and tables
 bash scripts/paper/generate_all_paper_materials.sh
-
-# Or generate individual outputs:
-# - Figures: main_01-04 (confusion, ROC/PR, features, BLAST)
-# - Figures: sup_01-02 (runtime, data split)  
-# - Tables: main_table_01-02 (performance summary, computational resources)
-# - Tables: sup_table_01-06 (class distribution, unseen labels, per-class performance, 
-#                             hyperparameters, wrong predictions, BLAST summary)
 
 # Legacy comparison script (still functional):
 mamba run -p ./env python scripts/validation/06_compare_predictions.py

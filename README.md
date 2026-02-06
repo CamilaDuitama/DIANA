@@ -77,7 +77,7 @@ cd ..
 # Run prediction
 mamba run -p ./env diana-predict \
   --sample test_data/ERR3609654_1.fastq.gz test_data/ERR3609654_2.fastq.gz \
-  --model results/full_training/best_model.pth \
+  --model results/training/best_model.pth \
   --muset-matrix data/matrices/large_matrix_3070_with_frac \
   --output test_results \
   --threads 4
@@ -98,6 +98,20 @@ cat test_results/ERR3609654/ERR3609654_predictions.json
   }
 }
 ```
+
+**Visualization outputs:**
+
+<p align="center">
+  <img src="test_results/ERR3609654/plots/ERR3609654_sample_type_barplot.png" width="45%" alt="Sample Type"/>
+  <img src="test_results/ERR3609654/plots/ERR3609654_community_type_barplot.png" width="45%" alt="Community Type"/>
+</p>
+
+<p align="center">
+  <img src="test_results/ERR3609654/plots/ERR3609654_sample_host_barplot.png" width="45%" alt="Sample Host"/>
+  <img src="test_results/ERR3609654/plots/ERR3609654_material_barplot.png" width="45%" alt="Material"/>
+</p>
+
+The plots show predicted probabilities for each class within each task. The dental calculus sample is correctly classified as Ancient, oral community type, from Homo sapiens, with material type dental calculus.
 
 ### Predict on Your Own Data
 
