@@ -56,18 +56,16 @@ except ImportError:
 
 from diana.data.unitig_analyzer import UnitigAnalyzer
 
-# Plotly vivid color palette (consistent with paper figures)
+# Plotly vivid color palette (colorblind-friendly, consistent with paper figures)
 PLOTLY_VIVID_COLORS = [
-    '#636EFA',  # blue
-    '#EF553B',  # red
-    '#00CC96',  # green
-    '#AB63FA',  # purple
-    '#FFA15A',  # orange
-    '#19D3F3',  # cyan
-    '#FF6692',  # pink
-    '#B6E880',  # lime
-    '#FF97FF',  # magenta
-    '#FECB52',  # yellow
+    '#0077BB',  # blue
+    '#33BBEE',  # cyan
+    '#EE7733',  # orange
+    '#CC3311',  # red
+    '#009988',  # teal
+    '#EE3377',  # magenta
+    '#BBBBBB',  # gray (if needed)
+    '#000000',  # black (if needed)
 ]
 
 # Task color mapping (consistent across all figures)
@@ -516,6 +514,7 @@ def save_no_hit_sequences(
     logger.info("Identifying sequences with no BLAST hits...")
     
     blast_dir = output_dir.parent.parent / 'blast_results'
+    blast_dir.mkdir(exist_ok=True, parents=True)
     
     # Find features with no BLAST hits
     if len(df_blast) > 0:
@@ -915,7 +914,7 @@ def create_taxonomic_visualizations(
             values=values,
             branchvalues='total',
             marker=dict(
-                colorscale='Viridis',
+                colorscale='Teal',
                 line=dict(width=2)
             ),
             customdata=customdata,

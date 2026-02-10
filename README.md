@@ -1,50 +1,39 @@
-# DIANA: Deep Integration of Ancient DNA
+# DIANA: Deep Learning Identification and Assessment of Ancient DNA
 
-**Multi-task classification of ancient DNA samples using unitig k-mer features**
+**Multi-task classification of ancient DNA samples using unitigs**
 
-DIANA is a deep learning tool that predicts four key characteristics of ancient DNA samples:
-- **Sample Type**: ancient vs. modern metagenome
-- **Community Type**: oral, gut, skeletal tissue, plant tissue, soft tissue, or environmental sample
-- **Sample Host**: Homo sapiens, Ursus arctos, environmental, and 9 other host species
-- **Material**: dental calculus, tooth, bone, sediment, and 9 other material types
+DIANA uses unitig sequence features from raw FASTQ files to compare new samples against the whole plethora of existing ancient DNA samples in the SRA, simultaneously predicting four characteristics:
+- **Sample Type**: Ancient vs. modern metagenome
+- **Community Type**: Oral, gut, skeletal tissue, plant tissue, soft tissue, or environmental sample  
+- **Sample Host**: Homo sapiens, Ursus arctos, and 10 other host species
+- **Material**: Dental calculus, tooth, bone, sediment, and 9 other material types
+
+The model is trained on 2,609 samples from the [AncientMetagenomeDir database](https://github.com/SPAAM-community/AncientMetagenomeDir), achieving 97-99% accuracy on held-out test data.
 
 ---
 
 ## Table of Contents
 
-- [Overview](#overview)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
-- [Usage](#usage)
-  - [Predict on New Samples](#predict-on-new-samples)
-  - [Training](#training)
+  - [Example with Dummy Data](#example-with-dummy-data)
+  - [Predict on Your Own Data](#predict-on-your-own-data)
+- [Command Reference](#command-reference)
+  - [diana-predict](#diana-predict)
 - [FAQ](#faq)
   - [Memory Requirements](#memory-requirements)
   - [Out-of-Memory (OOM) Errors](#out-of-memory-oom-errors)
-  - [Measuring K-mer Complexity](#measuring-k-mer-complexity)
 - [License](#license)
-
----
-
-## Overview
-
-DIANA uses unitig k-mer features extracted from raw sequencing data to classify ancient DNA samples across multiple taxonomic and contextual dimensions. The model is trained on 3,070 samples from the AncientMetagenomeDir database, making it the largest ancient DNA classification model to date.
-
-**Key Features:**
-- Multi-task learning architecture for joint prediction of 4 sample characteristics
-- Unitig-based feature representation using muset for efficient k-mer matrix generation
-- Pre-trained model available for immediate inference
-- Fast predictions: ~30-40 seconds per sample
+- [Citation](#citation)
 
 ---
 
 ## Installation
 
 ### Prerequisites
-- Linux operating system
-- [Mamba](https://mamba.readthedocs.io/) or Conda package manager
-- 12GB RAM minimum
-- 6 CPU cores recommended
+- **Operating System**: Linux (tested on Ubuntu 20.04+)
+- **Package Manager**: [Mamba](https://mamba.readthedocs.io/) or Conda
+- **Disk Space**: ~140GB for full reference data, or ~200MB for minimal setup
 
 ### Setup
 
@@ -61,111 +50,140 @@ mamba activate ./env
 bash install.sh
 ```
 
-The installation script will:
-1. Build the muset tool for k-mer matrix generation
-2. Download reference k-mers from Zenodo (749MB uncompressed)
-3. Verify installation integrity
+**What gets installed:**
+- Python dependencies (PyTorch, scikit-learn, polars, etc.)
+- External tools: `back_to_sequences` and `MUSET`
+- Reference k-mers file (~179MB, downloaded from Zenodo)
+- Pre-trained model checkpoint
+
+**Note**: The full 139GB training matrix (`data/matrices/large_matrix_3070_with_frac/`) is **only needed for retraining the model**. For prediction on new samples, only the reference k-mers file and `unitigs.fa` are required.
 
 ---
 
 ## Quick Start
 
-Predict sample characteristics for a new FASTQ file:
+### Example with Dummy Data
+
+Test the installation with a small validation sample:
 
 ```bash
-# Example: Predict on a single-end or paired-end sample
+# Download a small test sample (ancient oral metagenome, ~10MB)
+mkdir -p test_data
+cd test_data
+wget https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR360/004/ERR3609654/ERR3609654_1.fastq.gz
+wget https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR360/004/ERR3609654/ERR3609654_2.fastq.gz
+cd ..
+
+# Run prediction
+mamba run -p ./env diana-predict \
+  --sample test_data/ERR3609654_1.fastq.gz test_data/ERR3609654_2.fastq.gz \
+  --model results/training/best_model.pth \
+  --muset-matrix data/matrices/large_matrix_3070_with_frac \
+  --output test_results \
+  --threads 4
+
+# View results
+cat test_results/ERR3609654/ERR3609654_predictions.json
+```
+
+**Expected output:**
+```json
+{
+  "sample_id": "ERR3609654",
+  "predictions": {
+    "sample_type": {"predicted": "Ancient", "probability": 0.98},
+    "community_type": {"predicted": "oral", "probability": 0.95},
+    "sample_host": {"predicted": "Homo sapiens", "probability": 0.99},
+    "material": {"predicted": "dental calculus", "probability": 0.92}
+  }
+}
+```
+
+**Visualization outputs:**
+
+<p align="center">
+  <img src="test_results/ERR3609654/plots/ERR3609654_sample_type_barplot.png" width="45%" alt="Sample Type"/>
+  <img src="test_results/ERR3609654/plots/ERR3609654_community_type_barplot.png" width="45%" alt="Community Type"/>
+</p>
+
+<p align="center">
+  <img src="test_results/ERR3609654/plots/ERR3609654_sample_host_barplot.png" width="45%" alt="Sample Host"/>
+  <img src="test_results/ERR3609654/plots/ERR3609654_material_barplot.png" width="45%" alt="Material"/>
+</p>
+
+The plots show predicted probabilities for each class within each task. The dental calculus sample is correctly classified as Ancient, oral community type, from Homo sapiens, with material type dental calculus.
+
+### Predict on Your Own Data
+
+```bash
+# Single-end sample
 mamba run -p ./env diana-predict \
   --sample path/to/sample.fastq.gz \
   --model results/full_training/best_model.pth \
   --muset-matrix data/matrices/large_matrix_3070_with_frac \
   --output results/my_predictions \
-  --threads 6
+  --threads 8
 
-# For paired-end samples, provide both files:
+# Paired-end sample
 mamba run -p ./env diana-predict \
   --sample path/to/sample_R1.fastq.gz path/to/sample_R2.fastq.gz \
   --model results/full_training/best_model.pth \
   --muset-matrix data/matrices/large_matrix_3070_with_frac \
   --output results/my_predictions \
-  --threads 6
+  --threads 8
 ```
 
-**Output:**
+**Outputs:**
 ```
 results/my_predictions/sample/
-├── predictions.json           # Predictions and probabilities for all 4 tasks
-├── predictions_plot.html      # Interactive visualization
-├── predictions_plot.png       # Static plot
-└── muset_output/              # Intermediate k-mer matrix
+├── sample_predictions.json         # Predictions and probabilities
+├── sample_predictions_plot.html    # Interactive visualization
+├── sample_predictions_plot.png     # Static plot
+├── sample_kmer_counts.txt         # K-mer counts from sample
+├── sample_unitig_abundance.txt    # Unitig abundance
+└── sample_unitig_fraction.txt     # Unitig fractions (model input)
 ```
 
 ---
 
-## Usage
+## Command Reference
 
-### Predict on New Samples
+### diana-predict
 
+Predict sample characteristics from FASTQ files.
+
+**Basic usage:**
 ```bash
-diana-predict \
-  --sample <FASTQ_FILE(S)> \
-  --model <MODEL_PATH> \
-  --muset-matrix <MATRIX_DIR> \
-  --output <OUTPUT_DIR> \
-  --threads <NUM_THREADS> \
-  [--verbose]
+diana-predict --sample <fastq> --model <model.pth> --muset-matrix <matrix_dir> --output <outdir>
 ```
 
-**Required Arguments:**
+**Required arguments:**
 - `--sample`: Path to FASTQ file(s). For paired-end, provide both files separated by space
-- `--model`: Path to trained model (`.pth` file)
-- `--muset-matrix`: Directory containing reference k-mers and unitig matrix
-- `--output`: Output directory for predictions
-- `--threads`: Number of CPU threads to use
+- `--model`: Path to trained model checkpoint (`.pth` file)
+- `--muset-matrix`: Path to MUSET matrix directory containing reference k-mers
+- `--output`: Output directory for results
 
-**Optional Arguments:**
-- `--verbose`: Enable detailed logging
+**Optional arguments:**
+- `--threads N`: Number of threads for parallel processing (default: 4)
+- `--memory-gb N`: Memory limit for k-mer counting step (default: auto-detect)
+- `--keep-intermediate`: Keep intermediate files (k-mer counts, etc.)
 
-**Example with pre-trained model:**
+**Advanced usage:**
+
+Batch prediction from a file list:
 ```bash
-# Download the pre-trained model (if not already available)
-# Model location: results/full_training/best_model.pth
+# Create samples.txt with one FASTQ path per line
+# For paired-end, put both paths on the same line separated by tab
 
-# Run prediction
-mamba run -p ./env diana-predict \
-  --sample data/raw/ERR3003613/ERR3003613.fastq.gz \
+diana-predict \
+  --batch samples.txt \
   --model results/full_training/best_model.pth \
   --muset-matrix data/matrices/large_matrix_3070_with_frac \
-  --output results/test_prediction \
-  --threads 6 \
-  --verbose
+  --output results/batch_predictions \
+  --threads 16
 ```
 
-### Training
-
-To train DIANA on your own dataset or reproduce the published results, see [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for the complete training pipeline.
-
-**Quick training overview:**
-```bash
-# Step 1: Hyperparameter optimization (5-fold CV)
-mamba run -p ./env diana-train multitask \
-  --config configs/train_config.yaml \
-  --output results/training \
-  --mode optimize
-
-# Step 2: Aggregate results
-mamba run -p ./env diana-train multitask \
-  --config configs/train_config.yaml \
-  --output results/training \
-  --mode aggregate
-
-# Step 3: Train final model
-mamba run -p ./env diana-train multitask \
-  --config configs/train_config.yaml \
-  --output results/full_training \
-  --mode train
-```
-
-For detailed training instructions, see [docs/TRAINING.md](docs/TRAINING.md).
+---
 
 ---
 
@@ -175,76 +193,64 @@ For detailed training instructions, see [docs/TRAINING.md](docs/TRAINING.md).
 
 **Q: How much RAM do I need?**
 
-Memory usage depends on k-mer complexity during the `back_to_sequences` indexing step, not just input file size.
+Memory usage depends on k-mer diversity in your sample, not file size:
 
-**Typical requirements:**
-- **Ancient DNA (low diversity):** 64-128 GB
-- **Modern/environmental samples:** 128-256 GB  
-- **High-diversity oral metagenomes:** >128 GB (3% of samples may need >128 GB)
+- **Ancient DNA (low diversity):** 64-128 GB typically sufficient
+- **Modern gut metagenomes:** 128-256 GB
+- **Oral/dental calculus (high diversity):** 128-256 GB (3% may need >256 GB)
 
-**Important:** A small file (260 MB) may require >128 GB if it has high k-mer diversity, while a large file (7 GB) may need only 64 GB if it has lower diversity.
+**Important:** A small 260MB file may require >256 GB if highly diverse, while a 7GB file may need only 64 GB if less complex.
 
 ### Out-of-Memory (OOM) Errors
 
-**Q: My job failed with "OUT_OF_MEMORY" or "oom_kill" error. What should I do?**
+**Q: My job failed with "OUT_OF_MEMORY". What should I do?**
 
-OOM failures occur during **Step 1 (k-mer counting)** when `back_to_sequences` (from SSHash) exhausts available RAM while building the in-memory k-mer index.
-
-**Diagnosis:**
-1. Check memory usage:
-   ```bash
-   seff <job_id>  # or reportseff <job_id> on SLURM systems
-   ```
-2. If memory efficiency is >95%, the job truly needs more RAM
+OOM failures occur during k-mer indexing when the sample has high microbial diversity.
 
 **Solutions:**
-- **Retry with 2× RAM:** If job used 64 GB at 100%, retry with 128 GB
-- **High-diversity samples:** Dental calculus and oral metagenomes often need >256 GB
-- **Check k-mer complexity:** Samples with high microbial diversity require more memory (see below)
+1. **Check actual memory usage:**
+   ```bash
+   seff <job_id>  # On SLURM systems
+   ```
+2. **If >95% memory used:** Retry with 2× RAM
+3. **High-diversity samples:** Dental calculus/oral samples often need >256 GB
 
-**Technical details:**
-- Failure point: Step 1 - Counting k-mers in sample
-- Tool: `back_to_sequences` (SSHash library)
-- Bottleneck: In-memory k-mer deduplication during indexing
-- Memory = f(reference k-mers + sample k-mer diversity)
-
-### Measuring K-mer Complexity
-
-**Q: How can I estimate if my sample will need high memory before running?**
-
-**Suggested approaches to measure k-mer complexity:**
-
-1. **Pre-screen with k-mer counting tools:**
-   - Use lightweight tools like `jellyfish`, `KMC`, or `ntCard` to count unique k-mers
-   - Higher unique k-mer count → higher memory needs
-   - Example:
-     ```bash
-     jellyfish count -m 31 -s 100M -t 4 sample.fastq.gz
-     jellyfish stats mer_counts.jf  # Check "Unique" count
-     ```
-
-2. **Estimate from sample metadata:**
-   - **Oral/dental calculus samples:** Typically highest diversity → >128 GB
-   - **Gut samples:** Moderate diversity → 64-128 GB
-   - **Ancient bone/tooth:** Lower diversity → 64 GB usually sufficient
-   - **Modern environmental:** High diversity → 128-256 GB
-
-3. **Quick test run:**
-   - Monitor memory usage during Step 1 with `top` or `htop`
-   - If memory climbs rapidly toward limit, kill and restart with more RAM
-
-4. **K-mer entropy/diversity metrics:**
-   - Calculate Shannon entropy of k-mer distribution
-   - Use tools like `GenomeScope` or `smudgeplot` to profile k-mer spectra
-   - Higher complexity → steeper memory requirements
-
-**Validation data insights:**
+**Memory patterns from our validation (616 samples):**
 - 97% of ancient metagenomes succeeded with ≤128 GB
-- Memory expansion ranges from 10× to 1513× input file size (median: 37×)
-- File size is **not** a reliable predictor of memory needs
+- Memory expansion: 10× to 1,513× input file size (median: 37×)
+- File size is NOT a reliable predictor
 
 ---
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Citation
+
+If you use DIANA in your research, please cite:
+
+```bibtex
+@article{diana2025,
+  title={DIANA: Deep Integration of Ancient DNA for Multi-Task Sample Classification},
+  author={Duitama, Camila and [Authors]},
+  journal={[Journal]},
+  year={2025},
+  doi={[DOI]}
+}
+```
+
+---
+
+## Support
+
+For questions, issues, or feature requests:
+- **GitHub Issues**: https://github.com/CamilaDuitama/DIANA/issues
+- **Documentation**: See `docs/` directory for detailed guides
+
+**Related resources:**
+- [AncientMetagenomeDir](https://github.com/SPAAM-community/AncientMetagenomeDir): Training data source
+- [Training documentation](docs/TRAINING.md): How to retrain the model
+- [CLI reference](docs/CLI_TOOL.md): Detailed command-line interface documentation

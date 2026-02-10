@@ -1,0 +1,30 @@
+{
+  "sample_type": {
+    "accuracy": 0.9643541586814871,
+    "balanced_accuracy": 0.9668748305844576,
+    "f1_weighted": 0.9670634223284881,
+    "precision_macro": 0.8433547506593879,
+    "recall_macro": 0.9668748305844576
+  },
+  "community_type": {
+    "accuracy": 0.9601379839018781,
+    "balanced_accuracy": 0.9785581220321986,
+    "f1_weighted": 0.9614358816807563,
+    "precision_macro": 0.9423538841187801,
+    "recall_macro": 0.9785581220321986
+  },
+  "sample_host": {
+    "accuracy": 0.9773859716366424,
+    "balanced_accuracy": 0.9915767039885305,
+    "f1_weighted": 0.9792067459440768,
+    "precision_macro": 0.8890558431227431,
+    "recall_macro": 0.9915767039885305
+  },
+  "material": {
+    "accuracy": 0.9359908010732081,
+    "balanced_accuracy": 0.9632541185565127,
+    "f1_weighted": 0.9399733846195043,
+    "precision_macro": 0.8991865109283073,
+    "recall_macro": 0.9632541185565127
+  }
+}

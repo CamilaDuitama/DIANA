@@ -424,7 +424,7 @@ def create_feature_importance_plots(
             z=heatmap_data,
             x=[f"F{idx}" for idx in feature_list],
             y=task_names,
-            colorscale='Viridis',
+            colorscale='Teal',
             colorbar=dict(title='Importance'),
             hovertext=hover_text,
             hovertemplate='%{hovertext}<extra></extra>'

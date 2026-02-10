@@ -20,7 +20,8 @@ class MultiTaskTrainer:
                  device: Union[str, torch.device] = "cuda" if torch.cuda.is_available() else "cpu",
                  learning_rate: float = 1e-3,
                  weight_decay: float = 0.0,
-                 task_weights: Optional[Dict[str, float]] = None):
+                 task_weights: Optional[Dict[str, float]] = None,
+                 class_weights: Optional[Dict[str, torch.Tensor]] = None):
         """
         Initialize trainer.
         
@@ -31,6 +32,7 @@ class MultiTaskTrainer:
             learning_rate: Learning rate
             weight_decay: L2 regularization weight decay
             task_weights: Weights for each task loss
+            class_weights: Per-class weights for handling class imbalance (dict of tensors)
         """
         if isinstance(device, str):
             device = torch.device(device)
@@ -40,11 +42,15 @@ class MultiTaskTrainer:
         self.task_names = task_names
         self.optimizer = optim.Adam(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
         
-        # Task-specific loss functions
-        self.criteria = {
-            target: nn.CrossEntropyLoss()
-            for target in task_names
-        }
+        # Task-specific loss functions with optional class weights
+        self.criteria = {}
+        for target in task_names:
+            if class_weights is not None and target in class_weights:
+                # Use class weights for this task
+                self.criteria[target] = nn.CrossEntropyLoss(weight=class_weights[target])
+            else:
+                # No class weighting
+                self.criteria[target] = nn.CrossEntropyLoss()
         
         # Task weights (default: equal weighting)
         if task_weights is None:

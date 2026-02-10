@@ -41,9 +41,9 @@ TOTAL_SAMPLES=$(wc -l < "$METADATA")
 TOTAL_SAMPLES=$((TOTAL_SAMPLES - 1))  # Exclude header
 
 for TASK_ID in $(seq 1 $TOTAL_SAMPLES); do
-    # Get run accession
+    # Get run accession (column 2)
     SAMPLE_LINE=$(sed -n "$((TASK_ID + 1))p" "$METADATA")
-    RUN_ACCESSION=$(echo "$SAMPLE_LINE" | cut -f17)
+    RUN_ACCESSION=$(echo "$SAMPLE_LINE" | cut -f2)
     
     SAMPLE_DIR="${OUTPUT_DIR}/${RUN_ACCESSION}"
     PREDICTION_FILE="${SAMPLE_DIR}/${RUN_ACCESSION}_predictions.json"
@@ -139,7 +139,7 @@ submit_tier() {
         --output=logs/validation/diana_predict_%A_%a.out \
         --error=logs/validation/diana_predict_%A_%a.err \
         --cpus-per-task=6 \
-        --partition=seqbio \
+        --partition=common \
         --exclude=maestro-2010 \
         scripts/validation/05_run_predictions_single.sbatch | awk '{print $4}')
     

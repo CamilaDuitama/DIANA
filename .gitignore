@@ -28,7 +28,18 @@ env/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+
+# Paper outputs (tracked in local-results branch only)
+# NOTE: paper/metadata/ IS tracked (essential training/test/validation metadata)
+paper/experiments/
+paper/figures/
+paper/notebooks/
+paper/tables/
+paper/blast_results/
+paper/metadata/backups*/  # Metadata backups
+paper/metadata/*.backup  # Metadata backup files
 *.ipynb_checkpoints/
+paper/diana_manuscript_materials_*.tar.gz
 
 # IDE
 .vscode/
@@ -46,12 +57,14 @@ data/splits/*
 data/matrices/*
 !data/matrices/.gitkeep
 data/validation/raw/
+data/validation/sra/
+data/validation/*.mat  # Validation matrix files (regenerable)
+data/validation/*.txt  # Task mapping and sample ID files
+data/validation/*.fof  # kmtricks file-of-files
+data/validation/backups*/  # Metadata backups
 reference_kmers.fasta*
 data/validation/task_mapping*
 data/validation/sra/
-
-# Large BLAST results
-paper/blast_results/blast_results.txt
 
 # Test/dummy data (large matrix files)
 data/test_data/matrices/*
@@ -65,6 +78,8 @@ models/**/*.pt
 models/**/*.pth
 models/**/*.h5
 models/**/*.pkl
+models/calibration_plots/
+models/optimal_temperatures.json
 !models/.gitkeep
 
 # Training results (large model checkpoints)
@@ -84,6 +99,11 @@ results/training/*/checkpoint_*.pth  # Any checkpoint files
 results/inference/  # Inference outputs
 results/validation_predictions/  # Validation outputs (regenerable, 134GB)
 results/validation_memory_analysis.csv
+results/consistency_check/  # Calibration outputs
+results/mc_dropout*/  # MC dropout outputs - directories
+results/mc_dropout*.tsv  # MC dropout outputs - TSV files
+results/ood_detection/  # OOD detection outputs
+results_backup*/  # Temporary backups
 !results/**/.gitkeep
 
 # External tools (installed separately)
@@ -98,9 +118,12 @@ logs/*.log
 logs/*.txt
 logs/*.err
 logs/*.out
+logs/*.tar.gz
 logs/validation/
 logs/inference/
 logs/final_training/
+logs/multitask/
+logs/downloads/
 !logs/.gitkeep
 
 # Test outputs
@@ -115,8 +138,41 @@ Thumbs.db
 *.tmp
 *.bak
 *.tmp.*.bin
+*.tar.gz  # Archive files (DIANA_paper_outputs, validation_outputs, etc.)
 tmp/
+DIANA_paper_outputs_20260120.tar.gz
 
-# Paper outputs (HTML files are regenerable, keep PNGs for publication)
-paper/figures/**/*.html
-paper/tables/**/*.html
+# Cleanup and utility scripts (one-off use)
+cleanup_*.py
+check_*.py
+test_*.py
+update_*.py
+complete_*.py
+*_seqkit_output.txt
+*_seqkit_stats.tsv
+
+# Backup directories
+results_backup*/
+results/training_uncorrected_labels_*/
+
+# Analysis outputs
+results/consistency_check/
+results/ood_detection*/
+results/mc_dropout_*/
+results/*.tsv
+results/wrong_predictions_analysis.tsv
+
+# Test data not needed in repo
+test_data/
+test_results/
+
+# Paper assets and archives (should be generated)
+paper/assets/
+*.tex
+
+# Validation seqkit data (regenerated from FASTQ)
+data/validation/seqkit_stats*.tsv
+data/validation/ena_cache*.json
+data/validation/interactive_review_log.tsv
+
+# Review logs (keep in data/ subdirectories)

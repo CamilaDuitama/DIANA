@@ -5,7 +5,7 @@
 
 data:
   features_path: data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat
-  metadata_path: data/splits/train_metadata.tsv  # ← CRITICAL: Train set only!
+  metadata_path: paper/metadata/train_metadata.tsv  # ← CRITICAL: Train set only (corrected labels)
 
 model:
   # Task definitions

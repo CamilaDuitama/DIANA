@@ -117,14 +117,33 @@ def main():
         **hyperparams['model_params']  # Unpacks: hidden_dims, dropout, activation, use_batch_norm
     )
 
-    # P1: Initialize trainer with clean nested params
+    # Compute class weights for handling class imbalance
+    logger.info('Computing class weights for handling class imbalance...')
+    class_weights = {}
+    for task_name in task_names:
+        unique, counts = np.unique(y_train[task_name], return_counts=True)
+        total = len(y_train[task_name])
+        n_total_classes = task_info[task_name]
+        
+        # Initialize weights for all classes with 1.0 (neutral weight for missing classes)
+        weights = np.ones(n_total_classes, dtype=np.float32)
+        
+        # Compute weights for classes present in training set
+        for cls_idx, count in zip(unique, counts):
+            weights[cls_idx] = total / (len(unique) * count)
+        
+        class_weights[task_name] = torch.FloatTensor(weights).to(device)
+        logger.info(f"{task_name} - Classes: {len(unique)}, Weights (present): {dict(zip(unique.astype(int), weights[unique]))}")
+
+    # P1: Initialize trainer with clean nested params + class weights
     trainer = MultiTaskTrainer(
         model=model,
         task_names=task_names,
         device=device,
         learning_rate=hyperparams['trainer_params']['learning_rate'],
         weight_decay=hyperparams['trainer_params']['weight_decay'],
-        task_weights=hyperparams['trainer_params']['task_weights']
+        task_weights=hyperparams['trainer_params']['task_weights'],
+        class_weights=class_weights
     )
 
     # Train with early stopping
