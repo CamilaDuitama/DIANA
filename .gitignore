@@ -138,3 +138,38 @@ Thumbs.db
 *.tar.gz  # Archive files (DIANA_paper_outputs, validation_outputs, etc.)
 tmp/
 DIANA_paper_outputs_20260120.tar.gz
+
+# Cleanup and utility scripts (one-off use)
+cleanup_*.py
+check_*.py
+test_*.py
+update_*.py
+complete_*.py
+*_seqkit_output.txt
+*_seqkit_stats.tsv
+
+# Backup directories
+results_backup*/
+results/training_uncorrected_labels_*/
+
+# Analysis outputs
+results/consistency_check/
+results/ood_detection*/
+results/mc_dropout_*/
+results/*.tsv
+results/wrong_predictions_analysis.tsv
+
+# Test data not needed in repo
+test_data/
+test_results/
+
+# Paper assets and archives (should be generated)
+paper/assets/
+*.tex
+
+# Validation seqkit data (regenerated from FASTQ)
+data/validation/seqkit_stats*.tsv
+data/validation/ena_cache*.json
+data/validation/interactive_review_log.tsv
+
+# Review logs (keep in data/ subdirectories)
