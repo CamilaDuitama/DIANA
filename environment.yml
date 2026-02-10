@@ -25,6 +25,7 @@ dependencies:
   - jupyterlab
   - ete3
   - seqkit
+  - taxonkit  # NCBI taxonomy database tools for species lineage lookup
   - biopython  # Sequence analysis and parsing
   - pigz  # Parallel gzip for fast decompression
   - pytest
@@ -47,3 +48,4 @@ dependencies:
       - scikit-multilearn
       - optuna>=3.0  # Hyperparameter optimization
       - kaleido==0.2.1  # PNG export for plotly (stable version for HPC)
+      - umap-learn>=0.5  # Non-linear dimensionality reduction
