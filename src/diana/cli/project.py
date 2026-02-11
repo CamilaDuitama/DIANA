@@ -275,8 +275,15 @@ def plot_pca_projection(
         
         # Save
         html_path = output_dir / f'pca_projection_{task}.html'
+        png_path = output_dir / f'pca_projection_{task}.png'
         fig.write_html(str(html_path))
-        logger.info(f"    ✓ Saved: {html_path.name}")
+        try:
+            fig.write_image(str(png_path), width=1400, height=1000)
+            logger.info(f"    ✓ Saved: {html_path.name}, {png_path.name}")
+        except Exception as e:
+            logger.info(f"    ✓ Saved: {html_path.name}")
+            if 'kaleido' in str(e).lower():
+                logger.debug(f"    (PNG export requires kaleido package)")
 
 
 def resolve_taxids(taxids, n_threads=None):
@@ -513,7 +520,7 @@ def plot_unitig_pca(
     fig = go.Figure()
     
     # Color palette
-    colors = px.colors.qualitative.Plotly + px.colors.qualitative.Dark24
+    colors = px.colors.qualitative.Vivid
     species_colors = {sp: colors[i % len(colors)] for i, sp in enumerate(top_species)}
     
     # Plot each species
@@ -560,8 +567,15 @@ def plot_unitig_pca(
     
     # Save
     html_path = output_dir / f'pca_projection_unitigs_species.html'
+    png_path = output_dir / f'pca_projection_unitigs_species.png'
     fig.write_html(str(html_path))
-    logger.info(f"  ✓ Saved: {html_path.name}")
+    try:
+        fig.write_image(str(png_path), width=1400, height=1000)
+        logger.info(f"  ✓ Saved: {html_path.name}, {png_path.name}")
+    except Exception as e:
+        logger.info(f"  ✓ Saved: {html_path.name}")
+        if 'kaleido' in str(e).lower():
+            logger.debug(f"    (PNG export requires kaleido package)")
 
 
 def plot_species_abundance_barplot(
@@ -591,8 +605,9 @@ def plot_species_abundance_barplot(
     present_unitig_ids = unitig_ids[present_mask]
     present_fractions = sample_unitig_fraction[present_mask]
     
+    total_unitigs = len(unitig_ids)  # Total unitigs in feature space
     total_present_unitigs = len(present_unitig_ids)
-    logger.info(f"  Total present unitigs: {total_present_unitigs:,}")
+    logger.info(f"  Total present unitigs: {total_present_unitigs:,} / {total_unitigs:,}")
     
     if total_present_unitigs == 0:
         logger.warning("  No present unitigs found")
@@ -650,8 +665,8 @@ def plot_species_abundance_barplot(
     # Get top N species
     top_species_counts = species_counts.head(top_n_species)
     
-    # Calculate percentages
-    percentages = (top_species_counts / total_present_unitigs * 100).round(2)
+    # Calculate percentages relative to TOTAL unitigs (not just present ones)
+    percentages = (top_species_counts / total_unitigs * 100).round(2)
     
     logger.info(f"  Top {top_n_species} species by unitig count:")
     for i, (species, count) in enumerate(top_species_counts.items(), 1):
@@ -671,6 +686,10 @@ def plot_species_abundance_barplot(
     
     fig = go.Figure()
     
+    # Use Vivid color palette
+    vivid_colors = px.colors.qualitative.Vivid
+    bar_colors = [vivid_colors[i % len(vivid_colors)] for i in range(len(plot_df))]
+    
     fig.add_trace(go.Bar(
         y=plot_df['Species'],
         x=plot_df['Percentage'],
@@ -678,18 +697,16 @@ def plot_species_abundance_barplot(
         text=plot_df['Percentage'].apply(lambda x: f'{x:.2f}%'),
         textposition='auto',
         marker=dict(
-            color=plot_df['Percentage'],
-            colorscale='Viridis',
-            showscale=True,
-            colorbar=dict(title='Percentage')
+            color=bar_colors,
+            line=dict(width=1, color='white')
         ),
         hovertemplate='<b>%{y}</b><br>Unitigs: %{customdata}<br>Percentage: %{x:.2f}%<extra></extra>',
         customdata=plot_df['Count']
     ))
     
     fig.update_layout(
-        title=f'Species Abundance - {sample_id}<br><sub>Top {top_n_species} Species by Unitig Count (% of {total_present_unitigs:,} present unitigs)</sub>',
-        xaxis_title='Percentage of Unitigs (%)',
+        title=f'Species Abundance - {sample_id}<br><sub>Top {top_n_species} Species by Unitig Count (% of {total_unitigs:,} total unitigs)</sub>',
+        xaxis_title='Percentage of Total Unitigs (%)',
         yaxis_title='Species',
         template='plotly_white',
         width=1200,
@@ -700,8 +717,15 @@ def plot_species_abundance_barplot(
     
     # Save
     html_path = output_dir / f'species_abundance.html'
+    png_path = output_dir / f'species_abundance.png'
     fig.write_html(str(html_path))
-    logger.info(f"  ✓ Saved: {html_path.name}")
+    try:
+        fig.write_image(str(png_path), width=1200, height=800)
+        logger.info(f"  ✓ Saved: {html_path.name}, {png_path.name}")
+    except Exception as e:
+        logger.info(f"  ✓ Saved: {html_path.name}")
+        if 'kaleido' in str(e).lower():
+            logger.debug(f"    (PNG export requires kaleido package)")
 
 
 def main():
