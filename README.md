@@ -152,6 +152,71 @@ results/my_predictions/sample/
 
 Predict sample characteristics from FASTQ files.
 
+### diana-project
+
+Project samples onto reference PCA space to visualize similarity to training data.
+
+**Important:** This command requires samples to be processed by `diana-predict` first. It uses the existing unitig fraction files.
+
+**Basic usage:**
+```bash
+# Single sample (after running diana-predict)
+diana-project --sample results/validation_predictions/ERR10114862/
+
+# Multiple samples
+diana-project --sample results/validation_predictions/ERR*/
+```
+
+**What it does:**
+1. Loads pre-computed reference PCA space (3,070 training samples in 50-dimensional space)
+2. Projects your sample's unitig vector onto the same PCA coordinates
+3. Finds k-nearest neighbors using **Euclidean distance in 50D PC space** (default: k=5)
+4. Generates interactive HTML plots showing where your sample falls relative to training data
+
+**Outputs:**
+```
+results/pca_projection/sample_id/
+├── pca_projection_sample_type.html      # PCA colored by ancient vs modern
+├── pca_projection_material.html         # PCA colored by material type
+├── pca_projection_sample_host.html      # PCA colored by host species  
+└── pca_projection_community_type.html   # PCA colored by community type
+```
+
+Each plot shows:
+- **Reference samples** (colored by task labels) as small dots
+- **Nearest neighbors** highlighted as yellow diamonds 💎 (hover shows their labels)
+- **Your sample** as a red star ⭐ (with prediction confidence if available)
+
+**Optional arguments:**
+- `--k-neighbors N`: Number of nearest neighbors to highlight (default: 5)
+- `--output DIR`: Output directory (default: `results/pca_projection`)
+- `--pca-reference PATH`: Path to PCA reference file (default: `models/pca_reference.pkl`)
+- `--metadata PATH`: Path to training metadata (default: `paper/metadata/train_metadata.tsv`)
+
+**Example workflow:**
+```bash
+# Step 1: Predict on new sample
+diana-predict --sample my_sample.fastq.gz \
+              --model results/training/best_model.pth \
+              --muset-matrix data/matrices/large_matrix_3070_with_frac \
+              --output results/my_predictions
+
+# Step 2: Project onto PCA space  
+diana-project --sample results/my_predictions/my_sample/ \
+              --k-neighbors 10
+```
+
+**Interpretation:**
+- Samples close together in PCA space have similar unitig profiles
+- Nearest neighbors indicate what your sample most resembles
+- If your sample is far from all training data (outlier), the model may be less reliable
+
+---
+
+### diana-predict (detailed)
+
+Predict sample characteristics from FASTQ files.
+
 **Basic usage:**
 ```bash
 diana-predict --sample <fastq> --model <model.pth> --muset-matrix <matrix_dir> --output <outdir>
