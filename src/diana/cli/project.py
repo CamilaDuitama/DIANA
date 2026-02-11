@@ -19,7 +19,11 @@ import sys
 from pathlib import Path
 import json
 from glob import glob
+import subprocess
+import tempfile
+import os
 import plotly.graph_objects as go
+import plotly.express as px
 import numpy as np
 import pickle
 
@@ -275,6 +279,294 @@ def plot_pca_projection(
         logger.info(f"    ✓ Saved: {html_path.name}")
 
 
+def resolve_taxids(taxids, n_threads=None):
+    """Resolve taxids to full lineages using taxonkit.
+    
+    Args:
+        taxids: Array-like of taxid strings
+        n_threads: Number of threads (default: from OMP_NUM_THREADS env var)
+    
+    Returns:
+        dict mapping taxid (str) -> lineage (str)
+    """
+    taxid_to_lineage = {}
+    temp_input = None
+    
+    try:
+        # Create temp file with taxids
+        temp_input = tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.txt')
+        for taxid in taxids:
+            temp_input.write(f"{taxid}\n")
+        temp_input.close()
+        
+        # Get number of threads
+        if n_threads is None:
+            n_threads = os.environ.get('OMP_NUM_THREADS', '16')
+        
+        # Run taxonkit
+        cmd = (
+            f'bash -c "module load taxonkit/ && '
+            f'cat {temp_input.name} | '
+            f'taxonkit lineage -i 1 -j {n_threads} '
+            f'2>/dev/null"'
+        )
+        
+        result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=300)
+        
+        if result.returncode == 0 and result.stdout.strip():
+            for line in result.stdout.strip().split('\n'):
+                if not line:
+                    continue
+                fields = line.split('\t')
+                if len(fields) >= 2:
+                    taxid = fields[0]
+                    lineage = fields[1]
+                    # Remove 'cellular organisms;' prefix
+                    if lineage.startswith('cellular organisms;'):
+                        lineage = lineage.replace('cellular organisms;', '', 1)
+                    taxid_to_lineage[taxid] = lineage
+        
+        # Cleanup
+        if temp_input and os.path.exists(temp_input.name):
+            os.unlink(temp_input.name)
+            
+    except Exception as e:
+        logger.warning(f"  Error running taxonkit: {e}")
+        if temp_input and os.path.exists(temp_input.name):
+            os.unlink(temp_input.name)
+    
+    return taxid_to_lineage
+
+
+def extract_species_from_lineage(lineage):
+    """Extract species name from semicolon-separated lineage."""
+    if not lineage or lineage == 'Unknown':
+        return 'Unknown'
+    
+    ranks = lineage.split(';')
+    # Species is typically the last element
+    species = ranks[-1].strip() if ranks else 'Unknown'
+    
+    # Clean up common artifacts
+    if not species or species.lower() in ['', 'unknown', 'unclassified']:
+        # Try genus (second to last)
+        if len(ranks) >= 2:
+            species = ranks[-2].strip()
+    
+    return species if species else 'Unknown'
+
+
+def load_blast_annotations(blast_file: Path, unitig_ids):
+    """Load BLAST annotations with taxids."""
+    logger.info(f"\nLoading BLAST annotations from {blast_file.name}...")
+    
+    if not blast_file.exists():
+        logger.warning(f"  BLAST file not found: {blast_file}")
+        return None
+    
+    try:
+        import polars as pl
+        
+        # Read raw BLAST format: columns 1=unitig_id, 13=taxid, 14=description
+        blast_df = pl.read_csv(
+            blast_file,
+            separator="\t",
+            has_header=False,
+            new_columns=[
+                'unitig_id', 'subject_id', 'pident', 'length', 'mismatch', 'gapopen',
+                'qstart', 'qend', 'sstart', 'send', 'evalue', 'bitscore', 'taxid', 'description'
+            ],
+            schema_overrides={'taxid': pl.Utf8, 'unitig_id': pl.Int64}
+        )
+        
+        logger.info(f"  ✓ Loaded {len(blast_df):,} BLAST hits")
+        
+        # Filter to unitigs in reference
+        unitig_list = unitig_ids if isinstance(unitig_ids, list) else unitig_ids.tolist()
+        blast_df = blast_df.filter(pl.col('unitig_id').is_in(unitig_list))
+        logger.info(f"  ✓ {len(blast_df):,} hits match reference unitigs")
+        
+        return blast_df
+        
+    except Exception as e:
+        logger.error(f"  Failed to load BLAST annotations: {e}")
+        return None
+
+
+def plot_unitig_pca(
+    sample_id,
+    sample_unitig_fraction,
+    reference_data,
+    blast_df,
+    output_dir: Path,
+    top_n_species=10
+):
+    """Plot unitig PCA loadings colored by top species in sample."""
+    logger.info(f"\nGenerating unitig PCA plot for {sample_id}...")
+    
+    if blast_df is None or len(blast_df) == 0:
+        logger.warning("  No BLAST annotations available - skipping unitig PCA")
+        return
+    
+    # Get unitig loadings from PCA components
+    # components shape: (n_components, n_features) = (50, 107480)
+    # PC1 loadings = row 0, PC2 loadings = row 1
+    pc1_loadings = reference_data['components'][0, :]
+    pc2_loadings = reference_data['components'][1, :]
+    unitig_ids = reference_data['unitig_ids']
+    
+    # Ensure unitig_ids is numpy array for indexing
+    import numpy as np
+    if not isinstance(unitig_ids, np.ndarray):
+        unitig_ids = np.array(unitig_ids)
+    
+    logger.info(f"  PCA loadings: {len(pc1_loadings):,} unitigs")
+    
+    # Get sample's present unitigs (where fraction > 0)
+    present_mask = sample_unitig_fraction > 0
+    present_unitig_ids = unitig_ids[present_mask]
+    present_fractions = sample_unitig_fraction[present_mask]
+    
+    logger.info(f"  Sample has {len(present_unitig_ids):,} present unitigs")
+    
+    if len(present_unitig_ids) == 0:
+        logger.warning("  No present unitigs found")
+        return
+    
+    # Filter BLAST to sample's present unitigs
+    try:
+        import polars as pl
+        present_list = present_unitig_ids if isinstance(present_unitig_ids, list) else present_unitig_ids.tolist()
+        sample_blast = blast_df.filter(pl.col('unitig_id').is_in(present_list))
+    except:
+        import pandas as pd
+        if hasattr(blast_df, 'to_pandas'):
+            blast_df = blast_df.to_pandas()
+        sample_blast = blast_df[blast_df['unitig_id'].isin(present_unitig_ids)]
+    
+    if len(sample_blast) == 0:
+        logger.warning("  No BLAST hits for sample's present unitigs")
+        return
+    
+    logger.info(f"  BLAST hits for present unitigs: {len(sample_blast):,}")
+    
+    # Get unique taxids and resolve to species
+    try:
+        unique_taxids = sample_blast['taxid'].unique().to_list()
+    except:
+        unique_taxids = sample_blast['taxid'].unique().tolist()
+    
+    logger.info(f"  Resolving {len(unique_taxids)} unique taxids using taxonkit...")
+    taxid_to_lineage = resolve_taxids(unique_taxids)
+    logger.info(f"  ✓ Resolved {len(taxid_to_lineage)} taxids to lineages")
+    
+    if len(taxid_to_lineage) == 0:
+        logger.warning("  No lineages resolved - check if taxonkit module is loaded")
+        return
+    
+    # Convert to pandas for easier manipulation
+    if hasattr(sample_blast, 'to_pandas'):
+        sample_blast_pd = sample_blast.to_pandas()
+    else:
+        sample_blast_pd = sample_blast
+    
+    # Add lineages and extract species
+    sample_blast_pd['lineage'] = sample_blast_pd['taxid'].map(taxid_to_lineage)
+    sample_blast_pd['species'] = sample_blast_pd['lineage'].apply(extract_species_from_lineage)
+    
+    # Add fractions
+    unitig_to_fraction = dict(zip(present_unitig_ids, present_fractions))
+    sample_blast_pd['fraction'] = sample_blast_pd['unitig_id'].map(unitig_to_fraction)
+    
+    # Get top N species by total abundance
+    species_abundance = sample_blast_pd.groupby('species')['fraction'].sum().sort_values(ascending=False)
+    species_abundance = species_abundance[~species_abundance.index.str.contains('Unknown|unclassified', case=False, na=False)]
+    top_species = species_abundance.head(top_n_species).index.tolist()
+    
+    logger.info(f"  Top {top_n_species} species by abundance:")
+    for i, (sp, abundance) in enumerate(species_abundance.head(top_n_species).items(), 1):
+        logger.info(f"    {i}. {sp}: {abundance:.4f}")
+    
+    # Filter to top species and keep best hit per unitig
+    top_species_blast = sample_blast_pd[sample_blast_pd['species'].isin(top_species)].copy()
+    top_species_blast = top_species_blast.sort_values('bitscore', ascending=False).drop_duplicates('unitig_id', keep='first')
+    
+    # Create loading dataframe for plotting
+    import pandas as pd
+    loading_df = pd.DataFrame({
+        'unitig_id': unitig_ids,
+        'PC1_loading': pc1_loadings,
+        'PC2_loading': pc2_loadings
+    })
+    
+    # Merge with species annotations
+    plot_data = loading_df[loading_df['unitig_id'].isin(top_species_blast['unitig_id'])].copy()
+    plot_data = plot_data.merge(
+        top_species_blast[['unitig_id', 'species', 'fraction']], 
+        on='unitig_id', 
+        how='left'
+    )
+    
+    logger.info(f"  Plotting {len(plot_data):,} unitigs from top {top_n_species} species")
+    
+    # Create plot
+    fig = go.Figure()
+    
+    # Color palette
+    colors = px.colors.qualitative.Plotly + px.colors.qualitative.Dark24
+    species_colors = {sp: colors[i % len(colors)] for i, sp in enumerate(top_species)}
+    
+    # Plot each species
+    for species in top_species:
+        species_data = plot_data[plot_data['species'] == species]
+        
+        if len(species_data) == 0:
+            continue
+        
+        # Size by abundance (fraction)
+        sizes = species_data['fraction'] * 100 + 3  # Scale for visibility
+        
+        fig.add_trace(go.Scattergl(
+            x=species_data['PC1_loading'],
+            y=species_data['PC2_loading'],
+            mode='markers',
+            marker=dict(
+                size=sizes,
+                color=species_colors[species],
+                opacity=0.7,
+                line=dict(width=0.5, color='white')
+            ),
+            name=f'{species} ({len(species_data):,})',
+            hovertemplate=f'<b>{species}</b><br>Unitig ID: %{{text}}<br>PC1: %{{x:.3f}}<br>PC2: %{{y:.3f}}<br>Abundance: %{{customdata:.4f}}<extra></extra>',
+            text=species_data['unitig_id'],
+            customdata=species_data['fraction'],
+            showlegend=True
+        ))
+    
+    fig.update_layout(
+        title=f'Unitig PCA Loadings - {sample_id}<br><sub>Colored by Top {top_n_species} Species (marker size = abundance)</sub>',
+        xaxis_title='PC1 Loading',
+        yaxis_title='PC2 Loading',
+        template='plotly_white',
+        width=1400,
+        height=1000,
+        font=dict(size=12),
+        hovermode='closest',
+        legend=dict(
+            yanchor='top',
+            y=0.99,
+            xanchor='left',
+            x=0.01,
+            bgcolor='rgba(255,255,255,0.8)'
+        )
+    )
+    
+    # Save
+    html_path = output_dir / f'pca_projection_unitigs_species.html'
+    fig.write_html(str(html_path))
+    logger.info(f"  ✓ Saved: {html_path.name}")
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="DIANA Project: Project samples onto reference PCA space",
@@ -380,6 +672,14 @@ It uses the existing unitig fraction files to project samples onto PCA space.
     reference_pca = reference_data['pca_coordinates']
     reference_sample_ids = reference_data['sample_ids']
     
+    # Load BLAST annotations (shared for all samples)
+    blast_file = Path("results/feature_analysis/all_features_blast/blast_results.txt")
+    blast_df = load_blast_annotations(blast_file, reference_data['unitig_ids'])
+    if blast_df is None:
+        logger.warning("\nBLAST annotations not available - unitig PCA plots will be skipped")
+        logger.warning("To enable unitig plots, ensure BLAST results exist at:")
+        logger.warning(f"  {blast_file}")
+    
     # Load reference metadata
     if not args.metadata.exists():
         logger.error(f"Metadata not found: {args.metadata}")
@@ -439,6 +739,17 @@ It uses the existing unitig fraction files to project samples onto PCA space.
                 nearest_ids=nearest_ids,
                 predictions=predictions
             )
+            
+            # Generate unitig PCA projection colored by species
+            if blast_df is not None:
+                plot_unitig_pca(
+                    sample_id=sample_id,
+                    sample_unitig_fraction=unitig_vector,
+                    reference_data=reference_data,
+                    blast_df=blast_df,
+                    output_dir=sample_output_dir,
+                    top_n_species=10
+                )
             
             logger.info(f"\n  ✓ Results saved to: {sample_output_dir}")
             
