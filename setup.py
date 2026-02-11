@@ -32,6 +32,7 @@ setup(
             "diana-train=diana.cli.train:main",
             "diana-test=diana.cli.test:main",
             "diana-predict=diana.cli.predict:main",
+            "diana-project=diana.cli.project:main",
             # Inference pipeline scripts
             "00_extract_reference_kmers.sh=diana.scripts.inference:extract_reference_kmers",
             "01_count_kmers.sh=diana.scripts.inference:count_kmers",
