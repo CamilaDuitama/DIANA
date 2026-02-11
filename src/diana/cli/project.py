@@ -201,6 +201,12 @@ def plot_pca_projection(
         # Highlight nearest neighbors if provided
         if nearest_ids:
             neighbor_indices = [i for i, sid in enumerate(reference_sample_ids) if sid in nearest_ids]
+            # Get labels for nearest neighbors
+            neighbor_labels = [ref_labels[i] for i in neighbor_indices]
+            hover_texts = [
+                f'<b>{reference_sample_ids[i]}</b><br>{task}: {ref_labels[i]}<br>PC1: {{x:.2f}}<br>PC2: {{y:.2f}}'
+                for i in neighbor_indices
+            ]
             fig.add_trace(go.Scatter(
                 x=reference_pca[neighbor_indices, 0],
                 y=reference_pca[neighbor_indices, 1],
@@ -213,7 +219,8 @@ def plot_pca_projection(
                     line=dict(width=2, color='black')
                 ),
                 text=[reference_sample_ids[i] for i in neighbor_indices],
-                hovertemplate='<b>%{text}</b><br>PC1: %{x:.2f}<br>PC2: %{y:.2f}<extra></extra>'
+                customdata=neighbor_labels,
+                hovertemplate='<b>%{text}</b><br>' + task.replace('_', ' ').title() + ': %{customdata}<br>PC1: %{x:.2f}<br>PC2: %{y:.2f}<extra></extra>'
             ))
         
         # Plot new sample
