@@ -535,10 +535,10 @@ def plot_unitig_pca(
             y=species_data['PC2_loading'],
             mode='markers',
             marker=dict(
-                size=4,
+                size=8,
                 color=species_colors[species],
-                opacity=0.7,
-                line=dict(width=0.5, color='white')
+                opacity=0.9,
+                line=dict(width=1, color='white')
             ),
             name=f'{species} ({len(species_data):,})',
             hovertemplate=f'<b>{species}</b><br>Unitig ID: %{{text}}<br>PC1: %{{x:.3f}}<br>PC2: %{{y:.3f}}<br>Abundance: %{{customdata:.4f}}<extra></extra>',
@@ -686,20 +686,14 @@ def plot_species_abundance_barplot(
     
     fig = go.Figure()
     
-    # Use Vivid color palette
-    vivid_colors = px.colors.qualitative.Vivid
-    bar_colors = [vivid_colors[i % len(vivid_colors)] for i in range(len(plot_df))]
-    
+    # Use single teal color for bars
     fig.add_trace(go.Bar(
         y=plot_df['Species'],
         x=plot_df['Percentage'],
         orientation='h',
         text=plot_df['Percentage'].apply(lambda x: f'{x:.2f}%'),
         textposition='auto',
-        marker=dict(
-            color=bar_colors,
-            line=dict(width=1, color='white')
-        ),
+        marker=dict(color='teal'),
         hovertemplate='<b>%{y}</b><br>Unitigs: %{customdata}<br>Percentage: %{x:.2f}%<extra></extra>',
         customdata=plot_df['Count']
     ))
