@@ -399,7 +399,7 @@ def plot_unitig_pca(
     reference_data,
     blast_df,
     output_dir: Path,
-    top_n_species=10
+    top_n_species=20
 ):
     """Plot unitig PCA loadings colored by top species in sample."""
     logger.info(f"\nGenerating unitig PCA plot for {sample_id}...")
@@ -523,15 +523,12 @@ def plot_unitig_pca(
         if len(species_data) == 0:
             continue
         
-        # Size by abundance (fraction)
-        sizes = species_data['fraction'] * 100 + 3  # Scale for visibility
-        
         fig.add_trace(go.Scattergl(
             x=species_data['PC1_loading'],
             y=species_data['PC2_loading'],
             mode='markers',
             marker=dict(
-                size=sizes,
+                size=4,
                 color=species_colors[species],
                 opacity=0.7,
                 line=dict(width=0.5, color='white')
@@ -544,7 +541,7 @@ def plot_unitig_pca(
         ))
     
     fig.update_layout(
-        title=f'Unitig PCA Loadings - {sample_id}<br><sub>Colored by Top {top_n_species} Species (marker size = abundance)</sub>',
+        title=f'Unitig PCA Loadings - {sample_id}<br><sub>Colored by Top {top_n_species} Species</sub>',
         xaxis_title='PC1 Loading',
         yaxis_title='PC2 Loading',
         template='plotly_white',
@@ -563,6 +560,146 @@ def plot_unitig_pca(
     
     # Save
     html_path = output_dir / f'pca_projection_unitigs_species.html'
+    fig.write_html(str(html_path))
+    logger.info(f"  ✓ Saved: {html_path.name}")
+
+
+def plot_species_abundance_barplot(
+    sample_id,
+    sample_unitig_fraction,
+    reference_data,
+    blast_df,
+    output_dir: Path,
+    top_n_species=20
+):
+    """Plot species abundance as percentage of unitigs."""
+    logger.info(f"\nGenerating species abundance bar plot for {sample_id}...")
+    
+    if blast_df is None or len(blast_df) == 0:
+        logger.warning("  No BLAST annotations available - skipping abundance plot")
+        return
+    
+    unitig_ids = reference_data['unitig_ids']
+    
+    # Ensure unitig_ids is numpy array
+    import numpy as np
+    if not isinstance(unitig_ids, np.ndarray):
+        unitig_ids = np.array(unitig_ids)
+    
+    # Get sample's present unitigs (where fraction > 0)
+    present_mask = sample_unitig_fraction > 0
+    present_unitig_ids = unitig_ids[present_mask]
+    present_fractions = sample_unitig_fraction[present_mask]
+    
+    total_present_unitigs = len(present_unitig_ids)
+    logger.info(f"  Total present unitigs: {total_present_unitigs:,}")
+    
+    if total_present_unitigs == 0:
+        logger.warning("  No present unitigs found")
+        return
+    
+    # Filter BLAST to sample's present unitigs
+    try:
+        import polars as pl
+        present_list = present_unitig_ids if isinstance(present_unitig_ids, list) else present_unitig_ids.tolist()
+        sample_blast = blast_df.filter(pl.col('unitig_id').is_in(present_list))
+    except:
+        import pandas as pd
+        if hasattr(blast_df, 'to_pandas'):
+            blast_df_pd = blast_df.to_pandas()
+        else:
+            blast_df_pd = blast_df
+        sample_blast = blast_df_pd[blast_df_pd['unitig_id'].isin(present_unitig_ids)]
+    
+    if len(sample_blast) == 0:
+        logger.warning("  No BLAST hits for present unitigs")
+        return
+    
+    # Get unique taxids and resolve to species
+    try:
+        unique_taxids = sample_blast['taxid'].unique().to_list()
+    except:
+        unique_taxids = sample_blast['taxid'].unique().tolist()
+    
+    logger.info(f"  Resolving {len(unique_taxids)} unique taxids...")
+    taxid_to_lineage = resolve_taxids(unique_taxids)
+    
+    if len(taxid_to_lineage) == 0:
+        logger.warning("  No lineages resolved")
+        return
+    
+    # Convert to pandas for manipulation
+    if hasattr(sample_blast, 'to_pandas'):
+        sample_blast_pd = sample_blast.to_pandas()
+    else:
+        sample_blast_pd = sample_blast
+    
+    # Add lineages and extract species
+    sample_blast_pd['lineage'] = sample_blast_pd['taxid'].map(taxid_to_lineage)
+    sample_blast_pd['species'] = sample_blast_pd['lineage'].apply(extract_species_from_lineage)
+    
+    # Keep best hit per unitig (highest bitscore)
+    sample_blast_pd = sample_blast_pd.sort_values('bitscore', ascending=False).drop_duplicates('unitig_id', keep='first')
+    
+    # Count unitigs per species
+    species_counts = sample_blast_pd['species'].value_counts()
+    
+    # Remove Unknown/unclassified
+    species_counts = species_counts[~species_counts.index.str.contains('Unknown|unclassified', case=False, na=False)]
+    
+    # Get top N species
+    top_species_counts = species_counts.head(top_n_species)
+    
+    # Calculate percentages
+    percentages = (top_species_counts / total_present_unitigs * 100).round(2)
+    
+    logger.info(f"  Top {top_n_species} species by unitig count:")
+    for i, (species, count) in enumerate(top_species_counts.items(), 1):
+        pct = percentages[species]
+        logger.info(f"    {i}. {species}: {int(count)} unitigs ({pct:.2f}%)")
+    
+    # Create bar plot
+    import pandas as pd
+    plot_df = pd.DataFrame({
+        'Species': top_species_counts.index,
+        'Count': top_species_counts.values,
+        'Percentage': percentages.values
+    })
+    
+    # Reverse for better display (highest at top)
+    plot_df = plot_df.iloc[::-1]
+    
+    fig = go.Figure()
+    
+    fig.add_trace(go.Bar(
+        y=plot_df['Species'],
+        x=plot_df['Percentage'],
+        orientation='h',
+        text=plot_df['Percentage'].apply(lambda x: f'{x:.2f}%'),
+        textposition='auto',
+        marker=dict(
+            color=plot_df['Percentage'],
+            colorscale='Viridis',
+            showscale=True,
+            colorbar=dict(title='Percentage')
+        ),
+        hovertemplate='<b>%{y}</b><br>Unitigs: %{customdata}<br>Percentage: %{x:.2f}%<extra></extra>',
+        customdata=plot_df['Count']
+    ))
+    
+    fig.update_layout(
+        title=f'Species Abundance - {sample_id}<br><sub>Top {top_n_species} Species by Unitig Count (% of {total_present_unitigs:,} present unitigs)</sub>',
+        xaxis_title='Percentage of Unitigs (%)',
+        yaxis_title='Species',
+        template='plotly_white',
+        width=1200,
+        height=800,
+        font=dict(size=11),
+        margin=dict(l=250, r=50, t=100, b=50)
+    )
+    
+    # Save
+    html_path = output_dir / f'species_abundance.html'
     fig.write_html(str(html_path))
     logger.info(f"  ✓ Saved: {html_path.name}")
 
@@ -748,7 +885,17 @@ It uses the existing unitig fraction files to project samples onto PCA space.
                     reference_data=reference_data,
                     blast_df=blast_df,
                     output_dir=sample_output_dir,
-                    top_n_species=10
+                    top_n_species=20
+                )
+                
+                # Generate species abundance bar plot
+                plot_species_abundance_barplot(
+                    sample_id=sample_id,
+                    sample_unitig_fraction=unitig_vector,
+                    reference_data=reference_data,
+                    blast_df=blast_df,
+                    output_dir=sample_output_dir,
+                    top_n_species=20
                 )
             
             logger.info(f"\n  ✓ Results saved to: {sample_output_dir}")
