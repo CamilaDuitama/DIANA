@@ -447,7 +447,7 @@ Resource Requirements:
         '--muset-matrix',
         type=Path,
         required=True,
-        help='Path to MUSET matrix directory'
+        help='Path to MUSET matrix directory (must contain unitigs.fa and reference_kmers.fasta for feature extraction)'
     )
     
     # Output
