@@ -12,6 +12,7 @@ from pathlib import Path
 import time
 import json
 import subprocess
+import gzip
 
 logger = logging.getLogger(__name__)
 
@@ -59,6 +60,68 @@ def run_command_streaming(cmd: list, step_name: str) -> None:
         )
     
     logger.info(f"  ✓ {step_name} complete ({time.time() - step_start:.1f}s)")
+
+
+def validate_fastq_file(fastq_path: Path, min_size_kb: int = 1) -> tuple[bool, str]:
+    """
+    Validate that a FASTQ file has sufficient data for analysis.
+    
+    Args:
+        fastq_path: Path to FASTQ file (.fastq.gz or .fq.gz)
+        min_size_kb: Minimum file size in KB (default: 1KB)
+    
+    Returns:
+        Tuple of (is_valid, error_message). error_message is empty string if valid.
+    """
+    # Check file extension
+    if not (fastq_path.suffix == '.gz' and fastq_path.stem.endswith(('.fastq', '.fq'))):
+        return False, f"not a gzipped FASTQ file (expected *.fastq.gz or *.fq.gz)"
+    
+    # Check file exists
+    if not fastq_path.exists():
+        return False, f"file not found"
+    
+    # Check file is not empty
+    file_size_bytes = fastq_path.stat().st_size
+    if file_size_bytes == 0:
+        return False, f"empty file (0 bytes)"
+    
+    # Check minimum file size (default 1KB to catch trivially small files)
+    min_size_bytes = min_size_kb * 1024
+    if file_size_bytes < min_size_bytes:
+        return False, f"file too small ({file_size_bytes} bytes, minimum {min_size_bytes} bytes)"
+    
+    # Validate gzip format and peek at content
+    try:
+        with gzip.open(fastq_path, 'rt') as f:
+            # Try to read first 4 lines (one FASTQ record)
+            lines = []
+            for _ in range(4):
+                line = f.readline()
+                if not line:
+                    break
+                lines.append(line.strip())
+            
+            # Check we got at least some content
+            if not lines:
+                return False, f"file appears empty (no content after decompression)"
+            
+            # Basic FASTQ format check (first line should start with @)
+            if lines and not lines[0].startswith('@'):
+                return False, f"does not appear to be FASTQ format (first line should start with '@')"
+            
+            # Check we have at least one complete record
+            if len(lines) < 4:
+                return False, f"insufficient data (less than one complete FASTQ record, got {len(lines)} lines)"
+            
+    except (gzip.BadGzipFile, OSError) as e:
+        return False, f"invalid gzip file or corrupted: {str(e)}"
+    except UnicodeDecodeError:
+        return False, f"file contains binary data or invalid text encoding"
+    except Exception as e:
+        return False, f"error reading file: {str(e)}"
+    
+    return True, ""
 
 
 def detect_paired_end(sample_path: Path) -> list:
@@ -523,22 +586,21 @@ Resource Requirements:
             })
             continue
         
-        # Validate files are non-empty gzipped FASTQ
+        # Validate files have sufficient data for analysis
         invalid_files = []
         for f in sample_files:
-            # Check file extension
-            if not (f.suffix == '.gz' and f.stem.endswith(('.fastq', '.fq'))):
-                invalid_files.append(f"{f}: not a gzipped FASTQ file (*.fastq.gz or *.fq.gz)")
-            # Check file is not empty
-            elif f.stat().st_size == 0:
-                invalid_files.append(f"{f}: empty file (0 bytes)")
+            is_valid, error_msg = validate_fastq_file(f)
+            if not is_valid:
+                invalid_files.append(f"{f.name}: {error_msg}")
         
         if invalid_files:
-            logger.error(f"Invalid sample file(s): {'; '.join(invalid_files)}")
+            logger.error(f"Sample validation failed:")
+            for error in invalid_files:
+                logger.error(f"  - {error}")
             results.append({
                 "sample_id": sample_files[0].stem,
                 "status": "invalid",
-                "error": f"Invalid file(s): {'; '.join(invalid_files)}"
+                "error": f"Validation failed: {'; '.join(invalid_files)}"
             })
             continue
         

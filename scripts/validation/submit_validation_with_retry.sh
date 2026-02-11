@@ -139,7 +139,7 @@ submit_tier() {
         --output=logs/validation/diana_predict_%A_%a.out \
         --error=logs/validation/diana_predict_%A_%a.err \
         --cpus-per-task=6 \
-        --partition=common \
+        --partition=seqbio \
         --exclude=maestro-2010 \
         scripts/validation/05_run_predictions_single.sbatch | awk '{print $4}')
     
