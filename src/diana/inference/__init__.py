@@ -1,29 +1,11 @@
 """
 Diana Inference Module
 
-This module handles feature extraction and prediction for new aDNA samples.
-It uses MUSET's methodology to compute unitig-based features consistent with training data.
+This module handles prediction for new aDNA samples.
+Feature extraction is performed by the shell pipeline in scripts/inference/:
+  01_count_kmers.sh        - back_to_sequences: count reference k-mers in sample
+  02_aggregate_to_unitigs.sh - kmat_tools unitig: aggregate to unitig-level vectors
+  03_run_inference.py      - load unitig fraction vector and run the neural network
 """
 
-from .feature_extraction import (
-    DIANAFeatureExtractor,
-    extract_diana_features
-)
-
-# Legacy imports (if they exist)
-try:
-    from .feature_extractor import FeatureExtractor, extract_features_from_fastq
-    from .predictor import Predictor
-    
-    __all__ = [
-        'DIANAFeatureExtractor',
-        'extract_diana_features',
-        'FeatureExtractor',
-        'extract_features_from_fastq',
-        'Predictor',
-    ]
-except ImportError:
-    __all__ = [
-        'DIANAFeatureExtractor',
-        'extract_diana_features',
-    ]
+__all__ = []

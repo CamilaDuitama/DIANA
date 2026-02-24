@@ -141,7 +141,6 @@ def generate_computational_resources_table(output_path: Path) -> None:
     
     # Generate LaTeX table
     lines = []
-    lines.append("\\begin{table}[!t]")
     lines.append("\\centering")
     lines.append(f"\\caption{{Validation inference computational resources stratified by memory tier ({total_samples} samples)}}")
     lines.append("\\label{tab:resources}")
@@ -155,12 +154,10 @@ def generate_computational_resources_table(output_path: Path) -> None:
         input_str = f"{row['input_mean']:.2f} $\\pm$ {row['input_std']:.2f}" if not np.isnan(row['input_std']) else f"{row['input_mean']:.2f}"
         lines.append(f"{int(row['tier'])} & {int(row['cpus'])} & {int(row['n'])} & {runtime_str} & {input_str} \\\\")
     
-    lines.append("\\bottomrule")
+    lines.append("\\botrule")
     lines.append("\\end{tabular}")
-    lines.append("\\begin{tablenotes}")
-    lines.append("\\item Runtime includes the creation of a vector of unitig feature abundances per sample and neural network inference.")
-    lines.append("\\end{tablenotes}")
-    lines.append("\\end{table}")
+    lines.append("\\\\[2mm]")
+    lines.append("{\\footnotesize Runtime includes the creation of a vector of unitig feature abundances per sample and neural network inference.}")
     
     with open(output_path, 'w') as f:
         f.write('\n'.join(lines))

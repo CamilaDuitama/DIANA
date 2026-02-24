@@ -216,7 +216,6 @@ def generate_performance_summary_table(output_dir):
     }
     
     lines = []
-    lines.append("\\begin{table*}[!t]")
     lines.append("\\centering")
     lines.append("\\caption{Final model performance across the Training set, the held-out Test set, and the external Validation set.}")
     lines.append("\\label{tab:performance}")
@@ -255,16 +254,20 @@ def generate_performance_summary_table(output_dir):
         
         lines.append("\\addlinespace")
     
-    lines.append("\\bottomrule")
+    lines.append("\\botrule")
     lines.append("\\end{tabular*}")
-    lines.append("\\begin{tablenotes}")
+    lines.append("\\\\[2mm]")
+    
+    # Build footnote text
+    footnote_parts = []
     if use_actual_training:
-        lines.append(r"\item Training: Performance on all 2,609 training samples (seen labels only).")
-    lines.append(r"\item Test: Performance on the held-out test set (n=461).")
-    lines.append("\\item Validation: Performance on the external validation set. Metrics computed only on samples with labels seen during training.")
-    lines.append("\\item Acc: Accuracy. Bal Acc: Balanced Accuracy (average per-class recall). F1 Score: Macro-averaged F1-score.")
-    lines.append("\\end{tablenotes}")
-    lines.append("\\end{table*}")
+        train_n = train_metrics[TASKS[0]]['n']
+        footnote_parts.append(f"Training: Performance on all {train_n:,} training samples (seen labels only).")
+    footnote_parts.append("Test: Performance on the held-out test set (n=461).")
+    footnote_parts.append("Validation: Performance on the external validation set. Metrics computed only on samples with labels seen during training.")
+    footnote_parts.append("Acc: Accuracy. Bal Acc: Balanced Accuracy (average per-class recall). F1 Score: Macro-averaged F1-score.")
+    
+    lines.append("{\\footnotesize " + " ".join(footnote_parts) + "}")
     
     output_file = output_dir / "main_table_01_performance_summary.tex"
     with open(output_file, 'w') as f:

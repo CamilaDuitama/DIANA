@@ -29,9 +29,11 @@ FAILED=0
 run_script() {
     local script=$1
     local description=$2
+    shift 2  # Remove first two arguments
+    local args="$@"  # Remaining arguments are script args
     
     echo "→ $description"
-    if python "$script" 2>&1; then
+    if mamba run -p ./env python "$script" $args 2>&1; then
         ((GENERATED++))
         echo "  ✓ Success"
         return 0
@@ -78,7 +80,8 @@ run_script "scripts/paper/02_generate_data_split.py" \
     "Supplementary Figure 2: Data Split Validation (6 plots)"
 
 run_script "scripts/paper/06_generate_pca_analysis.py" \
-    "Supplementary Figure 3: PCA Analysis (5 plots)"
+    "Supplementary Figure 3: PCA Analysis (5 plots)" \
+    --skip-nonlinear
 
 # ============================================================================
 # MAIN TABLES
@@ -120,6 +123,12 @@ run_script "scripts/paper/09_generate_wrong_predictions_table.py" \
 run_script "scripts/paper/10_generate_blast_summary_table.py" \
     "Supplementary Table 6: BLAST Summary"
 
+run_script "scripts/paper/17_generate_seen_unseen_validation_table.py" \
+    "Supplementary Table 7: Seen/Unseen Validation"
+
+run_script "scripts/paper/18_generate_matrix_generation_table.py" \
+    "Supplementary Table 8: Matrix Generation"
+
 # ============================================================================
 # SUMMARY
 # ============================================================================
@@ -148,6 +157,23 @@ if [ $FAILED -eq 0 ]; then
     echo "  PNG files:   $PNG_COUNT"
     echo "  HTML files:  $HTML_COUNT"
     echo "  LaTeX files: $TEX_COUNT"
+    echo ""
+    
+    # Create timestamped archive of final materials
+    TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+    ARCHIVE_NAME="paper_materials_${TIMESTAMP}.tar.gz"
+    
+    echo "Creating archive: $ARCHIVE_NAME"
+    tar -czf "$ARCHIVE_NAME" \
+        paper/tables/final/*.tex \
+        paper/figures/final/*.png 2>/dev/null
+    
+    if [ -f "$ARCHIVE_NAME" ]; then
+        ARCHIVE_SIZE=$(du -h "$ARCHIVE_NAME" | cut -f1)
+        echo "  ✓ Archive created: $ARCHIVE_NAME ($ARCHIVE_SIZE)"
+    else
+        echo "  ⚠ Warning: Archive creation failed"
+    fi
     
     exit 0
 else

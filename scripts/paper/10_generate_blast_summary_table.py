@@ -34,7 +34,6 @@ def generate_blast_summary_table(blast_data: dict, output_path: Path) -> None:
     """Generate BLAST summary table from JSON data."""
     
     lines = []
-    lines.append("\\begin{table}[htbp]")
     lines.append("\\centering")
     lines.append("\\caption{BLAST Hit Statistics for All Features}")
     lines.append("\\label{tab:blast_summary}")
@@ -75,9 +74,8 @@ def generate_blast_summary_table(blast_data: dict, output_path: Path) -> None:
     unique_genera = blast_data['taxonomy']['unique_genera']
     lines.append(f"Unique genera identified & {unique_genera} \\\\")
     
-    lines.append("\\bottomrule")
+    lines.append("\\botrule")
     lines.append("\\end{tabular}")
-    lines.append("\\end{table}")
     
     with open(output_path, 'w') as f:
         f.write('\n'.join(lines))

@@ -5,13 +5,23 @@ Generate PCA analysis of unitig matrix with task label annotations.
 This script:
 1. Loads the unitig fraction matrix (3,070 samples × 107,480 unitigs)
 2. Performs PCA dimensionality reduction
-3. Creates visualizations with samples colored by task labels
-4. Saves PCA model for future projections
+3. Optionally performs UMAP and t-SNE (can be skipped with --skip-nonlinear)
+4. Creates visualizations with samples colored by task labels
+5. Saves PCA model for future projections
 
 Output:
-- paper/figures/final/sup_XX_pca_*.png/html - PCA plots by task
-- paper/figures/final/sup_XX_pca_scree_plot.png - Explained variance
+- paper/figures/final/sup_03_pca_*.png/html - PCA plots by task
+- paper/figures/final/sup_03_pca_scree_plot.png - Explained variance
+- paper/figures/final/sup_04_pca_unitig_loadings_by_species.png - Unitig loadings colored by species
 - models/pca_reference.pkl - Saved PCA model for projecting new samples
+- Optional: UMAP and t-SNE plots (if --skip-nonlinear not used)
+
+Usage:
+    # Only PCA (recommended for paper - faster)
+    python scripts/paper/06_generate_pca_analysis.py --skip-nonlinear
+    
+    # All embeddings (PCA + UMAP + t-SNE)
+    python scripts/paper/06_generate_pca_analysis.py
 """
 
 import polars as pl
@@ -141,10 +151,18 @@ def load_unitig_matrix(standardize=False):
     test_ids = set(test_meta['Run_accession'].to_list())
     all_meta_ids = train_ids | test_ids
     
-    # Check coverage
+    # Check coverage and filter matrix to only include samples in metadata
     missing_from_meta = [sid for sid in sample_ids if sid not in all_meta_ids]
     if missing_from_meta:
-        logger.warning(f"    {len(missing_from_meta)} samples in fof but not in metadata: {missing_from_meta[:5]}...")
+        logger.warning(f"    {len(missing_from_meta)} samples in matrix but not in metadata (removed during cleaning)")
+        logger.warning(f"    Filtering matrix to exclude: {missing_from_meta}")
+        
+        # Filter matrix and sample_ids to only include samples in metadata
+        keep_indices = [i for i, sid in enumerate(sample_ids) if sid in all_meta_ids]
+        matrix = matrix[keep_indices, :]
+        sample_ids = [sample_ids[i] for i in keep_indices]
+        
+        logger.info(f"    Filtered matrix: {matrix.shape[0]} samples × {matrix.shape[1]} features")
     
     # Analyze train/test distribution
     n_train_in_matrix = sum(1 for sid in sample_ids if sid in train_ids)
@@ -803,8 +821,8 @@ def plot_pca_by_task(pca_result, metadata, task_col, pca_model, output_prefix):
         title=f'PCA of Unitig Matrix - {task_col.replace("_", " ").title()}',
         labels={'PC1': xlabel, 'PC2': ylabel},
         template=PLOT_CONFIG['template'],
-        width=PLOT_CONFIG['sizes']['default_width'],
-        height=PLOT_CONFIG['sizes']['default_height']
+        width=1400,
+        height=1000
     )
     
     fig.update_traces(
@@ -834,7 +852,7 @@ def plot_pca_by_task(pca_result, metadata, task_col, pca_model, output_prefix):
     # Save static PNG using Plotly
     png_path = Path(PATHS['figures_dir']) / f"{output_prefix}_{task_col}.png"
     try:
-        fig.write_image(str(png_path), width=1200, height=800, scale=2)
+        fig.write_image(str(png_path), width=1400, height=1000, scale=2)
         logger.info(f"  ✓ Saved static PNG: {png_path}")
     except Exception as e:
         logger.warning(f"  Could not save PNG (kaleido not installed?): {e}")
@@ -877,8 +895,8 @@ def plot_embedding_by_task(embedding_result, metadata, task_col, method_name, ou
         title=f'{method_name} of Unitig Matrix - {task_col.replace("_", " ").title()}',
         labels={'Dim1': xlabel, 'Dim2': ylabel},
         template=PLOT_CONFIG['template'],
-        width=PLOT_CONFIG['sizes']['default_width'],
-        height=PLOT_CONFIG['sizes']['default_height']
+        width=1400,
+        height=1000
     )
     
     fig.update_traces(
@@ -908,43 +926,85 @@ def plot_embedding_by_task(embedding_result, metadata, task_col, method_name, ou
     # Save static PNG using Plotly
     png_path = Path(PATHS['figures_dir']) / f"{output_prefix}_{task_col}.png"
     try:
-        fig.write_image(str(png_path), width=1200, height=800, scale=2)
+        fig.write_image(str(png_path), width=1400, height=1000, scale=2)
         logger.info(f"  ✓ Saved static PNG: {png_path}")
     except Exception as e:
         logger.warning(f"  Could not save PNG: {e}")
 
 
 def plot_scree_plot(pca, output_path):
-    """Create scree plot showing explained variance."""
+    """Create scree plot showing explained variance using Plotly."""
     logger.info("\nCreating scree plot...")
     
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
+    from plotly.subplots import make_subplots
+    
+    # Create subplots
+    fig = make_subplots(
+        rows=1, cols=2,
+        subplot_titles=('Explained Variance by Principal Component', 'Cumulative Explained Variance')
+    )
     
     # Plot 1: Explained variance per PC
-    ax1.bar(range(1, len(pca.explained_variance_ratio_) + 1), 
-            pca.explained_variance_ratio_,
-            color='steelblue', alpha=0.7)
-    ax1.set_xlabel('Principal Component', fontsize=12)
-    ax1.set_ylabel('Explained Variance Ratio', fontsize=12)
-    ax1.set_title('Explained Variance by Principal Component', fontsize=14, fontweight='bold')
-    ax1.grid(True, alpha=0.3)
+    pcs = list(range(1, len(pca.explained_variance_ratio_) + 1))
+    fig.add_trace(
+        go.Bar(
+            x=pcs,
+            y=pca.explained_variance_ratio_,
+            marker=dict(color=PLOT_CONFIG['colors']['palette'][2], opacity=0.8),
+            name='Variance per PC',
+            showlegend=False
+        ),
+        row=1, col=1
+    )
     
     # Plot 2: Cumulative explained variance
     cumsum = np.cumsum(pca.explained_variance_ratio_)
-    ax2.plot(range(1, len(cumsum) + 1), cumsum, 
-             marker='o', linestyle='-', color='steelblue', linewidth=2)
-    ax2.axhline(y=0.8, color='r', linestyle='--', label='80% variance')
-    ax2.axhline(y=0.9, color='orange', linestyle='--', label='90% variance')
-    ax2.set_xlabel('Number of Principal Components', fontsize=12)
-    ax2.set_ylabel('Cumulative Explained Variance', fontsize=12)
-    ax2.set_title('Cumulative Explained Variance', fontsize=14, fontweight='bold')
-    ax2.legend(fontsize=10)
-    ax2.grid(True, alpha=0.3)
+    fig.add_trace(
+        go.Scatter(
+            x=pcs,
+            y=cumsum,
+            mode='lines+markers',
+            marker=dict(size=6, color=PLOT_CONFIG['colors']['palette'][2]),
+            line=dict(width=3, color=PLOT_CONFIG['colors']['palette'][2]),
+            name='Cumulative',
+            showlegend=True
+        ),
+        row=1, col=2
+    )
     
-    plt.tight_layout()
-    plt.savefig(output_path, dpi=300, bbox_inches='tight')
-    plt.close()
-    logger.info(f"  ✓ Saved scree plot: {output_path}")
+    # Add reference lines at 80% and 90%
+    fig.add_hline(y=0.8, line_dash='dash', line_color='red', 
+                  annotation_text='80%', annotation_position='right',
+                  row=1, col=2)
+    fig.add_hline(y=0.9, line_dash='dash', line_color='#2ECC71',
+                  annotation_text='90%', annotation_position='right',
+                  row=1, col=2)
+    
+    # Update layout
+    fig.update_xaxes(title_text='Principal Component', row=1, col=1)
+    fig.update_yaxes(title_text='Explained Variance Ratio', row=1, col=1)
+    fig.update_xaxes(title_text='Number of Principal Components', row=1, col=2)
+    fig.update_yaxes(title_text='Cumulative Explained Variance', row=1, col=2)
+    
+    fig.update_layout(
+        template=PLOT_CONFIG['template'],
+        font=dict(size=PLOT_CONFIG['font_size']),
+        width=1400,
+        height=500,
+        showlegend=True
+    )
+    
+    # Save HTML
+    html_path = output_path.with_suffix('.html')
+    fig.write_html(str(html_path))
+    logger.info(f"  ✓ Saved scree plot HTML: {html_path}")
+    
+    # Save PNG
+    try:
+        fig.write_image(str(output_path), width=1400, height=500, scale=2)
+        logger.info(f"  ✓ Saved scree plot PNG: {output_path}")
+    except Exception as e:
+        logger.warning(f"  Could not save PNG: {e}")
 
 
 def extract_taxonomy_category(taxonomy_string, level='phylum', fallback_value=None):
@@ -1319,8 +1379,8 @@ def plot_pca_loadings(pca_model, unitig_ids, blast_annotations, output_dir,
     # Plot
     _plot_loadings_scatter(
         sample_with_tax, loading_blast, pca_model, color_by,
-        output_dir / f'sup_XX_pca_loadings_random1pct_{color_by}.html',
-        output_dir / f'sup_XX_pca_loadings_random1pct_{color_by}.png',
+        output_dir / f'sup_04_pca_loadings_random1pct_{color_by}.html',
+        output_dir / f'sup_04_pca_loadings_random1pct_{color_by}.png',
         f"Random 1% Sample ({len(sample_with_tax)} unitigs)",
         logger
     )
@@ -1363,8 +1423,8 @@ def plot_pca_loadings(pca_model, unitig_ids, blast_annotations, output_dir,
             # Plot
             _plot_loadings_scatter(
                 discriminant_with_tax, loading_blast, pca_model, color_by,
-                output_dir / f'sup_XX_pca_loadings_discriminant_{color_by}.html',
-                output_dir / f'sup_XX_pca_loadings_discriminant_{color_by}.png',
+                output_dir / f'sup_04_pca_loadings_discriminant_{color_by}.html',
+                output_dir / f'sup_04_pca_loadings_discriminant_{color_by}.png',
                 f"Top Discriminant Features ({len(discriminant_with_tax)} unitigs)",
                 logger
             )
@@ -1559,7 +1619,7 @@ def _plot_loadings_scatter(unitigs_df, all_blast_df, pca_model, color_by,
         logger.warning(f"    Could not save PNG: {e}")
 
 
-def plot_unitig_pca_by_top_species(pca_model, unitig_ids, blast_annotations, output_dir, top_n=10):
+def plot_unitig_pca_by_top_species(pca_model, unitig_ids, blast_annotations, output_dir, top_n=20):
     """
     Plot ALL unitigs in PCA loading space, colored by top N most frequent species.
     
@@ -1568,7 +1628,7 @@ def plot_unitig_pca_by_top_species(pca_model, unitig_ids, blast_annotations, out
         unitig_ids: Array of unitig IDs
         blast_annotations: DataFrame with BLAST hits including 'taxid' column
         output_dir: Output directory for plots
-        top_n: Number of top species to show (default: 10)
+        top_n: Number of top species to show (default: 20)
     """
     logger.info(f"\n{'='*80}")
     logger.info(f"Creating unitig PCA loadings plot colored by top {top_n} species...")
@@ -1701,28 +1761,44 @@ def plot_unitig_pca_by_top_species(pca_model, unitig_ids, blast_annotations, out
     # Create plot
     fig = go.Figure()
     
-    # Color palette
-    colors = px.colors.qualitative.Plotly + px.colors.qualitative.Dark24
+    # Color palette - use vivid colors from PLOT_CONFIG
+    vivid_colors = PLOT_CONFIG['colors']['palette']
     plot_categories = [cat for cat in top_species + ['Other species', 'No BLAST hit'] if cat != 'Unknown']
-    category_colors = {cat: colors[i % len(colors)] for i, cat in enumerate(plot_categories)}
     
-    # Plot each category
-    for category in plot_categories:
+    # Assign colors: No BLAST hit and Other species get very light colors (background)
+    category_colors = {}
+    color_idx = 0
+    for cat in plot_categories:
+        if cat == 'No BLAST hit':
+            category_colors[cat] = 'rgba(220, 220, 220, 0.15)'  # Very light gray
+        elif cat == 'Other species':
+            category_colors[cat] = 'rgba(200, 200, 230, 0.2)'  # Very light blue-ish
+        else:
+            category_colors[cat] = vivid_colors[color_idx % len(vivid_colors)]
+            color_idx += 1
+    
+    # Plot in specific order: background categories first, then top species
+    ordered_categories = ['No BLAST hit', 'Other species'] + [c for c in plot_categories if c not in ['No BLAST hit', 'Other species']]
+    
+    for category in ordered_categories:
+        if category not in plot_categories:
+            continue
+            
         cat_data = loading_with_species[loading_with_species['color_category'] == category]
         
         if len(cat_data) == 0:
             continue
         
-        # Different opacity for different categories
+        # Different size and opacity for different categories
         if category == 'No BLAST hit':
-            opacity = 0.1
-            size = 2
+            opacity = 0.15
+            size = 3
         elif category == 'Other species':
             opacity = 0.2
-            size = 2
-        else:
-            opacity = 0.4
             size = 3
+        else:
+            opacity = 0.7
+            size = 6
         
         fig.add_trace(go.Scatter(
             x=cat_data['PC1_loading'],
@@ -1745,29 +1821,34 @@ def plot_unitig_pca_by_top_species(pca_model, unitig_ids, blast_annotations, out
         xaxis_title=f'PC1 Loading ({var_pc1:.1f}% variance)',
         yaxis_title=f'PC2 Loading ({var_pc2:.1f}% variance)',
         template='plotly_white',
-        width=1400,
+        width=1600,
         height=1000,
         font=dict(size=12),
         hovermode='closest',
         legend=dict(
-            title='Species',
+            title=dict(text='Species', font=dict(size=11)),
             yanchor='top',
-            y=0.99,
+            y=1.0,
             xanchor='left',
-            x=0.01,
-            bgcolor='rgba(255,255,255,0.8)'
-        )
+            x=1.02,  # Position outside plot area
+            bgcolor='rgba(255,255,255,0.95)',
+            bordercolor='rgba(200,200,200,0.5)',
+            borderwidth=1,
+            font=dict(size=10),
+            itemsizing='constant'
+        ),
+        margin=dict(r=250)  # Add right margin for legend
     )
     
     # Save HTML
-    html_path = output_dir / 'sup_XX_pca_unitig_loadings_by_species.html'
+    html_path = output_dir / 'sup_04_pca_unitig_loadings_by_species.html'
     fig.write_html(str(html_path))
     logger.info(f"  ✓ Saved: {html_path}")
     
     # Save PNG
     try:
-        png_path = output_dir / 'sup_XX_pca_unitig_loadings_by_species.png'
-        fig.write_image(str(png_path), width=1400, height=1000, scale=2)
+        png_path = output_dir / 'sup_04_pca_unitig_loadings_by_species.png'
+        fig.write_image(str(png_path), width=1600, height=1000, scale=2)
         logger.info(f"  ✓ Saved: {png_path}")
     except Exception as e:
         logger.warning(f"  Could not save PNG: {e}")
@@ -1827,8 +1908,11 @@ def main():
         else:
             pca, pca_result = perform_pca(matrix, n_components=50)
         
-        # Perform UMAP (load from cache if available)
-        if umap_cache.exists():
+        # Perform UMAP (load from cache if available) - OPTIONAL
+        if args.skip_nonlinear:
+            logger.info("\n⊘ Skipping UMAP (--skip-nonlinear flag set)")
+            umap_model, umap_result = None, None
+        elif umap_cache.exists():
             logger.info(f"\n✓ Loading cached UMAP embedding: {umap_cache}")
             with open(umap_cache, 'rb') as f:
                 umap_data = pickle.load(f)
@@ -1852,8 +1936,11 @@ def main():
             else:
                 umap_model, umap_result = None, None
         
-        # Perform t-SNE (load from cache if available)
-        if tsne_cache.exists():
+        # Perform t-SNE (load from cache if available) - OPTIONAL
+        if args.skip_nonlinear:
+            logger.info("\n⊘ Skipping t-SNE (--skip-nonlinear flag set)")
+            tsne_result = None
+        elif tsne_cache.exists():
             logger.info(f"\n✓ Loading cached t-SNE embedding: {tsne_cache}")
             with open(tsne_cache, 'rb') as f:
                 tsne_result = pickle.load(f)
@@ -1905,7 +1992,7 @@ def main():
                       umap_model=umap_model, umap_result=umap_result)
         
         # Create scree plot
-        scree_path = Path(PATHS['figures_dir']) / "sup_XX_pca_scree_plot.png"
+        scree_path = Path(PATHS['figures_dir']) / "sup_03_pca_scree_plot.png"
         plot_scree_plot(pca, scree_path)
         
         # Create PCA loading plots (unitigs, not samples)
@@ -1938,19 +2025,19 @@ def main():
                 color_by=tax_level
             )
         
-        # Create unitig PCA plot colored by top 10 species
+        # Create unitig PCA plot colored by top 20 species
         plot_unitig_pca_by_top_species(
             pca,
             unitig_ids,
             blast_annotations,
             Path(PATHS['figures_dir']),
-            top_n=10
+            top_n=20
         )
         
         # Create PCA plots for each task
         for task in TASKS:
             if task in metadata.columns:
-                plot_pca_by_task(pca_result, metadata, task, pca, 'sup_XX_pca')
+                plot_pca_by_task(pca_result, metadata, task, pca, 'sup_03_pca')
             else:
                 logger.warning(f"  {task} not found in metadata")
         
@@ -1961,7 +2048,7 @@ def main():
                 if task in metadata.columns:
                     plot_embedding_by_task(
                         umap_result, metadata, task, 
-                        'UMAP', 'sup_XX_umap'
+                        'UMAP', 'sup_05_umap'
                     )
         
         # Create t-SNE plots if available
@@ -1971,7 +2058,7 @@ def main():
                 if task in metadata.columns:
                     plot_embedding_by_task(
                         tsne_result, metadata, task, 
-                        't-SNE', 'sup_XX_tsne'
+                        't-SNE', 'sup_06_tsne'
                     )
         
         logger.info("\n" + "=" * 80)
@@ -1980,12 +2067,12 @@ def main():
         logger.info("\nGenerated files:")
         logger.info(f"  - PCA model: models/pca_reference.pkl")
         logger.info(f"  - Scree plot: {scree_path}")
-        logger.info(f"  - Sample PCA plots: {PATHS['figures_dir']}/sup_XX_pca_*.png/html")
+        logger.info(f"  - Sample PCA plots: {PATHS['figures_dir']}/sup_03_pca_*.png/html")
         if umap_result is not None:
-            logger.info(f"  - Sample UMAP plots: {PATHS['figures_dir']}/sup_XX_umap_*.png/html")
+            logger.info(f"  - Sample UMAP plots: {PATHS['figures_dir']}/sup_05_umap_*.png/html")
         if tsne_result is not None:
-            logger.info(f"  - Sample t-SNE plots: {PATHS['figures_dir']}/sup_XX_tsne_*.png/html")
-        logger.info(f"  - Unitig loading plot: {PATHS['figures_dir']}/sup_XX_pca_loadings_top100.*")
+            logger.info(f"  - Sample t-SNE plots: {PATHS['figures_dir']}/sup_06_tsne_*.png/html")
+        logger.info(f"  - Unitig loading plot: {PATHS['figures_dir']}/sup_04_pca_loadings_by_species.*")
         logger.info(f"  - Separation metrics: {metrics_path}")
         logger.info(f"  - PC-task correlations: {correlations_path}")
         logger.info(f"  - PCA coordinates: {results_dir}/pca_coordinates.csv")
@@ -2024,12 +2111,20 @@ Examples:
   
   # Force recalculation of all embeddings
   python scripts/paper/06_generate_pca_analysis.py --no-cache
+  
+  # Only generate PCA (skip UMAP/t-SNE)
+  python scripts/paper/06_generate_pca_analysis.py --skip-nonlinear
         """
     )
     parser.add_argument(
         '--no-cache',
         action='store_true',
         help='Force recalculation of PCA/UMAP/t-SNE (ignore cached results)'
+    )
+    parser.add_argument(
+        '--skip-nonlinear',
+        action='store_true',
+        help='Skip UMAP and t-SNE generation (only compute PCA)'
     )
     
     args = parser.parse_args()

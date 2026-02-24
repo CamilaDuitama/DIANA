@@ -36,15 +36,25 @@ def generate_wrong_predictions_table(df: pd.DataFrame, output_path: Path) -> Non
     """Generate merged table of ALL wrong predictions (A->B) with counts and confidence stats."""
     
     lines = []
-    lines.append("\\begin{table*}[!t]")
-    lines.append("\\centering")
-    lines.append("\\caption{Common misclassification patterns across all tasks (Validation set)}")
-    lines.append("\\label{tab:wrong_merged}")
     lines.append("\\small")
-    lines.append("\\begin{tabular}{lp{4cm}p{4cm}r}")
+    lines.append("\\begin{longtable}{lp{4cm}p{4cm}r}")
+    lines.append("\\caption{Common misclassification patterns across all tasks (Validation set)\\label{tab:wrong_merged}} \\\\")
     lines.append("\\toprule")
     lines.append("Task & True Label & Predicted Label & Count \\\\")
     lines.append("\\midrule")
+    lines.append("\\endfirsthead")
+    lines.append("")
+    lines.append("\\multicolumn{4}{c}{{\\tablename\\ \\thetable{} -- continued from previous page}} \\\\")
+    lines.append("\\toprule")
+    lines.append("Task & True Label & Predicted Label & Count \\\\")
+    lines.append("\\midrule")
+    lines.append("\\endhead")
+    lines.append("")
+    lines.append("\\midrule")
+    lines.append("\\multicolumn{4}{r}{{Continued on next page}} \\\\")
+    lines.append("\\endfoot")
+    lines.append("")
+    lines.append("\\endlastfoot")
     
     task_labels = {
         'sample_type': 'Sample Type',
@@ -86,16 +96,9 @@ def generate_wrong_predictions_table(df: pd.DataFrame, output_path: Path) -> Non
     if lines[-1] == "\\addlinespace":
         lines = lines[:-1]
     
-    lines.append("\\bottomrule")
-    lines.append("\\end{tabular}")
-    lines.append("\\\\vspace{2mm}")
-    lines.append("{\\footnotesize")
-    lines.append("\\textbf{Notes:}")
-    lines.append("Only includes misclassifications of seen classes (present in training data). ")
-    lines.append("Count: Number of samples misclassified. ")
-    lines.append("Sorted by frequency (most common patterns first).")
-    lines.append("}")
-    lines.append("\\end{table*}")
+    lines.append("\\botrule")
+    lines.append("\\multicolumn{4}{p{0.95\\linewidth}}{\\footnotesize Only includes misclassifications of seen classes (present in training data). Count: Number of samples misclassified. Sorted by frequency (most common patterns first).} \\\\")
+    lines.append("\\end{longtable}")
     
     with open(output_path, 'w') as f:
         f.write('\n'.join(lines))

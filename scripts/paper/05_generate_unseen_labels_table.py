@@ -76,7 +76,6 @@ def generate_unseen_labels_table(output_dir):
     print("\n[3/3] Generating LaTeX table...")
     
     lines = []
-    lines.append("\\begin{table}[!t]")
     lines.append("\\centering")
     lines.append("\\caption{Model predictions for unseen labels\\label{tab:unseen_labels}}")
     lines.append("\\begin{tabular*}{\\columnwidth}{@{\\extracolsep{\\fill}}llrr@{\\extracolsep{\\fill}}}")
@@ -97,7 +96,7 @@ def generate_unseen_labels_table(output_dir):
         
         # Count predictions per true label
         confusion = task_unseen.groupby(['true_label', 'pred_label']).size().reset_index(name='count')
-        confusion = confusion.sort_values(['true_label', 'count'], ascending=[True, False])
+        confusion = confusion.sort_values('count', ascending=False)  # Sort by count descending
         
         for _, row in confusion.iterrows():
             true_lbl = str(row['true_label']).replace('_', '\\_').replace('&', '\\&')
@@ -115,22 +114,25 @@ def generate_unseen_labels_table(output_dir):
         
         lines.append("\\addlinespace")
     
-    lines.append("\\bottomrule")
+    lines.append("\\botrule")
     lines.append("\\end{tabular*}")
-    lines.append("\\begin{tablenotes}")
-    lines.append("\\item Unseen labels are categories not present in the training set.")
-    lines.append("\\item Sample Host: Novel species/subspecies correctly mapped to genus/species-level training classes.")
-    lines.append("\\item Material: Novel material types mapped to semantically similar training classes.")
+    lines.append("\\\\[2mm]")
     
-    # Calculate totals per task
+   # Build footnote
+    footnote_parts = [
+        "Unseen labels are categories not present in the training set.",
+        "Sample Host: Novel species/subspecies correctly mapped to genus/species-level training classes.",
+        "Material: Novel material types mapped to semantically similar training classes."
+    ]
+    
+    # Add task counts
     for task in unseen_tasks:
         task_unseen_count = len(unseen_df[unseen_df['task'] == task])
         if task_unseen_count > 0:
             task_display = task.replace('_', ' ').title()
-            lines.append(f"\\item {task_display}: {task_unseen_count} unseen predictions.")
+            footnote_parts.append(f"{task_display}: {task_unseen_count} unseen predictions.")
     
-    lines.append("\\end{tablenotes}")
-    lines.append("\\end{table}")
+    lines.append("{\\footnotesize " + " ".join(footnote_parts) + "}")
     
     output_file = output_dir / "sup_table_02_unseen_labels.tex"
     with open(output_file, 'w') as f:

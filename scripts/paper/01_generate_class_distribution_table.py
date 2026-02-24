@@ -120,12 +120,24 @@ def generate_class_distribution_table(output_dir):
     print("\n[3/4] Computing class distributions...")
     
     lines = []
-    lines.append("\\begin{table*}[!t]")
-    lines.append("\\caption{Sample distribution across classes for each dataset\\label{tab:class_distribution}}")
-    lines.append("\\begin{tabular*}{\\textwidth}{@{\\extracolsep{\\fill}}llcccc@{\\extracolsep{\\fill}}}")
+    lines.append("\\begin{longtable}{llcccc}")
+    lines.append("\\caption{Sample distribution across classes for each dataset\\label{tab:class_distribution}} \\\\")
     lines.append("\\toprule")
     lines.append("Task & Class & Training & Test & Validation & Total \\\\")
     lines.append("\\midrule")
+    lines.append("\\endfirsthead")
+    lines.append("")
+    lines.append("\\multicolumn{6}{c}{{\\tablename\\ \\thetable{} -- continued from previous page}} \\\\")
+    lines.append("\\toprule")
+    lines.append("Task & Class & Training & Test & Validation & Total \\\\")
+    lines.append("\\midrule")
+    lines.append("\\endhead")
+    lines.append("")
+    lines.append("\\midrule")
+    lines.append("\\multicolumn{6}{r}{{Continued on next page}} \\\\")
+    lines.append("\\endfoot")
+    lines.append("")
+    lines.append("\\endlastfoot")
     
     for task in TASKS:
         task_name = task.replace('_', ' ').title()
@@ -162,16 +174,17 @@ def generate_class_distribution_table(output_dir):
         
         lines.append("\\addlinespace")
     
-    lines.append("\\bottomrule")
-    lines.append("\\end{tabular*}")
-    lines.append("\\begin{tablenotes}")
-    lines.append("\\item Training and test samples from curated AncientMetagenomeDir dataset.")
-    lines.append("\\item Validation samples from AncientMetagenomeDir v25.09.0 and MGnify modern samples, excluding overlaps with train/test.")
-    lines.append(f"\\item Validation set: {val_samples} samples with successful predictions.")
-    lines.append("\\item Classes with 0 validation samples were present in training but not in the external validation set.")
-    lines.append("\\item Classes with 0 training samples are UNSEEN by the model and cannot be correctly predicted.")
-    lines.append("\\end{tablenotes}")
-    lines.append("\\end{table*}")
+    lines.append("\\botrule")
+    
+    footnote_parts = [
+        "Training and test samples from curated AncientMetagenomeDir dataset.",
+        "Validation samples from AncientMetagenomeDir v25.09.0 and MGnify modern samples, excluding overlaps with train/test.",
+        f"Validation set: {val_samples} samples with successful predictions.",
+        "Classes with 0 validation samples were present in training but not in the external validation set.",
+        "Classes with 0 training samples are UNSEEN by the model and cannot be correctly predicted."
+    ]
+    lines.append("\\multicolumn{6}{p{0.95\\linewidth}}{\\footnotesize " + " ".join(footnote_parts) + "} \\\\")
+    lines.append("\\end{longtable}")
     
     print("\n[4/4] Writing table...")
     output_file = output_dir / "sup_table_01_class_distribution.tex"

@@ -52,18 +52,25 @@ sbatch scripts/create_umat/02_regenerate_matrix_with_frac.sbatch
 
 **Output:** `unitigs.frac.mat` (107,480 features × 3,071 samples, 1.6GB)
 
-> **Note:** Matrix is stored in transposed format (samples as rows). The 107,480 rows represent unitigs, and 3,071 columns represent samples. When loaded by `MatrixLoader`, it's automatically transposed to (3,070 samples × 107,480 features).
+> **Note:** Matrix is stored in transposed format (samples as rows). The 107,480 rows represent unitigs, and 3,071 columns represent samples. When loaded by `MatrixLoader`, it's automatically transposed to (3,070 samples × 107,480 features). After metadata cleaning, 3,058 samples remain (2,597 train + 461 test).
+
+**Optional but recommended:** Generate unitig sequences for BLAST annotation later:
+```bash
+# Extract unitig sequences from kmtricks output (needed for Step 7 - BLAST)
+# Output: reference_kmers.fasta (749MB, 107,480 sequences)
+# Only needed once per matrix - results are cached permanently
+```
 
 ### 2. Prepare Metadata
 
 Metadata files are located in `paper/metadata/`:
-- `train_metadata.tsv` (2,609 samples)
+- `train_metadata.tsv` (2,597 samples)
 - `test_metadata.tsv` (461 samples)
 - `validation_metadata.tsv` (1,029 samples)
 
 **All three files have identical 48 columns** (standardized format).
 
-**Training + Test combined: 3,070 samples**
+**Training + Test combined: 3,058 samples**
 
 **Task columns and classes (train/test):**
 - `sample_type`: 2 classes (ancient_metagenome, modern_metagenome)
@@ -76,6 +83,24 @@ Metadata files are located in `paper/metadata/`:
 - `sample_type`, `material`, `sample_host`, `community_type`: Target labels
 - Plus 44 additional metadata columns (SRA fields, sequence stats, etc.)
 
+**Cached Results (Reusable Across Models):**
+
+The following results are **model-independent** and cached permanently:
+
+```
+results/feature_analysis/all_features_blast/   # BLAST annotations
+├── blast_results.txt         135MB   # 1,029,484 hits for 82,853/107,480 features  
+├── blast_summary.json        1.3KB   # Summary statistics
+├── hit_statistics.txt        1.3KB   # Human-readable summary
+└── taxonomic_breakdown.csv   470B    # Kingdom/genus distributions
+
+reference_kmers.fasta          749MB   # Unitig sequences (for BLAST input)
+```
+
+**Hit rate:** 77.09% (82,853 features with taxonomic annotations)  
+**Coverage:** All 107,480 unitig features queried  
+**Unique genera:** 826 identified
+
 > **Note:** Validation set contains additional classes not in training (20 material types, 18 host species) due to broader ancient sample diversity.
 
 ---
@@ -83,7 +108,7 @@ Metadata files are located in `paper/metadata/`:
 ## Train/Test Split
 
 The train/test split is **already prepared** in `data/splits/`:
-- `train_ids.txt` (2,609 samples, 85%)
+- `train_ids.txt` (2,597 samples, 85%)
 - `test_ids.txt` (461 samples, 15%)
 
 Metadata files in `paper/metadata/` are filtered versions:
@@ -116,7 +141,7 @@ This will regenerate `train_ids.txt`, `test_ids.txt`, and metadata files.
 **Configuration:** `configs/train_config.yaml`
 
 Key settings:
-- **Data:** Uses `paper/metadata/train_metadata.tsv` (2,609 samples only)
+- **Data:** Uses `paper/metadata/train_metadata.tsv` (2,597 samples only)
 - **Tasks:** sample_type, material, sample_host, community_type
 - **Class imbalance:** Automatic class-weighted loss (minority classes weighted higher)
 - **CV:** 5-fold outer CV, 3-fold inner CV
@@ -225,6 +250,15 @@ paper/tables/
 
 ## Feature Analysis
 
+Feature analysis identifies which unitig k-mers are most important for each classification task and provides biological interpretation through taxonomic annotation.
+
+**Key concept:** BLAST results are **model-independent** (annotate sequences only) and permanently cached in `results/feature_analysis/all_features_blast/`. Feature importance rankings are **model-specific** and change with each model iteration.
+
+**Workflow:**
+1. **Steps 5-6:** Extract and analyze important features (model-specific, ~10-15 min)
+2. **Step 7:** BLAST annotation (run once, ~4-12 hours, then **cached forever**)
+3. **Step 8:** Aggregate for paper figures (~1 min)
+
 ### Step 5: Extract Feature Importance
 
 ```bash
@@ -257,19 +291,49 @@ paper/figures/feature_analysis/
 
 ### Step 7: Taxonomic Annotation with BLAST
 
-```bash
-# Run BLAST against NCBI nt database for all 107,480 unitig features (4-12 hours)
-sbatch scripts/feature_analysis/run_blast_all_features.sbatch
+**BLAST results are cached!** BLAST annotates the unitig sequences themselves (model-independent), so results are reused across all models.
 
-# Wait for BLAST jobs to complete, then parse results
+**Check for existing BLAST cache:**
+```bash
+# BLAST cache location
+ls -lh results/feature_analysis/all_features_blast/
+
+# If exists, you'll see:
+#   blast_results.txt (135MB, 1,029,484 hits for 82,853/107,480 features)
+#   blast_summary.json
+#   hit_statistics.txt
+#   taxonomic_breakdown.csv
+```
+
+**If cache exists (skip BLAST, use cache):**
+```bash
+# Use cached BLAST results to annotate model's important features
 mamba run -p ./env python scripts/feature_analysis/03_annotate_features.py \
   --config configs/feature_analysis.yaml
 ```
 
+**If cache does NOT exist (run BLAST once):**
+```bash
+# Run BLAST against NCBI nt database for all 107,480 unitig features (4-12 hours)
+sbatch scripts/feature_analysis/run_blast_all_features.sbatch
+
+# After job completes, parse and annotate features
+mamba run -p ./env python scripts/feature_analysis/03_annotate_features.py \
+  --config configs/feature_analysis.yaml
+```
+
+> **Note:** BLAST results are permanently cached in `results/feature_analysis/all_features_blast/` and reused for all future models. Only run BLAST once per matrix.
+
 **Expected outputs:**
 ```
-paper/tables/feature_analysis/
-├── annotated_features_sample_type.csv        # With taxonomic assignments
+results/feature_analysis/all_features_blast/   # CACHED (model-independent)
+├── blast_results.txt                          # 1.0M hits for 82,853 features
+├── blast_summary.json
+├── hit_statistics.txt
+└── taxonomic_breakdown.csv
+
+paper/tables/feature_analysis/                 # MODEL-SPECIFIC (per model)
+├── annotated_features_sample_type.csv         # With taxonomic assignments
 ├── annotated_features_community_type.csv
 ├── annotated_features_sample_host.csv
 └── annotated_features_material.csv
@@ -278,13 +342,14 @@ paper/figures/feature_analysis/
 ├── taxonomy_phylum_sample_type.html
 ├── taxonomy_family_sample_type.html
 ├── taxonomy_genus_sample_type.html
-└── taxonomy_sunburst_sample_type.html    # Interactive hierarchy
+└── taxonomy_sunburst_sample_type.html         # Interactive hierarchy
 ```
 
 ### Step 8: Aggregate Feature Analysis for Paper Figures
 
 ```bash
 # Create aggregated TSV files for validation comparison plots
+# Uses cached BLAST results + model-specific feature importance
 mamba run -p ./env python scripts/feature_analysis/05_aggregate_for_validation.py
 ```
 
@@ -294,6 +359,8 @@ results/feature_analysis/
 ├── feature_importance_by_genus.tsv     # Genus counts per task (for main figure)
 └── blast_annotations.tsv               # BLAST hit rates (for main figure)
 ```
+
+> **Note:** This step combines model-specific feature importance (from Step 5) with cached BLAST annotations (from Step 7) to create summary tables used in paper figures.
 
 ---
 
@@ -360,14 +427,17 @@ mamba run -p ./env python scripts/validation/merge_reviewed_samples.py
 > **Note:** If you already have validation samples downloaded, these scripts will **skip existing files**
 > automatically. They check for:
 > - Existing SRA files in `data/validation/sra/`
-> The accessions.txt file is automatically updated when merging reviewed samples
-# It now contains all 1,010 unique run accessions from validation_metadata.tsv
 
-# Will only download the ~89 newly added modern samples
+> The accessions.txt file is automatically updated when merging reviewed samples
+
+It now contains all 1,010 unique run accessions from validation_metadata.tsv
+
+##### Will only download the ~89 newly added modern samples
 bash scripts/validation/03_prefetch_all.sh
 
-# Convert SRA → FASTQ (auto-skips existing)
-# Update array size to match total accessions
+##### Convert SRA → FASTQ (auto-skips existing)
+
+##### Update array size to match total accessions
 sbatch --array=1-1171%20 scripts/validation/04_convert_sra_to_fastq.sbatch
 ```
 

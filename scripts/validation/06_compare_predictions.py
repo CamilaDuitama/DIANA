@@ -843,18 +843,16 @@ def generate_class_distribution_table(
         if 'sample_type' in df.columns:
             df['sample_type'] = df['sample_type'].map(SAMPLE_TYPE_MAP).fillna(df['sample_type'])
     
-    # Build distribution table
+    # Build distribution table (longtable format for page breaks)
     lines = []
-    lines.append("\\begin{table*}[!t]")
-    lines.append("\\caption{Sample distribution across classes for each dataset\\label{tab:class_distribution}}")
-    lines.append("\\begin{tabular*}{\\textwidth}{@{\\extracolsep{\\fill}}llcccc@{\\extracolsep{\\fill}}}")
-    lines.append("\\toprule")
-    lines.append("Task & Class & Training & Test & Validation & Total \\\\")
-    lines.append("\\midrule")
+    lines.append(r"\begin{longtable}{llcccc}")
+    lines.append(r"\caption{Sample distribution across classes for each dataset\label{tab:class_distribution}} \\")
+    lines.append(r"\toprule")
+    lines.append(r"Task & Class & Training & Test & Validation & Total \\")
+    lines.append(r"\midrule")
     
     for task in TASKS:
         task_name = task.replace('_', ' ').title()
-        lines.append(f"\\multirow{{99}}{{*}}{{{task_name}}} ")
         
         # Get all unique classes from all datasets
         train_classes = set(train_meta[task].dropna().unique())
@@ -862,6 +860,10 @@ def generate_class_distribution_table(
         val_task_df = validation_df[validation_df['task'] == task]
         val_classes = set(val_task_df['true_label'].dropna().unique())
         all_classes = sorted(train_classes | test_classes | val_classes)
+        
+        # Calculate the actual number of rows for this task
+        n_rows = len(all_classes)
+        lines.append(f"\\multirow{{{n_rows}}}{{*}}{{{task_name}}} ")
         
         first_row = True
         for cls in all_classes:
@@ -881,19 +883,19 @@ def generate_class_distribution_table(
             else:
                 lines.append(f" & {class_str} & {train_count} & {test_count} & {val_count} & {total} \\\\")
         
-        lines.append("\\addlinespace")
+        lines.append(r"\addlinespace")
     
-    lines.append("\\bottomrule")
-    lines.append("\\end{tabular*}")
-    lines.append("\\begin{tablenotes}")
-    lines.append("\\item Training and test samples from curated AncientMetagenomeDir dataset.")
-    lines.append("\\item Validation samples from AncientMetagenomeDir v25.09.0 and MGnify modern samples, excluding overlaps with train/test.")
+    lines.append(r"\botrule")
     val_successful = len(validation_df['sample_id'].unique())
-    lines.append(f"\\item Validation set: {val_successful} samples with successful predictions.")
-    lines.append("\\item Classes with 0 validation samples were present in training but not in the external validation set.")
-    lines.append("\\item Classes with 0 training samples are UNSEEN by the model and cannot be correctly predicted.")
-    lines.append("\\end{tablenotes}")
-    lines.append("\\end{table*}")
+    footnote_parts = [
+        "Training and test samples from curated AncientMetagenomeDir dataset.",
+        "Validation samples from AncientMetagenomeDir v25.09.0 and MGnify modern samples, excluding overlaps with train/test.",
+        f"Validation set: {val_successful} samples with successful predictions.",
+        "Classes with 0 validation samples were present in training but not in the external validation set.",
+        "Classes with 0 training samples are UNSEEN by the model and cannot be correctly predicted."
+    ]
+    lines.append(r"\multicolumn{6}{p{0.95\linewidth}}{\footnotesize " + " ".join(footnote_parts) + r"} \\")
+    lines.append(r"\end{longtable}")
     
     with open(output_path, 'w') as f:
         f.write('\n'.join(lines))
@@ -911,12 +913,10 @@ def generate_unseen_labels_table(
     unseen_df = df[~df['is_seen']].copy()
     
     lines = []
-    lines.append("\\begin{table}[!t]")
-    lines.append("\\caption{Model predictions for unseen labels\\label{tab:unseen_labels}}")
-    lines.append("\\begin{tabular*}{\\columnwidth}{@{\\extracolsep{\\fill}}llrr@{\\extracolsep{\\fill}}}")
-    lines.append("\\toprule")
-    lines.append("Task & True Label (Unseen) & Predicted Label & Count \\\\")
-    lines.append("\\midrule")
+    lines.append(r"\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}llrr@{\extracolsep{\fill}}}")
+    lines.append(r"\toprule")
+    lines.append(r"Task & True Label (Unseen) & Predicted Label & Count \\")
+    lines.append(r"\midrule")
     
     # Focus on tasks with unseen labels (sample_host and material)
     unseen_tasks = ['sample_host', 'material']
@@ -929,7 +929,7 @@ def generate_unseen_labels_table(
         
         task_name = task.replace('_', ' ').title()
         lines.append(f"\\multicolumn{{4}}{{l}}{{\\textbf{{{task_name}}}}} \\\\")
-        lines.append("\\addlinespace[0.5em]")
+        lines.append(r"\addlinespace[0.5em]")
         
         # Count predictions per true label
         confusion = task_unseen.groupby(['true_label', 'pred_label']).size().reset_index(name='count')
@@ -947,19 +947,20 @@ def generate_unseen_labels_table(
             
             lines.append(f" & {true_lbl} & {pred_lbl} & {count} \\\\")
         
-        lines.append("\\addlinespace")
+        lines.append(r"\addlinespace")
     
-    lines.append("\\bottomrule")
-    lines.append("\\end{tabular*}")
-    lines.append("\\begin{tablenotes}")
-    lines.append("\\item Unseen labels are categories not present in the training set.")
-    lines.append("\\item Sample Host: Novel species/subspecies correctly mapped to genus/species-level training classes.")
-    lines.append("\\item Material: Novel material types mapped to semantically similar training classes.")
+    lines.append(r"\botrule")
+    lines.append(r"\end{tabular*}")
+    lines.append(r"\\[2mm]")
     total_host = len(unseen_df[unseen_df['task'] == 'sample_host'])
     total_mat = len(unseen_df[unseen_df['task'] == 'material'])
-    lines.append(f"\\item Total unseen host predictions: {total_host}, total unseen material predictions: {total_mat}.")
-    lines.append("\\end{tablenotes}")
-    lines.append("\\end{table}")
+    footnote_parts = [
+        "Unseen labels are categories not present in the training set.",
+        "Sample Host: Novel species/subspecies correctly mapped to genus/species-level training classes.",
+        "Material: Novel material types mapped to semantically similar training classes.",
+        f"Sample Host: {total_host} unseen predictions. Material: {total_mat} unseen predictions."
+    ]
+    lines.append("{\\footnotesize " + " ".join(footnote_parts) + "}")
     
     with open(output_path, 'w') as f:
         f.write('\n'.join(lines))
@@ -975,12 +976,10 @@ def generate_perclass_performance_table(
 ) -> None:
     """Generate supplementary table with per-class performance metrics."""
     lines = []
-    lines.append("\\begin{table*}[!p]")
-    lines.append("\\caption{Per-class performance on validation set (seen labels only)\\label{tab:perclass_performance}}")
-    lines.append("\\begin{tabular*}{\\textwidth}{@{\\extracolsep{\\fill}}llrrrrr@{\\extracolsep{\\fill}}}")
-    lines.append("\\toprule")
-    lines.append("Task & Class Label & n & Accuracy & Precision & Recall & F1-Score \\\\")
-    lines.append("\\midrule")
+    lines.append(r"\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrrr@{\extracolsep{\fill}}}")
+    lines.append(r"\toprule")
+    lines.append(r"Task & Class Label & n & Accuracy & Precision & Recall & F1-Score \\")
+    lines.append(r"\midrule")
     
     for task in TASKS:
         task_df = df[(df['task'] == task) & (df['is_seen'])].copy()
@@ -991,7 +990,7 @@ def generate_perclass_performance_table(
         
         task_name = task.replace('_', ' ').title()
         lines.append(f"\\multicolumn{{7}}{{l}}{{\\textbf{{{task_name}}}}} \\\\")
-        lines.append("\\addlinespace[0.5em]")
+        lines.append(r"\addlinespace[0.5em]")
         
         # Get classification report
         report_dict = classification_report(
@@ -1024,17 +1023,18 @@ def generate_perclass_performance_table(
                 f" & {cls_str} & {n} & {acc*100:.1f}\\% & {prec*100:.1f}\\% & {rec*100:.1f}\\% & {f1*100:.1f}\\% \\\\"
             )
         
-        lines.append("\\addlinespace")
+        lines.append(r"\addlinespace")
     
-    lines.append("\\bottomrule")
-    lines.append("\\end{tabular*}")
-    lines.append("\\begin{tablenotes}")
-    lines.append("\\item Accuracy: proportion of samples in each class correctly classified.")
-    lines.append("\\item Precision: proportion of predictions for a class that were correct.")
-    lines.append("\\item Recall: proportion of true instances of a class that were correctly predicted.")
-    lines.append("\\item F1-Score: harmonic mean of precision and recall.")
-    lines.append("\\end{tablenotes}")
-    lines.append("\\end{table*}")
+    lines.append(r"\botrule")
+    lines.append(r"\end{tabular*}")
+    lines.append(r"\\[2mm]")
+    footnote_parts = [
+        "Accuracy: proportion of samples in each class correctly classified.",
+        "Precision: proportion of predictions for a class that were correct.",
+        "Recall: proportion of true instances of a class that were correctly predicted.",
+        "F1-Score: harmonic mean of precision and recall."
+    ]
+    lines.append("{\\footnotesize " + " ".join(footnote_parts) + "}")
     
     with open(output_path, 'w') as f:
         f.write('\n'.join(lines))
@@ -1053,12 +1053,10 @@ def generate_hyperparameters_table(
         params = json.load(f)
     
     lines = []
-    lines.append("\\begin{table}[!t]")
-    lines.append("\\caption{Optimized model hyperparameters\\label{tab:hyperparameters}}")
-    lines.append("\\begin{tabular*}{\\columnwidth}{@{\\extracolsep{\\fill}}lll@{\\extracolsep{\\fill}}}")
-    lines.append("\\toprule")
-    lines.append("Category & Parameter & Value \\\\")
-    lines.append("\\midrule")
+    lines.append(r"\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lll@{\extracolsep{\fill}}}")
+    lines.append(r"\toprule")
+    lines.append(r"Category & Parameter & Value \\")
+    lines.append(r"\midrule")
     
     # Architecture (double braces to escape for Python .format() compatibility)
     lines.append(r"\multirow{4}{*}{Architecture} & Input features & 107480 \\")
@@ -1073,14 +1071,14 @@ def generate_hyperparameters_table(
     # Escape activation function name
     activation_str = params['activation'].replace('_', '\\_')
     lines.append(f" & Activation & {activation_str} \\\\")
-    lines.append("\\addlinespace")
+    lines.append(r"\addlinespace")
     
     # Training (escape braces in \multirow)
     lines.append("\\multirow{{4}}{{*}}{{Training}} & Learning rate & {:.6f} \\\\".format(params['learning_rate']))
     lines.append(" & Weight decay & {:.2e} \\\\".format(params['weight_decay']))
     lines.append(f" & Batch size & {int(params['batch_size'])} \\\\")
     lines.append(" & Max epochs & 100 \\\\")
-    lines.append("\\addlinespace")
+    lines.append(r"\addlinespace")
     
     # Task weights (escape braces in \multirow)
     lines.append("\\multirow{{4}}{{*}}{{Task Weights}} & Sample Type & {:.3f} \\\\".format(params['task_weight_sample_type']))
@@ -1088,13 +1086,14 @@ def generate_hyperparameters_table(
     lines.append(" & Sample Host & {:.3f} \\\\".format(params['task_weight_host']))
     lines.append(" & Material & {:.3f} \\\\".format(params['task_weight_material']))
     
-    lines.append("\\bottomrule")
-    lines.append("\\end{tabular*}")
-    lines.append("\\begin{tablenotes}")
-    lines.append("\\item Hyperparameters determined via 5-fold cross-validation with 50 Optuna trials per fold.")
-    lines.append("\\item Values shown are aggregated from best trials across folds (mean for numeric, mode for categorical).")
-    lines.append("\\end{tablenotes}")
-    lines.append("\\end{table}")
+    lines.append(r"\botrule")
+    lines.append(r"\end{tabular*}")
+    lines.append(r"\\[2mm]")
+    footnote_parts = [
+        "Hyperparameters determined via 5-fold cross-validation with 50 Optuna trials per fold.",
+        "Values shown are aggregated from best trials across folds (mean for numeric, mode for categorical)."
+    ]
+    lines.append("{\\footnotesize " + " ".join(footnote_parts) + "}")
     
     with open(output_path, 'w') as f:
         f.write('\n'.join(lines))
@@ -1208,15 +1207,10 @@ def generate_performance_summary_table(
             }
     
     lines = []
-    lines.append("\\begin{table*}[!t]")
-    lines.append("\\centering")
-    lines.append("\\caption{Final model performance across the internal validation split (Training), the held-out Test set, and the external Validation set.}")
-    lines.append("\\label{tab:performance}")
-    lines.append("\\small")
-    lines.append("\\begin{tabular*}{\\textwidth}{@{\\extracolsep{\\fill}}llrrrr@{\\extracolsep{\\fill}}}")
-    lines.append("\\toprule")
-    lines.append("Task & Dataset & n & Acc (\\%) & Bal Acc (\\%) & F1 Score (\\%) \\\\")
-    lines.append("\\midrule")
+    lines.append(r"\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrr@{\extracolsep{\fill}}}")
+    lines.append(r"\toprule")
+    lines.append(r"Task & Dataset & n & Acc (\%) & Bal Acc (\%) & F1 Score (\%) \\")
+    lines.append(r"\midrule")
     
     task_labels = {
         'sample_type': 'Sample Type (ancient/modern)',
@@ -1249,18 +1243,19 @@ def generate_performance_summary_table(
             val_f1 = val_metrics[task]['f1_macro'] * 100
             lines.append(f" & Validation & {val_n} & {val_acc:.1f} & {val_bal:.1f} & {val_f1:.1f} \\\\")
         
-        lines.append("\\addlinespace")
+        lines.append(r"\addlinespace")
     
-    lines.append("\\bottomrule")
-    lines.append("\\end{tabular*}")
-    lines.append("\\begin{tablenotes}")
-    lines.append(r"\item Training: Accuracy on the 10\% internal validation split (n=261). Balanced accuracy and F1 scores approximate from test set metrics (not tracked during training).")
-    lines.append(r"\item Test: Performance on the held-out test set (n=461).")
-    lines.append("\\item Validation: Performance on the external validation set (n up to 950). Metrics computed only on samples with labels seen during training.")
-    lines.append("\\item Acc: Accuracy. Bal Acc: Balanced Accuracy (average per-class recall). F1 Score: Macro-averaged F1-score.")
-    lines.append("\\item Note: Ideally, training metrics should be computed on all 2,609 training samples, not just the validation split.")
-    lines.append("\\end{tablenotes}")
-    lines.append("\\end{table*}")
+    lines.append(r"\botrule")
+    lines.append(r"\end{tabular*}")
+    lines.append(r"\\[2mm]")
+    footnote_parts = [
+        "Training: Accuracy on the 10\\% internal validation split (n=261). Balanced accuracy and F1 scores approximate from test set metrics (not tracked during training).",
+        "Test: Performance on the held-out test set (n=461).",
+        "Validation: Performance on the external validation set (n up to 950). Metrics computed only on samples with labels seen during training.",
+        "Acc: Accuracy. Bal Acc: Balanced Accuracy (average per-class recall). F1 Score: Macro-averaged F1-score.",
+        "Note: Ideally, training metrics should be computed on all 2,609 training samples, not just the validation split."
+    ]
+    lines.append("{\\footnotesize " + " ".join(footnote_parts) + "}")
     
     with open(output_path, 'w') as f:
         f.write('\n'.join(lines))
@@ -1269,88 +1264,6 @@ def generate_performance_summary_table(
         print(f"  ✓ Generated performance summary table: {output_path.name}")
 
 
-def dataframe_to_latex_table(
-    df: pd.DataFrame,
-    caption: str,
-    label: str,
-    output_path: Path,
-    wide_table: bool = False,
-    notes: List[str] = None,
-    float_format: str = "%.3f"
-) -> None:
-    """
-    Convert DataFrame to LaTeX table following journal format requirements.
-    
-    Args:
-        df: DataFrame to convert
-        caption: Table caption
-        label: LaTeX label (e.g., 'tab:validation_summary')
-        output_path: Path to save .tex file
-        wide_table: If True, use sidewaystable environment for wide tables
-        notes: List of table footnotes
-        float_format: Format string for floating point numbers
-    """
-    lines = []
-    
-    # Table environment
-    if wide_table:
-        lines.append("\\begin{sidewaystable}")
-        lines.append(f"\\caption{{{caption}\\label{{{label}}}}}")
-        lines.append("\\tabcolsep=0pt%")
-        lines.append("\\begin{tabular*}{\\textwidth}{@{\\extracolsep{\\fill}}" + "l" * len(df.columns) + "@{\\extracolsep{\\fill}}}")
-    else:
-        lines.append("\\begin{table}[!t]")
-        lines.append(f"\\caption{{{caption}\\label{{{label}}}}}")
-        if len(df.columns) > 4:
-            # Use full columnwidth for wider tables
-            lines.append("\\tabcolsep=0pt%")
-            lines.append("\\begin{tabular*}{\\columnwidth}{@{\\extracolsep{\\fill}}" + "l" * len(df.columns) + "@{\\extracolsep{\\fill}}}")
-        else:
-            lines.append("\\begin{tabular*}{\\columnwidth}{@{\\extracolsep\\fill}" + "l" * len(df.columns) + "@{\\extracolsep\\fill}}")
-    
-    lines.append("\\toprule")
-    
-    # Header row
-    header = " & ".join([str(col).replace('_', ' ').title() for col in df.columns]) + " \\\\"
-    lines.append(header)
-    lines.append("\\midrule")
-    
-    # Data rows
-    for idx, row in df.iterrows():
-        row_data = []
-        for val in row:
-            if isinstance(val, float):
-                row_data.append(float_format % val)
-            else:
-                # Escape special LaTeX characters
-                val_str = str(val).replace('_', '\\_').replace('%', '\\%').replace('&', '\\&')
-                row_data.append(val_str)
-        lines.append(" & ".join(row_data) + " \\\\")
-    
-    lines.append("\\botrule")
-    lines.append("\\end{tabular*}")
-    
-    # Add table notes if provided
-    if notes:
-        lines.append("\\begin{tablenotes}%")
-        for note in notes:
-            if note.startswith('['):
-                # Footnote marker
-                lines.append(f"\\item{note}")
-            else:
-                # Regular note
-                lines.append(f"\\item {note}")
-        lines.append("\\end{tablenotes}")
-    
-    # Close environment
-    if wide_table:
-        lines.append("\\end{sidewaystable}")
-    else:
-        lines.append("\\end{table}")
-    
-    # Write to file
-    with open(output_path, 'w') as f:
-        f.write('\n'.join(lines))
 
 
 def generate_feature_importance_figure(output_dir: Path, quiet: bool = False) -> None:
@@ -1607,42 +1520,6 @@ def generate_data_split_validation_figure(train_metadata_file: str, test_metadat
             fig.update_yaxes(title_text="Percentage of Samples in Split (%)", row=1, col=1)
         
         # Subplot 2: Project Name Distribution (Top 10, percentages)
-        if 'project_name' in train_meta.columns:
-            # Get top 10 most common projects across all datasets
-            all_projects = pd.concat([
-                train_meta['project_name'].dropna(),
-                test_meta['project_name'].dropna(),
-                val_meta['project_name'].dropna()
-            ])
-            top_projects = all_projects.value_counts().head(10).index.tolist()
-            
-            for split, df, color in [('Train', train_meta, colors[0]), 
-                                      ('Test', test_meta, colors[1]), 
-                                      ('Validation', val_meta, colors[2])]:
-                counts = df['project_name'].value_counts()
-                total = len(df['project_name'].dropna())
-                y_values = [(counts.get(proj, 0) / total * 100) if total > 0 else 0 for proj in top_projects]
-                
-                fig.add_trace(
-                    go.Bar(
-                        x=top_projects,
-                        y=y_values,
-                        name=split,
-                        marker=dict(
-                            color=color,
-                            opacity=PLOT_CONFIG['fill_opacity'],
-                            line=dict(color=PLOT_CONFIG['border_color'], width=PLOT_CONFIG['line_width'])
-                        ),
-                        legendgroup=split,
-                        showlegend=False
-                    ),
-                    row=1, col=2
-                )
-            
-            fig.update_xaxes(tickangle=-45, row=1, col=2)
-            fig.update_yaxes(title_text="Percentage of Samples in Split (%)", row=1, col=2)
-        
-        # Subplot 3: Community Type Distribution (percentages for comparability)
         if 'project_name' in train_meta.columns:
             # Get top 10 most common projects across all datasets
             all_projects = pd.concat([
@@ -2452,26 +2329,20 @@ def generate_computational_resources_table(output_path: Path, quiet: bool = Fals
     
     # Generate LaTeX table
     lines = []
-    lines.append("\\begin{table}[!t]")
-    lines.append("\\centering")
-    lines.append("\\caption{Validation inference computational resources stratified by memory tier (950 samples)}")
-    lines.append("\\label{tab:resources}")
-    lines.append("\\begin{tabular}{lrrrr}")
-    lines.append("\\toprule")
-    lines.append("Memory (GB) & CPUs & N & Runtime (min) & Input size (GB) \\\\")
-    lines.append("\\midrule")
+    lines.append(r"\begin{tabular}{lrrrr}")
+    lines.append(r"\toprule")
+    lines.append(r"Memory (GB) & CPUs & N & Runtime (min) & Input size (GB) \\")
+    lines.append(r"\midrule")
     
     for _, row in tier_stats.iterrows():
         runtime_str = f"{row['runtime_mean']:.2f} $\\pm$ {row['runtime_std']:.2f}" if not np.isnan(row['runtime_std']) else f"{row['runtime_mean']:.2f}"
         input_str = f"{row['input_mean']:.2f} $\\pm$ {row['input_std']:.2f}" if not np.isnan(row['input_std']) else f"{row['input_mean']:.2f}"
         lines.append(f"{int(row['tier'])} & {int(row['cpus'])} & {int(row['n'])} & {runtime_str} & {input_str} \\\\")
     
-    lines.append("\\bottomrule")
-    lines.append("\\end{tabular}")
-    lines.append("\\begin{tablenotes}")
-    lines.append("\\item Runtime includes the creation of a vector of unitig feature abundances per sample and neural network inference.")
-    lines.append("\\end{tablenotes}")
-    lines.append("\\end{table}")
+    lines.append(r"\botrule")
+    lines.append(r"\end{tabular}")
+    lines.append(r"\\[2mm]")
+    lines.append("{\\footnotesize Runtime includes the creation of a vector of unitig feature abundances per sample and neural network inference.}")
     
     with open(output_path, 'w') as f:
         f.write('\n'.join(lines))
@@ -2485,15 +2356,11 @@ def generate_merged_wrong_predictions_table(df: pd.DataFrame, output_path: Path,
     import numpy as np
     
     lines = []
-    lines.append("\\\\begin{table*}[!t]")
-    lines.append("\\\\centering")
-    lines.append("\\\\caption{Common misclassification patterns across all tasks (Validation set)}")
-    lines.append("\\\\label{tab:wrong_merged}")
-    lines.append("\\\\small")
-    lines.append("\\\\begin{tabular}{lp{4cm}p{4cm}rr}")
-    lines.append("\\\\toprule")
-    lines.append("Task & True Label & Predicted Label & Count & Confidence (\\\\%) \\\\\\\\")
-    lines.append("\\\\midrule")
+    lines.append(r"\begin{longtable}{lp{4cm}p{4cm}rr}")
+    lines.append(r"\caption{Common misclassification patterns across all tasks (Validation set)} \\")
+    lines.append(r"\toprule")
+    lines.append(r"Task & True Label & Predicted Label & Count & Confidence (\%) \\")
+    lines.append(r"\midrule")
     
     task_labels = {
         'sample_type': 'Sample Type',
@@ -2519,8 +2386,8 @@ def generate_merged_wrong_predictions_table(df: pd.DataFrame, output_path: Path,
         
         # Add task name to first row only
         for idx, row in confusion_pairs.iterrows():
-            true_lbl = str(row['true_label']).replace('_', '\\\\_')
-            pred_lbl = str(row['pred_label']).replace('_', '\\\\_')
+            true_lbl = str(row['true_label']).replace('_', '\\_')
+            pred_lbl = str(row['pred_label']).replace('_', '\\_')
             conf_mean = row['conf_mean'] * 100
             conf_std = row['conf_std'] * 100 if not np.isnan(row['conf_std']) else 0
             
@@ -2530,28 +2397,20 @@ def generate_merged_wrong_predictions_table(df: pd.DataFrame, output_path: Path,
                 task_str = ""
             
             if not np.isnan(conf_std) and conf_std > 0:
-                conf_str = f"{conf_mean:.1f} $\\\\pm$ {conf_std:.1f}"
+                conf_str = f"{conf_mean:.1f} $\\pm$ {conf_std:.1f}"
             else:
                 conf_str = f"{conf_mean:.1f}"
             
-            lines.append(f"{task_str} & {true_lbl} & {pred_lbl} & {int(row['n'])} & {conf_str} \\\\\\\\")
+            lines.append(f"{task_str} & {true_lbl} & {pred_lbl} & {int(row['n'])} & {conf_str} \\\\")
         
-        lines.append("\\\\addlinespace")
+        lines.append(r"\addlinespace")
     
-    lines.append("\\\\bottomrule")
-    lines.append("\\\\end{tabular}")
-    lines.append("\\\\\\\\vspace{2mm}")
-    lines.append("{\\\\footnotesize")
-    lines.append("\\\\textbf{Notes:}")
-    lines.append("Only includes misclassifications of seen classes (present in training data). ")
-    lines.append("Count: Number of samples misclassified. ")
-    lines.append("Confidence: Mean prediction confidence (± SD) for incorrect predictions. ")
-    lines.append("Top 5 most common patterns per task.")
-    lines.append("}")
-    lines.append("\\\\end{table*}")
+    lines.append(r"\botrule")
+    lines.append(r"\multicolumn{5}{p{0.95\linewidth}}{\footnotesize Only includes misclassifications of seen classes (present in training data). Count: Number of samples misclassified. Confidence: Mean prediction confidence (± SD) for incorrect predictions. Top 5 most common patterns per task.} \\")
+    lines.append(r"\end{longtable}")
     
     with open(output_path, 'w') as f:
-        f.write('\\n'.join(lines))
+        f.write('\n'.join(lines))
     
     if not quiet:
         print(f"  ✓ Generated merged wrong predictions table: {output_path.name}")
@@ -2577,14 +2436,25 @@ def generate_seen_unseen_validation_table(
     
     # Build table
     lines = []
-    lines.append("\\begin{table*}[!t]")
-    lines.append("\\begin{threeparttable}")
-    lines.append("\\caption{Validation set performance: Seen vs unseen labels with top 10 most frequent misclassification patterns\\label{tab:seen_unseen_validation}}")
-    lines.append("\\small")
-    lines.append("\\begin{tabular*}{\\textwidth}{@{\\extracolsep{\\fill}}llp{3.5cm}p{3.5cm}rrr@{\\extracolsep{\\fill}}}")
-    lines.append("\\toprule")
-    lines.append("Task & Category & True Label & Predicted Label & Count & \\% Task & \\% Total \\\\")
-    lines.append("\\midrule")
+    lines.append(r"\small")
+    lines.append(r"\begin{longtable}{llp{3.5cm}p{3.5cm}rrr}")
+    lines.append(r"\caption{Validation set performance: Seen vs unseen labels with top 10 most frequent misclassification patterns\label{tab:seen_unseen_validation}} \\")
+    lines.append(r"\toprule")
+    lines.append(r"Task & Category & True Label & Predicted Label & Count & \% Task & \% Total \\")
+    lines.append(r"\midrule")
+    lines.append(r"\endfirsthead")
+    lines.append("")
+    lines.append(r"\multicolumn{7}{c}{{\tablename\ \thetable{} -- continued from previous page}} \\")
+    lines.append(r"\toprule")
+    lines.append(r"Task & Category & True Label & Predicted Label & Count & \% Task & \% Total \\")
+    lines.append(r"\midrule")
+    lines.append(r"\endhead")
+    lines.append("")
+    lines.append(r"\midrule")
+    lines.append(r"\multicolumn{7}{r}{{Continued on next page}} \\")
+    lines.append(r"\endfoot")
+    lines.append("")
+    lines.append(r"\endlastfoot")
     
     task_labels = {
         'sample_type': 'Sample Type',
@@ -2660,21 +2530,19 @@ def generate_seen_unseen_validation_table(
                 else:
                     lines.append(f" &  & {true_lbl} & {pred_lbl} & {count} & {pct_task:.1f}\\% & {pct_total:.1f}\\% \\\\")
         
-        lines.append("\\addlinespace")
+        lines.append(r"\addlinespace")
     
-    lines.append("\\bottomrule")
-    lines.append("\\end{tabular*}")
-    lines.append("\\begin{tablenotes}")
-    lines.append("\\item \\textbf{Category:} Seen labels were present in training; Unseen labels were not in training.")
-    lines.append("\\item \\textbf{Seen - Correct:} Samples correctly classified with labels seen during training.")
-    lines.append("\\item \\textbf{Seen - Wrong:} Top 10 most frequent misclassification patterns for seen labels (True Label $\\\\to$ Predicted Label).")
-    lines.append("\\item \\textbf{Unseen:} Top 10 most frequent predictions for unseen labels (model maps to semantically similar seen classes).")
-    lines.append("\\item \\textbf{\\% Task:} Percentage relative to total samples for that task in validation set.")
-    lines.append("\\item \\textbf{\\% Total:} Percentage relative to total validation samples across all tasks.")
-    lines.append(f"\\item Total validation samples: {total_samples} (unique sample IDs across {len(TASKS)} tasks = {len(df)} predictions).")
-    lines.append("\\end{tablenotes}")
-    lines.append("\\end{threeparttable}")
-    lines.append("\\end{table*}")
+    lines.append(r"\botrule")
+    lines.append(r"\multicolumn{7}{p{0.95\linewidth}}{\footnotesize")
+    lines.append(r"\textbf{Category:} Seen labels were present in training; Unseen labels were not in training. ")
+    lines.append(r"\textbf{Seen - Correct:} Samples correctly classified with labels seen during training. ")
+    lines.append(r"\textbf{Seen - Wrong:} Top 10 most frequent misclassification patterns for seen labels (True Label $\to$ Predicted Label). ")
+    lines.append(r"\textbf{Unseen:} Top 10 most frequent predictions for unseen labels (model maps to semantically similar seen classes). ")
+    lines.append(r"\textbf{\% Task:} Percentage relative to total samples for that task in validation set. ")
+    lines.append(r"\textbf{\% Total:} Percentage relative to total validation samples across all tasks. ")
+    lines.append(f"Total validation samples: {total_samples} (unique sample IDs across {len(TASKS)} tasks = {len(df)} predictions).")
+    lines.append(r"} \\")
+    lines.append(r"\end{longtable}")
     
     with open(output_path, 'w') as f:
         f.write('\n'.join(lines))
