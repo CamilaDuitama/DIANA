@@ -23,14 +23,12 @@ Trained on 2,597 samples from the [AncientMetagenomeDir](https://github.com/SPAA
 **Requirements:** Linux, [Mamba](https://mamba.readthedocs.io/) or Conda.
 
 ```bash
-git clone https://github.com/CamilaDuitama/DIANA.git
+git clone --recurse-submodules https://github.com/CamilaDuitama/DIANA.git
 cd DIANA
 mamba env create -f environment.yml -p ./env
 mamba activate ./env
 bash install.sh
 ```
-
-`install.sh` builds `back_to_sequences`, then downloads the trained model and PCA reference (~382 MB) from [Hugging Face](https://huggingface.co/cduitamag/DIANA) and the reference k-mers (~179 MB) from Zenodo.
 
 ---
 

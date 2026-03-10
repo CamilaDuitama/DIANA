@@ -1,0 +1,6 @@
+[submodule "external/back_to_sequences"]
+	path = external/back_to_sequences
+	url = https://github.com/pierrepeterlongo/back_to_sequences.git
+[submodule "external/muset"]
+        path = external/muset
+        url = https://github.com/camiladuitama/muset.git

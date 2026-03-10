@@ -105,9 +105,7 @@ results_backup*/  # Temporary backups
 !results/**/.gitkeep
 
 # External tools (installed separately)
-external/muset/
 external/seqdd/
-external/back_to_sequences/
 !external/.gitkeep
 !external/README.md
 
