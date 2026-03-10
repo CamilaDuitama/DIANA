@@ -62,86 +62,113 @@ def run_command_streaming(cmd: list, step_name: str) -> None:
     logger.info(f"  ✓ {step_name} complete ({time.time() - step_start:.1f}s)")
 
 
-def validate_fastq_file(fastq_path: Path, min_size_kb: int = 1) -> tuple[bool, str]:
+_FASTQ_SUFFIXES = ('.fastq', '.fq')
+_FASTA_SUFFIXES = ('.fasta', '.fa', '.fna')
+_ALL_SEQUENCE_SUFFIXES = _FASTQ_SUFFIXES + _FASTA_SUFFIXES
+
+
+def validate_sequence_file(seq_path: Path, min_size_kb: int = 1) -> tuple[bool, str]:
     """
-    Validate that a FASTQ file has sufficient data for analysis.
-    
+    Validate that a gzipped FASTA or FASTQ file has sufficient data for analysis.
+
+    Accepted extensions: *.fastq.gz, *.fq.gz, *.fasta.gz, *.fa.gz, *.fna.gz
+
     Args:
-        fastq_path: Path to FASTQ file (.fastq.gz or .fq.gz)
-        min_size_kb: Minimum file size in KB (default: 1KB)
-    
+        seq_path: Path to the gzipped sequence file.
+        min_size_kb: Minimum file size in KB (default: 1 KB).
+
     Returns:
         Tuple of (is_valid, error_message). error_message is empty string if valid.
     """
     # Check file extension
-    if not (fastq_path.suffix == '.gz' and fastq_path.stem.endswith(('.fastq', '.fq'))):
-        return False, f"not a gzipped FASTQ file (expected *.fastq.gz or *.fq.gz)"
-    
+    if not (seq_path.suffix == '.gz' and seq_path.stem.endswith(_ALL_SEQUENCE_SUFFIXES)):
+        return False, (
+            "not a gzipped FASTA/FASTQ file "
+            "(expected *.fastq.gz, *.fq.gz, *.fasta.gz, *.fa.gz, or *.fna.gz)"
+        )
+
     # Check file exists
-    if not fastq_path.exists():
-        return False, f"file not found"
-    
+    if not seq_path.exists():
+        return False, "file not found"
+
     # Check file is not empty
-    file_size_bytes = fastq_path.stat().st_size
+    file_size_bytes = seq_path.stat().st_size
     if file_size_bytes == 0:
-        return False, f"empty file (0 bytes)"
-    
-    # Check minimum file size (default 1KB to catch trivially small files)
+        return False, "empty file (0 bytes)"
+
+    # Check minimum file size
     min_size_bytes = min_size_kb * 1024
     if file_size_bytes < min_size_bytes:
         return False, f"file too small ({file_size_bytes} bytes, minimum {min_size_bytes} bytes)"
-    
-    # Validate gzip format and peek at content
+
+    # Peek inside the gzip and validate format
     try:
-        with gzip.open(fastq_path, 'rt') as f:
-            # Try to read first 4 lines (one FASTQ record)
+        with gzip.open(seq_path, 'rt') as f:
             lines = []
             for _ in range(4):
                 line = f.readline()
                 if not line:
                     break
                 lines.append(line.strip())
-            
-            # Check we got at least some content
+
             if not lines:
-                return False, f"file appears empty (no content after decompression)"
-            
-            # Basic FASTQ format check (first line should start with @)
-            if lines and not lines[0].startswith('@'):
-                return False, f"does not appear to be FASTQ format (first line should start with '@')"
-            
-            # Check we have at least one complete record
-            if len(lines) < 4:
-                return False, f"insufficient data (less than one complete FASTQ record, got {len(lines)} lines)"
-            
+                return False, "file appears empty (no content after decompression)"
+
+            first_char = lines[0][0] if lines[0] else ''
+
+            if first_char == '@':
+                # FASTQ: need at least one complete 4-line record
+                if len(lines) < 4:
+                    return False, (
+                        f"insufficient data (less than one complete FASTQ record, "
+                        f"got {len(lines)} lines)"
+                    )
+            elif first_char == '>':
+                # FASTA: need at least a header and one sequence line
+                if len(lines) < 2:
+                    return False, (
+                        f"insufficient data (less than one complete FASTA record, "
+                        f"got {len(lines)} lines)"
+                    )
+            else:
+                return False, (
+                    "does not appear to be FASTA or FASTQ format "
+                    "(first line must start with '>' or '@')"
+                )
+
     except (gzip.BadGzipFile, OSError) as e:
         return False, f"invalid gzip file or corrupted: {str(e)}"
     except UnicodeDecodeError:
-        return False, f"file contains binary data or invalid text encoding"
+        return False, "file contains binary data or invalid text encoding"
     except Exception as e:
         return False, f"error reading file: {str(e)}"
-    
+
     return True, ""
+
+
+# Keep the old name as an alias so any external callers are not broken.
+validate_fastq_file = validate_sequence_file
 
 
 def detect_paired_end(sample_path: Path) -> list:
     """
-    Detect if a sample is paired-end and return all FASTQ files.
-    
+    Detect if a sample is paired-end and return all sequence files.
+
     Uses regex to match paired-end patterns at the end of the filename stem:
     - sample_1.fastq.gz / sample_2.fastq.gz
     - sample_R1.fastq.gz / sample_R2.fastq.gz
     - sample.1.fastq.gz / sample.2.fastq.gz
-    
+    (same patterns apply for *.fasta.gz, *.fa.gz, *.fna.gz)
+
     Args:
-        sample_path: Path to first FASTQ file
-    
+        sample_path: Path to first sequence file (FASTA or FASTQ, gzipped).
+
     Returns:
         List of Path objects (1 for single-end, 2+ for paired-end)
     """
-    # Remove .fastq.gz or .fq.gz extension
+    # Strip the gzipped FASTA/FASTQ extension
     name = sample_path.name
-    name = re.sub(r'\.(fastq|fq)(\.gz)?$', '', name)
+    name = re.sub(r'\.(fastq|fq|fasta|fa|fna)(\.gz)?$', '', name)
     
     # Patterns to check for paired-end (anchored to end of filename)
     patterns = [
@@ -213,7 +240,7 @@ def predict_single_sample(
     """
     # Extract sample_id using regex to remove paired-end suffixes
     sample_name = sample_paths[0].name
-    sample_name = re.sub(r'\.(fastq|fq)(\.gz)?$', '', sample_name)
+    sample_name = re.sub(r'\.(fastq|fq|fasta|fa|fna)(\.gz)?$', '', sample_name)
     sample_id = re.sub(r'(_R?[12]|\.R?[12])(_.*)?$', '', sample_name)
     
     sample_output_dir = output_dir / sample_id
@@ -428,7 +455,7 @@ Resource Requirements:
         '--sample', '-s',
         type=str,
         nargs='+',
-        help='Path(s) to non-empty gzipped FASTQ file(s) (*.fastq.gz or *.fq.gz, supports wildcards)'
+        help='Path(s) to non-empty gzipped FASTA or FASTQ file(s) (*.fastq.gz, *.fq.gz, *.fasta.gz, *.fa.gz, *.fna.gz; supports wildcards)'
     )
     input_group.add_argument(
         '--batch', '-b',
@@ -589,7 +616,7 @@ Resource Requirements:
         # Validate files have sufficient data for analysis
         invalid_files = []
         for f in sample_files:
-            is_valid, error_msg = validate_fastq_file(f)
+            is_valid, error_msg = validate_sequence_file(f)
             if not is_valid:
                 invalid_files.append(f"{f.name}: {error_msg}")
         

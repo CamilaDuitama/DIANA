@@ -1,40 +1,40 @@
 #!/bin/bash
-# Step 0: Extract reference k-mers from MUSET output
-# If matrix.filtered.fasta exists, use it directly
-# Otherwise, regenerate from matrix.filtered.mat
+# Step 0: Verify that reference_kmers.fasta is present.
+#
+# This file must be downloaded from Zenodo via install.sh before running
+# diana-predict.  On-the-fly regeneration is intentionally NOT supported:
+# the file is large (179 MB compressed) and tied to a specific matrix
+# version; using any other file would produce incorrect feature vectors.
 
 set -e
 
 if [ "$#" -lt 2 ]; then
     echo "Usage: $0 <muset_output_dir> <output_fasta>"
-    echo ""
-    echo "Extract reference k-mer set from MUSET training output"
     exit 1
 fi
 
 MUSET_DIR=$1
 OUTPUT_FASTA=$2
 
-echo "=== Step 0: Extract Reference K-mers ==="
-echo "MUSET directory: $MUSET_DIR"
-echo "Output: $OUTPUT_FASTA"
+echo "=== Step 0: Verify Reference K-mers ==="
 
-# Check if matrix.filtered.fasta exists
-if [ -f "$MUSET_DIR/matrix.filtered.fasta" ]; then
-    echo "✓ Found matrix.filtered.fasta"
-    cp "$MUSET_DIR/matrix.filtered.fasta" "$OUTPUT_FASTA"
-else
-    echo "✓ matrix.filtered.fasta not found, will regenerate from matrix.filtered.mat"
-    
-    if [ ! -f "$MUSET_DIR/matrix.filtered.mat" ]; then
-        echo "ERROR: Neither matrix.filtered.fasta nor matrix.filtered.mat found in $MUSET_DIR"
-        exit 1
-    fi
-    
-    # Use kmat_tools to convert matrix to FASTA
-    kmat_tools fasta -o "$OUTPUT_FASTA" "$MUSET_DIR/matrix.filtered.mat"
+if [ ! -f "$OUTPUT_FASTA" ]; then
+    echo ""
+    echo "ERROR: reference_kmers.fasta not found at:"
+    echo "  $OUTPUT_FASTA"
+    echo ""
+    echo "This file must be downloaded from Zenodo before running diana-predict."
+    echo "Run the installer to download it automatically:"
+    echo ""
+    echo "    bash install.sh"
+    echo ""
+    echo "Or download it manually (179 MB compressed) and place it at the path above:"
+    echo "    https://zenodo.org/records/18157419/files/reference_kmers.fasta.gz"
+    echo ""
+    echo "Note: do NOT use a different k-mer file — it must match the training matrix exactly."
+    exit 1
 fi
 
 NUM_KMERS=$(grep -c "^>" "$OUTPUT_FASTA")
-echo "✓ Reference set contains $NUM_KMERS k-mers"
+echo "✓ Reference k-mers found: $NUM_KMERS sequences"
 echo "Done!"
