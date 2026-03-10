@@ -1,6 +1,7 @@
 #!/bin/bash
 # DIANA Installation Script
-# Compiles external tools and installs them into the active Conda environment
+# Compiles external tools, downloads the trained model (~336 MB from Hugging Face Hub),
+# and downloads the reference k-mers (~179 MB from Zenodo)
 
 set -e
 
