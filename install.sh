@@ -1,328 +1,238 @@
 #!/bin/bash
 # DIANA Installation Script
-# Compiles external tools, downloads the trained model (~336 MB from Hugging Face Hub),
-# and downloads the reference k-mers (~179 MB from Zenodo)
+# Builds external tools, downloads the trained model and PCA reference (~382 MB from
+# Hugging Face Hub), and downloads reference k-mers (~179 MB from Zenodo).
 
-set -e
+set -eo pipefail
 
+# ============================================================================
+# Configuration
+# ============================================================================
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+HF_REPO="cduitamag/DIANA"
+
+MODEL_FILE="$SCRIPT_DIR/results/training/best_model.pth"
+MODEL_FILENAME="best_model.pth"
+MODEL_CHECKSUM="ef686f1fa07c8d717605fb11a2480eadfa360df64d4ce4419e0ee33e6ec71943"
+
+PCA_FILE="$SCRIPT_DIR/models/pca_reference.pkl"
+PCA_FILENAME="pca_reference.pkl"
+PCA_CHECKSUM="4bb3f80312b92b113b3f3007820ab3ae59416a531f94129e557fe0ef97f74071"
+
+KMER_FILE="$SCRIPT_DIR/data/matrices/large_matrix_3070_with_frac/reference_kmers.fasta"
+KMER_URL="https://zenodo.org/records/18157419/files/reference_kmers.fasta.gz"
+KMER_CHECKSUM="87499b6235eef4aae0cdd5630f5eb7f51fc39de054fa93f5bacffa97cf0130f4"
+
+# ============================================================================
+# Colored logging helpers
+# ============================================================================
+RED='\033[0;31m'; YELLOW='\033[0;33m'; GREEN='\033[0;32m'; CYAN='\033[0;36m'; NC='\033[0m'
+info()  { echo -e "${CYAN}[INFO]${NC}  $*"; }
+warn()  { echo -e "${YELLOW}[WARN]${NC}  $*"; }
+error() { echo -e "${RED}[ERROR]${NC} $*" >&2; }
+ok()    { echo -e "${GREEN}[OK]${NC}    $*"; }
+
+# ============================================================================
+# Helper: download and verify a file (with optional gunzip)
+#
+# Usage: download_and_verify <label> <url> <dest_file> <expected_sha256> [gunzip]
+#   gunzip: if set to "gunzip", the downloaded .gz is decompressed to <dest_file>
+#           and the checksum is verified against the .gz before decompression.
+# ============================================================================
+download_and_verify() {
+    local label="$1" url="$2" dest="$3" expected_sha256="$4" do_gunzip="${5:-}"
+
+    mkdir -p "$(dirname "$dest")"
+
+    # If already present, verify and skip
+    if [ -f "$dest" ]; then
+        local actual
+        actual=$(sha256sum "$dest" | awk '{print $1}')
+        if [ "$actual" = "$expected_sha256" ]; then
+            ok "$label already present and verified."
+            return 0
+        else
+            warn "$label checksum mismatch — re-downloading."
+            rm -f "$dest"
+        fi
+    fi
+
+    # Choose download tool
+    local gz_dest="$dest"
+    [ -n "$do_gunzip" ] && gz_dest="${dest}.gz"
+
+    info "Downloading $label..."
+    if command -v wget >/dev/null 2>&1; then
+        wget --show-progress -q -O "$gz_dest" "$url" || { error "wget failed for $label."; rm -f "$gz_dest"; exit 1; }
+    elif command -v curl >/dev/null 2>&1; then
+        curl -L --progress-bar -o "$gz_dest" "$url" || { error "curl failed for $label."; rm -f "$gz_dest"; exit 1; }
+    else
+        error "Neither wget nor curl found. Install one and retry."
+        exit 1
+    fi
+
+    # Verify checksum (always against the gz when gunzip is requested)
+    info "Verifying $label..."
+    local actual
+    actual=$(sha256sum "$gz_dest" | awk '{print $1}')
+    if [ "$actual" != "$expected_sha256" ]; then
+        error "$label checksum mismatch. The downloaded file may be corrupt."
+        rm -f "$gz_dest"
+        exit 1
+    fi
+
+    # Decompress if requested
+    if [ -n "$do_gunzip" ]; then
+        info "Decompressing $label..."
+        gunzip "$gz_dest"
+        [ -f "$dest" ] || { error "Decompression of $label failed."; exit 1; }
+    fi
+
+    ok "$label downloaded and verified."
+}
+
+# ============================================================================
+# Step 1 — Prerequisites
+# ============================================================================
+echo ""
 echo "============================================"
-echo "   DIANA Installation"
+echo "  DIANA Installation"
 echo "============================================"
+echo ""
+info "Step 1/4 — Checking prerequisites"
 
-# Check if a conda/mamba environment is active
 if [ -z "$CONDA_PREFIX" ]; then
-    echo "[ERROR] No conda/mamba environment is active."
-    echo "Please activate the DIANA environment first:"
-    echo "  mamba activate ./env"
-    echo "  OR"
-    echo "  conda activate ./env"
+    error "No conda/mamba environment is active."
+    echo "        Please activate the DIANA environment first:"
+    echo "          mamba activate ./env   OR   conda activate ./env"
     exit 1
 fi
 
 if [[ "$CONDA_DEFAULT_ENV" != *"DIANA"* && "$CONDA_DEFAULT_ENV" != *"diana"* && "$CONDA_DEFAULT_ENV" != *"/env"* ]]; then
-    echo "[WARNING] Current environment is '$CONDA_DEFAULT_ENV'"
-    echo "Make sure you've activated the correct environment (./env)."
-    read -p "Continue anyway? (y/N) " -n 1 -r
-    echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        exit 1
-    fi
+    warn "Current environment is '$CONDA_DEFAULT_ENV' (expected the DIANA env at ./env)."
+    read -r -p "        Continue anyway? (y/N) " reply
+    [[ "$reply" =~ ^[Yy]$ ]] || exit 1
 fi
-
-echo "Installing to: $CONDA_PREFIX/bin"
-echo ""
-
-# Get script directory
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-# ============================================================================
-# Build back_to_sequences (Rust)
-# ============================================================================
-echo "[1/4] Building back_to_sequences..."
-cd "$SCRIPT_DIR/external/back_to_sequences"
 
 if ! command -v cargo >/dev/null 2>&1; then
-    echo "[ERROR] cargo not found. Please install Rust or add it to environment.yml"
+    error "cargo not found. Rust must be installed (it is declared in environment.yml)."
+    echo "        Try: mamba install -c conda-forge rust"
     exit 1
 fi
 
-# Clean previous builds
+for tool in kmat_tools muset; do
+    if ! command -v "$tool" >/dev/null 2>&1; then
+        error "$tool not found. Make sure muset is installed in the active environment."
+        echo "        Try: mamba install -c camiladuitama muset"
+        exit 1
+    fi
+done
+
+ok "All prerequisites satisfied (conda env: $CONDA_DEFAULT_ENV)"
+echo ""
+
+# ============================================================================
+# Step 2 — Build back_to_sequences (Rust)
+# ============================================================================
+info "Step 2/4 — Building back_to_sequences"
+
+BUILD_DIR="$SCRIPT_DIR/external/back_to_sequences"
+BUILD_LOG="$BUILD_DIR/build.log"
+
+cd "$BUILD_DIR"
 rm -rf target
-cargo clean
+unset CC; export CC=gcc
 
-# Unset CC to let cargo find the compiler automatically
-unset CC
-export CC=gcc
-
-# Build (without CPU-specific optimizations for portability)
-cargo build --release
-
-# Verify build succeeded
-if [ ! -f "target/release/back_to_sequences" ]; then
-    echo "[ERROR] Failed to build back_to_sequences"
+info "Running cargo build --release (output → build.log)..."
+if ! cargo build --release >"$BUILD_LOG" 2>&1; then
+    error "Cargo build failed. Last 30 lines of build.log:"
+    tail -30 "$BUILD_LOG" >&2
     exit 1
 fi
 
-# Install to conda bin
-cp target/release/back_to_sequences "$CONDA_PREFIX/bin/"
-chmod +x "$CONDA_PREFIX/bin/back_to_sequences"
-echo "✓ Installed back_to_sequences to $CONDA_PREFIX/bin/"
+BINARY="$BUILD_DIR/target/release/back_to_sequences"
+[ -f "$BINARY" ] || { error "Binary not found after build."; exit 1; }
+install -m 755 "$BINARY" "$CONDA_PREFIX/bin/back_to_sequences"
+
+cd "$SCRIPT_DIR"
+ok "back_to_sequences installed to $CONDA_PREFIX/bin/"
 echo ""
 
 # ============================================================================
-# Note: MUSET tools are installed via conda package (no build needed)
+# Step 3 — Download model and PCA reference from Hugging Face Hub
 # ============================================================================
-echo "[2/4] Verifying MUSET tools (installed via conda)..."
-if ! command -v kmat_tools >/dev/null 2>&1; then
-    echo "[WARNING] kmat_tools not found. Make sure muset is installed:"
-    echo "  mamba install -c camiladuitama muset"
-fi
-if ! command -v muset >/dev/null 2>&1; then
-    echo "[WARNING] muset not found. Make sure muset is installed:"
-    echo "  mamba install -c camiladuitama muset"
-fi
-echo "✓ MUSET tools available from conda package"
+info "Step 3/4 — Downloading model and PCA reference from Hugging Face Hub"
+
+download_and_verify \
+    "Trained model (~336 MB)" \
+    "https://huggingface.co/$HF_REPO/resolve/main/$MODEL_FILENAME" \
+    "$MODEL_FILE" \
+    "$MODEL_CHECKSUM"
+
+download_and_verify \
+    "PCA reference (~46 MB)" \
+    "https://huggingface.co/$HF_REPO/resolve/main/$PCA_FILENAME" \
+    "$PCA_FILE" \
+    "$PCA_CHECKSUM"
+
 echo ""
 
 # ============================================================================
-# Download trained model from Hugging Face Hub (if not present)
+# Step 4 — Download reference k-mers from Zenodo
 # ============================================================================
-echo "[3/4] Checking model and PCA reference (Hugging Face Hub)..."
+info "Step 4/4 — Downloading reference k-mers from Zenodo (~179 MB compressed)"
 
-MODEL_FILE="$SCRIPT_DIR/results/training/best_model.pth"
-LABEL_ENCODERS_FILE="$SCRIPT_DIR/results/training/label_encoders.json"
-HF_REPO="cduitamag/DIANA"
-MODEL_FILENAME="best_model.pth"
-EXPECTED_MODEL_CHECKSUM="ef686f1fa07c8d717605fb11a2480eadfa360df64d4ce4419e0ee33e6ec71943"
+download_and_verify \
+    "Reference k-mers" \
+    "$KMER_URL" \
+    "$KMER_FILE" \
+    "$KMER_CHECKSUM" \
+    "gunzip"
 
-mkdir -p "$(dirname "$MODEL_FILE")"
-
-NEEDS_MODEL_DOWNLOAD=false
-if [ -f "$MODEL_FILE" ]; then
-    echo "Model file found. Verifying integrity..."
-    ACTUAL_CHECKSUM=$(sha256sum "$MODEL_FILE" | awk '{print $1}')
-    if [ "$ACTUAL_CHECKSUM" == "$EXPECTED_MODEL_CHECKSUM" ]; then
-        echo "✓ Model is valid. Skipping download."
-    else
-        echo "⚠️  Checksum mismatch. Re-downloading the model."
-        rm "$MODEL_FILE"
-        NEEDS_MODEL_DOWNLOAD=true
-    fi
-else
-    NEEDS_MODEL_DOWNLOAD=true
-fi
-
-if [ "$NEEDS_MODEL_DOWNLOAD" = true ]; then
-    echo "Downloading trained model from Hugging Face Hub (~336 MB)..."
-    if ! python -c "
-import sys
-from huggingface_hub import hf_hub_download
-path = hf_hub_download(
-    repo_id='$HF_REPO',
-    filename='$MODEL_FILENAME',
-    local_dir='$(dirname \"$MODEL_FILE\")'
-)
-print(f'Downloaded to: {path}')
-"; then
-        echo "[ERROR] Model download from Hugging Face failed."
-        echo "Please download manually from: https://huggingface.co/$HF_REPO"
-        echo "Save best_model.pth to: $MODEL_FILE"
-        exit 1
-    fi
-
-    echo "Verifying downloaded model..."
-    ACTUAL_CHECKSUM=$(sha256sum "$MODEL_FILE" | awk '{print $1}')
-    if [ "$ACTUAL_CHECKSUM" != "$EXPECTED_MODEL_CHECKSUM" ]; then
-        echo "[ERROR] Model checksum mismatch. The downloaded file may be corrupt."
-        rm "$MODEL_FILE"
-        exit 1
-    fi
-    echo "✓ Model downloaded and verified."
-fi
-
-# Download PCA reference file (needed by diana-project)
-PCA_FILE="$SCRIPT_DIR/models/pca_reference.pkl"
-PCA_FILENAME="pca_reference.pkl"
-EXPECTED_PCA_CHECKSUM="4bb3f80312b92b113b3f3007820ab3ae59416a531f94129e557fe0ef97f74071"
-
-mkdir -p "$(dirname "$PCA_FILE")"
-
-NEEDS_PCA_DOWNLOAD=false
-if [ -f "$PCA_FILE" ]; then
-    ACTUAL_CHECKSUM=$(sha256sum "$PCA_FILE" | awk '{print $1}')
-    if [ "$ACTUAL_CHECKSUM" == "$EXPECTED_PCA_CHECKSUM" ]; then
-        echo "✓ PCA reference is valid. Skipping download."
-    else
-        echo "⚠️  PCA reference checksum mismatch. Re-downloading."
-        rm "$PCA_FILE"
-        NEEDS_PCA_DOWNLOAD=true
-    fi
-else
-    NEEDS_PCA_DOWNLOAD=true
-fi
-
-if [ "$NEEDS_PCA_DOWNLOAD" = true ]; then
-    echo "Downloading PCA reference from Hugging Face Hub (~46 MB)..."
-    if ! python -c "
-from huggingface_hub import hf_hub_download
-path = hf_hub_download(
-    repo_id='$HF_REPO',
-    filename='$PCA_FILENAME',
-    local_dir='$(dirname \"$PCA_FILE\")'
-)
-print(f'Downloaded to: {path}')
-"; then
-        echo "[ERROR] PCA reference download from Hugging Face failed."
-        echo "Please download manually from: https://huggingface.co/$HF_REPO"
-        echo "Save pca_reference.pkl to: $PCA_FILE"
-        exit 1
-    fi
-
-    echo "Verifying downloaded PCA reference..."
-    ACTUAL_CHECKSUM=$(sha256sum "$PCA_FILE" | awk '{print $1}')
-    if [ "$ACTUAL_CHECKSUM" != "$EXPECTED_PCA_CHECKSUM" ]; then
-        echo "[ERROR] PCA reference checksum mismatch. The downloaded file may be corrupt."
-        rm "$PCA_FILE"
-        exit 1
-    fi
-    echo "✓ PCA reference downloaded and verified."
-fi
 echo ""
 
 # ============================================================================
-# Download reference k-mers from Zenodo (if not present)
-# ============================================================================
-echo "[4/4] Checking reference k-mers file..."
-
-# Define the target location, Zenodo URL, and the expected checksum
-KMER_FILE="$SCRIPT_DIR/data/matrices/large_matrix_3070_with_frac/reference_kmers.fasta"
-KMER_URL="https://zenodo.org/records/18157419/files/reference_kmers.fasta.gz"
-EXPECTED_CHECKSUM="87499b6235eef4aae0cdd5630f5eb7f51fc39de054fa93f5bacffa97cf0130f4"
-
-# Ensure the target directory exists
-mkdir -p "$(dirname "$KMER_FILE")"
-
-# Check if the file already exists and is valid
-NEEDS_DOWNLOAD=false
-if [ -f "$KMER_FILE" ]; then
-    echo "Reference k-mers file found. Verifying integrity..."
-    ACTUAL_CHECKSUM=$(sha256sum "$KMER_FILE" | awk '{print $1}')
-    if [ "$ACTUAL_CHECKSUM" == "$EXPECTED_CHECKSUM" ]; then
-        echo "✓ File is valid. Skipping download."
-    else
-        echo "⚠️  Checksum mismatch. Re-downloading the file."
-        rm "$KMER_FILE"  # Remove corrupted file before downloading
-        NEEDS_DOWNLOAD=true
-    fi
-else
-    NEEDS_DOWNLOAD=true
-fi
-
-if [ "$NEEDS_DOWNLOAD" = true ]; then
-    if [ "$KMER_URL" = "YOUR_ZENODO_DOWNLOAD_URL_HERE" ]; then
-        echo "[INFO] Reference k-mers file not found: $KMER_FILE"
-        echo "[INFO] Zenodo URL not configured yet"
-        echo ""
-        echo "TO GENERATE AND UPLOAD TO ZENODO:"
-        echo "  1. Generate the file:"
-        echo "     bash scripts/inference/00_extract_reference_kmers.sh \\"
-        echo "          data/matrices/large_matrix_3070_with_frac \\"
-        echo "          reference_kmers.fasta"
-        echo "  2. Compress: gzip reference_kmers.fasta"
-        echo "  3. Calculate checksum: sha256sum reference_kmers.fasta.gz"
-        echo "  4. Upload to Zenodo (approx. 179 MB compressed)"
-        echo "  5. Update KMER_URL and EXPECTED_CHECKSUM in install.sh"
-        echo ""
-        echo "[INFO] For now, the file will be generated on first inference run (slower)"
-    else
-        echo "Downloading reference k-mers (approx. 179 MB compressed)..."
-        KMER_GZ="$KMER_FILE.gz"
-        
-        if command -v wget >/dev/null 2>&1; then
-            if ! wget -O "$KMER_GZ" "$KMER_URL"; then
-                echo "[ERROR] Download failed. Please check your internet connection and the URL."
-                rm -f "$KMER_GZ"  # Clean up partial download
-                exit 1
-            fi
-        elif command -v curl >/dev/null 2>&1; then
-            if ! curl -L -o "$KMER_GZ" "$KMER_URL"; then
-                echo "[ERROR] Download failed. Please check your internet connection and the URL."
-                rm -f "$KMER_GZ"  # Clean up partial download
-                exit 1
-            fi
-        else
-            echo "[ERROR] Neither wget nor curl found. Cannot download reference file."
-            echo "Please download manually from: $KMER_URL"
-            echo "Save to: $KMER_GZ and decompress with: gunzip $KMER_GZ"
-            exit 1
-        fi
-        
-        echo "Verifying downloaded file..."
-        ACTUAL_CHECKSUM=$(sha256sum "$KMER_GZ" | awk '{print $1}')
-        
-        if [ "$ACTUAL_CHECKSUM" != "$EXPECTED_CHECKSUM" ]; then
-            echo "[ERROR] Checksum mismatch! The downloaded file may be corrupt."
-            rm "$KMER_GZ"
-            exit 1
-        fi
-        echo "✓ Download verified."
-        
-        echo "Decompressing file..."
-        gunzip "$KMER_GZ"
-        
-        if [ ! -f "$KMER_FILE" ]; then
-            echo "[ERROR] Decompression failed"
-            exit 1
-        fi
-        
-        echo "✓ Reference k-mers ready."
-    fi
-fi
-echo ""
-
-# ============================================================================
-# Verify installation
+# Verification summary
 # ============================================================================
 echo "============================================"
-echo "   Verifying Installation"
+echo "  Verification"
 echo "============================================"
 
 ALL_GOOD=true
 
-if command -v back_to_sequences >/dev/null 2>&1; then
-    echo "✓ back_to_sequences found in PATH"
-else
-    echo "✗ back_to_sequences NOT found in PATH"
-    ALL_GOOD=false
-fi
+check_cmd() {
+    if command -v "$1" >/dev/null 2>&1; then
+        ok "$1 is in PATH"
+    else
+        error "$1 NOT found in PATH"
+        ALL_GOOD=false
+    fi
+}
 
-if command -v kmat_tools >/dev/null 2>&1; then
-    KMAT_VERSION=$(kmat_tools --version 2>&1 | head -1 || echo "unknown")
-    echo "✓ kmat_tools found in PATH ($KMAT_VERSION)"
-else
-    echo "✗ kmat_tools NOT found in PATH"
-    ALL_GOOD=false
-fi
+check_file() {
+    if [ -f "$1" ]; then
+        ok "$2 exists"
+    else
+        error "$2 NOT found at: $1"
+        ALL_GOOD=false
+    fi
+}
 
-if command -v muset >/dev/null 2>&1; then
-    MUSET_VERSION=$(muset --version 2>&1 | head -1 || echo "unknown")
-    echo "✓ muset found in PATH ($MUSET_VERSION)"
-else
-    echo "✗ muset NOT found in PATH"
-    ALL_GOOD=false
-fi
+check_cmd back_to_sequences
+check_cmd kmat_tools
+check_cmd muset
+check_cmd diana-predict
+check_cmd diana-project
 
-echo "============================================"
+check_file "$MODEL_FILE"  "Trained model      (results/training/best_model.pth)"
+check_file "$PCA_FILE"    "PCA reference      (models/pca_reference.pkl)"
+check_file "$KMER_FILE"   "Reference k-mers   (data/matrices/.../reference_kmers.fasta)"
 
+echo ""
 if [ "$ALL_GOOD" = true ]; then
-    echo ""
-    echo "✓ Installation complete!"
-    echo ""
-    echo "You can now run the DIANA inference pipeline:"
-    echo "  scripts/inference/inference_pipeline.sh <config_file>"
-    echo ""
+    ok "Installation complete! Run the Quick Start in the README to test your setup."
 else
-    echo ""
-    echo "✗ Installation incomplete. Please check the errors above."
+    error "Installation incomplete — see errors above."
     exit 1
 fi

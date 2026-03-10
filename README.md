@@ -39,13 +39,11 @@ git clone https://github.com/CamilaDuitama/DIANA.git
 cd DIANA
 
 # Create and activate the environment
+# (also installs the DIANA package and registers diana-predict / diana-project)
 mamba env create -f environment.yml -p ./env
 mamba activate ./env
 
-# Install the DIANA Python package (registers diana-predict and diana-project commands)
-pip install -e .
-
-# Download the trained model (~336 MB from Hugging Face) and
+# Download the trained model and PCA reference (~382 MB from Hugging Face) and
 # reference k-mers (~179 MB from Zenodo), and build external tools
 bash install.sh
 ```
@@ -178,7 +176,7 @@ OOM failures occur during k-mer indexing when the sample has high microbial dive
 
 ### `diana-predict: command not found`
 
-Run `pip install -e .` from the DIANA directory with the environment activated. This registers the `diana-predict` and `diana-project` commands.
+The `diana-predict` and `diana-project` commands are registered by the DIANA package itself, which is installed as part of `mamba env create -f environment.yml -p ./env`. If the commands are missing, re-run that command with the environment activated, or run `pip install -e .` from the DIANA directory.
 
 ### HPC / cluster usage
 
