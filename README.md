@@ -1,6 +1,12 @@
 # DIANA: Deep Learning Identification and Assessment of Ancient DNA
 
-Multi-task classification of ancient DNA samples using unitig k-mer features. Given raw sequencing reads, DIANA simultaneously predicts:
+Multi-task classification of ancient DNA samples using unitig k-mer features. A **unitig** is a maximal non-branching path in a de Bruijn graph — it compacts overlapping k-mers into a single sequence, reducing redundancy while preserving genomic diversity.
+
+<p align="center">
+  <img src="images/unitigs.png" width="60%" alt="Unitig concept: k-mers form de Bruijn graph nodes; unitigs are maximal non-branching paths"/>
+</p>
+
+Given raw sequencing reads, DIANA counts how many reference unitig k-mers are present in the sample, maps those counts to 107,480 unitig features, and feeds the resulting abundance vector into a multi-task neural network that simultaneously predicts:
 
 | Task | Labels |
 |---|---|
@@ -12,8 +18,7 @@ Multi-task classification of ancient DNA samples using unitig k-mer features. Gi
 Trained on 2,597 samples from the [AncientMetagenomeDir](https://github.com/SPAAM-community/AncientMetagenomeDir) database.
 
 <p align="center">
-  <img src="images/barplot_example.png" width="48%" alt="Prediction bar chart"/>
-  <img src="images/pca_example.png" width="48%" alt="PCA projection"/>
+  <img src="images/pipeline.png" width="80%" alt="DIANA pipeline: raw reads → k-mer counting → unitig abundance vector → multi-task neural network → metadata predictions"/>
 </p>
 
 ---
