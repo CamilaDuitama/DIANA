@@ -84,9 +84,66 @@ echo "✓ MUSET tools available from conda package"
 echo ""
 
 # ============================================================================
+# Download trained model from Hugging Face Hub (if not present)
+# ============================================================================
+echo "[3/4] Checking trained model..."
+
+MODEL_FILE="$SCRIPT_DIR/results/training/best_model.pth"
+LABEL_ENCODERS_FILE="$SCRIPT_DIR/results/training/label_encoders.json"
+HF_REPO="cduitamag/DIANA"
+MODEL_FILENAME="best_model.pth"
+EXPECTED_MODEL_CHECKSUM="ef686f1fa07c8d717605fb11a2480eadfa360df64d4ce4419e0ee33e6ec71943"
+
+mkdir -p "$(dirname "$MODEL_FILE")"
+
+NEEDS_MODEL_DOWNLOAD=false
+if [ -f "$MODEL_FILE" ]; then
+    echo "Model file found. Verifying integrity..."
+    ACTUAL_CHECKSUM=$(sha256sum "$MODEL_FILE" | awk '{print $1}')
+    if [ "$ACTUAL_CHECKSUM" == "$EXPECTED_MODEL_CHECKSUM" ]; then
+        echo "✓ Model is valid. Skipping download."
+    else
+        echo "⚠️  Checksum mismatch. Re-downloading the model."
+        rm "$MODEL_FILE"
+        NEEDS_MODEL_DOWNLOAD=true
+    fi
+else
+    NEEDS_MODEL_DOWNLOAD=true
+fi
+
+if [ "$NEEDS_MODEL_DOWNLOAD" = true ]; then
+    echo "Downloading trained model from Hugging Face Hub (~336 MB)..."
+    if ! python -c "
+import sys
+from huggingface_hub import hf_hub_download
+path = hf_hub_download(
+    repo_id='$HF_REPO',
+    filename='$MODEL_FILENAME',
+    local_dir='$(dirname \"$MODEL_FILE\")'
+)
+print(f'Downloaded to: {path}')
+"; then
+        echo "[ERROR] Model download from Hugging Face failed."
+        echo "Please download manually from: https://huggingface.co/$HF_REPO"
+        echo "Save best_model.pth to: $MODEL_FILE"
+        exit 1
+    fi
+
+    echo "Verifying downloaded model..."
+    ACTUAL_CHECKSUM=$(sha256sum "$MODEL_FILE" | awk '{print $1}')
+    if [ "$ACTUAL_CHECKSUM" != "$EXPECTED_MODEL_CHECKSUM" ]; then
+        echo "[ERROR] Model checksum mismatch. The downloaded file may be corrupt."
+        rm "$MODEL_FILE"
+        exit 1
+    fi
+    echo "✓ Model downloaded and verified."
+fi
+echo ""
+
+# ============================================================================
 # Download reference k-mers from Zenodo (if not present)
 # ============================================================================
-echo "[3/3] Checking reference k-mers file..."
+echo "[4/4] Checking reference k-mers file..."
 
 # Define the target location, Zenodo URL, and the expected checksum
 KMER_FILE="$SCRIPT_DIR/data/matrices/large_matrix_3070_with_frac/reference_kmers.fasta"

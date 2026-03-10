@@ -22,6 +22,7 @@ setup(
         "tensorboard",
         "tqdm",
         "h5py",
+        "huggingface_hub>=0.20",
     ],
     extras_require={
         "dev": ["pytest", "black", "isort"],

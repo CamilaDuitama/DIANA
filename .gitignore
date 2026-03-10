@@ -81,6 +81,7 @@ models/optimal_temperatures.json
 
 # Training results (large model checkpoints)
 results/training/**/*.pth
+!results/training/label_encoders.json
 results/full_training/**/*.pth
 results/multitask/**/*.pth
 
