@@ -54,6 +54,7 @@ bash install.sh
 - Python dependencies (PyTorch, scikit-learn, polars, huggingface_hub, etc.)
 - External tools: `back_to_sequences` (compiled from source) and `MUSET` (via conda)
 - Trained model checkpoint (`results/training/best_model.pth`, ~336 MB, from [Hugging Face](https://huggingface.co/cduitamag/DIANA))
+- PCA reference (`models/pca_reference.pkl`, ~46 MB, from [Hugging Face](https://huggingface.co/cduitamag/DIANA)) — required by `diana-project`
 - Reference k-mers file (`data/matrices/large_matrix_3070_with_frac/reference_kmers.fasta`, ~179 MB, from Zenodo)
 
 The following files are included directly in the repository (no download needed):
@@ -90,19 +91,8 @@ cat test_results/ERR3609654/ERR3609654_predictions.json
 
 Expected: Predictions for sample_type (Ancient), community_type (oral), sample_host (Homo sapiens), and material (dental calculus).
 
-**Example outputs:**
-
-*Prediction probabilities (one bar plot per task):*
-<p align="center">
-  <img src="test_results/ERR3609654/plots/ERR3609654_sample_type_barplot.png" width="45%"/>
-  <img src="test_results/ERR3609654/plots/ERR3609654_material_barplot.png" width="45%"/>
-</p>
-
-*PCA projection showing sample similarity to training data:*
-<p align="center">
-  <img src="results/pca_projection/ERR3609654/pca_projection_sample_type.png" width="45%"/>
-  <img src="results/pca_projection/ERR3609654/species_abundance.png" width="45%"/>
-</p>
+`diana-predict` produces one interactive bar chart per task under `test_results/ERR3609654/plots/` (HTML + PNG).
+`diana-project` produces PCA plots under `results/pca_projection/ERR3609654/`.
 
 ---
 

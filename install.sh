@@ -38,7 +38,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # ============================================================================
 # Build back_to_sequences (Rust)
 # ============================================================================
-echo "[1/2] Building back_to_sequences..."
+echo "[1/4] Building back_to_sequences..."
 cd "$SCRIPT_DIR/external/back_to_sequences"
 
 if ! command -v cargo >/dev/null 2>&1; then
@@ -72,7 +72,7 @@ echo ""
 # ============================================================================
 # Note: MUSET tools are installed via conda package (no build needed)
 # ============================================================================
-echo "[2/2] Verifying MUSET tools (installed via conda)..."
+echo "[2/4] Verifying MUSET tools (installed via conda)..."
 if ! command -v kmat_tools >/dev/null 2>&1; then
     echo "[WARNING] kmat_tools not found. Make sure muset is installed:"
     echo "  mamba install -c camiladuitama muset"
@@ -87,7 +87,7 @@ echo ""
 # ============================================================================
 # Download trained model from Hugging Face Hub (if not present)
 # ============================================================================
-echo "[3/4] Checking trained model..."
+echo "[3/4] Checking model and PCA reference (Hugging Face Hub)..."
 
 MODEL_FILE="$SCRIPT_DIR/results/training/best_model.pth"
 LABEL_ENCODERS_FILE="$SCRIPT_DIR/results/training/label_encoders.json"
@@ -138,6 +138,54 @@ print(f'Downloaded to: {path}')
         exit 1
     fi
     echo "✓ Model downloaded and verified."
+fi
+
+# Download PCA reference file (needed by diana-project)
+PCA_FILE="$SCRIPT_DIR/models/pca_reference.pkl"
+PCA_FILENAME="pca_reference.pkl"
+EXPECTED_PCA_CHECKSUM="4bb3f80312b92b113b3f3007820ab3ae59416a531f94129e557fe0ef97f74071"
+
+mkdir -p "$(dirname "$PCA_FILE")"
+
+NEEDS_PCA_DOWNLOAD=false
+if [ -f "$PCA_FILE" ]; then
+    ACTUAL_CHECKSUM=$(sha256sum "$PCA_FILE" | awk '{print $1}')
+    if [ "$ACTUAL_CHECKSUM" == "$EXPECTED_PCA_CHECKSUM" ]; then
+        echo "✓ PCA reference is valid. Skipping download."
+    else
+        echo "⚠️  PCA reference checksum mismatch. Re-downloading."
+        rm "$PCA_FILE"
+        NEEDS_PCA_DOWNLOAD=true
+    fi
+else
+    NEEDS_PCA_DOWNLOAD=true
+fi
+
+if [ "$NEEDS_PCA_DOWNLOAD" = true ]; then
+    echo "Downloading PCA reference from Hugging Face Hub (~46 MB)..."
+    if ! python -c "
+from huggingface_hub import hf_hub_download
+path = hf_hub_download(
+    repo_id='$HF_REPO',
+    filename='$PCA_FILENAME',
+    local_dir='$(dirname \"$PCA_FILE\")'
+)
+print(f'Downloaded to: {path}')
+"; then
+        echo "[ERROR] PCA reference download from Hugging Face failed."
+        echo "Please download manually from: https://huggingface.co/$HF_REPO"
+        echo "Save pca_reference.pkl to: $PCA_FILE"
+        exit 1
+    fi
+
+    echo "Verifying downloaded PCA reference..."
+    ACTUAL_CHECKSUM=$(sha256sum "$PCA_FILE" | awk '{print $1}')
+    if [ "$ACTUAL_CHECKSUM" != "$EXPECTED_PCA_CHECKSUM" ]; then
+        echo "[ERROR] PCA reference checksum mismatch. The downloaded file may be corrupt."
+        rm "$PCA_FILE"
+        exit 1
+    fi
+    echo "✓ PCA reference downloaded and verified."
 fi
 echo ""
 
