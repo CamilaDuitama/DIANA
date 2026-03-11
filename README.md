@@ -41,7 +41,11 @@ Trained on 2,597 samples from the [AncientMetagenomeDir](https://github.com/SPAA
 
 ## Installation
 
-**Requirements:** Linux, [Mamba](https://mamba.readthedocs.io/) or Conda.
+### Prerequisites
+- Linux operating system
+- [Mamba](https://mamba.readthedocs.io/) (recommended) or Conda installed and initialised
+- At least 10 GB free disk space
+- Internet connection for downloading models
 
 ```bash
 git clone --recurse-submodules https://github.com/CamilaDuitama/DIANA.git
