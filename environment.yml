@@ -22,7 +22,6 @@ dependencies:
   - tabulate
   - h5py
   - pyarrow
-  - jupyterlab
   - ete3
   - seqkit
   - taxonkit  # NCBI taxonomy database tools for species lineage lookup
@@ -48,6 +47,5 @@ dependencies:
       - scikit-multilearn
       - optuna>=3.0  # Hyperparameter optimization
       - kaleido==0.2.1  # PNG export for plotly (stable version for HPC)
-      - umap-learn>=0.5  # Non-linear dimensionality reduction
       - huggingface_hub>=0.20  # Model download from Hugging Face
       - -e .  # Install the DIANA package itself (registers diana-predict and diana-project commands)
