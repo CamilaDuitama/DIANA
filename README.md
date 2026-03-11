@@ -31,6 +31,9 @@ Trained on 2,597 samples from the [AncientMetagenomeDir](https://github.com/SPAA
   - [diana-predict](#diana-predict)
   - [diana-project *(optional)*](#diana-project-optional)
 - [FAQ](#faq)
+  - [Command not found](#diana-predict-command-not-found)
+  - [Out-of-memory errors](#out-of-memory-errors)
+  - [HPC / activation issues](#hpc--activation-issues)
 - [License](#license)
 - [Citation](#citation)
 
@@ -124,23 +127,32 @@ diana-project --sample results/predictions/sample_id/
 
 For each prediction task it produces a `pca_projection_<task>.html/png`: training samples are coloured by label, the five nearest neighbours are highlighted in yellow, and the new sample is shown as a red star.
 
-**PCA projection (sample type)** — ERR3609654 (red star) lands among ancient samples, consistent with the prediction. Its five nearest neighbours (yellow diamonds) are all ancient oral metagenomes.
+**PCA projection (sample type)** — ERR3609654 (red star) lands among ancient samples. Its five nearest neighbours (yellow diamonds) are all ancient oral metagenomes.
 <p align="center"><img src="images/example_pca_projection.png" width="80%" alt="PCA projection plot: ERR3609654 projects into the ancient oral cluster"/></p>
-<p align="center"><em><a href="results/pca_projection/ERR3609654/pca_projection_sample_type.html">Open interactive version</a></em></p>
 
 **Species abundance** — Top microbial species detected in the sample's unitigs, giving a quick taxonomic overview.
 <p align="center"><img src="images/example_species_abundance.png" width="70%" alt="Species abundance bar chart for ERR3609654"/></p>
-<p align="center"><em><a href="results/pca_projection/ERR3609654/species_abundance.html">Open interactive version</a></em></p>
 
 ---
 
 ## FAQ
 
-**`diana-predict: command not found`** — Make sure the environment is activated (`mamba activate ./env`). The commands are registered when the environment is created.
+### `diana-predict: command not found`
 
-**Out-of-memory errors** — OOM during k-mer counting is common for high-diversity samples (dental calculus, oral metagenomes). Retry with more RAM (`--mem=32G` on SLURM). Calculus samples can require >256 GB.
+Make sure the environment is activated (`mamba activate ./env`). The `diana-predict` and `diana-project` commands are registered as entry points when the environment is created.
 
-**HPC / broken `mamba run`** — Activate the environment first (`mamba activate ./env` or `source activate ./env`) and call `diana-predict` directly.
+### Out-of-memory errors
+
+OOM during k-mer counting is common for high-diversity samples (dental calculus, oral metagenomes). Retry with more RAM (`--mem=32G` on SLURM). Calculus samples can require >256 GB.
+
+### HPC / activation issues
+
+If `mamba run` is unavailable or broken, activate the environment first and call the command directly:
+
+```bash
+mamba activate ./env   # or: source activate ./env
+diana-predict ...
+```
 
 ---
 
