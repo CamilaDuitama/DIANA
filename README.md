@@ -10,10 +10,10 @@ Given raw sequencing reads, DIANA counts how many reference unitigs are present 
 
 | Task | Labels |
 |---|---|
-| **Sample type** | Ancient / Modern |
-| **Community type** | Oral, gut, skeletal tissue, soft tissue, environmental, … |
-| **Sample host** | *Homo sapiens*, *Ursus arctos*, and 10 others |
-| **Material** | Dental calculus, bone, sediment, and 9 others |
+| **Sample type** | ancient metagenome, modern metagenome |
+| **Community type** | gut, oral, plant tissue, skeletal tissue, soft tissue, not applicable (env sample) |
+| **Sample host** | *Homo sapiens*, *Homo sapiens neanderthalensis*, *Pan troglodytes*, *Gorilla sp.*, *Ursus arctos*, *Canis lupus*, *Mammuthus primigenius*, *Rangifer tarandus*, *Ambrosia artemisiifolia*, *Arabidopsis thaliana*, other mammal, not applicable (env sample) |
+| **Material** | bone, dental calculus, digestive tract contents, leaf, midden, permafrost, plaque, saliva, sediment, shell, skin, soil, tissue, tooth |
 
 Trained on 2,597 samples from the [AncientMetagenomeDir](https://github.com/SPAAM-community/AncientMetagenomeDir) database.
 

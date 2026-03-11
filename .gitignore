@@ -161,6 +161,7 @@ results/wrong_predictions_analysis.tsv
 # Scratch / session output files — kept locally but not tracked
 tmux_seqkit_output.txt
 unitigs_without_blast_stats.txt
+PROJECT_STRUCTURE.md
 
 # Test data - full downloads ignored, but small bundled test files (1% subsample) are tracked
 test_data/
