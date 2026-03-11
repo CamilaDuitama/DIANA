@@ -19,13 +19,18 @@ OUT_FRACTION=$5
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SAMPLE_NAME=$(basename "$OUT_ABUNDANCE" | sed 's/_unitig_abundance.txt//')
 
-# Use kmat_tools from external directory
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-KMAT_TOOLS="$SCRIPT_DIR/../../external/muset/bin/kmat_tools"
-
-if [ ! -x "$KMAT_TOOLS" ]; then
-    echo "[ERROR] kmat_tools not found at $KMAT_TOOLS"
-    exit 2
+# Resolve kmat_tools: prefer the conda-installed binary in PATH, fall back to submodule build
+if command -v kmat_tools >/dev/null 2>&1; then
+    KMAT_TOOLS="$(command -v kmat_tools)"
+else
+    SUBMODULE_KMAT="$SCRIPT_DIR/../../external/muset/bin/kmat_tools"
+    if [ -x "$SUBMODULE_KMAT" ]; then
+        KMAT_TOOLS="$SUBMODULE_KMAT"
+    else
+        echo "[ERROR] kmat_tools not found in PATH or at $SUBMODULE_KMAT"
+        echo "        Make sure the conda environment is activated."
+        exit 2
+    fi
 fi
 
 OUTPUT_PREFIX="${OUT_ABUNDANCE%_abundance.txt}"
