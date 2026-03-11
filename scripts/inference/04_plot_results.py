@@ -59,9 +59,18 @@ def plot_predictions(predictions, output_dir, sample_id, label_encoders=None):
             labels = list(probs_dict.keys())
             probs = [probs_dict[label] for label in labels]
         
-        # Get predicted class info
-        predicted_class = task_preds.get("predicted_class", "unknown")
+        # Get predicted class info — decode numeric string to label name if possible
+        predicted_class_raw = task_preds.get("predicted_class", "unknown")
         confidence = task_preds.get("confidence", 0.0)
+        if label_encoders and task in label_encoders:
+            class_list = label_encoders[task]["classes"]
+            try:
+                idx = int(predicted_class_raw)
+                predicted_class = class_list[idx] if idx < len(class_list) else predicted_class_raw
+            except (ValueError, TypeError):
+                predicted_class = predicted_class_raw
+        else:
+            predicted_class = predicted_class_raw
         
         # Create plotly bar chart
         fig = go.Figure(data=[
