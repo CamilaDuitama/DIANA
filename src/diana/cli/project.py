@@ -177,15 +177,17 @@ def plot_pca_projection(
         
         fig = go.Figure()
         
-        # Get reference labels (handle both polars and pandas)
+        # Build a sample_id → label lookup so that ref_labels is aligned
+        # with reference_sample_ids (PKL order), not with metadata sort order.
         try:
-            # Try polars first
-            ref_labels = reference_metadata[task].to_list()
+            ids_col = reference_metadata['Run_accession'].to_list()
+            lbl_col = reference_metadata[task].to_list()
         except AttributeError:
-            # Fall back to pandas
-            ref_labels = reference_metadata[task].values
-        
-        ref_labels = np.array(ref_labels)
+            ids_col = reference_metadata['Run_accession'].tolist()
+            lbl_col = reference_metadata[task].tolist()
+
+        label_by_id = dict(zip(ids_col, lbl_col))
+        ref_labels = np.array([label_by_id.get(sid, 'Unknown') for sid in reference_sample_ids])
         unique_labels = sorted(list(set(ref_labels)))
         
         for label in unique_labels:

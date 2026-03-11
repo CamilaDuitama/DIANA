@@ -170,27 +170,28 @@ def detect_paired_end(sample_path: Path) -> list:
     name = sample_path.name
     name = re.sub(r'\.(fastq|fq|fasta|fa|fna)(\.gz)?$', '', name)
     
-    # Patterns to check for paired-end (anchored to end of filename)
-    patterns = [
-        (r'_1$', '_2'),
-        (r'_R1$', '_R2'),
-        (r'\.1$', '.2'),
-        (r'_1_$', '_2_'),
+    # Match _1 / _R1 / .1 possibly followed by a trailing suffix (e.g. _small)
+    # Pattern groups: (1) base before marker, (2) marker, (3) optional trailing suffix
+    pe_patterns = [
+        (r'^(.+?)(_1)(_.*)?$', '_2'),
+        (r'^(.+?)(_R1)(_.*)?$', '_R2'),
+        (r'^(.+?)(\.1)(_.*)?$', '.2'),
     ]
-    
-    for pattern, replacement in patterns:
-        match = re.search(pattern, name)
+
+    original_ext = sample_path.name[len(name):]
+
+    for pattern, r2_marker in pe_patterns:
+        match = re.fullmatch(pattern, name)
         if match:
-            # Build the paired filename
-            pair_name = re.sub(pattern, replacement, name)
-            # Reconstruct full path with original extension
-            original_ext = sample_path.name[len(name):]
+            base   = match.group(1)
+            suffix = match.group(3) or ''
+            pair_name = base + r2_marker + suffix
             pair_path = sample_path.parent / (pair_name + original_ext)
-            
+
             if pair_path.exists():
                 logger.debug(f"Detected paired-end: {sample_path.name} + {pair_path.name}")
                 return sorted([sample_path, pair_path])
-    
+
     # Not paired-end or pair not found
     return [sample_path]
 

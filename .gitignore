@@ -158,8 +158,10 @@ results/mc_dropout_*/
 results/*.tsv
 results/wrong_predictions_analysis.tsv
 
-# Test data not needed in repo
+# Test data - full downloads ignored, but small bundled test files (1% subsample) are tracked
 test_data/
+!test_data/ERR3609654_1_small.fastq.gz
+!test_data/ERR3609654_2_small.fastq.gz
 test_results/
 
 # Paper assets and archives (should be generated)
