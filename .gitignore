@@ -167,7 +167,15 @@ PROJECT_STRUCTURE.md
 test_data/
 !test_data/ERR3609654_1_small.fastq.gz
 !test_data/ERR3609654_2_small.fastq.gz
-test_results/
+# test_results/ is tracked — contains bundled example output for ERR3609654
+# Intermediate pipeline files inside test_results are not tracked
+test_results/**/*_kmer_counts.txt
+test_results/**/*_unitig_abundance.txt
+test_results/**/*_unitig_fraction.txt
+test_results/**/*_fastq_filelist.txt
+test_results/**/*.sshash.log
+test_results/**/*.html
+test_results/**/diana_predict_summary.json
 
 # Paper assets and archives (should be generated)
 paper/assets/

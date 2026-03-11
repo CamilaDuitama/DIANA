@@ -78,16 +78,16 @@ cat test_results/ERR3609654/ERR3609654_predictions.json
 Each bar chart shows every class on the y-axis and its predicted probability on the x-axis; the most probable class is highlighted. The `.html` version is fully interactive (hover for exact values). Below are the four charts produced for ERR3609654:
 
 **Sample type** — Is the sample ancient or modern?
-<p align="center"><img src="images/example_sample_type.png" width="70%" alt="Sample type bar chart: Ancient 79%, Modern 21%"/></p>
+<p align="center"><img src="images/example_sample_type.png" width="70%" alt="Sample type bar chart: ancient_metagenome predicted with 73% confidence"/></p>
 
 **Community type** — What microbial community does the sample come from?
-<p align="center"><img src="images/example_community_type.png" width="70%" alt="Community type bar chart: oral community predicted with 63% confidence"/></p>
+<p align="center"><img src="images/example_community_type.png" width="70%" alt="Community type bar chart: soft tissue predicted with 40% confidence"/></p>
 
 **Sample host** — Which host species does the sample originate from?
-<p align="center"><img src="images/example_sample_host.png" width="70%" alt="Sample host bar chart: Homo sapiens predicted with 48% confidence"/></p>
+<p align="center"><img src="images/example_sample_host.png" width="70%" alt="Sample host bar chart: Gorilla sp. predicted with 19% confidence"/></p>
 
 **Material** — What physical material was the sample extracted from?
-<p align="center"><img src="images/example_material.png" width="70%" alt="Material bar chart: dental calculus predicted with 25% confidence"/></p>
+<p align="center"><img src="images/example_material.png" width="70%" alt="Material bar chart: skin predicted with 14% confidence"/></p>
 
 ---
 

@@ -322,7 +322,8 @@ def predict_single_sample(
             "--model", str(model_path),
             "--input", str(unitig_fraction),
             "--output", str(predictions_json),
-            "--sample-id", sample_id
+            "--sample-id", sample_id,
+            "--label_encoders", str(model_path.parent)
         ], "Step 3: Running model inference")
         
         # ====================================================================

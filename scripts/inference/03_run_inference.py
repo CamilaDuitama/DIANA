@@ -181,12 +181,31 @@ def main():
         default='auto',
         help='Device to use for inference (default: auto-detect)'
     )
+
+    parser.add_argument(
+        '--label_encoders',
+        type=Path,
+        default=None,
+        help='Directory containing label_encoders.json (default: same dir as model)'
+    )
     
     args = parser.parse_args()
     
     # Infer sample ID from filename if not provided
     sample_id = args.sample_id or args.input.stem.replace('_unitig_fraction', '')
     
+    # Load label encoders for class name decoding
+    encoders_dir = args.label_encoders if args.label_encoders else args.model.parent
+    encoders_path = encoders_dir / 'label_encoders.json'
+    class_names = None
+    if encoders_path.exists():
+        with open(encoders_path) as f:
+            raw = json.load(f)
+        class_names = {task: info['classes'] for task, info in raw.items()}
+        logger.info(f"Loaded label encoders from {encoders_path}")
+    else:
+        logger.warning(f"label_encoders.json not found at {encoders_path}, using numeric class indices")
+
     # Load model
     logger.info(f"Loading model from {args.model}")
     device = None if args.device == 'auto' else args.device
@@ -200,7 +219,7 @@ def main():
     predictions = predictor.predict(features, return_probabilities=True)
     
     # Format output
-    formatted_preds = format_predictions(predictions)
+    formatted_preds = format_predictions(predictions, class_names=class_names)
     
     output = {
         'sample_id': sample_id,
