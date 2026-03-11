@@ -164,6 +164,8 @@ Apache 2.0 — see [LICENSE](LICENSE).
 
 ## Citation
 
+If you use DIANA in your research, please cite:
+
 ```bibtex
 @article{diana2026,
   title   = {{DIANA}: Deep Learning Identification and Assessment of Ancient {DNA}},
@@ -173,5 +175,8 @@ Apache 2.0 — see [LICENSE](LICENSE).
   note    = {Correspondence: cduitama@pasteur.fr}
 }
 ```
+
+The trained model weights and PCA reference are hosted on Hugging Face: [cduitamag/DIANA](https://huggingface.co/cduitamag/DIANA).  
+Reference k-mers and unitig BLAST annotations are deposited on Zenodo: [10.5281/zenodo.18157419](https://zenodo.org/records/18157419).
 
 
