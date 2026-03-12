@@ -1,0 +1,275 @@
+sample_id	true_label	pred_label	confidence
+SRR20576781	marine sediment	sediment	1.0
+SRR3480279	lake sediment	sediment	0.9999591112136841
+SRR32023830	marine sediment	sediment	0.9999887943267822
+SRR25280084	birch pitch	digestive_contents	0.6659039258956909
+SRR25280086	birch pitch	digestive_contents	0.35863420367240906
+ERR13950628	lake sediment	permafrost	0.8067148327827454
+SRR32023839	marine sediment	sediment	0.9999992847442627
+SRR1047998	palaeofaeces	dental calculus	0.9464940428733826
+ERR13950664	lake sediment	permafrost	0.9974439144134521
+SRR13769011	dentine	dental calculus	0.7192258834838867
+ERR4374046		tooth	0.999431312084198
+ERR1560024	lake sediment	shell	0.8573734760284424
+ERR3678628	palaeofaeces	digestive_contents	0.9999991655349731
+ERR12814416	lake sediment	permafrost	0.7645509839057922
+SRR25280050	birch pitch	midden	0.3315073251724243
+SRR25280069	birch pitch	sediment	0.7752421498298645
+ERR13950668	lake sediment	sediment	1.0
+ERR13950623	lake sediment	sediment	1.0
+SRR25280090	birch pitch	Oral	0.5829384326934814
+SRR32023849	marine sediment	sediment	0.9999923706054688
+SRR5332460	lake sediment	sediment	0.9963499307632446
+SRR25280055	birch pitch	digestive_contents	0.8272088766098022
+SRR19160251	intestine	soft_tissue	0.42272382974624634
+ERR3459743	shallow marine sediment	sediment	0.6744709014892578
+ERR12814422	lake sediment	permafrost	0.9953925609588623
+SRR3480289	lake sediment	sediment	0.9999998807907104
+SRR20627592	gut	digestive_contents	1.0
+SRR25280116	birch pitch	Skin	0.9959677457809448
+SRR32023855	marine sediment	sediment	0.9999330043792725
+SRR25280112	birch pitch	Skin	0.8385525345802307
+SRR9900891	marine sediment	sediment	1.0
+SRR25280073	birch pitch	Oral	0.3428207337856293
+SRR25280114	birch pitch	Oral	0.6641923785209656
+ERR13950637	lake sediment	permafrost	0.9994951486587524
+ERR13950646	lake sediment	sediment	1.0
+SRR32023841	marine sediment	sediment	0.9988085031509399
+ERR13950660	lake sediment	permafrost	0.9726927280426025
+SRR25280103	birch pitch	Skin	0.9130718111991882
+ERR13950665	lake sediment	permafrost	0.968464732170105
+SRR32023846	marine sediment	sediment	0.9999994039535522
+ERR12814415	lake sediment	permafrost	0.9133086204528809
+ERR12814413	lake sediment	permafrost	0.7658100128173828
+SRR19160206	intestine	soft_tissue	0.6227302551269531
+ERR12074372	marine sediment	sediment	1.0
+SRR25280110	birch pitch	Skin	0.8010045289993286
+ERR1560094	lake sediment	sediment	1.0
+SRR25280117	birch pitch	Oral	0.7045139670372009
+ERR1560097	lake sediment	sediment	0.9999938011169434
+SRR25280068	birch pitch	sediment	0.999997615814209
+SRR19160180	intestine	soft_tissue	0.7623445987701416
+ERR13950647	lake sediment	sediment	1.0
+ERR1560016	lake sediment	sediment	1.0
+SRR25280064	birch pitch	sediment	1.0
+SRR25280082	birch pitch	midden	0.2035466730594635
+ERR13950640	lake sediment	sediment	0.9999889135360718
+SRR25280056	birch pitch	midden	0.21837055683135986
+ERR12814430	lake sediment	sediment	1.0
+SRR3480288	lake sediment	sediment	0.9999799728393555
+ERR13950663	lake sediment	permafrost	0.9771404266357422
+ERR4334728	lake sediment	sediment	1.0
+SRR25280109	birch pitch	Skin	0.9623648524284363
+SRR25280077	birch pitch	Skin	0.9870942234992981
+SRR25280062	birch pitch	sediment	0.9985174536705017
+ERR13950670	lake sediment	sediment	1.0
+SRR25280096	birch pitch	dental calculus	0.6655125021934509
+ERR12074367	marine sediment	sediment	1.0
+ERR13950635	lake sediment	sediment	0.9999997615814209
+ERR13950650	lake sediment	sediment	1.0
+SRR32023847	marine sediment	sediment	0.9999997615814209
+SRR32023823	marine sediment	sediment	0.9999815225601196
+ERR12814424	lake sediment	permafrost	0.9994039535522461
+ERR12814417	lake sediment	permafrost	0.9843850135803223
+ERR12074377	marine sediment	sediment	1.0
+ERR13950606	lake sediment	sediment	1.0
+SRR24222603	lake sediment	sediment	1.0
+SRR32023821	marine sediment	sediment	0.9999654293060303
+ERR13950667	lake sediment	sediment	0.9999996423721313
+ERR3459723	shallow marine sediment	Oral	0.7992396354675293
+SRR25280092	birch pitch	Oral	0.5368036031723022
+SRR32023845	marine sediment	sediment	0.9999972581863403
+ERR13950641	lake sediment	sediment	0.9999972581863403
+SRR32023868	marine sediment	sediment	0.6659524440765381
+SRR25280093	birch pitch	sediment	0.9999994039535522
+SRR32023828	marine sediment	sediment	0.9999920129776001
+SRR32023867	marine sediment	sediment	0.9999983310699463
+ERR3678627	palaeofaeces	digestive_contents	1.0
+SRR32023861	marine sediment	sediment	1.0
+ERR12814427	lake sediment	sediment	0.9999454021453857
+ERR3459740	shallow marine sediment	shell	0.5487536787986755
+ERR13950666	lake sediment	shell	0.6039125323295593
+SRR9900878	marine sediment	sediment	1.0
+ERR12814419	lake sediment	permafrost	0.9965847730636597
+ERR13950671	lake sediment	sediment	1.0
+ERR3250150	birch pitch	Oral	0.8366224765777588
+ERR12814429	lake sediment	sediment	1.0
+SRR25280063	birch pitch	sediment	0.9646585583686829
+SRR32023838	marine sediment	sediment	0.9919175505638123
+ERR13950624	lake sediment	sediment	1.0
+SRR32023837	marine sediment	sediment	0.9995844960212708
+SRR25280099	birch pitch	Oral	0.8724735379219055
+SRR32023833	marine sediment	sediment	0.9462379813194275
+SRR32023817	marine sediment	sediment	0.9989519119262695
+SRR25280095	birch pitch	Skin	0.9765378832817078
+SRR32023859	marine sediment	sediment	1.0
+ERR13950655	lake sediment	midden	0.46895286440849304
+ERR13950629	lake sediment	sediment	0.9999998807907104
+SRR32023818	marine sediment	sediment	0.9997630715370178
+ERR3250149	birch pitch	tooth	0.4280673861503601
+SRR9900885	marine sediment	sediment	1.0
+ERR13950662	lake sediment	permafrost	0.9993019104003906
+ERR4374857		tooth	0.9998844861984253
+SRR32023871	marine sediment	sediment	0.9992799162864685
+SRR25280081	birch pitch	midden	0.20526400208473206
+SRR17798049	gut	digestive_contents	0.9999887943267822
+SRR32023858	marine sediment	sediment	0.9672411680221558
+ERR13950601	lake sediment	permafrost	0.9990177154541016
+SRR25280107	birch pitch	Skin	0.8284118175506592
+SRR32023840	marine sediment	sediment	0.9999973773956299
+ERR13950659	lake sediment	permafrost	0.9999490976333618
+ERR4386594		bone	0.9995317459106445
+SRR32023831	marine sediment	sediment	0.999853253364563
+SRR32023875	marine sediment	sediment	0.9990957975387573
+SRR16280095	gut	dental calculus	0.17218022048473358
+ERR13950625	lake sediment	sediment	1.0
+ERR13950653	lake sediment	permafrost	0.9757823944091797
+SRR25280118	birch pitch	Oral	0.49864405393600464
+SRR32023822	marine sediment	sediment	0.9999986886978149
+ERR13950631	lake sediment	sediment	1.0
+SRR3480273	lake sediment	sediment	0.9993545413017273
+ERR13950654	lake sediment	permafrost	0.5330429077148438
+SRR32023825	marine sediment	sediment	0.9991304278373718
+SRR25280060	birch pitch	midden	0.18654504418373108
+ERR13950648	lake sediment	sediment	1.0
+SRR25280067	birch pitch	sediment	0.9999988079071045
+SRR25280059	birch pitch	Skin	0.925062358379364
+ERR3250151	birch pitch	Oral	0.9855760335922241
+SRR3480286	lake sediment	sediment	0.9999998807907104
+SRR32023832	marine sediment	sediment	0.9999663829803467
+ERR4374021		tooth	0.999991774559021
+SRR20576745	marine sediment	sediment	1.0
+SRR25280094	birch pitch	Oral	0.6884543895721436
+SRR32023829	marine sediment	sediment	0.9999916553497314
+SRR32023864	marine sediment	sediment	0.9998107552528381
+ERR12074376	marine sediment	sediment	1.0
+ERR3250148	birch pitch	tooth	0.8867092132568359
+ERR4374035		tooth	0.996073842048645
+SRR32023824	marine sediment	sediment	0.9998340606689453
+ERR13950638	lake sediment	permafrost	0.9998229146003723
+SRR32023826	marine sediment	sediment	0.9998705387115479
+SRR25280115	birch pitch	Oral	0.657975971698761
+SRR25280085	birch pitch	digestive_contents	0.37572208046913147
+SRR25280054	birch pitch	midden	0.48073717951774597
+SRR25280098	birch pitch	Oral	0.8510255217552185
+ERR13950630	lake sediment	sediment	1.0
+ERR4918948	gut	digestive_contents	0.9999995231628418
+ERR12814428	lake sediment	sediment	0.9999923706054688
+SRR25280113	birch pitch	Skin	0.7911465764045715
+ERR12814425	lake sediment	sediment	1.0
+SRR20576800	marine sediment	sediment	1.0
+SRR25280066	birch pitch	sediment	0.9999992847442627
+ERR3250145	birch pitch	Oral	0.21233436465263367
+SRR19160161	intestine	soft_tissue	0.5453158617019653
+ERR13950649	lake sediment	sediment	1.0
+SRR25280053	birch pitch	digestive_contents	0.5014868378639221
+ERR12814418	lake sediment	sediment	1.0
+SRR19160150	intestine	soft_tissue	0.4142623245716095
+ERR4374017		tooth	0.9835330247879028
+SRR25280049	birch pitch	midden	0.2835451364517212
+ERR13950632	lake sediment	sediment	1.0
+SRR25280105	birch pitch	Skin	0.6065973043441772
+SRR24222609	lake sediment	sediment	1.0
+SRR25280091	birch pitch	Oral	0.5428547263145447
+SRR20576755	marine sediment	sediment	1.0
+SRR25280070	birch pitch	Skin	0.9020388126373291
+SRR32023851	marine sediment	sediment	0.9999837875366211
+SRR19160175	intestine	soft_tissue	0.5528280735015869
+SRR25280072	birch pitch	sediment	0.9998698234558105
+ERR3678596	palaeofaeces	digestive_contents	1.0
+ERR12814445	lake sediment	sediment	1.0
+SRR13769009	dentine	bone	0.9057963490486145
+SRR25280087	birch pitch	sediment	0.3349556028842926
+SRR32023874	marine sediment	sediment	0.7592393159866333
+SRR25280079	birch pitch	Skin	0.8227381706237793
+ERR12814431	lake sediment	sediment	1.0
+SRR25280101	birch pitch	Skin	0.8557929396629333
+ERR12814474	lake sediment	sediment	1.0
+ERR12814432	lake sediment	sediment	1.0
+ERR12814414	lake sediment	permafrost	0.8971071839332581
+SRR32023848	marine sediment	sediment	1.0
+SRR19160194	intestine	soft_tissue	0.6460384726524353
+SRR19160147	intestine	digestive_contents	0.6870756149291992
+SRR12455957	palaeofaeces	sediment	0.9989820122718811
+SRR3480278	lake sediment	sediment	0.9999990463256836
+ERR4388102		tooth	0.9999490976333618
+SRR25280088	birch pitch	digestive_contents	0.5294691324234009
+ERR3250144	birch pitch	bone	0.7905153036117554
+SRR25280071	birch pitch	midden	0.42992013692855835
+SRR9900889	marine sediment	sediment	0.9999997615814209
+ERR3250152	birch pitch	Oral	0.9729539155960083
+SRR25280097	birch pitch	Oral	0.7698632478713989
+SRR3480257	lake sediment	sediment	0.9999871253967285
+ERR13950634	lake sediment	sediment	1.0
+ERR3250146	birch pitch	digestive_contents	0.15542207658290863
+ERR13950643	lake sediment	sediment	1.0
+SRR25280058	birch pitch	midden	0.21463625133037567
+SRR25280080	birch pitch	Oral	0.9373414516448975
+ERR13950658	lake sediment	sediment	1.0
+SRR25280052	birch pitch	midden	0.17745570838451385
+SRR32023835	marine sediment	sediment	0.9999973773956299
+SRR3480287	lake sediment	sediment	0.9999619722366333
+SRR8652706	lake sediment	shell	0.7540777325630188
+SRR3480284	lake sediment	bone	0.44310033321380615
+SRR19160174	intestine	soft_tissue	0.5700863599777222
+SRR32023836	marine sediment	sediment	0.9996551275253296
+SRR32023842	marine sediment	sediment	0.9999935626983643
+ERR4374011		tooth	0.9997498393058777
+ERR6430838	marine sediment	sediment	1.0
+SRR8652710	lake sediment	sediment	1.0
+SRR32023854	marine sediment	sediment	1.0
+SRR25280100	birch pitch	Skin	0.8841437101364136
+ERR12814468	lake sediment	sediment	1.0
+SRR25280074	birch pitch	Oral	0.3403291702270508
+ERR13950627	lake sediment	sediment	0.9988456964492798
+ERR13950639	lake sediment	permafrost	0.8019641637802124
+SRR32023827	marine sediment	sediment	0.9997701048851013
+SRR9900884	marine sediment	sediment	1.0
+SRR3992617	lake sediment	sediment	1.0
+SRR25280083	birch pitch	midden	0.30629563331604004
+ERR1560014	lake sediment	sediment	1.0
+SRR5332465	lake sediment	sediment	0.9961557984352112
+SRR32023820	marine sediment	sediment	0.9999997615814209
+SRR25280076	birch pitch	Oral	0.3731467127799988
+ERR13950661	lake sediment	sediment	0.9999991655349731
+ERR13950669	lake sediment	sediment	0.6017729043960571
+SRR9900881	marine sediment	sediment	1.0
+ERR13950633	lake sediment	sediment	1.0
+SRR25280051	birch pitch	digestive_contents	0.40215638279914856
+SRR25280075	birch pitch	Oral	0.45344558358192444
+SRR32023873	marine sediment	sediment	0.9999996423721313
+SRR32023812	marine sediment	sediment	0.9956556558609009
+SRR25280065	birch pitch	sediment	0.9999678134918213
+SRR19160231	intestine	soft_tissue	0.6423178315162659
+SRR3480272	lake sediment	sediment	0.9999977350234985
+ERR12814433	lake sediment	sediment	0.28457513451576233
+SRR25280057	birch pitch	midden	0.30403023958206177
+ERR4388107		tooth	0.997574508190155
+ERR13950644	lake sediment	sediment	1.0
+SRR19160184	intestine	soft_tissue	0.544130265712738
+SRR32023819	marine sediment	sediment	0.9999969005584717
+SRR9900888	marine sediment	sediment	1.0
+ERR13950614	lake sediment	permafrost	0.9993178844451904
+ERR13950613	lake sediment	permafrost	0.9988314509391785
+ERR3250147	birch pitch	Oral	0.46057018637657166
+SRR25280111	birch pitch	Oral	0.4914059340953827
+ERR4388236		bone	0.9999961853027344
+SRR20576739	marine sediment	sediment	0.9993361830711365
+ERR12814423	lake sediment	permafrost	0.81289142370224
+ERR13950642	lake sediment	sediment	1.0
+SRR17798039	gut	digestive_contents	0.9999831914901733
+SRR25280104	birch pitch	Oral	0.5684100985527039
+SRR25280108	birch pitch	Skin	0.954136073589325
+SRR25280102	birch pitch	Skin	0.790567934513092
+SRR32023860	marine sediment	sediment	0.9999903440475464
+SRR32023872	marine sediment	sediment	0.9999188184738159
+SRR25280061	birch pitch	digestive_contents	0.8895322680473328
+SRR32023870	marine sediment	sediment	0.999966025352478
+ERR8202909	brain	bone	0.502308189868927
+SRR3480253	lake sediment	sediment	0.9999992847442627
+SRR20576744	marine sediment	sediment	0.5254998207092285
+SRR25280089	birch pitch	midden	0.19167068600654602
+SRR25280078	birch pitch	Skin	0.7427352070808411
+ERR4388231		bone	0.9999942779541016
+SRR25280106	birch pitch	Skin	0.9949949979782104
+SRR32023865	marine sediment	sediment	0.9928346872329712

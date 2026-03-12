@@ -1,0 +1,176 @@
+sample_id	true_label	pred_label	confidence
+SRR10156742	Not applicable - env sample	Homo sapiens	0.6895022392272949
+SRR27336804	Homo sapiens	Ursus arctos	0.4440003037452698
+SRR25280086	Homo sapiens	Not applicable - env sample	0.6850565671920776
+ERR11413738	Homo sapiens	Not applicable - env sample	0.99996018409729
+SRR042994	Homo sapiens	Not applicable - env sample	0.9999983310699463
+SRR1047998	Homo sapiens	Ursus arctos	0.9454887509346008
+ERR5083209	Homo sapiens	Not applicable - env sample	0.999970555305481
+ERR11658334	Homo sapiens	Gorilla sp.	0.31186923384666443
+SRR050115	Homo sapiens	Not applicable - env sample	0.9967304468154907
+SRR25280050	Homo sapiens	Not applicable - env sample	0.7391167879104614
+SRR041029	Homo sapiens	Not applicable - env sample	0.9999997615814209
+SRR25280069	Homo sapiens	Not applicable - env sample	0.9999996423721313
+SRR13843209	Not applicable - env sample	Homo sapiens	0.42757049202919006
+SRR13263117	Homo sapiens	Not applicable - env sample	0.7824971675872803
+SRR25280090	Homo sapiens	Not applicable - env sample	0.6891093254089355
+SRR041879	Homo sapiens	Not applicable - env sample	1.0
+SRR041052	Homo sapiens	Not applicable - env sample	1.0
+SRR041685	Homo sapiens	Not applicable - env sample	0.9983179569244385
+ERR11413736	Homo sapiens	Not applicable - env sample	0.9999421834945679
+SRR25280116	Homo sapiens	Not applicable - env sample	0.9999945163726807
+SRR25280112	Homo sapiens	Not applicable - env sample	0.9999327659606934
+SRR25280073	Homo sapiens	Not applicable - env sample	0.8767883777618408
+ERR5084073	Homo sapiens	Not applicable - env sample	0.9999998807907104
+SRR25280114	Homo sapiens	Not applicable - env sample	0.9197205305099487
+SRR041767	Homo sapiens	Not applicable - env sample	0.9999996423721313
+SRR047109	Homo sapiens	Not applicable - env sample	0.9996421337127686
+SRR041849	Homo sapiens	Not applicable - env sample	1.0
+ERR10114862	Homo sapiens neanderthalensis	Not applicable - env sample	0.9868884682655334
+SRR040727	Homo sapiens	Not applicable - env sample	1.0
+ERR4903906	Homo sapiens neanderthalensis	Not applicable - env sample	1.0
+SRR25280103	Homo sapiens	Not applicable - env sample	0.9980237483978271
+ERR2269806	Arabidopsis thaliana	Not applicable - env sample	0.7569704651832581
+ERR4903912	Homo sapiens neanderthalensis	Not applicable - env sample	1.0
+SRR041090	Homo sapiens	Not applicable - env sample	1.0
+SRR25280110	Homo sapiens	Not applicable - env sample	0.9999464750289917
+SRR25280117	Homo sapiens	Not applicable - env sample	0.845270037651062
+SRR25280068	Homo sapiens	Not applicable - env sample	1.0
+ERR5295823	Homo sapiens	Not applicable - env sample	0.9055854082107544
+SRR25280064	Homo sapiens	Not applicable - env sample	1.0
+SRR25280082	Homo sapiens	Not applicable - env sample	0.8089728355407715
+SRR25280056	Homo sapiens	Not applicable - env sample	0.907876193523407
+ERR11658335	Homo sapiens	Ursus arctos	0.9956543445587158
+SRR047213	Homo sapiens	Not applicable - env sample	1.0
+ERR11658336	Homo sapiens	Ursus arctos	0.8801659941673279
+SRR041104	Homo sapiens	Not applicable - env sample	1.0
+SRR041382	Homo sapiens	Not applicable - env sample	0.6450083255767822
+SRR047297	Homo sapiens	Not applicable - env sample	0.9946357607841492
+SRR25280109	Homo sapiens	Not applicable - env sample	0.9999579191207886
+SRR041057	Homo sapiens	Not applicable - env sample	1.0
+SRR25280077	Homo sapiens	Not applicable - env sample	0.9997419714927673
+SRR25280062	Homo sapiens	Not applicable - env sample	0.9999980926513672
+ERR261871	Homo sapiens	Not applicable - env sample	0.4818550646305084
+SRR040781	Homo sapiens	Not applicable - env sample	1.0
+SRR040784	Homo sapiens	Not applicable - env sample	1.0
+SRR25280092	Homo sapiens	Not applicable - env sample	0.8737336993217468
+ERR14129329	Homo sapiens neanderthalensis	Homo sapiens	0.7262403964996338
+SRR25280093	Homo sapiens	Not applicable - env sample	1.0
+ERR11660435	Homo sapiens	Not applicable - env sample	0.9633058309555054
+ERR11660437	Homo sapiens	Not applicable - env sample	0.996776282787323
+ERR4903915	Homo sapiens neanderthalensis	Not applicable - env sample	1.0
+ERR3579808	Homo sapiens neanderthalensis	Not applicable - env sample	0.9609832167625427
+ERR3250150	Homo sapiens	Not applicable - env sample	0.9582997560501099
+SRR25280063	Homo sapiens	Not applicable - env sample	0.9999990463256836
+SRR13846184	Not applicable - env sample	Ambrosia artemisiifolia	0.47915786504745483
+ERR11658338	Homo sapiens	Not applicable - env sample	0.962232232093811
+ERR261883	Homo sapiens	Not applicable - env sample	0.3839286267757416
+SRR25280099	Homo sapiens	Not applicable - env sample	0.9736204743385315
+SRR17604754	Homo sapiens	Not applicable - env sample	0.9999995231628418
+SRR25280095	Homo sapiens	Not applicable - env sample	0.999945878982544
+SRR041774	Homo sapiens	Not applicable - env sample	1.0
+ERR10114863	Homo sapiens neanderthalensis	Homo sapiens	0.9984350800514221
+ERR11656742	Homo sapiens	Not applicable - env sample	0.773256242275238
+SRR25280081	Homo sapiens	Not applicable - env sample	0.6363723278045654
+ERR6016629	Not applicable - env sample	Arabidopsis thaliana	0.19585837423801422
+SRR25620790	Not applicable - env sample	Ambrosia artemisiifolia	0.6724815368652344
+SRR25280107	Homo sapiens	Not applicable - env sample	0.9992333650588989
+SRR040777	Homo sapiens	Not applicable - env sample	1.0
+SRR25280118	Homo sapiens	Not applicable - env sample	0.9052821397781372
+SRR040888	Homo sapiens	Not applicable - env sample	1.0
+SRR040715	Homo sapiens	Not applicable - env sample	0.958819568157196
+ERR261869	Homo sapiens	Not applicable - env sample	0.6841551661491394
+SRR047113	Homo sapiens	Not applicable - env sample	0.9996448755264282
+SRR25280060	Homo sapiens	Not applicable - env sample	0.7960764169692993
+ERR1777520	Homo sapiens	Not applicable - env sample	0.9948989748954773
+SRR049612	Homo sapiens	Not applicable - env sample	1.0
+SRR25280067	Homo sapiens	Not applicable - env sample	1.0
+SRR040992	Homo sapiens	Not applicable - env sample	1.0
+SRR25280059	Homo sapiens	Not applicable - env sample	0.9996135830879211
+ERR3250151	Homo sapiens	Not applicable - env sample	0.9929628968238831
+ERR11413664	Homo sapiens	Not applicable - env sample	0.9865651726722717
+SRR25280094	Homo sapiens	Not applicable - env sample	0.6372080445289612
+SRR040698	Homo sapiens	Not applicable - env sample	0.9999895095825195
+ERR11413750	Homo sapiens	Not applicable - env sample	0.4796138405799866
+SRR25280115	Homo sapiens	Not applicable - env sample	0.9320506453514099
+SRR25280054	Homo sapiens	Not applicable - env sample	0.8843757510185242
+SRR25280098	Homo sapiens	Not applicable - env sample	0.7415428161621094
+SRR041383	Homo sapiens	Not applicable - env sample	1.0
+ERR11658337	Homo sapiens	Not applicable - env sample	0.5433781743049622
+SRR13846182	Not applicable - env sample	Arabidopsis thaliana	0.36456483602523804
+SRR13843436	Not applicable - env sample	Homo sapiens	0.35419344902038574
+SRR25280113	Homo sapiens	Not applicable - env sample	0.9998412132263184
+SRR041053	Homo sapiens	Not applicable - env sample	1.0
+SRR040728	Homo sapiens	Not applicable - env sample	1.0
+SRR13845769	Not applicable - env sample	Arabidopsis thaliana	0.367788165807724
+SRR25280066	Homo sapiens	Not applicable - env sample	1.0
+SRR25620795	Not applicable - env sample	Ambrosia artemisiifolia	0.9857217073440552
+ERR5083268	Homo sapiens	Not applicable - env sample	1.0
+SRR040739	Homo sapiens	Not applicable - env sample	1.0
+SRR25280049	Homo sapiens	Not applicable - env sample	0.8737751841545105
+SRR25280105	Homo sapiens	Not applicable - env sample	0.9836239814758301
+SRR25280091	Homo sapiens	Not applicable - env sample	0.8735851049423218
+ERR14129330	Homo sapiens neanderthalensis	Homo sapiens	0.5709834694862366
+SRR25280070	Homo sapiens	Not applicable - env sample	0.9998832941055298
+SRR25280072	Homo sapiens	Not applicable - env sample	1.0
+ERR4863290	Homo sapiens	Not applicable - env sample	0.961262047290802
+SRR13843242	Not applicable - env sample	Homo sapiens	0.4160393178462982
+SRR25280087	Homo sapiens	Not applicable - env sample	0.9889777302742004
+DRR076996	Homo sapiens	Not applicable - env sample	0.9999997615814209
+SRR25280079	Homo sapiens	Not applicable - env sample	0.999936580657959
+SRR25280101	Homo sapiens	Not applicable - env sample	0.9987356066703796
+ERR11413744	Homo sapiens	Not applicable - env sample	0.6171751022338867
+SRR12455957	Canis lupus	Not applicable - env sample	0.996699869632721
+SRR25280071	Homo sapiens	Not applicable - env sample	0.9957696199417114
+SRR041064	Homo sapiens	Not applicable - env sample	1.0
+ERR3250152	Homo sapiens	Not applicable - env sample	0.9865638017654419
+SRR25280097	Homo sapiens	Not applicable - env sample	0.5538864731788635
+SRR041103	Homo sapiens	Not applicable - env sample	0.9999988079071045
+SRR25280058	Homo sapiens	Not applicable - env sample	0.8905092477798462
+SRR042916	Homo sapiens	Not applicable - env sample	0.9999979734420776
+ERR261874	Homo sapiens	Not applicable - env sample	0.8058359026908875
+SRR25280080	Homo sapiens	Not applicable - env sample	0.955900251865387
+SRR27336791	Homo sapiens	Pan troglodytes	0.15486057102680206
+SRR050217	Homo sapiens	Not applicable - env sample	0.9980090260505676
+ERR11660453	Homo sapiens	Not applicable - env sample	0.5878955125808716
+ERR11413702	Homo sapiens	Not applicable - env sample	0.4450831711292267
+SRR25280052	Homo sapiens	Not applicable - env sample	0.759850263595581
+SRR041465	Homo sapiens	Not applicable - env sample	1.0
+SRR042905	Homo sapiens	Not applicable - env sample	0.996382474899292
+ERR2269799	Arabidopsis thaliana	Not applicable - env sample	0.5804449319839478
+SRR3480284	Not applicable - env sample	Homo sapiens	0.9799882173538208
+SRR25280100	Homo sapiens	Not applicable - env sample	0.9998319149017334
+ERR11656739	Homo sapiens	Not applicable - env sample	0.9883304834365845
+SRR047122	Homo sapiens	Not applicable - env sample	0.9995601773262024
+SRR25280074	Homo sapiens	Not applicable - env sample	0.7044047117233276
+ERR5084191	Homo sapiens	Not applicable - env sample	1.0
+SRR25280083	Homo sapiens	Not applicable - env sample	0.7413864135742188
+SRR25280076	Homo sapiens	Not applicable - env sample	0.7339141368865967
+ERR11660451	Homo sapiens	Not applicable - env sample	0.9989615678787231
+SRR049964	Homo sapiens	Not applicable - env sample	0.9995792508125305
+SRR25280051	Homo sapiens	Not applicable - env sample	0.549806535243988
+ERR11660455	Homo sapiens	Not applicable - env sample	0.9924920201301575
+SRR25280075	Homo sapiens	Not applicable - env sample	0.8785657286643982
+SRR25280065	Homo sapiens	Not applicable - env sample	1.0
+SRR13845949	Not applicable - env sample	Arabidopsis thaliana	0.35622042417526245
+SRR25280057	Homo sapiens	Not applicable - env sample	0.9111561179161072
+SRR047110	Homo sapiens	Not applicable - env sample	0.9991661310195923
+ERR11660433	Homo sapiens	Not applicable - env sample	0.9946708083152771
+ERR14129332	Homo sapiens neanderthalensis	Homo sapiens	0.8105883598327637
+ERR3250147	Homo sapiens	Not applicable - env sample	0.8070580363273621
+SRR25280111	Homo sapiens	Not applicable - env sample	0.9842225909233093
+SRR041990	Homo sapiens	Not applicable - env sample	1.0
+SRR041750	Homo sapiens	Not applicable - env sample	1.0
+SRR25280104	Homo sapiens	Not applicable - env sample	0.9412274956703186
+SRR25280108	Homo sapiens	Not applicable - env sample	0.9993544220924377
+SRR25280102	Homo sapiens	Not applicable - env sample	0.9998692274093628
+SRR050166	Homo sapiens	Not applicable - env sample	0.9931774139404297
+SRR25280089	Homo sapiens	Not applicable - env sample	0.780053436756134
+SRR25280078	Homo sapiens	Not applicable - env sample	0.9962177872657776
+SRR059903	Homo sapiens	Not applicable - env sample	0.8281287550926208
+ERR1883485	Not applicable - env sample	Homo sapiens	0.5121714472770691
+SRR25280106	Homo sapiens	Not applicable - env sample	0.9999933242797852
+ERR11413709	Homo sapiens	Not applicable - env sample	0.3711544871330261
+SRR041195	Homo sapiens	Not applicable - env sample	1.0
+ERR5083259	Homo sapiens	Not applicable - env sample	0.9999995231628418
+SRR042003	Homo sapiens	Not applicable - env sample	0.9999998807907104

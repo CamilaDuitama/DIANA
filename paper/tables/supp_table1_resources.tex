@@ -1,0 +1,21 @@
+\begin{table}[!t]
+\centering
+\caption{Validation inference computational resources stratified by memory tier (950 samples)}
+\label{tab:resources}
+\begin{tabular}{lrrrr}
+\toprule
+Memory (GB) & N & Runtime (min) & Input size (GB) \\
+\midrule
+31 & 707 & 1.66 $\pm$ 1.34 & 0.89 $\pm$ 2.16 \\
+62 & 117 & 4.44 $\pm$ 1.75 & 1.21 $\pm$ 0.54 \\
+125 & 50 & 8.85 $\pm$ 2.50 & 3.37 $\pm$ 1.13 \\
+250 & 64 & 14.86 $\pm$ 5.57 & 5.73 $\pm$ 1.82 \\
+500 & 12 & 28.39 $\pm$ 8.13 & 10.78 $\pm$ 3.04 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item Runtime includes MUSET unitig extraction, matrix building, and neural network inference.
+\item Memory tiers result from auto-scaling retry system (32→64→128→256→512 GB) for OOM failures.
+\item Larger input files require longer processing time and higher memory allocation.
+\end{tablenotes}
+\end{table}

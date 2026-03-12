@@ -1,0 +1,21 @@
+\begin{table}[!t]
+\caption{Optimized model hyperparameters\label{Table: Hyperparameters}}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lll@{\extracolsep{\fill}}}
+\toprule
+Category & Parameter & Value \\
+\midrule
+\multirow{3}{*}{Architecture} & Input features & 107480 \\
+ & Hidden layers & [512, 256, 128] \\
+ & Dropout rate & 0.1916894511329029 \\
+\addlinespace
+\multirow{4}{*}{Training} & Learning rate & 0.001723369322527049 \\
+ & Weight decay & 3.75062679509968e-05 \\
+ & Batch size & 96.0 \\
+ & Max epochs & 100 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}
+\item Hyperparameters determined via 5-fold cross-validation with 50 Optuna trials per fold.
+\item Values shown are aggregated from best trials across folds (mean for numeric, mode for categorical).
+\end{tablenotes}
+\end{table}

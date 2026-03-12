@@ -1,0 +1,59 @@
+\begin{table}[!t]
+\caption{Model predictions for unseen labels\label{tab:unseen_labels}}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}llrr@{\extracolsep{\fill}}}
+\toprule
+Task & True Label (Unseen) & Predicted Label & Count \\
+\midrule
+\multicolumn{4}{l}{\textbf{Sample Host}} \\
+\addlinespace[0.5em]
+ & \textit{Alouatta palliata} & \textit{Ursus arctos} & 8 \\
+ & \textit{Gorilla beringei} & \textit{Ursus arctos} & 2 \\
+ & \textit{Gorilla beringei} & \textit{Gorilla sp.} & 2 \\
+ & \textit{Gorilla beringei beringei} & \textit{Gorilla sp.} & 16 \\
+ & \textit{Gorilla beringei graueri} & \textit{Gorilla sp.} & 12 \\
+ & \textit{Gorilla gorilla gorilla} & \textit{Gorilla sp.} & 5 \\
+ & \textit{Lithobates pipiens} & \textit{Homo sapiens} & 11 \\
+ & \textit{Pan troglodytes ellioti} & \textit{Pan troglodytes} & 4 \\
+ & \textit{Pan troglodytes schweinfurthii} & \textit{Pan troglodytes} & 7 \\
+ & \textit{Papio anubis} & \textit{Homo sapiens} & 4 \\
+ & \textit{Papio hamadryas} & \textit{Homo sapiens} & 5 \\
+ & \textit{Papio sp.} & \textit{Homo sapiens} & 1 \\
+\addlinespace
+\multicolumn{4}{l}{\textbf{Material}} \\
+\addlinespace[0.5em]
+ & birch pitch & Oral & 23 \\
+ & birch pitch & Skin & 19 \\
+ & birch pitch & midden & 13 \\
+ & birch pitch & sediment & 11 \\
+ & birch pitch & digestive\_contents & 9 \\
+ & birch pitch & tooth & 2 \\
+ & birch pitch & dental calculus & 1 \\
+ & birch pitch & bone & 1 \\
+ & brain & bone & 1 \\
+ & dentine & dental calculus & 1 \\
+ & dentine & bone & 1 \\
+ & gut & digestive\_contents & 4 \\
+ & gut & dental calculus & 1 \\
+ & intestine & soft\_tissue & 10 \\
+ & intestine & digestive\_contents & 1 \\
+ & lake sediment & sediment & 62 \\
+ & lake sediment & permafrost & 24 \\
+ & lake sediment & shell & 3 \\
+ & lake sediment & midden & 1 \\
+ & lake sediment & bone & 1 \\
+ & marine sediment & sediment & 66 \\
+ & palaeofaeces & digestive\_contents & 3 \\
+ & palaeofaeces & dental calculus & 1 \\
+ & palaeofaeces & sediment & 1 \\
+ & shallow marine sediment & Oral & 1 \\
+ & shallow marine sediment & sediment & 1 \\
+ & shallow marine sediment & shell & 1 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}
+\item Unseen labels are categories not present in the training set (n=2,609 samples).
+\item Sample Host: Novel species/subspecies correctly mapped to genus/species-level training classes.
+\item Material: Novel material types mapped to semantically similar training classes.
+\item Total unseen host predictions: 77, total unseen material predictions: 274.
+\end{tablenotes}
+\end{table}

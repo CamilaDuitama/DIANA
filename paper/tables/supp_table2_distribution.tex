@@ -1,0 +1,52 @@
+\begin{table*}[!t]
+\caption{Sample distribution across classes for each dataset\label{tab:class_distribution}}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llcccc@{\extracolsep{\fill}}}
+\toprule
+Task & Class & Training & Test & Validation & Total \\
+\midrule
+\multirow{2}{*}{Sample Type} & ancient & 2410 & 424 & 870 & 3704 \\
+ & modern & 199 & 37 & 87 & 323 \\
+\addlinespace
+\multirow{6}{*}{Community Type} & Not applicable - env sample & 755 & 133 & 251 & 1139 \\
+ & gut & 86 & 15 & 25 & 126 \\
+ & oral & 1401 & 248 & 578 & 2227 \\
+ & plant tissue & 81 & 14 & 7 & 102 \\
+ & skeletal tissue & 267 & 47 & 84 & 398 \\
+ & soft tissue & 19 & 4 & 12 & 35 \\
+\addlinespace
+\multirow{12}{*}{Sample Host} & \textit{Ambrosia artemisiifolia} & 57 & 9 & 3 & 69 \\
+ & \textit{Arabidopsis thaliana} & 24 & 5 & 4 & 33 \\
+ & \textit{Canis lupus} & 11 & 8 & 2 & 21 \\
+ & \textit{Gorilla sp.} & 110 & 25 & 0 & 135 \\
+ & \textit{Homo sapiens} & 1290 & 207 & 581 & 2078 \\
+ & \textit{Homo sapiens neanderthalensis} & 25 & 10 & 9 & 44 \\
+ & \textit{Mammuthus primigenius} & 12 & 4 & 0 & 16 \\
+ & \textit{Not applicable - env sample} & 755 & 133 & 242 & 1130 \\
+ & \textit{Other mammal} & 9 & 3 & 0 & 12 \\
+ & \textit{Pan troglodytes} & 40 & 8 & 0 & 48 \\
+ & \textit{Rangifer tarandus} & 19 & 5 & 0 & 24 \\
+ & \textit{Ursus arctos} & 257 & 44 & 39 & 340 \\
+\addlinespace
+\multirow{13}{*}{Material} & Oral & 67 & 12 & 47 & 126 \\
+ & Skin & 69 & 11 & 9 & 89 \\
+ & bone & 195 & 41 & 52 & 288 \\
+ & dental calculus & 1103 & 204 & 356 & 1663 \\
+ & digestive contents & 92 & 17 & 1 & 110 \\
+ & leaf & 81 & 14 & 7 & 102 \\
+ & midden & 11 & 1 & 1 & 13 \\
+ & permafrost & 58 & 13 & 16 & 87 \\
+ & sediment & 454 & 78 & 38 & 570 \\
+ & shell & 19 & 5 & 0 & 24 \\
+ & soft tissue & 13 & 2 & 0 & 15 \\
+ & soil & 77 & 13 & 28 & 118 \\
+ & tooth & 370 & 50 & 126 & 546 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}
+\item Training and test samples from curated AncientMetagenomeDir dataset (Logan et al.).
+\item Validation samples from AncientMetagenomeDir v25.09.0 and MGnify modern samples, excluding overlaps with train/test.
+\item Validation set: 950 samples with successful predictions (out of 957 total attempted).
+\item Classes with 0 validation samples were present in training but not in the external validation set.
+\item Classes with 0 training samples are UNSEEN by the model and cannot be correctly predicted.
+\end{tablenotes}
+\end{table*}

@@ -1,0 +1,9 @@
+Task	Subset	Correct	Total	Accuracy (%)	Balanced Accuracy (%)	F1 Score (%)
+Sample Type	SEEN ONLY	886	950	93.3	85.4	81.8
+Sample Type	ALL SAMPLES	886	950	93.3	85.4	81.8
+Community Type	SEEN ONLY	689	950	72.5	56.0	51.7
+Community Type	ALL SAMPLES	689	950	72.5	56.0	51.7
+Sample Host	SEEN ONLY	698	873	80.0	66.9	47.3
+Sample Host	ALL SAMPLES	698	950	73.5	26.0	20.7
+Material	SEEN ONLY	471	676	69.7	58.4	37.0
+Material	ALL SAMPLES	471	939	50.2	32.1	17.0

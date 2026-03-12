@@ -187,3 +187,6 @@ data/validation/ena_cache*.json
 data/validation/interactive_review_log.tsv
 
 # Review logs (keep in data/ subdirectories)
+
+# Adapter files (paper branch only)
+data/adapters/

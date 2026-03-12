@@ -1,0 +1,262 @@
+sample_id	true_label	pred_label	confidence
+SRR10156742	Not applicable - env sample	oral	0.6444388031959534
+SRR25280084	oral	gut	0.6290255188941956
+SRR25280086	oral	Not applicable - env sample	0.8251275420188904
+SRR6877371	skeletal tissue	oral	0.987235963344574
+ERR3609656	oral	gut	0.5174199342727661
+ERR11660436	oral	skeletal tissue	0.7011251449584961
+ERR11413738	oral	Not applicable - env sample	0.9999899864196777
+ERR11656731	skeletal tissue	oral	0.8095718026161194
+SRR042994	oral	Not applicable - env sample	0.9999781847000122
+SRR1047998	gut	oral	0.9298901557922363
+ERR4374046	soft tissue	oral	0.9979546070098877
+ERR11660444	oral	skeletal tissue	0.7728257179260254
+SRR050115	oral	Not applicable - env sample	0.9901403784751892
+SRR25280050	oral	Not applicable - env sample	0.767175555229187
+SRR041029	oral	Not applicable - env sample	0.9999945163726807
+SRR25280069	oral	Not applicable - env sample	0.9999998807907104
+SRR13843209	Not applicable - env sample	oral	0.8617956042289734
+SRR13263117	oral	Not applicable - env sample	0.7849477529525757
+ERR11660438	oral	skeletal tissue	0.9255287051200867
+SRR25280090	oral	Not applicable - env sample	0.8717318177223206
+SRR25280055	oral	gut	0.8939464092254639
+SRR041879	oral	Not applicable - env sample	0.9999990463256836
+SRR19160251	gut	soft tissue	0.924415647983551
+SRR041052	oral	Not applicable - env sample	0.999998927116394
+ERR11656743	skeletal tissue	oral	0.9663628339767456
+SRR041685	oral	Not applicable - env sample	0.9957593083381653
+ERR11413736	oral	Not applicable - env sample	0.9999873638153076
+SRR25280116	oral	Not applicable - env sample	0.999956488609314
+ERR11656740	skeletal tissue	oral	0.9647666215896606
+SRR13843309	Not applicable - env sample	oral	0.6826974749565125
+SRR25280112	oral	Not applicable - env sample	0.9998704195022583
+SRR25280073	oral	Not applicable - env sample	0.8912553191184998
+SRR25280114	oral	Not applicable - env sample	0.967337429523468
+ERR12206682	skeletal tissue	soft tissue	0.5569111704826355
+SRR041767	oral	Not applicable - env sample	0.9999920129776001
+SRR047109	oral	Not applicable - env sample	0.9981288313865662
+SRR041849	oral	Not applicable - env sample	0.9999991655349731
+ERR10114862	oral	Not applicable - env sample	0.9787350296974182
+SRR040727	oral	Not applicable - env sample	1.0
+ERR4903906	gut	Not applicable - env sample	1.0
+ERR10430784	oral	skeletal tissue	0.9982026815414429
+SRR25280103	oral	Not applicable - env sample	0.995776891708374
+ERR11656746	skeletal tissue	oral	0.8480623364448547
+ERR2269806	plant tissue	Not applicable - env sample	0.5568335056304932
+ERR4903912	gut	Not applicable - env sample	1.0
+SRR041090	oral	Not applicable - env sample	1.0
+SRR19160206	gut	soft tissue	0.9509888291358948
+SRR25280110	oral	Not applicable - env sample	0.9999262094497681
+SRR25280117	oral	Not applicable - env sample	0.9591370820999146
+SRR25280068	oral	Not applicable - env sample	1.0
+SRR19160180	gut	soft tissue	0.9649718999862671
+SRR27336793	oral	Not applicable - env sample	0.5805687308311462
+ERR5295823	skeletal tissue	Not applicable - env sample	0.9894591569900513
+SRR25280064	oral	Not applicable - env sample	1.0
+SRR25280082	oral	Not applicable - env sample	0.8401080369949341
+SRR25280056	oral	Not applicable - env sample	0.9311081171035767
+SRR5047193	oral	skeletal tissue	0.949857234954834
+ERR11660450	oral	skeletal tissue	0.913705050945282
+ERR11660446	oral	skeletal tissue	0.9812643527984619
+ERR11656747	skeletal tissue	oral	0.9829168915748596
+SRR047213	oral	Not applicable - env sample	1.0
+SRR041104	oral	Not applicable - env sample	0.9999998807907104
+SRR041382	oral	Not applicable - env sample	0.6308463215827942
+ERR4863213	oral	skeletal tissue	0.5780469179153442
+SRR047297	oral	Not applicable - env sample	0.9886853694915771
+SRR25280109	oral	Not applicable - env sample	0.9998487234115601
+SRR041057	oral	Not applicable - env sample	1.0
+ERR4374040	skeletal tissue	oral	0.9819111227989197
+SRR25280077	oral	Not applicable - env sample	0.9982726573944092
+SRR25280062	oral	Not applicable - env sample	0.9999967813491821
+ERR11656748	skeletal tissue	oral	0.93153315782547
+ERR11656741	skeletal tissue	oral	0.9945741295814514
+ERR12206676	skeletal tissue	oral	0.9852114915847778
+ERR261871	Not applicable - env sample	oral	0.5097220540046692
+SRR040781	oral	Not applicable - env sample	1.0
+SRR040784	oral	Not applicable - env sample	1.0
+SRR25280092	oral	Not applicable - env sample	0.9237002730369568
+ERR12206686	skeletal tissue	soft tissue	0.795319676399231
+SRR25280093	oral	Not applicable - env sample	1.0
+ERR11660435	oral	Not applicable - env sample	0.9914813041687012
+ERR11660437	oral	Not applicable - env sample	0.998737633228302
+ERR4903915	gut	Not applicable - env sample	1.0
+ERR11660449	oral	skeletal tissue	0.9853872060775757
+ERR3579808	oral	Not applicable - env sample	0.928098201751709
+ERR3250150	oral	Not applicable - env sample	0.9803076386451721
+SRR25280063	oral	Not applicable - env sample	0.9999991655349731
+SRR13846184	Not applicable - env sample	plant tissue	0.8043314218521118
+ERR11658338	oral	Not applicable - env sample	0.9772096276283264
+ERR261883	Not applicable - env sample	oral	0.4856927990913391
+ERR3609652	oral	gut	0.6089136600494385
+SRR25280099	oral	Not applicable - env sample	0.9924609065055847
+SRR6877314	skeletal tissue	oral	0.8803964853286743
+ERR12206698	skeletal tissue	soft tissue	0.8113365173339844
+SRR17604754	oral	Not applicable - env sample	0.9999991655349731
+SRR25280095	oral	Not applicable - env sample	0.9994379878044128
+SRR041774	oral	Not applicable - env sample	0.9999998807907104
+ERR11413698	oral	Not applicable - env sample	0.5174732208251953
+ERR10114863	oral	skeletal tissue	0.9414618015289307
+ERR11656742	skeletal tissue	Not applicable - env sample	0.8976987600326538
+ERR11656744	skeletal tissue	oral	0.9767560958862305
+ERR12206679	skeletal tissue	oral	0.9882735013961792
+ERR4374012	oral	skeletal tissue	0.720733106136322
+ERR11413701	oral	Not applicable - env sample	0.21831758320331573
+ERR3250149	oral	skeletal tissue	0.8081088066101074
+ERR4374857	soft tissue	oral	0.999988317489624
+SRR25280081	oral	Not applicable - env sample	0.6408624053001404
+ERR6016629	Not applicable - env sample	oral	0.6738063097000122
+SRR25620790	Not applicable - env sample	plant tissue	0.7618728876113892
+SRR25280107	oral	Not applicable - env sample	0.9986521601676941
+ERR11660441	oral	skeletal tissue	0.9780014753341675
+ERR4374004	skeletal tissue	oral	0.8863880634307861
+ERR4386594	soft tissue	skeletal tissue	0.9999958276748657
+SRR040777	oral	Not applicable - env sample	1.0
+SRR16280095	gut	Not applicable - env sample	0.24147723615169525
+SRR25280118	oral	Not applicable - env sample	0.9526511430740356
+SRR040888	oral	Not applicable - env sample	1.0
+SRR040715	oral	Not applicable - env sample	0.9549134373664856
+ERR12206697	skeletal tissue	Not applicable - env sample	0.3250100910663605
+ERR11656737	skeletal tissue	oral	0.7007381319999695
+SRR047113	oral	Not applicable - env sample	0.99828040599823
+SRR25280060	oral	Not applicable - env sample	0.83995121717453
+ERR11656733	skeletal tissue	oral	0.848167896270752
+SRR6877298	skeletal tissue	oral	0.8782836198806763
+ERR1777520	skeletal tissue	Not applicable - env sample	0.9987016916275024
+ERR11413740	oral	Not applicable - env sample	0.5502704381942749
+SRR049612	oral	Not applicable - env sample	1.0
+SRR25280067	oral	Not applicable - env sample	1.0
+ERR11660448	oral	skeletal tissue	0.9859240055084229
+SRR040992	oral	Not applicable - env sample	1.0
+SRR25280059	oral	Not applicable - env sample	0.9989411234855652
+ERR3250151	oral	Not applicable - env sample	0.9988135099411011
+ERR11413664	oral	Not applicable - env sample	0.9959051609039307
+ERR4374021	soft tissue	oral	0.9999964237213135
+ERR11413733	skeletal tissue	oral	0.8307119607925415
+SRR25280094	oral	Not applicable - env sample	0.8260560035705566
+ERR12206690	skeletal tissue	oral	0.7804294228553772
+SRR13843093	Not applicable - env sample	oral	0.7797312140464783
+ERR11660445	oral	skeletal tissue	0.6991638541221619
+ERR4374035	soft tissue	oral	0.9985325336456299
+SRR040698	oral	Not applicable - env sample	0.9999139308929443
+ERR11413750	oral	Not applicable - env sample	0.7111347913742065
+SRR25280115	oral	Not applicable - env sample	0.9702770709991455
+ERR11660443	oral	skeletal tissue	0.9621770977973938
+SRR25280085	oral	Not applicable - env sample	0.4590124189853668
+SRR25280054	oral	Not applicable - env sample	0.9085436463356018
+SRR25280098	oral	Not applicable - env sample	0.9041354060173035
+SRR041383	oral	Not applicable - env sample	1.0
+ERR11658337	oral	Not applicable - env sample	0.6004812717437744
+ERR3609653	oral	skeletal tissue	0.4650689661502838
+ERR11660442	oral	skeletal tissue	0.9047618508338928
+SRR13846182	Not applicable - env sample	plant tissue	0.7524295449256897
+SRR13843436	Not applicable - env sample	oral	0.8036577105522156
+SRR25280113	oral	Not applicable - env sample	0.9997791647911072
+SRR041053	oral	Not applicable - env sample	1.0
+SRR040728	oral	Not applicable - env sample	1.0
+SRR13845769	Not applicable - env sample	plant tissue	0.7490447759628296
+SRR25280066	oral	Not applicable - env sample	1.0
+SRR25620795	Not applicable - env sample	plant tissue	0.9996212720870972
+ERR3250145	oral	Not applicable - env sample	0.3284878134727478
+SRR19160161	gut	soft tissue	0.8867767453193665
+ERR12206696	skeletal tissue	soft tissue	0.9953822493553162
+SRR25280053	oral	gut	0.6206676959991455
+SRR040739	oral	Not applicable - env sample	1.0
+SRR19160150	gut	soft tissue	0.6517708897590637
+ERR4374017	soft tissue	oral	0.9553279876708984
+SRR25280049	oral	Not applicable - env sample	0.9181171655654907
+SRR27336773	oral	skeletal tissue	0.24505066871643066
+ERR11656745	skeletal tissue	oral	0.5560079216957092
+SRR25280105	oral	Not applicable - env sample	0.9825626611709595
+SRR25280091	oral	Not applicable - env sample	0.9231908917427063
+ERR12206699	skeletal tissue	soft tissue	0.8417561650276184
+SRR25280070	oral	Not applicable - env sample	0.9997459053993225
+SRR19160175	gut	soft tissue	0.8417524099349976
+SRR25280072	oral	Not applicable - env sample	1.0
+ERR4863290	skeletal tissue	Not applicable - env sample	0.963519811630249
+SRR13769009	oral	skeletal tissue	0.985200047492981
+SRR13843242	Not applicable - env sample	oral	0.842992901802063
+SRR25280087	oral	Not applicable - env sample	0.9933955073356628
+ERR12206680	skeletal tissue	oral	0.997162401676178
+ERR12206693	skeletal tissue	oral	0.5349159836769104
+DRR076996	oral	Not applicable - env sample	1.0
+SRR25280079	oral	Not applicable - env sample	0.9998886585235596
+SRR25280101	oral	Not applicable - env sample	0.9966617822647095
+ERR11413744	oral	Not applicable - env sample	0.7704530954360962
+SRR19160194	gut	soft tissue	0.8736509680747986
+SRR12455957	gut	Not applicable - env sample	0.9954531192779541
+ERR4388102	soft tissue	oral	0.999751627445221
+SRR6877381	skeletal tissue	oral	0.9199535846710205
+SRR25280088	oral	gut	0.6206888556480408
+ERR3250144	oral	skeletal tissue	0.9314261078834534
+SRR25280071	oral	Not applicable - env sample	0.9992096424102783
+SRR041064	oral	Not applicable - env sample	0.9999998807907104
+ERR11660439	oral	skeletal tissue	0.9962441921234131
+ERR3250152	oral	Not applicable - env sample	0.9976069927215576
+SRR25280097	oral	Not applicable - env sample	0.7809197306632996
+SRR041103	oral	Not applicable - env sample	0.9999849796295166
+ERR11660447	oral	skeletal tissue	0.876033365726471
+ERR3250146	oral	skeletal tissue	0.2877567708492279
+ERR11413678	oral	Not applicable - env sample	0.9652661681175232
+SRR25280058	oral	Not applicable - env sample	0.923224925994873
+SRR042916	oral	Not applicable - env sample	0.999983549118042
+SRR25280080	oral	Not applicable - env sample	0.9922562837600708
+SRR050217	oral	Not applicable - env sample	0.9940181970596313
+ERR11660453	oral	Not applicable - env sample	0.8146058917045593
+ERR11413702	oral	Not applicable - env sample	0.7067166566848755
+SRR25280052	oral	Not applicable - env sample	0.8035596013069153
+SRR041465	oral	Not applicable - env sample	0.9999986886978149
+SRR042905	oral	Not applicable - env sample	0.9932935237884521
+ERR12206692	skeletal tissue	soft tissue	0.97639000415802
+SRR3480284	Not applicable - env sample	gut	0.3387538194656372
+SRR19160174	gut	soft tissue	0.9560279250144958
+ERR12206684	skeletal tissue	soft tissue	0.5283980369567871
+ERR4374011	soft tissue	oral	0.9982357025146484
+SRR25280100	oral	Not applicable - env sample	0.9996999502182007
+ERR11656739	skeletal tissue	Not applicable - env sample	0.9920333027839661
+SRR047122	oral	Not applicable - env sample	0.9980220794677734
+SRR25280074	oral	Not applicable - env sample	0.7298696041107178
+SRR25280083	oral	Not applicable - env sample	0.8233304023742676
+ERR12206677	skeletal tissue	oral	0.827063262462616
+SRR25280076	oral	Not applicable - env sample	0.7747837901115417
+SRR5047064	oral	Not applicable - env sample	0.7066153883934021
+ERR11660451	oral	Not applicable - env sample	0.9990506768226624
+SRR049964	oral	Not applicable - env sample	0.9979352951049805
+SRR25280051	oral	Not applicable - env sample	0.5051276683807373
+ERR11660455	oral	Not applicable - env sample	0.9918223023414612
+SRR25280075	oral	Not applicable - env sample	0.912988007068634
+SRR25280065	oral	Not applicable - env sample	1.0
+SRR19160231	gut	soft tissue	0.9461790919303894
+SRR13845949	Not applicable - env sample	plant tissue	0.7444753050804138
+SRR6877295	skeletal tissue	oral	0.5787298083305359
+ERR11656734	skeletal tissue	oral	0.7425220608711243
+SRR25280057	oral	Not applicable - env sample	0.9459700584411621
+ERR4388107	soft tissue	oral	0.9907884001731873
+SRR047110	oral	Not applicable - env sample	0.9968439340591431
+SRR19160184	gut	soft tissue	0.8281838297843933
+ERR11660433	oral	Not applicable - env sample	0.9992073178291321
+ERR11660440	oral	skeletal tissue	0.9520968198776245
+ERR11660434	oral	skeletal tissue	0.977421224117279
+ERR3250147	oral	Not applicable - env sample	0.8180277347564697
+SRR25280111	oral	Not applicable - env sample	0.9903020262718201
+ERR4388236	soft tissue	skeletal tissue	1.0
+ERR3609655	oral	soft tissue	0.5939540863037109
+SRR041990	oral	Not applicable - env sample	0.9999984502792358
+SRR041750	oral	Not applicable - env sample	1.0
+SRR25280104	oral	Not applicable - env sample	0.9700464010238647
+SRR25280108	oral	Not applicable - env sample	0.9989688396453857
+SRR25280102	oral	Not applicable - env sample	0.9997753500938416
+ERR12206683	skeletal tissue	gut	0.6661474704742432
+SRR050166	oral	Not applicable - env sample	0.9890706539154053
+SRR25280061	oral	gut	0.9246881604194641
+ERR8202909	soft tissue	skeletal tissue	0.913132905960083
+SRR25280089	oral	Not applicable - env sample	0.8307937383651733
+SRR25280078	oral	Not applicable - env sample	0.9935177564620972
+SRR059903	oral	Not applicable - env sample	0.9330828785896301
+SRR041132	oral	gut	0.40815046429634094
+ERR4388231	soft tissue	skeletal tissue	1.0
+SRR25280106	oral	Not applicable - env sample	0.9999197721481323
+ERR11413709	oral	Not applicable - env sample	0.47899359464645386
+SRR041195	oral	Not applicable - env sample	1.0
+SRR5047190	oral	skeletal tissue	0.8859728574752808
+SRR042003	oral	Not applicable - env sample	0.9999982118606567
