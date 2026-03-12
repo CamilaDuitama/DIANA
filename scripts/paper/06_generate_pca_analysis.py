@@ -9,8 +9,9 @@ This script:
 4. Saves PCA model for future projections
 
 Output:
-- paper/figures/final/sup_XX_pca_*.png/html - PCA plots by task
-- paper/figures/final/sup_XX_pca_scree_plot.png - Explained variance
+- paper/figures/final/sup_03_pca_*.png/html - PCA plots by task
+- paper/figures/final/sup_03_pca_scree_plot.png - Explained variance
+- paper/figures/final/sup_04_pca_loadings_*.png/html - PCA loading plots
 - models/pca_reference.pkl - Saved PCA model for projecting new samples
 """
 
@@ -927,35 +928,55 @@ def plot_embedding_by_task(embedding_result, metadata, task_col, method_name, ou
 
 
 def plot_scree_plot(pca, output_path):
-    """Create scree plot showing explained variance."""
+    """Create scree plot showing explained variance (plotly)."""
+    import plotly.graph_objects as go
+    from plotly.subplots import make_subplots
     logger.info("\nCreating scree plot...")
-    
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
-    
-    # Plot 1: Explained variance per PC
-    ax1.bar(range(1, len(pca.explained_variance_ratio_) + 1), 
-            pca.explained_variance_ratio_,
-            color='steelblue', alpha=0.7)
-    ax1.set_xlabel('Principal Component', fontsize=12)
-    ax1.set_ylabel('Explained Variance Ratio', fontsize=12)
-    ax1.set_title('Explained Variance by Principal Component', fontsize=14, fontweight='bold')
-    ax1.grid(True, alpha=0.3)
-    
-    # Plot 2: Cumulative explained variance
-    cumsum = np.cumsum(pca.explained_variance_ratio_)
-    ax2.plot(range(1, len(cumsum) + 1), cumsum, 
-             marker='o', linestyle='-', color='steelblue', linewidth=2)
-    ax2.axhline(y=0.8, color='r', linestyle='--', label='80% variance')
-    ax2.axhline(y=0.9, color='orange', linestyle='--', label='90% variance')
-    ax2.set_xlabel('Number of Principal Components', fontsize=12)
-    ax2.set_ylabel('Cumulative Explained Variance', fontsize=12)
-    ax2.set_title('Cumulative Explained Variance', fontsize=14, fontweight='bold')
-    ax2.legend(fontsize=10)
-    ax2.grid(True, alpha=0.3)
-    
-    plt.tight_layout()
-    plt.savefig(output_path, dpi=300, bbox_inches='tight')
-    plt.close()
+
+    evr = pca.explained_variance_ratio_
+    n_components = len(evr)
+    pcs = list(range(1, n_components + 1))
+    cumsum = list(np.cumsum(evr))
+
+    fig = make_subplots(
+        rows=1, cols=2,
+        subplot_titles=[
+            'Explained Variance by Principal Component',
+            'Cumulative Explained Variance'
+        ]
+    )
+
+    # Panel 1: bar chart of individual explained variance
+    fig.add_trace(go.Bar(
+        x=pcs, y=list(evr),
+        marker_color='steelblue', opacity=0.7,
+        showlegend=False
+    ), row=1, col=1)
+
+    # Panel 2: cumulative line
+    fig.add_trace(go.Scatter(
+        x=pcs, y=cumsum,
+        mode='lines+markers', line=dict(color='steelblue', width=2),
+        name='Cumulative variance'
+    ), row=1, col=2)
+    fig.add_hline(y=0.8, line=dict(color='red', dash='dash'), annotation_text='80%', row=1, col=2)
+    fig.add_hline(y=0.9, line=dict(color='orange', dash='dash'), annotation_text='90%', row=1, col=2)
+
+    fig.update_xaxes(title_text='Principal Component', row=1, col=1)
+    fig.update_yaxes(title_text='Explained Variance Ratio', row=1, col=1)
+    fig.update_xaxes(title_text='Number of Principal Components', row=1, col=2)
+    fig.update_yaxes(title_text='Cumulative Explained Variance', row=1, col=2)
+
+    fig.update_layout(
+        template='plotly_white',
+        width=1400, height=500,
+        font=dict(size=13)
+    )
+
+    output_path = Path(output_path)
+    html_path = output_path.with_suffix('.html')
+    fig.write_html(str(html_path))
+    fig.write_image(str(output_path), width=1400, height=500, scale=2)
     logger.info(f"  ✓ Saved scree plot: {output_path}")
 
 
@@ -1331,8 +1352,8 @@ def plot_pca_loadings(pca_model, unitig_ids, blast_annotations, output_dir,
     # Plot
     _plot_loadings_scatter(
         sample_with_tax, loading_blast, pca_model, color_by,
-        output_dir / f'sup_XX_pca_loadings_random1pct_{color_by}.html',
-        output_dir / f'sup_XX_pca_loadings_random1pct_{color_by}.png',
+        output_dir / f'sup_04_pca_loadings_random1pct_{color_by}.html',
+        output_dir / f'sup_04_pca_loadings_random1pct_{color_by}.png',
         f"Random 1% Sample ({len(sample_with_tax)} unitigs)",
         logger
     )
@@ -1375,8 +1396,8 @@ def plot_pca_loadings(pca_model, unitig_ids, blast_annotations, output_dir,
             # Plot
             _plot_loadings_scatter(
                 discriminant_with_tax, loading_blast, pca_model, color_by,
-                output_dir / f'sup_XX_pca_loadings_discriminant_{color_by}.html',
-                output_dir / f'sup_XX_pca_loadings_discriminant_{color_by}.png',
+                output_dir / f'sup_04_pca_loadings_discriminant_{color_by}.html',
+                output_dir / f'sup_04_pca_loadings_discriminant_{color_by}.png',
                 f"Top Discriminant Features ({len(discriminant_with_tax)} unitigs)",
                 logger
             )
@@ -1772,13 +1793,13 @@ def plot_unitig_pca_by_top_species(pca_model, unitig_ids, blast_annotations, out
     )
     
     # Save HTML
-    html_path = output_dir / 'sup_XX_pca_unitig_loadings_by_species.html'
+    html_path = output_dir / 'sup_04_pca_unitig_loadings_by_species.html'
     fig.write_html(str(html_path))
     logger.info(f"  ✓ Saved: {html_path}")
     
     # Save PNG
     try:
-        png_path = output_dir / 'sup_XX_pca_unitig_loadings_by_species.png'
+        png_path = output_dir / 'sup_04_pca_unitig_loadings_by_species.png'
         fig.write_image(str(png_path), width=1400, height=1000, scale=2)
         logger.info(f"  ✓ Saved: {png_path}")
     except Exception as e:
@@ -1930,7 +1951,7 @@ def main():
                       umap_model=umap_model, umap_result=umap_result)
         
         # Create scree plot
-        scree_path = Path(PATHS['figures_dir']) / "sup_XX_pca_scree_plot.png"
+        scree_path = Path(PATHS['figures_dir']) / "sup_03_pca_scree_plot.png"
         plot_scree_plot(pca, scree_path)
         
         # Create PCA loading plots (unitigs, not samples)
@@ -1972,32 +1993,12 @@ def main():
             top_n=10
         )
         
-        # Create PCA plots for each task
+        # Create PCA plots for each task (Supplementary Figure 3)
         for task in TASKS:
             if task in metadata.columns:
-                plot_pca_by_task(pca_result, metadata, task, pca, 'sup_XX_pca')
+                plot_pca_by_task(pca_result, metadata, task, pca, 'sup_03_pca')
             else:
                 logger.warning(f"  {task} not found in metadata")
-        
-        # Create UMAP plots if available
-        if umap_result is not None:
-            logger.info("\nCreating UMAP plots...")
-            for task in TASKS:
-                if task in metadata.columns:
-                    plot_embedding_by_task(
-                        umap_result, metadata, task, 
-                        'UMAP', 'sup_XX_umap'
-                    )
-        
-        # Create t-SNE plots if available
-        if tsne_result is not None:
-            logger.info("\nCreating t-SNE plots...")
-            for task in TASKS:
-                if task in metadata.columns:
-                    plot_embedding_by_task(
-                        tsne_result, metadata, task, 
-                        't-SNE', 'sup_XX_tsne'
-                    )
         
         logger.info("\n" + "=" * 80)
         logger.info("PCA analysis complete!")
@@ -2005,12 +2006,8 @@ def main():
         logger.info("\nGenerated files:")
         logger.info(f"  - PCA model: models/pca_reference.pkl")
         logger.info(f"  - Scree plot: {scree_path}")
-        logger.info(f"  - Sample PCA plots: {PATHS['figures_dir']}/sup_XX_pca_*.png/html")
-        if umap_result is not None:
-            logger.info(f"  - Sample UMAP plots: {PATHS['figures_dir']}/sup_XX_umap_*.png/html")
-        if tsne_result is not None:
-            logger.info(f"  - Sample t-SNE plots: {PATHS['figures_dir']}/sup_XX_tsne_*.png/html")
-        logger.info(f"  - Unitig loading plot: {PATHS['figures_dir']}/sup_XX_pca_loadings_top100.*")
+        logger.info(f"  - Sample PCA plots (sup_03): {PATHS['figures_dir']}/sup_03_pca_*.png/html")
+        logger.info(f"  - PCA loading plots (sup_04): {PATHS['figures_dir']}/sup_04_pca_loadings_*.png/html")
         logger.info(f"  - Separation metrics: {metrics_path}")
         logger.info(f"  - PC-task correlations: {correlations_path}")
         logger.info(f"  - PCA coordinates: {results_dir}/pca_coordinates.csv")
