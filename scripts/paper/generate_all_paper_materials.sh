@@ -26,12 +26,14 @@ GENERATED=0
 FAILED=0
 
 # Function to run a script and check status
+PYTHON="${PYTHON:-./env/bin/python}"
+
 run_script() {
     local script=$1
     local description=$2
     
     echo "→ $description"
-    if python "$script" 2>&1; then
+    if "$PYTHON" "$script" 2>&1; then
         ((GENERATED++))
         echo "  ✓ Success"
         return 0
