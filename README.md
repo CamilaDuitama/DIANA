@@ -1,256 +1,455 @@
-# DIANA: Deep Learning Identification and Assessment of Ancient DNA
+# DIANA: Reproducibility Guide
 
-**Multi-task classification of ancient DNA samples using unitigs**
-
-DIANA uses unitig sequence features from raw FASTQ files to compare new samples against the whole plethora of existing ancient DNA samples in the SRA, simultaneously predicting four characteristics:
-- **Sample Type**: Ancient vs. modern metagenome
-- **Community Type**: Oral, gut, skeletal tissue, plant tissue, soft tissue, or environmental sample  
-- **Sample Host**: Homo sapiens, Ursus arctos, and 10 other host species
-- **Material**: Dental calculus, tooth, bone, sediment, and 9 other material types
-
-The model is trained on 2,609 samples from the [AncientMetagenomeDir database](https://github.com/SPAAM-community/AncientMetagenomeDir), achieving 97-99% accuracy on held-out test data.
+**Multi-task classification of ancient DNA samples using unitig k-mer features**
 
 ---
 
 ## Table of Contents
 
-- [Installation](#installation)
-- [Quick Start](#quick-start)
-  - [Example with Dummy Data](#example-with-dummy-data)
-  - [Predict on Your Own Data](#predict-on-your-own-data)
-- [Command Reference](#command-reference)
-  - [diana-predict](#diana-predict)
-- [FAQ](#faq)
-  - [Memory Requirements](#memory-requirements)
-  - [Out-of-Memory (OOM) Errors](#out-of-memory-oom-errors)
-- [License](#license)
-- [Citation](#citation)
+1. [Environment Setup](#environment-setup)
+2. [Data Preparation](#data-preparation)
+3. [Train/Test Split](#traintest-split)
+4. [Model Training](#model-training)
+5. [Model Evaluation](#model-evaluation)
+6. [Feature Analysis](#feature-analysis)
+7. [Validation](#validation)
+8. [Output Structure](#output-structure)
+9. [Script Organization](#script-organization)
 
 ---
 
-## Installation
-
-### Prerequisites
-- **Operating System**: Linux (tested on Ubuntu 20.04+)
-- **Package Manager**: [Mamba](https://mamba.readthedocs.io/) or Conda
-- **Disk Space**: ~140GB for full reference data, or ~200MB for minimal setup
-
-### Setup
+## Environment Setup
 
 ```bash
-# Clone the repository
-git clone https://github.com/CamilaDuitama/DIANA.git
-cd DIANA
-
-# Create and activate the environment
+# Create mamba environment from specification
 mamba env create -f environment.yml -p ./env
+
+# Activate environment
 mamba activate ./env
 
-# Install dependencies and download reference k-mers (179MB)
-bash install.sh
+#Install diana-train
+mamba run -p ./env pip install -e .
+
+# Verify installation
+python -c "import torch, polars, plotly; print('✓ Environment ready')"
 ```
-
-**What gets installed:**
-- Python dependencies (PyTorch, scikit-learn, polars, etc.)
-- External tools: `back_to_sequences` and `MUSET`
-- Reference k-mers file (~179MB, downloaded from Zenodo)
-- Pre-trained model checkpoint
-
-**Note**: The full 139GB training matrix (`data/matrices/large_matrix_3070_with_frac/`) is **only needed for retraining the model**. For prediction on new samples, only the reference k-mers file and `unitigs.fa` are required.
 
 ---
 
-## Quick Start
+## Data Preparation
 
-### Example with Dummy Data
-
-Test the installation with a small validation sample:
+### 1. Build Unitig Matrix with muset
 
 ```bash
-# Download a small test sample (ancient oral metagenome, ~10MB)
-mkdir -p test_data
-cd test_data
-wget https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR360/004/ERR3609654/ERR3609654_1.fastq.gz
-wget https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR360/004/ERR3609654/ERR3609654_2.fastq.gz
-cd ..
+# Build muset tool (one-time setup)
+bash scripts/create_umat/01_build_muset.sh
 
-# Run prediction
-mamba run -p ./env diana-predict \
-  --sample test_data/ERR3609654_1.fastq.gz test_data/ERR3609654_2.fastq.gz \
+# Generate unitig matrix from FASTQ files
+# Input: data/diana_samples.fof (list of sample FASTQ paths)
+# Output: data/matrices/large_matrix_3070_with_frac/
+sbatch scripts/create_umat/02_regenerate_matrix_with_frac.sbatch
+```
+
+**Output:** `unitigs.frac.mat` (107,480 features × 3,071 samples, 1.6GB)
+
+> **Note:** Matrix is stored in transposed format (samples as rows). The 107,480 rows represent unitigs, and 3,071 columns represent samples. When loaded by `MatrixLoader`, it's automatically transposed to (3,070 samples × 107,480 features).
+
+### 2. Prepare Metadata
+
+Metadata files are located in `paper/metadata/`:
+- `train_metadata.tsv` (2,609 samples)
+- `test_metadata.tsv` (461 samples)
+- `validation_metadata.tsv` (1,029 samples)
+
+**All three files have identical 48 columns** (standardized format).
+
+**Training + Test combined: 3,070 samples**
+
+**Task columns and classes (train/test):**
+- `sample_type`: 2 classes (ancient_metagenome, modern_metagenome)
+- `material`: 13 classes (dental calculus, sediment, tooth, bone, digestive_contents, etc.)
+- `sample_host`: 12 classes (Homo sapiens, Not applicable - env sample, Ursus arctos, Gorilla sp., etc.)
+- `community_type`: 6 classes (oral, Not applicable - env sample, skeletal tissue, soft tissue, gut, plant tissue)
+
+**Key columns:**
+- `Run_accession`: Sample identifier
+- `sample_type`, `material`, `sample_host`, `community_type`: Target labels
+- Plus 44 additional metadata columns (SRA fields, sequence stats, etc.)
+
+> **Note:** Validation set contains additional classes not in training (20 material types, 18 host species) due to broader ancient sample diversity.
+
+---
+
+## Train/Test Split
+
+The train/test split is **already prepared** in `data/splits/`:
+- `train_ids.txt` (2,609 samples, 85%)
+- `test_ids.txt` (461 samples, 15%)
+
+Metadata files in `paper/metadata/` are filtered versions:
+- `train_metadata.tsv` - Contains only training samples
+- `test_metadata.tsv` - Contains only test samples
+
+**Critical:** Test set is held out for final evaluation only. Never used during training or hyperparameter optimization.
+
+<details>
+<summary>To regenerate splits from scratch (optional)</summary>
+
+```bash
+# Create stratified 85/15 train/test split
+mamba run -p ./env python scripts/data_prep/01_create_splits.py \
+  --metadata data/metadata/DIANA_metadata.tsv \
+  --output data/splits \
+  --train-size 0.85 \
+  --test-size 0.15 \
+  --random-state 42
+```
+
+This will regenerate `train_ids.txt`, `test_ids.txt`, and metadata files.
+
+</details>
+
+---
+
+## Model Training
+
+**Configuration:** `configs/train_config.yaml`
+
+Key settings:
+- **Data:** Uses `paper/metadata/train_metadata.tsv` (2,609 samples only)
+- **Tasks:** sample_type, material, sample_host, community_type
+- **Class imbalance:** Automatic class-weighted loss (minority classes weighted higher)
+- **CV:** 5-fold outer CV, 3-fold inner CV
+- **Optimization:** 50 Optuna trials per fold
+- **Execution:** SLURM GPU array jobs (`use_slurm: true`)
+
+### Two Training Approaches
+
+You can use either the **CLI workflow** (recommended for reproducibility) or the **direct SBATCH submission** (for manual control).
+
+---
+
+#### Approach A: CLI Workflow (Recommended)
+
+**Step 1: Hyperparameter Optimization**
+
+```bash
+# Submit 5-fold CV hyperparameter search (SLURM array job)
+mamba run -p ./env diana-train multitask \
+  --config configs/train_config.yaml \
+  --output results/training \
+  --mode optimize
+```
+
+This internally submits `scripts/training/run_multitask_gpu.sbatch` as a SLURM array job.
+
+**Step 2: Train Final Model**
+
+After all folds complete (`squeue -j <job_id>` shows no jobs):
+
+```bash
+# Train on full training set with best hyperparameters from CV
+mamba run -p ./env diana-train multitask \
+  --config configs/train_config.yaml \
+  --output results/training \
+  --mode train
+```
+
+**What happens:**
+- Automatically aggregates fold results if `best_hyperparameters.json` doesn't exist
+- Trains on 90% of training set (2,348 samples)
+- Uses 10% for validation and early stopping (261 samples)
+- Saves final model when validation loss plateaus
+
+**Optional:** To manually aggregate fold results before training:
+```bash
+mamba run -p ./env diana-train multitask \
+  --config configs/train_config.yaml \
+  --output results/training \
+  --mode aggregate
+```
+
+## Model Evaluation
+
+### Step 3: Test on Held-Out Set
+
+```bash
+# Evaluate on test set (461 samples, never seen during training or optimization)
+mamba run -p ./env diana-test \
   --model results/training/best_model.pth \
-  --muset-matrix data/matrices/large_matrix_3070_with_frac \
-  --output test_results \
-  --threads 4
-
-# View results
-cat test_results/ERR3609654/ERR3609654_predictions.json
+  --config results/training/final_training_config.json \
+  --matrix data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat \
+  --metadata paper/metadata/test_metadata.tsv \
+  --test-ids data/splits/test_ids.txt \
+  --output results/test_evaluation
 ```
 
-**Expected output:**
-```json
-{
-  "sample_id": "ERR3609654",
-  "predictions": {
-    "sample_type": {"predicted": "Ancient", "probability": 0.98},
-    "community_type": {"predicted": "oral", "probability": 0.95},
-    "sample_host": {"predicted": "Homo sapiens", "probability": 0.99},
-    "material": {"predicted": "dental calculus", "probability": 0.92}
-  }
-}
+**Expected outputs:**
+```
+results/test_evaluation/
+├── test_metrics.json                 # Per-task accuracy, F1, etc.
+├── test_predictions.tsv              # Predictions for all 461 samples
+├── confusion_matrices/               # Per-task confusion matrices
+└── classification_reports/           # Detailed per-class metrics
 ```
 
-**Visualization outputs:**
-
-<p align="center">
-  <img src="test_results/ERR3609654/plots/ERR3609654_sample_type_barplot.png" width="45%" alt="Sample Type"/>
-  <img src="test_results/ERR3609654/plots/ERR3609654_community_type_barplot.png" width="45%" alt="Community Type"/>
-</p>
-
-<p align="center">
-  <img src="test_results/ERR3609654/plots/ERR3609654_sample_host_barplot.png" width="45%" alt="Sample Host"/>
-  <img src="test_results/ERR3609654/plots/ERR3609654_material_barplot.png" width="45%" alt="Material"/>
-</p>
-
-The plots show predicted probabilities for each class within each task. The dental calculus sample is correctly classified as Ancient, oral community type, from Homo sapiens, with material type dental calculus.
-
-### Predict on Your Own Data
+### Step 4: Generate Performance Plots and Tables
 
 ```bash
-# Single-end sample
-mamba run -p ./env diana-predict \
-  --sample path/to/sample.fastq.gz \
-  --model results/full_training/best_model.pth \
-  --muset-matrix data/matrices/large_matrix_3070_with_frac \
-  --output results/my_predictions \
-  --threads 8
-
-# Paired-end sample
-mamba run -p ./env diana-predict \
-  --sample path/to/sample_R1.fastq.gz path/to/sample_R2.fastq.gz \
-  --model results/full_training/best_model.pth \
-  --muset-matrix data/matrices/large_matrix_3070_with_frac \
-  --output results/my_predictions \
-  --threads 8
+# Create publication-ready figures and tables
+mamba run -p ./env python scripts/evaluation/04_model_performance_metrics.py \
+  --metrics results/test_evaluation/test_metrics.json \
+  --history results/training/training_history.json \
+  --config results/training/final_training_config.json \
+  --predictions results/test_evaluation/test_predictions.tsv \
+  --label-encoders results/training/label_encoders.json \
+  --output-dir paper
 ```
 
-**Outputs:**
+**Expected outputs:**
 ```
-results/my_predictions/sample/
-├── sample_predictions.json         # Predictions and probabilities
-├── sample_predictions_plot.html    # Interactive visualization
-├── sample_predictions_plot.png     # Static plot
-├── sample_kmer_counts.txt         # K-mer counts from sample
-├── sample_unitig_abundance.txt    # Unitig abundance
-└── sample_unitig_fraction.txt     # Unitig fractions (model input)
-```
+paper/figures/
+├── test_set_multitask_performance_summary.html + .png
+├── test_set_confusion_matrix_{task}.html + .png       # 4 tasks
+├── test_set_per_class_metrics_{task}.html + .png      # 4 tasks
+├── test_set_roc_curves_{task}.html + .png             # 4 tasks
+├── test_set_pr_curves_{task}.html + .png              # 4 tasks
+└── training_set_loss_curves.html + .png
 
+paper/tables/
+├── test_set_performance_summary.csv + .tex + .html + .png
+├── test_set_per_class_metrics_{task}.csv + .tex       # 4 tasks
+└── hyperparameters.csv + .tex + .html + .png
+```
 ---
 
-## Command Reference
+## Feature Analysis
 
-### diana-predict
+### Step 5: Extract Feature Importance
 
-Predict sample characteristics from FASTQ files.
-
-**Basic usage:**
 ```bash
-diana-predict --sample <fastq> --model <model.pth> --muset-matrix <matrix_dir> --output <outdir>
+# Compute gradient-based and weight-based importance scores
+mamba run -p ./env python scripts/feature_analysis/01_extract_feature_importance.py \
+  --config configs/feature_analysis.yaml
 ```
 
-**Required arguments:**
-- `--sample`: Path to FASTQ file(s). For paired-end, provide both files separated by space
-- `--model`: Path to trained model checkpoint (`.pth` file)
-- `--muset-matrix`: Path to MUSET matrix directory containing reference k-mers
-- `--output`: Output directory for results
+### Step 6: Analyze Feature Sequences
 
-**Optional arguments:**
-- `--threads N`: Number of threads for parallel processing (default: 4)
-- `--memory-gb N`: Memory limit for k-mer counting step (default: auto-detect)
-- `--keep-intermediate`: Keep intermediate files (k-mer counts, etc.)
-
-**Advanced usage:**
-
-Batch prediction from a file list:
 ```bash
-# Create samples.txt with one FASTQ path per line
-# For paired-end, put both paths on the same line separated by tab
+# Compute sequence properties (GC content, length, complexity)
+mamba run -p ./env python scripts/feature_analysis/02_analyze_feature_sequences.py \
+  --config configs/feature_analysis.yaml
+```
 
-diana-predict \
-  --batch samples.txt \
-  --model results/full_training/best_model.pth \
-  --muset-matrix data/matrices/large_matrix_3070_with_frac \
-  --output results/batch_predictions \
-  --threads 16
+**Expected outputs:**
+```
+paper/tables/feature_analysis/
+├── sequence_properties_sample_type.csv       # GC%, length, complexity
+├── sequence_properties_community_type.csv
+├── sequence_properties_sample_host.csv
+└── sequence_properties_material.csv
+
+paper/figures/feature_analysis/
+├── gc_content_distribution.html
+├── length_distribution.html
+└── fraction_prevalence.html
+```
+
+### Step 7: Taxonomic Annotation with BLAST
+
+```bash
+# Run BLAST against NCBI nt database for all 107,480 unitig features (4-12 hours)
+sbatch scripts/feature_analysis/run_blast_all_features.sbatch
+
+# Wait for BLAST jobs to complete, then parse results
+mamba run -p ./env python scripts/feature_analysis/03_annotate_features.py \
+  --config configs/feature_analysis.yaml
+```
+
+**Expected outputs:**
+```
+paper/tables/feature_analysis/
+├── annotated_features_sample_type.csv        # With taxonomic assignments
+├── annotated_features_community_type.csv
+├── annotated_features_sample_host.csv
+└── annotated_features_material.csv
+
+paper/figures/feature_analysis/
+├── taxonomy_phylum_sample_type.html
+├── taxonomy_family_sample_type.html
+├── taxonomy_genus_sample_type.html
+└── taxonomy_sunburst_sample_type.html    # Interactive hierarchy
+```
+
+### Step 8: Aggregate Feature Analysis for Paper Figures
+
+```bash
+# Create aggregated TSV files for validation comparison plots
+mamba run -p ./env python scripts/feature_analysis/05_aggregate_for_validation.py
+```
+
+**Expected outputs:**
+```
+results/feature_analysis/
+├── feature_importance_by_genus.tsv     # Genus counts per task (for main figure)
+└── blast_annotations.tsv               # BLAST hit rates (for main figure)
 ```
 
 ---
 
----
+## Validation
 
-## FAQ
+### Prepare Validation Dataset
 
-### Memory Requirements
+The validation set combines:
+- **Ancient samples** from AncientMetagenomeDir (863 samples, highly curated)
+- **Modern samples** from interactive review (166 metagenomics samples, improved distribution)
 
-**Q: How much RAM do I need?**
+**Key principle:** Match the training set's sample type distribution (84% ancient, 16% modern)
+while testing model generalization to completely unseen samples.
 
-Memory usage depends on k-mer diversity in your sample, not file size:
+> **Starting fresh vs continuing:** 
+> - If you have existing downloads: Scripts will **skip existing files** automatically
+> - If starting from scratch: Follow all steps below  
+> - If you only want to re-query modern samples: Skip to [step 2](#2-get-modern-samples-from-mgnify-recommended)
 
-- **Ancient DNA (low diversity):** 64-128 GB typically sufficient
-- **Modern gut metagenomes:** 128-256 GB
-- **Oral/dental calculus (high diversity):** 128-256 GB (3% may need >256 GB)
+#### 1. Get Ancient Samples from AncientMetagenomeDir
 
-**Important:** A small 260MB file may require >256 GB if highly diverse, while a 7GB file may need only 64 GB if less complex.
+```bash
+# Combine host-associated and environmental samples
+mamba run -p ./env python scripts/validation/00_prepare_combined_metadata.py
 
-### Out-of-Memory (OOM) Errors
+# Expand to run accessions via ENA API
+mamba run -p ./env python scripts/validation/01_expand_metadata.py
 
-**Q: My job failed with "OUT_OF_MEMORY". What should I do?**
+# Remove train/test overlaps
+mamba run -p ./env python scripts/validation/01b_remove_overlap.py
 
-OOM failures occur during k-mer indexing when the sample has high microbial diversity.
+# Prepare download list
+mamba run -p ./env python scripts/validation/02_prepare_download.py
+```
 
-**Solutions:**
-1. **Check actual memory usage:**
-   ```bash
-   seff <job_id>  # On SLURM systems
-   ```
-2. **If >95% memory used:** Retry with 2× RAM
-3. **High-diversity samples:** Dental calculus/oral samples often need >256 GB
+**Output:** `data/validation/accessions.txt` (863 ancient samples initially)
 
-**Memory patterns from our validation (616 samples):**
-- 97% of ancient metagenomes succeeded with ≤128 GB
-- Memory expansion: 10× to 1,513× input file size (median: 37×)
-- File size is NOT a reliable predictor
+#### 2. Add Modern Samples via Interactive Review
 
----
+Modern samples were added through manual curation using interactive review:
 
-## License
+```bash
+# Interactive review of modern samples with SRA metadata
+# (Already completed - 166 modern samples approved and merged into validation_metadata.tsv)
+mamba run -p ./env python scripts/validation/interactive_label_review.py
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+# Merge reviewed samples into validation_metadata.tsv
+# (Already completed - validation_metadata.tsv now contains 1,029 samples)
+mamba run -p ./env python scripts/validation/merge_reviewed_samples.py
+```
 
----
+**Modern sample distribution (166 samples):**
+- soil: 65 (39%)
+- plaque: 24 (14%)
+- faeces: 24 (14%)
+- skin: 24 (14%)
+- saliva: 17 (10%)
+- Other oral/environmental: 12 (9%)
 
-## Citation
+> **Note:** Modern samples exclude RNA-based sequencing (transcriptomics, miRNA-seq, etc.) but include AMPLICON (16S/ITS) and WGS metagenomics.
 
-If you use DIANA in your research, please cite:
+#### 3. Download All Samples
 
-```bibtex
-@article{diana2025,
-  title={DIANA: Deep Integration of Ancient DNA for Multi-Task Sample Classification},
-  author={Duitama, Camila and [Authors]},
-  journal={[Journal]},
-  year={2025},
-  doi={[DOI]}
-}
+> **Note:** If you already have validation samples downloaded, these scripts will **skip existing files**
+> automatically. They check for:
+> - Existing SRA files in `data/validation/sra/`
+> The accessions.txt file is automatically updated when merging reviewed samples
+# It now contains all 1,010 unique run accessions from validation_metadata.tsv
+
+# Will only download the ~89 newly added modern samples
+bash scripts/validation/03_prefetch_all.sh
+
+# Convert SRA → FASTQ (auto-skips existing)
+# Update array size to match total accessions
+sbatch --array=1-1171%20 scripts/validation/04_convert_sra_to_fastq.sbatch
+```
+
+**Output:** `data/validation/sra/{accession}/*.sra` and `data/validation/raw/{accession}/*.fastq.gz`
+
+```
+
+**Output:** `data/validation/sra/{accession}/*.sra` and `data/validation/raw/{accession}/*.fastq.gz`
+
+
+**To check download progress:**
+```bash
+# Count downloaded SRA files
+find data/validation/sra -name "*.sra" | wc -l
+1,010 unique run accessions (some samples have multiple runs)
+```
+
+### Run Inference on Validation Set
+
+**Automated retry system with memory scaling:**
+
+```bash
+# Submit validation predictions with automatic OOM retry
+bash scripts/validation/submit_validation_with_retry.sh
+```
+
+**How it works:**
+1. **Initial run:** All samples start with 32GB memory
+2. **Monitoring:** Each sample tracks job metadata (`.jobinfo`) and memory history (`.memory_history`)
+3. **Cache check:** Skips samples with `"status": "SUCCESS"` in `.jobinfo`
+4. **OOM detection:** Failed jobs are retried with doubled memory (32→64→128→256→512GB)
+5. **Re-run:** Simply execute the script again after jobs complete to retry OOM failures
+
+**Example workflow:**
+```bash
+# First submission (all samples @ 32GB)
+bash scripts/validation/submit_validation_with_retry.sh
+# → Submits array jobs for each memory tier
+
+# Monitor progress
+squeue -u $USER
+reportseff <job_id>
+
+# After completion, retry OOM failures @ doubled memory
+bash scripts/validation/submit_validation_with_retry.sh
+
+# Continue until all samples complete or hit 512GB limit
+bash scripts/validation/submit_validation_with_retry.sh
+```
+
+**Output structure per sample:**
+```
+results/validation_predictions/
+├── {accession}/
+│   ├── {accession}_predictions.json   # Prediction output
+│   ├── .jobinfo                       # Job metadata (job_id, memory, runtime, status)
+│   └── .memory_history                # Memory allocations tried (MB, one per line)
+└── ...
+
+logs/validation/
+├── diana_predict_{JOB_ID}_{TASK_ID}.out   # stdout
+├── diana_predict_{JOB_ID}_{TASK_ID}.err   # stderr
+└── ...
+```
+
+**After all predictions complete, generate validation metrics and figures:**
+```bash
+# Load validation predictions with metadata (shared utility)
+# This creates a standardized DataFrame used by all paper scripts
+mamba run -p ./env python scripts/validation/load_validation_data.py
+
+# Output: DataFrame with columns - sample_id, task, true_label, pred_label, 
+#         confidence, is_correct, is_seen
+
+# Generate all publication-ready figures and tables
+bash scripts/paper/generate_all_paper_materials.sh
+
+# Legacy comparison script (still functional):
+mamba run -p ./env python scripts/validation/06_compare_predictions.py
 ```
 
 ---
 
-## Support
+**Last Updated:** February 2026
 
-For questions, issues, or feature requests:
-- **GitHub Issues**: https://github.com/CamilaDuitama/DIANA/issues
-- **Documentation**: See `docs/` directory for detailed guides
-
-**Related resources:**
-- [AncientMetagenomeDir](https://github.com/SPAAM-community/AncientMetagenomeDir): Training data source
-- [Training documentation](docs/TRAINING.md): How to retrain the model
-- [CLI reference](docs/CLI_TOOL.md): Detailed command-line interface documentation
