@@ -6,10 +6,11 @@
 #     Master script to regenerate all publication-ready materials
 #
 # OUTPUTS:
-#     - 4 main figures (confusion matrices, ROC/PR curves, feature importance, BLAST)
-#     - 2 supplementary figures (runtime/memory, data split)
-#     - 1 main table (performance summary)
-#     - 1+ supplementary tables (class distribution, etc.)
+#     - 3 main figures (confusion matrices, ROC/PR curves, feature importance)
+#     - 6 supplementary figures (runtime/memory, data split, PCA, PCA loadings, Logan search, baseline comparison)
+#     - 2 main tables (performance summary, computational resources)
+#     - 8 supplementary tables (class distribution, unseen labels, per-class perf,
+#       hyperparameters, wrong predictions, BLAST, seen/unseen validation, matrix generation)
 #
 # USAGE:
 #     bash scripts/paper/generate_all_paper_materials.sh
@@ -62,9 +63,6 @@ run_script "scripts/paper/13_generate_roc_pr_curves.py" \
 run_script "scripts/paper/14_generate_feature_importance.py" \
     "Main Figure 3: Feature Importance (4 tasks)"
 
-run_script "scripts/paper/15_generate_blast_hit_rate.py" \
-    "Main Figure 4: BLAST Hit Rate Comparison"
-
 # ============================================================================
 # SUPPLEMENTARY FIGURES
 # ============================================================================
@@ -80,7 +78,13 @@ run_script "scripts/paper/02_generate_data_split.py" \
     "Supplementary Figure 2: Data Split Validation (6 plots)"
 
 run_script "scripts/paper/06_generate_pca_analysis.py" \
-    "Supplementary Figure 3: PCA Analysis (5 plots)"
+    "Supplementary Figure 3 & 4: PCA Analysis and PCA Loading Plots"
+
+run_script "scripts/paper/20_generate_logan_search_taxonomy_barplot.py" \
+    "Supplementary Figure 5: Logan Database Coverage and Taxonomy"
+
+run_script "scripts/paper/21_generate_baseline_comparison.py" \
+    "Supplementary Figure 6: Baseline Comparison"
 
 # ============================================================================
 # MAIN TABLES
@@ -121,6 +125,12 @@ run_script "scripts/paper/09_generate_wrong_predictions_table.py" \
 
 run_script "scripts/paper/10_generate_blast_summary_table.py" \
     "Supplementary Table 6: BLAST Summary"
+
+run_script "scripts/paper/17_generate_seen_unseen_table.py" \
+    "Supplementary Table 7: Seen vs Unseen Validation Performance"
+
+run_script "scripts/paper/18_generate_matrix_generation_table.py" \
+    "Supplementary Table 8: Feature Matrix Generation Parameters"
 
 # ============================================================================
 # SUMMARY

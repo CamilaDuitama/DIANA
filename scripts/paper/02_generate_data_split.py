@@ -19,7 +19,8 @@ OUTPUTS:
     - paper/figures/final/sup_02_data_split_community_type.png
     - paper/figures/final/sup_02_data_split_publication_year.png
     - paper/figures/final/sup_02_data_split_file_size.png
-    - paper/figures/final/sup_02_data_split_geographic.png (HTML only)
+    - paper/figures/final/sup_02_data_split_material.png
+    - paper/figures/final/sup_02_data_split_geographic.html (HTML only)
     - Corresponding .html interactive versions
 
 PROCESS:
@@ -364,6 +365,58 @@ def plot_file_size(train_meta, test_meta, val_meta, output_dir):
     print(f"  ✓ {output_file.name}")
 
 
+def plot_material(train_meta, test_meta, val_meta, output_dir):
+    """Figure 6: Material type distribution."""
+    colors = [PLOT_CONFIG['colors']['train'], PLOT_CONFIG['colors']['test'], PLOT_CONFIG['colors']['validation']]
+
+    if 'material' not in train_meta.columns:
+        print("  ⚠ No material column, skipping")
+        return
+
+    all_materials = sorted(set(
+        list(train_meta['material'].dropna().unique()) +
+        list(test_meta['material'].dropna().unique()) +
+        list(val_meta['material'].dropna().unique())
+    ))
+
+    fig = go.Figure()
+
+    for split, df, color in [('Train', train_meta, colors[0]),
+                              ('Test', test_meta, colors[1]),
+                              ('Validation', val_meta, colors[2])]:
+        counts = df['material'].value_counts()
+        total = len(df['material'].dropna())
+        y_values = [(counts.get(m, 0) / total * 100) if total > 0 else 0 for m in all_materials]
+
+        fig.add_trace(go.Bar(
+            x=all_materials,
+            y=y_values,
+            name=split,
+            marker=dict(
+                color=color,
+                opacity=PLOT_CONFIG['fill_opacity'],
+                line=dict(color=PLOT_CONFIG['border_color'], width=PLOT_CONFIG['line_width'])
+            )
+        ))
+
+    fig.update_layout(
+        title="Material Type Distribution Across Datasets",
+        xaxis_title="Material Type",
+        yaxis_title="Percentage of Samples in Split (%)",
+        template=PLOT_CONFIG['template'],
+        font=dict(size=PLOT_CONFIG['font_size']),
+        height=600,
+        width=1400,
+        barmode='group',
+        xaxis=dict(tickangle=-45)
+    )
+
+    output_file = output_dir / "sup_02_data_split_material.png"
+    fig.write_html(str(output_file.with_suffix('.html')))
+    fig.write_image(str(output_file), width=1400, height=600, scale=2)
+    print(f"  ✓ {output_file.name}")
+
+
 def plot_geographic(train_meta, test_meta, val_meta, output_dir):
     """Figure 6: Geographic distribution (HTML only)."""
     colors = [PLOT_CONFIG['colors']['train'], PLOT_CONFIG['colors']['test'], PLOT_CONFIG['colors']['validation']]
@@ -473,11 +526,14 @@ def main():
     print("\n[6/7] Generating file size distribution...")
     plot_file_size(train_meta, test_meta, val_meta, output_dir)
     
-    print("\n[7/7] Generating geographic distribution...")
+    print("\n[7/7] Generating material type distribution...")
+    plot_material(train_meta, test_meta, val_meta, output_dir)
+
+    print("\n[8/8] Generating geographic distribution...")
     plot_geographic(train_meta, test_meta, val_meta, output_dir)
-    
+
     print("\n" + "=" * 80)
-    print("✓ COMPLETE - Data split validation figures generated (6 plots)")
+    print("✓ COMPLETE - Data split validation figures generated (7 plots)")
     print("=" * 80)
 
 

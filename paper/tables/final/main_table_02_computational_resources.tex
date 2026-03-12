@@ -1,8 +1,7 @@
-\begin{table}
 \centering
 \caption{Validation inference computational resources stratified by memory tier (987 samples)}
 \label{tab:resources}
-\begin{tabular}{lrrrr}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrrrr@{\extracolsep{\fill}}}
 \toprule
 Memory (GB) & CPUs & N & Runtime (min) & Input size (GB) \\
 \midrule
@@ -12,6 +11,6 @@ Memory (GB) & CPUs & N & Runtime (min) & Input size (GB) \\
 250 & 6 & 69 & 18.46 $\pm$ 7.36 & 5.95 $\pm$ 1.89 \\
 500 & 6 & 12 & 35.89 $\pm$ 17.36 & 10.78 $\pm$ 3.04 \\
 \bottomrule
-\end{tabular}
-{\footnotesize Runtime includes the creation of a vector of unitig feature abundances per sample and neural network inference.}
-\end{table}
+\end{tabular*}
+\par\vspace{4pt}
+\parbox{\linewidth}{\footnotesize Runtime includes the creation of a vector of unitig feature abundances per sample and neural network inference.}
