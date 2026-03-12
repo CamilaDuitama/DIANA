@@ -55,9 +55,6 @@ def generate_seen_unseen_table(df: pd.DataFrame, output_path: Path) -> None:
         "\\caption{Validation set performance: Seen vs unseen labels with top 10 most frequent "
         "misclassification patterns\\label{tab:seen_unseen_validation}}\\\\"
     )
-    lines.append(
-        "\\addcontentsline{toc}{subsection}{Supplementary Table 7: Seen vs unseen validation performance}"
-    )
     lines.append("\\toprule")
     lines.append("Task & Category & True Label & Predicted Label & Count & \\% Task & \\% Total \\\\")
     lines.append("\\midrule")
@@ -146,6 +143,7 @@ def generate_seen_unseen_table(df: pd.DataFrame, output_path: Path) -> None:
         lines.append("\\addlinespace")
 
     lines.append("\\end{longtable}")
+    lines.append("\\addcontentsline{toc}{subsection}{Supplementary Table 7: Seen vs unseen validation performance}")
     lines.append("\\\\[2mm]")
     lines.append("{\\footnotesize")
     lines.append(
