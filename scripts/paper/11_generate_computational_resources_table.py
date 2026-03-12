@@ -141,7 +141,7 @@ def generate_computational_resources_table(output_path: Path) -> None:
     
     # Generate LaTeX table
     lines = []
-    lines.append("\\begin{table}[!t]")
+    lines.append("\\begin{table}")
     lines.append("\\centering")
     lines.append(f"\\caption{{Validation inference computational resources stratified by memory tier ({total_samples} samples)}}")
     lines.append("\\label{tab:resources}")
@@ -157,9 +157,7 @@ def generate_computational_resources_table(output_path: Path) -> None:
     
     lines.append("\\bottomrule")
     lines.append("\\end{tabular}")
-    lines.append("\\begin{tablenotes}")
-    lines.append("\\item Runtime includes the creation of a vector of unitig feature abundances per sample and neural network inference.")
-    lines.append("\\end{tablenotes}")
+    lines.append("{\\footnotesize Runtime includes the creation of a vector of unitig feature abundances per sample and neural network inference.}")
     lines.append("\\end{table}")
     
     with open(output_path, 'w') as f:

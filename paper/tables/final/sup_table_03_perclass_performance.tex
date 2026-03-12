@@ -1,0 +1,48 @@
+\centering
+\caption{Per-class performance on validation set (seen labels only)\label{tab:perclass_performance}}
+\addcontentsline{toc}{subsection}{Supplementary Table 3: Per-class performance on validation set}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}llrrrrr@{\extracolsep{\fill}}}
+\toprule
+Task & Class Label & n & Accuracy & Precision & Recall & F1-Score \\
+\midrule
+\multicolumn{7}{l}{\textbf{Sample Type}} \\
+\addlinespace[0.5em]
+ & ancient & 863 & 92.2\% & 93.9\% & 92.2\% & 93.0\% \\
+ & modern & 124 & 58.1\% & 51.8\% & 58.1\% & 54.8\% \\
+\addlinespace
+\multicolumn{7}{l}{\textbf{Community Type}} \\
+\addlinespace[0.5em]
+ & oral & 562 & 64.2\% & 98.6\% & 64.2\% & 77.8\% \\
+ & Not applicable - env sample & 265 & 90.9\% & 79.8\% & 90.9\% & 85.0\% \\
+ & skeletal tissue & 82 & 81.7\% & 38.1\% & 81.7\% & 51.9\% \\
+ & gut & 37 & 54.1\% & 83.3\% & 54.1\% & 65.6\% \\
+ & soft tissue & 33 & 54.5\% & 17.5\% & 54.5\% & 26.5\% \\
+ & plant tissue & 7 & 85.7\% & 40.0\% & 85.7\% & 54.5\% \\
+\addlinespace
+\multicolumn{7}{l}{\textbf{Sample Host}} \\
+\addlinespace[0.5em]
+ & \textit{Homo sapiens} & 586 & 75.8\% & 97.6\% & 75.8\% & 85.3\% \\
+ & Not applicable - env sample & 265 & 92.5\% & 77.8\% & 92.5\% & 84.5\% \\
+ & \textit{Ursus arctos} & 39 & 100.0\% & 97.5\% & 100.0\% & 98.7\% \\
+ & \textit{Homo sapiens neanderthalensis} & 9 & 55.6\% & 27.8\% & 55.6\% & 37.0\% \\
+ & \textit{Arabidopsis thaliana} & 4 & 75.0\% & 33.3\% & 75.0\% & 46.2\% \\
+ & \textit{Ambrosia artemisiifolia} & 3 & 100.0\% & 60.0\% & 100.0\% & 75.0\% \\
+ & \textit{Canis lupus} & 2 & 50.0\% & 8.3\% & 50.0\% & 14.3\% \\
+\addlinespace
+\multicolumn{7}{l}{\textbf{Material}} \\
+\addlinespace[0.5em]
+ & dental calculus & 356 & 84.6\% & 86.5\% & 84.6\% & 85.5\% \\
+ & tooth & 126 & 23.8\% & 40.5\% & 23.8\% & 30.0\% \\
+ & soil & 53 & 37.7\% & 76.9\% & 37.7\% & 50.6\% \\
+ & bone & 50 & 52.0\% & 40.0\% & 52.0\% & 45.2\% \\
+ & sediment & 40 & 100.0\% & 53.3\% & 100.0\% & 69.6\% \\
+ & plaque & 19 & 78.9\% & 65.2\% & 78.9\% & 71.4\% \\
+ & permafrost & 14 & 50.0\% & 87.5\% & 50.0\% & 63.6\% \\
+ & leaf & 7 & 85.7\% & 46.2\% & 85.7\% & 60.0\% \\
+ & saliva & 5 & 0.0\% & 0.0\% & 0.0\% & 0.0\% \\
+ & midden & 1 & 100.0\% & 100.0\% & 100.0\% & 100.0\% \\
+\addlinespace
+\bottomrule
+\end{tabular*}
+\\[2mm]
+{\footnotesize Metrics computed only for seen labels (present in training set). Accuracy: proportion of samples in each class correctly classified. Precision: proportion of predictions for a class that were correct. Recall: proportion of true instances of a class that were correctly predicted. F1-Score: harmonic mean of precision and recall.}

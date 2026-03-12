@@ -76,13 +76,22 @@ def generate_unseen_labels_table(output_dir):
     print("\n[3/3] Generating LaTeX table...")
     
     lines = []
-    lines.append("\\begin{table}[!t]")
-    lines.append("\\centering")
-    lines.append("\\caption{Model predictions for unseen labels\\label{tab:unseen_labels}}")
-    lines.append("\\begin{tabular*}{\\columnwidth}{@{\\extracolsep{\\fill}}llrr@{\\extracolsep{\\fill}}}")
+    lines.append("\\begin{longtable}{llrr}")
+    lines.append("\\caption{Model predictions for unseen labels\\label{tab:unseen_labels}}\\\\")
     lines.append("\\toprule")
     lines.append("Task & True Label (Unseen) & Predicted Label & Count \\\\")
     lines.append("\\midrule")
+    lines.append("\\endfirsthead")
+    lines.append("\\multicolumn{4}{c}{\\textit{Table \\thetable{} continued from previous page}} \\\\")
+    lines.append("\\toprule")
+    lines.append("Task & True Label (Unseen) & Predicted Label & Count \\\\")
+    lines.append("\\midrule")
+    lines.append("\\endhead")
+    lines.append("\\midrule")
+    lines.append("\\multicolumn{4}{r}{\\textit{Continued on next page}} \\\\")
+    lines.append("\\endfoot")
+    lines.append("\\bottomrule")
+    lines.append("\\endlastfoot")
     
     for task in unseen_tasks:
         task_unseen = unseen_df[unseen_df['task'] == task]
@@ -116,20 +125,20 @@ def generate_unseen_labels_table(output_dir):
         lines.append("\\addlinespace")
     
     lines.append("\\bottomrule")
-    lines.append("\\end{tabular*}")
-    lines.append("\\begin{tablenotes}")
-    lines.append("\\item Unseen labels are categories not present in the training set.")
-    lines.append("\\item Sample Host: Novel species/subspecies correctly mapped to genus/species-level training classes.")
-    lines.append("\\item Material: Novel material types mapped to semantically similar training classes.")
+    lines.append("\\end{longtable}")
+    lines.append("\\addcontentsline{toc}{subsection}{Supplementary Table 2: Model predictions for unseen labels}")
     
-    # Calculate totals per task
+    note_parts = [
+        "Unseen labels are categories not present in the training set.",
+        "Sample Host: Novel species/subspecies correctly mapped to genus/species-level training classes.",
+        "Material: Novel material types mapped to semantically similar training classes.",
+    ]
     for task in unseen_tasks:
         task_unseen_count = len(unseen_df[unseen_df['task'] == task])
         if task_unseen_count > 0:
             task_display = task.replace('_', ' ').title()
-            lines.append(f"\\item {task_display}: {task_unseen_count} unseen predictions.")
-    
-    lines.append("\\end{tablenotes}")
+            note_parts.append(f"{task_display}: {task_unseen_count} unseen predictions.")
+    lines.append("{\\footnotesize " + " ".join(note_parts) + "}")
     lines.append("\\end{table}")
     
     output_file = output_dir / "sup_table_02_unseen_labels.tex"

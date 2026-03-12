@@ -1,0 +1,33 @@
+\centering
+\caption{BLAST Hit Statistics for All Features\label{tab:blast_summary}}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lr}
+\toprule
+\textbf{Metric} & \textbf{Value} \\
+\midrule
+\multicolumn{2}{l}{\textit{Overall Statistics}} \\
+Total features analyzed & 107,480 \\
+Features with BLAST hits & 82,853 \\
+Overall hit rate & 77.09\% \\
+\midrule
+\multicolumn{2}{l}{\textit{Identity Distribution (best hit per feature)}} \\
+$\geq$95\% identity & 73,166 \\
+90--95\% identity & 6,358 \\
+80--90\% identity & 2,784 \\
+$<$80\% identity & 545 \\
+\midrule
+\multicolumn{2}{l}{\textit{Top 10 most frequent species (best hit per feature)}} \\
+\textit{Actinomyces sp.} & 19,754 \\
+\textit{Olsenella sp.} & 13,374 \\
+\textit{Desulfobulbus oralis} & 12,286 \\
+\textit{Eubacterium minutum} & 9,284 \\
+\textit{Anaerolineaceae bacterium} & 8,419 \\
+\textit{Arachnia propionica} & 3,270 \\
+\textit{Fretibacterium fastidiosum} & 1,935 \\
+\textit{Homo sapiens} & 1,047 \\
+\textit{Actinomyces oris} & 981 \\
+\textit{Streptococcus sanguinis} & 771 \\
+\bottomrule
+\end{tabular*}
+\addcontentsline{toc}{subsection}{Supplementary Table 6: BLAST hit statistics}
+\\[2mm]
+{\footnotesize For each of the 107,480 unitig features, the best BLAST hit (highest bitscore) against the NCBI nucleotide (nt) database is reported. BLAST was run using megaBLAST with an E-value cutoff of $10^{-5}$. Species names are extracted from the description of the best BLAST hit (first two words); hits starting with non-specific terms (\textit{uncultured}, \textit{unclassified}, \textit{metagenome}, etc.) are excluded from the species ranking.}

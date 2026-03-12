@@ -132,9 +132,17 @@ def encode_labels(metadata: 'pd.DataFrame', task_names: list, encoders_data: dic
         encoder = LabelEncoder()
         encoder.classes_ = np.array(encoders_data[task]['classes'])
         
-        # Transform test labels
-        y_test[task] = encoder.transform(metadata[task].values)
-        logger.info(f"Encoded {task}: {len(y_test[task])} samples")
+        known_classes = set(encoders_data[task]['classes'])
+        # Use -1 as sentinel for labels unseen during training
+        encoded = np.array([
+            encoder.transform([v])[0] if v in known_classes else -1
+            for v in metadata[task].values
+        ])
+        n_unseen = (encoded == -1).sum()
+        if n_unseen > 0:
+            logger.warning(f"{task}: {n_unseen} samples have unseen labels — excluded from metrics")
+        y_test[task] = encoded
+        logger.info(f"Encoded {task}: {(encoded >= 0).sum()} samples with seen labels (of {len(encoded)} total)")
     
     return y_test
 
@@ -179,13 +187,20 @@ def evaluate_model(model, X_test, y_test, task_names, device, batch_size=96):
     predictions = {task: np.array(preds) for task, preds in predictions.items()}
     probabilities = {task: np.array(probs) for task, probs in probabilities.items()}
     
-    # Compute metrics for each task
+    # Compute metrics for each task (seen labels only)
     results = {}
     for task in task_names:
-        y_true = y_test[task]
-        y_pred = predictions[task]
+        y_true_all = y_test[task]
+        y_pred_all = predictions[task]
+        
+        # Filter to samples with seen labels (-1 = unseen)
+        seen_mask = y_true_all >= 0
+        y_true = y_true_all[seen_mask]
+        y_pred = y_pred_all[seen_mask]
         
         task_results = {
+            'n_samples': int(seen_mask.sum()),
+            'n_unseen': int((~seen_mask).sum()),
             'accuracy': float(accuracy_score(y_true, y_pred)),
             'balanced_accuracy': float(balanced_accuracy_score(y_true, y_pred)),
             'f1_macro': float(f1_score(y_true, y_pred, average='macro', zero_division=0)),
@@ -232,12 +247,13 @@ def save_results(results: dict, predictions: dict, probabilities: dict, y_test: 
     for task in predictions.keys():
         # Add predicted class index
         predictions_df[f'{task}_pred_idx'] = predictions[task]
-        predictions_df[f'{task}_true_idx'] = y_test[task]
+        predictions_df[f'{task}_true_idx'] = y_test[task]  # -1 for unseen labels
         
         # Add predicted class name
         encoder_classes = encoders_data[task]['classes']
         predictions_df[f'{task}_pred'] = [encoder_classes[idx] for idx in predictions[task]]
-        predictions_df[f'{task}_true'] = [encoder_classes[idx] for idx in y_test[task]]
+        # Use original string labels (preserves unseen class names)
+        predictions_df[f'{task}_true'] = metadata[task].values
         
         # Add probabilities for each class
         task_probs = probabilities[task]
@@ -252,11 +268,12 @@ def save_results(results: dict, predictions: dict, probabilities: dict, y_test: 
     logger.info("\n" + "="*70)
     logger.info("TEST SET EVALUATION SUMMARY")
     logger.info("="*70)
-    logger.info(f"\nTest samples: {len(metadata)}")
-    logger.info("\nPer-Task Performance:\n")
+    logger.info(f"\nTest samples (total): {len(metadata)}")
+    logger.info("\nPer-Task Performance (seen labels only):\n")
     
     for task, metrics in results.items():
         logger.info(f"{task.upper()}:")
+        logger.info(f"  Samples (seen):    {metrics['n_samples']} / {len(metadata)} ({metrics['n_unseen']} unseen excluded)")
         logger.info(f"  Accuracy:          {metrics['accuracy']:.4f}")
         logger.info(f"  Balanced Accuracy: {metrics['balanced_accuracy']:.4f}")
         logger.info(f"  F1 (weighted):     {metrics['f1_weighted']:.4f}")

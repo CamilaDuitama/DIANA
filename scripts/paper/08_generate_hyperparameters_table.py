@@ -65,9 +65,9 @@ def generate_hyperparameters_table(output_dir):
     print("\n[2/2] Generating LaTeX table...")
     
     lines = []
-    lines.append("\\begin{table}[!t]")
     lines.append("\\centering")
     lines.append("\\caption{Optimized model hyperparameters\\label{tab:hyperparameters}}")
+    lines.append("\\addcontentsline{toc}{subsection}{Supplementary Table 4: Optimized model hyperparameters}")
     lines.append("\\begin{tabular*}{\\columnwidth}{@{\\extracolsep{\\fill}}lll@{\\extracolsep{\\fill}}}")
     lines.append("\\toprule")
     lines.append("Category & Parameter & Value \\\\")
@@ -103,13 +103,11 @@ def generate_hyperparameters_table(output_dir):
     
     lines.append("\\bottomrule")
     lines.append("\\end{tabular*}")
-    lines.append("\\begin{tablenotes}")
-    lines.append("\\item Hyperparameters determined via 5-fold cross-validation with 50 Optuna trials per fold.")
-    lines.append("\\item Values shown are aggregated from best trials across folds (mean for numeric, mode for categorical).")
-    lines.append("\\item Input features: 107,480 unitigs from muset k-mer matrix.")
-    lines.append("\\item Max epochs: 200 with early stopping based on validation loss.")
-    lines.append("\\end{tablenotes}")
-    lines.append("\\end{table}")
+    lines.append("\\\\[2mm]")
+    lines.append("{\\footnotesize Hyperparameters determined via 5-fold cross-validation with 50 Optuna trials per fold. "
+                 "Values shown are aggregated from best trials across folds (mean for numeric, mode for categorical). "
+                 "Input features: 107,480 unitigs from the input matrix. "
+                 "Max epochs: 200 with early stopping based on validation loss.}")
     
     output_file = output_dir / "sup_table_04_hyperparameters.tex"
     with open(output_file, 'w') as f:

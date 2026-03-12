@@ -1,0 +1,91 @@
+\small
+\begin{longtable}{llp{3.5cm}p{3.5cm}rrr}
+\caption{Validation set performance: Seen vs unseen labels with top 10 most frequent misclassification patterns\label{tab:seen_unseen_validation}}\addcontentsline{toc}{subsection}{\protect\numberline{\thetable}Seen vs unseen validation performance} \\
+\toprule
+Task & Category & True Label & Predicted Label & Count & \% Task & \% Total \\
+\midrule
+\endfirsthead
+
+\multicolumn{7}{c}{{\tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+Task & Category & True Label & Predicted Label & Count & \% Task & \% Total \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{7}{r}{{Continued on next page}} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+Sample Type & Seen - Correct & — & — & 868 & 87.9\% & 87.9\% \\
+ & Seen - Wrong & ancient & modern & 67 & 6.8\% & 6.8\% \\
+ &  & modern & ancient & 52 & 5.3\% & 5.3\% \\
+\addlinespace
+Community Type & Seen - Correct & — & — & 713 & 72.2\% & 72.2\% \\
+ & Seen - Wrong & oral & skeletal tissue & 90 & 9.1\% & 9.1\% \\
+ &  & oral & soft tissue & 55 & 5.6\% & 5.6\% \\
+ &  & oral & Not applicable - env sample & 52 & 5.3\% & 5.3\% \\
+ &  & soft tissue & skeletal tissue & 15 & 1.5\% & 1.5\% \\
+ &  & Not applicable - env sample & soft tissue & 13 & 1.3\% & 1.3\% \\
+ &  & gut & soft tissue & 9 & 0.9\% & 0.9\% \\
+ &  & Not applicable - env sample & plant tissue & 9 & 0.9\% & 0.9\% \\
+ &  & skeletal tissue & soft tissue & 8 & 0.8\% & 0.8\% \\
+ &  & skeletal tissue & Not applicable - env sample & 4 & 0.4\% & 0.4\% \\
+ &  & oral & gut & 4 & 0.4\% & 0.4\% \\
+ & Unseen & Unknown & soft tissue & 1 & 0.1\% & 0.1\% \\
+\addlinespace
+Sample Host & Seen - Correct & — & — & 741 & 75.1\% & 75.1\% \\
+ & Seen - Wrong & \textit{Homo sapiens} & Not applicable - env sample & 65 & 6.6\% & 6.6\% \\
+ &  & \textit{Homo sapiens} & \textit{Gorilla sp.} & 29 & 2.9\% & 2.9\% \\
+ &  & \textit{Homo sapiens} & \textit{Pan troglodytes} & 19 & 1.9\% & 1.9\% \\
+ &  & \textit{Homo sapiens} & \textit{Homo sapiens neanderthalensis} & 13 & 1.3\% & 1.3\% \\
+ &  & \textit{Homo sapiens} & \textit{Canis lupus} & 11 & 1.1\% & 1.1\% \\
+ &  & Not applicable - env sample & \textit{Homo sapiens} & 10 & 1.0\% & 1.0\% \\
+ &  & Not applicable - env sample & \textit{Arabidopsis thaliana} & 6 & 0.6\% & 0.6\% \\
+ &  & \textit{Homo sapiens} & \textit{Mammuthus primigenius} & 3 & 0.3\% & 0.3\% \\
+ &  & \textit{Homo sapiens neanderthalensis} & Not applicable - env sample & 3 & 0.3\% & 0.3\% \\
+ &  & Not applicable - env sample & \textit{Ambrosia artemisiifolia} & 2 & 0.2\% & 0.2\% \\
+ & Unseen & \textit{Gorilla beringei beringei} & \textit{Gorilla sp.} & 16 & 1.6\% & 1.6\% \\
+ &  & \textit{Lithobates pipiens} & \textit{Homo sapiens neanderthalensis} & 11 & 1.1\% & 1.1\% \\
+ &  & \textit{Alouatta palliata} & \textit{Gorilla sp.} & 8 & 0.8\% & 0.8\% \\
+ &  & \textit{Gorilla beringei graueri} & \textit{Gorilla sp.} & 8 & 0.8\% & 0.8\% \\
+ &  & \textit{Pan troglodytes schweinfurthii} & \textit{Pan troglodytes} & 7 & 0.7\% & 0.7\% \\
+ &  & \textit{Gorilla gorilla gorilla} & \textit{Gorilla sp.} & 5 & 0.5\% & 0.5\% \\
+ &  & \textit{Gorilla beringei} & \textit{Gorilla sp.} & 4 & 0.4\% & 0.4\% \\
+ &  & \textit{Gorilla beringei graueri} & \textit{Homo sapiens neanderthalensis} & 4 & 0.4\% & 0.4\% \\
+ &  & \textit{Pan troglodytes ellioti} & \textit{Pan troglodytes} & 4 & 0.4\% & 0.4\% \\
+ &  & \textit{Papio hamadryas} & \textit{Homo sapiens} & 4 & 0.4\% & 0.4\% \\
+\addlinespace
+Material & Seen - Correct & — & — & 483 & 48.9\% & 48.9\% \\
+ & Seen - Wrong & tooth & dental calculus & 44 & 4.5\% & 4.5\% \\
+ &  & tooth & bone & 30 & 3.0\% & 3.0\% \\
+ &  & dental calculus & tooth & 26 & 2.6\% & 2.6\% \\
+ &  & soil & sediment & 16 & 1.6\% & 1.6\% \\
+ &  & bone & tooth & 16 & 1.6\% & 1.6\% \\
+ &  & soil & skin & 10 & 1.0\% & 1.0\% \\
+ &  & dental calculus & bone & 9 & 0.9\% & 0.9\% \\
+ &  & dental calculus & skin & 7 & 0.7\% & 0.7\% \\
+ &  & tooth & skin & 7 & 0.7\% & 0.7\% \\
+ &  & dental calculus & soil & 6 & 0.6\% & 0.6\% \\
+ & Unseen & lake sediment & sediment & 81 & 8.2\% & 8.2\% \\
+ &  & marine sediment & sediment & 64 & 6.5\% & 6.5\% \\
+ &  & birch pitch & sediment & 39 & 4.0\% & 4.0\% \\
+ &  & birch pitch & skin & 30 & 3.0\% & 3.0\% \\
+ &  & Unknown & bone & 9 & 0.9\% & 0.9\% \\
+ &  & lake sediment & permafrost & 9 & 0.9\% & 0.9\% \\
+ &  & birch pitch & saliva & 7 & 0.7\% & 0.7\% \\
+ &  & intestine & skin & 7 & 0.7\% & 0.7\% \\
+ &  & palaeofaeces & digestive tract contents & 3 & 0.3\% & 0.3\% \\
+ &  & birch pitch & bone & 3 & 0.3\% & 0.3\% \\
+\end{longtable}
+\\[2mm]
+{\footnotesize
+\textbf{Category:} Seen labels were present in training; Unseen labels were not in training. 
+\textbf{Seen - Correct:} Samples correctly classified with labels seen during training. 
+\textbf{Seen - Wrong:} Top 10 most frequent misclassification patterns for seen labels (True Label $\to$ Predicted Label). 
+\textbf{Unseen:} Top 10 most frequent predictions for unseen labels (model maps to semantically similar seen classes). 
+\textbf{\% Task:} Percentage relative to total samples for that task in validation set. 
+\textbf{\% Total:} Percentage relative to total validation samples across all tasks. 
+Total validation samples: 987 (unique sample IDs across 4 tasks = 3948 predictions).
+}

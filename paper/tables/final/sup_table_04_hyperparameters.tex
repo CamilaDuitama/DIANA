@@ -1,0 +1,25 @@
+\centering
+\caption{Optimized model hyperparameters\label{tab:hyperparameters}}
+\addcontentsline{toc}{subsection}{Supplementary Table 4: Optimized model hyperparameters}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lll@{\extracolsep{\fill}}}
+\toprule
+Category & Parameter & Value \\
+\midrule
+\multirow{4}{*}{Architecture} & Input features & 107,480 \\
+ & Hidden layers & {[}307, 358{]} \\
+ & Dropout rate & 0.2401 \\
+ & Activation & relu \\
+\addlinespace
+\multirow{4}{*}{Training} & Learning rate & 0.001807 \\
+ & Weight decay & 1.36e-04 \\
+ & Batch size & 89 \\
+ & Max epochs & 200 \\
+\addlinespace
+\multirow{4}{*}{Task Weights} & Sample Type & 1.219 \\
+ & Community Type & 1.557 \\
+ & Sample Host & 1.337 \\
+ & Material & 1.582 \\
+\bottomrule
+\end{tabular*}
+\\[2mm]
+{\footnotesize Hyperparameters determined via 5-fold cross-validation with 50 Optuna trials per fold. Values shown are aggregated from best trials across folds (mean for numeric, mode for categorical). Input features: 107,480 unitigs from the input matrix. Max epochs: 200 with early stopping based on validation loss.}

@@ -80,9 +80,10 @@ def generate_perclass_performance_table(output_dir):
     print("\n[2/3] Calculating per-class metrics...")
     
     lines = []
-    lines.append("\\begin{table*}[!p]")
+    lines.append("\\centering")
     lines.append("\\caption{Per-class performance on validation set (seen labels only)\\label{tab:perclass_performance}}")
-    lines.append("\\begin{tabular*}{\\textwidth}{@{\\extracolsep{\\fill}}llrrrrr@{\\extracolsep{\\fill}}}")
+    lines.append("\\addcontentsline{toc}{subsection}{Supplementary Table 3: Per-class performance on validation set}")
+    lines.append("\\begin{tabular*}{\\columnwidth}{@{\\extracolsep{\\fill}}llrrrrr@{\\extracolsep{\\fill}}}")
     lines.append("\\toprule")
     lines.append("Task & Class Label & n & Accuracy & Precision & Recall & F1-Score \\\\")
     lines.append("\\midrule")
@@ -123,7 +124,8 @@ def generate_perclass_performance_table(output_dir):
         
         for cls, n, acc, prec, rec, f1 in class_stats:
             cls_str = str(cls).replace('_', '\\_').replace('&', '\\&')
-            if task == 'sample_host' and cls != 'Not applicable - env sample':
+            if task == 'sample_host' and cls not in ('Not applicable - env sample', 'Other mammal'):
+                cls_str = cls_str[0].upper() + cls_str[1:]
                 cls_str = f"\\textit{{{cls_str}}}"
             
             lines.append(
@@ -134,14 +136,12 @@ def generate_perclass_performance_table(output_dir):
     
     lines.append("\\bottomrule")
     lines.append("\\end{tabular*}")
-    lines.append("\\begin{tablenotes}")
-    lines.append("\\item Metrics computed only for seen labels (present in training set).")
-    lines.append("\\item Accuracy: proportion of samples in each class correctly classified.")
-    lines.append("\\item Precision: proportion of predictions for a class that were correct.")
-    lines.append("\\item Recall: proportion of true instances of a class that were correctly predicted.")
-    lines.append("\\item F1-Score: harmonic mean of precision and recall.")
-    lines.append("\\end{tablenotes}")
-    lines.append("\\end{table*}")
+    lines.append("\\\\[2mm]")
+    lines.append("{\\footnotesize Metrics computed only for seen labels (present in training set). "
+                 "Accuracy: proportion of samples in each class correctly classified. "
+                 "Precision: proportion of predictions for a class that were correct. "
+                 "Recall: proportion of true instances of a class that were correctly predicted. "
+                 "F1-Score: harmonic mean of precision and recall.}")
     
     print("\n[3/3] Writing table...")
     output_file = output_dir / "sup_table_03_perclass_performance.tex"

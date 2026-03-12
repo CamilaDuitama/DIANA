@@ -1,0 +1,90 @@
+\small
+\begin{longtable}{lp{4cm}p{4cm}r}
+\caption{Common misclassification patterns across all tasks (Validation set)\label{tab:wrong_merged}}\\
+\toprule
+Task & True Label & Predicted Label & Count \\
+\midrule
+\endfirsthead
+\multicolumn{4}{c}{\textit{Table \thetable{} continued from previous page}} \\
+\toprule
+Task & True Label & Predicted Label & Count \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+Sample Type & ancient & modern & 67 \\
+ & modern & ancient & 52 \\
+\addlinespace
+Community Type & oral & skeletal tissue & 90 \\
+ & oral & soft tissue & 55 \\
+ & oral & Not applicable - env sample & 52 \\
+ & soft tissue & skeletal tissue & 15 \\
+ & Not applicable - env sample & soft tissue & 13 \\
+ & gut & soft tissue & 9 \\
+ & Not applicable - env sample & plant tissue & 9 \\
+ & skeletal tissue & soft tissue & 8 \\
+ & skeletal tissue & Not applicable - env sample & 4 \\
+ & oral & gut & 4 \\
+ & gut & Not applicable - env sample & 4 \\
+ & skeletal tissue & oral & 3 \\
+ & gut & oral & 2 \\
+ & gut & skeletal tissue & 2 \\
+ & Not applicable - env sample & skeletal tissue & 2 \\
+ & plant tissue & Not applicable - env sample & 1 \\
+\addlinespace
+Sample Host & \textit{Homo sapiens} & Not applicable - env sample & 65 \\
+ & \textit{Homo sapiens} & \textit{Gorilla sp.} & 29 \\
+ & \textit{Homo sapiens} & \textit{Pan troglodytes} & 19 \\
+ & \textit{Homo sapiens} & \textit{Homo sapiens neanderthalensis} & 13 \\
+ & \textit{Homo sapiens} & \textit{Canis lupus} & 11 \\
+ & Not applicable - env sample & \textit{Homo sapiens} & 10 \\
+ & Not applicable - env sample & \textit{Arabidopsis thaliana} & 6 \\
+ & \textit{Homo sapiens} & \textit{Mammuthus primigenius} & 3 \\
+ & \textit{Homo sapiens neanderthalensis} & Not applicable - env sample & 3 \\
+ & Not applicable - env sample & \textit{Ambrosia artemisiifolia} & 2 \\
+ & Not applicable - env sample & \textit{Gorilla sp.} & 2 \\
+ & \textit{Canis lupus} & Not applicable - env sample & 1 \\
+ & \textit{Homo sapiens} & Other mammal & 1 \\
+ & \textit{Arabidopsis thaliana} & Not applicable - env sample & 1 \\
+ & \textit{Homo sapiens neanderthalensis} & \textit{Homo sapiens} & 1 \\
+ & \textit{Homo sapiens} & \textit{Ursus arctos} & 1 \\
+\addlinespace
+Material & tooth & dental calculus & 44 \\
+ & tooth & bone & 30 \\
+ & dental calculus & tooth & 26 \\
+ & bone & tooth & 16 \\
+ & soil & sediment & 16 \\
+ & soil & skin & 10 \\
+ & dental calculus & bone & 9 \\
+ & dental calculus & skin & 7 \\
+ & tooth & skin & 7 \\
+ & dental calculus & soil & 6 \\
+ & tooth & sediment & 5 \\
+ & soil & leaf & 5 \\
+ & permafrost & sediment & 5 \\
+ & saliva & plaque & 4 \\
+ & bone & sediment & 4 \\
+ & dental calculus & sediment & 4 \\
+ & tooth & plaque & 4 \\
+ & tooth & digestive tract contents & 3 \\
+ & tooth & shell & 3 \\
+ & bone & skin & 2 \\
+ & dental calculus & saliva & 2 \\
+ & plaque & dental calculus & 2 \\
+ & permafrost & leaf & 2 \\
+ & dental calculus & digestive tract contents & 1 \\
+ & leaf & sediment & 1 \\
+ & bone & dental calculus & 1 \\
+ & bone & shell & 1 \\
+ & saliva & tooth & 1 \\
+ & soil & permafrost & 1 \\
+ & plaque & saliva & 1 \\
+ & plaque & skin & 1 \\
+ & soil & tooth & 1 \\
+\end{longtable}
+\addcontentsline{toc}{subsection}{Supplementary Table 5: Common misclassification patterns}
+\\[2mm]
+{\footnotesize Only includes misclassifications of seen classes (present in training data). Count: Number of samples misclassified. Sorted by frequency (most common patterns first).}

@@ -32,53 +32,51 @@ from config import PATHS
 
 def generate_blast_summary_table(blast_data: dict, output_path: Path) -> None:
     """Generate BLAST summary table from JSON data."""
-    
+
     lines = []
-    lines.append("\\begin{table}[htbp]")
     lines.append("\\centering")
-    lines.append("\\caption{BLAST Hit Statistics for All Features}")
-    lines.append("\\label{tab:blast_summary}")
-    lines.append("\\begin{tabular}{lr}")
+    lines.append("\\caption{BLAST Hit Statistics for All Features\\label{tab:blast_summary}}")
+    lines.append("\\begin{tabular*}{\\columnwidth}{@{\\extracolsep{\\fill}}lr}")
     lines.append("\\toprule")
     lines.append("\\textbf{Metric} & \\textbf{Value} \\\\")
     lines.append("\\midrule")
-    
+
     # Section 1: Overall Statistics
     lines.append("\\multicolumn{2}{l}{\\textit{Overall Statistics}} \\\\")
     lines.append(f"Total features analyzed & {blast_data['total_features']:,} \\\\")
     lines.append(f"Features with BLAST hits & {blast_data['features_with_blast_hits']:,} \\\\")
     lines.append(f"Overall hit rate & {blast_data['hit_rate_percent']:.2f}\\% \\\\")
     lines.append("\\midrule")
-    
+
     # Section 2: Identity Distribution
-    lines.append("\\multicolumn{2}{l}{\\textit{Identity Distribution}} \\\\")
+    lines.append("\\multicolumn{2}{l}{\\textit{Identity Distribution (best hit per feature)}} \\\\")
     pident = blast_data['blast_statistics']['pident_ranges']
     lines.append(f"$\\geq$95\\% identity & {pident['>=95%']:,} \\\\")
     lines.append(f"90--95\\% identity & {pident['90-95%']:,} \\\\")
     lines.append(f"80--90\\% identity & {pident['80-90%']:,} \\\\")
     lines.append(f"$<$80\\% identity & {pident['<80%']:,} \\\\")
     lines.append("\\midrule")
-    
-    # Section 3: Taxonomic Distribution (Kingdom)
-    lines.append("\\multicolumn{2}{l}{\\textit{Taxonomic Distribution (Kingdom)}} \\\\")
-    kingdoms = blast_data['taxonomy']['kingdom_counts']
-    
-    # Order: Bacteria, Eukaryota, Archaea, Viruses, Unknown
-    kingdom_order = ['Bacteria', 'Eukaryota', 'Archaea', 'Viruses', 'Unknown']
-    for kingdom in kingdom_order:
-        if kingdom in kingdoms:
-            lines.append(f"{kingdom} & {kingdoms[kingdom]:,} \\\\")
-    
-    lines.append("\\midrule")
-    
-    # Unique genera
-    unique_genera = blast_data['taxonomy']['unique_genera']
-    lines.append(f"Unique genera identified & {unique_genera} \\\\")
-    
+
+    # Section 3: Top 10 species by number of features
+    lines.append("\\multicolumn{2}{l}{\\textit{Top 10 most frequent species (best hit per feature)}} \\\\")
+    top_species = blast_data['taxonomy']['top_species_by_feature_count']
+    for species, count in list(top_species.items())[:10]:
+        lines.append(f"\\textit{{{species}}} & {count:,} \\\\")
+
     lines.append("\\bottomrule")
-    lines.append("\\end{tabular}")
-    lines.append("\\end{table}")
-    
+    lines.append("\\end{tabular*}")
+    lines.append("\\addcontentsline{toc}{subsection}{Supplementary Table 6: BLAST hit statistics}")
+    lines.append("\\\\[2mm]")
+    lines.append(
+        "{\\footnotesize For each of the %s unitig features, the best BLAST hit "
+        "(highest bitscore) against the NCBI nucleotide (nt) database is reported. "
+        "BLAST was run using megaBLAST with an E-value cutoff of $10^{-5}$. "
+        "Species names are extracted from the description of the best BLAST hit "
+        "(first two words); hits starting with non-specific terms (\\textit{uncultured}, "
+        "\\textit{unclassified}, \\textit{metagenome}, etc.) are excluded from the species ranking.}" %
+        f"{blast_data['total_features']:,}"
+    )
+
     with open(output_path, 'w') as f:
         f.write('\n'.join(lines))
 

@@ -200,9 +200,12 @@ def load_metadata(sample_ids):
     all_meta = pl.concat([train_meta, test_meta])
     metadata = all_meta.filter(pl.col("Run_accession").is_in(sample_ids))
     
-    # CRITICAL: Reorder metadata to match sample_ids order exactly
-    # Create explicit index mapping from sample_ids
-    sample_to_idx = {sid: i for i, sid in enumerate(sample_ids)}
+    # CRITICAL: Reorder metadata to match sample_ids order exactly.
+    # Some samples in the matrix (kmtricks.fof) may lack metadata entries; keep only
+    # those that appear in both, preserving the matrix row order.
+    meta_accessions = set(metadata['Run_accession'].to_list())
+    filtered_sample_ids = [sid for sid in sample_ids if sid in meta_accessions]
+    sample_to_idx = {sid: i for i, sid in enumerate(filtered_sample_ids)}
     
     # Convert to pandas for easier ordering, then back to polars
     metadata_pd = metadata.to_pandas()
@@ -210,13 +213,22 @@ def load_metadata(sample_ids):
     metadata_pd = metadata_pd.sort_values('_order').drop('_order', axis=1)
     metadata = pl.from_pandas(metadata_pd)
     
-    # Verify order matches
-    if metadata['Run_accession'].to_list() != sample_ids:
+    # Verify order matches the (filtered) sample list
+    if metadata['Run_accession'].to_list() != filtered_sample_ids:
         raise ValueError("Metadata order does not match sample_ids order!")
+    
+    if len(filtered_sample_ids) < len(sample_ids):
+        n_skipped = len(sample_ids) - len(filtered_sample_ids)
+        logger.warning(f"  Skipped {n_skipped} matrix samples with no metadata (not in train/test splits)")
     
     logger.info(f"  ✓ Loaded metadata for {len(metadata)} samples")
     logger.info(f"  ✓ Verified metadata order matches matrix rows")
-    return metadata
+
+    # Return the integer row indices into the original sample_ids list so the caller
+    # can align embedding matrices (PCA/UMAP/t-SNE) to this metadata.
+    meta_set = set(filtered_sample_ids)
+    indices = [i for i, sid in enumerate(sample_ids) if sid in meta_set]
+    return metadata, indices
 
 
 def load_blast_annotations(unitig_ids):
@@ -1793,7 +1805,7 @@ def main():
     try:
         # Load data (standardization OFF by default - unitig fractions already normalized)
         matrix, sample_ids, unitig_ids, scaler = load_unitig_matrix(standardize=False)
-        metadata = load_metadata(sample_ids)
+        metadata, meta_indices = load_metadata(sample_ids)
         blast_annotations = load_blast_annotations(unitig_ids)
         
         # Perform PCA (load from cache if available)
@@ -1865,6 +1877,19 @@ def main():
                     pickle.dump(tsne_result, f)
                 logger.info(f"  ✓ Saved t-SNE embedding: {tsne_cache}")
         
+        # Align all embeddings to samples that have metadata (meta_indices may exclude
+        # a small number of matrix samples not present in train/test metadata files).
+        # Cached embeddings may already be aligned (len == len(meta_indices)); only
+        # slice when the embedding covers the full unfiltered sample list.
+        n_full = len(sample_ids)
+        if pca_result.shape[0] == n_full:
+            pca_result = pca_result[meta_indices]
+        if umap_result is not None and umap_result.shape[0] == n_full:
+            umap_result = umap_result[meta_indices]
+        if tsne_result is not None and tsne_result.shape[0] == n_full:
+            tsne_result = tsne_result[meta_indices]
+        sample_ids = [sample_ids[i] for i in meta_indices]
+
         # Calculate separation metrics for PCA
         separation_metrics = calculate_separation_metrics(pca_result, metadata)
         

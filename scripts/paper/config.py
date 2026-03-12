@@ -28,7 +28,7 @@ PATHS = {
     
     # Performance metrics
     'test_metrics': 'results/test_evaluation/test_metrics.json',
-    'training_metrics': 'results/training/training_set_metrics.json',  # Full training set (2,609 samples)
+    'training_metrics': 'results/training/training_set_metrics.json',  # Full training set
     'training_history': 'results/training/training_history.json',
     
     # Cross-validation and hyperparameters

@@ -1,0 +1,30 @@
+\centering
+\caption{Feature matrix generation parameters and computational resources\label{tab:matrix_generation}}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thetable}Feature matrix generation parameters and computational resources}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}llr@{\extracolsep{\fill}}}
+\toprule
+Category & Parameter & Value \\
+\midrule
+\multirow{2}{*}{Input} & Samples & 3,070 \\
+ & Data source & Logan unitigs \\
+\addlinespace
+\multirow{7}{*}{k-mer Filtering} & k-mer size & 31 \\
+ & Minimum abundance & 2 \\
+ & Minimizer size & 15 \\
+ & Min. fraction present (-F) & 0.1 \\
+ & Max. fraction absent (-f) & 0.1 \\
+ & Initial k-mers & 436,456,132,058 \\
+ & Retained k-mers & 18,953,119 \\
+\addlinespace
+\multirow{3}{*}{Unitig Assembly} & Minimum length & 61 bp \\
+ & Total unitigs assembled & 2,755,241 \\
+ & Final unitigs & 107,480 \\
+\addlinespace
+\multirow{4}{*}{Computational} & Tool & muset v0.6.1 \\
+ & CPU cores & 32 \\
+ & Memory & 500 GB \\
+ & Runtime & 3d 4h 45m \\
+\bottomrule
+\end{tabular*}
+\\[2mm]
+{\footnotesize Feature matrix constructed using muset on maestro cluster (node maestro-2499). k-mer matrix built with kmtricks, filtered by sample presence, assembled into unitigs with ggcat, and aggregated into mean coverage matrix. Final matrix dimensions: 3,070 samples $\times$ 107,480 unitigs. Training subset: 2,597 samples after filtering.}

@@ -561,8 +561,19 @@ def main():
         current += 1
         logger.info(f"\n[{current}/{total_figures}] Generating confusion matrix for {task_name}...")
         cm = np.array(task_metrics['confusion_matrix'])
+        # The CM may only cover classes present in the test set (subset of encoder classes).
+        # Derive correct class labels from the classification report, whose keys are integer
+        # strings mapping to encoder class indices.
+        summary_keys = {'accuracy', 'macro avg', 'weighted avg'}
+        report_class_keys = [k for k in task_metrics['classification_report'] if k not in summary_keys]
+        try:
+            cm_class_names = [class_names[int(k)] for k in sorted(report_class_keys, key=int)]
+        except (ValueError, IndexError):
+            cm_class_names = class_names  # keys are already class name strings
+        if len(cm_class_names) != len(cm):
+            cm_class_names = class_names  # last-resort fallback
         plot_confusion_matrix(
-            cm, class_names, task_name,
+            cm, cm_class_names, task_name,
             figures_dir / f'test_set_confusion_matrix_{task_name}'
         )
         

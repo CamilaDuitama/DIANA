@@ -216,12 +216,11 @@ def generate_performance_summary_table(output_dir):
     }
     
     lines = []
-    lines.append("\\begin{table*}[!t]")
     lines.append("\\centering")
     lines.append("\\caption{Final model performance across the Training set, the held-out Test set, and the external Validation set.}")
     lines.append("\\label{tab:performance}")
     lines.append("\\small")
-    lines.append("\\begin{tabular*}{\\textwidth}{@{\\extracolsep{\\fill}}llrrrr@{\\extracolsep{\\fill}}}")
+    lines.append("\\begin{tabular*}{\\textwidth}{@{\\extracolsep{\\fill}}p{3.5cm}lrrrr@{\\extracolsep{\\fill}}}")
     lines.append("\\toprule")
     lines.append("Task & Dataset & n & Acc (\\%) & Bal Acc (\\%) & F1 Score (\\%) \\\\")
     lines.append("\\midrule")
@@ -257,14 +256,16 @@ def generate_performance_summary_table(output_dir):
     
     lines.append("\\bottomrule")
     lines.append("\\end{tabular*}")
-    lines.append("\\begin{tablenotes}")
+    note_parts = []
     if use_actual_training:
-        lines.append(r"\item Training: Performance on all 2,609 training samples (seen labels only).")
-    lines.append(r"\item Test: Performance on the held-out test set (n=461).")
-    lines.append("\\item Validation: Performance on the external validation set. Metrics computed only on samples with labels seen during training.")
-    lines.append("\\item Acc: Accuracy. Bal Acc: Balanced Accuracy (average per-class recall). F1 Score: Macro-averaged F1-score.")
-    lines.append("\\end{tablenotes}")
-    lines.append("\\end{table*}")
+        n_train = train_metrics[TASKS[0]]['n']
+        note_parts.append(f"Training: Performance on all {n_train:,} training samples (seen labels only).")
+    note_parts.append("Test: Performance on the held-out test set (n=461).")
+    note_parts.append("Validation: Performance on the external validation set; metrics computed only on samples with labels seen during training.")
+    note_parts.append("Acc: Accuracy. Bal Acc: Balanced Accuracy (average per-class recall). F1 Score: Macro-averaged F1-score.")
+    note_text = " ".join(note_parts)
+    lines.append("\\par\\vspace{4pt}")
+    lines.append(f"\\parbox{{\\linewidth}}{{\\footnotesize \\textbf{{Notes:}} {note_text}}}")
     
     output_file = output_dir / "main_table_01_performance_summary.tex"
     with open(output_file, 'w') as f:

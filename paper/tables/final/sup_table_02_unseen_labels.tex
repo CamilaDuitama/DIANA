@@ -1,0 +1,72 @@
+\begin{longtable}{llrr}
+\caption{Model predictions for unseen labels\label{tab:unseen_labels}}\\
+\toprule
+Task & True Label (Unseen) & Predicted Label & Count \\
+\midrule
+\endfirsthead
+\multicolumn{4}{c}{\textit{Table \thetable{} continued from previous page}} \\
+\toprule
+Task & True Label (Unseen) & Predicted Label & Count \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{4}{l}{\textbf{Sample Host}} \\
+\addlinespace[0.5em]
+ & \textit{alouatta palliata} & \textit{Gorilla sp.} & 8 \\
+ & \textit{gorilla beringei} & \textit{Gorilla sp.} & 4 \\
+ & \textit{gorilla beringei beringei} & \textit{Gorilla sp.} & 16 \\
+ & \textit{gorilla beringei graueri} & \textit{Gorilla sp.} & 8 \\
+ & \textit{gorilla beringei graueri} & \textit{Homo sapiens neanderthalensis} & 4 \\
+ & \textit{gorilla gorilla gorilla} & \textit{Gorilla sp.} & 5 \\
+ & \textit{homo sapiens} & \textit{Homo sapiens} & 1 \\
+ & \textit{lithobates pipiens} & \textit{Homo sapiens neanderthalensis} & 11 \\
+ & \textit{pan troglodytes ellioti} & \textit{Pan troglodytes} & 4 \\
+ & \textit{pan troglodytes schweinfurthii} & \textit{Pan troglodytes} & 7 \\
+ & \textit{papio anubis} & \textit{Homo sapiens} & 3 \\
+ & \textit{papio anubis} & \textit{Pan troglodytes} & 1 \\
+ & \textit{papio hamadryas} & \textit{Homo sapiens} & 4 \\
+ & \textit{papio hamadryas} & \textit{Gorilla sp.} & 1 \\
+ & \textit{papio sp.} & \textit{Homo sapiens neanderthalensis} & 1 \\
+ & \textit{unknown} & \textit{Homo sapiens neanderthalensis} & 1 \\
+\addlinespace
+\multicolumn{4}{l}{\textbf{Material}} \\
+\addlinespace[0.5em]
+ & Oral & tissue & 1 \\
+ & Skin & skin & 18 \\
+ & Skin & tooth & 2 \\
+ & anterior nares & bone & 2 \\
+ & birch pitch & sediment & 39 \\
+ & birch pitch & skin & 30 \\
+ & birch pitch & saliva & 7 \\
+ & birch pitch & bone & 3 \\
+ & brain & tissue & 1 \\
+ & buccal mucosa & skin & 2 \\
+ & dentine & bone & 1 \\
+ & dentine & dental calculus & 1 \\
+ & digestive\_contents & digestive tract contents & 1 \\
+ & faeces & digestive tract contents & 16 \\
+ & faeces & dental calculus & 1 \\
+ & intestine & skin & 7 \\
+ & intestine & bone & 3 \\
+ & intestine & tooth & 1 \\
+ & lake sediment & sediment & 81 \\
+ & lake sediment & permafrost & 9 \\
+ & lake sediment & tissue & 1 \\
+ & marine sediment & sediment & 64 \\
+ & marine sediment & shell & 2 \\
+ & palaeofaeces & digestive tract contents & 3 \\
+ & palaeofaeces & dental calculus & 1 \\
+ & palaeofaeces & sediment & 1 \\
+ & shallow marine sediment & sediment & 2 \\
+ & shallow marine sediment & skin & 1 \\
+ & tongue & skin & 2 \\
+ & tongue & tissue & 2 \\
+\addlinespace
+\bottomrule
+\end{longtable}
+\addcontentsline{toc}{subsection}{Supplementary Table 2: Model predictions for unseen labels}
+{\footnotesize Unseen labels are categories not present in the training set. Sample Host: Novel species/subspecies correctly mapped to genus/species-level training classes. Material: Novel material types mapped to semantically similar training classes. Sample Host: 79 unseen predictions. Material: 305 unseen predictions.}
