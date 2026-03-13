@@ -50,16 +50,39 @@ class Predictor:
         self._load_model()
         
     def _load_model(self):
-        """Load model from checkpoint."""
+        """Load model from checkpoint.
+
+        Supports two checkpoint formats:
+        - Dict with 'model_state_dict' key (standard DIANA training output)
+        - Raw state_dict (bare OrderedDict of tensors)
+        """
+        # weights_only=False is required because checkpoints may contain non-tensor
+        # objects (config dicts, etc.).  Only load checkpoints from trusted sources.
         checkpoint = torch.load(self.model_path, map_location=self.device, weights_only=False)
-        
-        model_state = checkpoint['model_state_dict']
-        
-        # Determine model type from checkpoint
+
+        # Support both wrapped checkpoints and raw state dicts
+        if isinstance(checkpoint, dict) and 'model_state_dict' in checkpoint:
+            model_state = checkpoint['model_state_dict']
+        elif isinstance(checkpoint, dict) and all(
+            isinstance(v, torch.Tensor) for v in checkpoint.values()
+        ):
+            # Raw state dict — no metadata available
+            model_state = checkpoint
+            checkpoint = {}
+            logger.warning(
+                "Checkpoint is a raw state_dict with no metadata. "
+                "Architecture will be inferred from tensor shapes."
+            )
+        else:
+            raise ValueError(
+                f"Unrecognised checkpoint format in {self.model_path}. "
+                "Expected a dict with 'model_state_dict' or a raw state_dict."
+            )
+
+        # Determine model type from checkpoint or by inspecting state keys
         if 'model_type' in checkpoint:
             model_type = checkpoint['model_type']
         else:
-            # Infer from state dict keys
             state_keys = list(model_state.keys())
             model_type = 'multitask' if any('heads' in k for k in state_keys) else 'single_task'
         
@@ -124,10 +147,34 @@ class Predictor:
                 use_batch_norm=use_batch_norm
             )
         else:
-            # Only multi-task models are supported
-            raise ValueError(
-                f"Unsupported model type: {model_type}. "
-                "Only 'multitask' models are currently supported."
+            # Single-task model
+            input_dim = model_state[list(model_state.keys())[0]].shape[1]
+            use_batch_norm = any(
+                'running_mean' in k or 'running_var' in k for k in model_state.keys()
+            )
+            hidden_dims = []
+            for key in sorted(model_state.keys()):
+                if key.endswith('.weight'):
+                    base_key = key.replace('.weight', '')
+                    if f'{base_key}.running_mean' not in model_state:
+                        hidden_dims.append(model_state[key].shape[0])
+
+            # The last entry in hidden_dims is the output (num_classes), not hidden
+            num_classes = hidden_dims.pop() if hidden_dims else 2
+            dropout = checkpoint.get('dropout', 0.5)
+
+            logger.info(
+                f"Inferred single-task architecture: input_dim={input_dim}, "
+                f"hidden_dims={hidden_dims}, num_classes={num_classes}, "
+                f"use_batch_norm={use_batch_norm}"
+            )
+
+            self.model = SingleTaskMLP(
+                input_dim=input_dim,
+                hidden_dims=hidden_dims,
+                num_classes=num_classes,
+                dropout=dropout,
+                use_batch_norm=use_batch_norm
             )
         
         self.model.load_state_dict(model_state)
@@ -173,91 +220,6 @@ class Predictor:
                     predictions[target] = pred_class
             
             return predictions
-    
-    def explain_prediction(
-        self,
-        features: np.ndarray,
-        top_k: int = 20
-    ) -> Dict[str, Dict]:
-        """
-        Explain which features contributed most to the prediction.
-        
-        Uses gradient-based attribution to identify the most important
-        features (unitigs) that influenced the prediction for each task.
-        
-        Args:
-            features: Feature vector of shape (num_unitigs,).
-            top_k: Number of top contributing features to return per task.
-            
-        Returns:
-            Dictionary with feature importance for each task:
-            {
-                'sample_type': {
-                    'predicted_class': 0,
-                    'predicted_label': 'ancient_metagenome',
-                    'top_features': [
-                        {'index': 123, 'importance': 0.456, 'value': 1.0},
-                        {'index': 45, 'importance': 0.389, 'value': 1.0},
-                        ...
-                    ]
-                },
-                ...
-            }
-        
-        Example:
-            >>> predictor = Predictor('model.pth')
-            >>> features = extract_features('sample.fastq')
-            >>> explanation = predictor.explain_prediction(features, top_k=10)
-            >>> print(f"Predicted: {explanation['sample_type']['predicted_label']}")
-            >>> print("Top distinguishing unitigs:")
-            >>> for feat in explanation['sample_type']['top_features'][:5]:
-            >>>     print(f"  Unitig {feat['index']}: importance={feat['importance']:.3f}")
-        """
-        # Convert to tensor
-        x = torch.FloatTensor(features).unsqueeze(0).to(self.device)
-        x.requires_grad = True
-        
-        # Forward pass
-        self.model.eval()
-        outputs = self.model(x)
-        
-        explanations = {}
-        
-        for target, logits in outputs.items():
-            # Get predicted class
-            probs = torch.softmax(logits, dim=1)
-            pred_class = int(torch.argmax(probs, dim=1).item())
-            
-            # Compute gradient of predicted class logit w.r.t. input
-            if x.grad is not None:
-                x.grad.zero_()
-            
-            logits[0, pred_class].backward(retain_graph=True)
-            
-            # Feature importance = absolute gradient * feature value
-            # This shows which features, when present, most influenced this prediction
-            gradients = x.grad.abs().squeeze(0).cpu().numpy()
-            feature_importance = gradients * features
-            
-            # Get top-k features
-            top_indices = np.argsort(feature_importance)[-top_k:][::-1]
-            
-            top_features = []
-            for idx in top_indices:
-                top_features.append({
-                    'index': int(idx),
-                    'importance': float(feature_importance[idx]),
-                    'gradient': float(gradients[idx]),
-                    'value': float(features[idx])
-                })
-            
-            explanations[target] = {
-                'predicted_class': pred_class,
-                'confidence': float(probs[0, pred_class].item()),
-                'top_features': top_features
-            }
-        
-        return explanations
     
     def predict_batch(
         self,
