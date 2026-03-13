@@ -117,7 +117,7 @@ def generate_latex(ranking: pd.DataFrame) -> str:
     lines.append(
         "{\\footnotesize "
         "Counts use the full validation set (987 runs), including runs whose true labels are "
-        "outside DIANA's label set; see Table~\\ref{tab:performance} for seen-label-only metrics. "
+        "outside DIANA's label set. "
         "$^{a}$~Main tasks indicate the task(s) contributing the largest share of high-confidence errors for that BioProject. "
         "Task abbreviations: ST\\,=\\,Sample Type, CT\\,=\\,Community Type, "
         "SH\\,=\\,Sample Host, Mat.\\,=\\,Material. "
