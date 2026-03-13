@@ -130,7 +130,12 @@ def generate_latex(ranking: pd.DataFrame) -> str:
     lines.append(
         "{\\footnotesize Confident errors: prediction confidence $\\geq 0.9$ and "
         "predicted label $\\neq$ true label. Val runs: number of sequencing runs "
-        "from this BioProject in the validation set. Root-cause categories — "
+        "from this BioProject in the validation set. "
+        "\\textbf{Note:} confident-error counts use the full validation set "
+        "(987 runs), including runs whose true labels were unseen during training; "
+        "this differs from Table~\\ref{tab:performance}, where validation metrics "
+        "are restricted to seen-label runs only. "
+        "Root-cause categories --- "
         "\\textit{OOD material}: label class absent from DIANA training data; "
         "\\textit{Label granularity}: AMD label is finer-grained than the DIANA "
         "training class (e.g.\\ lake sediment vs.\\ sediment); "

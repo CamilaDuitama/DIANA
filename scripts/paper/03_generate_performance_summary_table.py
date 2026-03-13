@@ -203,6 +203,11 @@ def generate_performance_summary_table(output_dir):
     print("\n[3/4] Calculating validation metrics...")
     validation_df = load_validation_predictions()
     val_metrics = calculate_validation_metrics(validation_df)
+    # Compute total-N per task (all runs, including unseen labels)
+    val_total_n = {
+        task: len(validation_df[validation_df['task'] == task])
+        for task in TASKS
+    }
     total_val = sum(m['n'] for m in val_metrics.values())
     print(f"  ✓ Processed {total_val} validation predictions (seen labels only)")
     
@@ -220,7 +225,7 @@ def generate_performance_summary_table(output_dir):
     lines.append("\\caption{Final model performance across the Training set, the held-out Test set, and the external Validation set.}")
     lines.append("\\label{tab:performance}")
     lines.append("\\small")
-    lines.append("\\begin{tabular*}{\\textwidth}{@{\\extracolsep{\\fill}}p{3.5cm}lrrrr@{\\extracolsep{\\fill}}}")
+    lines.append("\\begin{tabular*}{\\textwidth}{@{\\extracolsep{\\fill}}p{3.5cm}lp{1.8cm}rrr@{\\extracolsep{\\fill}}}")
     lines.append("\\toprule")
     lines.append("Task & Dataset & n & Acc (\\%) & Bal Acc (\\%) & F1 Score (\\%) \\\\")
     lines.append("\\midrule")
@@ -246,11 +251,13 @@ def generate_performance_summary_table(output_dir):
         
         # Validation
         if task in val_metrics:
-            val_n = val_metrics[task]['n']
+            val_n_seen = val_metrics[task]['n']
+            val_n_total = val_total_n.get(task, val_n_seen)
+            val_n_str = f"{val_n_seen} / {val_n_total}"
             val_acc = val_metrics[task]['accuracy'] * 100
             val_bal = val_metrics[task]['balanced_accuracy'] * 100
             val_f1 = val_metrics[task]['f1_macro'] * 100
-            lines.append(f" & Validation & {val_n} & {val_acc:.1f} & {val_bal:.1f} & {val_f1:.1f} \\\\")
+            lines.append(f" & Validation & {val_n_str} & {val_acc:.1f} & {val_bal:.1f} & {val_f1:.1f} \\\\")
         
         lines.append("\\addlinespace")
     
@@ -261,7 +268,7 @@ def generate_performance_summary_table(output_dir):
         n_train = train_metrics[TASKS[0]]['n']
         note_parts.append(f"Training: Performance on all {n_train:,} training samples (seen labels only).")
     note_parts.append("Test: Performance on the held-out test set (n=461).")
-    note_parts.append("Validation: Performance on the external validation set; metrics computed only on samples with labels seen during training.")
+    note_parts.append("Validation n: seen-label runs used for metrics / total validation runs (987). Metrics computed only on samples with labels seen during training.")
     note_parts.append("Acc: Accuracy. Bal Acc: Balanced Accuracy (average per-class recall). F1 Score: Macro-averaged F1-score.")
     note_text = " ".join(note_parts)
     lines.append("\\par\\vspace{4pt}")
