@@ -50,16 +50,39 @@ class Predictor:
         self._load_model()
         
     def _load_model(self):
-        """Load model from checkpoint."""
+        """Load model from checkpoint.
+
+        Supports two checkpoint formats:
+        - Dict with 'model_state_dict' key (standard DIANA training output)
+        - Raw state_dict (bare OrderedDict of tensors)
+        """
+        # weights_only=False is required because checkpoints may contain non-tensor
+        # objects (config dicts, etc.).  Only load checkpoints from trusted sources.
         checkpoint = torch.load(self.model_path, map_location=self.device, weights_only=False)
-        
-        model_state = checkpoint['model_state_dict']
-        
-        # Determine model type from checkpoint
+
+        # Support both wrapped checkpoints and raw state dicts
+        if isinstance(checkpoint, dict) and 'model_state_dict' in checkpoint:
+            model_state = checkpoint['model_state_dict']
+        elif isinstance(checkpoint, dict) and all(
+            isinstance(v, torch.Tensor) for v in checkpoint.values()
+        ):
+            # Raw state dict — no metadata available
+            model_state = checkpoint
+            checkpoint = {}
+            logger.warning(
+                "Checkpoint is a raw state_dict with no metadata. "
+                "Architecture will be inferred from tensor shapes."
+            )
+        else:
+            raise ValueError(
+                f"Unrecognised checkpoint format in {self.model_path}. "
+                "Expected a dict with 'model_state_dict' or a raw state_dict."
+            )
+
+        # Determine model type from checkpoint or by inspecting state keys
         if 'model_type' in checkpoint:
             model_type = checkpoint['model_type']
         else:
-            # Infer from state dict keys
             state_keys = list(model_state.keys())
             model_type = 'multitask' if any('heads' in k for k in state_keys) else 'single_task'
         
@@ -124,7 +147,35 @@ class Predictor:
                 use_batch_norm=use_batch_norm
             )
         else:
-            raise NotImplementedError("Single-task model loading not yet implemented")
+            # Single-task model
+            input_dim = model_state[list(model_state.keys())[0]].shape[1]
+            use_batch_norm = any(
+                'running_mean' in k or 'running_var' in k for k in model_state.keys()
+            )
+            hidden_dims = []
+            for key in sorted(model_state.keys()):
+                if key.endswith('.weight'):
+                    base_key = key.replace('.weight', '')
+                    if f'{base_key}.running_mean' not in model_state:
+                        hidden_dims.append(model_state[key].shape[0])
+
+            # The last entry in hidden_dims is the output (num_classes), not hidden
+            num_classes = hidden_dims.pop() if hidden_dims else 2
+            dropout = checkpoint.get('dropout', 0.5)
+
+            logger.info(
+                f"Inferred single-task architecture: input_dim={input_dim}, "
+                f"hidden_dims={hidden_dims}, num_classes={num_classes}, "
+                f"use_batch_norm={use_batch_norm}"
+            )
+
+            self.model = SingleTaskMLP(
+                input_dim=input_dim,
+                hidden_dims=hidden_dims,
+                num_classes=num_classes,
+                dropout=dropout,
+                use_batch_norm=use_batch_norm
+            )
         
         self.model.load_state_dict(model_state)
         self.model.to(self.device)

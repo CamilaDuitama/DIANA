@@ -35,18 +35,20 @@ fi
 
 OUTPUT_PREFIX="${OUT_ABUNDANCE%_abundance.txt}"
 
-CMD="$KMAT_TOOLS unitig \
-    -k $KMER_SIZE \
-    -p $OUTPUT_PREFIX"
+# Build command as an array to avoid eval and quoting hazards
+KMAT_CMD=(
+    "$KMAT_TOOLS" unitig
+    -k "$KMER_SIZE"
+    -p "$OUTPUT_PREFIX"
+)
 
 if [ -n "$OUT_FRACTION" ]; then
-    CMD="$CMD --out-frac"
+    KMAT_CMD+=(--out-frac)
 fi
 
-# Pass back_to_sequences output directly to kmat_tools
-CMD="$CMD $UNITIGS_FA $KMER_COUNTS"
+KMAT_CMD+=("$UNITIGS_FA" "$KMER_COUNTS")
 
-eval $CMD
+"${KMAT_CMD[@]}"
 
 # Rename outputs to match expected names
 if [ -f "${OUTPUT_PREFIX}.abundance.mat" ]; then
@@ -59,6 +61,3 @@ if [ -n "$OUT_FRACTION" ] && [ -f "${OUTPUT_PREFIX}.frac.mat" ]; then
     awk '{print $2}' "${OUTPUT_PREFIX}.frac.mat" > "$OUT_FRACTION"
     rm "${OUTPUT_PREFIX}.frac.mat"
 fi
-
-# Cleanup
-rm -f "$MATRIX_FILE"

@@ -32,45 +32,17 @@ def plot_predictions(predictions, output_dir, sample_id, label_encoders=None):
     os.makedirs(output_dir, exist_ok=True)
     
     for task, task_preds in predictions.items():
-        # Get probabilities from the nested structure
+        # probabilities are already keyed by class name (set by 03_run_inference.py)
         if "probabilities" in task_preds:
             probs_dict = task_preds["probabilities"]
         else:
             probs_dict = task_preds
         
-        # Map numeric labels to names if available
-        if label_encoders and task in label_encoders:
-            class_list = label_encoders[task]["classes"]
-            # Map string indices to actual class names
-            labels = []
-            probs = []
-            for idx_str, prob in probs_dict.items():
-                try:
-                    idx = int(idx_str)
-                    if idx < len(class_list):
-                        labels.append(class_list[idx])
-                    else:
-                        labels.append(idx_str)
-                except (ValueError, TypeError):
-                    # Already a string label name
-                    labels.append(idx_str)
-                probs.append(prob)
-        else:
-            labels = list(probs_dict.keys())
-            probs = [probs_dict[label] for label in labels]
+        labels = list(probs_dict.keys())
+        probs = [probs_dict[label] for label in labels]
         
-        # Get predicted class info — decode numeric string to label name if possible
-        predicted_class_raw = task_preds.get("predicted_class", "unknown")
+        predicted_class = task_preds.get("predicted_class", "unknown")
         confidence = task_preds.get("confidence", 0.0)
-        if label_encoders and task in label_encoders:
-            class_list = label_encoders[task]["classes"]
-            try:
-                idx = int(predicted_class_raw)
-                predicted_class = class_list[idx] if idx < len(class_list) else predicted_class_raw
-            except (ValueError, TypeError):
-                predicted_class = predicted_class_raw
-        else:
-            predicted_class = predicted_class_raw
         
         # Create plotly bar chart
         fig = go.Figure(data=[
@@ -127,11 +99,8 @@ def main():
     # Extract sample_id from predictions if available
     sample_id = predictions.get('sample_id', args.sample_id)
     
-    # Load label encoders
-    label_encoders = load_label_encoders(args.label_encoders)
-    
-    # Generate plots
-    plot_predictions(predictions, args.output_dir, sample_id, label_encoders)
+    # Generate plots (label_encoders not needed: probabilities are already class-name keyed)
+    plot_predictions(predictions, args.output_dir, sample_id)
 
 if __name__ == '__main__':
     main()

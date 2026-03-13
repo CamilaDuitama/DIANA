@@ -67,7 +67,7 @@ _FASTA_SUFFIXES = ('.fasta', '.fa', '.fna')
 _ALL_SEQUENCE_SUFFIXES = _FASTQ_SUFFIXES + _FASTA_SUFFIXES
 
 
-def validate_sequence_file(seq_path: Path, min_size_kb: int = 1) -> tuple[bool, str]:
+def validate_sequence_file(seq_path: Path, min_size_kb: int = 1, min_records: int = 10) -> tuple[bool, str]:
     """
     Validate that a gzipped FASTA or FASTQ file has sufficient data for analysis.
 
@@ -76,6 +76,7 @@ def validate_sequence_file(seq_path: Path, min_size_kb: int = 1) -> tuple[bool, 
     Args:
         seq_path: Path to the gzipped sequence file.
         min_size_kb: Minimum file size in KB (default: 1 KB).
+        min_records: Minimum number of reads/records required (default: 10).
 
     Returns:
         Tuple of (is_valid, error_message). error_message is empty string if valid.
@@ -123,6 +124,7 @@ def validate_sequence_file(seq_path: Path, min_size_kb: int = 1) -> tuple[bool, 
                         f"insufficient data (less than one complete FASTQ record, "
                         f"got {len(lines)} lines)"
                     )
+                record_size = 4
             elif first_char == '>':
                 # FASTA: need at least a header and one sequence line
                 if len(lines) < 2:
@@ -130,10 +132,21 @@ def validate_sequence_file(seq_path: Path, min_size_kb: int = 1) -> tuple[bool, 
                         f"insufficient data (less than one complete FASTA record, "
                         f"got {len(lines)} lines)"
                     )
+                record_size = 2
             else:
                 return False, (
                     "does not appear to be FASTA or FASTQ format "
                     "(first line must start with '>' or '@')"
+                )
+
+        # Count records to enforce minimum (re-open for a full scan)
+        if min_records > 1:
+            with gzip.open(seq_path, 'rt') as f:
+                record_count = sum(1 for line in f if line.startswith(first_char))
+            if record_count < min_records:
+                return False, (
+                    f"too few records ({record_count} found, minimum {min_records} required). "
+                    "The sample may be nearly empty and would produce unreliable predictions."
                 )
 
     except (gzip.BadGzipFile, OSError) as e:
@@ -190,7 +203,24 @@ def detect_paired_end(sample_path: Path) -> list:
 
             if pair_path.exists():
                 logger.debug(f"Detected paired-end: {sample_path.name} + {pair_path.name}")
+                # Warn if mates are suspiciously different in size (>5× ratio)
+                size1 = sample_path.stat().st_size
+                size2 = pair_path.stat().st_size
+                if size1 > 0 and size2 > 0:
+                    ratio = max(size1, size2) / min(size1, size2)
+                    if ratio > 5:
+                        logger.warning(
+                            f"Paired-end mates differ greatly in size "
+                            f"({size1 // 1024}KB vs {size2 // 1024}KB, ratio {ratio:.1f}×). "
+                            "Check for truncated or mismatched files."
+                        )
                 return sorted([sample_path, pair_path])
+            else:
+                logger.warning(
+                    f"Paired-end pattern detected in '{sample_path.name}' "
+                    f"but mate file not found: {pair_path}. "
+                    "Processing as single-end."
+                )
 
     # Not paired-end or pair not found
     return [sample_path]
@@ -269,15 +299,14 @@ def predict_single_sample(
         # Step 0: Verify reference k-mers exist
         # ====================================================================
         if not reference_kmers.exists():
-            logger.warning(f"Reference k-mers not found: {reference_kmers}")
-            logger.info("Generating reference k-mers (one-time operation)...")
-            logger.info("TIP: Run install.sh to download pre-generated file from Zenodo")
-            
-            run_command_streaming([
-                "00_extract_reference_kmers.sh",
-                str(muset_matrix_dir),
-                str(reference_kmers)
-            ], "Extracting reference k-mers")
+            raise FileNotFoundError(
+                f"Reference k-mers not found: {reference_kmers}\n"
+                "This file must be downloaded before running diana-predict.\n"
+                "Run the installer to download it automatically:\n"
+                "    bash install.sh\n"
+                "Or download it manually from Zenodo and place it at the path above:\n"
+                "    https://zenodo.org/records/18157419/files/reference_kmers.fasta.gz"
+            )
         else:
             logger.debug(f"Using shared reference k-mers: {reference_kmers}")
         
@@ -294,7 +323,7 @@ def predict_single_sample(
             kmer_input = str(sample_paths[0])
         
         run_command_streaming([
-            "01_count_kmers.sh",
+            _resolve_script("01_count_kmers.sh"),
             str(reference_kmers),
             kmer_input,
             str(kmer_counts),
@@ -306,7 +335,7 @@ def predict_single_sample(
         # Step 2: Aggregate k-mer counts to unitigs
         # ====================================================================
         run_command_streaming([
-            "02_aggregate_to_unitigs.sh",
+            _resolve_script("02_aggregate_to_unitigs.sh"),
             str(kmer_counts),
             str(unitigs_fa),
             str(kmer_size),
@@ -318,7 +347,7 @@ def predict_single_sample(
         # Step 3: Run model inference
         # ====================================================================
         run_command_streaming([
-            "03_run_inference.py",
+            _resolve_script("03_run_inference.py"),
             "--model", str(model_path),
             "--input", str(unitig_fraction),
             "--output", str(predictions_json),
@@ -332,7 +361,7 @@ def predict_single_sample(
         if generate_plots:
             label_encoders_dir = model_path.parent
             run_command_streaming([
-                "04_plot_results.py",
+                _resolve_script("04_plot_results.py"),
                 "--predictions", str(predictions_json),
                 "--output_dir", str(plots_dir),
                 "--sample_id", sample_id,
@@ -523,8 +552,11 @@ Resource Requirements:
     setup_logging(args.verbose)
     
     # ========================================================================
-    # Verify all required pipeline scripts are in PATH
+    # Verify all required pipeline scripts are discoverable
+    # Fallback: look in scripts/inference/ relative to this file's package root
     # ========================================================================
+    _SCRIPTS_FALLBACK = Path(__file__).parents[3] / "scripts" / "inference"
+
     required_scripts = [
         "00_extract_reference_kmers.sh",
         "01_count_kmers.sh",
@@ -532,21 +564,32 @@ Resource Requirements:
         "03_run_inference.py",
         "04_plot_results.py"
     ]
-    
+
     missing_scripts = []
     for script in required_scripts:
-        if not shutil.which(script):
+        if not shutil.which(script) and not (_SCRIPTS_FALLBACK / script).is_file():
             missing_scripts.append(script)
-    
+
     if missing_scripts:
-        logger.error("Required pipeline scripts not found in PATH:")
+        logger.error("Required pipeline scripts not found in PATH or in scripts/inference/:")
         for script in missing_scripts:
             logger.error(f"  - {script}")
         logger.error("")
         logger.error("Please ensure DIANA is properly installed:")
         logger.error("  1. Run: pip install -e .")
         logger.error("  2. Or add scripts/inference/ to your PATH")
+        logger.error(f"  3. Or set DIANA_SCRIPTS env var to the scripts/inference/ directory")
         sys.exit(1)
+
+    def _resolve_script(name: str) -> str:
+        """Return the script path: prefer PATH, fall back to scripts/inference/."""
+        found = shutil.which(name)
+        if found:
+            return found
+        fallback = _SCRIPTS_FALLBACK / name
+        if fallback.is_file():
+            return str(fallback)
+        return name  # will fail at runtime with a clear error
     
     # Validate paths
     if not args.model.exists():

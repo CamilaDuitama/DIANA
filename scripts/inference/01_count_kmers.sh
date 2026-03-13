@@ -33,8 +33,10 @@ fi
 
 # Check if input is a file list based on extension
 if [[ "$SAMPLE_INPUT" == *.txt ]] || [[ "$SAMPLE_INPUT" == *.list ]]; then
-    # File list: use seqkit concat and pipe to back_to_sequences via stdin
-    seqkit concat $(cat "$SAMPLE_INPUT") | back_to_sequences \
+    # File list: use seqkit --infile-list to read paths line-by-line.
+    # This is safe for paths containing spaces and handles arbitrarily long lists
+    # without hitting shell argument-length limits.
+    seqkit seq --infile-list "$SAMPLE_INPUT" | back_to_sequences \
         --in-kmers "$REFERENCE_KMERS" \
         --out-kmers "$OUTPUT_COUNTS" \
         --counted-kmer-threshold "$MIN_ABUNDANCE" \
