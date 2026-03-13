@@ -73,6 +73,7 @@ from config import PATHS, PLOT_CONFIG, SAMPLE_TYPE_MAP
 # ============================================================================
 
 TOP_N_PROJECTS = 10
+TOP_N_BIOPROJECTS = 20
 PUBLICATION_YEAR_BINS = 20
 
 
@@ -433,7 +434,7 @@ def plot_bioproject(train_meta, test_meta, val_meta, output_dir):
 
     # Top N BioProjects by total run count across all splits
     all_bps = pd.concat([valid_bps(train_meta), valid_bps(test_meta), valid_bps(val_meta)])
-    top_bps = all_bps.value_counts().head(TOP_N_PROJECTS).index.tolist()
+    top_bps = all_bps.value_counts().head(TOP_N_BIOPROJECTS).index.tolist()
 
     fig = go.Figure()
 
@@ -456,7 +457,7 @@ def plot_bioproject(train_meta, test_meta, val_meta, output_dir):
         ))
 
     fig.update_layout(
-        title=f"Top {TOP_N_PROJECTS} BioProject Distribution Across Datasets",
+        title=f"Top {TOP_N_BIOPROJECTS} BioProject Distribution Across Datasets",
         xaxis_title="BioProject",
         yaxis_title="Percentage of Samples in Split (%)",
         template=PLOT_CONFIG['template'],
