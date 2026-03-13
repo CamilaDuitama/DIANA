@@ -225,7 +225,7 @@ def generate_performance_summary_table(output_dir):
     lines.append("\\caption{Final model performance across the Training set, the held-out Test set, and the external Validation set.}")
     lines.append("\\label{tab:performance}")
     lines.append("\\small")
-    lines.append("\\begin{tabular*}{\\textwidth}{@{\\extracolsep{\\fill}}p{3.5cm}lp{1.8cm}rrr@{\\extracolsep{\\fill}}}")
+    lines.append("\\begin{tabular*}{\\linewidth}{@{\\extracolsep{\\fill}}lllrrr@{}}")
     lines.append("\\toprule")
     lines.append("Task & Dataset & n & Acc (\\%) & Bal Acc (\\%) & F1 Score (\\%) \\\\")
     lines.append("\\midrule")
