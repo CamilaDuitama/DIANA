@@ -1,0 +1,34 @@
+\small
+\begin{longtable}{llrrp{3.2cm}p{3.5cm}}
+\caption{Top BioProject error sources in the DIANA validation set (confident errors: confidence $\geq 0.9$, wrong prediction).\label{tab:bioproject_offenders}}\\
+\toprule
+BioProject & Study & Val & Conf. & Dominant & Root cause \\
+& & runs & errors & task(s) & category \\
+\midrule
+\endfirsthead
+\multicolumn{6}{c}{\textit{Table \thetable{} continued from previous page}} \\
+\toprule
+BioProject & Study & Val & Conf. & Dominant & Root cause \\
+& & runs & errors & task(s) & category \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\texttt{PRJNA994900} & Kirdok2024 & 70 & 141 & community\_type, material,
+sample\_host & OOD material \\
+\texttt{PRJEB34569} & FellowsYates2021 & 42 & 36 & sample\_host & Taxonomic resolution \\
+\texttt{PRJEB80877} & vonHippel2025 & 46 & 35 & material & Label granularity \\
+\texttt{PRJNA1211513} & Schreiber2025 & 48 & 34 & material & Label granularity \\
+\texttt{PRJEB49638} & Moraitou2022 & 20 & 24 & sample\_host & Taxonomic resolution \\
+\texttt{PRJEB74036} & Liu2024 & 21 & 17 & material & Label granularity \\
+\texttt{PRJEB33848} & Neukamm2020 & 24 & 16 & community\_type, material & Label granularity \\
+\texttt{PRJEB11419} & – & 10 & 15 & material, community\_type & OOD material \\
+\texttt{PRJEB67998} & Bozzi2024 & 19 & 11 & material, community\_type & Label ambiguity \\
+\texttt{PRJNA320875} & Graham2016 & 12 & 11 & material & Label granularity \\
+\end{longtable}
+\addcontentsline{toc}{subsection}{Supplementary Table 9: BioProject error sources}
+\\[2mm]
+{\footnotesize Confident errors: prediction confidence $\geq 0.9$ and predicted label $\neq$ true label. Val runs: number of sequencing runs from this BioProject in the validation set. Root-cause categories — \textit{OOD material}: label class absent from DIANA training data; \textit{Label granularity}: AMD label is finer-grained than the DIANA training class (e.g.\ lake sediment vs.\ sediment); \textit{Taxonomic resolution}: AMD validation labels are at subspecies level while DIANA trains at genus level (e.g.\ \textit{gorilla beringei beringei} vs.\ \textit{Gorilla sp.}); \textit{Label ambiguity}: errors occur between classes that are all present in training but are histologically similar (e.g.\ tooth vs.\ bone); \textit{Genuine confusion}: label is present in training but model still predicts confidently incorrectly.}

@@ -9,8 +9,9 @@
 #     - 3 main figures (confusion matrices, ROC/PR curves, feature importance)
 #     - 6 supplementary figures (runtime/memory, data split, PCA, PCA loadings, Logan search, baseline comparison)
 #     - 2 main tables (performance summary, computational resources)
-#     - 8 supplementary tables (class distribution, unseen labels, per-class perf,
-#       hyperparameters, wrong predictions, BLAST, seen/unseen validation, matrix generation)
+#     - 9 supplementary tables (class distribution, unseen labels, per-class perf,
+#       hyperparameters, wrong predictions, BLAST, seen/unseen validation,
+#       matrix generation, BioProject offenders)
 #
 # USAGE:
 #     bash scripts/paper/generate_all_paper_materials.sh
@@ -131,6 +132,9 @@ run_script "scripts/paper/17_generate_seen_unseen_table.py" \
 
 run_script "scripts/paper/18_generate_matrix_generation_table.py" \
     "Supplementary Table 8: Feature Matrix Generation Parameters"
+
+run_script "scripts/paper/26_generate_bioproject_offenders_table.py" \
+    "Supplementary Table 9: BioProject Error Sources (offenders)"
 
 # ============================================================================
 # SUMMARY
