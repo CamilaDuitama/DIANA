@@ -1,34 +1,24 @@
 \small
-\begin{longtable}{llrrp{3.2cm}p{3.5cm}}
-\caption{Top BioProject error sources in the DIANA validation set (confident errors: confidence $\geq 0.9$, wrong prediction).\label{tab:bioproject_offenders}}\\
+\begin{longtable}{@{}llrrll@{}}
+\caption{BioProjects with the most high-confidence errors (confidence $\geq 0.9$, predicted $\neq$ true) in the full external validation set (987 runs), summed across all four classification tasks. This analysis diagnoses systematic, study-level sources of error.\label{tab:bioproject_offenders}}\\
 \toprule
-BioProject & Study & Val & Conf. & Dominant & Root cause \\
-& & runs & errors & task(s) & category \\
+BioProject & Study & Val runs & Conf.\ errors & Main tasks$^{a}$ & Root cause \\
 \midrule
 \endfirsthead
-\multicolumn{6}{c}{\textit{Table \thetable{} continued from previous page}} \\
-\toprule
-BioProject & Study & Val & Conf. & Dominant & Root cause \\
-& & runs & errors & task(s) & category \\
-\midrule
 \endhead
-\midrule
-\multicolumn{6}{r}{\textit{Continued on next page}} \\
-\endfoot
 \bottomrule
 \endlastfoot
-\texttt{PRJNA994900} & Kirdok2024 & 70 & 141 & community\_type, material,
-sample\_host & OOD material \\
-\texttt{PRJEB34569} & FellowsYates2021 & 42 & 36 & sample\_host & Taxonomic resolution \\
-\texttt{PRJEB80877} & vonHippel2025 & 46 & 35 & material & Label granularity \\
-\texttt{PRJNA1211513} & Schreiber2025 & 48 & 34 & material & Label granularity \\
-\texttt{PRJEB49638} & Moraitou2022 & 20 & 24 & sample\_host & Taxonomic resolution \\
-\texttt{PRJEB74036} & Liu2024 & 21 & 17 & material & Label granularity \\
-\texttt{PRJEB33848} & Neukamm2020 & 24 & 16 & community\_type, material & Label granularity \\
-\texttt{PRJEB11419} & – & 10 & 15 & material, community\_type & OOD material \\
-\texttt{PRJEB67998} & Bozzi2024 & 19 & 11 & material, community\_type & Label ambiguity \\
-\texttt{PRJNA320875} & Graham2016 & 12 & 11 & material & Label granularity \\
+\texttt{PRJNA994900} & Kirdok2024 & 70 & 141 & CT, Mat., SH & OOD material \\
+\texttt{PRJEB34569} & FellowsYates2021 & 42 & 36 & SH & Taxonomic resolution \\
+\texttt{PRJEB80877} & vonHippel2025 & 46 & 35 & Mat. & Label granularity \\
+\texttt{PRJNA1211513} & Schreiber2025 & 48 & 34 & Mat. & Label granularity \\
+\texttt{PRJEB49638} & Moraitou2022 & 20 & 24 & SH & Taxonomic resolution \\
+\texttt{PRJEB74036} & Liu2024 & 21 & 17 & Mat. & Label granularity \\
+\texttt{PRJEB33848} & Neukamm2020 & 24 & 16 & CT, Mat. & Label granularity \\
+\texttt{PRJEB11419} & – & 10 & 15 & Mat., CT & OOD material \\
+\texttt{PRJEB67998} & Bozzi2024 & 19 & 11 & Mat., CT & Label ambiguity \\
+\texttt{PRJNA320875} & Graham2016 & 12 & 11 & Mat. & Label granularity \\
 \end{longtable}
-\addcontentsline{toc}{subsection}{Supplementary Table 9: BioProject error sources}
+\addcontentsline{toc}{subsection}{Supplementary Table 9: BioProjects dominating high-confidence validation errors (full validation set)}
 \\[2mm]
-{\footnotesize Confident errors: prediction confidence $\geq 0.9$ and predicted label $\neq$ true label. Val runs: number of sequencing runs from this BioProject in the validation set. \textbf{Note:} confident-error counts use the full validation set (987 runs), including runs whose true labels were unseen during training; this differs from Table~\ref{tab:performance}, where validation metrics are restricted to seen-label runs only. Root-cause categories --- \textit{OOD material}: label class absent from DIANA training data; \textit{Label granularity}: AMD label is finer-grained than the DIANA training class (e.g.\ lake sediment vs.\ sediment); \textit{Taxonomic resolution}: AMD validation labels are at subspecies level while DIANA trains at genus level (e.g.\ \textit{gorilla beringei beringei} vs.\ \textit{Gorilla sp.}); \textit{Label ambiguity}: errors occur between classes that are all present in training but are histologically similar (e.g.\ tooth vs.\ bone); \textit{Genuine confusion}: label is present in training but model still predicts confidently incorrectly.}
+{\footnotesize Counts use the full validation set (987 runs), including runs whose true labels are outside DIANA's label set; see Table~\ref{tab:performance} for seen-label-only metrics. $^{a}$~Task abbreviations: ST\,=\,Sample Type, CT\,=\,Community Type, SH\,=\,Sample Host, Mat.\,=\,Material. Root-cause categories --- \textit{OOD material}: material class absent from DIANA training classes; \textit{Label granularity}: external label is a subtype of a DIANA class (e.g.\ lake/marine sediment vs.\ sediment); \textit{Taxonomic resolution}: subspecies-level true label vs.\ genus/species-level DIANA outputs (e.g.\ \textit{gorilla beringei beringei} vs.\ \textit{Gorilla sp.}); \textit{Label ambiguity}: confusion among similar classes all present in training (e.g.\ tooth vs.\ bone); \textit{Genuine confusion}: label is in DIANA's label set but the model still predicts confidently incorrectly.}
