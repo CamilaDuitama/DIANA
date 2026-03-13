@@ -20,6 +20,7 @@ OUTPUTS:
     - paper/figures/final/sup_02_data_split_publication_year.png
     - paper/figures/final/sup_02_data_split_file_size.png
     - paper/figures/final/sup_02_data_split_material.png
+    - paper/figures/final/sup_02_data_split_bioproject.png
     - paper/figures/final/sup_02_data_split_geographic.html (HTML only)
     - Corresponding .html interactive versions
 
@@ -417,8 +418,63 @@ def plot_material(train_meta, test_meta, val_meta, output_dir):
     print(f"  ✓ {output_file.name}")
 
 
+def plot_bioproject(train_meta, test_meta, val_meta, output_dir):
+    """Figure 7: Top BioProject distribution across splits."""
+    colors = [PLOT_CONFIG['colors']['train'], PLOT_CONFIG['colors']['test'], PLOT_CONFIG['colors']['validation']]
+
+    if 'BioProject' not in train_meta.columns:
+        print("  ⚠ No BioProject column, skipping")
+        return
+
+    # Identify valid PRJ codes (exclude Unknown / NaN)
+    def valid_bps(df):
+        col = df['BioProject'].dropna().astype(str)
+        return col[col.str.match(r'PRJ[A-Z]+\d+')]
+
+    # Top N BioProjects by total run count across all splits
+    all_bps = pd.concat([valid_bps(train_meta), valid_bps(test_meta), valid_bps(val_meta)])
+    top_bps = all_bps.value_counts().head(TOP_N_PROJECTS).index.tolist()
+
+    fig = go.Figure()
+
+    for split, df, color in [('Train', train_meta, colors[0]),
+                              ('Test', test_meta, colors[1]),
+                              ('Validation', val_meta, colors[2])]:
+        bp_counts = valid_bps(df).value_counts()
+        total = len(valid_bps(df))
+        y_values = [(bp_counts.get(bp, 0) / total * 100) if total > 0 else 0 for bp in top_bps]
+
+        fig.add_trace(go.Bar(
+            x=top_bps,
+            y=y_values,
+            name=split,
+            marker=dict(
+                color=color,
+                opacity=PLOT_CONFIG['fill_opacity'],
+                line=dict(color=PLOT_CONFIG['border_color'], width=PLOT_CONFIG['line_width'])
+            )
+        ))
+
+    fig.update_layout(
+        title=f"Top {TOP_N_PROJECTS} BioProject Distribution Across Datasets",
+        xaxis_title="BioProject",
+        yaxis_title="Percentage of Samples in Split (%)",
+        template=PLOT_CONFIG['template'],
+        font=dict(size=PLOT_CONFIG['font_size']),
+        height=600,
+        width=1200,
+        barmode='group',
+        xaxis=dict(tickangle=-45)
+    )
+
+    output_file = output_dir / "sup_02_data_split_bioproject.png"
+    fig.write_html(str(output_file.with_suffix('.html')))
+    fig.write_image(str(output_file), width=1200, height=600, scale=2)
+    print(f"  ✓ {output_file.name}")
+
+
 def plot_geographic(train_meta, test_meta, val_meta, output_dir):
-    """Figure 6: Geographic distribution (HTML only)."""
+    """Figure 8: Geographic distribution (HTML only)."""
     colors = [PLOT_CONFIG['colors']['train'], PLOT_CONFIG['colors']['test'], PLOT_CONFIG['colors']['validation']]
     
     coords_file = Path('paper/metadata/country_coords.csv')
@@ -507,33 +563,36 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
     
     # Load metadata
-    print("\n[1/7] Loading metadata...")
+    print("\n[1/9] Loading metadata...")
     train_meta, test_meta, val_meta = load_metadata()
     
     # Generate figures
-    print("\n[2/7] Generating sample type distribution...")
+    print("\n[2/9] Generating sample type distribution...")
     plot_sample_type(train_meta, test_meta, val_meta, output_dir)
     
-    print("\n[3/7] Generating project names distribution...")
+    print("\n[3/9] Generating project names distribution...")
     plot_projects(train_meta, test_meta, val_meta, output_dir)
     
-    print("\n[4/7] Generating community type distribution...")
+    print("\n[4/9] Generating community type distribution...")
     plot_community_type(train_meta, test_meta, val_meta, output_dir)
     
-    print("\n[5/7] Generating publication year distribution...")
+    print("\n[5/9] Generating publication year distribution...")
     plot_publication_year(train_meta, test_meta, val_meta, output_dir)
     
-    print("\n[6/7] Generating file size distribution...")
+    print("\n[6/9] Generating file size distribution...")
     plot_file_size(train_meta, test_meta, val_meta, output_dir)
     
-    print("\n[7/7] Generating material type distribution...")
+    print("\n[7/8] Generating material type distribution...")
     plot_material(train_meta, test_meta, val_meta, output_dir)
 
-    print("\n[8/8] Generating geographic distribution...")
+    print("\n[8/8] Generating BioProject distribution...")
+    plot_bioproject(train_meta, test_meta, val_meta, output_dir)
+
+    print("\n[9/9] Generating geographic distribution...")
     plot_geographic(train_meta, test_meta, val_meta, output_dir)
 
     print("\n" + "=" * 80)
-    print("✓ COMPLETE - Data split validation figures generated (7 plots)")
+    print("✓ COMPLETE - Data split validation figures generated (8 plots)")
     print("=" * 80)
 
 
