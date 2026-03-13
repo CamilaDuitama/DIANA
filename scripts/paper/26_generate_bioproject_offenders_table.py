@@ -68,24 +68,22 @@ def build_ranking() -> pd.DataFrame:
 
 def generate_latex(ranking: pd.DataFrame) -> str:
     lines = []
-    lines.append("\\small")
-    lines.append("\\begin{longtable}{@{}llrrll@{}}")
     lines.append(
         "\\caption{BioProjects with the most high-confidence errors "
         "(confidence $\\geq 0.9$, predicted $\\neq$ true) in the full external "
-        "validation set (987 runs), summed across all four classification tasks. "
+        "validation set (987 runs), summed across all four classification tasks "
+        "(i.e.\\ counting run--task misclassifications). "
         "This analysis diagnoses systematic, study-level sources of error."
-        "\\label{tab:bioproject_offenders}}\\\\"
+        "\\label{tab:bioproject_offenders}}"
     )
+    # resizebox scales the tabular to \linewidth so it never overflows margins
+    lines.append("\\resizebox{\\linewidth}{!}{%")
+    lines.append("\\begin{tabular}{@{}llrrll@{}}")
     lines.append("\\toprule")
     lines.append(
-        "BioProject & Study & Val runs & Conf.\\ errors & Main tasks$^{a}$ & Root cause \\\\"
+        "BioProject & Study & Val runs & High-conf.\\ errors & Main tasks$^{a}$ & Root cause \\\\"
     )
     lines.append("\\midrule")
-    lines.append("\\endfirsthead")
-    lines.append("\\endhead")
-    lines.append("\\bottomrule")
-    lines.append("\\endlastfoot")
 
     for _, row in ranking.iterrows():
         bp = row["BioProject"]
@@ -99,7 +97,7 @@ def generate_latex(ranking: pd.DataFrame) -> str:
             dominant = "–"
             cause = "–"
 
-        # Escape underscores and % in BioProject ID
+        # Escape underscores in BioProject ID
         bp_tex = bp.replace("_", "\\_")
         study_tex = study if study else "–"
         dominant_tex = dominant if dominant else "–"
@@ -110,15 +108,18 @@ def generate_latex(ranking: pd.DataFrame) -> str:
             f"& {dominant_tex} & {cause_tex} \\\\"
         )
 
-    lines.append("\\end{longtable}")
+    lines.append("\\bottomrule")
+    lines.append("\\end{tabular}%")
+    lines.append("}")  # end resizebox
     lines.append("\\addcontentsline{toc}{subsection}"
-                 "{Supplementary Table 9: BioProjects dominating high-confidence validation errors (full validation set)}")
+                 "{Supplementary Table 9: Top BioProjects dominating high-confidence validation errors (full validation set)}")
     lines.append("\\\\[2mm]")
     lines.append(
         "{\\footnotesize "
         "Counts use the full validation set (987 runs), including runs whose true labels are "
         "outside DIANA's label set; see Table~\\ref{tab:performance} for seen-label-only metrics. "
-        "$^{a}$~Task abbreviations: ST\\,=\\,Sample Type, CT\\,=\\,Community Type, "
+        "$^{a}$~Main tasks indicate the task(s) contributing the largest share of high-confidence errors for that BioProject. "
+        "Task abbreviations: ST\\,=\\,Sample Type, CT\\,=\\,Community Type, "
         "SH\\,=\\,Sample Host, Mat.\\,=\\,Material. "
         "Root-cause categories --- "
         "\\textit{OOD material}: material class absent from DIANA training classes; "

@@ -1,13 +1,9 @@
-\small
-\begin{longtable}{@{}llrrll@{}}
-\caption{BioProjects with the most high-confidence errors (confidence $\geq 0.9$, predicted $\neq$ true) in the full external validation set (987 runs), summed across all four classification tasks. This analysis diagnoses systematic, study-level sources of error.\label{tab:bioproject_offenders}}\\
+\caption{BioProjects with the most high-confidence errors (confidence $\geq 0.9$, predicted $\neq$ true) in the full external validation set (987 runs), summed across all four classification tasks (i.e.\ counting run--task misclassifications). This analysis diagnoses systematic, study-level sources of error.\label{tab:bioproject_offenders}}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}llrrll@{}}
 \toprule
-BioProject & Study & Val runs & Conf.\ errors & Main tasks$^{a}$ & Root cause \\
+BioProject & Study & Val runs & High-conf.\ errors & Main tasks$^{a}$ & Root cause \\
 \midrule
-\endfirsthead
-\endhead
-\bottomrule
-\endlastfoot
 \texttt{PRJNA994900} & Kirdok2024 & 70 & 141 & CT, Mat., SH & OOD material \\
 \texttt{PRJEB34569} & FellowsYates2021 & 42 & 36 & SH & Taxonomic resolution \\
 \texttt{PRJEB80877} & vonHippel2025 & 46 & 35 & Mat. & Label granularity \\
@@ -18,7 +14,9 @@ BioProject & Study & Val runs & Conf.\ errors & Main tasks$^{a}$ & Root cause \\
 \texttt{PRJEB11419} & – & 10 & 15 & Mat., CT & OOD material \\
 \texttt{PRJEB67998} & Bozzi2024 & 19 & 11 & Mat., CT & Label ambiguity \\
 \texttt{PRJNA320875} & Graham2016 & 12 & 11 & Mat. & Label granularity \\
-\end{longtable}
-\addcontentsline{toc}{subsection}{Supplementary Table 9: BioProjects dominating high-confidence validation errors (full validation set)}
+\bottomrule
+\end{tabular}%
+}
+\addcontentsline{toc}{subsection}{Supplementary Table 9: Top BioProjects dominating high-confidence validation errors (full validation set)}
 \\[2mm]
-{\footnotesize Counts use the full validation set (987 runs), including runs whose true labels are outside DIANA's label set; see Table~\ref{tab:performance} for seen-label-only metrics. $^{a}$~Task abbreviations: ST\,=\,Sample Type, CT\,=\,Community Type, SH\,=\,Sample Host, Mat.\,=\,Material. Root-cause categories --- \textit{OOD material}: material class absent from DIANA training classes; \textit{Label granularity}: external label is a subtype of a DIANA class (e.g.\ lake/marine sediment vs.\ sediment); \textit{Taxonomic resolution}: subspecies-level true label vs.\ genus/species-level DIANA outputs (e.g.\ \textit{gorilla beringei beringei} vs.\ \textit{Gorilla sp.}); \textit{Label ambiguity}: confusion among similar classes all present in training (e.g.\ tooth vs.\ bone); \textit{Genuine confusion}: label is in DIANA's label set but the model still predicts confidently incorrectly.}
+{\footnotesize Counts use the full validation set (987 runs), including runs whose true labels are outside DIANA's label set; see Table~\ref{tab:performance} for seen-label-only metrics. $^{a}$~Main tasks indicate the task(s) contributing the largest share of high-confidence errors for that BioProject. Task abbreviations: ST\,=\,Sample Type, CT\,=\,Community Type, SH\,=\,Sample Host, Mat.\,=\,Material. Root-cause categories --- \textit{OOD material}: material class absent from DIANA training classes; \textit{Label granularity}: external label is a subtype of a DIANA class (e.g.\ lake/marine sediment vs.\ sediment); \textit{Taxonomic resolution}: subspecies-level true label vs.\ genus/species-level DIANA outputs (e.g.\ \textit{gorilla beringei beringei} vs.\ \textit{Gorilla sp.}); \textit{Label ambiguity}: confusion among similar classes all present in training (e.g.\ tooth vs.\ bone); \textit{Genuine confusion}: label is in DIANA's label set but the model still predicts confidently incorrectly.}
