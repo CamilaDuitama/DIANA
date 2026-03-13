@@ -141,11 +141,10 @@ def generate_computational_resources_table(output_path: Path) -> None:
     
     # Generate LaTeX table
     lines = []
-    lines.append("\\begin{table}")
     lines.append("\\centering")
     lines.append(f"\\caption{{Validation inference computational resources stratified by memory tier ({total_samples} samples)}}")
     lines.append("\\label{tab:resources}")
-    lines.append("\\begin{tabular}{lrrrr}")
+    lines.append("\\begin{tabular*}{\\columnwidth}{@{\\extracolsep{\\fill}}lrrrr@{\\extracolsep{\\fill}}}")
     lines.append("\\toprule")
     lines.append("Memory (GB) & CPUs & N & Runtime (min) & Input size (GB) \\\\")
     lines.append("\\midrule")
@@ -156,9 +155,9 @@ def generate_computational_resources_table(output_path: Path) -> None:
         lines.append(f"{int(row['tier'])} & {int(row['cpus'])} & {int(row['n'])} & {runtime_str} & {input_str} \\\\")
     
     lines.append("\\bottomrule")
-    lines.append("\\end{tabular}")
-    lines.append("{\\footnotesize Runtime includes the creation of a vector of unitig feature abundances per sample and neural network inference.}")
-    lines.append("\\end{table}")
+    lines.append("\\end{tabular*}")
+    lines.append("\\par\\vspace{4pt}")
+    lines.append("\\parbox{\\linewidth}{\\footnotesize Runtime includes the creation of a vector of unitig feature abundances per sample and neural network inference.}")
     
     with open(output_path, 'w') as f:
         f.write('\n'.join(lines))
