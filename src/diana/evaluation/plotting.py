@@ -19,14 +19,6 @@ import numpy as np
 
 logger = logging.getLogger(__name__)
 
-# Use Plotly vivid color palette for consistency with validation plots
-SPLIT_COLOR_MAP = {
-    "Train": "#636EFA",  # Blue
-    "Test": "#EF553B",   # Red
-    "Val": "#00CC96"     # Green
-}
-COLOR_PALETTE = px.colors.qualitative.Plotly  # Vivid, colorful palette
-
 def save_plot(fig, output_path: Path):
     """
     Save plotly figure to both HTML (interactive) and PNG (static).
@@ -113,8 +105,7 @@ def plot_class_distribution(df: pl.DataFrame,
             y="count",
             title=title + title_suffix,
             template="plotly_white",
-            text="count",
-            color_discrete_sequence=COLOR_PALETTE
+            text="count"
         )
         fig.update_layout(xaxis_title=target_col, yaxis_title="Count")
         fig.update_traces(textposition='outside')
@@ -180,8 +171,7 @@ def plot_split_distributions(train_df: pl.DataFrame,
                      color="Split", 
                      points="outliers", 
                      title=f"Distribution of {col} across Splits", 
-                     template="plotly_white",
-                     color_discrete_map=SPLIT_COLOR_MAP
+                     template="plotly_white"
                  )
                  fig.update_traces(boxmean=True) # Shows mean as dashed line
             elif col in ["Avg_num_reads", "Avg_read_len"]:
@@ -209,8 +199,7 @@ def plot_split_distributions(train_df: pl.DataFrame,
                      box=True, 
                      points="outliers", 
                      title=f"Distribution of {col} across Splits", 
-                     template="plotly_white",
-                     color_discrete_map=SPLIT_COLOR_MAP
+                     template="plotly_white"
                  )
                  fig.update_traces(meanline_visible=True)
         else:
@@ -252,8 +241,7 @@ def plot_split_distributions(train_df: pl.DataFrame,
                 barmode="group",
                 title=f"Distribution of {col} across Splits{title_suffix}",
                 template="plotly_white",
-                text="percentage_text",
-                color_discrete_map=SPLIT_COLOR_MAP
+                text="percentage_text"
             )
             fig.update_layout(yaxis_title="Percentage (%)")
             
