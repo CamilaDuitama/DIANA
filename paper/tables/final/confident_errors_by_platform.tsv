@@ -1,0 +1,5 @@
+task	Platform	LibraryLayout	n_errors	mean_confidence	mean_margin
+community_type	Not applicable	Not applicable	108	0.9791599258228585	0.9626773287236132
+material	Not applicable	Not applicable	201	0.9817870199976869	0.9678885538641079
+sample_host	Not applicable	Not applicable	116	0.9923946502907522	0.9868262830794471
+sample_type	Not applicable	Not applicable	27	0.9608855666937651	0.9217711365558056

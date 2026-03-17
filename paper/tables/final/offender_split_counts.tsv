@@ -1,0 +1,8 @@
+BioProject	project_name	train_runs	train_unique_samples	test_runs	test_unique_samples	val_runs	val_unique_samples	in_train
+PRJNA994900	Kirdok2024	0	0	0	0	70	3	NO
+PRJEB34569	FellowsYates2021	134	85	25	21	42	25	YES
+PRJEB80877	vonHippel2025	0	0	0	0	46	46	NO
+PRJNA1211513	Schreiber2025	0	0	0	0	48	48	NO
+PRJEB49638	Moraitou2022	56	20	19	12	20	5	YES
+PRJEB74036	Liu2024	0	0	0	0	21	21	NO
+PRJNA1056444	Austin2024	0	0	0	0	39	39	NO

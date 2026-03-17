@@ -1,0 +1,59 @@
+task	true_label	pred_label	error_pair	n_errors	mean_confidence	mean_margin
+community_type	oral	Not applicable - env sample	oral → Not applicable - env sample	40	0.9964372709393501	0.9932132355588067
+community_type	oral	soft tissue	oral → soft tissue	40	0.976022420823574	0.9604219046424987
+community_type	oral	skeletal tissue	oral → skeletal tissue	10	0.9209202289581299	0.8425876624882221
+community_type	Not applicable - env sample	soft tissue	Not applicable - env sample → soft tissue	9	0.9879767364925809	0.9779285152132312
+community_type	soft tissue	skeletal tissue	soft tissue → skeletal tissue	9	0.9749576184484694	0.9506271643104911
+community_type	skeletal tissue	soft tissue	skeletal tissue → soft tissue	5	0.9629774928092957	0.9430220521055162
+community_type	gut	Not applicable - env sample	gut → Not applicable - env sample	3	0.9999224543571472	0.9998723871847991
+community_type	Not applicable - env sample	plant tissue	Not applicable - env sample → plant tissue	2	0.9995340406894684	0.9990692048268102
+community_type	Unknown	soft tissue	Unknown → soft tissue	1	0.9999995231628418	0.9999990211758245
+community_type	oral	gut	oral → gut	1	0.9681065082550049	0.9557508556172252
+community_type	plant tissue	Not applicable - env sample	plant tissue → Not applicable - env sample	1	0.9815292358398438	0.9747321517206728
+community_type	skeletal tissue	oral	skeletal tissue → oral	1	0.9889923334121704	0.977984624914825
+material	lake sediment	sediment	lake sediment → sediment	66	0.9944296154108915	0.9909839762067354
+material	marine sediment	sediment	marine sediment → sediment	50	0.9820248115062714	0.969867061922794
+material	birch pitch	sediment	birch pitch → sediment	37	0.9740016879262151	0.950221475300291
+material	Skin	skin	Skin → skin	16	0.9942743554711342	0.9913321608022452
+material	faeces	digestive tract contents	faeces → digestive tract contents	16	0.9994316659867764	0.9989008052114965
+material	soil	skin	soil → skin	8	0.9970289543271065	0.995143475021905
+material	dental calculus	skin	dental calculus → skin	6	0.97584468126297	0.9691781555496467
+material	Unknown	bone	Unknown → bone	5	0.9719334006309509	0.9462015743367373
+material	birch pitch	skin	birch pitch → skin	5	0.983666467666626	0.9759668351143773
+material	lake sediment	permafrost	lake sediment → permafrost	4	0.9616143256425858	0.9232966632116586
+material	permafrost	sediment	permafrost → sediment	4	0.9765755832195282	0.9537231997237541
+material	soil	sediment	soil → sediment	4	0.965599536895752	0.9312209074269049
+material	tooth	skin	tooth → skin	4	0.9673704504966736	0.954495043552015
+material	birch pitch	saliva	birch pitch → saliva	3	0.9717397689819336	0.9566044465949138
+material	palaeofaeces	digestive tract contents	palaeofaeces → digestive tract contents	3	0.9999999602635702	0.9999999010732695
+material	dental calculus	tooth	dental calculus → tooth	2	0.95802441239357	0.9170963447540998
+material	saliva	plaque	saliva → plaque	2	0.9773873388767242	0.9702301573706791
+material	tongue	tissue	tongue → tissue	2	0.9733705818653107	0.9470116021111608
+material	tooth	dental calculus	tooth → dental calculus	2	0.9559426605701447	0.9118852742394665
+material	Oral	tissue	Oral → tissue	1	0.9521937370300293	0.9280261602252722
+material	bone	dental calculus	bone → dental calculus	1	0.910889744758606	0.8217795193195343
+material	bone	skin	bone → skin	1	0.9523360133171082	0.9274832308292389
+material	bone	tooth	bone → tooth	1	0.9489270448684692	0.8980750292539597
+material	buccal mucosa	skin	buccal mucosa → skin	1	0.9221774339675903	0.8777036070823669
+material	dental calculus	saliva	dental calculus → saliva	1	0.9154749512672424	0.8703791126608849
+material	dental calculus	sediment	dental calculus → sediment	1	0.9918252229690552	0.988396389875561
+material	dentine	dental calculus	dentine → dental calculus	1	0.9993265867233276	0.9986531433532946
+material	permafrost	leaf	permafrost → leaf	1	0.9866750836372375	0.9773627454414964
+sample_host	Homo sapiens	Not applicable - env sample	Homo sapiens → Not applicable - env sample	45	0.9934554735819499	0.9896559333556676
+sample_host	gorilla beringei beringei	Gorilla sp.	gorilla beringei beringei → Gorilla sp.	16	0.9999931901693344	0.9999874035196237
+sample_host	Homo sapiens	Pan troglodytes	Homo sapiens → Pan troglodytes	11	0.9813840985298157	0.9667778607016206
+sample_host	gorilla beringei graueri	Gorilla sp.	gorilla beringei graueri → Gorilla sp.	8	0.9999350756406784	0.9998781661775344
+sample_host	alouatta palliata	Gorilla sp.	alouatta palliata → Gorilla sp.	7	0.9844891684395927	0.969925832674822
+sample_host	pan troglodytes schweinfurthii	Pan troglodytes	pan troglodytes schweinfurthii → Pan troglodytes	7	1.0	0.9999999978621161
+sample_host	Homo sapiens	Canis lupus	Homo sapiens → Canis lupus	5	0.9540178656578064	0.9085014447569847
+sample_host	gorilla gorilla gorilla	Gorilla sp.	gorilla gorilla gorilla → Gorilla sp.	5	0.9995099067687988	0.9992410044348798
+sample_host	gorilla beringei	Gorilla sp.	gorilla beringei → Gorilla sp.	4	0.9559926688671112	0.9195524477399886
+sample_host	pan troglodytes ellioti	Pan troglodytes	pan troglodytes ellioti → Pan troglodytes	4	1.0	0.9999999999999807
+sample_host	Homo sapiens neanderthalensis	Not applicable - env sample	Homo sapiens neanderthalensis → Not applicable - env sample	3	0.9999844630559286	0.9999767549067684
+sample_host	Homo sapiens	Homo sapiens neanderthalensis	Homo sapiens → Homo sapiens neanderthalensis	2	0.9926931262016296	0.9855451493058354
+sample_host	papio hamadryas	Homo sapiens	papio hamadryas → Homo sapiens	2	0.9996711909770966	0.9993426708387818
+sample_host	Arabidopsis thaliana	Not applicable - env sample	Arabidopsis thaliana → Not applicable - env sample	1	0.9963130354881287	0.9947574577527121
+sample_host	Not applicable - env sample	Arabidopsis thaliana	Not applicable - env sample → Arabidopsis thaliana	1	0.9237469434738159	0.8755925931036472
+sample_host	homo sapiens	Homo sapiens	homo sapiens → Homo sapiens	1	0.906244158744812	0.8124908655881882
+sample_type	modern	ancient	modern → ancient	27	0.9802954505991053	0.9605909160605667
+sample_type	ancient	modern	ancient → modern	23	0.9546669643858204	0.909333926371524

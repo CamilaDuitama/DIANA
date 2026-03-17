@@ -27,11 +27,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import silhouette_score
 from sklearn.manifold import TSNE
 from scipy import stats
-try:
-    from umap import UMAP
-    UMAP_AVAILABLE = True
-except ImportError:
-    UMAP_AVAILABLE = False
 from pathlib import Path
 import pickle
 import sys
@@ -226,7 +221,7 @@ def load_metadata(sample_ids):
     logger.info(f"  ✓ Verified metadata order matches matrix rows")
 
     # Return the integer row indices into the original sample_ids list so the caller
-    # can align embedding matrices (PCA/UMAP/t-SNE) to this metadata.
+    # can align embedding matrices (PCA/t-SNE) to this metadata.
     meta_set = set(filtered_sample_ids)
     indices = [i for i, sid in enumerate(sample_ids) if sid in meta_set]
     return metadata, indices
@@ -497,36 +492,6 @@ def perform_pca(matrix, n_components=50):
     return pca, pca_result
 
 
-def perform_umap(matrix, n_components=2, n_neighbors=15, min_dist=0.1, n_jobs=-1):
-    """Perform UMAP dimensionality reduction (non-linear, better for complex structure)."""
-    if not UMAP_AVAILABLE:
-        logger.warning("\nUMAP not available - install with: pip install umap-learn")
-        logger.warning("  Skipping UMAP analysis")
-        return None
-    
-    logger.info(f"\nPerforming UMAP with {n_components} components...")
-    logger.info(f"  n_neighbors={n_neighbors}, min_dist={min_dist}")
-    if n_jobs == -1:
-        logger.info(f"  Using all available CPU cores for parallel processing")
-    else:
-        logger.info(f"  Using {n_jobs} CPU cores")
-    
-    try:
-        umap_model = UMAP(
-            n_components=n_components,
-            n_neighbors=n_neighbors,
-            min_dist=min_dist,
-            random_state=42,
-            verbose=False,
-            n_jobs=n_jobs
-        )
-        umap_result = umap_model.fit_transform(matrix)
-        logger.info(f"  ✓ UMAP result shape: {umap_result.shape}")
-        return umap_model, umap_result
-    except Exception as e:
-        logger.error(f"  Failed to perform UMAP: {e}")
-        return None
-
 
 def perform_tsne(matrix, n_components=2, perplexity=30):
     """Perform t-SNE dimensionality reduction (local structure preservation)."""
@@ -656,7 +621,7 @@ def calculate_pc_task_correlations(pca_result, metadata, pca_model, n_pcs=10):
     return correlations
 
 
-def save_pca_model(pca, pca_result, sample_ids, metadata, unitig_ids, scaler=None, umap_model=None, umap_result=None):
+def save_pca_model(pca, pca_result, sample_ids, metadata, unitig_ids, scaler=None):
     """Save PCA model and reference data for future projections."""
     logger.info("\nSaving PCA model for future projections...")
     
@@ -667,8 +632,6 @@ def save_pca_model(pca, pca_result, sample_ids, metadata, unitig_ids, scaler=Non
     reference_data = {
         'pca_model': pca,
         'pca_coordinates': pca_result,  # Save pre-computed reference PCA coords
-        'umap_model': umap_model,  # Save UMAP model for projecting new samples
-        'umap_coordinates': umap_result,  # Save pre-computed reference UMAP coords
         'scaler': scaler,  # Save scaler for standardization (None if not standardized)
         'sample_ids': sample_ids,
         'unitig_ids': unitig_ids.tolist(),
@@ -688,8 +651,6 @@ def save_pca_model(pca, pca_result, sample_ids, metadata, unitig_ids, scaler=Non
         logger.info(f"  Data was standardized (scaler saved for new samples)")
     else:
         logger.info(f"  Data was not standardized (raw values used)")
-    if umap_model is not None:
-        logger.info(f"  UMAP model saved for projecting new samples")
     return output_path
 
 
@@ -726,7 +687,7 @@ def export_pca_coordinates(pca_result, sample_ids, metadata, pca_model, output_d
 
 
 def export_embedding_coordinates(embedding_result, sample_ids, metadata, method_name, output_dir):
-    """Export UMAP/t-SNE coordinates to CSV with metadata."""
+    """Export t-SNE coordinates to CSV with metadata."""
     logger.info(f"\nExporting {method_name} coordinates...")
     
     # Create DataFrame with embedding coordinates
@@ -855,7 +816,7 @@ def plot_pca_by_task(pca_result, metadata, task_col, pca_model, output_prefix):
 
 
 def plot_embedding_by_task(embedding_result, metadata, task_col, method_name, output_prefix, var_labels=None):
-    """Generic plotting function for any dimensionality reduction method (UMAP, t-SNE, etc.)."""
+    """Generic plotting function for any dimensionality reduction method (t-SNE, etc.)."""
     logger.info(f"\nPlotting {method_name} for {task_col}...")
     
     # Prepare data
@@ -1820,7 +1781,6 @@ def main():
     
     # Define cache paths
     pca_cache = Path('models/pca_reference.pkl')
-    umap_cache = results_dir / 'umap_embedding_cache.pkl'
     tsne_cache = results_dir / 'tsne_embedding_cache.pkl'
     
     try:
@@ -1832,11 +1792,17 @@ def main():
         # Perform PCA (load from cache if available)
         if pca_cache.exists():
             logger.info(f"\n✓ Loading cached PCA model: {pca_cache}")
-            with open(pca_cache, 'rb') as f:
-                cached = pickle.load(f)
+            try:
+                with open(pca_cache, 'rb') as f:
+                    cached = pickle.load(f)
+            except Exception as e:
+                logger.warning(f"  Cache load failed ({e}), recomputing PCA...")
+                cached = None
             
             # Handle both old dict format and new raw model format
-            if isinstance(cached, dict):
+            if cached is None:
+                pca, pca_result = perform_pca(matrix, n_components=50)
+            elif isinstance(cached, dict):
                 pca = cached.get('pca_model', cached.get('pca'))
                 if pca is None:
                     logger.warning("  Old cache format incompatible, recomputing...")
@@ -1860,37 +1826,16 @@ def main():
         else:
             pca, pca_result = perform_pca(matrix, n_components=50)
         
-        # Perform UMAP (load from cache if available)
-        if umap_cache.exists():
-            logger.info(f"\n✓ Loading cached UMAP embedding: {umap_cache}")
-            with open(umap_cache, 'rb') as f:
-                umap_data = pickle.load(f)
-            # Handle both old format (coordinates only) and new format (model + coordinates)
-            if isinstance(umap_data, dict):
-                umap_model = umap_data['model']
-                umap_result = umap_data['coordinates']
-            else:
-                # Old format - coordinates only
-                umap_result = umap_data
-                umap_model = None
-            logger.info(f"  Loaded UMAP embedding: {umap_result.shape}")
-        else:
-            result = perform_umap(matrix, n_components=2, n_neighbors=15, min_dist=0.1, n_jobs=N_JOBS)
-            if result is not None:
-                umap_model, umap_result = result
-                # Save both model and coordinates for future projections
-                with open(umap_cache, 'wb') as f:
-                    pickle.dump({'model': umap_model, 'coordinates': umap_result}, f)
-                logger.info(f"  ✓ Saved UMAP model and embedding: {umap_cache}")
-            else:
-                umap_model, umap_result = None, None
-        
         # Perform t-SNE (load from cache if available)
         if tsne_cache.exists():
             logger.info(f"\n✓ Loading cached t-SNE embedding: {tsne_cache}")
-            with open(tsne_cache, 'rb') as f:
-                tsne_result = pickle.load(f)
-            logger.info(f"  Loaded t-SNE embedding: {tsne_result.shape}")
+            try:
+                with open(tsne_cache, 'rb') as f:
+                    tsne_result = pickle.load(f)
+                logger.info(f"  Loaded t-SNE embedding: {tsne_result.shape}")
+            except Exception as e:
+                logger.warning(f"  t-SNE cache load failed ({e}), recomputing...")
+                tsne_result = None
         else:
             tsne_result = perform_tsne(matrix, n_components=2, perplexity=30)
             if tsne_result is not None:
@@ -1905,21 +1850,12 @@ def main():
         n_full = len(sample_ids)
         if pca_result.shape[0] == n_full:
             pca_result = pca_result[meta_indices]
-        if umap_result is not None and umap_result.shape[0] == n_full:
-            umap_result = umap_result[meta_indices]
         if tsne_result is not None and tsne_result.shape[0] == n_full:
             tsne_result = tsne_result[meta_indices]
         sample_ids = [sample_ids[i] for i in meta_indices]
 
         # Calculate separation metrics for PCA
         separation_metrics = calculate_separation_metrics(pca_result, metadata)
-        
-        # Calculate separation for UMAP if available
-        if umap_result is not None:
-            umap_metrics = calculate_separation_metrics(umap_result, metadata, n_pcs=2)
-            separation_metrics['umap'] = umap_metrics
-            # Export UMAP coordinates
-            export_embedding_coordinates(umap_result, sample_ids, metadata, 'UMAP', results_dir)
         
         # Calculate separation for t-SNE if available
         if tsne_result is not None:
@@ -1947,8 +1883,7 @@ def main():
         export_pca_loadings(pca, unitig_ids, results_dir, top_n=100)
         
         # Save PCA model for future use
-        save_pca_model(pca, pca_result, sample_ids, metadata, unitig_ids, scaler=scaler, 
-                      umap_model=umap_model, umap_result=umap_result)
+        save_pca_model(pca, pca_result, sample_ids, metadata, unitig_ids, scaler=scaler)
         
         # Create scree plot
         scree_path = Path(PATHS['figures_dir']) / "sup_03_pca_scree_plot.png"
@@ -2012,8 +1947,6 @@ def main():
         logger.info(f"  - PC-task correlations: {correlations_path}")
         logger.info(f"  - PCA coordinates: {results_dir}/pca_coordinates.csv")
         logger.info(f"  - PCA loadings: {results_dir}/pca_loadings_*.csv")
-        if umap_result is not None:
-            logger.info(f"  - UMAP coordinates: {results_dir}/umap_coordinates.csv")
         if tsne_result is not None:
             logger.info(f"  - t-SNE coordinates: {results_dir}/tsne_coordinates.csv")
         logger.info(f"\nMatrix info:")
@@ -2037,7 +1970,7 @@ if __name__ == '__main__':
     import argparse
     
     parser = argparse.ArgumentParser(
-        description='Generate PCA/UMAP/t-SNE analysis of unitig matrix',
+        description='Generate PCA/t-SNE analysis of unitig matrix',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -2051,7 +1984,7 @@ Examples:
     parser.add_argument(
         '--no-cache',
         action='store_true',
-        help='Force recalculation of PCA/UMAP/t-SNE (ignore cached results)'
+        help='Force recalculation of PCA/t-SNE (ignore cached results)'
     )
     
     args = parser.parse_args()
@@ -2061,7 +1994,6 @@ Examples:
         logger.info("--no-cache flag set: removing cached embeddings...")
         for cache_file in [
             'models/pca_reference.pkl',
-            'results/feature_analysis/umap_embedding_cache.pkl',
             'results/feature_analysis/tsne_embedding_cache.pkl'
         ]:
             cache_path = Path(cache_file)

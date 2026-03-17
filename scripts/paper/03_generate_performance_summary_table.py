@@ -222,12 +222,12 @@ def generate_performance_summary_table(output_dir):
     
     lines = []
     lines.append("\\centering")
-    lines.append("\\caption{Final model performance across the Training set, the held-out Test set, and the external Validation set.}")
+    lines.append("\\caption{Final model performance across the Training set, the held-out Test set, and the external Validation set. Balanced Accuracy and F1 Score are macro-averaged (unweighted mean across classes), giving equal weight to each class regardless of frequency.}")
     lines.append("\\label{tab:performance}")
     lines.append("\\small")
-    lines.append("\\begin{tabular*}{\\linewidth}{@{\\extracolsep{\\fill}}lllrrr@{}}")
+    lines.append("\\begin{tabular*}{\\linewidth}{@{\\extracolsep{\\fill}}llrrr@{}}")
     lines.append("\\toprule")
-    lines.append("Task & Dataset & n & Acc (\\%) & Bal Acc (\\%) & F1 Score (\\%) \\\\")
+    lines.append("Task & Dataset & Acc (\\%) & Bal Acc (\\%) & F1 Score (\\%) \\\\")
     lines.append("\\midrule")
     
     for task in TASKS:
@@ -240,24 +240,21 @@ def generate_performance_summary_table(output_dir):
             train_bal = train_metrics[task].get('balanced_accuracy', 0) * 100
             # Use f1_weighted if f1_macro not available
             train_f1 = train_metrics[task].get('f1_macro', train_metrics[task].get('f1_weighted', 0)) * 100
-            lines.append(f"{task_label} & Training & {train_n} & {train_acc:.1f} & {train_bal:.1f} & {train_f1:.1f} \\\\")
+            lines.append(f"{task_label} & Training & {train_acc:.1f} & {train_bal:.1f} & {train_f1:.1f} \\\\")
         
         # Test
         test_acc = test_metrics[task]['accuracy'] * 100
         test_bal = test_metrics[task]['balanced_accuracy'] * 100
         test_f1 = test_metrics[task]['f1_macro'] * 100
         prefix = "" if use_actual_training else task_label
-        lines.append(f"{prefix} & Test & 461 & {test_acc:.1f} & {test_bal:.1f} & {test_f1:.1f} \\\\")
+        lines.append(f"{prefix} & Test & {test_acc:.1f} & {test_bal:.1f} & {test_f1:.1f} \\\\")
         
         # Validation
         if task in val_metrics:
-            val_n_seen = val_metrics[task]['n']
-            val_n_total = val_total_n.get(task, val_n_seen)
-            val_n_str = f"{val_n_seen} / {val_n_total}"
             val_acc = val_metrics[task]['accuracy'] * 100
             val_bal = val_metrics[task]['balanced_accuracy'] * 100
             val_f1 = val_metrics[task]['f1_macro'] * 100
-            lines.append(f" & Validation & {val_n_str} & {val_acc:.1f} & {val_bal:.1f} & {val_f1:.1f} \\\\")
+            lines.append(f" & Validation & {val_acc:.1f} & {val_bal:.1f} & {val_f1:.1f} \\\\")
         
         lines.append("\\addlinespace")
     
@@ -267,8 +264,8 @@ def generate_performance_summary_table(output_dir):
     if use_actual_training:
         n_train = train_metrics[TASKS[0]]['n']
         note_parts.append(f"Training: Performance on all {n_train:,} training samples (seen labels only).")
-    note_parts.append("Test: Performance on the held-out test set (n=461).")
-    note_parts.append("Validation n: seen-label runs used for metrics / total validation runs (987). Metrics computed only on samples with labels seen during training.")
+    note_parts.append("Test: Held-out test set (n=461).")
+    note_parts.append("Validation: metrics computed on seen-label runs only (sample\_type: 987/987, community\_type: 986/987, sample\_host: 908/987, material: 671/987).")
     note_parts.append("Acc: Accuracy. Bal Acc: Balanced Accuracy (average per-class recall). F1 Score: Macro-averaged F1-score.")
     note_text = " ".join(note_parts)
     lines.append("\\par\\vspace{4pt}")

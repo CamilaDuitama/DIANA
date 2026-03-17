@@ -1,0 +1,69 @@
+task	archive_project	project_name	n_errors	mean_confidence	mean_margin	dominant_pair
+community_type	PRJNA994900	Kirdok2024	63	0.9861908167127579	0.9766404218026613	oral → Not applicable - env sample
+community_type			14	0.984076976776123	0.9700331665472756	Not applicable - env sample → soft tissue
+community_type	PRJEB33848	Neukamm2020	10	0.9729342341423035	0.9465109147276962	soft tissue → skeletal tissue
+community_type	PRJEB30280	Jensen2019	5	0.9876838684082031	0.9808236860000761	oral → soft tissue
+community_type	PRJEB64128	Jackson2024	5	0.928287935256958	0.8608979685232043	oral → skeletal tissue
+community_type	PRJEB67998	Bozzi2024	5	0.9629774928092957	0.9430220521055162	skeletal tissue → soft tissue
+community_type	PRJEB49638	Moraitou2022	4	0.9711080640554428	0.9527781838551164	oral → soft tissue
+community_type	PRJEB41665	Rampelli2021	3	0.9999224543571472	0.9998723871847991	gut → Not applicable - env sample
+community_type	PRJEB34569	FellowsYates2021	2	0.9973881840705872	0.9953803537064232	oral → soft tissue
+community_type	PRJNA1004851	Murchie2023	2	0.9995340406894684	0.9990692048268102	Not applicable - env sample → plant tissue
+community_type	PRJNA354503	Philips2017	2	0.9553464949131012	0.9111013630172238	oral → skeletal tissue
+community_type	PRJEB24619	Bieker2020	1	0.9815292358398438	0.9747321517206728	plant tissue → Not applicable - env sample
+community_type	PRJEB33717	Gaffney2020	1	0.9726617932319641	0.9460757337510586	Not applicable - env sample → soft tissue
+community_type	PRJEB52394	Velsko2022	1	0.9033477306365967	0.8066954910755157	oral → skeletal tissue
+community_type	PRJEB56776	Kimsis2023	1	0.9584757089614868	0.9170169681310654	oral → skeletal tissue
+community_type	PRJNA445215	Mann2018	1	0.9889923334121704	0.977984624914825	skeletal tissue → oral
+community_type	PRJNA704183	Wright2024	1	0.9019833207130432	0.8084859400987625	oral → skeletal tissue
+community_type	PRJNA791766	Quagliariello2022	1	0.9994345307350159	0.9991545983939432	oral → Not applicable - env sample
+material			47	0.9925573747208778	0.9881433833151531	Skin → skin
+material	PRJNA994900	Kirdok2024	40	0.973832044005394	0.9507001981473877	birch pitch → sediment
+material	PRJEB80877	vonHippel2025	35	0.9956749745777675	0.9913578997325804	lake sediment → sediment
+material	PRJNA1211513	Schreiber2025	34	0.974003337761935	0.9565306601158655	marine sediment → sediment
+material	PRJEB74036	Liu2024	17	0.9951409592347986	0.9910534732948207	lake sediment → sediment
+material	PRJNA320875	Graham2016	10	0.9718886911869049	0.9562816570978612	lake sediment → sediment
+material	PRJNA558683	Armbrecht2020	7	0.9980003152574811	0.9961447163711584	marine sediment → sediment
+material	PRJEB33848	Neukamm2020	6	0.9680990080038706	0.9381804834896078	Unknown → bone
+material	PRJEB67998	Bozzi2024	6	0.9556519687175751	0.9282752294481421	tooth → skin
+material	PRJEB30280	Jensen2019	5	0.983666467666626	0.9759668351143773	birch pitch → skin
+material	PRJNA1004851	Murchie2023	5	0.9785954833030701	0.9584511088673026	permafrost → sediment
+material	PRJEB49638	Moraitou2022	4	0.96465864777565	0.9550207813736051	dental calculus → skin
+material	PRJEB66300	Buchwald2024	4	0.9999785721302032	0.999965472431617	marine sediment → sediment
+material	PRJNA861836	Armbrecht2022	4	0.9998026490211487	0.9996089369708768	marine sediment → sediment
+material	PRJEB14494	Pedersen2016	3	0.9999994436899821	0.9999989510977602	lake sediment → sediment
+material	PRJEB33577	Hagan2019	3	0.9999999602635702	0.9999999010732695	palaeofaeces → digestive tract contents
+material		MGYS00006821	3	0.9545388420422872	0.9090777188539505	soil → sediment
+material	PRJEB34569	FellowsYates2021	2	0.9982167482376099	0.9974929039017297	dental calculus → skin
+material	PRJEB52394	Velsko2022	2	0.95802441239357	0.9170963447540998	dental calculus → tooth
+material	PRJEB61887	Velsko2024	2	0.9131823480129242	0.8460793159902096	bone → dental calculus
+material	PRJNA957541	Perez2023	2	0.9994989037513733	0.9990122921499278	lake sediment → sediment
+material	PRJEB39351	Iwanska2022	1	0.9999972581863403	0.9999946393843402	lake sediment → sediment
+material	PRJEB46821	Zimmermann2023	1	1.0	0.9999999999921905	marine sediment → sediment
+material	PRJNA320875	Wang2017	1	0.9999954700469971	0.9999910678220658	lake sediment → sediment
+material	PRJNA445215	Mann2018	1	0.9997913241386414	0.9995825768273789	tooth → dental calculus
+material	PRJNA522291	Moguel2021	1	0.9949157238006592	0.9918698300607502	lake sediment → sediment
+material	PRJNA704183	Wright2024	1	0.9993265867233276	0.9986531433532946	dentine → dental calculus
+material	PRJNA791766	Quagliariello2022	1	0.9918252229690552	0.988396389875561	dental calculus → sediment
+sample_host	PRJNA994900	Kirdok2024	38	0.9998646990249032	0.9997858324790717	Homo sapiens → Not applicable - env sample
+sample_host	PRJEB34569	FellowsYates2021	32	0.9961652681231499	0.9925482383188472	gorilla beringei beringei → Gorilla sp.
+sample_host	PRJEB49638	Moraitou2022	16	0.9998143836855888	0.9997018928324994	gorilla beringei graueri → Gorilla sp.
+sample_host	PRJNA1056444	Austin2024	10	0.9831376135349273	0.9705794955676735	Homo sapiens → Pan troglodytes
+sample_host			6	0.9460555811723074	0.8924996815621853	Homo sapiens → Canis lupus
+sample_host	PRJEB33363	Brealey2020	4	0.9559926688671112	0.9195524477399886	gorilla beringei → Gorilla sp.
+sample_host	PRJEB61887	Velsko2024	4	0.9514513462781906	0.9210568509297445	Homo sapiens → Not applicable - env sample
+sample_host	PRJEB41665	Rampelli2021	3	0.9999844630559286	0.9999767549067684	Homo sapiens neanderthalensis → Not applicable - env sample
+sample_host	PRJNA354503	Philips2017	3	0.9563018679618835	0.9292017653181878	Homo sapiens → Not applicable - env sample
+sample_host	PRJEB34875	Ottoni2019	2	0.9996711909770966	0.9993426708387818	papio hamadryas → Homo sapiens
+sample_host	PRJNA791766	Quagliariello2022	2	0.9995943009853363	0.9992050939617911	Homo sapiens → Homo sapiens neanderthalensis
+sample_host	PRJEB24619	Bieker2020	1	0.9963130354881287	0.9947574577527121	Arabidopsis thaliana → Not applicable - env sample
+sample_host	PRJNA1004851	Murchie2023	1	0.9237469434738159	0.8755925931036472	Not applicable - env sample → Arabidopsis thaliana
+sample_type			23	0.977452480274698	0.954904971877113	modern → ancient
+sample_type	PRJNA994900	Kirdok2024	10	0.9418484628200531	0.8836969237308949	ancient → modern
+sample_type	PRJEB30280	Jensen2019	4	0.9941592067480087	0.9883184293230443	ancient → modern
+sample_type		MGYS00006821	4	0.996642529964447	0.9932850951154251	modern → ancient
+sample_type	PRJEB67998	Bozzi2024	3	0.9349365830421448	0.8698731797436873	ancient → modern
+sample_type	PRJEB34569	FellowsYates2021	2	0.9868394434452057	0.9736788868904114	ancient → modern
+sample_type	PRJEB49638	Moraitou2022	2	0.9190868735313416	0.838173720985651	ancient → modern
+sample_type	PRJEB61887	Velsko2024	1	0.9974310994148254	0.9948621552903205	ancient → modern
+sample_type	PRJNA1056444	Austin2024	1	0.9481252431869507	0.8962504416704178	ancient → modern

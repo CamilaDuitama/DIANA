@@ -1,0 +1,369 @@
+task	BioProject	project_name	N_total	N_wrong	error_rate	N_conf_wrong	conf_wrong_rate	mean_confidence_on_errors
+community_type	PRJEB41665	Rampelli2021	3	3	1.0	3	1.0	0.9999
+community_type	PRJEB56776	Kimsis2023	1	1	1.0	1	1.0	0.9585
+community_type	PRJEB60029		3	3	1.0	3	1.0	0.9838
+community_type	PRJNA433935		5	5	1.0	5	1.0	0.9935
+community_type	PRJNA994900	Kirdok2024	70	68	0.9714	63	0.9	0.9862
+community_type	PRJEB30280	Jensen2019	9	9	1.0	5	0.5556	0.9877
+community_type	PRJEB42399		2	1	0.5	1	0.5	1.0
+community_type	PRJEB33848	Neukamm2020	24	15	0.625	10	0.4167	0.9729
+community_type	PRJEB33717	Gaffney2020	3	1	0.3333	1	0.3333	0.9727
+community_type	PRJEB67998	Bozzi2024	19	8	0.4211	5	0.2632	0.963
+community_type	PRJEB24619	Bieker2020	4	1	0.25	1	0.25	0.9815
+community_type	PRJNA1004851	Murchie2023	8	3	0.375	2	0.25	0.9995
+community_type	PRJNA704183	Wright2024	4	1	0.25	1	0.25	0.902
+community_type	PRJEB49638	Moraitou2022	20	4	0.2	4	0.2	0.9711
+community_type	PRJNA255922		10	2	0.2	2	0.2	0.9831
+community_type	PRJNA380727		5	4	0.8	1	0.2	0.9057
+community_type	PRJNA354503	Philips2017	12	8	0.6667	2	0.1667	0.9553
+community_type	PRJNA791766	Quagliariello2022	9	3	0.3333	1	0.1111	0.9994
+community_type	PRJNA48479		19	6	0.3158	2	0.1053	0.9931
+community_type	PRJNA445215	Mann2018	12	1	0.0833	1	0.0833	0.989
+community_type	PRJEB64128	Jackson2024	73	35	0.4795	5	0.0685	0.9283
+community_type	PRJEB34569	FellowsYates2021	42	3	0.0714	2	0.0476	0.9974
+community_type	PRJEB52394	Velsko2022	28	2	0.0714	1	0.0357	0.9033
+community_type	PRJDB5315		1	0	0.0	0	0.0	
+community_type	PRJEB11419		10	0	0.0	0	0.0	
+community_type	PRJEB11511	Maixner2016	1	0	0.0	0	0.0	
+community_type	PRJEB13329	Seersholm2016	13	0	0.0	0	0.0	
+community_type	PRJEB14494	Pedersen2016	5	0	0.0	0	0.0	
+community_type	PRJEB1799	MGYS00002363	4	2	0.5	0	0.0	
+community_type	PRJEB18629	Slon2017	7	1	0.1429	0	0.0	
+community_type	PRJEB18722	Bozzi2024	4	1	0.25	0	0.0	
+community_type	PRJEB30331	Velsko2019	14	1	0.0714	0	0.0	
+community_type	PRJEB33363	Brealey2020	5	0	0.0	0	0.0	
+community_type	PRJEB33577	Hagan2019	3	0	0.0	0	0.0	
+community_type	PRJEB34825	Bieker2020	1	0	0.0	0	0.0	
+community_type	PRJEB34875	Ottoni2019	10	7	0.7	0	0.0	
+community_type	PRJEB35483	Fagernas2020	5	0	0.0	0	0.0	
+community_type	PRJEB37914	Ardelean2020	6	0	0.0	0	0.0	
+community_type	PRJEB39351	Iwanska2022	1	0	0.0	0	0.0	
+community_type	PRJEB40358		5	1	0.2	0	0.0	
+community_type	PRJEB41240	SeguinOrlando2021	18	3	0.1667	0	0.0	
+community_type	PRJEB41420	Gelabert2021	1	1	1.0	0	0.0	
+community_type	PRJEB41539		1	0	0.0	0	0.0	
+community_type	PRJEB42014	Brealey2021	38	0	0.0	0	0.0	
+community_type	PRJEB43389	Granehall2021	2	0	0.0	0	0.0	
+community_type	PRJEB43506	Courtin2022	3	0	0.0	0	0.0	
+community_type	PRJEB44163		10	0	0.0	0	0.0	
+community_type	PRJEB44313	Ottoni2021	1	0	0.0	0	0.0	
+community_type	PRJEB44723	Sarhan2023	2	1	0.5	0	0.0	
+community_type	PRJEB46022	Fagernas2022	16	3	0.1875	0	0.0	
+community_type	PRJEB46821	Zimmermann2023	1	0	0.0	0	0.0	
+community_type	PRJEB55522	Kjaer2022	1	0	0.0	0	0.0	
+community_type	PRJEB58818	Fontani2023	1	0	0.0	0	0.0	
+community_type	PRJEB61887	Velsko2024	122	32	0.2623	0	0.0	
+community_type	PRJEB65298		4	2	0.5	0	0.0	
+community_type	PRJEB66300	Buchwald2024	4	0	0.0	0	0.0	
+community_type	PRJEB67363	Fiorin2024	4	0	0.0	0	0.0	
+community_type	PRJEB6766	Smith2015	2	0	0.0	0	0.0	
+community_type	PRJEB71693		9	1	0.1111	0	0.0	
+community_type	PRJEB74036	Liu2024	21	0	0.0	0	0.0	
+community_type	PRJEB80877	vonHippel2025	46	0	0.0	0	0.0	
+community_type	PRJNA1037120	Fleskes2024	12	1	0.0833	0	0.0	
+community_type	PRJNA1056444	Austin2024	39	6	0.1538	0	0.0	
+community_type	PRJNA1211513	Schreiber2025	48	0	0.0	0	0.0	
+community_type	PRJNA205039	Campana2014	1	0	0.0	0	0.0	
+community_type	PRJNA230469	Appelt2014	1	1	1.0	0	0.0	
+community_type	PRJNA302605	Willmann2018	1	0	0.0	0	0.0	
+community_type	PRJNA320875	Graham2016	12	1	0.0833	0	0.0	
+community_type	PRJNA336855		11	0	0.0	0	0.0	
+community_type	PRJNA339123	Bieker2020	2	0	0.0	0	0.0	
+community_type	PRJNA378719	Ahmed2018	2	0	0.0	0	0.0	
+community_type	PRJNA488629	Moore2020	1	0	0.0	0	0.0	
+community_type	PRJNA522291	Moguel2021	2	0	0.0	0	0.0	
+community_type	PRJNA553005		3	0	0.0	0	0.0	
+community_type	PRJNA558683	Armbrecht2020	7	0	0.0	0	0.0	
+community_type	PRJNA573108	Dommain2020	5	0	0.0	0	0.0	
+community_type	PRJNA657304	Witt2021	1	1	1.0	0	0.0	
+community_type	PRJNA680161	Liang2021	2	0	0.0	0	0.0	
+community_type	PRJNA685265	Weyrich2017	1	1	1.0	0	0.0	
+community_type	PRJNA688065	Farrer2021	3	1	0.3333	0	0.0	
+community_type	PRJNA706003		4	4	1.0	0	0.0	
+community_type	PRJNA706195		5	1	0.2	0	0.0	
+community_type	PRJNA739881	Modi2021	1	0	0.0	0	0.0	
+community_type	PRJNA769968		1	1	1.0	0	0.0	
+community_type	PRJNA794308	Perez2022	2	0	0.0	0	0.0	
+community_type	PRJNA799832		2	0	0.0	0	0.0	
+community_type	PRJNA836960	Madison2023	11	11	1.0	0	0.0	
+community_type	PRJNA861836	Armbrecht2022	6	0	0.0	0	0.0	
+community_type	PRJNA862077		1	0	0.0	0	0.0	
+community_type	PRJNA885571	Honap2023	2	0	0.0	0	0.0	
+community_type	PRJNA957541	Perez2023	2	0	0.0	0	0.0	
+community_type	Unknown	MGYS00006821	9	2	0.2222	0	0.0	
+material	PRJDB5315		1	1	1.0	1	1.0	0.9522
+material	PRJEB11419		10	10	1.0	10	1.0	1.0
+material	PRJEB33577	Hagan2019	3	3	1.0	3	1.0	1.0
+material	PRJEB39351	Iwanska2022	1	1	1.0	1	1.0	1.0
+material	PRJEB41539		1	1	1.0	1	1.0	0.9988
+material	PRJEB42399		2	2	1.0	2	1.0	0.9999
+material	PRJEB46821	Zimmermann2023	1	1	1.0	1	1.0	1.0
+material	PRJEB60029		3	3	1.0	3	1.0	0.9954
+material	PRJEB66300	Buchwald2024	4	4	1.0	4	1.0	1.0
+material	PRJNA433935		5	5	1.0	5	1.0	0.998
+material	PRJNA558683	Armbrecht2020	7	7	1.0	7	1.0	0.998
+material	PRJNA799832		2	2	1.0	2	1.0	0.9961
+material	PRJNA862077		1	1	1.0	1	1.0	1.0
+material	PRJNA957541	Perez2023	2	2	1.0	2	1.0	0.9995
+material	PRJNA320875	Graham2016	12	12	1.0	11	0.9167	0.9744
+material	PRJEB71693		9	9	1.0	8	0.8889	0.9993
+material	PRJEB74036	Liu2024	21	21	1.0	17	0.8095	0.9951
+material	PRJEB40358		5	5	1.0	4	0.8	0.9821
+material	PRJEB80877	vonHippel2025	46	46	1.0	35	0.7609	0.9957
+material	PRJNA1211513	Schreiber2025	48	48	1.0	34	0.7083	0.974
+material	PRJNA861836	Armbrecht2022	6	6	1.0	4	0.6667	0.9998
+material	PRJNA1004851	Murchie2023	8	7	0.875	5	0.625	0.9786
+material	PRJEB14494	Pedersen2016	5	5	1.0	3	0.6	1.0
+material	PRJNA994900	Kirdok2024	70	70	1.0	40	0.5714	0.9738
+material	PRJEB30280	Jensen2019	9	9	1.0	5	0.5556	0.9837
+material	PRJNA522291	Moguel2021	2	2	1.0	1	0.5	0.9949
+material	PRJNA380727		5	5	1.0	2	0.4	0.9774
+material	PRJNA48479		19	10	0.5263	7	0.3684	0.9792
+material	Unknown	MGYS00006821	9	9	1.0	3	0.3333	0.9545
+material	PRJEB67998	Bozzi2024	19	16	0.8421	6	0.3158	0.9557
+material	PRJEB33848	Neukamm2020	24	16	0.6667	6	0.25	0.9681
+material	PRJNA704183	Wright2024	4	2	0.5	1	0.25	0.9993
+material	PRJEB49638	Moraitou2022	20	4	0.2	4	0.2	0.9647
+material	PRJNA791766	Quagliariello2022	9	2	0.2222	1	0.1111	0.9918
+material	PRJNA336855		11	1	0.0909	1	0.0909	0.9988
+material	PRJNA445215	Mann2018	12	7	0.5833	1	0.0833	0.9998
+material	PRJEB52394	Velsko2022	28	3	0.1071	2	0.0714	0.958
+material	PRJEB34569	FellowsYates2021	42	3	0.0714	2	0.0476	0.9982
+material	PRJEB61887	Velsko2024	122	38	0.3115	2	0.0164	0.9132
+material	PRJEB11511	Maixner2016	1	1	1.0	0	0.0	
+material	PRJEB13329	Seersholm2016	13	0	0.0	0	0.0	
+material	PRJEB1799	MGYS00002363	4	4	1.0	0	0.0	
+material	PRJEB18629	Slon2017	7	0	0.0	0	0.0	
+material	PRJEB18722	Bozzi2024	4	3	0.75	0	0.0	
+material	PRJEB24619	Bieker2020	4	1	0.25	0	0.0	
+material	PRJEB30331	Velsko2019	14	1	0.0714	0	0.0	
+material	PRJEB33363	Brealey2020	5	0	0.0	0	0.0	
+material	PRJEB33717	Gaffney2020	3	3	1.0	0	0.0	
+material	PRJEB34825	Bieker2020	1	0	0.0	0	0.0	
+material	PRJEB34875	Ottoni2019	10	7	0.7	0	0.0	
+material	PRJEB35483	Fagernas2020	5	0	0.0	0	0.0	
+material	PRJEB37914	Ardelean2020	6	0	0.0	0	0.0	
+material	PRJEB41240	SeguinOrlando2021	18	6	0.3333	0	0.0	
+material	PRJEB41420	Gelabert2021	1	0	0.0	0	0.0	
+material	PRJEB41665	Rampelli2021	3	0	0.0	0	0.0	
+material	PRJEB42014	Brealey2021	38	0	0.0	0	0.0	
+material	PRJEB43389	Granehall2021	2	0	0.0	0	0.0	
+material	PRJEB43506	Courtin2022	3	0	0.0	0	0.0	
+material	PRJEB44163		10	1	0.1	0	0.0	
+material	PRJEB44313	Ottoni2021	1	0	0.0	0	0.0	
+material	PRJEB44723	Sarhan2023	2	2	1.0	0	0.0	
+material	PRJEB46022	Fagernas2022	16	1	0.0625	0	0.0	
+material	PRJEB55522	Kjaer2022	1	0	0.0	0	0.0	
+material	PRJEB56776	Kimsis2023	1	1	1.0	0	0.0	
+material	PRJEB58818	Fontani2023	1	0	0.0	0	0.0	
+material	PRJEB64128	Jackson2024	73	62	0.8493	0	0.0	
+material	PRJEB65298		4	4	1.0	0	0.0	
+material	PRJEB67363	Fiorin2024	4	0	0.0	0	0.0	
+material	PRJEB6766	Smith2015	2	0	0.0	0	0.0	
+material	PRJNA1037120	Fleskes2024	12	2	0.1667	0	0.0	
+material	PRJNA1056444	Austin2024	39	5	0.1282	0	0.0	
+material	PRJNA205039	Campana2014	1	1	1.0	0	0.0	
+material	PRJNA230469	Appelt2014	1	1	1.0	0	0.0	
+material	PRJNA255922		10	4	0.4	0	0.0	
+material	PRJNA302605	Willmann2018	1	0	0.0	0	0.0	
+material	PRJNA339123	Bieker2020	2	0	0.0	0	0.0	
+material	PRJNA354503	Philips2017	12	5	0.4167	0	0.0	
+material	PRJNA378719	Ahmed2018	2	2	1.0	0	0.0	
+material	PRJNA488629	Moore2020	1	0	0.0	0	0.0	
+material	PRJNA553005		3	0	0.0	0	0.0	
+material	PRJNA573108	Dommain2020	5	0	0.0	0	0.0	
+material	PRJNA657304	Witt2021	1	1	1.0	0	0.0	
+material	PRJNA680161	Liang2021	2	0	0.0	0	0.0	
+material	PRJNA685265	Weyrich2017	1	1	1.0	0	0.0	
+material	PRJNA688065	Farrer2021	3	1	0.3333	0	0.0	
+material	PRJNA706003		4	4	1.0	0	0.0	
+material	PRJNA706195		5	5	1.0	0	0.0	
+material	PRJNA739881	Modi2021	1	0	0.0	0	0.0	
+material	PRJNA769968		1	1	1.0	0	0.0	
+material	PRJNA794308	Perez2022	2	1	0.5	0	0.0	
+material	PRJNA836960	Madison2023	11	11	1.0	0	0.0	
+material	PRJNA885571	Honap2023	2	0	0.0	0	0.0	
+sample_host	PRJEB41665	Rampelli2021	3	3	1.0	3	1.0	1.0
+sample_host	PRJEB33363	Brealey2020	5	4	0.8	4	0.8	0.956
+sample_host	PRJEB49638	Moraitou2022	20	20	1.0	16	0.8	0.9998
+sample_host	PRJEB34569	FellowsYates2021	42	34	0.8095	32	0.7619	0.9962
+sample_host	PRJNA994900	Kirdok2024	70	41	0.5857	38	0.5429	0.9999
+sample_host	PRJEB11419		10	6	0.6	5	0.5	0.954
+sample_host	PRJNA1056444	Austin2024	39	15	0.3846	10	0.2564	0.9831
+sample_host	PRJEB24619	Bieker2020	4	1	0.25	1	0.25	0.9963
+sample_host	PRJNA354503	Philips2017	12	3	0.25	3	0.25	0.9563
+sample_host	PRJNA791766	Quagliariello2022	9	3	0.3333	2	0.2222	0.9996
+sample_host	PRJEB34875	Ottoni2019	10	10	1.0	2	0.2	0.9997
+sample_host	PRJNA1004851	Murchie2023	8	2	0.25	1	0.125	0.9237
+sample_host	PRJNA48479		19	5	0.2632	1	0.0526	0.9062
+sample_host	PRJEB61887	Velsko2024	122	25	0.2049	4	0.0328	0.9515
+sample_host	PRJDB5315		1	0	0.0	0	0.0	
+sample_host	PRJEB11511	Maixner2016	1	0	0.0	0	0.0	
+sample_host	PRJEB13329	Seersholm2016	13	0	0.0	0	0.0	
+sample_host	PRJEB14494	Pedersen2016	5	0	0.0	0	0.0	
+sample_host	PRJEB1799	MGYS00002363	4	4	1.0	0	0.0	
+sample_host	PRJEB18629	Slon2017	7	0	0.0	0	0.0	
+sample_host	PRJEB18722	Bozzi2024	4	1	0.25	0	0.0	
+sample_host	PRJEB30280	Jensen2019	9	0	0.0	0	0.0	
+sample_host	PRJEB30331	Velsko2019	14	0	0.0	0	0.0	
+sample_host	PRJEB33577	Hagan2019	3	0	0.0	0	0.0	
+sample_host	PRJEB33717	Gaffney2020	3	0	0.0	0	0.0	
+sample_host	PRJEB33848	Neukamm2020	24	1	0.0417	0	0.0	
+sample_host	PRJEB34825	Bieker2020	1	0	0.0	0	0.0	
+sample_host	PRJEB35483	Fagernas2020	5	0	0.0	0	0.0	
+sample_host	PRJEB37914	Ardelean2020	6	0	0.0	0	0.0	
+sample_host	PRJEB39351	Iwanska2022	1	0	0.0	0	0.0	
+sample_host	PRJEB40358		5	2	0.4	0	0.0	
+sample_host	PRJEB41240	SeguinOrlando2021	18	3	0.1667	0	0.0	
+sample_host	PRJEB41420	Gelabert2021	1	1	1.0	0	0.0	
+sample_host	PRJEB41539		1	0	0.0	0	0.0	
+sample_host	PRJEB42014	Brealey2021	38	0	0.0	0	0.0	
+sample_host	PRJEB42399		2	0	0.0	0	0.0	
+sample_host	PRJEB43389	Granehall2021	2	0	0.0	0	0.0	
+sample_host	PRJEB43506	Courtin2022	3	0	0.0	0	0.0	
+sample_host	PRJEB44163		10	0	0.0	0	0.0	
+sample_host	PRJEB44313	Ottoni2021	1	0	0.0	0	0.0	
+sample_host	PRJEB44723	Sarhan2023	2	0	0.0	0	0.0	
+sample_host	PRJEB46022	Fagernas2022	16	3	0.1875	0	0.0	
+sample_host	PRJEB46821	Zimmermann2023	1	0	0.0	0	0.0	
+sample_host	PRJEB52394	Velsko2022	28	3	0.1071	0	0.0	
+sample_host	PRJEB55522	Kjaer2022	1	0	0.0	0	0.0	
+sample_host	PRJEB56776	Kimsis2023	1	0	0.0	0	0.0	
+sample_host	PRJEB58818	Fontani2023	1	0	0.0	0	0.0	
+sample_host	PRJEB60029		3	3	1.0	0	0.0	
+sample_host	PRJEB64128	Jackson2024	73	20	0.274	0	0.0	
+sample_host	PRJEB65298		4	2	0.5	0	0.0	
+sample_host	PRJEB66300	Buchwald2024	4	0	0.0	0	0.0	
+sample_host	PRJEB67363	Fiorin2024	4	0	0.0	0	0.0	
+sample_host	PRJEB6766	Smith2015	2	0	0.0	0	0.0	
+sample_host	PRJEB67998	Bozzi2024	19	4	0.2105	0	0.0	
+sample_host	PRJEB71693		9	1	0.1111	0	0.0	
+sample_host	PRJEB74036	Liu2024	21	1	0.0476	0	0.0	
+sample_host	PRJEB80877	vonHippel2025	46	0	0.0	0	0.0	
+sample_host	PRJNA1037120	Fleskes2024	12	1	0.0833	0	0.0	
+sample_host	PRJNA1211513	Schreiber2025	48	0	0.0	0	0.0	
+sample_host	PRJNA205039	Campana2014	1	0	0.0	0	0.0	
+sample_host	PRJNA230469	Appelt2014	1	1	1.0	0	0.0	
+sample_host	PRJNA255922		10	0	0.0	0	0.0	
+sample_host	PRJNA302605	Willmann2018	1	0	0.0	0	0.0	
+sample_host	PRJNA320875	Graham2016	12	1	0.0833	0	0.0	
+sample_host	PRJNA336855		11	0	0.0	0	0.0	
+sample_host	PRJNA339123	Bieker2020	2	0	0.0	0	0.0	
+sample_host	PRJNA378719	Ahmed2018	2	0	0.0	0	0.0	
+sample_host	PRJNA380727		5	0	0.0	0	0.0	
+sample_host	PRJNA433935		5	5	1.0	0	0.0	
+sample_host	PRJNA445215	Mann2018	12	0	0.0	0	0.0	
+sample_host	PRJNA488629	Moore2020	1	0	0.0	0	0.0	
+sample_host	PRJNA522291	Moguel2021	2	0	0.0	0	0.0	
+sample_host	PRJNA553005		3	0	0.0	0	0.0	
+sample_host	PRJNA558683	Armbrecht2020	7	0	0.0	0	0.0	
+sample_host	PRJNA573108	Dommain2020	5	0	0.0	0	0.0	
+sample_host	PRJNA657304	Witt2021	1	1	1.0	0	0.0	
+sample_host	PRJNA680161	Liang2021	2	0	0.0	0	0.0	
+sample_host	PRJNA685265	Weyrich2017	1	1	1.0	0	0.0	
+sample_host	PRJNA688065	Farrer2021	3	0	0.0	0	0.0	
+sample_host	PRJNA704183	Wright2024	4	0	0.0	0	0.0	
+sample_host	PRJNA706003		4	4	1.0	0	0.0	
+sample_host	PRJNA706195		5	1	0.2	0	0.0	
+sample_host	PRJNA739881	Modi2021	1	0	0.0	0	0.0	
+sample_host	PRJNA769968		1	0	0.0	0	0.0	
+sample_host	PRJNA794308	Perez2022	2	0	0.0	0	0.0	
+sample_host	PRJNA799832		2	0	0.0	0	0.0	
+sample_host	PRJNA836960	Madison2023	11	11	1.0	0	0.0	
+sample_host	PRJNA861836	Armbrecht2022	6	0	0.0	0	0.0	
+sample_host	PRJNA862077		1	0	0.0	0	0.0	
+sample_host	PRJNA885571	Honap2023	2	0	0.0	0	0.0	
+sample_host	PRJNA957541	Perez2023	2	0	0.0	0	0.0	
+sample_host	Unknown	MGYS00006821	9	0	0.0	0	0.0	
+sample_type	PRJDB5315		1	0	0.0	0	0.0	
+sample_type	PRJEB11419		10	10	1.0	0	0.0	
+sample_type	PRJEB11511	Maixner2016	1	0	0.0	0	0.0	
+sample_type	PRJEB13329	Seersholm2016	13	0	0.0	0	0.0	
+sample_type	PRJEB14494	Pedersen2016	5	0	0.0	0	0.0	
+sample_type	PRJEB1799	MGYS00002363	4	0	0.0	0	0.0	
+sample_type	PRJEB18629	Slon2017	7	0	0.0	0	0.0	
+sample_type	PRJEB18722	Bozzi2024	4	0	0.0	0	0.0	
+sample_type	PRJEB24619	Bieker2020	4	0	0.0	0	0.0	
+sample_type	PRJEB30280	Jensen2019	9	6	0.6667	0	0.0	
+sample_type	PRJEB30331	Velsko2019	14	0	0.0	0	0.0	
+sample_type	PRJEB33363	Brealey2020	5	0	0.0	0	0.0	
+sample_type	PRJEB33577	Hagan2019	3	0	0.0	0	0.0	
+sample_type	PRJEB33717	Gaffney2020	3	1	0.3333	0	0.0	
+sample_type	PRJEB33848	Neukamm2020	24	0	0.0	0	0.0	
+sample_type	PRJEB34569	FellowsYates2021	42	2	0.0476	0	0.0	
+sample_type	PRJEB34825	Bieker2020	1	0	0.0	0	0.0	
+sample_type	PRJEB34875	Ottoni2019	10	0	0.0	0	0.0	
+sample_type	PRJEB35483	Fagernas2020	5	0	0.0	0	0.0	
+sample_type	PRJEB37914	Ardelean2020	6	0	0.0	0	0.0	
+sample_type	PRJEB39351	Iwanska2022	1	0	0.0	0	0.0	
+sample_type	PRJEB40358		5	1	0.2	0	0.0	
+sample_type	PRJEB41240	SeguinOrlando2021	18	0	0.0	0	0.0	
+sample_type	PRJEB41420	Gelabert2021	1	0	0.0	0	0.0	
+sample_type	PRJEB41539		1	1	1.0	0	0.0	
+sample_type	PRJEB41665	Rampelli2021	3	0	0.0	0	0.0	
+sample_type	PRJEB42014	Brealey2021	38	0	0.0	0	0.0	
+sample_type	PRJEB42399		2	0	0.0	0	0.0	
+sample_type	PRJEB43389	Granehall2021	2	0	0.0	0	0.0	
+sample_type	PRJEB43506	Courtin2022	3	0	0.0	0	0.0	
+sample_type	PRJEB44163		10	7	0.7	0	0.0	
+sample_type	PRJEB44313	Ottoni2021	1	0	0.0	0	0.0	
+sample_type	PRJEB44723	Sarhan2023	2	1	0.5	0	0.0	
+sample_type	PRJEB46022	Fagernas2022	16	2	0.125	0	0.0	
+sample_type	PRJEB46821	Zimmermann2023	1	0	0.0	0	0.0	
+sample_type	PRJEB49638	Moraitou2022	20	4	0.2	0	0.0	
+sample_type	PRJEB52394	Velsko2022	28	0	0.0	0	0.0	
+sample_type	PRJEB55522	Kjaer2022	1	0	0.0	0	0.0	
+sample_type	PRJEB56776	Kimsis2023	1	0	0.0	0	0.0	
+sample_type	PRJEB58818	Fontani2023	1	0	0.0	0	0.0	
+sample_type	PRJEB60029		3	0	0.0	0	0.0	
+sample_type	PRJEB61887	Velsko2024	122	4	0.0328	0	0.0	
+sample_type	PRJEB64128	Jackson2024	73	5	0.0685	0	0.0	
+sample_type	PRJEB65298		4	4	1.0	0	0.0	
+sample_type	PRJEB66300	Buchwald2024	4	0	0.0	0	0.0	
+sample_type	PRJEB67363	Fiorin2024	4	0	0.0	0	0.0	
+sample_type	PRJEB6766	Smith2015	2	0	0.0	0	0.0	
+sample_type	PRJEB67998	Bozzi2024	19	6	0.3158	0	0.0	
+sample_type	PRJEB71693		9	1	0.1111	0	0.0	
+sample_type	PRJEB74036	Liu2024	21	0	0.0	0	0.0	
+sample_type	PRJEB80877	vonHippel2025	46	0	0.0	0	0.0	
+sample_type	PRJNA1004851	Murchie2023	8	0	0.0	0	0.0	
+sample_type	PRJNA1037120	Fleskes2024	12	0	0.0	0	0.0	
+sample_type	PRJNA1056444	Austin2024	39	2	0.0513	0	0.0	
+sample_type	PRJNA1211513	Schreiber2025	48	0	0.0	0	0.0	
+sample_type	PRJNA205039	Campana2014	1	0	0.0	0	0.0	
+sample_type	PRJNA230469	Appelt2014	1	0	0.0	0	0.0	
+sample_type	PRJNA255922		10	2	0.2	0	0.0	
+sample_type	PRJNA302605	Willmann2018	1	0	0.0	0	0.0	
+sample_type	PRJNA320875	Graham2016	12	0	0.0	0	0.0	
+sample_type	PRJNA336855		11	2	0.1818	0	0.0	
+sample_type	PRJNA339123	Bieker2020	2	0	0.0	0	0.0	
+sample_type	PRJNA354503	Philips2017	12	0	0.0	0	0.0	
+sample_type	PRJNA378719	Ahmed2018	2	0	0.0	0	0.0	
+sample_type	PRJNA380727		5	0	0.0	0	0.0	
+sample_type	PRJNA433935		5	0	0.0	0	0.0	
+sample_type	PRJNA445215	Mann2018	12	0	0.0	0	0.0	
+sample_type	PRJNA48479		19	4	0.2105	0	0.0	
+sample_type	PRJNA488629	Moore2020	1	0	0.0	0	0.0	
+sample_type	PRJNA522291	Moguel2021	2	0	0.0	0	0.0	
+sample_type	PRJNA553005		3	3	1.0	0	0.0	
+sample_type	PRJNA558683	Armbrecht2020	7	0	0.0	0	0.0	
+sample_type	PRJNA573108	Dommain2020	5	0	0.0	0	0.0	
+sample_type	PRJNA657304	Witt2021	1	0	0.0	0	0.0	
+sample_type	PRJNA680161	Liang2021	2	0	0.0	0	0.0	
+sample_type	PRJNA685265	Weyrich2017	1	0	0.0	0	0.0	
+sample_type	PRJNA688065	Farrer2021	3	0	0.0	0	0.0	
+sample_type	PRJNA704183	Wright2024	4	0	0.0	0	0.0	
+sample_type	PRJNA706003		4	4	1.0	0	0.0	
+sample_type	PRJNA706195		5	5	1.0	0	0.0	
+sample_type	PRJNA739881	Modi2021	1	0	0.0	0	0.0	
+sample_type	PRJNA769968		1	1	1.0	0	0.0	
+sample_type	PRJNA791766	Quagliariello2022	9	1	0.1111	0	0.0	
+sample_type	PRJNA794308	Perez2022	2	0	0.0	0	0.0	
+sample_type	PRJNA799832		2	2	1.0	0	0.0	
+sample_type	PRJNA836960	Madison2023	11	2	0.1818	0	0.0	
+sample_type	PRJNA861836	Armbrecht2022	6	0	0.0	0	0.0	
+sample_type	PRJNA862077		1	1	1.0	0	0.0	
+sample_type	PRJNA885571	Honap2023	2	0	0.0	0	0.0	
+sample_type	PRJNA957541	Perez2023	2	0	0.0	0	0.0	
+sample_type	PRJNA994900	Kirdok2024	70	31	0.4429	0	0.0	
+sample_type	Unknown	MGYS00006821	9	4	0.4444	0	0.0	

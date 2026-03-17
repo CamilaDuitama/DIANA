@@ -1,0 +1,9 @@
+task	cohort	N_runs	N_unique_BPs	N_wrong	error_rate_pct	N_conf_wrong	conf_error_rate_pct
+sample_type	full_validation	987	92	119	12.1	50	5.1
+sample_type	excl_offenders	701	85	80	11.4	35	5.0
+community_type	full_validation	987	92	274	27.8	122	12.4
+community_type	excl_offenders	701	85	193	27.5	53	7.6
+sample_host	full_validation	987	92	247	25.0	122	12.4
+sample_host	excl_offenders	701	85	136	19.4	26	3.7
+material	full_validation	987	92	541	54.8	248	25.1
+material	excl_offenders	701	85	344	49.1	116	16.5

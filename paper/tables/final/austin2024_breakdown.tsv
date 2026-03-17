@@ -1,0 +1,5 @@
+task	N_runs	N_unique_samples	N_wrong	error_rate_pct	N_conf_wrong	conf_error_rate_pct	top_confusion
+community_type	39	39	6	15.4	0	0.0	oral → skeletal tissue
+material	39	39	5	12.8	0	0.0	dental calculus → tooth
+sample_host	39	39	15	38.5	10	25.6	Homo sapiens → Pan troglodytes
+sample_type	39	39	2	5.1	1	2.6	ancient_metagenome → modern_metagenome

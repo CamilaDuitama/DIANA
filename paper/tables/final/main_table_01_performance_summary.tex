@@ -1,28 +1,28 @@
 \centering
-\caption{Final model performance across the Training set, the held-out Test set, and the external Validation set.}
+\caption{Final model performance across the Training set, the held-out Test set, and the external Validation set. Balanced Accuracy and F1 Score are macro-averaged (unweighted mean across classes), giving equal weight to each class regardless of frequency.}
 \label{tab:performance}
 \small
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lllrrr@{}}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrr@{}}
 \toprule
-Task & Dataset & n & Acc (\%) & Bal Acc (\%) & F1 Score (\%) \\
+Task & Dataset & Acc (\%) & Bal Acc (\%) & F1 Score (\%) \\
 \midrule
-Sample Type (ancient/modern) & Training & 2597 & 96.4 & 96.7 & 96.7 \\
- & Test & 461 & 99.6 & 98.5 & 98.5 \\
- & Validation & 987 / 987 & 87.9 & 75.2 & 73.9 \\
+Sample Type (ancient/modern) & Training & 96.4 & 96.7 & 96.7 \\
+ & Test & 99.6 & 98.5 & 98.5 \\
+ & Validation & 87.9 & 75.2 & 73.9 \\
 \addlinespace
-Community Type (6 types) & Training & 2597 & 96.0 & 97.9 & 96.1 \\
- & Test & 461 & 90.0 & 96.4 & 90.9 \\
- & Validation & 986 / 987 & 72.3 & 71.9 & 60.2 \\
+Community Type (6 types) & Training & 96.0 & 97.9 & 96.1 \\
+ & Test & 90.0 & 96.4 & 90.9 \\
+ & Validation & 72.3 & 71.9 & 60.2 \\
 \addlinespace
-Sample Host (12 species) & Training & 2597 & 97.7 & 99.2 & 97.9 \\
- & Test & 461 & 94.6 & 92.7 & 91.8 \\
- & Validation & 908 / 987 & 81.5 & 78.4 & 40.1 \\
+Sample Host (12 species) & Training & 97.7 & 99.2 & 97.9 \\
+ & Test & 94.6 & 92.7 & 91.8 \\
+ & Validation & 81.5 & 78.4 & 40.1 \\
 \addlinespace
-Material (13 types) & Training & 2597 & 93.6 & 96.3 & 94.0 \\
- & Test & 461 & 88.9 & 78.5 & 65.0 \\
- & Validation & 671 / 987 & 66.5 & 61.3 & 44.3 \\
+Material (13 types) & Training & 93.6 & 96.3 & 94.0 \\
+ & Test & 88.9 & 78.5 & 65.0 \\
+ & Validation & 66.5 & 61.3 & 44.3 \\
 \addlinespace
 \bottomrule
 \end{tabular*}
 \par\vspace{4pt}
-\parbox{\linewidth}{\footnotesize \textbf{Notes:} Training: Performance on all 2,597 training samples (seen labels only). Test: Performance on the held-out test set (n=461). Validation n: seen-label runs used for metrics / total validation runs (987). Metrics computed only on samples with labels seen during training. Acc: Accuracy. Bal Acc: Balanced Accuracy (average per-class recall). F1 Score: Macro-averaged F1-score.}
+\parbox{\linewidth}{\footnotesize \textbf{Notes:} Training: Performance on all 2,597 training samples (seen labels only). Test: Held-out test set (n=461). Validation: metrics computed on seen-label runs only (sample\_type: 987/987, community\_type: 986/987, sample\_host: 908/987, material: 671/987). Acc: Accuracy. Bal Acc: Balanced Accuracy (average per-class recall). F1 Score: Macro-averaged F1-score.}

@@ -1,0 +1,76 @@
+task	confusion_pair	pair_total_conf_errors	BioProject	project_name	n_from_bioproject	frac_of_pair	mean_confidence	mean_margin
+community_type	oral → Not applicable - env sample	40	PRJNA994900	Kirdok2024	38	0.95	0.9963	0.9929
+community_type	oral → soft tissue	40	PRJNA994900	Kirdok2024	25	0.625	0.9708	0.9519
+community_type	oral → soft tissue	40	PRJEB30280	Jensen2019	5	0.125	0.9877	0.9808
+community_type	oral → soft tissue	40	PRJEB49638	Moraitou2022	4	0.1	0.9711	0.9528
+community_type	oral → soft tissue	40	PRJEB34569	FellowsYates2021	2	0.05	0.9974	0.9954
+community_type	oral → soft tissue	40	PRJNA255922		2	0.05	0.9831	0.9693
+community_type	oral → soft tissue	40	PRJNA48479		2	0.05	0.9931	0.9876
+community_type	oral → Not applicable - env sample	40	PRJNA354503	Philips2017	1	0.025	0.9991	0.9982
+community_type	oral → Not applicable - env sample	40	PRJNA791766	Quagliariello2022	1	0.025	0.9994	0.9992
+community_type	oral → skeletal tissue	10	PRJEB64128	Jackson2024	4	0.4	0.9183	0.8372
+community_type	oral → skeletal tissue	10	PRJEB33848	Neukamm2020	1	0.1	0.9547	0.9095
+community_type	oral → skeletal tissue	10	PRJEB52394	Velsko2022	1	0.1	0.9033	0.8067
+community_type	oral → skeletal tissue	10	PRJEB56776	Kimsis2023	1	0.1	0.9585	0.917
+community_type	oral → skeletal tissue	10	PRJNA354503	Philips2017	1	0.1	0.9116	0.824
+community_type	oral → skeletal tissue	10	PRJNA380727		1	0.1	0.9057	0.8114
+community_type	oral → skeletal tissue	10	PRJNA704183	Wright2024	1	0.1	0.902	0.8085
+community_type	soft tissue → skeletal tissue	9	PRJEB33848	Neukamm2020	9	1.0	0.975	0.9506
+community_type	Not applicable - env sample → soft tissue	9	PRJNA433935		5	0.556	0.9935	0.9884
+community_type	Not applicable - env sample → soft tissue	9	PRJEB60029		3	0.333	0.9838	0.971
+community_type	Not applicable - env sample → soft tissue	9	PRJEB33717	Gaffney2020	1	0.111	0.9727	0.9461
+community_type	skeletal tissue → soft tissue	5	PRJEB67998	Bozzi2024	5	1.0	0.963	0.943
+community_type	gut → Not applicable - env sample	3	PRJEB41665	Rampelli2021	3	1.0	0.9999	0.9999
+material	lake sediment → sediment	66	PRJEB80877	vonHippel2025	32	0.485	0.9998	0.9995
+material	lake sediment → sediment	66	PRJEB74036	Liu2024	16	0.242	0.9955	0.9917
+material	lake sediment → sediment	66	PRJNA320875	Graham2016	11	0.167	0.9744	0.9603
+material	lake sediment → sediment	66	PRJEB14494	Pedersen2016	3	0.045	1.0	1.0
+material	lake sediment → sediment	66	PRJNA957541	Perez2023	2	0.03	0.9995	0.999
+material	lake sediment → sediment	66	PRJEB39351	Iwanska2022	1	0.015	1.0	1.0
+material	lake sediment → sediment	66	PRJNA522291	Moguel2021	1	0.015	0.9949	0.9919
+material	marine sediment → sediment	50	PRJNA1211513	Schreiber2025	34	0.68	0.974	0.9565
+material	marine sediment → sediment	50	PRJNA558683	Armbrecht2020	7	0.14	0.998	0.9961
+material	marine sediment → sediment	50	PRJEB66300	Buchwald2024	4	0.08	1.0	1.0
+material	marine sediment → sediment	50	PRJNA861836	Armbrecht2022	4	0.08	0.9998	0.9996
+material	marine sediment → sediment	50	PRJEB46821	Zimmermann2023	1	0.02	1.0	1.0
+material	birch pitch → sediment	37	PRJNA994900	Kirdok2024	37	1.0	0.974	0.9502
+material	faeces → digestive tract contents	16	PRJEB11419		10	0.625	1.0	1.0
+material	Skin → skin	16	PRJEB71693		8	0.5	0.9993	0.9989
+material	Skin → skin	16	PRJEB40358		4	0.25	0.9821	0.9731
+material	Skin → skin	16	PRJEB42399		2	0.125	0.9999	0.9998
+material	Skin → skin	16	PRJNA48479		2	0.125	0.9929	0.9892
+material	faeces → digestive tract contents	16	PRJNA48479		2	0.125	1.0	1.0
+material	faeces → digestive tract contents	16	PRJNA799832		2	0.125	0.9961	0.9925
+material	faeces → digestive tract contents	16	PRJEB41539		1	0.062	0.9988	0.9977
+material	faeces → digestive tract contents	16	PRJNA862077		1	0.062	1.0	1.0
+material	soil → skin	8	PRJNA433935		5	0.625	0.998	0.9966
+material	soil → skin	8	PRJEB60029		3	0.375	0.9954	0.9927
+material	dental calculus → skin	6	PRJEB49638	Moraitou2022	4	0.667	0.9647	0.955
+material	dental calculus → skin	6	PRJEB34569	FellowsYates2021	2	0.333	0.9982	0.9975
+material	birch pitch → skin	5	PRJEB30280	Jensen2019	5	1.0	0.9837	0.976
+material	nan → bone	5	PRJEB33848	Neukamm2020	5	1.0	0.9719	0.9462
+material	permafrost → sediment	4	PRJNA1004851	Murchie2023	4	1.0	0.9766	0.9537
+material	tooth → skin	4	PRJEB67998	Bozzi2024	4	1.0	0.9674	0.9545
+material	lake sediment → permafrost	4	PRJEB80877	vonHippel2025	3	0.75	0.9522	0.9044
+material	soil → sediment	4	Unknown	MGYS00006821	3	0.75	0.9545	0.9091
+material	lake sediment → permafrost	4	PRJEB74036	Liu2024	1	0.25	0.99	0.98
+material	soil → sediment	4	PRJNA336855		1	0.25	0.9988	0.9977
+material	birch pitch → saliva	3	PRJNA994900	Kirdok2024	3	1.0	0.9717	0.9566
+material	palaeofaeces → digestive tract contents	3	PRJEB33577	Hagan2019	3	1.0	1.0	1.0
+sample_host	Homo sapiens → Not applicable - env sample	45	PRJNA994900	Kirdok2024	38	0.844	0.9999	0.9998
+sample_host	Homo sapiens → Not applicable - env sample	45	PRJEB61887	Velsko2024	4	0.089	0.9515	0.9211
+sample_host	Homo sapiens → Not applicable - env sample	45	PRJNA354503	Philips2017	2	0.044	0.9525	0.9294
+sample_host	Homo sapiens → Not applicable - env sample	45	PRJNA791766	Quagliariello2022	1	0.022	0.9998	0.9996
+sample_host	gorilla beringei beringei → Gorilla sp.	16	PRJEB34569	FellowsYates2021	12	0.75	1.0	1.0
+sample_host	gorilla beringei beringei → Gorilla sp.	16	PRJEB49638	Moraitou2022	4	0.25	1.0	1.0
+sample_host	Homo sapiens → Pan troglodytes	11	PRJNA1056444	Austin2024	10	0.909	0.9831	0.9706
+sample_host	Homo sapiens → Pan troglodytes	11	PRJNA354503	Philips2017	1	0.091	0.9638	0.9288
+sample_host	gorilla beringei graueri → Gorilla sp.	8	PRJEB49638	Moraitou2022	8	1.0	0.9999	0.9999
+sample_host	alouatta palliata → Gorilla sp.	7	PRJEB34569	FellowsYates2021	7	1.0	0.9845	0.9699
+sample_host	pan troglodytes schweinfurthii → Pan troglodytes	7	PRJEB34569	FellowsYates2021	7	1.0	1.0	1.0
+sample_host	Homo sapiens → Canis lupus	5	PRJEB11419		5	1.0	0.954	0.9085
+sample_host	gorilla gorilla gorilla → Gorilla sp.	5	PRJEB49638	Moraitou2022	4	0.8	0.9994	0.9991
+sample_host	gorilla gorilla gorilla → Gorilla sp.	5	PRJEB34569	FellowsYates2021	1	0.2	1.0	1.0
+sample_host	gorilla beringei → Gorilla sp.	4	PRJEB33363	Brealey2020	4	1.0	0.956	0.9196
+sample_host	pan troglodytes ellioti → Pan troglodytes	4	PRJEB34569	FellowsYates2021	4	1.0	1.0	1.0
+sample_host	Homo sapiens neanderthalensis → Not applicable - env sample	3	PRJEB41665	Rampelli2021	3	1.0	1.0	1.0
