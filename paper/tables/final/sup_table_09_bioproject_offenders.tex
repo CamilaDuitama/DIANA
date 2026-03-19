@@ -1,22 +1,27 @@
-\caption{BioProjects with the most high-confidence errors (confidence $\geq 0.9$, predicted $\neq$ true) in the full external validation set (987 runs), summed across all four classification tasks (i.e.\ counting run--task misclassifications). This analysis diagnoses systematic, study-level sources of error.\label{tab:bioproject_offenders}}
+\caption{Top 15 BioProjects by total misclassifications (validation + test, all four tasks, no confidence threshold, $\geq$5 samples). Train/Test/Val: number of \textit{errors} (wrong predictions across all four tasks) per split; `--' means absent from that split. Total: wrong predictions across all three splits (train + test + val). Cum.: running percentage of all errors, showing concentration. \label{tab:bioproject_offenders}}
 \resizebox{\linewidth}{!}{%
-\begin{tabular}{@{}llrrll@{}}
+\begin{tabular}{@{}llrrrrrrp{3cm}p{4cm}@{}}
 \toprule
-BioProject & Study & Val runs & High-conf.\ errors & Main tasks$^{a}$ & Root cause \\
+BioProject & Study & Train err. & Test err. & Val err. & Total & Err.\,(\%)$^{a}$ & Cum.\,(\%)$^{b}$ & Error type$^{c}$ & Main errors$^{d}$ \\
 \midrule
-\texttt{PRJNA994900} & Kirdok2024 & 70 & 141 & CT, Mat., SH & OOD material \\
-\texttt{PRJEB34569} & FellowsYates2021 & 42 & 36 & SH & Taxonomic resolution \\
-\texttt{PRJEB80877} & vonHippel2025 & 46 & 35 & Mat. & Label granularity \\
-\texttt{PRJNA1211513} & Schreiber2025 & 48 & 34 & Mat. & Label granularity \\
-\texttt{PRJEB49638} & Moraitou2022 & 20 & 24 & SH & Taxonomic resolution \\
-\texttt{PRJEB74036} & Liu2024 & 21 & 17 & Mat. & Label granularity \\
-\texttt{PRJEB33848} & Neukamm2020 & 24 & 16 & CT, Mat. & Label granularity \\
-\texttt{PRJEB11419} & – & 10 & 15 & Mat., CT & OOD material \\
-\texttt{PRJEB67998} & Bozzi2024 & 19 & 11 & Mat., CT & Label ambiguity \\
-\texttt{PRJNA320875} & Graham2016 & 12 & 11 & Mat. & Label granularity \\
+\texttt{PRJNA994900} & Kirdok2024 & – & – & 210 & 210 & 75.0 & 13.4 & Absent class (Mat.) & birch pitch$\to$sediment (Mat.); ancient$\to$modern (ST) \\
+\texttt{PRJEB41240} & SeguinOrlando2021 & 149 & 21 & 12 & 182 & 19.1 & 25.0 & Genuine confusion & bone$\to$tooth/sediment (Mat.); \textit{H.\ sapiens}$\to$n.a. (SH) \\
+\texttt{PRJNA354503} & Philips2017 & 112 & 21 & 16 & 149 & 22.6 & 34.5 & Genuine confusion & oral$\to$skel.\ tissue (CT); tooth$\to$bone (Mat.) \\
+\texttt{PRJEB64128} & Jackson2024 & – & – & 122 & 122 & 41.8 & 42.3 & Genuine confusion & tooth$\to$dent.\ calc. (Mat.); oral$\to$skel.\ tissue (CT) \\
+\texttt{PRJEB34569} & FellowsYates2021 & 59 & 6 & 42 & 107 & 13.3 & 49.1 & Taxonomic granularity (SH) & \textit{G.\ b.\ beringei}$\to$\textit{Gorilla} sp.; \textit{P.\ t.\ schweinfurthii}$\to$\textit{P.\ troglodytes} \\
+\texttt{PRJEB61887} & Velsko2024 & – & – & 99 & 99 & 20.3 & 55.4 & Genuine confusion & oral$\to$skel.\ tissue (CT); bone$\to$tooth (Mat.) \\
+\texttt{PRJEB33848} & Neukamm2020 & 27 & 7 & 32 & 66 & 10.7 & 59.6 & Genuine confusion; Absent class (Mat.) & soft tis.$\to$skel.\ tis. (CT); Unknown$\to$bone (Mat.) \\
+\texttt{PRJEB49638} & Moraitou2022 & 18 & 10 & 32 & 60 & 15.8 & 63.5 & Taxonomic granularity (SH) & \textit{G.\ b.\ graueri}$\to$\textit{Gorilla} sp.; \textit{G.\ gorilla gorilla}$\to$\textit{Gorilla} sp. \\
+\texttt{PRJNA1211513} & Schreiber2025 & – & – & 48 & 48 & 25.0 & 66.5 & Label granularity (Mat.) & marine sed.$\to$sediment (Mat.) \\
+\texttt{PRJEB80877} & vonHippel2025 & – & – & 46 & 46 & 25.0 & 69.5 & Label granularity (Mat.) & lake sed.$\to$sediment (Mat.) \\
+\texttt{PRJNA836960} & Madison2023 & – & – & 35 & 35 & 79.5 & 71.7 & Absent class (Mat., SH) & intestine$\to$skin (Mat.); gut$\to$soft tissue (CT) \\
+\texttt{PRJEB67998} & Bozzi2024 & – & – & 34 & 34 & 44.7 & 73.9 & Genuine confusion & tooth$\to$bone/skin (Mat.); skel.\ tis.$\to$soft tis. (CT) \\
+\texttt{PRJNA1056444} & Austin2024 & – & – & 28 & 28 & 17.9 & 75.6 & Genuine confusion & \textit{H.\ sapiens}$\to$\textit{Pan troglodytes} (SH) \\
+\texttt{PRJEB11419} & – & – & – & 26 & 26 & 65.0 & 77.3 & Label granularity (Mat.) & faeces$\to$dig.\ tract (Mat.); modern$\to$ancient (ST) \\
+\texttt{PRJNA48479} & – & – & – & 25 & 25 & 32.9 & 78.9 & Genuine confusion & modern$\to$ancient (ST); oral$\to$skel.\ tissue (CT) \\
 \bottomrule
 \end{tabular}%
 }
-\addcontentsline{toc}{subsection}{Supplementary Table 9: Top BioProjects dominating high-confidence validation errors (full validation set)}
+\addcontentsline{toc}{subsection}{Supplementary Table 9: Top 15 BioProjects by total misclassifications}
 \\[2mm]
-{\footnotesize Counts use the full validation set (987 runs), including runs whose true labels are outside DIANA's label set. $^{a}$~Main tasks indicate the task(s) contributing the largest share of high-confidence errors for that BioProject. Task abbreviations: ST\,=\,Sample Type, CT\,=\,Community Type, SH\,=\,Sample Host, Mat.\,=\,Material. Root-cause categories --- \textit{OOD material}: material class absent from DIANA training classes; \textit{Label granularity}: external label is a subtype of a DIANA class (e.g.\ lake/marine sediment vs.\ sediment); \textit{Taxonomic resolution}: subspecies-level true label vs.\ genus/species-level DIANA outputs (e.g.\ \textit{gorilla beringei beringei} vs.\ \textit{Gorilla sp.}); \textit{Label ambiguity}: confusion among similar classes all present in training (e.g.\ tooth vs.\ bone); \textit{Genuine confusion}: label is in DIANA's label set but the model still predicts confidently incorrectly.}
+{\footnotesize $^{a}$~Percentage of wrong predictions out of all predictions made for that BioProject across all splits (each sample contributes four predictions, one per task). $^{b}$~Running total of errors as a percentage of all errors across every BioProject with at least 5 samples; shows error concentration. $^{c}$~Four error types are distinguished. \textit{Absent class}: the true label never appeared in DIANA's training set. \textit{Label granularity}: the true label is absent from training but is a biological subtype or synonym of a class that \textit{is} in training---the model predicts the correct class at a coarser resolution (e.g.\ \texttt{lake sediment} absent from training; \texttt{sediment} present and biologically equivalent). \textit{Taxonomic granularity}: the true host is a subspecies whose parent taxon is the training-level label (e.g.\ \textit{Gorilla beringei beringei} labelled as \textit{Gorilla} sp.\ in training). \textit{Genuine confusion}: all true labels were seen during training; the model still predicts the wrong class. $^{d}$~Top true$\to$predicted label pairs by frequency; task abbreviation in parentheses. Task abbreviations: ST\,=\,Sample Type, CT\,=\,Community Type, SH\,=\,Sample Host, Mat.\,=\,Material.}

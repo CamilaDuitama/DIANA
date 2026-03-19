@@ -98,6 +98,7 @@ results/training/cv_results/*/checkpoint_*.pth  # Training checkpoints (large!)
 results/training/*/checkpoint_*.pth  # Any checkpoint files
 results/inference/  # Inference outputs
 results/validation_predictions/  # Validation outputs (regenerable, 134GB)
+results/train_evaluation/  # Training-set inference outputs (regenerable)
 results/validation_memory_analysis.csv
 results/consistency_check/  # Calibration outputs
 results/mc_dropout*/  # MC dropout outputs - directories
