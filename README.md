@@ -65,7 +65,7 @@ A small bundled test sample is included in `test_data/` — a 1 % random subsamp
 diana-predict \
   --sample test_data/ERR3609654_1_small.fastq.gz test_data/ERR3609654_2_small.fastq.gz \
   --model results/training/best_model.pth \
-  --training-matrix data/matrices/training_matrix \
+  --training-matrix training_matrix \
   --output test_results
 ```
 
@@ -103,13 +103,13 @@ Each bar chart shows every class on the y-axis and its predicted probability on 
 # Single-end
 diana-predict --sample sample.fastq.gz \
   --model results/training/best_model.pth \
-  --training-matrix data/matrices/training_matrix \
+  --training-matrix training_matrix \
   --output results/predictions
 
 # Paired-end
 diana-predict --sample sample_R1.fastq.gz sample_R2.fastq.gz \
   --model results/training/best_model.pth \
-  --training-matrix data/matrices/training_matrix \
+  --training-matrix training_matrix \
   --output results/predictions
 ```
 
