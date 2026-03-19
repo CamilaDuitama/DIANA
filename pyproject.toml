@@ -7,6 +7,14 @@ name = "diana"
 version = "0.1.0"
 description = "Ancient DNA sample classifier — multi-task neural network trained on the largest aDNA dataset"
 authors = [{ name = "Camila Duitama", email = "camiladuitama@gmail.com" }]
+license = {text = "Apache-2.0"}
+readme = "README.md"
+keywords = ["ancient DNA", "metagenomics", "deep learning", "bioinformatics"]
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
 requires-python = ">=3.10"
 dependencies = [
     "torch>=2.0.0",
@@ -33,6 +41,11 @@ diana-train   = "diana.cli.train:main"
 diana-test    = "diana.cli.test:main"
 diana-predict = "diana.cli.predict:main"
 diana-project = "diana.cli.project:main"
+
+[project.urls]
+Homepage = "https://github.com/CamilaDuitama/DIANA"
+"Bug Tracker" = "https://github.com/CamilaDuitama/DIANA/issues"
+"Hugging Face" = "https://huggingface.co/cduitamag/DIANA"
 
 [tool.setuptools.packages.find]
 where = ["src"]

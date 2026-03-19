@@ -4,6 +4,7 @@ DIANA Predict: Command-line interface for running inference on new samples.
 """
 
 import argparse
+import importlib.metadata
 import logging
 import sys
 import shutil
@@ -456,6 +457,7 @@ def predict_single_sample(
 def main():
     parser = argparse.ArgumentParser(
         description="DIANA: Deep learning-based Identification and ANnotation of Ancient DNA samples",
+        prog="diana-predict",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -480,6 +482,9 @@ Resource Requirements:
         """
     )
     
+    parser.add_argument("--version", action="version",
+                        version=f"%(prog)s {importlib.metadata.version('diana')}")
+
     # Input options
     input_group = parser.add_mutually_exclusive_group(required=True)
     input_group.add_argument(

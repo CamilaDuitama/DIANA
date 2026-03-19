@@ -227,7 +227,7 @@ check_cmd diana-project
 
 check_file "$MODEL_FILE"  "Trained model      (results/training/best_model.pth)"
 check_file "$PCA_FILE"    "PCA reference      (models/pca_reference.pkl)"
-check_file "$KMER_FILE"   "Reference k-mers   (data/matrices/.../reference_kmers.fasta)"
+check_file "$KMER_FILE"   "Reference k-mers   (training_matrix/reference_kmers.fasta)"
 
 echo ""
 if [ "$ALL_GOOD" = true ]; then

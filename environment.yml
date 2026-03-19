@@ -27,9 +27,9 @@ dependencies:
   - taxonkit  # NCBI taxonomy database tools for species lineage lookup
   - biopython  # Sequence analysis and parsing
   - pigz  # Parallel gzip for fast decompression
-  - pytest
-  - black
-  - isort
+  - pytest  # dev-only
+  - black   # dev-only
+  - isort   # dev-only
   # External tools (pre-built binaries)
   - muset  # K-mer matrix tools from camiladuitama channel
   # Build tools for compiling back_to_sequences
