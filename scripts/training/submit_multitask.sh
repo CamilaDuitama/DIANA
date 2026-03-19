@@ -70,7 +70,7 @@ case $MODE in
     prod)
         echo "Submitting PRODUCTION job (full data: 3070 samples, 5 folds, 50 trials, 200 epochs)..."
         echo "Set FEATURES and METADATA environment variables to specify input data"
-        echo "Example: FEATURES=data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat \\"
+        echo "Example: FEATURES=data/matrices/training_matrix/unitigs.frac.mat \\"
         echo "         METADATA=data/metadata/DIANA_metadata.tsv \\"
         echo "         ./scripts/training/submit_multitask.sh prod"
         

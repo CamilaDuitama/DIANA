@@ -43,7 +43,7 @@ python scripts/data_prep/05_extract_and_split_matrices.py \
     --metadata data/splits/train_metadata.tsv \
     --test-metadata data/splits/test_metadata.tsv \
     --fof data/diana_samples.fof \
-    --matrix-dir data/matrices/large_matrix_3070_with_frac/kmer_matrix \
+    --matrix-dir data/matrices/training_matrix/kmer_matrix \
     --output-dir data/splits \
     --kmer-size 31
 ```
@@ -254,7 +254,7 @@ python scripts/evaluation/compare_multitask_vs_singletask.py \
 ### Input Files
 - `data/metadata/DIANA_metadata.tsv` - Sample metadata
 - `data/diana_samples.fof` - File of files (sample paths)
-- `data/matrices/large_matrix_3070_with_frac/kmer_matrix/` - K-mer matrices
+- `data/matrices/training_matrix/kmer_matrix/` - K-mer matrices
 
 ---
 

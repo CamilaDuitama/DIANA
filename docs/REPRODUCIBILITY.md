@@ -44,7 +44,7 @@ bash scripts/create_umat/01_build_muset.sh
 
 # Generate unitig matrix from FASTQ files
 # Input: data/diana_samples.fof (list of sample FASTQ paths)
-# Output: data/matrices/large_matrix_3070_with_frac/
+# Output: data/matrices/training_matrix/
 sbatch scripts/create_umat/02_regenerate_matrix_with_frac.sbatch
 ```
 
@@ -92,7 +92,7 @@ mamba run -p ./env python scripts/data_prep/01_create_splits.py \
 ```yaml
 # Data paths
 data:
-  matrix: "data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat"
+  matrix: "data/matrices/training_matrix/unitigs.frac.mat"
   metadata: "data/splits/train_metadata.tsv"  # ← Uses train set only
   
 # Training settings
@@ -183,7 +183,7 @@ mamba run -p ./env diana-train multitask \
 mamba run -p ./env diana-test \
   --model results/training/best_model.pth \
   --config results/training/final_training_config.json \
-  --matrix data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat \
+  --matrix data/matrices/training_matrix/unitigs.frac.mat \
   --metadata data/splits/test_metadata.tsv \
   --test-ids data/splits/test_ids.txt \
   --output results/test_evaluation
@@ -229,7 +229,7 @@ mamba run -p ./env python scripts/evaluation/04_model_performance_metrics.py \
 mamba run -p ./env python scripts/feature_analysis/01_extract_feature_importance.py \
   --model results/training/best_model.pth \
   --config results/training/final_training_config.json \
-  --matrix data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat \
+  --matrix data/matrices/training_matrix/unitigs.frac.mat \
   --metadata data/splits/test_metadata.tsv \
   --output paper/tables/feature_analyses
 ```
@@ -242,8 +242,8 @@ mamba run -p ./env python scripts/feature_analysis/01_extract_feature_importance
 # Extract sequences and compute GC content, length, complexity
 mamba run -p ./env python scripts/feature_analysis/02_analyze_feature_sequences.py \
   --importance-dir paper/tables/feature_analyses \
-  --unitigs-fa data/matrices/large_matrix_3070_with_frac/unitigs.fa \
-  --unitigs-mat data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat \
+  --unitigs-fa data/matrices/training_matrix/unitigs.fa \
+  --unitigs-mat data/matrices/training_matrix/unitigs.frac.mat \
   --output paper
 ```
 
@@ -259,7 +259,7 @@ sbatch scripts/feature_analysis/run_blast_annotation.sbatch
 mamba run -p ./env python scripts/feature_analysis/03_annotate_features.py \
   --importance-dir paper/tables/feature_analyses \
   --blast-results paper/blast_results/blast_results.tsv \
-  --unitigs-fa data/matrices/large_matrix_3070_with_frac/unitigs.fa \
+  --unitigs-fa data/matrices/training_matrix/unitigs.fa \
   --output paper
 ```
 
@@ -306,7 +306,7 @@ bash scripts/inference/inference_pipeline.sh \
 ```
 decOM-classify/
 ├── data/
-│   ├── matrices/large_matrix_3070_with_frac/
+│   ├── matrices/training_matrix/
 │   │   ├── unitigs.frac.mat          # 3070×107480 feature matrix
 │   │   └── unitigs.fa                # Unitig sequences
 │   ├── metadata/DIANA_metadata.tsv   # Full metadata

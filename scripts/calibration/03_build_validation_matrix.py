@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 def main():
     parser = argparse.ArgumentParser(description="Build validation matrix from unitig abundance files")
     parser.add_argument("--predictions-dir", type=Path, default=Path("results/validation_predictions"), help="Directory with prediction subdirectories")
-    parser.add_argument("--unitigs-fa", type=Path, default=Path("data/matrices/large_matrix_3070_with_frac/unitigs.fa"), help="Path to unitigs.fa reference file")
+    parser.add_argument("--unitigs-fa", type=Path, default=Path("data/matrices/training_matrix/unitigs.fa"), help="Path to unitigs.fa reference file")
     parser.add_argument("--output", type=Path, default=Path("data/validation/validation_matrix.tsv"), help="Output path for the validation matrix")
     args = parser.parse_args()
 

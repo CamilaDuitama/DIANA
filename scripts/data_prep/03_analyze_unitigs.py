@@ -10,7 +10,7 @@ This script:
 
 Usage:
     python scripts/data_prep/06_analyze_unitigs.py \\
-        --matrix-dir data/matrices/large_matrix_3070_with_frac
+        --matrix-dir data/matrices/training_matrix
 """
 
 import sys
@@ -828,7 +828,7 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
     parser.add_argument('--matrix-dir', type=Path,
-                       default=PROJECT_ROOT / "data" / "matrices" / "large_matrix_3070_with_frac",
+                       default=PROJECT_ROOT / "data" / "matrices" / "training_matrix",
                        help='Path to directory containing unitig matrices and sequences')
     parser.add_argument('--matrix-type', type=str,
                        choices=['frac', 'abundance'],

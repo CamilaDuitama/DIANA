@@ -437,7 +437,7 @@ def main():
     parser = argparse.ArgumentParser(description='OOD Detection for DIANA')
     parser.add_argument('--model-path', default='results/full_training/best_model.pth',
                        help='Path to trained model')
-    parser.add_argument('--train-matrix', default='data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat',
+    parser.add_argument('--train-matrix', default='data/matrices/training_matrix/unitigs.frac.mat',
                        help='Training unitig matrix file')
     parser.add_argument('--train-metadata', default='paper/metadata/train_metadata.tsv',
                        help='Training metadata file')

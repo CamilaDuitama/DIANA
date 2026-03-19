@@ -22,7 +22,7 @@ echo ""
 mamba run -p ./env diana-predict \
   --sample data/validation/raw/ERR12206679/ERR12206679.fastq.gz \
   --model results/full_training/best_model.pth \
-  --muset-matrix data/matrices/large_matrix_3070_with_frac \
+  --training-matrix data/matrices/training_matrix \
   --output results/inference_test \
   --threads $SLURM_CPUS_PER_TASK \
   --verbose

@@ -11,7 +11,7 @@ UnitigAnalyzer: Load sequences, compute statistics, extract features
 USAGE:
 ------
 # Load sequences and compute basic stats
-analyzer = UnitigAnalyzer('data/matrices/large_matrix_3070_with_frac/unitigs.fa')
+analyzer = UnitigAnalyzer('data/matrices/training_matrix/unitigs.fa')
 stats_df = analyzer.compute_sequence_stats()
 
 # Extract specific sequences by indices

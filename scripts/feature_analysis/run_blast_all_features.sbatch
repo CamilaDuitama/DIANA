@@ -31,7 +31,7 @@ echo "Start time: $(date)"
 echo "================================================================"
 
 # Paths
-UNITIGS_FA="data/matrices/large_matrix_3070_with_frac/unitigs.fa"
+UNITIGS_FA="data/matrices/training_matrix/unitigs.fa"
 # Database files are in 2.10.0 directory but can be used with newer BLAST
 BLAST_DB="/local/databases/rel/nt/nt_2026-1-19/blast+/2.10.0/nt"
 OUTPUT_DIR="results/feature_analysis/all_features_blast"

@@ -119,7 +119,7 @@ Edit `configs/full_training.yaml` to customize training:
 
 ```yaml
 data:
-  features_path: data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat
+  features_path: data/matrices/training_matrix/unitigs.frac.mat
   metadata_path: data/metadata/DIANA_metadata.tsv
 
 model:

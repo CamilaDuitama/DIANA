@@ -87,7 +87,7 @@ def add_unitig_tests(train_ids, test_ids, config):
     results = []
     
     # Load matrix and sequences
-    matrix_dir = Path(config.get("matrix_dir", "data/matrices/large_matrix_3070_with_frac"))
+    matrix_dir = Path(config.get("matrix_dir", "data/matrices/training_matrix"))
     unitigs_frac = matrix_dir / "unitigs.frac.mat"
     unitigs_fa = matrix_dir / "unitigs.fa"
     

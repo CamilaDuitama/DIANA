@@ -24,7 +24,7 @@ PROJECT_ROOT="/pasteur/appa/scratch/cduitama/decOM"
 DIANA_ROOT="/pasteur/appa/scratch/cduitama/EDID/decOM-classify"
 MUSET_BIN="$DIANA_ROOT/external/muset/bin/muset"
 INPUT_FOF="${DIANA_ROOT}/data/diana_samples.fof"
-OUTPUT_DIR="${DIANA_ROOT}/data/matrices/large_matrix_3070_with_frac"
+OUTPUT_DIR="${DIANA_ROOT}/data/matrices/training_matrix"
 
 # Create directories (clean if exists to avoid conflicts)
 rm -rf "${OUTPUT_DIR}"

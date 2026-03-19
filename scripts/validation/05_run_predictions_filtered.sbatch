@@ -78,7 +78,7 @@ echo "Running diana-predict..."
 mamba run -p ./env diana-predict \
   --sample "${FASTQ_ARRAY[@]}" \
   --model results/full_training/best_model.pth \
-  --muset-matrix data/matrices/large_matrix_3070_with_frac \
+  --training-matrix data/matrices/training_matrix \
   --output results/validation_predictions \
   --threads $SLURM_CPUS_PER_TASK \
   --verbose

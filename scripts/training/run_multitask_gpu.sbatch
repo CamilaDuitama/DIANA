@@ -107,7 +107,7 @@ if [ -n "$RUN_CONFIG" ] && [ -f "$RUN_CONFIG" ]; then
     USE_CLI=true
 else
     # Use environment variables or defaults (old approach)
-    FEATURES=${FEATURES:-"data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat"}
+    FEATURES=${FEATURES:-"data/matrices/training_matrix/unitigs.frac.mat"}
     METADATA=${METADATA:-"data/splits/train_metadata.tsv"}
     OUTPUT_DIR=${OUTPUT_DIR:-"results/multitask/hyperopt"}
     TOTAL_FOLDS=${TOTAL_FOLDS:-5}

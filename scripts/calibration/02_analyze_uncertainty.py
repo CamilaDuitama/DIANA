@@ -53,7 +53,7 @@ python scripts/calibration/02_analyze_uncertainty.py
 # Custom paths:
 python scripts/calibration/02_analyze_uncertainty.py \\
     --model results/full_training/cv_results/fold_0/best_model.pth \\
-    --features data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat \\
+    --features data/matrices/training_matrix/unitigs.frac.mat \\
     --metadata data/validation/validation_metadata.tsv \\
     --n-samples 50 \\
     --output results/mc_dropout_analysis.tsv
@@ -516,7 +516,7 @@ def main():
     parser.add_argument(
         "--features",
         type=Path,
-        default=Path("data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat"),
+        default=Path("data/matrices/training_matrix/unitigs.frac.mat"),
         help="Path to feature matrix for validation"
     )
     parser.add_argument(

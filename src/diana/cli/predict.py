@@ -239,7 +239,7 @@ def setup_logging(verbose: bool = False):
 def predict_single_sample(
     sample_paths: list,
     model_path: Path,
-    muset_matrix_dir: Path,
+    training_matrix_dir: Path,
     output_dir: Path,
     kmer_size: int = 31,
     min_abundance: int = 2,
@@ -259,7 +259,7 @@ def predict_single_sample(
     Args:
         sample_paths: List of FASTQ file paths (1 for single-end, 2 for paired-end)
         model_path: Path to trained model
-        muset_matrix_dir: Path to MUSET matrix directory
+        training_matrix_dir: Path to training matrix directory
         output_dir: Output directory for results
         kmer_size: K-mer size
         min_abundance: Minimum k-mer abundance
@@ -283,8 +283,8 @@ def predict_single_sample(
     logger.info(f"  Output directory: {sample_output_dir}")
     
     # Define file paths
-    reference_kmers = muset_matrix_dir / "reference_kmers.fasta"
-    unitigs_fa = muset_matrix_dir / "unitigs.fa"
+    reference_kmers = training_matrix_dir / "reference_kmers.fasta"
+    unitigs_fa = training_matrix_dir / "unitigs.fa"
     kmer_counts = sample_output_dir / f"{sample_id}_kmer_counts.txt"
     unitig_abundance = sample_output_dir / f"{sample_id}_unitig_abundance.txt"
     unitig_fraction = sample_output_dir / f"{sample_id}_unitig_fraction.txt"
@@ -461,15 +461,15 @@ def main():
 Examples:
   # Single sample
   diana-predict --sample data/sample.fastq.gz --model results/training/best_model.pth \\
-                --muset-matrix data/matrices/matrix/ --output results/inference/
+                --training-matrix data/matrices/matrix/ --output results/inference/
 
   # Multiple samples
   diana-predict --sample data/*.fastq.gz --model results/training/best_model.pth \\
-                --muset-matrix data/matrices/matrix/ --output results/inference/
+                --training-matrix data/matrices/matrix/ --output results/inference/
 
   # Batch mode with sample list
   diana-predict --batch samples.txt --model results/training/best_model.pth \\
-                --muset-matrix data/matrices/matrix/ --output results/inference/
+                --training-matrix data/matrices/matrix/ --output results/inference/
 
 Resource Requirements:
   Memory: Processing large FASTQ files (>100MB) requires substantial RAM.
@@ -502,10 +502,10 @@ Resource Requirements:
         help='Path to trained model checkpoint'
     )
     parser.add_argument(
-        '--muset-matrix',
+        '--training-matrix',
         type=Path,
         required=True,
-        help='Path to MUSET matrix directory (must contain unitigs.fa and reference_kmers.fasta for feature extraction)'
+        help='Path to training matrix directory (must contain unitigs.fa and reference_kmers.fasta for feature extraction)'
     )
     
     # Output
@@ -596,8 +596,8 @@ Resource Requirements:
         logger.error(f"Model not found: {args.model}")
         sys.exit(1)
     
-    if not args.muset_matrix.exists():
-        logger.error(f"MUSET matrix directory not found: {args.muset_matrix}")
+    if not args.training_matrix.exists():
+        logger.error(f"training matrix directory not found: {args.training_matrix}")
         sys.exit(1)
     
     # Collect samples
@@ -684,7 +684,7 @@ Resource Requirements:
         result = predict_single_sample(
             sample_paths=sample_files,
             model_path=args.model,
-            muset_matrix_dir=args.muset_matrix,
+            training_matrix_dir=args.training_matrix,
             output_dir=args.output,
             kmer_size=args.kmer_size,
             min_abundance=args.min_abundance,

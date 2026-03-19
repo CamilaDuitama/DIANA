@@ -398,7 +398,7 @@ def main():
     parser.add_argument(
         "--features",
         type=Path,
-        default=Path("data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat"),
+        default=Path("data/matrices/training_matrix/unitigs.frac.mat"),
         help="Path to training feature matrix"
     )
     parser.add_argument(

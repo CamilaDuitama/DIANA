@@ -27,7 +27,7 @@ sbatch scripts/feature_analysis/run_blast_all_features.sbatch
 
 # For testing (first 1000 features)
 python scripts/feature_analysis/04_blast_all_features.py \\
-    --unitigs-fa data/matrices/large_matrix_3070_with_frac/unitigs.fa \\
+    --unitigs-fa data/matrices/training_matrix/unitigs.fa \\
     --blast-db /local/databases/index/blast+/nt \\
     --output results/feature_analysis/all_features_blast \\
     --num-threads 16 \\
@@ -35,7 +35,7 @@ python scripts/feature_analysis/04_blast_all_features.py \\
 
 # For full run (all features, with checkpointing)
 python scripts/feature_analysis/04_blast_all_features.py \\
-    --unitigs-fa data/matrices/large_matrix_3070_with_frac/unitigs.fa \\
+    --unitigs-fa data/matrices/training_matrix/unitigs.fa \\
     --blast-db /local/databases/index/blast+/nt \\
     --output results/feature_analysis/all_features_blast \\
     --num-threads 32 \\
@@ -43,7 +43,7 @@ python scripts/feature_analysis/04_blast_all_features.py \\
 
 # Resume from failure (automatically skips completed chunks)
 python scripts/feature_analysis/04_blast_all_features.py \\
-    --unitigs-fa data/matrices/large_matrix_3070_with_frac/unitigs.fa \\
+    --unitigs-fa data/matrices/training_matrix/unitigs.fa \\
     --blast-db /local/databases/index/blast+/nt \\
     --output results/feature_analysis/all_features_blast \\
     --num-threads 32 \\

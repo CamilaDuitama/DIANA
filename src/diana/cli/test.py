@@ -294,7 +294,7 @@ def main():
     parser.add_argument('--config', type=Path, required=True,
                        help='Path to training config JSON')
     parser.add_argument('--matrix', type=Path, 
-                       default=Path('data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat'),
+                       default=Path('data/matrices/training_matrix/unitigs.frac.mat'),
                        help='Path to feature matrix')
     parser.add_argument('--metadata', type=Path,
                        default=Path('data/metadata/DIANA_metadata.tsv'),

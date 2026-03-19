@@ -22,7 +22,7 @@ This addresses reviewer questions like:
 ```bash
 # Test the pipeline on a small subset
 mamba run -p ./env python scripts/feature_analysis/04_blast_all_features.py \
-    --unitigs-fa data/matrices/large_matrix_3070_with_frac/unitigs.fa \
+    --unitigs-fa data/matrices/training_matrix/unitigs.fa \
     --blast-db /local/databases/index/blast+/nt \
     --output results/feature_analysis/test_blast \
     --num-threads 8 \
@@ -53,7 +53,7 @@ sbatch scripts/feature_analysis/run_blast_all_features.sbatch
 
 # Or manually resume:
 mamba run -p ./env python scripts/feature_analysis/04_blast_all_features.py \
-    --unitigs-fa data/matrices/large_matrix_3070_with_frac/unitigs.fa \
+    --unitigs-fa data/matrices/training_matrix/unitigs.fa \
     --blast-db /local/databases/index/blast+/nt \
     --output results/feature_analysis/all_features_blast \
     --num-threads 32 \
@@ -189,7 +189,7 @@ python scripts/feature_analysis/04_blast_all_features.py \
 ```bash
 # Skip BLAST, just regenerate summaries from existing results
 python scripts/feature_analysis/04_blast_all_features.py \
-    --unitigs-fa data/matrices/large_matrix_3070_with_frac/unitigs.fa \
+    --unitigs-fa data/matrices/training_matrix/unitigs.fa \
     --blast-db /local/databases/index/blast+/nt \
     --output results/feature_analysis/all_features_blast \
     --skip-blast
