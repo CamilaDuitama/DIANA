@@ -20,7 +20,7 @@ PCA_FILE="$SCRIPT_DIR/models/pca_reference.pkl"
 PCA_FILENAME="pca_reference.pkl"
 PCA_CHECKSUM="4bb3f80312b92b113b3f3007820ab3ae59416a531f94129e557fe0ef97f74071"
 
-KMER_FILE="$SCRIPT_DIR/data/matrices/large_matrix_3070_with_frac/reference_kmers.fasta"
+KMER_FILE="$SCRIPT_DIR/training_matrix/reference_kmers.fasta"
 KMER_URL="https://zenodo.org/records/18157419/files/reference_kmers.fasta.gz"
 KMER_CHECKSUM="87499b6235eef4aae0cdd5630f5eb7f51fc39de054fa93f5bacffa97cf0130f4"
 

@@ -1,13 +1,35 @@
+# Core ML / numerics
 torch>=2.0.0
 scikit-learn>=1.3.0
 numpy>=1.24.0
 scipy>=1.10.0
 polars>=0.19.0
 pandas>=2.0.0
+
+# Visualisation
 matplotlib>=3.7.0
 seaborn>=0.12.0
+plotly
+kaleido==0.2.1
+
+# Data / serialisation
 pyyaml>=6.0
+tabulate
+pyarrow
+h5py
+biopython
+
+# Training utilities
 tensorboard
 tqdm
-h5py
-pytest
+wandb
+optuna>=3.0
+scikit-multilearn
+huggingface_hub>=0.20
+
+# NOTE: conda-only packages (not installable via pip):
+#   ete3, seqkit, taxonkit, muset, pigz
+# Use environment.yml for a fully reproducible environment.
+
+# Dev dependencies (install with: pip install diana[dev])
+# pytest, black, isort

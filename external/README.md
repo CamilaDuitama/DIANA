@@ -43,10 +43,12 @@ cd seqdd
 **Installation**:
 ```bash
 cd external/
-git clone <repository-url> back_to_sequences
+git clone https://github.com/pierrepeterlongo/back_to_sequences.git back_to_sequences
 cd back_to_sequences
-# Follow installation instructions
+cargo build --release
 ```
+
+**Repository**: https://github.com/pierrepeterlongo/back_to_sequences
 
 ---
 
