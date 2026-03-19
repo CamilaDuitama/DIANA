@@ -14,6 +14,7 @@ Usage:
 """
 
 import argparse
+import importlib.metadata
 import logging
 import sys
 from pathlib import Path
@@ -727,6 +728,7 @@ def plot_species_abundance_barplot(
 def main():
     parser = argparse.ArgumentParser(
         description="DIANA Project: Project samples onto reference PCA space",
+        prog="diana-project",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Example:
@@ -744,7 +746,9 @@ This command requires that samples have already been processed by diana-predict.
 It uses the existing unitig fraction files to project samples onto PCA space.
         """
     )
-    
+    parser.add_argument("--version", action="version",
+                        version=f"%(prog)s {importlib.metadata.version('diana')}")
+
     # Input
     parser.add_argument(
         '--sample', '-s',

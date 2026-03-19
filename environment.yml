@@ -9,6 +9,7 @@ channels:
 dependencies:
   - python=3.10
   - pytorch>=2.0
+  # For CPU-only systems: remove pytorch-cuda line below and add `- cpuonly` instead
   - pytorch-cuda=12.1  # Update to match your CUDA version (12.x for most modern systems)
   - lightgbm
   - scikit-learn>=1.3
