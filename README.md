@@ -1,5 +1,7 @@
 # DIANA: Deep Learning Identification and Assessment of Ancient DNA
 
+[![CI](https://github.com/CamilaDuitama/DIANA/actions/workflows/ci.yml/badge.svg)](https://github.com/CamilaDuitama/DIANA/actions/workflows/ci.yml)
+
 Multi-task classification of ancient DNA samples using unitig abundances as features. A **unitig** is a maximal non-branching path in a de Bruijn graph — it compacts overlapping k-mers into a single sequence, reducing redundancy while preserving genomic diversity.
 
 <p align="center">
