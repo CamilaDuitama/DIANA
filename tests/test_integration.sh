@@ -9,11 +9,11 @@
 #   bash test_integration.sh --verbose  # show diana-predict stdout/stderr
 #
 # Prerequisites (fulfilled by install.sh):
-#   - diana-predict in PATH  (pip install -e . or conda install)
-#   - results/training/best_model.pth
-#   - models/pca_reference.pkl
-#   - training_matrix/unitigs.fa
-#   - training_matrix/reference_kmers.fasta
+#   - diana-predict in PATH  (via ./env created by install.sh)
+#   - results/training/best_model.pth      (downloaded from Hugging Face)
+#   - models/pca_reference.pkl             (downloaded from Hugging Face)
+#   - training_matrix/unitigs.fa           (downloaded from Zenodo)
+#   - training_matrix/reference_kmers.fasta (downloaded from Zenodo)
 
 set -eo pipefail
 
@@ -58,6 +58,10 @@ missing=0
 for f in "$MODEL" "$KMERS" "$UNITIGS"; do
     if [[ ! -f "$f" ]]; then
         warn "Missing prerequisite: $f"
+        if [[ "$f" == "$UNITIGS" ]]; then
+            warn "  unitigs.fa is downloaded by install.sh from Zenodo."
+            warn "  Make sure you have run: bash install.sh"
+        fi
         missing=$((missing+1))
     fi
 done

@@ -24,6 +24,11 @@ KMER_FILE="$SCRIPT_DIR/training_matrix/reference_kmers.fasta"
 KMER_URL="https://zenodo.org/records/18157419/files/reference_kmers.fasta.gz"
 KMER_CHECKSUM="87499b6235eef4aae0cdd5630f5eb7f51fc39de054fa93f5bacffa97cf0130f4"
 
+UNITIGS_FILE="$SCRIPT_DIR/training_matrix/unitigs.fa"
+# TODO: replace with the real Zenodo URL once unitigs.fa is uploaded
+UNITIGS_URL="https://zenodo.org/records/18157419/files/unitigs.fa"
+UNITIGS_CHECKSUM="5d784fc4954643711c6dadece31e4499e5d788766937c37881936bb7cec550b4"
+
 # ============================================================================
 # Colored logging helpers
 # ============================================================================
@@ -179,16 +184,22 @@ download_and_verify \
 echo ""
 
 # ============================================================================
-# Step 4 — Download reference k-mers from Zenodo
+# Step 4 — Download reference k-mers and unitigs from Zenodo
 # ============================================================================
-info "Step 4/4 — Downloading reference k-mers from Zenodo (~179 MB compressed)"
+info "Step 4/4 — Downloading reference k-mers and unitigs from Zenodo"
 
 download_and_verify \
-    "Reference k-mers" \
+    "Reference k-mers (~179 MB compressed)" \
     "$KMER_URL" \
     "$KMER_FILE" \
     "$KMER_CHECKSUM" \
     "gunzip"
+
+download_and_verify \
+    "Reference unitigs (~18 MB)" \
+    "$UNITIGS_URL" \
+    "$UNITIGS_FILE" \
+    "$UNITIGS_CHECKSUM"
 
 echo ""
 
@@ -227,7 +238,8 @@ check_cmd diana-project
 
 check_file "$MODEL_FILE"  "Trained model      (results/training/best_model.pth)"
 check_file "$PCA_FILE"    "PCA reference      (models/pca_reference.pkl)"
-check_file "$KMER_FILE"   "Reference k-mers   (training_matrix/reference_kmers.fasta)"
+check_file "$KMER_FILE"     "Reference k-mers   (training_matrix/reference_kmers.fasta)"
+check_file "$UNITIGS_FILE"  "Reference unitigs  (training_matrix/unitigs.fa)"
 
 echo ""
 if [ "$ALL_GOOD" = true ]; then
