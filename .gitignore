@@ -167,8 +167,10 @@ PROJECT_STRUCTURE.md
 test_data/
 !test_data/ERR3609654_1_small.fastq.gz
 !test_data/ERR3609654_2_small.fastq.gz
-# test_results/ is tracked — contains bundled example output for ERR3609654
-# Intermediate pipeline files inside test_results are not tracked
+# test_results/ERR3609654/ is intentionally tracked — bundled example output
+# (predictions JSON + bar-chart plots) for users to compare against.
+# Integration-test scratch dirs and all intermediate pipeline files are ignored.
+test_results/integration_*/
 test_results/**/*_kmer_counts.txt
 test_results/**/*_unitig_abundance.txt
 test_results/**/*_unitig_fraction.txt
