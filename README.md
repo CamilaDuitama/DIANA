@@ -50,9 +50,9 @@ bash scripts/create_umat/01_build_muset.sh
 sbatch scripts/create_umat/02_regenerate_matrix_with_frac.sbatch
 ```
 
-**Output:** `unitigs.frac.mat` (107,480 features × 3,071 samples, 1.6GB)
+**Output:** `unitigs.frac.mat` (107,480 features × 3,059 samples, 1.6GB)
 
-> **Note:** Matrix is stored in transposed format (samples as rows). The 107,480 rows represent unitigs, and 3,071 columns represent samples. When loaded by `MatrixLoader`, it's automatically transposed to (3,070 samples × 107,480 features).
+> **Note:** Matrix is stored in transposed format (samples as rows). The 107,480 rows represent unitigs, and 3,059 columns represent samples. When loaded by `MatrixLoader`, it's automatically transposed to (3,058 samples × 107,480 features).
 
 ### 2. Prepare Metadata
 
@@ -63,7 +63,7 @@ Metadata files are located in `paper/metadata/`:
 
 **All three files have identical 48 columns** (standardized format).
 
-**Training + Test combined: 3,070 samples**
+**Training + Test combined: 3,058 samples**
 
 **Task columns and classes (train/test):**
 - `sample_type`: 2 classes (ancient_metagenome, modern_metagenome)
