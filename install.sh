@@ -1,8 +1,8 @@
 #!/bin/bash
 # DIANA Installation Script
 # Builds external tools, downloads the trained model and PCA reference (~382 MB from
-# Hugging Face Hub), and downloads reference k-mers (~179 MB from Zenodo) and
-# reference unitigs (~18 MB from Zenodo).
+# Hugging Face Hub), and downloads reference k-mers (~179 MB from Zenodo).
+# training_matrix/unitigs.fa is bundled in the repository and requires no download.
 
 set -eo pipefail
 
@@ -26,10 +26,7 @@ KMER_URL="https://zenodo.org/records/18157419/files/reference_kmers.fasta.gz"
 # sha256 of the DECOMPRESSED reference_kmers.fasta (the .gz is removed after install)
 KMER_CHECKSUM="9759bb3965466b7e434e72f0726b95ad562e8f7405f2c10d6664e8500b24e1dc"
 
-UNITIGS_FILE="$SCRIPT_DIR/training_matrix/unitigs.fa"
-# TODO: replace with the real Zenodo URL once unitigs.fa is uploaded
-UNITIGS_URL="https://zenodo.org/records/18157419/files/unitigs.fa"
-UNITIGS_CHECKSUM="5d784fc4954643711c6dadece31e4499e5d788766937c37881936bb7cec550b4"
+# training_matrix/unitigs.fa is bundled in the repository (18 MB) — no download needed.
 
 # ============================================================================
 # Colored logging helpers
@@ -186,9 +183,9 @@ download_and_verify \
 echo ""
 
 # ============================================================================
-# Step 4 — Download reference k-mers and unitigs from Zenodo
+# Step 4 — Download reference k-mers from Zenodo
 # ============================================================================
-info "Step 4/4 — Downloading reference k-mers and unitigs from Zenodo"
+info "Step 4/4 — Downloading reference k-mers from Zenodo"
 
 download_and_verify \
     "Reference k-mers (~179 MB compressed)" \
@@ -197,11 +194,7 @@ download_and_verify \
     "$KMER_CHECKSUM" \
     "gunzip"
 
-download_and_verify \
-    "Reference unitigs (~18 MB)" \
-    "$UNITIGS_URL" \
-    "$UNITIGS_FILE" \
-    "$UNITIGS_CHECKSUM"
+# training_matrix/unitigs.fa is bundled in the repository — no download needed.
 
 echo ""
 
@@ -240,8 +233,8 @@ check_cmd diana-project
 
 check_file "$MODEL_FILE"  "Trained model      (results/training/best_model.pth)"
 check_file "$PCA_FILE"    "PCA reference      (models/pca_reference.pkl)"
-check_file "$KMER_FILE"     "Reference k-mers   (training_matrix/reference_kmers.fasta)"
-check_file "$UNITIGS_FILE"  "Reference unitigs  (training_matrix/unitigs.fa)"
+check_file "$KMER_FILE"   "Reference k-mers   (training_matrix/reference_kmers.fasta)"
+check_file "$SCRIPT_DIR/training_matrix/unitigs.fa" "Reference unitigs  (training_matrix/unitigs.fa)"
 
 echo ""
 if [ "$ALL_GOOD" = true ]; then

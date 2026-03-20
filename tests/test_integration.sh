@@ -12,7 +12,7 @@
 #   - diana-predict in PATH  (via ./env created by install.sh)
 #   - results/training/best_model.pth      (downloaded from Hugging Face)
 #   - models/pca_reference.pkl             (downloaded from Hugging Face)
-#   - training_matrix/unitigs.fa           (downloaded from Zenodo)
+#   - training_matrix/unitigs.fa           (bundled in the repository)
 #   - training_matrix/reference_kmers.fasta (downloaded from Zenodo)
 
 set -eo pipefail
@@ -59,8 +59,7 @@ for f in "$MODEL" "$KMERS" "$UNITIGS"; do
     if [[ ! -f "$f" ]]; then
         warn "Missing prerequisite: $f"
         if [[ "$f" == "$UNITIGS" ]]; then
-            warn "  unitigs.fa is downloaded by install.sh from Zenodo."
-            warn "  Make sure you have run: bash install.sh"
+            warn "  unitigs.fa is bundled in the repository — try: git checkout training_matrix/unitigs.fa"
         fi
         missing=$((missing+1))
     fi
