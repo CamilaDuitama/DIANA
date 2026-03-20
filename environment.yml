@@ -9,7 +9,7 @@ channels:
 dependencies:
   - python=3.10
   - pytorch>=2.0
-  - pytorch-cuda=11.8
+  - pytorch-cuda=11.8  # Match your CUDA version (e.g. 12.1); replace with `- cpuonly` for CPU-only systems
   - lightgbm
   - scikit-learn>=1.3
   - numpy>=1.24
@@ -22,12 +22,13 @@ dependencies:
   - tabulate
   - h5py
   - pyarrow
-  - jupyterlab
+  - jupyterlab  # For interactive exploration; not required by any pipeline script
   - ete3
   - seqkit
   - taxonkit  # NCBI taxonomy database tools for species lineage lookup
   - biopython  # Sequence analysis and parsing
   - pigz  # Parallel gzip for fast decompression
+  # Dev tools (not required to run the paper pipeline)
   - pytest
   - black
   - isort
@@ -49,3 +50,4 @@ dependencies:
       - optuna>=3.0  # Hyperparameter optimization
       - kaleido==0.2.1  # PNG export for plotly (stable version for HPC)
       - umap-learn>=0.5  # Non-linear dimensionality reduction
+      - huggingface_hub>=0.20  # Model download from Hugging Face Hub

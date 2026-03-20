@@ -169,6 +169,8 @@ mamba run -p ./env diana-train multitask \
   --mode aggregate
 ```
 
+---
+
 ## Model Evaluation
 
 ### Step 3: Test on Held-Out Set
@@ -357,32 +359,23 @@ mamba run -p ./env python scripts/validation/merge_reviewed_samples.py
 
 #### 3. Download All Samples
 
-> **Note:** If you already have validation samples downloaded, these scripts will **skip existing files**
-> automatically. They check for:
-> - Existing SRA files in `data/validation/sra/`
-> The accessions.txt file is automatically updated when merging reviewed samples
-# It now contains all 1,010 unique run accessions from validation_metadata.tsv
+> **Note:** Scripts will **skip existing files** automatically. They check for existing SRA files in `data/validation/sra/`. The `accessions.txt` file is updated automatically when merging reviewed samples and now contains all 1,010 unique run accessions from `validation_metadata.tsv`.
 
-# Will only download the ~89 newly added modern samples
+```bash
+# Will only download newly added samples (skips existing)
 bash scripts/validation/03_prefetch_all.sh
 
-# Convert SRA → FASTQ (auto-skips existing)
-# Update array size to match total accessions
+# Convert SRA → FASTQ (auto-skips existing); update array size to match total accessions
 sbatch --array=1-1171%20 scripts/validation/04_convert_sra_to_fastq.sbatch
 ```
 
 **Output:** `data/validation/sra/{accession}/*.sra` and `data/validation/raw/{accession}/*.fastq.gz`
 
-```
-
-**Output:** `data/validation/sra/{accession}/*.sra` and `data/validation/raw/{accession}/*.fastq.gz`
-
-
 **To check download progress:**
 ```bash
 # Count downloaded SRA files
 find data/validation/sra -name "*.sra" | wc -l
-1,010 unique run accessions (some samples have multiple runs)
+# Expect ~1,010 unique run accessions (some samples have multiple runs)
 ```
 
 ### Run Inference on Validation Set
@@ -451,5 +444,5 @@ mamba run -p ./env python scripts/validation/06_compare_predictions.py
 
 ---
 
-**Last Updated:** February 2026
+**Last Updated:** March 2026
 
