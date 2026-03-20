@@ -20,5 +20,8 @@ jobs:
       - name: Install package with dev dependencies
         run: pip install -e ".[dev]"
 
+      # Note: tests/test_integration.sh is a separate manual end-to-end test that
+      # requires the full model artifacts (~560 MB) and cannot run in standard CI.
+      # Run it locally after install.sh: bash tests/test_integration.sh --verbose
       - name: Run tests
         run: pytest tests/ -v --tb=short
