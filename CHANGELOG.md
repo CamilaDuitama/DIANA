@@ -24,10 +24,10 @@ First public release of DIANA (**D**eep-learning **I**dentification and **A**sse
 - `install.sh` — downloads the trained model (~336 MB) and PCA reference
   (~46 MB) from Hugging Face Hub (`cduitamag/DIANA`) and the reference k-mer
   index (~179 MB compressed) from Zenodo
-  ([10.5281/zenodo.18157419](https://doi.org/10.5281/zenodo.18157419)).
-  Builds `back_to_sequences` (Rust) from source.
-- `training_matrix/unitigs.fa` (18 MB) — reference unitigs bundled in the
-  repository; no separate download required.
+  ([10.5281/zenodo.18157419](https://doi.org/10.5281/zenodo.18157419));
+  builds `back_to_sequences` (Rust) from source.
+- `training_matrix/unitigs.fa` (18 MB) — bundled in the repository;
+  present after `git clone`, no download step required.
 - `tests/test_integration.sh` — end-to-end smoke test on bundled test FASTQ
   data (ERR3609654, paired-end); validates all four task predictions.
 - `environment.yml` — reproducible conda/mamba environment specification
