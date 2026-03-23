@@ -1,0 +1,173 @@
+run_accession	decision	original_material	original_host	original_community	corrected_material	corrected_host	corrected_community	reason
+ERR1474585	CORRECTED	Oral	Homo sapiens	oral	saliva	Homo sapiens	oral	modern_metagenome
+ERR1474586	CORRECTED	Oral	Homo sapiens	oral	saliva	Homo sapiens	oral	modern_metagenome
+ERR2004605	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR2004609	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR2004615	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	YES
+ERR3307045	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	https://www.pnas.org/doi/abs/10.1073/pnas.2021655118#data-availability
+ERR3307046	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	https://www.pnas.org/doi/abs/10.1073/pnas.2021655118#data-availability
+ERR3307047	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	https://www.pnas.org/doi/abs/10.1073/pnas.2021655118#data-availability
+ERR3307048	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	https://www.pnas.org/doi/abs/10.1073/pnas.2021655118#data-availability
+ERR3307049	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	https://www.pnas.org/doi/abs/10.1073/pnas.2021655118#data-availability
+ERR3307050	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	https://www.pnas.org/doi/abs/10.1073/pnas.2021655118#data-availability
+ERR3307051	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	https://www.pnas.org/doi/abs/10.1073/pnas.2021655118#data-availability
+ERR3307052	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	https://www.pnas.org/doi/abs/10.1073/pnas.2021655118#data-availability
+ERR3307053	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	https://www.pnas.org/doi/abs/10.1073/pnas.2021655118#data-availability
+ERR3307054	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	https://www.pnas.org/doi/abs/10.1073/pnas.2021655118#data-availability
+ERR3579819	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	https://www.pnas.org/doi/abs/10.1073/pnas.2021655118#data-availability
+ERR3579820	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	https://www.pnas.org/doi/abs/10.1073/pnas.2021655118#data-availability
+ERR3579821	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	https://www.pnas.org/doi/abs/10.1073/pnas.2021655118#data-availability
+ERR3579822	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	https://www.pnas.org/doi/abs/10.1073/pnas.2021655118#data-availability
+ERR3579823	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	https://www.pnas.org/doi/abs/10.1073/pnas.2021655118#data-availability
+ERR3579824	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	https://www.pnas.org/doi/abs/10.1073/pnas.2021655118#data-availability
+ERR3579825	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	https://www.pnas.org/doi/abs/10.1073/pnas.2021655118#data-availability
+ERR3579826	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	https://www.pnas.org/doi/abs/10.1073/pnas.2021655118#data-availability
+ERR450705	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR450719	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR450774	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR450847	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	n
+ERR450893	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR450898	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR450906	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR450946	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR450958	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR451076	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR451083	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR451153	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR451187	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR451202	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR451384	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR451424	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR451456	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR451468	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR451520	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR451536	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+ERR6016625	EXCLUDED	sediment	Not applicable - env sample	Not applicable - env sample				EXCLUDE because it is not clear it is modern
+ERR6016626	EXCLUDED	sediment	Not applicable - env sample	Not applicable - env sample				it is not clear it is modern
+ERR6016627	EXCLUDED	sediment	Not applicable - env sample	Not applicable - env sample				it is not clear is is modern
+ERR6016628	EXCLUDED	sediment	Not applicable - env sample	Not applicable - env sample				it is not clear it is modern
+ERR671910	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671911	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671912	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671913	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671915	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671916	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671917	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671918	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671919	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671920	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671921	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671922	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671923	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671924	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671925	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671926	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671927	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671929	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671930	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671931	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671932	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671933	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671936	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR671937	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR687883	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR687884	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR687885	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR687887	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR687888	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR687892	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR687893	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR687894	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR687895	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR687896	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR687897	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+ERR687898	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+SRR1041150	CORRECTED	Oral	Homo sapiens	oral	EXCLUDE since it is a whole genome	EXCLUDE	EXCLUDE	EXCLUDE!
+SRR1041261	EXCLUDED	Oral	Homo sapiens	oral				it is a whole genome
+SRR11176630	EXCLUDED	Oral	Homo sapiens	oral				From PRJNA608555 - not a modern sample (ancient dental calculus)
+SRR11176634	EXCLUDED	Oral	Homo sapiens	oral				From PRJNA608555 - not a modern sample (ancient dental calculus)
+SRR11176636	EXCLUDED	Oral	Homo sapiens	oral				From PRJNA608555 - not a modern sample (ancient dental calculus)
+ERR451393	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1157607	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+SRR1157609	APPROVED	soil	Not applicable - env sample	Not applicable - env sample	soil	Not applicable - env sample	Not applicable - env sample	Approved
+SRR12462936	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	""
+SRR12462939	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	""
+SRR12462940	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	""
+SRR1518393	CORRECTED	Oral	Homo sapiens	oral	throat swab	Homo sapiens	oral	""
+SRR1518410	CORRECTED	Oral	Homo sapiens	oral	throat swab	Homo sapiens	oral	""
+SRR1518476	CORRECTED	Oral	Homo sapiens	oral	throat swab	Homo sapiens	oral	""
+SRR1518536	CORRECTED	Oral	Homo sapiens	oral	throat swab	Homo sapiens	oral	""
+SRR1518998	CORRECTED	Oral	Homo sapiens	oral	throat swab	Homo sapiens	oral	""
+SRR1519031	CORRECTED	Oral	Homo sapiens	oral	throat swab	Homo sapiens	oral	""
+SRR1519046	CORRECTED	Oral	Homo sapiens	oral	throat swab	Homo sapiens	oral	""
+SRR1519044	CORRECTED	Oral	Homo sapiens	oral	throat swab	Homo sapiens	oral	""
+SRR1519047	CORRECTED	Oral	Homo sapiens	oral	throat swab	Homo sapiens	oral	""
+SRR1519048	CORRECTED	Oral	Homo sapiens	oral	throat swab	Homo sapiens	oral	""
+SRR1519049	CORRECTED	Oral	Homo sapiens	oral	throat swab	Homo sapiens	oral	""
+SRR1519056	CORRECTED	Oral	Homo sapiens	oral	throat swab	Homo sapiens	oral	""
+SRR16071512	APPROVED	sediment	Not applicable - env sample	Not applicable - env sample	sediment	Not applicable - env sample	Not applicable - env sample	Approved
+SRR16071513	APPROVED	sediment	Not applicable - env sample	Not applicable - env sample	sediment	Not applicable - env sample	Not applicable - env sample	Approved
+SRR16071519	APPROVED	sediment	Not applicable - env sample	Not applicable - env sample	sediment	Not applicable - env sample	Not applicable - env sample	Approved
+SRR1620017	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1631060	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1631061	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1631063	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1631064	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1633008	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1783758	CORRECTED	Oral	Homo sapiens	oral	subgingival plaque	Homo sapiens	oral	""
+SRR1795009	CORRECTED	Oral	Homo sapiens	oral	subgingival plaque	Homo sapiens	oral	""
+SRR1795018	CORRECTED	Oral	Homo sapiens	oral	subgingival plaque	Homo sapiens	oral	""
+SRR1923770	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1923771	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1923773	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950687	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950688	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950689	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950694	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950695	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950701	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950711	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950716	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950724	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950729	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950730	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950731	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950736	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950744	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950747	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950748	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950749	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950758	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950762	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950768	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950769	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950776	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1950777	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR1952513	CORRECTED	Oral	Homo sapiens	oral	supragingival plaque	Homo sapiens	oral	""
+SRR1952567	CORRECTED	Oral	Homo sapiens	oral	supragingival plaque	Homo sapiens	oral	""
+SRR1952611	CORRECTED	Oral	Homo sapiens	oral	supragingival plaque	Homo sapiens	oral	""
+SRR1952623	CORRECTED	Oral	Homo sapiens	oral	supragingival plaque	Homo sapiens	oral	""
+SRR2096701	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR2096702	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR2096703	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR2096704	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR2096705	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR2096706	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR2229976	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	""
+SRR2240834	CORRECTED	Oral	Homo sapiens	oral	supragingival plaque	Homo sapiens	oral	""
+SRR2240920	CORRECTED	Oral	Homo sapiens	oral	Supragingival plaque	Homo sapiens	oral	""
+SRR3184100	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR3184876	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR3189411	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR3189416	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR3189418	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR3586059	CORRECTED	Oral	Homo sapiens	oral	gingiva	Homo sapiens	oral	""
+SRR3586063	CORRECTED	Oral	Homo sapiens	oral	tongue	Homo sapiens	oral	""
+SRR3644405	APPROVED	Skin	Homo sapiens	soft tissue	Skin	Homo sapiens	soft tissue	Approved
+SRR5892193	CORRECTED	Oral	Homo sapiens	oral	saliva	Homo sapiens	oral	""
+SRR5892198	CORRECTED	Oral	Homo sapiens	oral	saliva	Homo sapiens	oral	""
+SRR5892210	CORRECTED	Oral	Homo sapiens	oral	saliva	Homo sapiens	oral	""
+SRR5892215	CORRECTED	Oral	Homo sapiens	oral	saliva	Homo sapiens	oral	""
+SRR6877303	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	""
+SRR6877312	CORRECTED	Oral	Homo sapiens	oral	dental calculus	Homo sapiens	oral	""
+SRR6877316	EXCLUDED	Oral	Homo sapiens	oral				It is not modern

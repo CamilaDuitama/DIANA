@@ -66,7 +66,7 @@ def generate_hyperparameters_table(output_dir):
     
     lines = []
     lines.append("\\centering")
-    lines.append("\\caption{Optimized model hyperparameters\\label{tab:hyperparameters}}")
+    lines.append("\\caption{Optimized hyperparameters for the DIANA multi-task neural network\\label{tab:hyperparameters}}")
     lines.append("\\addcontentsline{toc}{subsection}{Supplementary Table 4: Optimized model hyperparameters}")
     lines.append("\\begin{tabular*}{\\columnwidth}{@{\\extracolsep{\\fill}}lll@{\\extracolsep{\\fill}}}")
     lines.append("\\toprule")
@@ -104,10 +104,18 @@ def generate_hyperparameters_table(output_dir):
     lines.append("\\bottomrule")
     lines.append("\\end{tabular*}")
     lines.append("\\\\[2mm]")
-    lines.append("{\\footnotesize Hyperparameters determined via 5-fold cross-validation with 50 Optuna trials per fold. "
-                 "Values shown are aggregated from best trials across folds (mean for numeric, mode for categorical). "
-                 "Input features: 107,480 unitigs from the input matrix. "
-                 "Max epochs: 200 with early stopping based on validation loss.}")
+    lines.append("{\\footnotesize "
+                 "\\textbf{Columns}: "
+                 "\\textit{Category}---group of related parameters: "
+                 "\\textit{Architecture} (network structure), "
+                 "\\textit{Training} (optimisation settings), "
+                 "\\textit{Task Weights} (per-task loss weight in the joint objective). "
+                 "\\textit{Parameter}---hyperparameter name. "
+                 "\\textit{Value}---value selected by Optuna. "
+                 "Hyperparameters determined via 5-fold cross-validation with 50 Optuna trials per fold; "
+                 "numeric values are averaged across folds, categorical values are chosen by majority vote. "
+                 "Input features: 107,480 unitigs. "
+                 "Max epochs: 200 with early stopping on validation loss.}")
     
     output_file = output_dir / "sup_table_04_hyperparameters.tex"
     with open(output_file, 'w') as f:

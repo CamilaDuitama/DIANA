@@ -142,11 +142,14 @@ def plot_sample_type(train_meta, test_meta, val_meta, output_dir):
         xaxis_title="Sample Type",
         yaxis_title="Percentage of Samples in Split (%)",
         template=PLOT_CONFIG['template'],
-        font=dict(size=PLOT_CONFIG['font_size']),
+        font=dict(size=16),
+        title_font_size=22,
         height=600,
         width=800,
         barmode='group'
     )
+    fig.update_xaxes(title_font_size=18, tickfont_size=15)
+    fig.update_yaxes(title_font_size=18, tickfont_size=15)
     
     output_file = output_dir / "sup_02_data_split_sample_type.png"
     fig.write_html(str(output_file.with_suffix('.html')))
@@ -195,12 +198,15 @@ def plot_projects(train_meta, test_meta, val_meta, output_dir):
         xaxis_title="Project Name",
         yaxis_title="Percentage of Samples in Split (%)",
         template=PLOT_CONFIG['template'],
-        font=dict(size=PLOT_CONFIG['font_size']),
+        font=dict(size=16),
+        title_font_size=22,
         height=600,
         width=1000,
         barmode='group',
         xaxis=dict(tickangle=-45)
     )
+    fig.update_xaxes(title_font_size=18, tickfont_size=15)
+    fig.update_yaxes(title_font_size=18, tickfont_size=15)
     
     output_file = output_dir / "sup_02_data_split_projects.png"
     fig.write_html(str(output_file.with_suffix('.html')))
@@ -248,12 +254,15 @@ def plot_community_type(train_meta, test_meta, val_meta, output_dir):
         xaxis_title="Community Type",
         yaxis_title="Percentage of Samples in Split (%)",
         template=PLOT_CONFIG['template'],
-        font=dict(size=PLOT_CONFIG['font_size']),
+        font=dict(size=16),
+        title_font_size=22,
         height=600,
         width=1200,
         barmode='group',
         xaxis=dict(tickangle=-45)
     )
+    fig.update_xaxes(title_font_size=18, tickfont_size=15)
+    fig.update_yaxes(title_font_size=18, tickfont_size=15)
     
     output_file = output_dir / "sup_02_data_split_community_type.png"
     fig.write_html(str(output_file.with_suffix('.html')))
@@ -300,11 +309,14 @@ def plot_publication_year(train_meta, test_meta, val_meta, output_dir):
         xaxis_title="Publication Year",
         yaxis_title="Percentage of Samples in Split (%)",
         template=PLOT_CONFIG['template'],
-        font=dict(size=PLOT_CONFIG['font_size']),
+        font=dict(size=16),
+        title_font_size=22,
         height=600,
         width=900,
         barmode='group'
     )
+    fig.update_xaxes(title_font_size=18, tickfont_size=15)
+    fig.update_yaxes(title_font_size=18, tickfont_size=15)
     
     output_file = output_dir / "sup_02_data_split_publication_year.png"
     fig.write_html(str(output_file.with_suffix('.html')))
@@ -356,10 +368,13 @@ def plot_file_size(train_meta, test_meta, val_meta, output_dir):
         xaxis_title="Dataset Split",
         yaxis_title="File Size (GB)",
         template=PLOT_CONFIG['template'],
-        font=dict(size=PLOT_CONFIG['font_size']),
+        font=dict(size=16),
+        title_font_size=22,
         height=600,
         width=800
     )
+    fig.update_xaxes(title_font_size=18, tickfont_size=15)
+    fig.update_yaxes(title_font_size=18, tickfont_size=15)
     
     output_file = output_dir / "sup_02_data_split_file_size.png"
     fig.write_html(str(output_file.with_suffix('.html')))
@@ -406,12 +421,15 @@ def plot_material(train_meta, test_meta, val_meta, output_dir):
         xaxis_title="Material Type",
         yaxis_title="Percentage of Samples in Split (%)",
         template=PLOT_CONFIG['template'],
-        font=dict(size=PLOT_CONFIG['font_size']),
+        font=dict(size=16),
+        title_font_size=22,
         height=600,
         width=1400,
         barmode='group',
         xaxis=dict(tickangle=-45)
     )
+    fig.update_xaxes(title_font_size=18, tickfont_size=15)
+    fig.update_yaxes(title_font_size=18, tickfont_size=15)
 
     output_file = output_dir / "sup_02_data_split_material.png"
     fig.write_html(str(output_file.with_suffix('.html')))
@@ -461,12 +479,15 @@ def plot_bioproject(train_meta, test_meta, val_meta, output_dir):
         xaxis_title="BioProject",
         yaxis_title="Percentage of Samples in Split (%)",
         template=PLOT_CONFIG['template'],
-        font=dict(size=PLOT_CONFIG['font_size']),
+        font=dict(size=16),
+        title_font_size=22,
         height=600,
         width=1200,
         barmode='group',
         xaxis=dict(tickangle=-45)
     )
+    fig.update_xaxes(title_font_size=18, tickfont_size=15)
+    fig.update_yaxes(title_font_size=18, tickfont_size=15)
 
     output_file = output_dir / "sup_02_data_split_bioproject.png"
     fig.write_html(str(output_file.with_suffix('.html')))
@@ -539,7 +560,8 @@ def plot_geographic(train_meta, test_meta, val_meta, output_dir):
     fig.update_layout(
         title="Geographic Sample Distribution",
         template=PLOT_CONFIG['template'],
-        font=dict(size=PLOT_CONFIG['font_size']),
+        font=dict(size=16),
+        title_font_size=22,
         height=700,
         width=1200
     )

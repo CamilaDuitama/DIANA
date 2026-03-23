@@ -232,9 +232,12 @@ def generate_runtime_memory_figure(output_dir: Path) -> None:
         template=PLOT_CONFIG['template'],
         height=600,
         width=900,
-        font=dict(size=PLOT_CONFIG['font_size']),
-        legend=dict(title='Memory Allocated')
+        font=dict(size=16),
+        title_font_size=22,
+        legend=dict(title='Memory Allocated', font=dict(size=14))
     )
+    fig.update_xaxes(title_font_size=18, tickfont_size=15)
+    fig.update_yaxes(title_font_size=18, tickfont_size=15)
     
     # Save outputs
     output_file = output_dir / "sup_01_runtime_memory.png"

@@ -46,7 +46,7 @@ def generate_wrong_predictions_table(df: pd.DataFrame, output_path: Path) -> Non
     lines = []
     lines.append("\\small")
     lines.append("\\begin{longtable}{lp{4cm}p{4cm}r}")
-    lines.append("\\caption{Common misclassification patterns across all tasks (Validation set)\\label{tab:wrong_merged}}\\\\")
+    lines.append("\\caption{Misclassification patterns on the validation set for seen classes\\label{tab:wrong_merged}}\\\\")
     lines.append("\\toprule")
     lines.append("Task & True Label & Predicted Label & Count \\\\")
     lines.append("\\midrule")
@@ -109,9 +109,15 @@ def generate_wrong_predictions_table(df: pd.DataFrame, output_path: Path) -> Non
     lines.append("\\end{longtable}")
     lines.append("\\addcontentsline{toc}{subsection}{Supplementary Table 5: Common misclassification patterns}")
     lines.append("\\\\[2mm]")
-    lines.append("{\\footnotesize Only includes misclassifications of seen classes (present in training data). "
-                 "Count: Number of samples misclassified. "
-                 "Sorted by frequency (most common patterns first).}")
+    lines.append("{\\footnotesize "
+                 "\\textbf{Columns}: "
+                 "\\textit{Task}---prediction task in which the error occurred (Sample Type, Community Type, Sample Host, Material). "
+                 "\\textit{True Label}---ground-truth class, always present in the training set. "
+                 "\\textit{Predicted Label}---class assigned by DIANA. "
+                 "\\textit{Count}---number of validation samples with that true\\,$\\to$\\,predicted pair. "
+                 "Only misclassifications of seen classes (present in training) are included; "
+                 "rows are sorted by frequency within each task (most common errors first). "
+                 "Species names in \\textit{Sample Host} are italicised.}")
     
     with open(output_path, 'w') as f:
         f.write('\n'.join(lines))

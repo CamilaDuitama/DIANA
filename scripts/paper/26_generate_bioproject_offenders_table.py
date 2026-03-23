@@ -248,12 +248,8 @@ def build_ranking() -> pd.DataFrame:
 def generate_latex(ranking: pd.DataFrame) -> str:
     lines = []
     lines.append(
-        "\\caption{Top 15 BioProjects by total misclassifications (validation + test, "
-        "all four tasks, no confidence threshold, $\\geq$5 samples). "
-        "Train/Test/Val: number of \\textit{errors} (wrong predictions across all four tasks) per split; `--' means absent from that split. "
-        "Total: wrong predictions across all three splits (train + test + val). "
-        "Cum.: running percentage of all errors, showing concentration. "
-        "\\label{tab:bioproject_offenders}}"
+        "\\caption{Top 15 BioProjects contributing the most prediction errors "
+        "(train + test + validation combined, all four tasks).\\label{tab:bioproject_offenders}}"
     )
     lines.append("\\resizebox{\\linewidth}{!}{%")
     lines.append("\\begin{tabular}{@{}llrrrrrrp{3cm}p{4cm}@{}}")
@@ -298,28 +294,30 @@ def generate_latex(ranking: pd.DataFrame) -> str:
     lines.append("}")
     lines.append(
         "\\addcontentsline{toc}{subsection}"
-        "{Supplementary Table 9: Top 15 BioProjects by total misclassifications}"
+        "{Supplementary Table 9: BioProject error concentration}"
     )
     lines.append("\\\\[2mm]")
     lines.append(
         "{\\footnotesize "
-        "$^{a}$~Percentage of wrong predictions out of all predictions made for that BioProject "
-        "across all splits (each sample contributes four predictions, one per task). "
-        "$^{b}$~Running total of errors as a percentage of all errors across every BioProject "
-        "with at least 5 samples; shows error concentration. "
-        "$^{c}$~Four error types are distinguished. "
-        "\\textit{Absent class}: the true label never appeared in DIANA's training set. "
-        "\\textit{Label granularity}: the true label is absent from training but is a biological "
-        "subtype or synonym of a class that \\textit{is} in training---the model predicts the "
-        "correct class at a coarser resolution "
-        "(e.g.\\ \\texttt{lake sediment} absent from training; "
-        "\\texttt{sediment} present and biologically equivalent). "
-        "\\textit{Taxonomic granularity}: the true host is a subspecies whose parent taxon is the "
-        "training-level label "
-        "(e.g.\\ \\textit{Gorilla beringei beringei} labelled as \\textit{Gorilla} sp.\\ in training). "
-        "\\textit{Genuine confusion}: all true labels were seen during training; "
-        "the model still predicts the wrong class. "
-        "$^{d}$~Top true$\\to$predicted label pairs by frequency; task abbreviation in parentheses. "
+        "\\textbf{Columns}: "
+        "\\textit{BioProject}---NCBI BioProject accession. "
+        "\\textit{Study}---first-author and year of the associated publication. "
+        "\\textit{Train/Test/Val err.}---number of wrong predictions (across all four tasks) in each dataset split; "
+        "`{--}' means the BioProject has no samples in that split. "
+        "\\textit{Total}---sum of wrong predictions across all three splits. "
+        "$^{a}$~\\textit{Err.\\,(\\%)}: wrong predictions as a percentage of all predictions made for that BioProject "
+        "(each sample contributes four predictions, one per task). "
+        "$^{b}$~\\textit{Cum.\\,(\\%)}: running total of errors as a percentage of all errors across every qualifying BioProject "
+        "($\\geq$5 samples in test + validation); shows how concentrated errors are in a few studies. "
+        "$^{c}$~\\textit{Error type}: four categories are used. "
+        "\\textit{Absent class}: the true label never appeared in training. "
+        "\\textit{Label granularity}: the true label is absent from training but is a biological subtype of a training class "
+        "(e.g.\\ \\texttt{lake sediment} $\\subset$ \\texttt{sediment}); "
+        "the model predicts the correct coarser label. "
+        "\\textit{Taxonomic granularity}: the true host is a subspecies whose parent taxon is the training label "
+        "(e.g.\\ \\textit{Gorilla beringei beringei} $\\to$ \\textit{Gorilla}~sp.\\ in training). "
+        "\\textit{Genuine confusion}: all true labels were seen in training; the model still predicts the wrong class. "
+        "$^{d}$~\\textit{Main errors}: top true\\,$\\to$\\,predicted label pairs by frequency. "
         "Task abbreviations: ST\\,=\\,Sample Type, CT\\,=\\,Community Type, "
         "SH\\,=\\,Sample Host, Mat.\\,=\\,Material.}"
     )

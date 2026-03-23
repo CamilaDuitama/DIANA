@@ -1,0 +1,200 @@
+run_accession	sample_title	scientific_name	library_strategy	library_source	isolation_source
+ERR1474585	Cag09	metagenome	WGS	METAGENOMIC	
+ERR1474586	Cag32	metagenome	WGS	METAGENOMIC	
+ERR2004605	Arch-B3-DNA	soil metagenome	WGS	METAGENOMIC	
+ERR2004609	Arch-D1-DNA	soil metagenome	WGS	METAGENOMIC	
+ERR2004615	Arch-F1-DNA	soil metagenome	WGS	METAGENOMIC	
+ERR3307045	JAE006_humfilt	metagenome	WGS	GENOMIC	
+ERR3307046	JAE007_humfilt	metagenome	WGS	GENOMIC	
+ERR3307047	JAE008_humfilt	metagenome	WGS	GENOMIC	
+ERR3307048	JAE009_humfilt	metagenome	WGS	GENOMIC	
+ERR3307049	JAE010_humfilt	metagenome	WGS	GENOMIC	
+ERR3307050	JAE012_humfilt	metagenome	WGS	GENOMIC	
+ERR3307051	JAE013_humfilt	metagenome	WGS	GENOMIC	
+ERR3307052	JAE014_humfilt	metagenome	WGS	GENOMIC	
+ERR3307053	JAE015_humfilt	metagenome	WGS	GENOMIC	
+ERR3307054	JAE016_humfilt	metagenome	WGS	GENOMIC	
+ERR3579819	Dental calculus from Modern Human tooth	Homo sapiens	WGS	METAGENOMIC	modern day dental calculus
+ERR3579820	Dental calculus from Modern Human tooth	Homo sapiens	WGS	METAGENOMIC	modern day dental calculus
+ERR3579821	Dental calculus from Modern Human tooth	Homo sapiens	WGS	METAGENOMIC	modern day dental calculus
+ERR3579822	Dental calculus from Modern Human tooth	Homo sapiens	WGS	METAGENOMIC	modern day dental calculus
+ERR3579823	Dental calculus from Modern Human tooth	Homo sapiens	WGS	METAGENOMIC	modern day dental calculus
+ERR3579824	Dental calculus from Modern Human tooth	Homo sapiens	WGS	METAGENOMIC	modern day dental calculus
+ERR3579825	Dental calculus from Modern Human tooth	Homo sapiens	WGS	METAGENOMIC	modern day dental calculus
+ERR3579826	Dental calculus from Modern Human tooth	Homo sapiens	WGS	METAGENOMIC	modern day dental calculus
+ERR450705	2H01.ARM	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR450719	13F05.ARM	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR450774	13C06.ARM	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR450847	14C02.ARMPIT	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR450893	13F10.ARM	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR450898	2G04.ARM	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR450906	13C02.ARM	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR450946	13B08.ARM	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR450958	13F06.ARM	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR451076	13B09.ARM	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR451083	14B05.ARMPIT	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR451153	2F04.ARM	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR451187	14B10.ARMPIT	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR451202	13G01.ARM	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR451384	2F06.ARM	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR451393	13B01.ARM	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR451424	13F12.ARM	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR451456	13B06.ARM	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR451468	13F09.ARM	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR451520	13B07.ARM	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR451536	14C03.ARMPIT	human skin metagenome	AMPLICON	METAGENOMIC	
+ERR6016625	Soil sequencing form Satsurblia cave sample 29	Homo sapiens environmental sample	WGS	GENOMIC	
+ERR6016626	Soil sequencing form Satsurblia cave sample 29	Homo sapiens environmental sample	WGS	GENOMIC	
+ERR6016627	Soil sequencing form Satsurblia cave sample 29	Homo sapiens environmental sample	WGS	GENOMIC	
+ERR6016628	Soil sequencing form Satsurblia cave sample 29	Homo sapiens environmental sample	WGS	GENOMIC	
+ERR671910	102.100.100/8271	soil metagenome	WGS	METAGENOMIC	
+ERR671911	102.100.100/8271	soil metagenome	WGS	METAGENOMIC	
+ERR671912	102.100.100/8270	soil metagenome	WGS	METAGENOMIC	
+ERR671913	102.100.100/8270	soil metagenome	WGS	METAGENOMIC	
+ERR671915	102.100.100/8269	soil metagenome	WGS	METAGENOMIC	
+ERR671916	102.100.100/8268	soil metagenome	WGS	METAGENOMIC	
+ERR671917	102.100.100/8268	soil metagenome	WGS	METAGENOMIC	
+ERR671918	102.100.100/8263	soil metagenome	WGS	METAGENOMIC	
+ERR671919	102.100.100/8263	soil metagenome	WGS	METAGENOMIC	
+ERR671920	102.100.100/8262	soil metagenome	WGS	METAGENOMIC	
+ERR671921	102.100.100/8262	soil metagenome	WGS	METAGENOMIC	
+ERR671922	102.100.100/8161	soil metagenome	WGS	METAGENOMIC	
+ERR671923	102.100.100/8161	soil metagenome	WGS	METAGENOMIC	
+ERR671924	102.100.100/8161	soil metagenome	WGS	METAGENOMIC	
+ERR671925	102.100.100/8161	soil metagenome	WGS	METAGENOMIC	
+ERR671926	102.100.100/8160	soil metagenome	WGS	METAGENOMIC	
+ERR671927	102.100.100/8160	soil metagenome	WGS	METAGENOMIC	
+ERR671929	102.100.100/8160	soil metagenome	WGS	METAGENOMIC	
+ERR671930	102.100.100/8159	soil metagenome	WGS	METAGENOMIC	
+ERR671931	102.100.100/8159	soil metagenome	WGS	METAGENOMIC	
+ERR671932	102.100.100/8158	soil metagenome	WGS	METAGENOMIC	
+ERR671933	102.100.100/8158	soil metagenome	WGS	METAGENOMIC	
+ERR671936	102.100.100/8155	soil metagenome	WGS	METAGENOMIC	
+ERR671937	102.100.100/8155	soil metagenome	WGS	METAGENOMIC	
+ERR687883	102.100.100/8154	soil metagenome	WGS	METAGENOMIC	
+ERR687884	102.100.100/8154	soil metagenome	WGS	METAGENOMIC	
+ERR687885	102.100.100/8158	soil metagenome	WGS	METAGENOMIC	
+ERR687887	102.100.100/8159	soil metagenome	WGS	METAGENOMIC	
+ERR687888	102.100.100/8159	soil metagenome	WGS	METAGENOMIC	
+ERR687892	102.100.100/8263	soil metagenome	WGS	METAGENOMIC	
+ERR687893	102.100.100/8268	soil metagenome	WGS	METAGENOMIC	
+ERR687894	102.100.100/8268	soil metagenome	WGS	METAGENOMIC	
+ERR687895	102.100.100/8269	soil metagenome	WGS	METAGENOMIC	
+ERR687896	102.100.100/8269	soil metagenome	WGS	METAGENOMIC	
+ERR687897	102.100.100/8271	soil metagenome	WGS	METAGENOMIC	
+ERR687898	102.100.100/8271	soil metagenome	WGS	METAGENOMIC	
+SRR1041150	Single cell whole genome amplified Tannerella BU063	Tannerella sp. oral taxon BU063 isolate Cell 2	WGA	GENOMIC	Subgingival plaque
+SRR1041261	Single cell whole genome amplified Tannerella BU063	Tannerella sp. oral taxon BU063 isolate Cell 6	WGA	GENOMIC	Subgingival plaque
+SRR11176630	Metagenome or environmental sample from human oral metagenome	human oral metagenome	WGS	METAGENOMIC	
+SRR11176634	Metagenome or environmental sample from human oral metagenome	human oral metagenome	WGS	METAGENOMIC	
+SRR11176636	Metagenome or environmental sample from human oral metagenome	human oral metagenome	WGS	METAGENOMIC	
+SRR1157607	bog75	soil metagenome	WGS	METAGENOMIC	
+SRR1157609	bog25	soil metagenome	WGS	METAGENOMIC	
+SRR12462936	Metagenome or environmental sample from human oral metagenome	human oral metagenome	WGS	METAGENOMIC	Dental Calculus
+SRR12462939	Metagenome or environmental sample from human oral metagenome	human oral metagenome	WGS	METAGENOMIC	Dental Calculus
+SRR12462940	Metagenome or environmental sample from human oral metagenome	human oral metagenome	WGS	METAGENOMIC	Dental Calculus
+SRR1518393	ES_069	human metagenome	WGS	METAGENOMIC	
+SRR1518410	ES_069	human metagenome	WGS	METAGENOMIC	
+SRR1518476	ES_088	human metagenome	WGS	METAGENOMIC	
+SRR1518536	ES_089	human metagenome	WGS	METAGENOMIC	
+SRR1518998	ES_095	human metagenome	WGS	METAGENOMIC	
+SRR1519031	ES_099	human metagenome	WGS	METAGENOMIC	
+SRR1519044	ES_104	human metagenome	WGS	METAGENOMIC	
+SRR1519046	ES_107	human metagenome	WGS	METAGENOMIC	
+SRR1519047	ES_110	human metagenome	WGS	METAGENOMIC	
+SRR1519048	ES_114	human metagenome	WGS	METAGENOMIC	
+SRR1519049	ES_158	human metagenome	WGS	METAGENOMIC	
+SRR1519056	ES_210	human metagenome	WGS	METAGENOMIC	
+SRR16071512	Metagenome or environmental sample from metagenome	metagenome	AMPLICON	GENOMIC	Sediment 11.8mbsf
+SRR16071513	Metagenome or environmental sample from metagenome	metagenome	AMPLICON	GENOMIC	Sediment 16.4mbsf
+SRR16071519	Metagenome or environmental sample from metagenome	metagenome	AMPLICON	GENOMIC	Sediment 1.2mbsf
+SRR1620017	MET0006	human skin metagenome	WGS	METAGENOMIC	
+SRR1631060	MET0207	human skin metagenome	WGS	METAGENOMIC	
+SRR1631061	MET0207	human skin metagenome	WGS	METAGENOMIC	
+SRR1631063	MET0207	human skin metagenome	WGS	METAGENOMIC	
+SRR1631064	MET0207	human skin metagenome	WGS	METAGENOMIC	
+SRR1633008	MET0310	human skin metagenome	WGS	METAGENOMIC	
+SRR1783758	MIMS Environmental/Metagenome sample from human oral metagenome	human oral metagenome	WGS	METAGENOMIC	
+SRR1795009	MIMS Environmental/Metagenome sample from human oral metagenome	human oral metagenome	WGS	METAGENOMIC	
+SRR1795018	MIMS Environmental/Metagenome sample from human oral metagenome	human oral metagenome	WGS	METAGENOMIC	
+SRR1923770	3	human skin metagenome	AMPLICON	METAGENOMIC	
+SRR1923771	3	human skin metagenome	AMPLICON	METAGENOMIC	
+SRR1923773	3	human skin metagenome	AMPLICON	METAGENOMIC	
+SRR1950687	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950688	Metagenome or environmental sample from human skin metagenome	human skin metagenome	AMPLICON	METAGENOMIC	
+SRR1950689	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950694	Metagenome or environmental sample from human skin metagenome	human skin metagenome	AMPLICON	METAGENOMIC	
+SRR1950695	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950701	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950711	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950716	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950724	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950729	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950730	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950731	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950736	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950744	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950747	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950748	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950749	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950758	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950762	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950768	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950769	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950776	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1950777	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR1952513	700172125	human metagenome	WGS	METAGENOMIC	ORAL
+SRR1952567	700161427	human metagenome	WGS	METAGENOMIC	ORAL
+SRR1952611	700122212	human metagenome	WGS	METAGENOMIC	ORAL
+SRR1952623	700161335	human metagenome	WGS	METAGENOMIC	ORAL
+SRR2096701	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR2096702	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR2096703	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR2096704	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR2096705	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR2096706	Metagenome or environmental sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR2229976	Human sample from Homo sapiens	Homo sapiens	WGS	GENOMIC	
+SRR2240834	700122152	human metagenome	WGS	METAGENOMIC	ORAL
+SRR2240920	700122872	human metagenome	WGS	METAGENOMIC	ORAL
+SRR3184100	MIMS Environmental/Metagenome sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR3184876	MIMS Environmental/Metagenome sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR3189411	MIMS Environmental/Metagenome sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR3189416	MIMS Environmental/Metagenome sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR3189418	MIMS Environmental/Metagenome sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR3586059	Normal	human oral metagenome	WGS	METAGENOMIC	
+SRR3586063	Normal	human oral metagenome	WGS	METAGENOMIC	
+SRR3644405	MIMS Environmental/Metagenome sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR5892193	metagenome	human metagenome	WGS	METAGENOMIC	
+SRR5892198	metagenome	human metagenome	WGS	METAGENOMIC	
+SRR5892210	metagenome	human metagenome	WGS	METAGENOMIC	
+SRR5892215	metagenome	human metagenome	WGS	METAGENOMIC	
+SRR6877303	MIMS Environmental/Metagenome sample from human oral metagenome	human oral metagenome	WGS	METAGENOMIC	
+SRR6877312	MIMS Environmental/Metagenome sample from human oral metagenome	human oral metagenome	WGS	METAGENOMIC	
+SRR6877316	MIMS Environmental/Metagenome sample from human oral metagenome	human oral metagenome	WGS	METAGENOMIC	
+SRR6877324	MIMS Environmental/Metagenome sample from human oral metagenome	human oral metagenome	WGS	METAGENOMIC	
+SRR6877326	MIMS Environmental/Metagenome sample from human oral metagenome	human oral metagenome	WGS	METAGENOMIC	
+SRR6877352	MIMS Environmental/Metagenome sample from human oral metagenome	human oral metagenome	WGS	METAGENOMIC	
+SRR6877367	MIMS Environmental/Metagenome sample from human oral metagenome	human oral metagenome	WGS	METAGENOMIC	
+SRR6877384	MIMS Environmental/Metagenome sample from human oral metagenome	human oral metagenome	WGS	METAGENOMIC	
+SRR7448290	Bacterial DNA sequence reads from human saliva	human oral metagenome	WGS	METAGENOMIC	saliva
+SRR7448291	Bacterial DNA sequence reads from human saliva	human oral metagenome	WGS	METAGENOMIC	saliva
+SRR7448292	Bacterial DNA sequence reads from human saliva	human oral metagenome	WGS	METAGENOMIC	saliva
+SRR7687997	MIMS Environmental/Metagenome sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR7992620	MIMS Environmental/Metagenome sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR7992621	MIMS Environmental/Metagenome sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR7992810	MIMS Environmental/Metagenome sample from human skin metagenome	human skin metagenome	WGS	METAGENOMIC	
+SRR988077	MIMS Environmental/Metagenome sample from environment-soil	soil metagenome	WGS	METAGENOMIC	
+SRR988078	MIMS Environmental/Metagenome sample from environment-soil	soil metagenome	WGS	METAGENOMIC	
+SRR988079	MIMS Environmental/Metagenome sample from environment-soil	soil metagenome	WGS	METAGENOMIC	
+SRR988082	MIMS Environmental/Metagenome sample from environment-soil	soil metagenome	WGS	METAGENOMIC	
+SRR988085	MIMS Environmental/Metagenome sample from environment-soil	soil metagenome	WGS	METAGENOMIC	
+SRR988086	MIMS Environmental/Metagenome sample from environment-soil	soil metagenome	WGS	METAGENOMIC	
+SRR988087	MIMS Environmental/Metagenome sample from environment-soil	soil metagenome	WGS	METAGENOMIC	
+SRR988088	MIMS Environmental/Metagenome sample from environment-soil	soil metagenome	WGS	METAGENOMIC	
+SRR988090	MIMS Environmental/Metagenome sample from environment-soil	soil metagenome	WGS	METAGENOMIC	
+SRR988091	MIMS Environmental/Metagenome sample from environment-soil	soil metagenome	WGS	METAGENOMIC	
+SRR988092	MIMS Environmental/Metagenome sample from environment-soil	soil metagenome	WGS	METAGENOMIC	
+SRR988094	MIMS Environmental/Metagenome sample from environment-soil	soil metagenome	WGS	METAGENOMIC	
+SRR988095	MIMS Environmental/Metagenome sample from environment-soil	soil metagenome	WGS	METAGENOMIC	
+SRR988096	MIMS Environmental/Metagenome sample from environment-soil	soil metagenome	WGS	METAGENOMIC	
+SRR988097	MIMS Environmental/Metagenome sample from environment-soil	soil metagenome	WGS	METAGENOMIC	

@@ -121,7 +121,7 @@ def generate_class_distribution_table(output_dir):
     
     lines = []
     lines.append("\\begin{longtable}{lp{4.5cm}cccc}")
-    lines.append("\\caption{Sample distribution across classes for each dataset\\label{tab:class_distribution}}\\\\")
+    lines.append("\\caption{Sample distribution across class labels for each prediction task and dataset split\\label{tab:class_distribution}}\\\\")
 
     lines.append("\\toprule")
     lines.append("Task & Class & Training & Test & Validation & Total \\\\")
@@ -177,11 +177,17 @@ def generate_class_distribution_table(output_dir):
     
     lines.append("\\end{longtable}")
     lines.append("\\addcontentsline{toc}{subsection}{Supplementary Table 1: Sample distribution across classes}")
-    lines.append("{\\footnotesize Training and test samples from curated AncientMetagenomeDir dataset. "
+    lines.append("{\\footnotesize "
+                 "\\textbf{Columns}: "
+                 "\\textit{Task}---one of the four prediction tasks (Sample Type, Community Type, Sample Host, Material). "
+                 "\\textit{Class}---label category within that task; species names in \\textit{Sample Host} are italicised. "
+                 "\\textit{Training} / \\textit{Test} / \\textit{Validation}---number of samples carrying that label in each dataset split. "
+                 "\\textit{Total}---sum across all three splits. "
+                 "Training and test samples from the curated AncientMetagenomeDir dataset. "
                  "Validation samples from AncientMetagenomeDir v25.09.0 and MGnify modern samples, excluding overlaps with train/test. "
                  f"Validation set: {val_samples} samples with successful predictions. "
-                 "Classes with 0 validation samples were present in training but not in the external validation set. "
-                 "Classes with 0 training samples are UNSEEN by the model and cannot be correctly predicted.}")
+                 "Classes with 0 training samples are UNSEEN by the model and cannot be correctly predicted (zero-shot prediction only). "
+                 "Classes with 0 validation samples were present in training but did not appear in the external validation set.}")
     
     print("\n[4/4] Writing table...")
     output_file = output_dir / "sup_table_01_class_distribution.tex"

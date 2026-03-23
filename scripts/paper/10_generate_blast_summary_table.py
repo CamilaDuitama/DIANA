@@ -35,7 +35,7 @@ def generate_blast_summary_table(blast_data: dict, output_path: Path) -> None:
 
     lines = []
     lines.append("\\centering")
-    lines.append("\\caption{BLAST Hit Statistics for All Features\\label{tab:blast_summary}}")
+    lines.append("\\caption{BLAST annotation of unitig features against the NCBI nt database\\label{tab:blast_summary}}")
     lines.append("\\begin{tabular*}{\\columnwidth}{@{\\extracolsep{\\fill}}lr}")
     lines.append("\\toprule")
     lines.append("\\textbf{Metric} & \\textbf{Value} \\\\")
@@ -58,7 +58,7 @@ def generate_blast_summary_table(blast_data: dict, output_path: Path) -> None:
     lines.append("\\midrule")
 
     # Section 3: Top 10 species by number of features
-    lines.append("\\multicolumn{2}{l}{\\textit{Top 10 most frequent species (best hit per feature)}} \\\\")
+    lines.append("\\multicolumn{2}{l}{\\textit{Top 10 most frequent species (best informative hit per feature)}} \\\\")
     top_species = blast_data['taxonomy']['top_species_by_feature_count']
     for species, count in list(top_species.items())[:10]:
         lines.append(f"\\textit{{{species}}} & {count:,} \\\\")
@@ -68,12 +68,18 @@ def generate_blast_summary_table(blast_data: dict, output_path: Path) -> None:
     lines.append("\\addcontentsline{toc}{subsection}{Supplementary Table 6: BLAST hit statistics}")
     lines.append("\\\\[2mm]")
     lines.append(
-        "{\\footnotesize For each of the %s unitig features, the best BLAST hit "
-        "(highest bitscore) against the NCBI nucleotide (nt) database is reported. "
-        "BLAST was run using megaBLAST with an E-value cutoff of $10^{-5}$. "
-        "Species names are extracted from the description of the best BLAST hit "
-        "(first two words); hits starting with non-specific terms (\\textit{uncultured}, "
-        "\\textit{unclassified}, \\textit{metagenome}, etc.) are excluded from the species ranking.}" %
+        "{\\footnotesize "
+        "\\textbf{Overall Statistics} and \\textbf{Identity Distribution}: for each of the %s unitig features, "
+        "the single best BLAST hit (highest bitscore) against the NCBI nt database is used, "
+        "regardless of taxonomic content (megaBLAST, E-value $\\leq 10^{-5}$). "
+        "\\textbf{Species ranking}: to assign a biologically meaningful species to each feature, "
+        "hits whose description begins with a non-specific term "
+        "(\\textit{uncultured}, \\textit{unclassified}, \\textit{metagenome}, "
+        "\\textit{environmental sample}, \\textit{synthetic}, etc.) are excluded; "
+        "the best remaining (informative) hit is used instead. "
+        "Species names are taken from the first two words of the hit description. "
+        "Features with no informative hit are omitted from the species ranking "
+        "but are still counted in the overall hit rate.}" %
         f"{blast_data['total_features']:,}"
     )
 

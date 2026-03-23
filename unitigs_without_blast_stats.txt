@@ -1,0 +1,15 @@
+UNITIGS WITHOUT BLAST HITS - STATISTICS
+================================================================================
+
+Total unitigs in matrix:             107,480
+Unitigs WITH BLAST hits:              82,853 ( 77.09%)
+Unitigs WITHOUT BLAST hits:           24,627 ( 22.91%)
+
+Sequence length statistics:
+  Average length:                      139.8 bp
+  Min length:                             61 bp
+  Max length:                         15,697 bp
+
+Output files:
+  Sequences: unitigs_without_blast_hit.fa.gz
+  Stats:     unitigs_without_blast_stats.txt

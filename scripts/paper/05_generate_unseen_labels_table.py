@@ -77,7 +77,7 @@ def generate_unseen_labels_table(output_dir):
     
     lines = []
     lines.append("\\begin{longtable}{llrr}")
-    lines.append("\\caption{Model predictions for unseen labels\\label{tab:unseen_labels}}\\\\")
+    lines.append("\\caption{DIANA predictions for validation samples whose true label was absent from training (unseen classes)\\label{tab:unseen_labels}}\\\\")
     lines.append("\\toprule")
     lines.append("Task & True Label (Unseen) & Predicted Label & Count \\\\")
     lines.append("\\midrule")
@@ -129,9 +129,13 @@ def generate_unseen_labels_table(output_dir):
     lines.append("\\addcontentsline{toc}{subsection}{Supplementary Table 2: Model predictions for unseen labels}")
     
     note_parts = [
-        "Unseen labels are categories not present in the training set.",
-        "Sample Host: Novel species/subspecies correctly mapped to genus/species-level training classes.",
-        "Material: Novel material types mapped to semantically similar training classes.",
+        "\\textbf{Columns}: "
+        "\\textit{Task}---prediction task in which the unseen label occurs. "
+        "\\textit{True Label (Unseen)}---ground-truth class not present in the training set. "
+        "\\textit{Predicted Label}---class assigned by DIANA (always a seen training class). "
+        "\\textit{Count}---number of validation samples with that true\\,$\\to$\\,predicted pair.",
+        "Sample Host: Novel species or subspecies are mapped by DIANA to the nearest genus- or species-level class seen in training.",
+        "Material: Novel material types are mapped to the semantically closest training class.",
     ]
     for task in unseen_tasks:
         task_unseen_count = len(unseen_df[unseen_df['task'] == task])

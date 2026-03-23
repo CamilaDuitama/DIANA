@@ -28,7 +28,7 @@ def generate_matrix_generation_table(output_path: Path) -> None:
     """Generate the feature matrix generation parameters table."""
     lines = []
     lines.append("\\centering")
-    lines.append("\\caption{Feature matrix generation parameters and computational resources"
+    lines.append("\\caption{Parameters and computational resources used to build the unitig feature matrix with muset"
                  "\\label{tab:matrix_generation}}")
     lines.append("\\addcontentsline{toc}{subsection}{Supplementary Table 8: Feature matrix generation parameters}")
     lines.append("\\begin{tabular*}{\\columnwidth}{@{\\extracolsep{\\fill}}llr@{\\extracolsep{\\fill}}}")
@@ -56,6 +56,19 @@ def generate_matrix_generation_table(output_path: Path) -> None:
     lines.append(" & Runtime & 3d 4h 45m \\\\")
     lines.append("\\bottomrule")
     lines.append("\\end{tabular*}")
+    lines.append("\\\\[2mm]")
+    lines.append(
+        "{\\footnotesize "
+        "\\textbf{Columns}: "
+        "\\textit{Category}---group of related parameters (Input: raw data; k-mer Filtering: counting and filtering settings; "
+        "Unitig Assembly: graph-assembly settings; Computational: hardware and runtime). "
+        "\\textit{Parameter}---specific setting or measured quantity. "
+        "\\textit{Value}---value used or observed during matrix construction. "
+        "k-mer size 31 bp with minimum abundance 2 removes sequencing errors. "
+        "Fraction filters ({-F}/{-f}) retain unitigs present in at least 10\\% "
+        "and absent from at most 90\\% of samples, keeping only informative features. "
+        "Final unitigs (107,480) are those passing all filters and assembled into sequences $\\geq$61 bp.}"
+    )
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(output_path, "w") as f:

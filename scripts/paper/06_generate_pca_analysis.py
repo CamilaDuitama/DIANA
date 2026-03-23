@@ -742,23 +742,26 @@ def export_pca_loadings(pca_model, unitig_ids, output_dir, top_n=100):
     return full_path, top_path
 
 
-def plot_pca_by_task(pca_result, metadata, task_col, pca_model, output_prefix):
+def plot_pca_by_task(pca_result, metadata, task_col, pca_model, output_prefix, pc_x=0, pc_y=1):
     """Create PCA plots colored by task labels using PLOT_CONFIG palette."""
-    logger.info(f"\nPlotting PCA for {task_col}...")
-    
+    logger.info(f"\nPlotting PCA for {task_col} (PC{pc_x+1} vs PC{pc_y+1})...")
+
+    pc_x_col = f'PC{pc_x+1}'
+    pc_y_col = f'PC{pc_y+1}'
+
     # Prepare data
     df = pd.DataFrame({
-        'PC1': pca_result[:, 0],
-        'PC2': pca_result[:, 1],
+        pc_x_col: pca_result[:, pc_x],
+        pc_y_col: pca_result[:, pc_y],
         'Run_accession': metadata['Run_accession'].to_list(),
         task_col: metadata[task_col].to_list(),
     })
-    
+
     # Get variance explained for axis labels
-    var_pc1 = pca_model.explained_variance_ratio_[0] * 100
-    var_pc2 = pca_model.explained_variance_ratio_[1] * 100
-    xlabel = f'PC1 ({var_pc1:.1f}%)'
-    ylabel = f'PC2 ({var_pc2:.1f}%)'
+    var_pc_x = pca_model.explained_variance_ratio_[pc_x] * 100
+    var_pc_y = pca_model.explained_variance_ratio_[pc_y] * 100
+    xlabel = f'PC{pc_x+1} ({var_pc_x:.1f}%)'
+    ylabel = f'PC{pc_y+1} ({var_pc_y:.1f}%)'
     
     # Get unique classes and assign colors from PLOT_CONFIG
     unique_classes = sorted(df[task_col].unique())
@@ -769,13 +772,13 @@ def plot_pca_by_task(pca_result, metadata, task_col, pca_model, output_prefix):
     # Create Plotly figure
     fig = px.scatter(
         df,
-        x='PC1',
-        y='PC2',
+        x=pc_x_col,
+        y=pc_y_col,
         color=task_col,
         color_discrete_map=color_map,
         hover_data=['Run_accession'],
-        title=f'PCA of Unitig Matrix - {task_col.replace("_", " ").title()}',
-        labels={'PC1': xlabel, 'PC2': ylabel},
+        title=f'PCA of Unitig Matrix — {task_col.replace("_", " ").title()} (PC{pc_x+1} vs PC{pc_y+1})',
+        labels={pc_x_col: xlabel, pc_y_col: ylabel},
         template=PLOT_CONFIG['template'],
         width=PLOT_CONFIG['sizes']['default_width'],
         height=PLOT_CONFIG['sizes']['default_height']
@@ -789,24 +792,29 @@ def plot_pca_by_task(pca_result, metadata, task_col, pca_model, output_prefix):
         )
     )
     fig.update_layout(
-        font=dict(size=PLOT_CONFIG['font_size']),
+        font=dict(size=16),
+        title_font_size=22,
         legend=dict(
             yanchor="top",
             y=0.99,
             xanchor="right",
             x=0.99,
-            bgcolor="rgba(255,255,255,0.8)"
+            bgcolor="rgba(255,255,255,0.8)",
+            font=dict(size=14)
         )
     )
+    fig.update_xaxes(title_font_size=18, tickfont_size=15)
+    fig.update_yaxes(title_font_size=18, tickfont_size=15)
     
     # Save interactive HTML
-    html_path = Path(PATHS['figures_dir']) / f"{output_prefix}_{task_col}.html"
+    pc_suffix = '' if (pc_x == 0 and pc_y == 1) else f'_pc{pc_x+1}{pc_y+1}'
+    html_path = Path(PATHS['figures_dir']) / f"{output_prefix}_{task_col}{pc_suffix}.html"
     html_path.parent.mkdir(parents=True, exist_ok=True)
     fig.write_html(str(html_path))
     logger.info(f"  ✓ Saved interactive HTML: {html_path}")
     
     # Save static PNG using Plotly
-    png_path = Path(PATHS['figures_dir']) / f"{output_prefix}_{task_col}.png"
+    png_path = Path(PATHS['figures_dir']) / f"{output_prefix}_{task_col}{pc_suffix}.png"
     try:
         fig.write_image(str(png_path), width=1200, height=800, scale=2)
         logger.info(f"  ✓ Saved static PNG: {png_path}")
@@ -889,56 +897,73 @@ def plot_embedding_by_task(embedding_result, metadata, task_col, method_name, ou
 
 
 def plot_scree_plot(pca, output_path):
-    """Create scree plot showing explained variance (plotly)."""
+    """Create TWO scree plot files: bar chart (individual variance) and cumulative variance curve."""
     import plotly.graph_objects as go
-    from plotly.subplots import make_subplots
-    logger.info("\nCreating scree plot...")
+    logger.info("\nCreating scree plots (split)...")
 
     evr = pca.explained_variance_ratio_
-    n_components = len(evr)
-    pcs = list(range(1, n_components + 1))
+    pcs = list(range(1, len(evr) + 1))
     cumsum = list(np.cumsum(evr))
-
-    fig = make_subplots(
-        rows=1, cols=2,
-        subplot_titles=[
-            'Explained Variance by Principal Component',
-            'Cumulative Explained Variance'
-        ]
-    )
-
-    # Panel 1: bar chart of individual explained variance
-    fig.add_trace(go.Bar(
-        x=pcs, y=list(evr),
-        marker_color='steelblue', opacity=0.7,
-        showlegend=False
-    ), row=1, col=1)
-
-    # Panel 2: cumulative line
-    fig.add_trace(go.Scatter(
-        x=pcs, y=cumsum,
-        mode='lines+markers', line=dict(color='steelblue', width=2),
-        name='Cumulative variance'
-    ), row=1, col=2)
-    fig.add_hline(y=0.8, line=dict(color='red', dash='dash'), annotation_text='80%', row=1, col=2)
-    fig.add_hline(y=0.9, line=dict(color='orange', dash='dash'), annotation_text='90%', row=1, col=2)
-
-    fig.update_xaxes(title_text='Principal Component', row=1, col=1)
-    fig.update_yaxes(title_text='Explained Variance Ratio', row=1, col=1)
-    fig.update_xaxes(title_text='Number of Principal Components', row=1, col=2)
-    fig.update_yaxes(title_text='Cumulative Explained Variance', row=1, col=2)
-
-    fig.update_layout(
-        template='plotly_white',
-        width=1400, height=500,
-        font=dict(size=13)
-    )
-
     output_path = Path(output_path)
-    html_path = output_path.with_suffix('.html')
-    fig.write_html(str(html_path))
-    fig.write_image(str(output_path), width=1400, height=500, scale=2)
-    logger.info(f"  ✓ Saved scree plot: {output_path}")
+    figures_dir = output_path.parent
+
+    # ── Plot 1: bar chart of individual explained variance ─────────────────
+    fig_scree = go.Figure()
+    fig_scree.add_trace(go.Bar(
+        x=pcs, y=list(evr),
+        marker_color='steelblue', opacity=0.8,
+        showlegend=False
+    ))
+    fig_scree.update_layout(
+        title=dict(text='Variance Explained by Each Principal Component', font=dict(size=22)),
+        xaxis=dict(
+            title=dict(text='Principal Component', font=dict(size=18)),
+            tickfont=dict(size=15)
+        ),
+        yaxis=dict(
+            title=dict(text='Explained Variance Ratio', font=dict(size=18)),
+            tickfont=dict(size=15)
+        ),
+        template='plotly_white',
+        width=900, height=550,
+        font=dict(size=16)
+    )
+    scree_png  = figures_dir / 'sup_03_pca_scree.png'
+    scree_html = figures_dir / 'sup_03_pca_scree.html'
+    fig_scree.write_html(str(scree_html))
+    fig_scree.write_image(str(scree_png), width=900, height=550, scale=2)
+    logger.info(f"  ✓ Saved scree bar chart: {scree_png}")
+
+    # ── Plot 2: cumulative explained variance curve ─────────────────────────
+    fig_cum = go.Figure()
+    fig_cum.add_trace(go.Scatter(
+        x=pcs, y=cumsum,
+        mode='lines+markers', line=dict(color='steelblue', width=2.5),
+        name='Cumulative variance'
+    ))
+    fig_cum.add_hline(y=0.8, line=dict(color='red', dash='dash'),
+                      annotation_text='80%', annotation_font_size=14)
+    fig_cum.add_hline(y=0.9, line=dict(color='orange', dash='dash'),
+                      annotation_text='90%', annotation_font_size=14)
+    fig_cum.update_layout(
+        title=dict(text='Cumulative Variance Explained by PCA Components', font=dict(size=22)),
+        xaxis=dict(
+            title=dict(text='Number of Principal Components', font=dict(size=18)),
+            tickfont=dict(size=15)
+        ),
+        yaxis=dict(
+            title=dict(text='Cumulative Explained Variance', font=dict(size=18)),
+            tickfont=dict(size=15)
+        ),
+        template='plotly_white',
+        width=900, height=550,
+        font=dict(size=16)
+    )
+    cum_png  = figures_dir / 'sup_03_pca_cumulative_variance.png'
+    cum_html = figures_dir / 'sup_03_pca_cumulative_variance.html'
+    fig_cum.write_html(str(cum_html))
+    fig_cum.write_image(str(cum_png), width=900, height=550, scale=2)
+    logger.info(f"  ✓ Saved cumulative variance plot: {cum_png}")
 
 
 def extract_taxonomy_category(taxonomy_string, level='phylum', fallback_value=None):
@@ -1928,10 +1953,12 @@ def main():
             top_n=10
         )
         
-        # Create PCA plots for each task (Supplementary Figure 3)
+        # Create PCA plots for each task (Supplementary Figure 3/5)
         for task in TASKS:
             if task in metadata.columns:
-                plot_pca_by_task(pca_result, metadata, task, pca, 'sup_03_pca')
+                plot_pca_by_task(pca_result, metadata, task, pca, 'sup_03_pca')          # PC1 vs PC2
+                if pca_result.shape[1] >= 4:
+                    plot_pca_by_task(pca_result, metadata, task, pca, 'sup_03_pca', pc_x=2, pc_y=3)  # PC3 vs PC4
             else:
                 logger.warning(f"  {task} not found in metadata")
         

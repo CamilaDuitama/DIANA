@@ -1,0 +1,74 @@
+Test Metadata Correction Report
+================================================================================
+
+Generated: 2026-02-10 16:29:10
+
+Summary:
+  Original samples:     461
+  Corrected samples:    11
+  Excluded samples:     0
+  Final sample count:   461
+
+Review Log Statistics:
+  YES         : 25
+  CORRECTED   : 11
+
+================================================================================
+
+Detailed Changes:
+
+Run: ERR1474580
+  Material: Oral → saliva
+  Host: Homo sapiens → Homo sapiens
+  Community: oral → oral
+
+Run: SRR1519045
+  Material: Oral → throat swab
+  Host: Homo sapiens → Homo sapiens
+  Community: oral → oral
+
+Run: SRR1519050
+  Material: Oral → throat swab
+  Host: Homo sapiens → Homo sapiens
+  Community: oral → oral
+
+Run: SRR1519052
+  Material: Oral → throat swab
+  Host: Homo sapiens → Homo sapiens
+  Community: oral → oral
+
+Run: SRR1519055
+  Material: Oral → throat swab
+  Host: Homo sapiens → Homo sapiens
+  Community: oral → oral
+
+Run: SRR1519057
+  Material: Oral → throat swab
+  Host: Homo sapiens → Homo sapiens
+  Community: oral → oral
+
+Run: SRR1794618
+  Material: Oral → subgingival plaque
+  Host: Homo sapiens → Homo sapiens
+  Community: oral → oral
+
+Run: SRR3586060
+  Material: Oral → gingiva
+  Host: Homo sapiens → Homo sapiens
+  Community: oral → oral
+
+Run: SRR3586064
+  Material: Oral → tongue
+  Host: Homo sapiens → Homo sapiens
+  Community: oral → oral
+
+Run: SRR7448294
+  Material: Oral → saliva
+  Host: Homo sapiens → Homo sapiens
+  Community: oral → oral
+
+Run: SRR7448312
+  Material: Oral → saliva
+  Host: Homo sapiens → Homo sapiens
+  Community: oral → oral
+
