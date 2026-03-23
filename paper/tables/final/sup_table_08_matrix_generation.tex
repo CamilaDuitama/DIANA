@@ -1,5 +1,5 @@
 \centering
-\caption{Feature matrix generation parameters and computational resources\label{tab:matrix_generation}}
+\caption{Parameters and computational resources used to build the unitig feature matrix with muset\label{tab:matrix_generation}}
 \addcontentsline{toc}{subsection}{Supplementary Table 8: Feature matrix generation parameters}
 \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}llr@{\extracolsep{\fill}}}
 \toprule
@@ -26,3 +26,5 @@ Category & Parameter & Value \\
  & Runtime & 3d 4h 45m \\
 \bottomrule
 \end{tabular*}
+\\[2mm]
+{\footnotesize \textbf{Columns}: \textit{Category}---group of related parameters (Input: raw data; k-mer Filtering: counting and filtering settings; Unitig Assembly: graph-assembly settings; Computational: hardware and runtime). \textit{Parameter}---specific setting or measured quantity. \textit{Value}---value used or observed during matrix construction. k-mer size 31 bp with minimum abundance 2 removes sequencing errors. Fraction filters ({-F}/{-f}) retain unitigs present in at least 10\% and absent from at most 90\% of samples, keeping only informative features. Final unitigs (107,480) are those passing all filters and assembled into sequences $\geq$61 bp.}

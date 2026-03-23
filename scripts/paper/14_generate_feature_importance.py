@@ -64,7 +64,7 @@ from config import PATHS, TASKS, PLOT_CONFIG
 # HARDCODED PARAMETERS
 # ============================================================================
 
-TOP_N_GENERA = 20
+TOP_N_GENERA = 10
 EXCLUDED_TAXONOMY = []  # no exclusions — No BLAST hit shown in light color
 LIGHT_COLOR = 'rgba(230, 230, 230, 0.6)'  # near-white for No BLAST hit / Other
 
@@ -150,7 +150,7 @@ def generate_feature_importance_figure(output_dir: Path) -> None:
             ),
             text=plot_data['n_features'],
             textposition='outside',
-            textfont=dict(size=13)
+            textfont=dict(size=15)
         ))
 
         fig.update_layout(
@@ -158,11 +158,14 @@ def generate_feature_importance_figure(output_dir: Path) -> None:
             xaxis_title="Number of Important Features",
             yaxis_title="Species",
             template=PLOT_CONFIG['template'],
-            font=dict(size=14),
+            font=dict(size=16),
+            title_font_size=22,
             height=700,
-            width=1000,
-            margin=dict(l=280)
+            width=1100,
+            margin=dict(l=300)
         )
+        fig.update_xaxes(title_font_size=18, tickfont_size=15)
+        fig.update_yaxes(title_font_size=18, tickfont_size=15)
 
         output_file = output_dir / f"main_03_feature_importance_{task}.png"
         fig.write_html(str(output_file.with_suffix('.html')))

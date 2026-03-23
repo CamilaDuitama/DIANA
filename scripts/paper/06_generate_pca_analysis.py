@@ -1556,7 +1556,8 @@ def _plot_loadings_scatter(unitigs_df, all_blast_df, pca_model, color_by,
         template=PLOT_CONFIG['template'],
         width=1400,
         height=1000,
-        font=dict(size=PLOT_CONFIG['font_size']),
+        font=dict(size=16),
+        title_font_size=22,
         hovermode='closest',
         legend=dict(
             title=f'{color_by.capitalize()}',
@@ -1566,6 +1567,8 @@ def _plot_loadings_scatter(unitigs_df, all_blast_df, pca_model, color_by,
             x=0.01
         )
     )
+    fig.update_xaxes(title_font_size=18, tickfont_size=15)
+    fig.update_yaxes(title_font_size=18, tickfont_size=15)
     
     # Save
     fig.write_html(str(html_path))
@@ -1735,13 +1738,13 @@ def plot_unitig_pca_by_top_species(pca_model, unitig_ids, blast_annotations, out
         # Different opacity for different categories
         if category == 'No BLAST hit':
             opacity = 0.1
-            size = 2
+            size = 4
         elif category == 'Other species':
             opacity = 0.2
-            size = 2
+            size = 4
         else:
-            opacity = 0.4
-            size = 3
+            opacity = 0.5
+            size = 6
         
         fig.add_trace(go.Scatter(
             x=cat_data['PC1_loading'],
@@ -1766,7 +1769,8 @@ def plot_unitig_pca_by_top_species(pca_model, unitig_ids, blast_annotations, out
         template='plotly_white',
         width=1400,
         height=1000,
-        font=dict(size=12),
+        font=dict(size=16),
+        title_font_size=22,
         hovermode='closest',
         legend=dict(
             title='Species',
@@ -1777,6 +1781,8 @@ def plot_unitig_pca_by_top_species(pca_model, unitig_ids, blast_annotations, out
             bgcolor='rgba(255,255,255,0.8)'
         )
     )
+    fig.update_xaxes(title_font_size=18, tickfont_size=15)
+    fig.update_yaxes(title_font_size=18, tickfont_size=15)
     
     # Save HTML
     html_path = output_dir / 'sup_04_pca_unitig_loadings_by_species.html'
@@ -1851,22 +1857,8 @@ def main():
         else:
             pca, pca_result = perform_pca(matrix, n_components=50)
         
-        # Perform t-SNE (load from cache if available)
-        if tsne_cache.exists():
-            logger.info(f"\n✓ Loading cached t-SNE embedding: {tsne_cache}")
-            try:
-                with open(tsne_cache, 'rb') as f:
-                    tsne_result = pickle.load(f)
-                logger.info(f"  Loaded t-SNE embedding: {tsne_result.shape}")
-            except Exception as e:
-                logger.warning(f"  t-SNE cache load failed ({e}), recomputing...")
-                tsne_result = None
-        else:
-            tsne_result = perform_tsne(matrix, n_components=2, perplexity=30)
-            if tsne_result is not None:
-                with open(tsne_cache, 'wb') as f:
-                    pickle.dump(tsne_result, f)
-                logger.info(f"  ✓ Saved t-SNE embedding: {tsne_cache}")
+        # t-SNE disabled — slow and not needed for paper figures
+        tsne_result = None
         
         # Align all embeddings to samples that have metadata (meta_indices may exclude
         # a small number of matrix samples not present in train/test metadata files).

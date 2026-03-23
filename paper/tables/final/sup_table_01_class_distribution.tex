@@ -1,5 +1,5 @@
 \begin{longtable}{lp{4.5cm}cccc}
-\caption{Sample distribution across classes for each dataset\label{tab:class_distribution}}\\
+\caption{Sample distribution across class labels for each prediction task and dataset split\label{tab:class_distribution}}\\
 \toprule
 Task & Class & Training & Test & Validation & Total \\
 \midrule
@@ -88,4 +88,4 @@ Task & Class & Training & Test & Validation & Total \\
 \addlinespace
 \end{longtable}
 \addcontentsline{toc}{subsection}{Supplementary Table 1: Sample distribution across classes}
-{\footnotesize Training and test samples from curated AncientMetagenomeDir dataset. Validation samples from AncientMetagenomeDir v25.09.0 and MGnify modern samples, excluding overlaps with train/test. Validation set: 987 samples with successful predictions. Classes with 0 validation samples were present in training but not in the external validation set. Classes with 0 training samples are UNSEEN by the model and cannot be correctly predicted.}
+{\footnotesize \textbf{Columns}: \textit{Task}---one of the four prediction tasks (Sample Type, Community Type, Sample Host, Material). \textit{Class}---label category within that task; species names in \textit{Sample Host} are italicised. \textit{Training} / \textit{Test} / \textit{Validation}---number of samples carrying that label in each dataset split. \textit{Total}---sum across all three splits. Training and test samples from the curated AncientMetagenomeDir dataset. Validation samples from AncientMetagenomeDir v25.09.0 and MGnify modern samples, excluding overlaps with train/test. Validation set: 987 samples with successful predictions. Classes with 0 training samples are UNSEEN by the model and cannot be correctly predicted (zero-shot prediction only). Classes with 0 validation samples were present in training but did not appear in the external validation set.}

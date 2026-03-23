@@ -1,6 +1,6 @@
 \small
 \begin{longtable}{lp{4cm}p{4cm}r}
-\caption{Common misclassification patterns across all tasks (Validation set)\label{tab:wrong_merged}}\\
+\caption{Misclassification patterns on the validation set for seen classes\label{tab:wrong_merged}}\\
 \toprule
 Task & True Label & Predicted Label & Count \\
 \midrule
@@ -87,4 +87,4 @@ Material & tooth & dental calculus & 44 \\
 \end{longtable}
 \addcontentsline{toc}{subsection}{Supplementary Table 5: Common misclassification patterns}
 \\[2mm]
-{\footnotesize Only includes misclassifications of seen classes (present in training data). Count: Number of samples misclassified. Sorted by frequency (most common patterns first).}
+{\footnotesize \textbf{Columns}: \textit{Task}---prediction task in which the error occurred (Sample Type, Community Type, Sample Host, Material). \textit{True Label}---ground-truth class, always present in the training set. \textit{Predicted Label}---class assigned by DIANA. \textit{Count}---number of validation samples with that true\,$\to$\,predicted pair. Only misclassifications of seen classes (present in training) are included; rows are sorted by frequency within each task (most common errors first). Species names in \textit{Sample Host} are italicised.}
