@@ -155,6 +155,7 @@ complete_*.py
 # Backup directories
 results_backup*/
 results/training_uncorrected_labels_*/
+backup_before_amd_mapping_20260212/
 
 # Analysis outputs
 results/consistency_check/
@@ -162,6 +163,19 @@ results/ood_detection*/
 results/mc_dropout_*/
 results/*.tsv
 results/wrong_predictions_analysis.tsv
+results/train_evaluation/
+results/adapter_check/
+results/baseline_comparison/
+results/feature_analysis/
+results/logan_search/
+results/multitask/
+results/pca_projection/
+results/validation_predictions_backup_Jan25/
+results/training/final_training_config.json
+results/training/training_history.json
+results/reproducibility/
+results/reproducibility_samples.txt
+results/training/cv_results/
 
 # Test data not needed in repo
 test_data/
@@ -176,4 +190,31 @@ data/validation/seqkit_stats*.tsv
 data/validation/ena_cache*.json
 data/validation/interactive_review_log.tsv
 
+# Large data directories (not committed to paper branch)
+data/validation/
+data/adapters/
+
 # Review logs (keep in data/ subdirectories)
+
+# Reproducibility test scripts (internal, not published)
+scripts/run_reproducibility_array.sh
+scripts/aggregate_reproducibility.py
+
+# Master-branch items (not needed on paper branch)
+tests/
+pytest.ini
+docs/
+
+# Model files and logs (large/regenerable)
+models/
+logs/
+
+# Worktree symlinks
+training_matrix
+
+# Large sequence files
+unitigs_training_features.fa.gz
+unitigs_without_blast_hit.fa.gz
+
+# Archives created for sharing (zip files)
+*.zip
