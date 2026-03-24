@@ -3,174 +3,215 @@
 Generate Feature Importance Figure (Main Figure 3)
 
 PURPOSE:
-    Create bar charts showing the top 20 most important species for each
-    classification task. Shows which microbial taxa are most discriminative.
-    "No BLAST hit" and "Other species" are shown in a very light gray.
+    Lollipop plots showing the top 15 most important unitig features per task,
+    annotated with their BLAST species hit. Each point is colored by annotation
+    category (oral, environmental, host/eukaryote, MAG, uncultured/no annotation).
 
 INPUTS:
-    - results/feature_analysis/feature_importance_by_genus.tsv: Feature importance
-      grouped by genus taxonomy with columns: task, genus, n_features
+    - paper/tables/feature_analysis/top_features_{task}_with_sequences.csv
+      (rank, unitig id, importance_score)
+    - results/feature_analysis/unitigs_with_blast_hits.tsv
+      (unitig_id -> blast_description, has_blast_hit)
+    - results/feature_analysis/logan_best_hits_top_features.tsv
+      (unitig_id -> sgenome, pident, scientific_name) — fallback for no-BLAST features
 
 OUTPUTS:
-    - paper/figures/final/main_03_feature_importance_sample_type.png
-    - paper/figures/final/main_03_feature_importance_community_type.png
-    - paper/figures/final/main_03_feature_importance_sample_host.png
-    - paper/figures/final/main_03_feature_importance_material.png
-    - Corresponding .html interactive versions
-
-PROCESS:
-    1. Load feature importance data with genus-level taxonomy
-    2. For each task:
-        a. Filter out uninformative taxonomy ("No BLAST hit", "Unknown taxonomy")
-        b. Select top 10 genera by number of important features
-        c. Create horizontal bar chart with task-specific color
-        d. Save as separate PNG file
-    3. Generate 4 individual figures (one per task)
-
-CONFIGURATION:
-    All styling, paths, and constants imported from config.py:
-    - PATHS: File locations for inputs/outputs
-    - TASKS: List of classification tasks
-    - PLOT_CONFIG: Task colors, template, font sizes, borders
-
-HARDCODED VALUES:
-    - Top N genera: 10
-    - Excluded taxonomy: ["No BLAST hit", "Unknown taxonomy"]
-    - Figure size: 800×600 per task
+    - paper/figures/final/main_03_feature_importance_{task}.png/.html  (×4)
 
 DEPENDENCIES:
-    - pandas, plotly
+    - pandas, plotly, re
     - config.py (same directory)
-
-USAGE:
-    python scripts/paper/generate_feature_importance.py
-    
-AUTHOR: Generated via refactoring of 06_compare_predictions.py
 """
 
+import re
 import sys
 from pathlib import Path
 
 import pandas as pd
 import plotly.graph_objects as go
-from plotly.subplots import make_subplots
 
-# Add script directory to path for config import
 sys.path.insert(0, str(Path(__file__).parent))
 from config import PATHS, TASKS, PLOT_CONFIG
 
 
 # ============================================================================
-# HARDCODED PARAMETERS
+# PARAMETERS
 # ============================================================================
 
-TOP_N_GENERA = 10
-EXCLUDED_TAXONOMY = []  # no exclusions — No BLAST hit shown in light color
-LIGHT_COLOR = 'rgba(230, 230, 230, 0.6)'  # near-white for No BLAST hit / Other
+TOP_N = 15  # top features per task
+
+# Annotation categories and their colors
+CATEGORY_COLORS = {
+    'Oral bacteria':        '#E45756',
+    'Environmental bacteria': '#72B7B2',
+    'Host / eukaryote':     '#F58518',
+    'MAG / metagenome':     '#54A24B',
+    'Uncultured':           '#B279A2',
+    'No annotation':        '#BBBFC1',
+}
 
 
 # ============================================================================
-# PLOTTING FUNCTION
+# HELPERS
+# ============================================================================
+
+def clean_label(desc: str) -> str:
+    """Return a short, readable species label from a BLAST description."""
+    if pd.isna(desc):
+        return 'No annotation'
+    d = str(desc)
+    d = re.sub(r'^MAG:\s*', '', d)
+    d = re.sub(r'\s+(isolate|strain|clone|chromosome|genome|partial|complete|16S|small subunit).*$',
+               '', d, flags=re.IGNORECASE)
+    d = re.sub(r'^PREDICTED:\s*', '', d)
+    return d.strip()[:60]
+
+
+# Keywords used to assign annotation category
+_ORAL = {'streptococcus', 'cutibacterium', 'neisseria', 'aggregatibacter',
+         'lactococcus', 'arachnia', 'corynebacterium', 'selenomonas',
+         'actinomyces', 'schaalia', 'fusobacterium', 'desulfobulbus oralis',
+         'rothia', 'veillonella', 'prevotella', 'porphyromonas', 'tannerella',
+         'treponema', 'capnocytophaga', 'actinobacillus', 'ottowia',
+         'mediterraneibacter', 'acinetobacter'}
+_HOST = {'homo sapiens', 'ailuropoda', 'mus musculus', 'bos taurus',
+         'sus scrofa', 'canis lupus', 'felis catus', 'sparganium', 'crambe',
+         'hippidion', 'clupea', 'equus', 'cervus', 'bison', 'ovis', 'capra',
+         'gallus', 'danio', 'drosophila', 'arabidopsis'}
+_UNCULTURED = {'uncultured', 'uncultur'}
+
+
+def annotate_category(desc: str) -> str:
+    if pd.isna(desc):
+        return 'No annotation'
+    d = desc.lower()
+    if any(k in d for k in _HOST):
+        return 'Host / eukaryote'
+    if any(k in d for k in _ORAL):
+        return 'Oral bacteria'
+    if any(k in d for k in _UNCULTURED):
+        return 'Uncultured'
+    if 'mag:' in desc.lower() or 'mag ' in desc.lower():
+        return 'MAG / metagenome'
+    return 'Environmental bacteria'
+
+
+# ============================================================================
+# MAIN PLOTTING FUNCTION
 # ============================================================================
 
 def generate_feature_importance_figure(output_dir: Path) -> None:
-    """Generate feature importance figures showing species composition by task."""
-    # Use blast_annotations.tsv for species-level data
-    blast_path = Path(PATHS.get('feature_importance_dir', 'results/feature_analysis')) / "blast_annotations.tsv"
-    feature_data_path = Path(PATHS.get('feature_importance_dir', 'results/feature_analysis')) / "feature_importance_by_genus.tsv"
+    """Generate lollipop feature importance figures, one per task."""
+    feat_dir = Path('paper/tables/feature_analysis')
+    blast_path = Path('results/feature_analysis/unitigs_with_blast_hits.tsv')
 
-    if blast_path.exists():
-        raw = pd.read_csv(blast_path, sep='\t')
-        # Build species column: use best_hit_species, fall back to 'No BLAST hit'
-        raw['species'] = raw.apply(
-            lambda r: r['best_hit_species']
-            if r.get('has_blast_hit', False) and pd.notna(r.get('best_hit_species'))
-            else 'No BLAST hit',
-            axis=1
-        )
-        df_source = raw[['task', 'species', 'feature_index']]
-        use_species = True
-    elif feature_data_path.exists():
-        raw = pd.read_csv(feature_data_path, sep='\t')
-        raw['species'] = raw['genus']
-        df_source = raw.rename(columns={'n_features': 'feature_index'})
-        use_species = False
-    else:
-        print(f"  ⚠ No feature importance data found, skipping")
+    if not blast_path.exists():
+        print(f"  ⚠ {blast_path} not found, skipping")
         return
+    blast = pd.read_csv(blast_path, sep='\t').set_index('unitig_id')
+    print(f"✓ Loaded BLAST annotations: {blast['has_blast_hit'].sum():,} / {len(blast):,} unitigs with hits")
 
-    print(f"✓ Loaded feature importance data: {len(df_source)} feature-task rows")
+    logan_path = Path('results/feature_analysis/logan_best_hits_top_features.tsv')
+    if logan_path.exists():
+        logan = pd.read_csv(logan_path, sep='\t').set_index('unitig_id')
+        print(f"✓ Loaded Logan fallback: {len(logan):,} unitigs")
+    else:
+        logan = pd.DataFrame(columns=['sgenome', 'pident', 'qcovHSP', 'scientific_name'])
+        print(f"  ⚠ Logan fallback file not found, skipping Logan annotations")
 
     for idx, task in enumerate(TASKS):
-        task_data = df_source[df_source['task'] == task].copy()
-        if len(task_data) == 0:
-            print(f"  ⚠ No data for {task}")
+        feat_file = feat_dir / f'top_features_{task}_with_sequences.csv'
+        if not feat_file.exists():
+            print(f"  ⚠ {feat_file} not found, skipping {task}")
             continue
 
-        # Count features per species
-        counts = task_data.groupby('species')['feature_index'].count().reset_index()
-        counts.columns = ['species', 'n_features']
-        counts = counts.sort_values('n_features', ascending=False)
+        df = pd.read_csv(feat_file).head(TOP_N)
 
-        # Top 20 named species (excluding No BLAST hit from ranked list)
-        named = counts[~counts['species'].isin(['No BLAST hit', 'Unknown taxonomy', 'Uncultured'])]
-        top20 = named.head(TOP_N_GENERA).copy()
+        labels, scores, categories = [], [], []
+        for _, row in df.iterrows():
+            uid = row['id']
+            score = row['importance_score']
+            if uid in blast.index and blast.loc[uid, 'has_blast_hit']:
+                desc = blast.loc[uid, 'blast_description']
+                label = clean_label(desc)
+                cat = annotate_category(desc)
+            elif uid in logan.index:
+                sci = str(logan.loc[uid, 'scientific_name'])
+                label = f'{sci} †'
+                cat = annotate_category(sci.lower())
+            else:
+                label = 'No annotation'
+                cat = 'No annotation'
+            labels.append(label)
+            scores.append(score)
+            categories.append(cat)
 
-        # Add No BLAST hit / Unknown as a group at the bottom
-        no_hit_n = counts[counts['species'].isin(['No BLAST hit', 'Unknown taxonomy', 'Uncultured'])]['n_features'].sum()
-        other_n = named.iloc[TOP_N_GENERA:]['n_features'].sum() if len(named) > TOP_N_GENERA else 0
+        # Reverse so rank 1 is at the top
+        labels = labels[::-1]
+        scores = scores[::-1]
+        categories = categories[::-1]
 
-        rows = []
-        if other_n > 0:
-            rows.append({'species': f'Other species (>{TOP_N_GENERA})', 'n_features': other_n})
-        if no_hit_n > 0:
-            rows.append({'species': 'No BLAST hit', 'n_features': no_hit_n})
-        extras = pd.DataFrame(rows)
-
-        plot_data = pd.concat([top20, extras], ignore_index=True)
-        # Reverse for horizontal bar (bottom = largest)
-        plot_data = plot_data.iloc[::-1].reset_index(drop=True)
-
-        task_color = PLOT_CONFIG['colors']['task_colors'].get(
-            task, PLOT_CONFIG['colors']['palette'][idx]
-        )
-
-        # Assign color per bar
-        light_labels = {'No BLAST hit', f'Other species (>{TOP_N_GENERA})'}
-        bar_colors = [LIGHT_COLOR if s in light_labels else task_color for s in plot_data['species']]
+        task_title = task.replace('_', ' ').title()
 
         fig = go.Figure()
-        fig.add_trace(go.Bar(
-            x=plot_data['n_features'],
-            y=plot_data['species'],
-            orientation='h',
-            marker=dict(
-                color=bar_colors,
-                line=dict(color=PLOT_CONFIG['border_color'], width=PLOT_CONFIG['line_width'])
-            ),
-            text=plot_data['n_features'],
-            textposition='outside',
-            textfont=dict(size=15)
-        ))
+
+        # Horizontal lines (stems)
+        for i, (s, cat) in enumerate(zip(scores, categories)):
+            fig.add_shape(
+                type='line',
+                x0=0, x1=s, y0=i, y1=i,
+                line=dict(color=CATEGORY_COLORS[cat], width=2)
+            )
+
+        # Dots grouped by category for legend
+        seen_cats = set()
+        for cat, color in CATEGORY_COLORS.items():
+            cat_indices = [i for i, c in enumerate(categories) if c == cat]
+            if not cat_indices:
+                continue
+            fig.add_trace(go.Scatter(
+                x=[scores[i] for i in cat_indices],
+                y=cat_indices,
+                mode='markers',
+                marker=dict(size=12, color=color,
+                            line=dict(color='white', width=1.5)),
+                name=cat,
+                showlegend=True,
+            ))
 
         fig.update_layout(
-            title=f"{task.replace('_', ' ').title()} — Top {TOP_N_GENERA} Species of Important Features",
-            xaxis_title="Number of Important Features",
-            yaxis_title="Species",
+            title=task_title,
+            xaxis_title='Importance score',
+            yaxis=dict(
+                tickvals=list(range(TOP_N)),
+                ticktext=labels,
+                tickfont=dict(size=16),
+                title=None,
+            ),
             template=PLOT_CONFIG['template'],
-            font=dict(size=16),
-            title_font_size=22,
-            height=700,
+            font=dict(size=18),
+            title_font_size=24,
+            height=750,
             width=1100,
-            margin=dict(l=300)
+            margin=dict(l=360, r=20, t=70, b=80),
+            legend=dict(
+                title='Annotation',
+                title_font_size=17,
+                font=dict(size=16),
+                itemsizing='constant',
+                bgcolor='rgba(255,255,255,0.85)',
+            ),
+            xaxis=dict(
+                title_font_size=20,
+                tickfont=dict(size=16),
+                rangemode='tozero',
+            ),
         )
-        fig.update_xaxes(title_font_size=18, tickfont_size=15)
-        fig.update_yaxes(title_font_size=18, tickfont_size=15)
 
-        output_file = output_dir / f"main_03_feature_importance_{task}.png"
+        output_file = output_dir / f'main_03_feature_importance_{task}.png'
         fig.write_html(str(output_file.with_suffix('.html')))
-        fig.write_image(str(output_file), width=1000, height=700, scale=2)
-        print(f"  ✓ {task}: Top species = {top20.iloc[-1]['species'] if len(top20) else 'N/A'} → {output_file.name}")
+        fig.write_image(str(output_file), width=1100, height=750, scale=2)
+        print(f"  ✓ {task} → {output_file.name}")
 
 
 # ============================================================================

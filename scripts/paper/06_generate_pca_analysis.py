@@ -800,7 +800,9 @@ def plot_pca_by_task(pca_result, metadata, task_col, pca_model, output_prefix, p
             xanchor="right",
             x=0.99,
             bgcolor="rgba(255,255,255,0.8)",
-            font=dict(size=14)
+            font=dict(size=16),
+            title_font_size=17,
+            itemsizing='constant',
         )
     )
     fig.update_xaxes(title_font_size=18, tickfont_size=15)
@@ -877,7 +879,10 @@ def plot_embedding_by_task(embedding_result, metadata, task_col, method_name, ou
             y=0.99,
             xanchor="right",
             x=0.99,
-            bgcolor="rgba(255,255,255,0.8)"
+            bgcolor="rgba(255,255,255,0.8)",
+            font=dict(size=16),
+            title_font_size=17,
+            itemsizing='constant',
         )
     )
     
@@ -1561,10 +1566,13 @@ def _plot_loadings_scatter(unitigs_df, all_blast_df, pca_model, color_by,
         hovermode='closest',
         legend=dict(
             title=f'{color_by.capitalize()}',
+            title_font_size=17,
             yanchor='top',
             y=0.99,
             xanchor='left',
-            x=0.01
+            x=0.01,
+            font=dict(size=16),
+            itemsizing='constant',
         )
     )
     fig.update_xaxes(title_font_size=18, tickfont_size=15)
@@ -1738,13 +1746,13 @@ def plot_unitig_pca_by_top_species(pca_model, unitig_ids, blast_annotations, out
         # Different opacity for different categories
         if category == 'No BLAST hit':
             opacity = 0.1
-            size = 4
+            size = 5
         elif category == 'Other species':
-            opacity = 0.2
-            size = 4
+            opacity = 0.3
+            size = 5
         else:
-            opacity = 0.5
-            size = 6
+            opacity = 0.7
+            size = 9
         
         fig.add_trace(go.Scatter(
             x=cat_data['PC1_loading'],
@@ -1774,11 +1782,14 @@ def plot_unitig_pca_by_top_species(pca_model, unitig_ids, blast_annotations, out
         hovermode='closest',
         legend=dict(
             title='Species',
+            title_font_size=17,
             yanchor='top',
             y=0.99,
             xanchor='left',
             x=0.01,
-            bgcolor='rgba(255,255,255,0.8)'
+            bgcolor='rgba(255,255,255,0.8)',
+            itemsizing='constant',
+            font=dict(size=16)
         )
     )
     fig.update_xaxes(title_font_size=18, tickfont_size=15)

@@ -1,0 +1,340 @@
+\documentclass[12pt]{article}
+
+% --- ESSENTIAL PACKAGES ---
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage[nottoc]{tocbibind}
+\usepackage{hyperref}
+
+% --- HYPERLINK FORMATTING ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+    citecolor=black,
+}
+
+% --- GRAPHICS PATH ---
+\graphicspath{{figures/final/}} 
+
+% --- TITLE BLOCK ---
+\title{Supplementary Information for: \\ \textbf{DIANA: Deep Learning Identification and Assessment of Ancient DNA}}
+\author{Camila Duitama González et al.}
+\date{}
+
+% =================================================================
+%                        START OF DOCUMENT
+% =================================================================
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\clearpage
+
+\listoffigures
+\clearpage
+
+\listoftables
+\clearpage
+
+% --- RENAME & RESET COUNTERS ---
+\renewcommand{\figurename}{Supplementary Figure}
+\renewcommand{\tablename}{Supplementary Table}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       SUPPLEMENTARY TABLES                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Supplementary Tables}
+
+% Sup Table 01: Class Distribution (longtable - no table wrapper needed)
+\input{tables/final/sup_table_01_class_distribution.tex}
+
+\begin{table}[p]
+    \input{tables/final/sup_table_02_unseen_labels.tex}
+\end{table}
+
+\begin{table}[p]
+    \input{tables/final/sup_table_03_perclass_performance.tex}
+\end{table}
+
+\begin{table}[p]
+    \input{tables/final/sup_table_04_hyperparameters.tex}
+\end{table}
+
+% Sup Table 05: Wrong Predictions (longtable - no table wrapper needed)
+\input{tables/final/sup_table_05_wrong_predictions_merged.tex}
+
+\begin{table}[p]
+    \input{tables/final/sup_table_06_blast_summary.tex}
+\end{table}
+
+% Sup Table 07: Seen/Unseen Validation (longtable - no table wrapper needed)
+\input{tables/final/sup_table_07_seen_unseen_validation.tex}
+
+\begin{table}[p]
+    \input{tables/final/sup_table_08_matrix_generation.tex}
+\end{table}
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       SUPPLEMENTARY FIGURES                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Supplementary Figures}
+
+% ===================================================================
+% Supplementary Figure 1: Runtime and Memory Scalability
+% ===================================================================
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.95\textwidth]{sup_01_runtime_memory.png}
+    \caption{\textbf{Runtime and memory scalability analysis.}
+    Scatter plot showing the relationship between input FASTQ file size (GB) and runtime (minutes) 
+    for DIANA predictions on the validation set. 
+    Points are colored by RAM allocation (32-512 GB). 
+    Linear regression fit (gray dashed line) shows a positive correlation (R² = 0.54), 
+    with runtime averaging 1.84 minutes per GB of input data.
+    All measurements obtained from validation set predictions on CPU (maestro cluster). 
+    Each point represents one successfully processed sample.
+    }
+    \addcontentsline{toc}{subsection}{\protect\numberline{\thefigure}Runtime and memory scalability}
+    \label{fig:sup_runtime_memory}
+\end{figure}
+
+% ===================================================================
+% Supplementary Figure 2: Data Split Validation
+% ===================================================================
+\begin{figure}[p]
+    \centering
+    \subfloat[Sample Type Distribution]{%
+        \includegraphics[width=0.48\textwidth]{sup_02_data_split_sample_type.png}%
+    }
+    \hfill
+    \subfloat[Community Type Distribution]{%
+        \includegraphics[width=0.48\textwidth]{sup_02_data_split_community_type.png}%
+    }
+    \\
+    \subfloat[Material Distribution]{%
+        \includegraphics[width=0.48\textwidth]{sup_02_data_split_material.png}%
+    }
+    \hfill
+    \subfloat[Project Distribution]{%
+        \includegraphics[width=0.48\textwidth]{sup_02_data_split_projects.png}%
+    }
+    \\
+    \subfloat[Publication Year Distribution]{%
+        \includegraphics[width=0.48\textwidth]{sup_02_data_split_publication_year.png}%
+    }
+    \hfill
+    \subfloat[File Size Distribution]{%
+        \includegraphics[width=0.48\textwidth]{sup_02_data_split_file_size.png}%
+    }
+    \caption{\textbf{Distribution comparison across train, test, and validation splits.}
+    Bar plots showing the distribution of samples across different metadata categories for the training set (n=2,597), 
+    held-out test set (n=461), and external validation set (n=1,029 total, 987 with successful predictions).
+    (a) Sample type shows ancient (84\%) vs. modern (16\%) metagenome distribution, 
+    with balanced representation across all splits.
+    (b) Community type shows 6 tissue/environment categories in training, 
+    with validation including 1 additional unseen class (Unknown).
+    (c) Material shows 13 substrate types in training, 
+    with validation including 7 additional unseen types (lake sediment, marine sediment, birch pitch, intestine, palaeofaeces, dentine, brain).
+    (d) Project distribution across major sequencing initiatives (AncientMetagenomeDir studies and MGnify modern samples).
+    (e) Publication year distribution demonstrates temporal coverage from 2014-2025.
+    (f) File size distribution (log-scale, in MB) shows sequencing depth variability across datasets.
+    The validation set's additional classes enable assessment of model generalization to unseen labels.
+    }
+    \addcontentsline{toc}{subsection}{\protect\numberline{\thefigure}Data split distribution comparison}
+    \label{fig:sup_data_split}
+\end{figure}
+
+% ===================================================================
+% Supplementary Figure 3: Geographic Distribution
+% ===================================================================
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.95\textwidth]{sup_02_data_split_geographic.png}
+    \caption{\textbf{Geographic distribution of samples by dataset.}
+    World map showing global sampling coverage with points colored by dataset and sized by sample count. 
+    Training (n=2,597) and test (n=461) samples predominantly from Europe and North America. 
+    Validation samples (n=987) include broader geographic coverage from modern environmental samples via MGnify.
+    }
+    \addcontentsline{toc}{subsection}{\protect\numberline{\thefigure}Geographic distribution by dataset}
+    \label{fig:sup_geographic}
+\end{figure}
+
+% ===================================================================
+% Supplementary Figure 4: PCA Variance Explained (scree + cumulative)
+% ===================================================================
+\begin{figure}[p]
+    \centering
+    \subfloat[Variance explained per component]{%
+        \includegraphics[width=0.82\textwidth]{sup_03_pca_scree.png}%
+    }\\[1em]
+    \subfloat[Cumulative variance explained]{%
+        \includegraphics[width=0.82\textwidth]{sup_03_pca_cumulative_variance.png}%
+    }
+    \caption{\textbf{PCA variance explained by the unitig feature matrix.}
+    PCA computed on training and test samples (n=3,058: 2,597 train + 461 test)
+    using 107,480 unitig features.
+    \textbf{(a)} Variance explained by each of the first 50 principal components.
+    PC1 alone accounts for 66.4\% of total variance, showing a dominant first component
+    with a sharp drop to PC2 (3.2\%) and a gradual, long tail thereafter.
+    \textbf{(b)} Cumulative variance explained.
+    The first two components together capture approximately 70\% of total variance;
+    the 80\% threshold is reached at \textasciitilde{}10 components, and
+    90\% is not reached even at 50 components (\textasciitilde{}86\%).
+    Although PC1 captures substantial variance, the remaining variance is spread
+    across many components, highlighting why linear dimensionality reduction alone is
+    insufficient for this classification task and motivates deep neural networks.
+    }
+    \addcontentsline{toc}{subsection}{\protect\numberline{\thefigure}PCA variance explained}
+    \label{fig:sup_pca_scree}
+\end{figure}
+
+\clearpage
+
+% ===================================================================
+% Supplementary Figure 5: PCA Projections by Task
+% ===================================================================
+\begin{figure}[p]
+    \centering
+    \subfloat[Sample Type]{%
+        \includegraphics[width=0.48\textwidth]{sup_03_pca_sample_type.png}%
+    }
+    \hfill
+    \subfloat[Community Type]{%
+        \includegraphics[width=0.48\textwidth]{sup_03_pca_community_type.png}%
+    }
+    \\
+    \subfloat[Sample Host]{%
+        \includegraphics[width=0.48\textwidth]{sup_03_pca_sample_host.png}%
+    }
+    \hfill
+    \subfloat[Material]{%
+        \includegraphics[width=0.48\textwidth]{sup_03_pca_material.png}%
+    }
+    \caption{\textbf{PCA projections colored by classification task labels.}
+    2D projections of training and test samples (n=3,058 total: 2,597 train + 461 test) onto PC1 and PC2, 
+    colored by classification task labels.
+    (a) Sample type (2 classes: ancient vs. modern) shows partial separation along PC1, 
+    with ancient samples more dispersed due to temporal and environmental heterogeneity.
+    (b) Community type (6 categories) exhibits overlapping clusters with some tissue-specific separation,
+    particularly for oral microbiomes vs. environmental samples.
+    (c) Sample host (12 species in training) shows species-specific grouping, 
+    with clear separation for environmental samples (Not applicable - env sample) from host-associated samples.
+    (d) Material (13 types in training) demonstrates substrate-specific patterns, 
+    with dental calculus, bone, and sediment forming distinct clusters.
+    PCA computed on 107,480 unitig features. 
+    Limited separation in PC1-PC2 space demonstrates the challenge of linearly separable classification,
+    motivating the use of deep neural networks for multitask learning.
+    }
+    \addcontentsline{toc}{subsection}{\protect\numberline{\thefigure}PCA projections by task}
+    \label{fig:sup_pca_projections}
+\end{figure}
+
+\clearpage
+
+% ===================================================================
+% Supplementary Figure N: PCA Projections by Task (PC3 vs PC4)
+% ===================================================================
+\begin{figure}[p]
+    \centering
+    \subfloat[Sample Type]{%
+        \includegraphics[width=0.48\textwidth]{sup_03_pca_sample_type_pc34.png}%
+    }
+    \hfill
+    \subfloat[Community Type]{%
+        \includegraphics[width=0.48\textwidth]{sup_03_pca_community_type_pc34.png}%
+    }
+    \\
+    \subfloat[Sample Host]{%
+        \includegraphics[width=0.48\textwidth]{sup_03_pca_sample_host_pc34.png}%
+    }
+    \hfill
+    \subfloat[Material]{%
+        \includegraphics[width=0.48\textwidth]{sup_03_pca_material_pc34.png}%
+    }
+    \caption{\textbf{PCA projections along PC3 and PC4 colored by classification task labels.}
+    2D projections of training and test samples (n=3,058 total: 2,597 train + 461 test) onto
+    PC3 and PC4, colored by classification task labels.
+    Compare with the PC1--PC2 projections (previous figure) to assess whether higher principal
+    components reveal additional class structure or separation not apparent in the first two.
+    PC3 and PC4 each explain less individual variance than PC1 and PC2, but may capture
+    task-specific signal orthogonal to the dominant axes of variation.
+    PCA computed on 107,480 unitig features.
+    }
+    \addcontentsline{toc}{subsection}{\protect\numberline{\thefigure}PCA PC3 vs PC4 projections by task}
+    \label{fig:sup_pca_projections_pc34}
+\end{figure}
+
+% ===================================================================
+% Supplementary Figure: Unitig PCA Loadings by Species
+% ===================================================================
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.95\textwidth]{sup_04_pca_unitig_loadings_by_species.png}
+    \caption{\textbf{Unitig PCA loadings colored by taxonomic species.}
+    Scatter plot showing PC1 and PC2 loadings for all 107,480 unitig features, 
+    colored by the top 20 most abundant species from BLAST annotations. 
+    Points represent individual unitigs, with position indicating their contribution to each principal component. 
+    Species with largest numbers of annotated unitigs are shown in distinct colors, 
+    while other species and unannotated unitigs are displayed in light gray for context. 
+    This visualization reveals the taxonomic distribution of discriminative features driving sample separation in PCA space.
+    }
+    \addcontentsline{toc}{subsection}{\protect\numberline{\thefigure}Unitig loadings by species}
+    \label{fig:sup_unitig_loadings}
+\end{figure}
+
+% ===================================================================
+% Supplementary Figure 7: Feature Importance by Task
+% ===================================================================
+\begin{figure}[p]
+    \centering
+    \subfloat[Sample Type]{%
+        \includegraphics[width=0.49\textwidth]{main_03_feature_importance_sample_type.png}%
+    }
+    \hfill
+    \subfloat[Community Type]{%
+        \includegraphics[width=0.49\textwidth]{main_03_feature_importance_community_type.png}%
+    }
+    \\
+    \subfloat[Sample Host]{%
+        \includegraphics[width=0.49\textwidth]{main_03_feature_importance_sample_host.png}%
+    }
+    \hfill
+    \subfloat[Material]{%
+        \includegraphics[width=0.49\textwidth]{main_03_feature_importance_material.png}%
+    }
+    \caption{\textbf{Top-15 most important unitig features per classification task, annotated by biological origin.}
+    Lollipop plots showing the 15 highest-importance unitig features for each task:
+    (a) Sample type, (b) Community type, (c) Sample host, and (d) Material.
+    Feature importance is the mean gradient-based score across training epochs.
+    Each feature is labelled with its species-level BLAST hit against the NCBI nt database
+    (mean query coverage 98.3\%); the colour encodes the biological category of that annotation.
+    Features marked \dag{} could not be matched by BLAST and were instead annotated via the
+    Logan SRA genomic index (best hit by percent identity).
+    Features labelled \textit{No annotation} are simple tandem repeats
+    (e.g.\ $(\mathrm{AGT})_n$, $(\mathrm{CACT})_n$) that were masked in both databases.
+    }
+    \addcontentsline{toc}{subsection}{\protect\numberline{\thefigure}Feature importance by task}
+    \label{fig:sup_feature_importance}
+\end{figure}
+
+\clearpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      END OF SUPPLEMENTARY                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
