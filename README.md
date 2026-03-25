@@ -1,6 +1,6 @@
 # DIANA: Reproducibility Guide
 
-**Multi-task classification of ancient DNA samples using unitig k-mer features**
+**Multi-task classification of ancient DNA samples using unitigfeatures**
 
 ---
 
