@@ -36,12 +36,18 @@ TASK_LABELS = {
 
 PLAIN_TEXT_HOSTS = {"Not applicable - env sample", "Other mammal"}
 
+# Abbreviated display forms for long Latin names
+_HOST_ABBREV = {
+    "Homo sapiens neanderthalensis": "H.\\,s.\\,neanderthalensis",
+}
+
 
 def _fmt_host(label: str) -> str:
     s = str(label).replace("_", "\\_")
     if label in PLAIN_TEXT_HOSTS:
         return s
-    return f"\\textit{{{s}}}"
+    display = _HOST_ABBREV.get(label, s)
+    return f"\\textit{{{display}}}"
 
 
 def generate_seen_unseen_table(df: pd.DataFrame, output_path: Path) -> None:
@@ -49,8 +55,11 @@ def generate_seen_unseen_table(df: pd.DataFrame, output_path: Path) -> None:
     total_samples = len(df["sample_id"].unique())
 
     lines = []
-    lines.append("\\small")
-    lines.append("\\begin{longtable}{llp{3.5cm}p{3.5cm}rrr}")
+    lines.append("\\begingroup")
+    lines.append("\\footnotesize")
+    lines.append("\\setlength{\\LTleft}{0pt}")
+    lines.append("\\setlength{\\LTright}{0pt}")
+    lines.append("\\begin{longtable}{@{}llp{2.8cm}p{2.8cm}rrr@{}}")
     lines.append(
         "\\caption{Validation set performance: Seen vs unseen labels with top 10 most frequent "
         "misclassification patterns\\label{tab:seen_unseen_validation}}\\\\"
@@ -86,7 +95,7 @@ def generate_seen_unseen_table(df: pd.DataFrame, output_path: Path) -> None:
         pct_task = seen_correct_count / task_total * 100
         pct_total = seen_correct_count / total_samples * 100
         lines.append(
-            f"{task_name} & Seen - Correct & — & — & {seen_correct_count} "
+            f"{task_name} & Seen - Correct & --- & --- & {seen_correct_count} "
             f"& {pct_task:.1f}\\% & {pct_total:.1f}\\% \\\\"
         )
 
@@ -143,6 +152,7 @@ def generate_seen_unseen_table(df: pd.DataFrame, output_path: Path) -> None:
         lines.append("\\addlinespace")
 
     lines.append("\\end{longtable}")
+    lines.append("\\endgroup")
     lines.append("\\addcontentsline{toc}{subsection}{Supplementary Table 7: Seen vs unseen validation performance}")
     lines.append("\\\\[2mm]")
     lines.append("{\\footnotesize")
