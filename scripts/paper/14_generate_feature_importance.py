@@ -67,6 +67,50 @@ def clean_label(desc: str) -> str:
     return d.strip()[:60]
 
 
+def format_species_italic(label: str) -> str:
+    """Wrap a species name in Plotly HTML italic tags.
+
+    Rules:
+    - Genus (first word): first letter upper-case, rest lower-case.
+    - Species epithet (second word): first letter lower-case.
+    - Non-species labels (e.g. 'No annotation', 'Others') are returned unchanged.
+    - Trailing marker ' †' is preserved outside the italic span.
+    """
+    if not label or not isinstance(label, str):
+        return str(label) if label else ''
+    s = label.strip()
+
+    _non_species = {'no annotation', 'no blast hit', 'other species', 'others', 'unknown', 'no hit'}
+    if s.lower() in _non_species:
+        return s
+    # Lower-case starts → not a Latin genus name
+    if not s or not s[0].isupper():
+        return s
+    # Common non-species prefixes
+    if s.lower().startswith(('no ', 'other ', 'mag', 'uncultured', 'metagenom')):
+        return s
+
+    # Preserve trailing marker (e.g. ' †')
+    suffix = ''
+    core = s
+    if core.endswith(' †'):
+        suffix = ' †'
+        core = core[:-2].rstrip()
+
+    parts = core.split()
+    if not parts:
+        return s
+
+    genus = parts[0][0].upper() + parts[0][1:].lower() if len(parts[0]) > 1 else parts[0].upper()
+
+    if len(parts) == 1:
+        return f'<i>{genus}</i>{suffix}'
+
+    epithet = parts[1][0].lower() + parts[1][1:] if len(parts[1]) > 1 else parts[1].lower()
+    rest_parts = [epithet] + parts[2:]
+    return f'<i>{genus} {" ".join(rest_parts)}</i>{suffix}'
+
+
 # Keywords used to assign annotation category
 _ORAL = {'streptococcus', 'cutibacterium', 'neisseria', 'aggregatibacter',
          'lactococcus', 'arachnia', 'corynebacterium', 'selenomonas',
@@ -133,11 +177,11 @@ def generate_feature_importance_figure(output_dir: Path) -> None:
             score = row['importance_score']
             if uid in blast.index and blast.loc[uid, 'has_blast_hit']:
                 desc = blast.loc[uid, 'blast_description']
-                label = clean_label(desc)
+                label = format_species_italic(clean_label(desc))
                 cat = annotate_category(desc)
             elif uid in logan.index:
                 sci = str(logan.loc[uid, 'scientific_name'])
-                label = f'{sci} †'
+                label = format_species_italic(f'{sci} †')
                 cat = annotate_category(sci.lower())
             else:
                 label = 'No annotation'

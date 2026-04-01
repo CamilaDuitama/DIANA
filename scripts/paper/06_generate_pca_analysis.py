@@ -1589,6 +1589,37 @@ def _plot_loadings_scatter(unitigs_df, all_blast_df, pca_model, color_by,
         logger.warning(f"    Could not save PNG: {e}")
 
 
+def _format_species_italic(label: str) -> str:
+    """Wrap a species name in Plotly HTML italic tags.
+
+    Rules:
+    - Genus (first word): first letter upper-case, rest lower-case.
+    - Species epithet (second word): first letter lower-case.
+    - Non-species labels (e.g. 'No BLAST hit', 'Other species') are returned unchanged.
+    """
+    if not label or not isinstance(label, str):
+        return str(label) if label else ''
+    s = label.strip()
+
+    _non_species = {'no blast hit', 'other species', 'unknown', 'others', 'no hit'}
+    if s.lower() in _non_species:
+        return s
+    if not s or not s[0].isupper():
+        return s
+    if s.lower().startswith(('no ', 'other ', 'mag', 'uncultured', 'metagenom')):
+        return s
+
+    parts = s.split()
+    genus = parts[0][0].upper() + parts[0][1:].lower() if len(parts[0]) > 1 else parts[0].upper()
+
+    if len(parts) == 1:
+        return f'<i>{genus}</i>'
+
+    epithet = parts[1][0].lower() + parts[1][1:] if len(parts[1]) > 1 else parts[1].lower()
+    rest_parts = [epithet] + parts[2:]
+    return f'<i>{genus} {" ".join(rest_parts)}</i>'
+
+
 def plot_unitig_pca_by_top_species(pca_model, unitig_ids, blast_annotations, output_dir, top_n=10):
     """
     Plot ALL unitigs in PCA loading space, colored by top N most frequent species.
@@ -1764,7 +1795,7 @@ def plot_unitig_pca_by_top_species(pca_model, unitig_ids, blast_annotations, out
                 opacity=opacity,
                 line=dict(width=0)
             ),
-            name=f'{category} ({len(cat_data):,})',
+            name=f'{_format_species_italic(category)} ({len(cat_data):,})',
             hovertemplate=f'<b>{category}</b><br>ID: %{{text}}<br>PC1: %{{x:.3f}}<br>PC2: %{{y:.3f}}<extra></extra>',
             text=cat_data['unitig_id'],
             showlegend=True

@@ -58,6 +58,43 @@ from config import PATHS, PLOT_CONFIG
 
 
 # ============================================================================
+# HELPERS
+# ============================================================================
+
+def format_species_italic(label: str) -> str:
+    """Wrap a species name in Plotly HTML italic tags.
+
+    Rules:
+    - Genus (first word): first letter upper-case, rest lower-case.
+    - Species epithet (second word): first letter lower-case.
+    - Non-species labels (e.g. 'Others', metagenome descriptions) are returned unchanged.
+    """
+    if not label or not isinstance(label, str):
+        return str(label) if label else ''
+    s = label.strip()
+
+    _non_species = {'others', 'unknown', 'no hit'}
+    if s.lower() in _non_species:
+        return s
+    # Lowercase first char → not a Latin genus name (e.g. "human oral metagenome")
+    if not s or not s[0].isupper():
+        return s
+    # Common non-species prefixes
+    if s.lower().startswith(('no ', 'other ', 'mag', 'uncultured', 'metagenom')):
+        return s
+
+    parts = s.split()
+    genus = parts[0][0].upper() + parts[0][1:].lower() if len(parts[0]) > 1 else parts[0].upper()
+
+    if len(parts) == 1:
+        return f'<i>{genus}</i>'
+
+    epithet = parts[1][0].lower() + parts[1][1:] if len(parts[1]) > 1 else parts[1].lower()
+    rest_parts = [epithet] + parts[2:]
+    return f'<i>{genus} {" ".join(rest_parts)}</i>'
+
+
+# ============================================================================
 # HARDCODED PARAMETERS
 # ============================================================================
 
@@ -173,6 +210,7 @@ def generate_logan_taxonomy_barplot(output_dir: Path) -> None:
     labels = list(top.index) + [OTHERS_LABEL]
     values = list(top.values) + [others_count]
     pcts   = [round(v / total * 100, 1) for v in values]
+    display_labels = [format_species_italic(l) for l in labels]
 
     print(f"\nTop {TOP_N} scientific names + Others:")
     for label, cnt, pct in zip(labels, values, pcts):
@@ -183,7 +221,7 @@ def generate_logan_taxonomy_barplot(output_dir: Path) -> None:
 
     fig.add_trace(
         go.Bar(
-            x=labels,
+            x=display_labels,
             y=values,
             marker=dict(
                 color=PLOT_CONFIG["colors"]["palette"][0],

@@ -35,7 +35,11 @@ def generate_blast_summary_table(blast_data: dict, output_path: Path) -> None:
 
     lines = []
     lines.append("\\centering")
-    lines.append("\\caption{BLAST annotation of unitig features against the NCBI nt database\\label{tab:blast_summary}}")
+    total_str = f"{blast_data['total_features']:,}"
+    lines.append(
+        f"\\caption{{BLAST annotation of DIANA's {total_str} unitig features "
+        f"against the NCBI nt database.}}"
+    )
     lines.append("\\begin{tabular*}{\\columnwidth}{@{\\extracolsep{\\fill}}lr}")
     lines.append("\\toprule")
     lines.append("\\textbf{Metric} & \\textbf{Value} \\\\")
@@ -64,23 +68,20 @@ def generate_blast_summary_table(blast_data: dict, output_path: Path) -> None:
         lines.append(f"\\textit{{{species}}} & {count:,} \\\\")
 
     lines.append("\\bottomrule")
-    lines.append("\\end{tabular*}")
+    lines.append("\\end{tabular*}\\label{tab:blast_summary}")
     lines.append("\\addcontentsline{toc}{subsection}{Supplementary Table 6: BLAST hit statistics}")
     lines.append("\\\\[2mm]")
     lines.append(
         "{\\footnotesize "
-        "\\textbf{Overall Statistics} and \\textbf{Identity Distribution}: for each of the %s unitig features, "
-        "the single best BLAST hit (highest bitscore) against the NCBI nt database is used, "
-        "regardless of taxonomic content (megaBLAST, E-value $\\leq 10^{-5}$). "
-        "\\textbf{Species ranking}: to assign a biologically meaningful species to each feature, "
-        "hits whose description begins with a non-specific term "
-        "(\\textit{uncultured}, \\textit{unclassified}, \\textit{metagenome}, "
-        "\\textit{environmental sample}, \\textit{synthetic}, etc.) are excluded; "
-        "the best remaining (informative) hit is used instead. "
-        "Species names are taken from the first two words of the hit description. "
-        "Features with no informative hit are omitted from the species ranking "
-        "but are still counted in the overall hit rate.}" %
-        f"{blast_data['total_features']:,}"
+        f"Unitig features form the input to DIANA's multi-task classifier; "
+        "this table summarises their biological annotation via BLAST "
+        "(E-value $\\leq 10^{-5}$) against the NCBI nt database. "
+        "\\textit{Overall Statistics}: number and fraction of features with at least one hit. "
+        "\\textit{Identity Distribution}: per cent nucleotide identity of the single "
+        "best hit (highest bitscore) per matched feature. "
+        "\\textit{Top 10 most frequent species}: species most often assigned as the best "
+        "biologically informative hit; non-specific terms "
+        "(\\textit{metagenome}, \\textit{uncultured}, etc.) are excluded before ranking.}"
     )
 
     with open(output_path, 'w') as f:

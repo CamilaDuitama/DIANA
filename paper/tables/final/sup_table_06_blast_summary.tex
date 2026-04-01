@@ -1,5 +1,5 @@
 \centering
-\caption{BLAST annotation of unitig features against the NCBI nt database\label{tab:blast_summary}}
+\caption{BLAST annotation of DIANA's 107,480 unitig features against the NCBI nt database.}
 \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lr}
 \toprule
 \textbf{Metric} & \textbf{Value} \\
@@ -27,7 +27,7 @@ $<$80\% identity & 545 \\
 \textit{Actinomyces oris} & 981 \\
 \textit{Streptococcus sanguinis} & 771 \\
 \bottomrule
-\end{tabular*}
+\end{tabular*}\label{tab:blast_summary}
 \addcontentsline{toc}{subsection}{Supplementary Table 6: BLAST hit statistics}
 \\[2mm]
-{\footnotesize \textbf{Overall Statistics} and \textbf{Identity Distribution}: for each of the 107,480 unitig features, the single best BLAST hit (highest bitscore) against the NCBI nt database is used, regardless of taxonomic content (megaBLAST, E-value $\leq 10^{-5}$). \textbf{Species ranking}: to assign a biologically meaningful species to each feature, hits whose description begins with a non-specific term (\textit{uncultured}, \textit{unclassified}, \textit{metagenome}, \textit{environmental sample}, \textit{synthetic}, etc.) are excluded; the best remaining (informative) hit is used instead. Species names are taken from the first two words of the hit description. Features with no informative hit are omitted from the species ranking but are still counted in the overall hit rate.}
+{\footnotesize Unitig features form the input to DIANA's multi-task classifier; this table summarises their biological annotation via BLAST (E-value $\leq 10^{-5}$) against the NCBI nt database. \textit{Overall Statistics}: number and fraction of features with at least one hit. \textit{Identity Distribution}: per cent nucleotide identity of the single best hit (highest bitscore) per matched feature. \textit{Top 10 most frequent species}: species most often assigned as the best biologically informative hit; non-specific terms (\textit{metagenome}, \textit{uncultured}, etc.) are excluded before ranking.}
