@@ -55,12 +55,53 @@ from config import PATHS
 def generate_hyperparameters_table(output_dir):
     """Generate table with optimized hyperparameters."""
     print("\n[1/2] Loading hyperparameters...")
+
+    # Prefer the final training config (actual hyperparameters used for the
+    # fully-trained model) over the CV-averaged best_hyperparameters.json.
+    final_config_file = Path("results/training/final_training_config.json")
     hyperparams_file = Path(PATHS['hyperparameters'])
-    
-    with open(hyperparams_file) as f:
-        params = json.load(f)
-    
-    print(f"  ✓ Loaded from {hyperparams_file}")
+
+    if final_config_file.exists():
+        with open(final_config_file) as f:
+            final_cfg = json.load(f)
+        hp = final_cfg["hyperparameters"]
+        mp = hp["model_params"]
+        tp = hp["trainer_params"]
+
+        params = {
+            "hidden_dims":            mp["hidden_dims"],
+            "dropout":                mp["dropout"],
+            "activation":             mp.get("activation", "relu"),
+            "use_batch_norm":         mp.get("use_batch_norm", False),
+            "learning_rate":          tp["learning_rate"],
+            "weight_decay":           tp["weight_decay"],
+            "batch_size":             hp["batch_size"],
+            "task_weight_sample_type": tp["task_weights"]["sample_type"],
+            "task_weight_community":   tp["task_weights"]["community_type"],
+            "task_weight_host":        tp["task_weights"]["sample_host"],
+            "task_weight_material":    tp["task_weights"]["material"],
+        }
+        source = final_config_file
+    else:
+        with open(hyperparams_file) as f:
+            raw = json.load(f)
+        n_layers = int(raw["n_layers"])
+        params = {
+            "hidden_dims":             [int(raw[f"hidden_dim_{i}"]) for i in range(n_layers)],
+            "dropout":                 raw["dropout"],
+            "activation":              raw["activation"],
+            "use_batch_norm":          bool(raw.get("use_batch_norm", False)),
+            "learning_rate":           raw["learning_rate"],
+            "weight_decay":            raw["weight_decay"],
+            "batch_size":              int(raw["batch_size"]),
+            "task_weight_sample_type": raw["task_weight_sample_type"],
+            "task_weight_community":   raw["task_weight_community"],
+            "task_weight_host":        raw["task_weight_host"],
+            "task_weight_material":    raw["task_weight_material"],
+        }
+        source = hyperparams_file
+
+    print(f"  ✓ Loaded from {source}")
     
     print("\n[2/2] Generating LaTeX table...")
     
@@ -77,8 +118,7 @@ def generate_hyperparameters_table(output_dir):
     lines.append("\\multirow{4}{*}{Architecture} & Input features & 107,480 \\\\")
     
     # Build hidden layers list
-    n_layers = int(params['n_layers'])
-    hidden_dims = [int(params[f'hidden_dim_{i}']) for i in range(n_layers)]
+    hidden_dims = params['hidden_dims']
     hidden_str = str(hidden_dims).replace('[', '{[}').replace(']', '{]}')
     lines.append(f" & Hidden layers & {hidden_str} \\\\")
     lines.append(f" & Dropout rate & {params['dropout']:.4f} \\\\")
