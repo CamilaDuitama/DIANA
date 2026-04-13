@@ -1,6 +1,7 @@
 # DIANA: Deep Learning Identification and Assessment of Ancient DNA
 
 [![CI](https://github.com/CamilaDuitama/DIANA/actions/workflows/ci.yml/badge.svg)](https://github.com/CamilaDuitama/DIANA/actions/workflows/ci.yml)
+[![Version](https://img.shields.io/badge/version-v0.1.0-blue)](https://github.com/CamilaDuitama/DIANA/releases/tag/v0.1.0)
 
 Multi-task classification of ancient DNA samples using unitig abundances as features. A **unitig** is a maximal non-branching path in a de Bruijn graph — it compacts overlapping k-mers into a single sequence, reducing redundancy while preserving genomic diversity.
 
@@ -45,9 +46,11 @@ Trained on 2,597 samples from the [AncientMetagenomeDir](https://github.com/SPAA
 
 ### System Requirements
 - **OS:** Linux (tested on Red Hat Enterprise Linux 8.10; expected to work on any modern Linux distribution with Conda/Mamba)
+- **DIANA version:** v0.1.0
 - [Mamba](https://mamba.readthedocs.io/) (recommended) or Conda installed and initialised
 - At least 10 GB free disk space
 - Internet connection for downloading models
+- All software dependencies and version numbers are listed in [`environment.yml`](environment.yml)
 
 ### Typical Install Times
 | Step | Typical time |
