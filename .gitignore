@@ -218,3 +218,9 @@ unitigs_without_blast_hit.fa.gz
 
 # Archives created for sharing (zip files)
 *.zip
+
+# Metadata backups (kept locally only)
+paper/metadata/backups/
+paper/metadata/*_BACKUP*
+paper/metadata/*.backup
+paper/metadata/*_backup_*
