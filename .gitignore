@@ -1,3 +1,14 @@
+# Scripts excluded from remote (local development / one-time operations only)
+scripts/populate_bioproject.py
+scripts/calibration/
+scripts/data_prep/02_extract_and_split_matrices.py
+scripts/data_prep/03_analyze_unitigs.py
+scripts/validation/04b_find_samples_to_predict.py
+scripts/validation/05_run_predictions.sbatch
+scripts/validation/05_run_predictions_filtered.sbatch
+scripts/validation/07_regenerate_validation_tables.py
+scripts/validation/submit_missing_predictions.sh
+
 # Python
 test_output/
 __pycache__/
