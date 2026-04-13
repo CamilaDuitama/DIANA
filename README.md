@@ -333,31 +333,7 @@ mamba run -p ./env python scripts/validation/02_prepare_download.py
 
 **Output:** `data/validation/accessions.txt` (863 ancient samples initially)
 
-#### 2. Add Modern Samples via Interactive Review
-
-Modern samples were added through manual curation using interactive review:
-
-```bash
-# Interactive review of modern samples with SRA metadata
-# (Already completed - 166 modern samples approved and merged into validation_metadata.tsv)
-mamba run -p ./env python scripts/validation/interactive_label_review.py
-
-# Merge reviewed samples into validation_metadata.tsv
-# (Already completed - validation_metadata.tsv now contains 1,029 samples)
-mamba run -p ./env python scripts/validation/merge_reviewed_samples.py
-```
-
-**Modern sample distribution (166 samples):**
-- soil: 65 (39%)
-- plaque: 24 (14%)
-- faeces: 24 (14%)
-- skin: 24 (14%)
-- saliva: 17 (10%)
-- Other oral/environmental: 12 (9%)
-
-> **Note:** Modern samples exclude RNA-based sequencing (transcriptomics, miRNA-seq, etc.) but include AMPLICON (16S/ITS) and WGS metagenomics.
-
-#### 3. Download All Samples
+#### 2. Download All Samples
 
 > **Note:** Scripts will **skip existing files** automatically. They check for existing SRA files in `data/validation/sra/`. The `accessions.txt` file is updated automatically when merging reviewed samples and now contains all 1,010 unique run accessions from `validation_metadata.tsv`.
 
