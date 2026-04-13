@@ -43,11 +43,18 @@ Trained on 2,597 samples from the [AncientMetagenomeDir](https://github.com/SPAA
 
 ## Installation
 
-### Prerequisites
-- Linux operating system
+### System Requirements
+- **OS:** Linux (tested on Red Hat Enterprise Linux 8.10; expected to work on any modern Linux distribution with Conda/Mamba)
 - [Mamba](https://mamba.readthedocs.io/) (recommended) or Conda installed and initialised
 - At least 10 GB free disk space
 - Internet connection for downloading models
+
+### Typical Install Times
+| Step | Typical time |
+|---|---|
+| `git clone --recurse-submodules` | ~30 seconds |
+| `mamba env create -f environment.yml -p ./env` | ~10 minutes |
+| `bash install.sh` (builds Rust binaries + downloads ~560 MB) | ~1 minute |
 
 ```bash
 git clone --recurse-submodules https://github.com/CamilaDuitama/DIANA.git
@@ -61,7 +68,7 @@ bash install.sh
 
 ## Quick Start
 
-A small bundled test sample is included in `test_data/` — a 1 % random subsample (seed 42, ~182 k read pairs, 9 MB each) of [ERR3609654](https://www.ebi.ac.uk/ena/browser/view/ERR3609654), an ancient oral metagenome. Use it to verify the installation without downloading the full 1.6 GB dataset.
+A small bundled test sample is included in `test_data/` — a 1 % random subsample (seed 42, ~182 k read pairs, 9 MB each) of [ERR3609654](https://www.ebi.ac.uk/ena/browser/view/ERR3609654), an ancient oral metagenome. Use it to verify the installation without downloading the full 1.6 GB dataset. **Expected run time: ~20 seconds** on a standard desktop/laptop.
 
 ```bash
 diana-predict \
