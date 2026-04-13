@@ -231,3 +231,7 @@ data/training/corrected_metadata/
 data/test/label_review_log_backup*
 data/training/label_review_log_backup*
 data/splits/train_ids_backup*
+
+# Cluster/runtime artefacts (kept locally only)
+results/training/cv_results/slurm_run_config.json
+results/training/diana_train.log
