@@ -1,87 +1,39 @@
 # External Tools
 
-This directory contains third-party tools required for DIANA. These tools are not included in the repository and must be installed separately.
+This directory contains source code for third-party tools compiled locally or used as submodules.
 
-## Required Tools
+## Tools
 
-### 1. Muset
+### 1. muset / kmat_tools
 **Purpose**: K-mer matrix generation from sequencing data
 
-**Installation**:
+**Installation**: Installed automatically via conda (see `environment.yml`):
 ```bash
-cd external/
-git clone https://github.com/tlemane/muset.git
-cd muset
-# Follow installation instructions in muset/README.md
-mkdir build && cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release
-make -j 4
+mamba install -c camiladuitama muset
 ```
 
-**Repository**: https://github.com/tlemane/muset
+No manual build required. `install.sh` verifies availability.
+
+**Repository**: https://github.com/rvicedomini/muset
 
 ---
 
-### 2. SeqDD (optional)
-**Purpose**: Fast sequence data download
+### 2. back_to_sequences
+**Purpose**: Map k-mers back to the original reads that contain them
 
-**Installation**:
+**Installation**: Built automatically by `install.sh` from `external/back_to_sequences/`:
 ```bash
-cd external/
-git clone https://github.com/rki-mf1/SeqDD.git seqdd
-cd seqdd
-# Follow installation instructions
+bash install.sh
 ```
 
-**Repository**: https://github.com/rki-mf1/SeqDD
+This compiles a Rust binary and installs it to the active conda environment's `bin/`.
 
----
-
-### 3. back_to_sequences (optional)
-**Purpose**: Convert k-mer matrices back to sequences
-
-**Installation**:
-```bash
-cd external/
-git clone <repository-url> back_to_sequences
-cd back_to_sequences
-# Follow installation instructions
-```
-
----
-
-## Automated Installation
-
-You can use the provided installation scripts:
-
-```bash
-# Install muset
-bash scripts/build_muset.sh
-
-# Install seqdd (if needed)
-bash scripts/install_seqdd.sh
-```
-
----
-
-## Directory Structure After Installation
-
-```
-external/
-├── README.md           # This file
-├── muset/             # Muset tool (git ignored)
-│   └── bin/
-│       ├── muset
-│       └── kmat_tools
-├── seqdd/             # SeqDD tool (git ignored)
-└── back_to_sequences/ # back_to_sequences tool (git ignored)
-```
+**Repository**: https://github.com/pierrepeterlongo/back_to_sequences
 
 ---
 
 ## Notes
 
-- These tools are excluded from git via `.gitignore`
-- Each tool maintains its own git repository
-- Installation scripts are provided in `scripts/` directory
-- Refer to each tool's documentation for detailed installation instructions
+- `back_to_sequences/` is a git submodule (see `.gitmodules`)
+- `muset/` is excluded from git via `.gitignore`
+- All installation is handled by `install.sh` — no manual steps required

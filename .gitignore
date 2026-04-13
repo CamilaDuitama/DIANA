@@ -215,6 +215,7 @@ training_matrix
 # Large sequence files
 unitigs_training_features.fa.gz
 unitigs_without_blast_hit.fa.gz
+unitigs_without_blast_stats.txt
 
 # Archives created for sharing (zip files)
 *.zip
