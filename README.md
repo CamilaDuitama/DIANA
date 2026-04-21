@@ -59,7 +59,7 @@ sbatch scripts/create_umat/02_regenerate_matrix_with_frac.sbatch
 Metadata files are located in `paper/metadata/`:
 - `train_metadata.tsv` (2,609 samples)
 - `test_metadata.tsv` (461 samples)
-- `validation_metadata.tsv` (1,029 samples)
+- `validation_metadata.tsv` (987 samples)
 
 **All three files have identical 48 columns** (standardized format).
 
@@ -305,9 +305,9 @@ results/feature_analysis/
 
 The validation set combines:
 - **Ancient samples** from AncientMetagenomeDir (863 samples, highly curated)
-- **Modern samples** from interactive review (166 metagenomics samples, improved distribution)
+- **Modern samples** from interactive review (124 modern metagenomes)
 
-**Key principle:** Match the training set's sample type distribution (84% ancient, 16% modern)
+**Key principle:** Test model generalization to completely unseen samples, covering both ancient (87%) and modern (13%) metagenomes
 while testing model generalization to completely unseen samples.
 
 > **Starting fresh vs continuing:** 
@@ -335,7 +335,7 @@ mamba run -p ./env python scripts/validation/02_prepare_download.py
 
 #### 2. Download All Samples
 
-> **Note:** Scripts will **skip existing files** automatically. They check for existing SRA files in `data/validation/sra/`. The `accessions.txt` file is updated automatically when merging reviewed samples and now contains all 1,010 unique run accessions from `validation_metadata.tsv`.
+> **Note:** Scripts will **skip existing files** automatically. They check for existing SRA files in `data/validation/sra/`. The `accessions.txt` file is updated automatically when merging reviewed samples and now contains all 987 unique run accessions from `validation_metadata.tsv`.
 
 ```bash
 # Will only download newly added samples (skips existing)
@@ -351,7 +351,7 @@ sbatch --array=1-1171%20 scripts/validation/04_convert_sra_to_fastq.sbatch
 ```bash
 # Count downloaded SRA files
 find data/validation/sra -name "*.sra" | wc -l
-# Expect ~1,010 unique run accessions (some samples have multiple runs)
+# Expect ~987 unique run accessions
 ```
 
 ### Run Inference on Validation Set
