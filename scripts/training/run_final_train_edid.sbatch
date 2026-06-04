@@ -51,7 +51,7 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 # Activate environment
 eval "$(/pasteur/appa/homes/cduitama/miniconda3/bin/conda shell.bash hook)"
-conda activate /pasteur/appa/scratch/cduitama/EDID/DIANA/env
+conda activate ./env
 echo "Python: $(which python)"
 
 # Load training config (set via environment variable or default)

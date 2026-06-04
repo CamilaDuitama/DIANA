@@ -13,10 +13,10 @@ import plotly.express as px
 # ============================================================================
 
 PATHS = {
-    # Metadata files
-    'validation_metadata': 'paper/metadata/validation_metadata.tsv',
-    'train_metadata': 'paper/metadata/train_metadata.tsv',
-    'test_metadata': 'paper/metadata/test_metadata.tsv',
+    # Metadata files (BioProject-disjoint split for corrections branch)
+    'validation_metadata': 'data/splits_bioproject/validation_metadata.tsv',
+    'train_metadata': 'data/splits_bioproject/train_metadata.tsv',
+    'test_metadata': 'data/splits_bioproject/test_metadata.tsv',
     
     # Prediction results
     'predictions_dir': 'results/validation_predictions',
