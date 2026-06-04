@@ -91,23 +91,35 @@ def load_unitig_fractions(fraction_file: Path) -> np.ndarray:
     return features
 
 
+def load_class_names(label_encoders_path: Path) -> dict:
+    """
+    Load class names from label_encoders.json.
+
+    Expected format: {"task": {"classes": ["class0", "class1", ...]}}
+
+    Returns:
+        Mapping of task -> list of class names.
+    """
+    with open(label_encoders_path) as f:
+        encoders = json.load(f)
+    return {task: info['classes'] for task, info in encoders.items()}
+
+
 def format_predictions(predictions: dict, class_names: dict = None) -> dict:
     """
     Format raw predictions with human-readable labels.
     
     Args:
         predictions: Raw predictions from Predictor.
-        class_names: Optional mapping of target -> class_idx -> name.
+        class_names: Optional mapping of target -> list of class names.
         
     Returns:
         Formatted predictions dictionary.
     """
     if class_names is None:
-        # Default class names (update based on your actual classes)
+        # Fallback defaults (only sample_type is reliable without label_encoders)
         class_names = {
-            'sample_type': ['ancient', 'modern'],
-            'damage_pattern': ['low', 'medium', 'high'],
-            'contamination_level': ['low', 'high']
+            'sample_type': ['ancient_metagenome', 'modern_metagenome'],
         }
     
     formatted = {}
@@ -181,6 +193,13 @@ def main():
         default='auto',
         help='Device to use for inference (default: auto-detect)'
     )
+
+    parser.add_argument(
+        '--label-encoders',
+        type=Path,
+        default=None,
+        help='Path to label_encoders.json for human-readable class names'
+    )
     
     args = parser.parse_args()
     
@@ -195,12 +214,20 @@ def main():
     # Load features
     features = load_unitig_fractions(args.input)
     
+    # Load class names from label encoders if provided
+    class_names = None
+    if args.label_encoders and args.label_encoders.exists():
+        logger.info(f"Loading class names from {args.label_encoders}")
+        class_names = load_class_names(args.label_encoders)
+    else:
+        logger.warning("No --label-encoders provided; non-sample_type tasks will use numeric class indices")
+
     # Run inference
     logger.info("Running inference...")
     predictions = predictor.predict(features, return_probabilities=True)
     
     # Format output
-    formatted_preds = format_predictions(predictions)
+    formatted_preds = format_predictions(predictions, class_names=class_names)
     
     output = {
         'sample_id': sample_id,

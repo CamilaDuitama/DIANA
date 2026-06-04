@@ -438,7 +438,7 @@ def plot_material(train_meta, test_meta, val_meta, output_dir):
 
 
 def plot_bioproject(train_meta, test_meta, val_meta, output_dir):
-    """Figure 7: Top BioProject distribution across splits."""
+    """Figure 7: BioProject distribution — donut chart + per-split sample tables."""
     colors = [PLOT_CONFIG['colors']['train'], PLOT_CONFIG['colors']['test'], PLOT_CONFIG['colors']['validation']]
 
     if 'BioProject' not in train_meta.columns:
@@ -450,49 +450,70 @@ def plot_bioproject(train_meta, test_meta, val_meta, output_dir):
         col = df['BioProject'].dropna().astype(str)
         return col[col.str.match(r'PRJ[A-Z]+\d+')]
 
-    # Top N BioProjects by total run count across all splits
-    all_bps = pd.concat([valid_bps(train_meta), valid_bps(test_meta), valid_bps(val_meta)])
-    top_bps = all_bps.value_counts().head(TOP_N_BIOPROJECTS).index.tolist()
+    splits = [
+        ('Train',      train_meta, colors[0]),
+        ('Test',       test_meta,  colors[1]),
+        ('Validation', val_meta,   colors[2]),
+    ]
 
-    fig = go.Figure()
+    # Count distinct BioProjects per split
+    bp_counts = {name: valid_bps(df).nunique() for name, df, _ in splits}
+    total_bps = sum(bp_counts.values())
 
-    for split, df, color in [('Train', train_meta, colors[0]),
-                              ('Test', test_meta, colors[1]),
-                              ('Validation', val_meta, colors[2])]:
-        bp_counts = valid_bps(df).value_counts()
-        total = len(valid_bps(df))
-        y_values = [(bp_counts.get(bp, 0) / total * 100) if total > 0 else 0 for bp in top_bps]
-
-        fig.add_trace(go.Bar(
-            x=top_bps,
-            y=y_values,
-            name=split,
-            marker=dict(
-                color=color,
-                opacity=PLOT_CONFIG['fill_opacity'],
-                line=dict(color=PLOT_CONFIG['border_color'], width=PLOT_CONFIG['line_width'])
-            )
-        ))
+    # ── Donut chart: number of distinct BioProjects per split ──────────────
+    fig = go.Figure(go.Pie(
+        labels=[f"{name} ({bp_counts[name]} BioProjects)" for name, _, _ in splits],
+        values=[bp_counts[name] for name, _, _ in splits],
+        hole=0.45,
+        marker=dict(
+            colors=[c for _, _, c in splits],
+            line=dict(color=PLOT_CONFIG['border_color'], width=2)
+        ),
+        textinfo='percent',
+        textfont=dict(size=16),
+        textposition='inside',
+        hovertemplate='%{label}<br>%{value} distinct BioProjects (%{percent})<extra></extra>',
+    ))
 
     fig.update_layout(
-        title=f"Top {TOP_N_BIOPROJECTS} BioProject Distribution Across Datasets",
-        xaxis_title="BioProject",
-        yaxis_title="Percentage of Samples in Split (%)",
+        title=dict(
+            text=f"BioProject Diversity per Split<br>"
+                 f"<sup>{total_bps} unique BioProjects total — fully disjoint across splits</sup>",
+            font=dict(size=20),
+        ),
         template=PLOT_CONFIG['template'],
-        font=dict(size=16),
-        title_font_size=22,
-        height=600,
-        width=1200,
-        barmode='group',
-        xaxis=dict(tickangle=-45)
+        font=dict(size=15),
+        height=550,
+        width=800,
+        legend=dict(
+            font=dict(size=14),
+            orientation='v',
+            x=1.02,
+            y=0.5,
+        ),
+        showlegend=True,
     )
-    fig.update_xaxes(title_font_size=18, tickfont_size=15)
-    fig.update_yaxes(title_font_size=18, tickfont_size=15)
 
     output_file = output_dir / "sup_02_data_split_bioproject.png"
     fig.write_html(str(output_file.with_suffix('.html')))
-    fig.write_image(str(output_file), width=1200, height=600, scale=2)
+    fig.write_image(str(output_file), width=750, height=550, scale=2)
     print(f"  ✓ {output_file.name}")
+
+    # ── Table: full BioProject listing per split ────────────────────────────
+    tables_dir = output_dir.parent.parent / "tables" / "final"
+    tables_dir.mkdir(parents=True, exist_ok=True)
+
+    rows = []
+    for name, df, _ in splits:
+        bp_series = valid_bps(df)
+        counts = bp_series.value_counts()
+        for bp, n in counts.items():
+            rows.append({'split': name, 'BioProject': bp, 'n_samples': n})
+
+    table_df = pd.DataFrame(rows).sort_values(['split', 'n_samples'], ascending=[True, False])
+    table_file = tables_dir / "sup_02_bioproject_list.tsv"
+    table_df.to_csv(table_file, sep='\t', index=False)
+    print(f"  ✓ {table_file.name} ({len(table_df)} rows)")
 
 
 def plot_geographic(train_meta, test_meta, val_meta, output_dir):
