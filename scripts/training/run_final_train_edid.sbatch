@@ -80,8 +80,7 @@ nvidia-smi --query-gpu=name,memory.total,memory.free --format=csv
 echo ""
 
 echo "Starting final training..."
-conda run -p /pasteur/appa/scratch/cduitama/EDID/DIANA/env \
-    python scripts/training/02_train_final_model.py "$TRAIN_CONFIG"
+python scripts/training/02_train_final_model.py "$TRAIN_CONFIG"
 
 echo ""
 echo "=== FINAL TRAINING COMPLETE — $(date) ==="

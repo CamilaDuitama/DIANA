@@ -37,6 +37,7 @@ training:
   # Execution settings
   use_gpu: true
   use_slurm: true         # Submits SLURM array jobs for parallel fold training
+  final_training_sbatch: scripts/training/run_final_train_edid.sbatch
 
 # Hyperparameters from original split CV — used as warm start.
 # Re-run optimize mode to tune on the new split if desired.
