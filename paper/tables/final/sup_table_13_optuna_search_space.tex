@@ -1,16 +1,16 @@
 \centering
 \caption{Optuna hyperparameter search space used during nested cross-validation.
-TPE (Tree-structured Parzen Estimator) sampler was used with 50 trials per inner fold.
+TPE (Tree-structured Parzen Estimator) sampler was used with 50 trials per outer fold.
+Each trial was evaluated on all 3 inner folds, and the average performance was used for optimization.
 All random operations (numpy, PyTorch, TPE sampler, and cross-validation splits) used seed 42.
-The selected values in the final model correspond to the best hyperparameters from the outer-fold
-with highest validation balanced accuracy; full values are given in Supplementary Table~4.
+The final model uses hyperparameters averaged across the 5 outer folds; full values are given in Supplementary Table~4.
 \label{tab:optuna_search_space}}
 \addcontentsline{toc}{subsection}{Supplementary Table 13: Optuna hyperparameter search space}
 \begin{tabular}{llll}
 \toprule
 \textbf{Category} & \textbf{Hyperparameter} & \textbf{Type} & \textbf{Search Range / Choices} \\
 \midrule
-\multirow{4}{*}{Architecture}
+\multirow{5}{*}{Architecture}
   & Number of hidden layers & Integer       & $[2,\, 4]$ \\
   & Hidden layer width       & Integer       & $[64,\, 512]$, step 64, per layer \\
   & Dropout rate             & Float         & $[0.1,\, 0.5]$ \\
@@ -27,10 +27,16 @@ with highest validation balanced accuracy; full values are given in Supplementar
   & Community Type           & Float         & $[0.5,\, 2.0]$ \\
   & Sample Host              & Float         & $[0.5,\, 2.0]$ \\
   & Material                 & Float         & $[0.5,\, 2.0]$ \\
+\addlinespace
+\multirow{4}{*}{Label smoothing ($\varepsilon_t$)}
+  & Sample Type              & Float         & $[0.0,\, 0.15]$ \\
+  & Community Type           & Float         & $[0.0,\, 0.15]$ \\
+  & Sample Host              & Float         & $[0.0,\, 0.15]$ \\
+  & Material                 & Float         & $[0.0,\, 0.15]$ \\
 \bottomrule
 \multicolumn{4}{p{0.88\linewidth}}{\footnotesize
-Optimisation objective: mean balanced accuracy across all four tasks on the inner validation fold.
-Sampler: TPE \cite{optuna_2019} with \texttt{seed=42}, pruner: MedianPruner.
-50 Optuna trials were run per (outer-fold, inner-split) combination.
-Log-float parameters are sampled uniformly in log space.}
+Optimisation objective: mean of (balanced accuracy + macro F1) / 2 across all four tasks, averaged over the 3 inner folds.
+Sampler: TPE \cite{optuna_2019} with \texttt{seed=42}, pruner: NopPruner (no pruning for multi-fold evaluation).
+50 Optuna trials were run per outer fold, each evaluated on all 3 inner folds.
+Log-float parameters are sampled uniformly in log space. Stratification: combined sample\_type + community\_type (12 categories).}
 \end{tabular}
