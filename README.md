@@ -130,11 +130,60 @@ Key settings:
 
 ### Two Training Approaches
 
-You can use either the **CLI workflow** (recommended for reproducibility) or the **direct SBATCH submission** (for manual control).
+You can use either the **manual SBATCH workflow** (current approach) or the **CLI workflow** (legacy, needs config updates).
 
 ---
 
-#### Approach A: CLI Workflow (Recommended)
+#### Approach A: Manual SBATCH Workflow (Current)
+
+**Step 1: Hyperparameter Optimization**
+
+```bash
+# Submit 5-fold CV hyperparameter search (SLURM array job)
+sbatch --array=0-4 scripts/training/run_hyperopt_bioproject_v3.sbatch
+```
+
+Monitor progress:
+```bash
+squeue -u $USER
+tail -f logs/hyperopt_v3/fold_0_*.out
+```
+
+**Step 2: Aggregate CV Results**
+
+After all folds complete:
+
+```bash
+python scripts/training/aggregate_cv_results.py \
+  --cv_dir results/training_bioproject_v3/cv_results \
+  --n_folds 5
+```
+
+Creates `results/training_bioproject_v3/final_training_config.json` for step 3.
+
+**Step 3: Train Final Model**
+
+```bash
+python scripts/training/02_train_final_model.py \
+  results/training_bioproject_v3/final_training_config.json
+```
+
+Or via SLURM:
+```bash
+TRAIN_CONFIG=results/training_bioproject_v3/final_training_config.json \
+  sbatch scripts/training/run_final_train_edid.sbatch
+```
+
+**What happens:**
+- Trains on 90% of training set (2,263 samples)
+- Uses 10% for validation and early stopping (251 samples)
+- Saves final model when validation loss plateaus
+
+---
+
+#### Approach B: CLI Workflow (Legacy)
+
+**Note:** This approach uses the old split (data/splits/). Update config paths to use BioProject split if needed.
 
 **Step 1: Hyperparameter Optimization**
 
@@ -158,20 +207,6 @@ mamba run -p ./env diana-train multitask \
   --config configs/train_config.yaml \
   --output results/training \
   --mode train
-```
-
-**What happens:**
-- Automatically aggregates fold results if `best_hyperparameters.json` doesn't exist
-- Trains on 90% of training set (2,348 samples)
-- Uses 10% for validation and early stopping (261 samples)
-- Saves final model when validation loss plateaus
-
-**Optional:** To manually aggregate fold results before training:
-```bash
-mamba run -p ./env diana-train multitask \
-  --config configs/train_config.yaml \
-  --output results/training \
-  --mode aggregate
 ```
 
 ---
