@@ -50,20 +50,20 @@ bash scripts/create_umat/01_build_muset.sh
 sbatch scripts/create_umat/02_regenerate_matrix_with_frac.sbatch
 ```
 
-**Output:** `unitigs.frac.mat` (107,480 features × 3,059 samples, 1.6GB)
+**Output:** `unitigs.frac.mat` (107,480 features × 3,038 samples, 1.6GB)
 
-> **Note:** Matrix is stored in transposed format (samples as rows). The 107,480 rows represent unitigs, and 3,059 columns represent samples. When loaded by `MatrixLoader`, it's automatically transposed to (3,058 samples × 107,480 features).
+> **Note:** Matrix is stored in transposed format (samples as rows). The 107,480 rows represent unitigs, and 3,038 columns represent samples. When loaded by `MatrixLoader`, it's automatically transposed to (3,037 samples × 107,480 features).
 
 ### 2. Prepare Metadata
 
-Metadata files are located in `paper/metadata/`:
-- `train_metadata.tsv` (2,609 samples)
-- `test_metadata.tsv` (461 samples)
-- `validation_metadata.tsv` (987 samples)
+Metadata files are located in `data/splits_bioproject/`:
+- `train_metadata.tsv` (2,514 samples)
+- `test_metadata.tsv` (523 samples)
+- `validation_metadata.tsv` (360 samples)
 
 **All three files have identical 48 columns** (standardized format).
 
-**Training + Test combined: 3,058 samples**
+**Training + Test combined: 3,037 samples**
 
 **Task columns and classes (train/test):**
 - `sample_type`: 2 classes (ancient_metagenome, modern_metagenome)
@@ -82,13 +82,18 @@ Metadata files are located in `paper/metadata/`:
 
 ## Train/Test Split
 
-The train/test split is **already prepared** in `data/splits/`:
-- `train_ids.txt` (2,609 samples, 85%)
-- `test_ids.txt` (461 samples, 15%)
+The train/test split is **already prepared** in `data/splits_bioproject/` using **BioProject-disjoint stratification** to prevent data leakage from multi-sample studies:
+- `train_ids.txt` (2,514 samples, 82.8%)
+- `test_ids.txt` (523 samples, 17.2%)
 
-Metadata files in `paper/metadata/` are filtered versions:
-- `train_metadata.tsv` - Contains only training samples
-- `test_metadata.tsv` - Contains only test samples
+Metadata files in `data/splits_bioproject/` contain only the respective split samples:
+- `train_metadata.tsv` - Contains only training samples (2,514)
+- `test_metadata.tsv` - Contains only test samples (523)
+
+**BioProject-disjoint split ensures:**
+- No BioProject appears in both train and test sets
+- Prevents data leakage from multi-sample studies
+- Tests true generalization to unseen research projects
 
 **Critical:** Test set is held out for final evaluation only. Never used during training or hyperparameter optimization.
 
@@ -113,10 +118,10 @@ This will regenerate `train_ids.txt`, `test_ids.txt`, and metadata files.
 
 ## Model Training
 
-**Configuration:** `configs/train_config.yaml`
+**Configuration:** `configs/train_config_bioproject_v3.yaml`
 
 Key settings:
-- **Data:** Uses `paper/metadata/train_metadata.tsv` (2,609 samples only)
+- **Data:** Uses `data/splits_bioproject/train_metadata.tsv` (2,514 samples only, BioProject-disjoint)
 - **Tasks:** sample_type, material, sample_host, community_type
 - **Class imbalance:** Automatic class-weighted loss (minority classes weighted higher)
 - **CV:** 5-fold outer CV, 3-fold inner CV
@@ -176,13 +181,13 @@ mamba run -p ./env diana-train multitask \
 ### Step 3: Test on Held-Out Set
 
 ```bash
-# Evaluate on test set (461 samples, never seen during training or optimization)
+# Evaluate on test set (523 samples, BioProject-disjoint, never seen during training or optimization)
 mamba run -p ./env diana-test \
   --model results/training/best_model.pth \
   --config results/training/final_training_config.json \
   --matrix data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat \
-  --metadata paper/metadata/test_metadata.tsv \
-  --test-ids data/splits/test_ids.txt \
+  --metadata data/splits_bioproject/test_metadata.tsv \
+  --test-ids data/splits_bioproject/test_ids.txt \
   --output results/test_evaluation
 ```
 
@@ -190,7 +195,7 @@ mamba run -p ./env diana-test \
 ```
 results/test_evaluation/
 ├── test_metrics.json                 # Per-task accuracy, F1, etc.
-├── test_predictions.tsv              # Predictions for all 461 samples
+├── test_predictions.tsv              # Predictions for all 523 samples
 ├── confusion_matrices/               # Per-task confusion matrices
 └── classification_reports/           # Detailed per-class metrics
 ```
@@ -304,8 +309,9 @@ results/feature_analysis/
 ### Prepare Validation Dataset
 
 The validation set combines:
-- **Ancient samples** from AncientMetagenomeDir (863 samples, highly curated)
-- **Modern samples** from interactive review (124 modern metagenomes)
+- **Ancient samples** from AncientMetagenomeDir (360 samples after removing train/test overlaps)
+  - Completely independent of training/test BioProjects
+  - Curated ancient metagenomes for robust validation
 
 **Key principle:** Test model generalization to completely unseen samples, covering both ancient (87%) and modern (13%) metagenomes
 while testing model generalization to completely unseen samples.
@@ -331,18 +337,18 @@ mamba run -p ./env python scripts/validation/01b_remove_overlap.py
 mamba run -p ./env python scripts/validation/02_prepare_download.py
 ```
 
-**Output:** `data/validation/accessions.txt` (863 ancient samples initially)
+**Output:** `data/validation/accessions.txt` (360 ancient samples after overlap removal)
 
 #### 2. Download All Samples
 
-> **Note:** Scripts will **skip existing files** automatically. They check for existing SRA files in `data/validation/sra/`. The `accessions.txt` file is updated automatically when merging reviewed samples and now contains all 987 unique run accessions from `validation_metadata.tsv`.
+> **Note:** Scripts will **skip existing files** automatically. They check for existing SRA files in `data/validation/sra/`. The `accessions.txt` file is updated automatically when merging reviewed samples and now contains all 360 unique run accessions from `validation_metadata.tsv` (ancient samples only, train/test overlaps removed).
 
 ```bash
 # Will only download newly added samples (skips existing)
 bash scripts/validation/03_prefetch_all.sh
 
 # Convert SRA → FASTQ (auto-skips existing); update array size to match total accessions
-sbatch --array=1-1171%20 scripts/validation/04_convert_sra_to_fastq.sbatch
+sbatch --array=1-360%20 scripts/validation/04_convert_sra_to_fastq.sbatch
 ```
 
 **Output:** `data/validation/sra/{accession}/*.sra` and `data/validation/raw/{accession}/*.fastq.gz`
@@ -351,7 +357,7 @@ sbatch --array=1-1171%20 scripts/validation/04_convert_sra_to_fastq.sbatch
 ```bash
 # Count downloaded SRA files
 find data/validation/sra -name "*.sra" | wc -l
-# Expect ~987 unique run accessions
+# Expect ~360 unique run accessions (ancient samples only)
 ```
 
 ### Run Inference on Validation Set
