@@ -5,7 +5,6 @@ Called by run_final_training_gpu.sbatch.
 """
 import argparse
 import torch
-import polars as pl
 import json
 import numpy as np
 from pathlib import Path
@@ -35,6 +34,14 @@ def main():
     # Load configuration
     with open(config_file) as f:
         config = json.load(f)
+
+    # Save config to output directory for reproducibility
+    output_dir = Path(config['output_dir'])
+    output_dir.mkdir(parents=True, exist_ok=True)
+    config_copy_path = output_dir / 'final_training_config.json'
+    with open(config_copy_path, 'w') as f:
+        json.dump(config, f, indent=2)
+    logger.info(f'Config saved to: {config_copy_path}')
 
     # Set random seeds for reproducibility
     random_seed = config.get('random_seed', 42)
@@ -77,6 +84,14 @@ def main():
     X_full = X_all[train_mask]
     metadata = metadata_all[train_mask].reset_index(drop=True)
     
+    # Verify train_ids match
+    matched_ids = set(metadata['Run_accession'].values)
+    missing_from_matrix = train_ids - matched_ids
+    if missing_from_matrix:
+        logger.warning(f'WARNING: {len(missing_from_matrix)} train IDs not found in matrix:')
+        logger.warning(f'  First 10: {list(missing_from_matrix)[:10]}')
+    logger.info(f'Matched {len(matched_ids)}/{len(train_ids)} train IDs to matrix')
+    
     logger.info(f'Training data shape (after filtering to train set): {X_full.shape}')
     logger.info(f'Train samples: {len(X_full)}')
 
@@ -94,6 +109,18 @@ def main():
         n_classes = len(encoder.classes_)
         task_info[task_name] = n_classes
         logger.info(f"Task '{task_name}': {n_classes} classes")
+
+    # Save label encoders BEFORE training (in case training crashes)
+    encoders_path = Path(config['output_dir']) / 'label_encoders.json'
+    encoders_data = {
+        task: {
+            'classes': encoder.classes_.tolist()
+        }
+        for task, encoder in label_encoders.items()
+    }
+    with open(encoders_path, 'w') as f:
+        json.dump(encoders_data, f, indent=2)
+    logger.info(f'Label encoders saved to: {encoders_path}')
 
     # Compute class weights BEFORE split (on full training set)
     logger.info('Computing class weights for handling class imbalance...')
@@ -122,8 +149,11 @@ def main():
     # Create combined stratification key (sample_type + community_type)
     stratify_key = None
     if 'sample_type' in task_names and 'community_type' in task_names:
-        # Combine first two tasks for better stratification
-        stratify_key = y_full['sample_type'] * 1000 + y_full['community_type']
+        # Combine as string for consistency with hyperopt script
+        stratify_key = np.array([
+            f"{metadata.iloc[i]['sample_type']}_{metadata.iloc[i]['community_type']}"
+            for i in range(len(metadata))
+        ])
         logger.info('Using combined sample_type + community_type for stratification')
     else:
         stratify_key = y_full[task_names[0]]
@@ -214,18 +244,6 @@ def main():
     with open(history_path, 'w') as f:
         json.dump(history_serializable, f, indent=2)
     logger.info(f'Training history saved to: {history_path}')
-    
-    # Save label encoders for later use in inference
-    encoders_path = Path(config['output_dir']) / 'label_encoders.json'
-    encoders_data = {
-        task: {
-            'classes': encoder.classes_.tolist()
-        }
-        for task, encoder in label_encoders.items()
-    }
-    with open(encoders_path, 'w') as f:
-        json.dump(encoders_data, f, indent=2)
-    logger.info(f'Label encoders saved to: {encoders_path}')
 
     logger.info('='*50)
     logger.info('Final training complete!')
