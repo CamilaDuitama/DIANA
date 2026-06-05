@@ -74,9 +74,9 @@ TRAIN_META     = Path("data/splits_bioproject/train_metadata.tsv")
 TEST_META      = Path("data/splits_bioproject/test_metadata.tsv")
 VAL_META       = Path("data/splits_bioproject/validation_metadata.tsv")
 VAL_PRED_DIR   = Path("results/validation_predictions")
-VAL_PRED_DIR_BP = Path("results/validation_predictions_bioproject")   # per-sample JSONs
-DIANA_METRICS  = Path("results/test_evaluation_bioproject/test_metrics.json")
-DIANA_TEST_PREDS = Path("results/test_evaluation_bioproject/test_predictions.tsv")
+VAL_PRED_DIR_BP = Path("results/validation_predictions_bioproject_v3")   # per-sample JSONs (v3 model)
+DIANA_METRICS  = Path("results/test_evaluation_bioproject_v3/test_metrics.json")
+DIANA_TEST_PREDS = Path("results/test_evaluation_bioproject_v3/test_predictions.tsv")
 OUTPUT_DIR     = Path("results/baseline_comparison_bioproject")
 
 TASKS        = ["sample_type", "community_type", "sample_host", "material"]

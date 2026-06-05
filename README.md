@@ -36,10 +36,11 @@ This implementation includes several critical improvements over the initial vers
 3. [Train/Test Split](#traintest-split)
 4. [Model Training](#model-training)
 5. [Model Evaluation](#model-evaluation)
-6. [Feature Analysis](#feature-analysis)
-7. [Validation](#validation)
-8. [Output Structure](#output-structure)
-9. [Script Organization](#script-organization)
+6. [Baseline Comparison](#baseline-comparison)
+7. [Feature Analysis](#feature-analysis)
+8. [Validation](#validation)
+9. [Output Structure](#output-structure)
+10. [Script Organization](#script-organization)
 
 ---
 
@@ -290,6 +291,37 @@ Or run everything at once (after validation predictions are ready):
 
 ```bash
 bash scripts/paper/generate_all_paper_materials.sh
+```
+
+---
+
+## Baseline Comparison
+
+Trains classical ML classifiers (MajorityClass, LogisticRegression, LinearSVM, RidgeClassifier, RandomForest) on the full training set and evaluates them on the held-out test set and validation set. Generates `metrics.json` with bootstrapped CIs used by all comparison figures.
+
+> **Must be re-run whenever the DIANA model changes** (updates the DIANA rows in the comparison).
+
+```bash
+# Run on CPU (~10-30 min; re-trains all baselines + loads DIANA v3 test/val results)
+mamba run -p ./env python scripts/evaluation/08_test_set_baseline_comparison.py
+```
+
+**Expected outputs:**
+```
+results/baseline_comparison_bioproject/
+├── metrics.json        # All model metrics with 95% bootstrap CIs (used by paper scripts)
+├── summary.csv         # Human-readable performance table
+└── summary.tex         # LaTeX table
+```
+
+Then regenerate the comparison figures:
+
+```bash
+# Supplementary Figure 6: DIANA vs baselines bar chart
+mamba run -p ./env python scripts/paper/21_generate_baseline_comparison.py
+
+# Supplementary Figure 7: Generalisation gap (Test → Validation slopegraphs)
+mamba run -p ./env python scripts/paper/34_generate_generalisation_gap_plots.py
 ```
 
 ---
