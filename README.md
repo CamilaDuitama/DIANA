@@ -101,7 +101,7 @@ Metadata files are located in `data/splits_bioproject/`:
 - `sample_type`, `material`, `sample_host`, `community_type`: Target labels
 - Plus 44 additional metadata columns (SRA fields, sequence stats, etc.)
 
-> **Note:** Validation set contains additional classes not in training (20 material types, 18 host species) due to broader ancient sample diversity.
+> **Note:** Validation set is a subset of training classes (9/17 material types, 2/11 host species) due to its focus on ancient samples only.
 
 ---
 
@@ -452,5 +452,5 @@ mamba run -p ./env python scripts/validation/06_compare_predictions.py
 
 ---
 
-**Last Updated:** March 2026
+**Last Updated:** June 2026
 
