@@ -204,38 +204,38 @@ TRAIN_CONFIG=results/training_bioproject_v3/final_training_config.json \
 
 ## Model Evaluation
 
-### Step 3: Test on Held-Out Set
+### Step 4: Test on Held-Out Set
 
 ```bash
 # Evaluate on test set (523 samples, BioProject-disjoint, never seen during training or optimization)
 mamba run -p ./env diana-test \
-  --model results/training/best_model.pth \
-  --config results/training/final_training_config.json \
+  --model results/training_bioproject_v3/best_model.pth \
+  --config results/training_bioproject_v3/final_training_config.json \
   --matrix data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat \
   --metadata data/splits_bioproject/test_metadata.tsv \
   --test-ids data/splits_bioproject/test_ids.txt \
-  --output results/test_evaluation
+  --output results/test_evaluation_bioproject_v3
 ```
 
 **Expected outputs:**
 ```
-results/test_evaluation/
+results/test_evaluation_bioproject_v3/
 ├── test_metrics.json                 # Per-task accuracy, F1, etc.
 ├── test_predictions.tsv              # Predictions for all 523 samples
 ├── confusion_matrices/               # Per-task confusion matrices
 └── classification_reports/           # Detailed per-class metrics
 ```
 
-### Step 4: Generate Performance Plots and Tables
+### Step 5: Generate Performance Plots and Tables
 
 ```bash
 # Create publication-ready figures and tables
 mamba run -p ./env python scripts/evaluation/04_model_performance_metrics.py \
-  --metrics results/test_evaluation/test_metrics.json \
-  --history results/training/training_history.json \
-  --config results/training/final_training_config.json \
-  --predictions results/test_evaluation/test_predictions.tsv \
-  --label-encoders results/training/label_encoders.json \
+  --metrics results/test_evaluation_bioproject_v3/test_metrics.json \
+  --history results/training_bioproject_v3/training_history.json \
+  --config results/training_bioproject_v3/final_training_config.json \
+  --predictions results/test_evaluation_bioproject_v3/test_predictions.tsv \
+  --label-encoders results/training_bioproject_v3/label_encoders.json \
   --output-dir paper
 ```
 

@@ -473,6 +473,14 @@ def create_hyperparameters_table(config: Dict, output_path: Path):
             for task, weight in task_weights.items():
                 data.append({'Parameter': f'Task Weight ({task})', 'Value': f"{weight:.4f}"})
     
+    # Label smoothing (per-task or global)
+    if 'label_smoothing_per_task' in config:
+        label_smoothing = config['label_smoothing_per_task']
+        for task, epsilon in label_smoothing.items():
+            data.append({'Parameter': f'Label Smoothing ε ({task})', 'Value': f"{epsilon:.4f}"})
+    elif 'label_smoothing' in config:
+        data.append({'Parameter': 'Label Smoothing ε', 'Value': f"{config['label_smoothing']:.4f}"})
+    
     df = pd.DataFrame(data)
     
     # Save CSV and LaTeX
