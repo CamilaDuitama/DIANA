@@ -1,6 +1,31 @@
 # DIANA: Reproducibility Guide
 
-**Multi-task classification of ancient DNA samples using unitigfeatures**
+**Multi-task classification of ancient DNA samples using unitig features**
+
+---
+
+## Key Methodological Improvements
+
+This implementation includes several critical improvements over the initial version:
+
+1. **BioProject-Disjoint Split:** Train/test split stratified by BioProject to prevent data leakage from multi-sample studies. No research project appears in both training (2,514 samples) and test (523 samples) sets.
+
+2. **Per-Task Label Smoothing:** Independent label smoothing parameters (ε) for each classification task:
+   - `sample_type` (2 classes)
+   - `community_type` (6 classes)  
+   - `sample_host` (12 classes)
+   - `material` (13 classes)
+   
+   Each epsilon optimized independently via nested cross-validation (range: 0.0-0.15).
+
+3. **Corrected Nested Cross-Validation:**
+   - Each hyperparameter trial evaluated on **all 3 inner folds** (not split across trials)
+   - Mini-batch training with DataLoader (batch_size: 32-256)
+   - No test set leakage: separate sub-validation split for early stopping
+   - Combined stratification: `sample_type + community_type` (12 combinations)
+   - Balanced metric: average of (balanced_accuracy + macro_F1) / 2 across tasks
+
+4. **Robust Model Selection:** 5-fold outer CV for final evaluation, hyperparameters averaged across folds for final model training.
 
 ---
 
@@ -128,13 +153,7 @@ Key settings:
 - **Optimization:** 50 Optuna trials per fold
 - **Execution:** SLURM GPU array jobs (`use_slurm: true`)
 
-### Two Training Approaches
-
-You can use either the **manual SBATCH workflow** (current approach) or the **CLI workflow** (legacy, needs config updates).
-
----
-
-#### Approach A: Manual SBATCH Workflow (Current)
+### Training Workflow
 
 **Step 1: Hyperparameter Optimization**
 
@@ -179,35 +198,7 @@ TRAIN_CONFIG=results/training_bioproject_v3/final_training_config.json \
 - Uses 10% for validation and early stopping (251 samples)
 - Saves final model when validation loss plateaus
 
----
 
-#### Approach B: CLI Workflow (Legacy)
-
-**Note:** This approach uses the old split (data/splits/). Update config paths to use BioProject split if needed.
-
-**Step 1: Hyperparameter Optimization**
-
-```bash
-# Submit 5-fold CV hyperparameter search (SLURM array job)
-mamba run -p ./env diana-train multitask \
-  --config configs/train_config.yaml \
-  --output results/training \
-  --mode optimize
-```
-
-This internally submits `scripts/training/run_multitask_gpu.sbatch` as a SLURM array job.
-
-**Step 2: Train Final Model**
-
-After all folds complete (`squeue -j <job_id>` shows no jobs):
-
-```bash
-# Train on full training set with best hyperparameters from CV
-mamba run -p ./env diana-train multitask \
-  --config configs/train_config.yaml \
-  --output results/training \
-  --mode train
-```
 
 ---
 
