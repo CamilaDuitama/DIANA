@@ -58,7 +58,11 @@ def aggregate_hyperparameters(fold_results: List[Dict[str, Any]]) -> Dict[str, A
     - Numeric parameters: mean
     - Categorical parameters: mode (most common value)
     - Boolean parameters: mode
+    - Integer categorical (batch_size, n_layers): mode (not mean)
     """
+    # Integer parameters that should use mode instead of mean
+    CATEGORICAL_INT_PARAMS = {'batch_size', 'n_layers'}
+    
     params_by_key = defaultdict(list)
     
     # Collect all parameter values
@@ -70,7 +74,11 @@ def aggregate_hyperparameters(fold_results: List[Dict[str, Any]]) -> Dict[str, A
     aggregated = {}
     
     for key, values in params_by_key.items():
-        if isinstance(values[0], (int, float, np.number)):
+        if key in CATEGORICAL_INT_PARAMS:
+            # Categorical integers: use mode and return as int
+            mode_value = stats.mode(values, keepdims=False)[0]
+            aggregated[key] = int(mode_value) if isinstance(mode_value, (int, np.integer, float)) else int(mode_value)
+        elif isinstance(values[0], (int, float, np.number)):
             # Numeric: take mean
             aggregated[key] = float(np.mean(values))
         elif isinstance(values[0], bool):
@@ -83,9 +91,12 @@ def aggregate_hyperparameters(fold_results: List[Dict[str, Any]]) -> Dict[str, A
     return aggregated
 
 
-def aggregate_metrics(fold_results: List[Dict[str, Any]]) -> Dict[str, Dict[str, float]]:
+def aggregate_metrics(fold_results: List[Dict[str, Any]]) -> Dict[str, Dict[str, Dict[str, float]]]:
     """
     Compute mean and std of test metrics across folds.
+    
+    Returns:
+        Dict mapping task -> metric -> {'mean', 'std', 'min', 'max'}
     """
     task_names = list(fold_results[0]['test_metrics'].keys())
     metric_names = list(fold_results[0]['test_metrics'][task_names[0]].keys())
@@ -241,9 +252,9 @@ def main():
         'fold_details': [
             {
                 'fold_id': r['fold_id'],
-                'n_train': r.get('n_train', r.get('n_train')),  # Handle both old and new format
-                'n_val': r.get('n_val', 0),  # New format has separate val set
-                'n_test': r.get('n_test', r.get('n_test')),
+                'n_train': r.get('n_train', 0),
+                'n_val': r.get('n_val', 0),
+                'n_test': r.get('n_test', 0),
                 'test_metrics': r['test_metrics']
             }
             for r in fold_results
