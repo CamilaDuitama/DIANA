@@ -100,12 +100,25 @@ def build_slopegraph(
     metric_key must match a key in the per-task dicts inside metrics.json
     (e.g. 'balanced_accuracy' or 'f1_macro_seen').
     """
-    # Collect values
+    # Collect values and confidence intervals
     test_v: dict = {}
     val_v:  dict = {}
+    test_ci_low: dict = {}
+    test_ci_high: dict = {}
+    val_ci_low: dict = {}
+    val_ci_high: dict = {}
+    
+    ci_key_low = f"{metric_key}_ci_low"
+    ci_key_high = f"{metric_key}_ci_high"
+    
     for task in TASKS:
         test_v[("DIANA", task)] = raw["diana"][task].get(metric_key, float("nan")) * 100
         val_v[("DIANA",  task)] = raw["diana_val"][task].get(metric_key, float("nan")) * 100
+        test_ci_low[("DIANA", task)] = raw["diana"][task].get(ci_key_low, float("nan")) * 100
+        test_ci_high[("DIANA", task)] = raw["diana"][task].get(ci_key_high, float("nan")) * 100
+        val_ci_low[("DIANA", task)] = raw["diana_val"][task].get(ci_key_low, float("nan")) * 100
+        val_ci_high[("DIANA", task)] = raw["diana_val"][task].get(ci_key_high, float("nan")) * 100
+    
     for model in MODELS[1:]:
         for task in TASKS:
             test_v[(model, task)] = (
@@ -113,6 +126,18 @@ def build_slopegraph(
             )
             val_v[(model, task)] = (
                 raw["baselines_val"].get(model, {}).get(task, {}).get(metric_key, float("nan")) * 100
+            )
+            test_ci_low[(model, task)] = (
+                raw["baselines_test"].get(model, {}).get(task, {}).get(ci_key_low, float("nan")) * 100
+            )
+            test_ci_high[(model, task)] = (
+                raw["baselines_test"].get(model, {}).get(task, {}).get(ci_key_high, float("nan")) * 100
+            )
+            val_ci_low[(model, task)] = (
+                raw["baselines_val"].get(model, {}).get(task, {}).get(ci_key_low, float("nan")) * 100
+            )
+            val_ci_high[(model, task)] = (
+                raw["baselines_val"].get(model, {}).get(task, {}).get(ci_key_high, float("nan")) * 100
             )
 
     border = PLOT_CONFIG["border_color"]
@@ -128,6 +153,17 @@ def build_slopegraph(
         for model in MODELS:
             t_val = test_v.get((model, task), float("nan"))
             v_val = val_v.get((model, task), float("nan"))
+            
+            # Compute error bars (asymmetric)
+            t_ci_low = test_ci_low.get((model, task), float("nan"))
+            t_ci_high = test_ci_high.get((model, task), float("nan"))
+            v_ci_low = val_ci_low.get((model, task), float("nan"))
+            v_ci_high = val_ci_high.get((model, task), float("nan"))
+            
+            # Error arrays: distance from point to error bar
+            error_y_array = [t_ci_high - t_val, v_ci_high - v_val]
+            error_y_arrayminus = [t_val - t_ci_low, v_val - v_ci_low]
+            
             is_diana   = model == "DIANA"
             do_legend  = model not in shown
             if do_legend:
@@ -144,12 +180,23 @@ def build_slopegraph(
                         color=MODEL_COLORS[model],
                         line=dict(color=border, width=1.5 if is_diana else 0.5),
                     ),
+                    error_y=dict(
+                        type='data',
+                        array=error_y_array,
+                        arrayminus=error_y_arrayminus,
+                        color=MODEL_COLORS[model],
+                        thickness=1.5 if is_diana else 1.0,
+                        width=4 if is_diana else 3,
+                    ),
                     opacity=MODEL_OPACITY[model],
                     name=DISPLAY_NAMES[model],
                     showlegend=do_legend,
                     legendgroup=model,
+                    customdata=[[t_ci_low, t_ci_high], [v_ci_low, v_ci_high]],
                     hovertemplate=(
-                        f"<b>{DISPLAY_NAMES[model]}</b><br>%{{x}}: %{{y:.1f}}%<extra></extra>"
+                        f"<b>{DISPLAY_NAMES[model]}</b><br>"
+                        "%{x}: %{y:.1f}%<br>"
+                        "95% CI: [%{customdata[0]:.1f}, %{customdata[1]:.1f}]%<extra></extra>"
                     ),
                 ),
                 row=1, col=col,
