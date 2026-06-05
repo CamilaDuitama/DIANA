@@ -254,6 +254,44 @@ paper/tables/
 ├── test_set_per_class_metrics_{task}.csv + .tex       # 4 tasks
 └── hyperparameters.csv + .tex + .html + .png
 ```
+### Step 6: Generate Validation Predictions (v3 Model)
+
+Re-run inference on the 360-sample validation set using the v3 model (per-task label smoothing). The k-mer fraction files from the previous run are reused — only the model changes.
+
+```bash
+# Submit SLURM array job (611 tasks, one per validation accession)
+sbatch scripts/validation/run_inference_bioproject_v3.sbatch
+```
+
+```
+Output: results/validation_predictions_bioproject_v3/{ACC}/{ACC}_predictions.json
+```
+
+### Step 7: Confidence Calibration Analysis
+
+Evaluates whether predicted confidence scores are reliable (correct predictions should have higher confidence than incorrect ones). Generates reliability diagrams, ECE/MCE metrics, and precision-recall flagging curves.
+
+```bash
+mamba run -p ./env python scripts/paper/32_confidence_calibration_analysis.py \
+  --predictions results/test_evaluation_bioproject_v3/test_predictions.tsv \
+  --val-pred-dir results/validation_predictions_bioproject_v3 \
+  --label-encoders results/training_bioproject_v3/label_encoders.json
+```
+
+**Expected outputs:**
+```
+paper/figures/final/sup_calibration_A_confidence_distributions.png/.html
+paper/figures/final/sup_calibration_B_precision_recall_flagging.png/.html
+paper/figures/final/sup_calibration_C_reliability_diagrams.png/.html
+results/calibration_analysis/calibration_metrics.json
+```
+
+Or run everything at once (after validation predictions are ready):
+
+```bash
+bash scripts/paper/generate_all_paper_materials.sh
+```
+
 ---
 
 ## Feature Analysis
