@@ -36,6 +36,13 @@ def main():
     with open(config_file) as f:
         config = json.load(f)
 
+    # Set random seeds for reproducibility
+    random_seed = config.get('random_seed', 42)
+    np.random.seed(random_seed)
+    torch.manual_seed(random_seed)
+    torch.cuda.manual_seed_all(random_seed)
+    logger.info(f'Random seed set to: {random_seed}')
+
     # P1: Hyperparameters now come pre-formatted in nested structure
     hyperparams = config['hyperparameters']
     
@@ -88,41 +95,14 @@ def main():
         task_info[task_name] = n_classes
         logger.info(f"Task '{task_name}': {n_classes} classes")
 
-    # Split into sub-train and validation for early stopping
-    validation_split = config['validation_split']
-    logger.info(f'Creating validation split: {validation_split * 100:.0f}% for validation')
-
-    indices = np.arange(len(X_full))
-    train_idx, val_idx = train_test_split(
-        indices,
-        test_size=validation_split,
-        random_state=42,
-        stratify=y_full[task_names[0]]
-    )
-
-    X_train, X_val = X_full[train_idx], X_full[val_idx]
-    y_train = {task: y_full[task][train_idx] for task in task_names}
-    y_val = {task: y_full[task][val_idx] for task in task_names}
-
-    logger.info(f'Sub-train samples: {len(X_train)}')
-    logger.info(f'Validation samples: {len(X_val)}')
-
-    # P1: Initialize model with clean nested params (use unpacking)
-    device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    logger.info(f'Using device: {device}')
-    
-    model = MultiTaskMLP(
-        input_dim=X_full.shape[1],
-        num_classes=task_info,  # Changed from task_info to num_classes
-        **hyperparams['model_params']  # Unpacks: hidden_dims, dropout, activation, use_batch_norm
-    )
-
-    # Compute class weights for handling class imbalance
+    # Compute class weights BEFORE split (on full training set)
     logger.info('Computing class weights for handling class imbalance...')
     class_weights = {}
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    
     for task_name in task_names:
-        unique, counts = np.unique(y_train[task_name], return_counts=True)
-        total = len(y_train[task_name])
+        unique, counts = np.unique(y_full[task_name], return_counts=True)
+        total = len(y_full[task_name])
         n_total_classes = task_info[task_name]
         
         # Initialize weights for all classes with 1.0 (neutral weight for missing classes)
@@ -135,7 +115,50 @@ def main():
         class_weights[task_name] = torch.FloatTensor(weights).to(device)
         logger.info(f"{task_name} - Classes: {len(unique)}, Weights (present): {dict(zip(unique.astype(int), weights[unique]))}")
 
+    # Split into sub-train and validation for early stopping
+    validation_split = config.get('validation_split', 0.1)
+    logger.info(f'Creating validation split: {validation_split * 100:.0f}% for validation')
+
+    # Create combined stratification key (sample_type + community_type)
+    stratify_key = None
+    if 'sample_type' in task_names and 'community_type' in task_names:
+        # Combine first two tasks for better stratification
+        stratify_key = y_full['sample_type'] * 1000 + y_full['community_type']
+        logger.info('Using combined sample_type + community_type for stratification')
+    else:
+        stratify_key = y_full[task_names[0]]
+        logger.info(f'Using {task_names[0]} for stratification')
+
+    indices = np.arange(len(X_full))
+    train_idx, val_idx = train_test_split(
+        indices,
+        test_size=validation_split,
+        random_state=random_seed,
+        stratify=stratify_key
+    )
+
+    X_train, X_val = X_full[train_idx], X_full[val_idx]
+    y_train = {task: y_full[task][train_idx] for task in task_names}
+    y_val = {task: y_full[task][val_idx] for task in task_names}
+
+    logger.info(f'Sub-train samples: {len(X_train)}')
+    logger.info(f'Validation samples: {len(X_val)}')
+
+    # P1: Initialize model with clean nested params (use unpacking)
+    logger.info(f'Using device: {device}')
+    
+    model = MultiTaskMLP(
+        input_dim=X_full.shape[1],
+        num_classes=task_info,  # Changed from task_info to num_classes
+        **hyperparams['model_params']  # Unpacks: hidden_dims, dropout, activation, use_batch_norm
+    )
+
     # P1: Initialize trainer with clean nested params + class weights
+    # label_smoothing can be a float (shared) or dict (per-task)
+    label_smoothing = config.get(
+        'label_smoothing_per_task',
+        config.get('label_smoothing', 0.0)
+    )
     trainer = MultiTaskTrainer(
         model=model,
         task_names=task_names,
@@ -143,7 +166,8 @@ def main():
         learning_rate=hyperparams['trainer_params']['learning_rate'],
         weight_decay=hyperparams['trainer_params']['weight_decay'],
         task_weights=hyperparams['trainer_params']['task_weights'],
-        class_weights=class_weights
+        class_weights=class_weights,
+        label_smoothing=label_smoothing,
     )
 
     # Train with early stopping
@@ -153,9 +177,9 @@ def main():
         y_train=y_train,
         X_val=X_val,
         y_val=y_val,
-        max_epochs=config['max_epochs'],
+        max_epochs=config.get('max_epochs', 200),
         batch_size=hyperparams['batch_size'],
-        patience=config['early_stopping_patience'],
+        patience=config.get('early_stopping_patience', config.get('patience', 20)),
         checkpoint_dir=Path(config['output_dir']),
         verbose=True
     )

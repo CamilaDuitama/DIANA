@@ -164,7 +164,8 @@ def create_final_training_config(
         'task_weights': task_weights,  # Backward compatibility
         'validation_split': 0.1,
         'max_epochs': 200,
-        'early_stopping_patience': 20
+        'early_stopping_patience': 20,
+        'random_seed': 42
     }
     
     # Add label smoothing if present (v3 only)
@@ -200,12 +201,12 @@ def main():
     print()
     
     # Load results from all folds
-    print("Loading fold results...")
+    print("Step 1: Loading fold results...")
     fold_results = load_fold_results(args.cv_dir, args.n_folds)
     print(f"✓ Loaded {len(fold_results)} folds\n")
     
     # Aggregate hyperparameters
-    print("Aggregating hyperparameters...")
+    print("Step 2: Aggregating hyperparameters...")
     best_params = aggregate_hyperparameters(fold_results)
     print("✓ Averaged hyperparameters:")
     for key, value in sorted(best_params.items()):
@@ -216,7 +217,7 @@ def main():
     print()
     
     # Aggregate metrics
-    print("Aggregating test metrics...")
+    print("Step 3: Aggregating test metrics...")
     aggregated_metrics = aggregate_metrics(fold_results)
     print("✓ Cross-validation performance (mean ± std):")
     for task, metrics in aggregated_metrics.items():
@@ -226,6 +227,7 @@ def main():
     print()
     
     # Save best hyperparameters
+    print("Step 4: Saving results...")
     best_params_file = args.cv_dir / 'best_hyperparameters.json'
     with open(best_params_file, 'w') as f:
         json.dump(best_params, f, indent=4)
@@ -254,7 +256,7 @@ def main():
     print(f"✓ Saved: {aggregated_file}")
     
     # Create final training config
-    print("\nCreating final training configuration...")
+    print("\nStep 5: Creating final training configuration...")
     final_config = create_final_training_config(
         args.cv_dir,
         best_params,
