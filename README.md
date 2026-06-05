@@ -42,6 +42,8 @@ This implementation includes several critical improvements over the initial vers
 9. [Output Structure](#output-structure)
 10. [Script Organization](#script-organization)
 
+**Model Evaluation steps:** Setup → Step 1 (hyperopt) → Step 2 (aggregate CV) → Step 3 (train final) → Step 4 (test eval) → Step 5 (plots) → Step 6 (val predictions) → Step 7 (calibration) → Step 8 (training metrics) → Step 9 (all paper materials) → Baseline Comparison
+
 ---
 
 ## Environment Setup
@@ -257,16 +259,18 @@ paper/tables/
 ```
 ### Step 6: Generate Validation Predictions (v3 Model)
 
-Re-run inference on the 360-sample validation set using the v3 model (per-task label smoothing). The k-mer fraction files from the previous run are reused — only the model changes.
+Re-run inference using the v3 model on all 611 validation accessions (360 labeled + 251 extra unlabeled). The k-mer fraction files computed previously are reused — only the model changes.
 
 ```bash
-# Submit SLURM array job (611 tasks, one per validation accession)
+# Submit SLURM array job (611 tasks, one per accession)
 sbatch scripts/validation/run_inference_bioproject_v3.sbatch
 ```
 
 ```
 Output: results/validation_predictions_bioproject_v3/{ACC}/{ACC}_predictions.json
 ```
+
+> **Note:** Only the 360 labeled samples (in `data/splits_bioproject/validation_metadata.tsv`) are used for performance evaluation. The 251 extra samples are unlabeled and used for exploratory predictions only.
 
 ### Step 7: Confidence Calibration Analysis
 
@@ -287,26 +291,48 @@ paper/figures/final/sup_calibration_C_reliability_diagrams.png/.html
 results/calibration_analysis/calibration_metrics.json
 ```
 
-Or run everything at once (after validation predictions are ready):
+### Step 8: Evaluate Model on Training Set
+
+Required before generating the main performance table (Table 1). Runs a single forward pass of the trained model on all 2,515 training samples.
+
+```bash
+mamba run -p ./env python scripts/evaluation/06_compute_training_metrics.py
+```
+
+```
+Output: results/training_bioproject_v3/training_set_metrics.json
+```
+
+### Step 9: Generate All Paper Materials
+
+Regenerates all publication figures and tables from the results above. Requires Steps 4–8 to be complete.
 
 ```bash
 bash scripts/paper/generate_all_paper_materials.sh
 ```
 
+> **Note:** This script does **not** run calibration (Step 7) or generalisation gap plots. Run those separately:
+> ```bash
+> # Calibration supplementary figures
+> mamba run -p ./env python scripts/paper/32_confidence_calibration_analysis.py \
+>   --predictions results/test_evaluation_bioproject_v3/test_predictions.tsv \
+>   --val-pred-dir results/validation_predictions_bioproject_v3 \
+>   --label-encoders results/training_bioproject_v3/label_encoders.json
+>
+> # Generalisation gap slopegraphs (requires baseline comparison to be done first)
+> mamba run -p ./env python scripts/paper/34_generate_generalisation_gap_plots.py
+> ```
+
 ---
 
 ## Baseline Comparison
 
-Trains classical ML classifiers (MajorityClass, LogisticRegression, LinearSVM, RidgeClassifier, RandomForest) on the full training set and evaluates them on the held-out test set and validation set. Generates `metrics.json` with bootstrapped CIs used by all comparison figures.
+Compares DIANA against classical ML baselines (MajorityClass, LogisticRegression, LinearSVM, RidgeClassifier, RandomForest) on the held-out test set and the labeled validation set. For each model × task combination, Balanced Accuracy and macro F1 are reported with **95% bootstrap confidence intervals** (1,000 resamples). Results feed directly into the comparison figures.
 
-> **Baseline re-training is only needed once.** If only the DIANA model changes (e.g. after retraining), patch the DIANA rows directly with the lightweight script below — no need to retrain baselines.
+The baseline models are trained once on the full training set (n=2,515, 107K features). This step is compute-intensive; run it on a compute node:
 
 ```bash
-# Initial run: trains all baselines (~10-30 min, run on a compute node via sbatch)
-sbatch scripts/evaluation/run_test_baseline_comparison.sbatch
-
-# After updating DIANA (e.g. after retraining): patch only DIANA rows (~2 sec)
-mamba run -p ./env python scripts/evaluation/patch_diana_in_metrics.py
+sbatch scripts/evaluation/run_test_baseline_comparison.sbatch   # ~10–30 min
 ```
 
 **Expected outputs:**
@@ -317,13 +343,18 @@ results/baseline_comparison_bioproject/
 └── summary.tex         # LaTeX table
 ```
 
+> **After retraining DIANA** (baselines unchanged), update only the DIANA rows in `metrics.json` without redoing baseline training (~5 sec):
+> ```bash
+> mamba run -p ./env python scripts/evaluation/patch_diana_in_metrics.py
+> ```
+
 Then regenerate the comparison figures:
 
 ```bash
 # Supplementary Figure 6: DIANA vs baselines bar chart
 mamba run -p ./env python scripts/paper/21_generate_baseline_comparison.py
 
-# Supplementary Figure 7: Generalisation gap (Test → Validation slopegraphs)
+# Supplementary Figure 7: Generalisation gap (Test → Validation slopegraphs with 95% CIs)
 mamba run -p ./env python scripts/paper/34_generate_generalisation_gap_plots.py
 ```
 
