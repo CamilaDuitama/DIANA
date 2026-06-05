@@ -31,6 +31,7 @@ OUTPUTS:
   results/calibration_analysis/calibration_metrics.json
 """
 
+import argparse
 import json
 import sys
 import warnings
@@ -48,10 +49,12 @@ from config import PATHS, PLOT_CONFIG
 
 warnings.filterwarnings("ignore")
 
-# ─── Paths ───────────────────────────────────────────────────────────────────
+# ─── Paths (defaults; overridden by CLI args) ─────────────────────────────────
 
-TEST_TSV        = Path("results/test_evaluation_bioproject/test_predictions.tsv")
-VAL_PRED_DIR    = Path("results/validation_predictions_bioproject")
+TEST_TSV        = Path(PATHS.get("test_predictions",
+                      "results/test_evaluation_bioproject_v3/test_predictions.tsv"))
+VAL_PRED_DIR    = Path(PATHS.get("predictions_dir",
+                      "results/validation_predictions_bioproject_v3"))
 VAL_META        = Path("data/splits_bioproject/validation_metadata.tsv")
 LABEL_ENCODERS  = Path(PATHS["label_encoders"])
 OUTPUT_DIR      = Path("results/calibration_analysis")
@@ -553,4 +556,28 @@ def main():
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Confidence calibration analysis for DIANA models")
+    parser.add_argument("--predictions", type=Path, default=None,
+                        help="Path to test predictions TSV (default: results/test_evaluation_bioproject/test_predictions.tsv)")
+    parser.add_argument("--val-pred-dir", type=Path, default=None,
+                        help="Path to validation predictions directory")
+    parser.add_argument("--label-encoders", type=Path, default=None,
+                        help="Path to label_encoders.json")
+    parser.add_argument("--output", type=Path, default=None,
+                        help="Output directory for calibration_metrics.json")
+    parser.add_argument("--figures-dir", type=Path, default=None,
+                        help="Output directory for figures")
+    args = parser.parse_args()
+
+    if args.predictions is not None:
+        TEST_TSV = args.predictions
+    if args.val_pred_dir is not None:
+        VAL_PRED_DIR = args.val_pred_dir
+    if args.label_encoders is not None:
+        LABEL_ENCODERS = args.label_encoders
+    if args.output is not None:
+        OUTPUT_DIR = args.output
+    if args.figures_dir is not None:
+        FIGURES_DIR = args.figures_dir
+
     main()

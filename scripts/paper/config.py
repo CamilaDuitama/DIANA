@@ -28,6 +28,7 @@ PATHS = {
     
     # Performance metrics
     'test_metrics': 'results/test_evaluation_bioproject_v3/test_metrics.json',
+    'test_predictions': 'results/test_evaluation_bioproject_v3/test_predictions.tsv',
     'training_metrics': 'results/training_bioproject_v3/training_set_metrics.json',  # Full training set
     'training_history': 'results/training_bioproject_v3/training_history.json',
     

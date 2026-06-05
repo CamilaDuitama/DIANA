@@ -87,6 +87,12 @@ run_script "scripts/paper/20_generate_logan_search_taxonomy_barplot.py" \
 run_script "scripts/paper/21_generate_baseline_comparison.py" \
     "Supplementary Figure 6: Baseline Comparison"
 
+run_script "scripts/paper/34_generate_generalisation_gap_plots.py" \
+    "Supplementary Figure 7: Generalisation Gap (Test → Validation slopegraphs)"
+
+run_script "scripts/paper/32_confidence_calibration_analysis.py" \
+    "Supplementary Figure 8: Confidence Calibration Analysis"
+
 # ============================================================================
 # MAIN TABLES
 # ============================================================================
