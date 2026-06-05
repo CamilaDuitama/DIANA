@@ -1,0 +1,71 @@
+{
+  "sample_id": "ERR13950646",
+  "input_file": "results/validation_predictions/ERR13950646/ERR13950646_unitig_fraction.txt",
+  "model_path": "results/training_bioproject/best_model.pth",
+  "predictions": {
+    "sample_type": {
+      "predicted_class": "ancient_metagenome",
+      "class_index": 0,
+      "probabilities": {
+        "ancient_metagenome": 0.9999998807907104,
+        "modern_metagenome": 1.2304400343055022e-07
+      },
+      "confidence": 0.9999998807907104
+    },
+    "community_type": {
+      "predicted_class": "Not applicable - env sample",
+      "class_index": 0,
+      "probabilities": {
+        "Not applicable - env sample": 1.0,
+        "gut": 1.8299990348936374e-25,
+        "oral": 1.8202022452674075e-26,
+        "plant tissue": 1.3236485193143162e-22,
+        "skeletal tissue": 2.5494268703206908e-20,
+        "soft tissue": 5.0787006826572647e-26
+      },
+      "confidence": 1.0
+    },
+    "sample_host": {
+      "predicted_class": "Not applicable - env sample",
+      "class_index": 6,
+      "probabilities": {
+        "Ambrosia artemisiifolia": 3.5129101749632356e-19,
+        "Arabidopsis thaliana": 1.0837853267711531e-22,
+        "Canis lupus": 5.8566877182398144e-18,
+        "Gorilla sp.": 1.8733881103140232e-26,
+        "Homo sapiens": 2.752449175136911e-19,
+        "Homo sapiens neanderthalensis": 2.3261596748676365e-31,
+        "Not applicable - env sample": 1.0,
+        "Other mammal": 6.0177894434212105e-22,
+        "Pan troglodytes": 1.8355740608501018e-22,
+        "Rangifer tarandus": 1.2146951405401227e-21,
+        "Ursus arctos": 1.209878558787311e-25
+      },
+      "confidence": 1.0
+    },
+    "material": {
+      "predicted_class": "sediment",
+      "class_index": 9,
+      "probabilities": {
+        "Skin": 5.124727588310522e-18,
+        "bone": 6.812873351175081e-18,
+        "dental calculus": 1.4679900918699218e-18,
+        "digestive_contents": 9.119961582725206e-20,
+        "gingiva": 1.750036303310305e-27,
+        "leaf": 1.2780517422421533e-18,
+        "midden": 7.114671265323613e-13,
+        "permafrost": 2.2047261794000406e-08,
+        "saliva": 9.05099867754119e-26,
+        "sediment": 0.9999998807907104,
+        "shell": 8.446364718750488e-10,
+        "soft_tissue": 1.7172127710964532e-23,
+        "soil": 7.165760962379863e-08,
+        "supragingival plaque": 8.759763927063786e-24,
+        "throat swab": 1.576622201449018e-21,
+        "tongue": 6.146099837391575e-32,
+        "tooth": 3.147759686526862e-21
+      },
+      "confidence": 0.9999998807907104
+    }
+  }
+}

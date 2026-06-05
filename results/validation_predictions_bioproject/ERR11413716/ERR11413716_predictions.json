@@ -1,0 +1,71 @@
+{
+  "sample_id": "ERR11413716",
+  "input_file": "results/validation_predictions/ERR11413716/ERR11413716_unitig_fraction.txt",
+  "model_path": "results/training_bioproject/best_model.pth",
+  "predictions": {
+    "sample_type": {
+      "predicted_class": "ancient_metagenome",
+      "class_index": 0,
+      "probabilities": {
+        "ancient_metagenome": 0.9999905824661255,
+        "modern_metagenome": 9.418417903361842e-06
+      },
+      "confidence": 0.9999905824661255
+    },
+    "community_type": {
+      "predicted_class": "oral",
+      "class_index": 2,
+      "probabilities": {
+        "Not applicable - env sample": 0.0,
+        "gut": 0.0,
+        "oral": 1.0,
+        "plant tissue": 0.0,
+        "skeletal tissue": 1.0082099001149092e-12,
+        "soft tissue": 1.662203422800526e-38
+      },
+      "confidence": 1.0
+    },
+    "sample_host": {
+      "predicted_class": "Homo sapiens",
+      "class_index": 4,
+      "probabilities": {
+        "Ambrosia artemisiifolia": 0.0,
+        "Arabidopsis thaliana": 0.0,
+        "Canis lupus": 0.0,
+        "Gorilla sp.": 6.081511859475262e-35,
+        "Homo sapiens": 1.0,
+        "Homo sapiens neanderthalensis": 0.0,
+        "Not applicable - env sample": 5.605193857299268e-45,
+        "Other mammal": 1.401298464324817e-45,
+        "Pan troglodytes": 2.2443358053208812e-32,
+        "Rangifer tarandus": 0.0,
+        "Ursus arctos": 5.605193857299268e-45
+      },
+      "confidence": 1.0
+    },
+    "material": {
+      "predicted_class": "dental calculus",
+      "class_index": 2,
+      "probabilities": {
+        "Skin": 2.6188866999766506e-41,
+        "bone": 4.221338474507983e-28,
+        "dental calculus": 1.0,
+        "digestive_contents": 1.9748499257729647e-41,
+        "gingiva": 1.926364998907326e-41,
+        "leaf": 0.0,
+        "midden": 0.0,
+        "permafrost": 9.50080358812226e-43,
+        "saliva": 0.0,
+        "sediment": 0.0,
+        "shell": 2.802596928649634e-45,
+        "soft_tissue": 0.0,
+        "soil": 0.0,
+        "supragingival plaque": 4.473081913270443e-37,
+        "throat swab": 5.142765364072079e-43,
+        "tongue": 3.3660937933565583e-37,
+        "tooth": 2.1936525484989033e-08
+      },
+      "confidence": 1.0
+    }
+  }
+}

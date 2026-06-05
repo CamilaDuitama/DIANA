@@ -1,0 +1,44 @@
+2026-06-04 12:48:56 - root - INFO - Logging to file: results/training_bioproject/diana_train.log
+2026-06-04 12:48:56 - diana.cli.train - INFO - Using CPU
+2026-06-04 12:48:56 - diana.cli.train - INFO - Aggregating fold results from cv_results/ directory...
+2026-06-04 12:48:56 - diana.cli.train - INFO - Found 10 fold result directories
+2026-06-04 12:48:56 - diana.cli.train - INFO - Aggregating cross-validation results...
+2026-06-04 12:48:56 - diana.cli.train - INFO - Saved aggregated results to results/training_bioproject/cv_results/aggregated_results.json
+2026-06-04 12:48:56 - diana.cli.train - INFO - Saved best hyperparameters to results/training_bioproject/cv_results/best_hyperparameters.json
+2026-06-04 12:48:56 - diana.cli.train - INFO - Aggregation complete!
+2026-06-04 12:48:56 - diana.cli.train - INFO - Best hyperparameters saved to: results/training_bioproject/cv_results/best_hyperparameters.json
+2026-06-04 12:48:56 - diana.cli.train - INFO - Aggregated metrics saved to: results/training_bioproject/cv_results/aggregated_results.json
+2026-06-04 12:48:56 - diana.cli.train - INFO - Aggregation complete! Continue with:
+2026-06-04 12:48:56 - diana.cli.train - INFO -   diana-train multitask --config configs/train_config_bioproject.yaml --output results/training_bioproject --mode train
+2026-06-04 12:51:43 - root - INFO - Logging to file: results/training_bioproject/diana_train.log
+2026-06-04 12:51:43 - diana.cli.train - INFO - Using CPU
+2026-06-04 12:51:43 - diana.cli.train - INFO - ==================================================
+2026-06-04 12:51:43 - diana.cli.train - INFO - Training final model with validation-based early stopping
+2026-06-04 12:51:43 - diana.cli.train - INFO - ==================================================
+2026-06-04 12:51:43 - diana.cli.train - INFO - Loading best hyperparameters from results/training_bioproject/cv_results/best_hyperparameters.json
+2026-06-04 12:51:43 - diana.cli.train - INFO - Hyperparameters: {
+  "n_layers": 3.0,
+  "hidden_dim_0": 230.4,
+  "hidden_dim_1": 345.6,
+  "dropout": 0.19369653759733,
+  "learning_rate": 0.001314792693056225,
+  "weight_decay": 0.0001646195089484529,
+  "batch_size": 70.4,
+  "use_batch_norm": 0.0,
+  "activation": "relu",
+  "task_weight_sample_type": 0.9208980048929915,
+  "task_weight_community": 1.4185972911348994,
+  "task_weight_host": 1.1845710766610615,
+  "task_weight_material": 1.6278785837280616
+}
+2026-06-04 12:51:43 - diana.cli.train - INFO - Submitting SLURM job for final training...
+2026-06-04 12:51:43 - diana.cli.train - INFO - Converted hyperparameters to nested structure:
+2026-06-04 12:51:43 - diana.cli.train - INFO -   Model params: {'hidden_dims': [230, 346], 'dropout': 0.19369653759733, 'activation': 'relu', 'use_batch_norm': False}
+2026-06-04 12:51:43 - diana.cli.train - INFO -   Trainer params: {'learning_rate': 0.001314792693056225, 'weight_decay': 0.0001646195089484529, 'task_weights': {'sample_type': 0.9208980048929915, 'community_type': 1.4185972911348994, 'sample_host': 1.1845710766610615, 'material': 1.6278785837280616}}
+2026-06-04 12:51:43 - diana.cli.train - INFO -   Batch size: 70
+2026-06-04 12:51:43 - diana.cli.train - INFO - Saved training config to results/training_bioproject/final_training_config.json
+2026-06-04 12:51:43 - diana.cli.train - INFO - Submitted SLURM job: 46622021
+2026-06-04 12:51:43 - diana.cli.train - INFO - Monitor with: squeue -j 46622021
+2026-06-04 12:51:43 - diana.cli.train - INFO - Check logs in: results/logs
+2026-06-04 12:51:43 - diana.cli.train - INFO - Model will be saved to: results/training_bioproject/best_model.pth
+2026-06-04 12:51:43 - diana.cli.train - INFO - Pipeline complete!

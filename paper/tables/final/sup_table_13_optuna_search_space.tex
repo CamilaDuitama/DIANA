@@ -1,0 +1,36 @@
+\centering
+\caption{Optuna hyperparameter search space used during nested cross-validation.
+TPE (Tree-structured Parzen Estimator) sampler was used with 50 trials per inner fold.
+All random operations (numpy, PyTorch, TPE sampler, and cross-validation splits) used seed 42.
+The selected values in the final model correspond to the best hyperparameters from the outer-fold
+with highest validation balanced accuracy; full values are given in Supplementary Table~4.
+\label{tab:optuna_search_space}}
+\addcontentsline{toc}{subsection}{Supplementary Table 13: Optuna hyperparameter search space}
+\begin{tabular}{llll}
+\toprule
+\textbf{Category} & \textbf{Hyperparameter} & \textbf{Type} & \textbf{Search Range / Choices} \\
+\midrule
+\multirow{4}{*}{Architecture}
+  & Number of hidden layers & Integer       & $[2,\, 4]$ \\
+  & Hidden layer width       & Integer       & $[64,\, 512]$, step 64, per layer \\
+  & Dropout rate             & Float         & $[0.1,\, 0.5]$ \\
+  & Batch normalisation      & Categorical   & \{True, False\} \\
+  & Activation function      & Categorical   & \{ReLU, GELU, Leaky ReLU\} \\
+\addlinespace
+\multirow{3}{*}{Optimiser}
+  & Learning rate            & Log-float     & $[10^{-5},\, 10^{-2}]$ \\
+  & Weight decay ($\ell_2$)  & Log-float     & $[10^{-6},\, 10^{-3}]$ \\
+  & Batch size               & Categorical   & \{32, 64, 128, 256\} \\
+\addlinespace
+\multirow{4}{*}{Task weights ($w_t$)}
+  & Sample Type              & Float         & $[0.5,\, 2.0]$ \\
+  & Community Type           & Float         & $[0.5,\, 2.0]$ \\
+  & Sample Host              & Float         & $[0.5,\, 2.0]$ \\
+  & Material                 & Float         & $[0.5,\, 2.0]$ \\
+\bottomrule
+\multicolumn{4}{p{0.88\linewidth}}{\footnotesize
+Optimisation objective: mean balanced accuracy across all four tasks on the inner validation fold.
+Sampler: TPE \cite{optuna_2019} with \texttt{seed=42}, pruner: MedianPruner.
+50 Optuna trials were run per (outer-fold, inner-split) combination.
+Log-float parameters are sampled uniformly in log space.}
+\end{tabular}
