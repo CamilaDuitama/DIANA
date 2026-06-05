@@ -299,11 +299,14 @@ bash scripts/paper/generate_all_paper_materials.sh
 
 Trains classical ML classifiers (MajorityClass, LogisticRegression, LinearSVM, RidgeClassifier, RandomForest) on the full training set and evaluates them on the held-out test set and validation set. Generates `metrics.json` with bootstrapped CIs used by all comparison figures.
 
-> **Must be re-run whenever the DIANA model changes** (updates the DIANA rows in the comparison).
+> **Baseline re-training is only needed once.** If only the DIANA model changes (e.g. after retraining), patch the DIANA rows directly with the lightweight script below — no need to retrain baselines.
 
 ```bash
-# Run on CPU (~10-30 min; re-trains all baselines + loads DIANA v3 test/val results)
-mamba run -p ./env python scripts/evaluation/08_test_set_baseline_comparison.py
+# Initial run: trains all baselines (~10-30 min, run on a compute node via sbatch)
+sbatch scripts/evaluation/run_test_baseline_comparison.sbatch
+
+# After updating DIANA (e.g. after retraining): patch only DIANA rows (~2 sec)
+mamba run -p ./env python scripts/evaluation/patch_diana_in_metrics.py
 ```
 
 **Expected outputs:**
