@@ -4,21 +4,21 @@
 \toprule
 BioProject & Study & Train err. & Test err. & Val err. & Total & Err.\,(\%)$^{a}$ & Cum.\,(\%)$^{b}$ & Error type$^{c}$ & Main errors$^{d}$ \\
 \midrule
-\texttt{PRJNA994900} & Kirdok2024 & – & – & 210 & 210 & 75.0 & 13.4 & Absent class (Mat.) & birch pitch$\to$sediment (Mat.); ancient$\to$modern (ST) \\
-\texttt{PRJEB41240} & SeguinOrlando2021 & 149 & 21 & 12 & 182 & 19.1 & 25.0 & Genuine confusion & bone$\to$tooth/sediment (Mat.); \textit{H.\ sapiens}$\to$n.a. (SH) \\
-\texttt{PRJNA354503} & Philips2017 & 112 & 21 & 16 & 149 & 22.6 & 34.5 & Genuine confusion & oral$\to$skel.\ tissue (CT); tooth$\to$bone (Mat.) \\
-\texttt{PRJEB64128} & Jackson2024 & – & – & 122 & 122 & 41.8 & 42.3 & Genuine confusion & tooth$\to$dent.\ calc. (Mat.); oral$\to$skel.\ tissue (CT) \\
-\texttt{PRJEB34569} & FellowsYates2021 & 59 & 6 & 42 & 107 & 13.3 & 49.1 & Taxonomic granularity (SH) & \textit{G.\ b.\ beringei}$\to$\textit{Gorilla} sp.; \textit{P.\ t.\ schweinfurthii}$\to$\textit{P.\ troglodytes} \\
-\texttt{PRJEB61887} & Velsko2024 & – & – & 99 & 99 & 20.3 & 55.4 & Genuine confusion & oral$\to$skel.\ tissue (CT); bone$\to$tooth (Mat.) \\
-\texttt{PRJEB33848} & Neukamm2020 & 27 & 7 & 32 & 66 & 10.7 & 59.6 & Genuine confusion; Absent class (Mat.) & soft tis.$\to$skel.\ tis. (CT); Unknown$\to$bone (Mat.) \\
-\texttt{PRJEB49638} & Moraitou2022 & 18 & 10 & 32 & 60 & 15.8 & 63.5 & Taxonomic granularity (SH) & \textit{G.\ b.\ graueri}$\to$\textit{Gorilla} sp.; \textit{G.\ gorilla gorilla}$\to$\textit{Gorilla} sp. \\
-\texttt{PRJNA1211513} & Schreiber2025 & – & – & 48 & 48 & 25.0 & 66.5 & Label granularity (Mat.) & marine sed.$\to$sediment (Mat.) \\
-\texttt{PRJEB80877} & vonHippel2025 & – & – & 46 & 46 & 25.0 & 69.5 & Label granularity (Mat.) & lake sed.$\to$sediment (Mat.) \\
-\texttt{PRJNA836960} & Madison2023 & – & – & 35 & 35 & 79.5 & 71.7 & Absent class (Mat., SH) & intestine$\to$skin (Mat.); gut$\to$soft tissue (CT) \\
-\texttt{PRJEB67998} & Bozzi2024 & – & – & 34 & 34 & 44.7 & 73.9 & Genuine confusion & tooth$\to$bone/skin (Mat.); skel.\ tis.$\to$soft tis. (CT) \\
-\texttt{PRJNA1056444} & Austin2024 & – & – & 28 & 28 & 17.9 & 75.6 & Genuine confusion & \textit{H.\ sapiens}$\to$\textit{Pan troglodytes} (SH) \\
-\texttt{PRJEB11419} & – & – & – & 26 & 26 & 65.0 & 77.3 & Label granularity (Mat.) & faeces$\to$dig.\ tract (Mat.); modern$\to$ancient (ST) \\
-\texttt{PRJNA48479} & – & – & – & 25 & 25 & 32.9 & 78.9 & Genuine confusion & modern$\to$ancient (ST); oral$\to$skel.\ tissue (CT) \\
+\texttt{PRJEB41240} & SeguinOrlando2021 & 149 & 21 & – & 170 & 19.3 & 22.3 & Genuine confusion & bone$\to$tooth/sediment (Mat.); \textit{H.\ sapiens}$\to$n.a. (SH) \\
+\texttt{PRJNA354503} & Philips2017 & 112 & 21 & – & 133 & 21.7 & 39.8 & Genuine confusion & oral$\to$skel.\ tissue (CT); tooth$\to$bone (Mat.) \\
+\texttt{PRJEB64128} & Jackson2024 & – & – & 93 & 93 & 31.8 & 52.0 & Genuine confusion & tooth$\to$dent.\ calc. (Mat.); oral$\to$skel.\ tissue (CT) \\
+\texttt{PRJEB61887} & Velsko2024 & – & – & 87 & 87 & 17.8 & 63.4 & Genuine confusion & oral$\to$skel.\ tissue (CT); bone$\to$tooth (Mat.) \\
+\texttt{PRJEB34569} & FellowsYates2021 & 59 & 6 & – & 65 & 10.2 & 71.9 & Taxonomic granularity (SH) & \textit{G.\ b.\ beringei}$\to$\textit{Gorilla} sp.; \textit{P.\ t.\ schweinfurthii}$\to$\textit{P.\ troglodytes} \\
+\texttt{PRJEB67998} & Bozzi2024 & – & – & 36 & 36 & 47.4 & 76.6 & Genuine confusion & tooth$\to$bone/skin (Mat.); skel.\ tis.$\to$soft tis. (CT) \\
+\texttt{PRJEB33848} & Neukamm2020 & 27 & 7 & – & 34 & 6.5 & 81.1 & Genuine confusion; Absent class (Mat.) & soft tis.$\to$skel.\ tis. (CT); Unknown$\to$bone (Mat.) \\
+\texttt{PRJEB49638} & Moraitou2022 & 18 & 10 & – & 28 & 9.3 & 84.8 & Taxonomic granularity (SH) & \textit{G.\ b.\ graueri}$\to$\textit{Gorilla} sp.; \textit{G.\ gorilla gorilla}$\to$\textit{Gorilla} sp. \\
+\texttt{PRJNA433935} & – & – & – & 15 & 15 & 75.0 & 86.7 & Genuine confusion & soil$\to$skin (Mat.); env$\to$soft tissue (CT) \\
+\texttt{PRJNA1004851} & Murchie2023 & – & – & 13 & 13 & 40.6 & 88.5 & – & – \\
+\texttt{PRJNA1056444} & Austin2024 & – & – & 11 & 11 & 7.1 & 89.9 & Genuine confusion & \textit{H.\ sapiens}$\to$\textit{Pan troglodytes} (SH) \\
+\texttt{PRJNA706195} & – & – & – & 11 & 11 & 55.0 & 91.3 & Genuine confusion & modern$\to$ancient (ST); soil$\to$sediment (Mat.) \\
+\texttt{PRJEB5758} & – & – & 7 & – & 7 & 29.2 & 92.3 & – & – \\
+\texttt{PRJNA255439} & – & – & 7 & – & 7 & 35.0 & 93.2 & – & – \\
+\texttt{PRJNA380727} & – & – & – & 6 & 6 & 30.0 & 94.0 & – & – \\
 \bottomrule
 \end{tabular}%
 }

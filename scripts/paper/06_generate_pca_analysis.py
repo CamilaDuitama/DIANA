@@ -1963,21 +1963,6 @@ def main():
             logger.warning(f"  Discriminant features file not found: {discriminant_file}")
             feature_importance = None
         
-        # Generate loading plots for all taxonomy levels
-        taxonomy_levels = ['kingdom', 'phylum', 'class', 'order']
-        for tax_level in taxonomy_levels:
-            logger.info(f"\n{'='*60}")
-            logger.info(f"Generating loading plots colored by {tax_level}...")
-            logger.info(f"{'='*60}")
-            plot_pca_loadings(
-                pca, 
-                unitig_ids, 
-                blast_annotations, 
-                Path(PATHS['figures_dir']),
-                feature_importance=feature_importance,
-                color_by=tax_level
-            )
-        
         # Create unitig PCA plot colored by top 10 species
         plot_unitig_pca_by_top_species(
             pca,

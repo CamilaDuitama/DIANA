@@ -2,15 +2,15 @@
 #SBATCH --job-name=diana_val_bp_v3
 #SBATCH --partition=edid_rtx6000
 #SBATCH --array=1-611
-#SBATCH --cpus-per-task=4
-#SBATCH --mem=8G
-#SBATCH --time=00:30:00
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=1G
+#SBATCH --time=00:05:00
 #SBATCH --output=logs/validation/diana_val_bp_v3_%A_%a.out
 #SBATCH --error=logs/validation/diana_val_bp_v3_%A_%a.err
 
 set -e
 
-ACCESSIONS="data/splits_bioproject/validation_accessions.txt"
+ACCESSIONS="data/splits_bioproject/all_validation_accessions.txt"
 INPUT_DIR="results/validation_predictions"
 OUTPUT_DIR="results/validation_predictions_bioproject_v3"
 MODEL="results/training_bioproject_v3/best_model.pth"

@@ -84,14 +84,20 @@ run_script "scripts/paper/06_generate_pca_analysis.py" \
 run_script "scripts/paper/20_generate_logan_search_taxonomy_barplot.py" \
     "Supplementary Figure 5: Logan Database Coverage and Taxonomy"
 
-run_script "scripts/paper/21_generate_baseline_comparison.py" \
-    "Supplementary Figure 6: Baseline Comparison"
+run_script "scripts/paper/31_generate_baseline_comparison_plots.py" \
+    "Supplementary Figure 6: Baseline Comparison (Test & Validation, with CI)"
 
 run_script "scripts/paper/34_generate_generalisation_gap_plots.py" \
     "Supplementary Figure 7: Generalisation Gap (Test → Validation slopegraphs)"
 
 run_script "scripts/paper/32_confidence_calibration_analysis.py" \
     "Supplementary Figure 8: Confidence Calibration Analysis"
+
+run_script "scripts/paper/35_generate_class_imbalance_figure.py" \
+    "Supplementary Figure 9: Class Imbalance Overview (Train / Test / Validation)"
+
+run_script "scripts/paper/33_plot_single_sample_confidence.py" \
+    "Supplementary Figure 10: Single-Sample Prediction Confidence (diana-predict style)"
 
 # ============================================================================
 # MAIN TABLES

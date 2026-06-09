@@ -10,19 +10,23 @@ Runtime: ~5 seconds.
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 from sklearn.metrics import balanced_accuracy_score, f1_score
 
-# ── Paths ─────────────────────────────────────────────────────────────────────
+# ── Paths — all sourced from the paper config (single source of truth) ────────
+sys.path.insert(0, str(Path(__file__).parent.parent / 'paper'))
+from config import PATHS as PAPER_PATHS
+
 METRICS_JSON    = Path("results/baseline_comparison_bioproject/metrics.json")
-TEST_METRICS    = Path("results/test_evaluation_bioproject_v3/test_metrics.json")
-TEST_PREDS      = Path("results/test_evaluation_bioproject_v3/test_predictions.tsv")
-VAL_PRED_DIR    = Path("results/validation_predictions_bioproject_v3")
-VAL_META        = Path("data/splits_bioproject/validation_metadata.tsv")
-LABEL_ENCODERS  = Path("results/training_bioproject_v3/label_encoders.json")
+TEST_METRICS    = Path(PAPER_PATHS["test_metrics"])
+TEST_PREDS      = Path(PAPER_PATHS["test_predictions"])
+VAL_PRED_DIR    = Path(PAPER_PATHS["predictions_dir"])
+VAL_META        = Path(PAPER_PATHS["validation_metadata"])
+LABEL_ENCODERS  = Path(PAPER_PATHS["label_encoders"])
 
 TASKS   = ["sample_type", "community_type", "sample_host", "material"]
 N_BOOT  = 1_000
@@ -73,11 +77,16 @@ for task in TASKS:
     y_true = df_test[f"{task}_true"].values
     y_pred = df_test[f"{task}_pred"].values
     ci     = bootstrap_ci(y_true, y_pred)
+    # f1_macro_seen: compute over labels that actually appear in the test set
+    # (consistent with bootstrap CI computation); tm.get("f1_macro") uses all
+    # label-encoder classes and will be deflated by absent classes → wrong CI alignment
+    seen_labels = sorted(set(y_true))
+    f1_macro_seen = float(f1_score(y_true, y_pred, labels=seen_labels, average="macro", zero_division=0))
     diana_new[task] = {
         "accuracy":                  tm.get("accuracy"),
         "balanced_accuracy":         tm.get("balanced_accuracy"),
         "f1_macro":                  tm.get("f1_macro"),
-        "f1_macro_seen":             tm.get("f1_macro"),
+        "f1_macro_seen":             f1_macro_seen,
         "f1_weighted":               tm.get("f1_weighted"),
         "n_samples":                 int(tm.get("n_samples", len(y_true))),
         **ci,
@@ -107,6 +116,9 @@ for task in TASKS:
         pred_class = pred["predictions"].get(task, {}).get("predicted_class")
         true_label = row.get(task)
         if pd.isna(true_label) or pred_class is None:
+            continue
+        # Only evaluate on labels seen during training (consistent with 03_generate_performance_summary_table.py)
+        if true_label not in class_names:
             continue
         rows.append({"true": true_label, "pred": pred_class})
 

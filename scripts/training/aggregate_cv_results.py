@@ -83,10 +83,12 @@ def aggregate_hyperparameters(fold_results: List[Dict[str, Any]]) -> Dict[str, A
             aggregated[key] = float(np.mean(values))
         elif isinstance(values[0], bool):
             # Boolean: take mode (most common)
-            aggregated[key] = float(stats.mode(values, keepdims=False)[0])
+            vals_arr = np.array(values)
+            aggregated[key] = float(vals_arr[np.argmax(np.bincount(vals_arr.astype(int)))])
         else:
-            # Categorical (string): take mode
-            aggregated[key] = stats.mode(values, keepdims=False)[0]
+            # Categorical (string): take mode via numpy unique
+            uniq, counts = np.unique(values, return_counts=True)
+            aggregated[key] = uniq[np.argmax(counts)]
     
     return aggregated
 

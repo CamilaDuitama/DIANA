@@ -58,7 +58,7 @@ def generate_hyperparameters_table(output_dir):
 
     # Prefer the final training config (actual hyperparameters used for the
     # fully-trained model) over the CV-averaged best_hyperparameters.json.
-    final_config_file = Path("results/training/final_training_config.json")
+    final_config_file = Path(PATHS.get('model_config', 'results/training/final_training_config.json'))
     hyperparams_file = Path(PATHS['hyperparameters'])
 
     if final_config_file.exists():
@@ -152,8 +152,8 @@ def generate_hyperparameters_table(output_dir):
                  "\\textit{Task Weights} (per-task loss weight in the joint objective). "
                  "\\textit{Parameter}---hyperparameter name. "
                  "\\textit{Value}---value selected by Optuna. "
-                 "Hyperparameters determined via 5-fold cross-validation with 50 Optuna trials per fold; "
-                 "numeric values are averaged across folds, categorical values are chosen by majority vote. "
+                 "Hyperparameters selected via 5-fold cross-validation with 50 Optuna trials per fold; "
+                 "values reflect the final model configuration used for training. "
                  "Input features: 107,480 unitigs. "
                  "Max epochs: 200 with early stopping on validation loss.}")
     

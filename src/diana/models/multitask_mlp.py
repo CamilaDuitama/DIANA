@@ -2,7 +2,7 @@
 
 import torch
 import torch.nn as nn
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Union
 
 
 class MultiTaskMLP(nn.Module):
@@ -143,7 +143,8 @@ class MultiTaskLoss(nn.Module):
         self,
         task_names: List[str],
         task_weights: Optional[Dict[str, float]] = None,
-        class_weights: Optional[Dict[str, torch.Tensor]] = None
+        class_weights: Optional[Dict[str, torch.Tensor]] = None,
+        label_smoothing: Union[float, Dict[str, float]] = 0.0,
     ):
         """
         Initialize multi-task loss.
@@ -152,6 +153,8 @@ class MultiTaskLoss(nn.Module):
             task_names: List of task names
             task_weights: Dictionary mapping task names to loss weights (default: equal)
             class_weights: Dictionary mapping task names to class weight tensors
+            label_smoothing: Label smoothing factor(s). Either a single float applied
+                to all tasks, or a dict mapping task names to per-task epsilon values.
         """
         super().__init__()
         
@@ -162,11 +165,20 @@ class MultiTaskLoss(nn.Module):
             task_weights = {name: 1.0 for name in task_names}
         self.task_weights = task_weights
         
+        # Normalise label_smoothing to per-task dict
+        if isinstance(label_smoothing, dict):
+            ls_per_task = {name: label_smoothing.get(name, 0.0) for name in task_names}
+        else:
+            ls_per_task = {name: float(label_smoothing) for name in task_names}
+        
         # Create loss functions for each task
         self.criterions = nn.ModuleDict()
         for task_name in task_names:
             weight = class_weights.get(task_name) if class_weights else None
-            self.criterions[task_name] = nn.CrossEntropyLoss(weight=weight)
+            self.criterions[task_name] = nn.CrossEntropyLoss(
+                weight=weight,
+                label_smoothing=ls_per_task[task_name],
+            )
     
     def forward(
         self,

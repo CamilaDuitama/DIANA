@@ -46,9 +46,9 @@ from config import PATHS, PLOT_CONFIG
 
 BIOPROJECT_METRICS = Path("results/baseline_comparison_bioproject/metrics.json")
 CV_BASELINE        = Path("results/baseline_comparison/aggregated_metrics.json")
-CV_DIANA           = Path("results/training/cv_results/aggregated_results.json")
+CV_DIANA           = Path(PATHS["cv_results"])
 VAL_META           = Path("data/splits_bioproject/validation_metadata.tsv")
-VAL_PRED_DIR       = Path("results/validation_predictions_bioproject")
+VAL_PRED_DIR       = Path(PATHS["predictions_dir"])
 OUTPUT_DIR         = Path(PATHS["figures_dir"])
 
 # ─── Constants ───────────────────────────────────────────────────────────────
@@ -194,7 +194,7 @@ def load_cv_data() -> pd.DataFrame:
     if CV_DIANA.exists():
         with open(CV_DIANA) as f:
             diana_raw = json.load(f)
-        agg = diana_raw.get("aggregated_metrics", {})
+        agg = diana_raw.get("cv_metrics", {})
         for task in TASKS:
             v = agg.get(task, {}).get(METRIC, {})
             mean = float(v["mean"]) if isinstance(v, dict) else float(v)
@@ -367,7 +367,11 @@ def build_combined_figure(
         font=dict(size=PLOT_CONFIG["font_size"]),
         width=1100, height=480,
         legend=dict(
-            title="", orientation="v", x=1.01, xanchor="left", y=1.0,
+            title=dict(
+                text="<i>Baselines trained with<br>class-balanced weighting</i>",
+                font=dict(size=9),
+            ),
+            orientation="v", x=1.01, xanchor="left", y=1.0,
             font=dict(size=10),
         ),
         margin=dict(l=65, r=180, t=55, b=55),

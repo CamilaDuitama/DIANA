@@ -62,7 +62,7 @@ def generate_computational_resources_table(output_path: Path) -> None:
     """Generate computational resources table stratified by memory tier."""
     
     # Collect data from validation predictions
-    pred_dir = Path("results/validation_predictions")
+    pred_dir = Path(PATHS.get('predictions_dir', 'results/validation_predictions'))
     data = []
     
     print("  Scanning .jobinfo files...")

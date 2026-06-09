@@ -25,9 +25,9 @@ DATA SOURCES:
   Label encoders: results/training_bioproject/label_encoders.json
 
 OUTPUTS:
-  paper/figures/final/sup_calibration_A_confidence_distributions.png/.html
-  paper/figures/final/sup_calibration_B_precision_recall_flagging.png/.html
-  paper/figures/final/sup_calibration_C_reliability_diagrams.png/.html
+  paper/figures/final/sup_08_calibration_A_confidence_distributions.png/.html
+  paper/figures/final/sup_08_calibration_B_precision_recall_flagging.png/.html
+  paper/figures/final/sup_08_calibration_C_reliability_diagrams.png/.html
   results/calibration_analysis/calibration_metrics.json
 """
 
@@ -522,19 +522,19 @@ def main():
     print("\nGenerating figures...")
 
     fig_A = plot_A_distributions(all_data)
-    fig_A.write_html(str(FIGURES_DIR / "sup_calibration_A_confidence_distributions.html"))
-    fig_A.write_image(str(FIGURES_DIR / "sup_calibration_A_confidence_distributions.png"), scale=2)
-    print("  ✓ sup_calibration_A_confidence_distributions.png")
+    fig_A.write_html(str(FIGURES_DIR / "sup_08_calibration_A_confidence_distributions.html"))
+    fig_A.write_image(str(FIGURES_DIR / "sup_08_calibration_A_confidence_distributions.png"), scale=2)
+    print("  ✓ sup_08_calibration_A_confidence_distributions.png")
 
     fig_B = plot_B_flagging(all_pr)
-    fig_B.write_html(str(FIGURES_DIR / "sup_calibration_B_precision_recall_flagging.html"))
-    fig_B.write_image(str(FIGURES_DIR / "sup_calibration_B_precision_recall_flagging.png"), scale=2)
-    print("  ✓ sup_calibration_B_precision_recall_flagging.png")
+    fig_B.write_html(str(FIGURES_DIR / "sup_08_calibration_B_precision_recall_flagging.html"))
+    fig_B.write_image(str(FIGURES_DIR / "sup_08_calibration_B_precision_recall_flagging.png"), scale=2)
+    print("  ✓ sup_08_calibration_B_precision_recall_flagging.png")
 
     fig_C = plot_C_reliability(all_cal)
-    fig_C.write_html(str(FIGURES_DIR / "sup_calibration_C_reliability_diagrams.html"))
-    fig_C.write_image(str(FIGURES_DIR / "sup_calibration_C_reliability_diagrams.png"), scale=2)
-    print("  ✓ sup_calibration_C_reliability_diagrams.png")
+    fig_C.write_html(str(FIGURES_DIR / "sup_08_calibration_C_reliability_diagrams.html"))
+    fig_C.write_image(str(FIGURES_DIR / "sup_08_calibration_C_reliability_diagrams.png"), scale=2)
+    print("  ✓ sup_08_calibration_C_reliability_diagrams.png")
 
     # ── Console: high-confidence filter benefit table ──────────────────────────
     print("\n=== SELECTIVE PREDICTION @ conf ≥ 0.90 ===")

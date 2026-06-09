@@ -21,7 +21,8 @@ class MultiTaskTrainer:
                  learning_rate: float = 1e-3,
                  weight_decay: float = 0.0,
                  task_weights: Optional[Dict[str, float]] = None,
-                 class_weights: Optional[Dict[str, torch.Tensor]] = None):
+                 class_weights: Optional[Dict[str, torch.Tensor]] = None,
+                 label_smoothing: Union[float, Dict[str, float]] = 0.0):
         """
         Initialize trainer.
         
@@ -33,6 +34,7 @@ class MultiTaskTrainer:
             weight_decay: L2 regularization weight decay
             task_weights: Weights for each task loss
             class_weights: Per-class weights for handling class imbalance (dict of tensors)
+            label_smoothing: Label smoothing factor for CrossEntropyLoss (0.0 = off)
         """
         if isinstance(device, str):
             device = torch.device(device)
@@ -43,14 +45,21 @@ class MultiTaskTrainer:
         self.optimizer = optim.Adam(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
         
         # Task-specific loss functions with optional class weights
+        # label_smoothing can be a single float or a per-task dict
+        ls_per_task = label_smoothing if isinstance(label_smoothing, dict) \
+                      else {t: float(label_smoothing) for t in task_names}
         self.criteria = {}
         for target in task_names:
+            ls = ls_per_task.get(target, 0.0)
             if class_weights is not None and target in class_weights:
-                # Use class weights for this task
-                self.criteria[target] = nn.CrossEntropyLoss(weight=class_weights[target])
+                self.criteria[target] = nn.CrossEntropyLoss(
+                    weight=class_weights[target],
+                    label_smoothing=ls,
+                )
             else:
-                # No class weighting
-                self.criteria[target] = nn.CrossEntropyLoss()
+                self.criteria[target] = nn.CrossEntropyLoss(
+                    label_smoothing=ls,
+                )
         
         # Task weights (default: equal weighting)
         if task_weights is None:

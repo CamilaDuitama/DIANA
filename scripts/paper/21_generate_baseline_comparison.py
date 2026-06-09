@@ -45,7 +45,7 @@ from config import PATHS, PLOT_CONFIG
 # CONSTANTS
 # ============================================================================
 
-CV_RESULTS_DIANA    = Path("results/training/cv_results/aggregated_results.json")
+CV_RESULTS_DIANA    = Path(PATHS["cv_results"])
 CV_RESULTS_BASELINE = Path("results/baseline_comparison/aggregated_metrics.json")
 OUTPUT_DIR          = Path(PATHS["figures_dir"])
 
@@ -95,14 +95,25 @@ def get_mean_std(v):
 
 
 def load_results():
-    with open(CV_RESULTS_DIANA) as f:
+    rows = []
+
+    # DIANA CV results — fall back to v3 if v4 symlink not present
+    cv_path = CV_RESULTS_DIANA
+    if not cv_path.exists():
+        fallback = Path("results/training_bioproject_v3/cv_results/aggregated_results.json")
+        if fallback.exists():
+            print(f"  NOTE: {cv_path} not found; using v3 CV results (same hyperparameters)")
+            cv_path = fallback
+        else:
+            print(f"  ERROR: CV results not found at {cv_path} or {fallback}")
+            raise FileNotFoundError(cv_path)
+
+    with open(cv_path) as f:
         diana_raw = json.load(f)
     with open(CV_RESULTS_BASELINE) as f:
         baseline_raw = json.load(f)
 
-    rows = []
-
-    diana_agg = diana_raw["aggregated_metrics"]
+    diana_agg = diana_raw["cv_metrics"]
     for task in TASKS:
         mean, std = get_mean_std(diana_agg[task][METRIC])
         rows.append({"model": "DIANA", "task": task, "mean": mean, "std": std})

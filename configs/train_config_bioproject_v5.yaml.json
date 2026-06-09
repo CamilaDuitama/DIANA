@@ -1,0 +1,19 @@
+{
+  "features_path": "data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat",
+  "metadata_path": "data/splits_bioproject/train_metadata.tsv",
+  "train_ids_path": "data/splits_bioproject/train_ids.txt",
+  "output_dir": "results/training_bioproject_v5",
+  "task_names": [
+    "sample_type",
+    "community_type",
+    "sample_host",
+    "material"
+  ],
+  "n_folds": 5,
+  "n_trials": 50,
+  "max_epochs": 100,
+  "patience": 15,
+  "n_inner_splits": 3,
+  "random_seed": 42,
+  "no_label_smoothing": true
+}

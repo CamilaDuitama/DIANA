@@ -4,19 +4,49 @@
 
 ---
 
+## Model Versions
+
+| Version | Path | Architecture | HPO valid? | Label smoothing | Recommended? |
+|---------|------|-------------|-----------|-----------------|:------------:|
+| v1 / v2 | `results/training_bioproject/` | [230, 346], relu, LR=1.31e-3, batch=70 | ❌ Broken (full-batch, test-set leakage, trials split across folds) | None | ❌ |
+| v3 | `results/training_bioproject_v3/` | [294, 384, 288], leaky_relu, LR=4.06e-4, batch=32 | ✅ Fixed | Per-task ε (0.043–0.064) | ❌ |
+| **v4** | `results/training_bioproject_v4/` | Same as v3 | ✅ Reused from v3 | **None (ε = 0)** | ✅ |
+
+**v4 is the production model.** It uses the correct v3 architecture and hyperparameters but drops label smoothing, which caused `sample_host` validation balanced accuracy to collapse from 80.9% (v2) to 41.8% (v3) and test ECE to worsen from 0.074 to 0.488.
+
+All paper scripts read paths from `scripts/paper/config.py`. To switch between model versions, change only that file.
+
+### v4 pipeline (run from project root)
+
+```bash
+# 1. Train  (~1-2 h on GPU)
+sbatch scripts/training/run_final_train_edid_v4.sbatch
+
+# 2. Evaluate on test set
+sbatch scripts/evaluation/run_test_eval_v4.sbatch
+
+# 3. Validation inference (611 array jobs)
+sbatch --array=1-611 scripts/validation/run_inference_bioproject_v4.sbatch
+
+# 4. Training-set metrics
+mamba run -p ./env python scripts/evaluation/06_compute_training_metrics.py
+
+# 5. Patch baseline comparison JSON with v4 DIANA values
+mamba run -p ./env python scripts/evaluation/patch_diana_in_metrics.py
+
+# 6. Regenerate all paper figures and tables
+bash scripts/paper/generate_all_paper_materials.sh
+```
+
+---
+
 ## Key Methodological Improvements
 
 This implementation includes several critical improvements over the initial version:
 
 1. **BioProject-Disjoint Split:** Train/test split stratified by BioProject to prevent data leakage from multi-sample studies. No research project appears in both training (2,514 samples) and test (523 samples) sets.
 
-2. **Per-Task Label Smoothing:** Independent label smoothing parameters (ε) for each classification task:
-   - `sample_type` (2 classes)
-   - `community_type` (6 classes)  
-   - `sample_host` (12 classes)
-   - `material` (13 classes)
-   
-   Each epsilon optimized independently via nested cross-validation (range: 0.0-0.15).
+2. **No Label Smoothing (v4):** Per-task label smoothing (v3, ε = 0.043–0.064) was evaluated and dropped. Despite correct HPO, it caused `sample_host` validation balanced accuracy to collapse (80.9% → 41.8%) and worsened test ECE for 3/4 tasks. v4 uses ε = 0 for all tasks.
 
 3. **Corrected Nested Cross-Validation:**
    - Each hyperparameter trial evaluated on **all 3 inner folds** (not split across trials)

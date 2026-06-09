@@ -18,23 +18,23 @@ PATHS = {
     'train_metadata': 'data/splits_bioproject/train_metadata.tsv',
     'test_metadata': 'data/splits_bioproject/test_metadata.tsv',
     
-    # Prediction results (BioProject-disjoint model v3 — per-task label smoothing)
-    'predictions_dir': 'results/validation_predictions_bioproject_v3',
+    # Prediction results (BioProject-disjoint model v5 — re-tuned HPO, no label smoothing (ε=0))
+    'predictions_dir': 'results/validation_predictions_bioproject_v5',
     
-    # Model files (BioProject-disjoint model v3 — per-task label smoothing)
-    'label_encoders': 'results/training_bioproject_v3/label_encoders.json',
-    'best_model': 'results/training_bioproject_v3/best_model.pth',
-    'model_config': 'results/training_bioproject_v3/final_training_config.json',
+    # Model files (BioProject-disjoint model v5 — re-tuned HPO, no label smoothing (ε=0))
+    'label_encoders': 'results/training_bioproject_v5/label_encoders.json',
+    'best_model': 'results/training_bioproject_v5/best_model.pth',
+    'model_config': 'results/training_bioproject_v5/final_training_config.json',
     
     # Performance metrics
-    'test_metrics': 'results/test_evaluation_bioproject_v3/test_metrics.json',
-    'test_predictions': 'results/test_evaluation_bioproject_v3/test_predictions.tsv',
-    'training_metrics': 'results/training_bioproject_v3/training_set_metrics.json',  # Full training set
-    'training_history': 'results/training_bioproject_v3/training_history.json',
+    'test_metrics': 'results/test_evaluation_bioproject_v5/test_metrics.json',
+    'test_predictions': 'results/test_evaluation_bioproject_v5/test_predictions.tsv',
+    'training_metrics': 'results/training_bioproject_v5/training_set_metrics.json',  # Full training set
+    'training_history': 'results/training_bioproject_v5/training_history.json',
     
     # Cross-validation and hyperparameters
-    'hyperparameters': 'results/training_bioproject_v3/cv_results/best_hyperparameters.json',
-    'cv_results': 'results/training_bioproject_v3/cv_results/aggregated_results.json',
+    'hyperparameters': 'results/training_bioproject_v5/cv_results/best_hyperparameters.json',
+    'cv_results': 'results/training_bioproject_v5/cv_results/aggregated_results.json',
     
     # Feature analysis
     'feature_importance_dir': 'results/feature_analysis',

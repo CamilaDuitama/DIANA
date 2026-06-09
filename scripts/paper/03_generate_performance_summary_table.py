@@ -64,6 +64,18 @@ def filter_valid_labels(df):
     ].copy()
 
 
+def compute_f1_seen_test(classification_report_dict):
+    """Macro F1 averaged only over classes that have >=1 sample in the test set."""
+    scores = [
+        stats['f1-score']
+        for key, stats in classification_report_dict.items()
+        if key not in ('accuracy', 'macro avg', 'weighted avg')
+        and isinstance(stats, dict)
+        and stats.get('support', 0) > 0
+    ]
+    return sum(scores) / len(scores) if scores else 0.0
+
+
 def load_validation_predictions():
     """Load validation predictions and metadata."""
     # Load metadata
@@ -151,19 +163,22 @@ def calculate_validation_metrics(validation_df):
             y_true = task_df['true_label'].values
             y_pred = task_df['pred_label'].values
             all_labels = sorted(set(y_true) | set(y_pred))
+            seen_labels = sorted(set(y_true))  # only classes present in this eval set
             
             val_metrics[task] = {
                 'n': len(task_df),
                 'accuracy': task_df['is_correct'].mean(),
                 'balanced_accuracy': balanced_accuracy_score(y_true, y_pred),
-                'f1_macro': f1_score(y_true, y_pred, labels=all_labels, average='macro', zero_division=0)
+                'f1_macro': f1_score(y_true, y_pred, labels=all_labels, average='macro', zero_division=0),
+                'f1_macro_seen': f1_score(y_true, y_pred, labels=seen_labels, average='macro', zero_division=0),
             }
         else:
             val_metrics[task] = {
                 'n': 0,
                 'accuracy': 0.0,
                 'balanced_accuracy': 0.0,
-                'f1_macro': 0.0
+                'f1_macro': 0.0,
+                'f1_macro_seen': 0.0,
             }
     
     return val_metrics
@@ -222,39 +237,41 @@ def generate_performance_summary_table(output_dir):
     
     lines = []
     lines.append("\\centering")
-    lines.append("\\caption{Final model performance across the Training set, the held-out Test set, and the external Validation set. Balanced Accuracy and F1 Score are macro-averaged (unweighted mean across classes), giving equal weight to each class regardless of frequency.}")
+    lines.append("\\caption{Final model performance across the Training set, the held-out Test set, and the external Validation set. "
+               "Balanced Accuracy is the unweighted mean of per-class recall. "
+               "F1$^{\\dagger}$ is the macro-averaged F1-score computed only over classes that are "
+               "represented in the respective evaluation set (i.e.\\ excluding training classes "
+               "with zero samples in that split; see Supplementary Table~\\ref{tab:zero_support}).}")
     lines.append("\\label{tab:performance}")
     lines.append("\\small")
     lines.append("\\begin{tabular*}{\\linewidth}{@{\\extracolsep{\\fill}}llrrr@{}}")
     lines.append("\\toprule")
-    lines.append("Task & Dataset & Acc (\\%) & Bal Acc (\\%) & F1 Score (\\%) \\\\")
+    lines.append("Task & Dataset & Acc (\\%) & Bal Acc (\\%) & F1$^{\\dagger}$ (\\%) \\\\")
     lines.append("\\midrule")
     
     for task in TASKS:
         task_label = task_labels[task]
         
-        # Training (if available)
+        # Training (if available) — on training set all classes are seen, so f1_macro == f1_macro_seen
         if use_actual_training and task in train_metrics:
-            train_n = train_metrics[task]['n']
             train_acc = train_metrics[task].get('accuracy', 0) * 100
             train_bal = train_metrics[task].get('balanced_accuracy', 0) * 100
-            # Use f1_weighted if f1_macro not available
             train_f1 = train_metrics[task].get('f1_macro', train_metrics[task].get('f1_weighted', 0)) * 100
             lines.append(f"{task_label} & Training & {train_acc:.1f} & {train_bal:.1f} & {train_f1:.1f} \\\\")
         
-        # Test
+        # Test — seen-class F1 from classification_report
         test_acc = test_metrics[task]['accuracy'] * 100
         test_bal = test_metrics[task]['balanced_accuracy'] * 100
-        test_f1 = test_metrics[task]['f1_macro'] * 100
+        test_f1_seen = compute_f1_seen_test(test_metrics[task]['classification_report']) * 100
         prefix = "" if use_actual_training else task_label
-        lines.append(f"{prefix} & Test & {test_acc:.1f} & {test_bal:.1f} & {test_f1:.1f} \\\\")
+        lines.append(f"{prefix} & Test & {test_acc:.1f} & {test_bal:.1f} & {test_f1_seen:.1f} \\\\")
         
-        # Validation
+        # Validation — seen-class F1 (labels present in validation set only)
         if task in val_metrics:
             val_acc = val_metrics[task]['accuracy'] * 100
             val_bal = val_metrics[task]['balanced_accuracy'] * 100
-            val_f1 = val_metrics[task]['f1_macro'] * 100
-            lines.append(f" & Validation & {val_acc:.1f} & {val_bal:.1f} & {val_f1:.1f} \\\\")
+            val_f1_seen = val_metrics[task]['f1_macro_seen'] * 100
+            lines.append(f" & Validation & {val_acc:.1f} & {val_bal:.1f} & {val_f1_seen:.1f} \\\\")
         
         lines.append("\\addlinespace")
     
@@ -264,9 +281,20 @@ def generate_performance_summary_table(output_dir):
     if use_actual_training:
         n_train = train_metrics[TASKS[0]]['n']
         note_parts.append(f"Training: Performance on all {n_train:,} training samples (seen labels only).")
-    note_parts.append("Test: Held-out test set (n=461).")
-    note_parts.append("Validation: metrics computed on seen-label runs only (sample\_type: 987/987, community\_type: 986/987, sample\_host: 908/987, material: 671/987).")
-    note_parts.append("Acc: Accuracy. Bal Acc: Balanced Accuracy (average per-class recall). F1 Score: Macro-averaged F1-score.")
+    n_test = test_metrics[TASKS[0]]['n_samples']
+    note_parts.append(f"Test: Held-out test set (n={n_test:,}).")
+    n_val_total = val_total_n.get('sample_type', max(val_total_n.values()))
+    val_seen_parts = []
+    for task in TASKS:
+        if task in val_metrics:
+            task_tex = task.replace('_', '\\_')
+            val_seen_parts.append(f"{task_tex}: {val_metrics[task]['n']}/{n_val_total}")
+    val_seen_str = ', '.join(val_seen_parts)
+    note_parts.append(f"Validation: metrics computed on seen-label runs only ({val_seen_str}).")
+    note_parts.append("Acc: Accuracy. Bal Acc: Balanced Accuracy (average per-class recall). "
+                      "F1$^{\\dagger}$: Macro-averaged F1-score restricted to classes present in the "
+                      "evaluation split (support~$>$~0); classes in the training vocabulary with no "
+                      "test/validation samples are excluded to avoid artificially deflated averages.")
     note_text = " ".join(note_parts)
     lines.append("\\par\\vspace{4pt}")
     lines.append(f"\\parbox{{\\linewidth}}{{\\footnotesize \\textbf{{Notes:}} {note_text}}}")

@@ -2,8 +2,8 @@
 #SBATCH --partition=edid_rtx6000
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=32
-#SBATCH --mem=128G
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=64G
 #SBATCH --job-name=diana_baseline_bp
 #SBATCH --output=logs/final_training/diana_baseline_bp_%j.out
 #SBATCH --error=logs/final_training/diana_baseline_bp_%j.err

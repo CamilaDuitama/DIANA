@@ -1,0 +1,46 @@
+# DIANA Training Configuration — BioProject-Disjoint Split v2
+# ============================================================
+# Uses bioproject-disjoint split (zero BioProject overlap between train/test).
+# Hyperparameters include label_smoothing, optimised jointly via Optuna.
+
+data:
+  features_path: data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat
+  metadata_path: data/splits_bioproject/train_metadata.tsv  # 2515 train samples
+
+model:
+  task_names:
+    - sample_type
+    - community_type
+    - sample_host
+    - material
+
+training:
+  n_folds: 5
+  n_trials: 50
+  max_epochs: 100
+  n_inner_splits: 3
+  validation_split: 0.1
+  early_stopping_patience: 15
+  use_gpu: true
+  use_slurm: true
+  train_ids_path: data/splits_bioproject/train_ids.txt
+  final_training_sbatch: scripts/training/run_final_train_edid.sbatch
+
+hyperparameters:
+  model_params:
+    hidden_dims: [346, 307]
+    dropout: 0.2177
+    activation: gelu
+    use_batch_norm: false
+
+  trainer_params:
+    learning_rate: 0.002562
+    weight_decay: 0.000265
+    label_smoothing: 0.0109
+    task_weights:
+      sample_type: 0.7052
+      community_type: 1.4067
+      sample_host: 1.4409
+      material: 1.4282
+
+  batch_size: 230

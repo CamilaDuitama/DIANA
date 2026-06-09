@@ -9,10 +9,10 @@ differs; correctly predicted classes are marked ✓.
 
 USAGE:
     python scripts/paper/33_plot_single_sample_confidence.py \\
-        --sample ERR11413727 [--sample SRR4027589 ...]
+        --sample SRR27336789 [--sample ERR11413727 ...]
 
 OUTPUT:
-    paper/figures/final/sample_{SID}_confidence.png/.html
+    paper/figures/final/sup_10_sample_{SID}_confidence.png/.html
 """
 
 import argparse
@@ -187,7 +187,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--sample", nargs="+",
-        default=["ERR11413727", "SRR4027589"],
+        default=["SRR27336789"],
         help="One or more Run accession IDs to visualise",
     )
     args = parser.parse_args()
@@ -209,7 +209,7 @@ def main():
             print(f"  {TASK_LABELS[task]:<18} {true:<32} {pred:<32} {conf:>6.4f}  {match}")
 
         fig = build_figure(sid, predictions, true_labels)
-        out_base = FIGURES_DIR / f"sample_{sid}_confidence"
+        out_base = FIGURES_DIR / f"sup_10_sample_{sid}_confidence"
         fig.write_html(str(out_base.with_suffix(".html")))
         fig.write_image(str(out_base.with_suffix(".png")), scale=2)
         print(f"  → {out_base}.png")

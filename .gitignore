@@ -178,6 +178,18 @@ results/training/cv_results/*/checkpoint_*.pth  # Training checkpoints (large!)
 results/training/*/checkpoint_*.pth  # Any checkpoint files
 results/inference/  # Inference outputs
 results/validation_predictions/  # Validation outputs (regenerable, 134GB)
+results/validation_predictions_bioproject_v2/
+results/validation_predictions_bioproject_v3/
+results/validation_predictions_bioproject_v4/
+results/validation_predictions_bioproject_v5/
+results/validation_predictions_bioproject_v5_full/
+results/validation_predictions_bioproject_v5_test1/
+results/training_bioproject_v2/
+results/training_bioproject_v3/
+results/training_bioproject_v4/
+results/test_evaluation_bioproject_v2/
+results/test_evaluation_bioproject_v3/
+results/test_evaluation_bioproject_v4/
 results/train_evaluation/  # Training-set inference outputs (regenerable)
 results/validation_memory_analysis.csv
 results/consistency_check/  # Calibration outputs

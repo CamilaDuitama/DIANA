@@ -220,7 +220,11 @@ def build_slopegraph(
         font=dict(size=PLOT_CONFIG["font_size"]),
         width=1100, height=430,
         legend=dict(
-            title="", orientation="v",
+            title=dict(
+                text="<i>Baselines trained with<br>class-balanced weighting</i>",
+                font=dict(size=9),
+            ),
+            orientation="v",
             x=1.01, xanchor="left", y=1.0,
             font=dict(size=10),
         ),

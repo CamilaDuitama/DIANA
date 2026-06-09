@@ -288,11 +288,14 @@ def train_outer_fold(
         task_weight_host = trial.suggest_float("task_weight_host", 0.5, 2.0)
         task_weight_material = trial.suggest_float("task_weight_material", 0.5, 2.0)
         
-        # Per-task label smoothing
-        ls_sample_type = trial.suggest_float("ls_sample_type", 0.0, 0.15)
-        ls_community_type = trial.suggest_float("ls_community_type", 0.0, 0.15)
-        ls_sample_host = trial.suggest_float("ls_sample_host", 0.0, 0.15)
-        ls_material = trial.suggest_float("ls_material", 0.0, 0.15)
+        # Per-task label smoothing (fixed at 0 when --no_label_smoothing is set)
+        if config.get('no_label_smoothing', False):
+            ls_sample_type = ls_community_type = ls_sample_host = ls_material = 0.0
+        else:
+            ls_sample_type = trial.suggest_float("ls_sample_type", 0.0, 0.15)
+            ls_community_type = trial.suggest_float("ls_community_type", 0.0, 0.15)
+            ls_sample_host = trial.suggest_float("ls_sample_host", 0.0, 0.15)
+            ls_material = trial.suggest_float("ls_material", 0.0, 0.15)
         
         task_weights = {
             "sample_type": task_weight_sample_type,
@@ -754,7 +757,11 @@ def main():
     
     # Hardware
     parser.add_argument('--use_gpu', action='store_true', help='Use GPU if available')
-    
+
+    # Label smoothing control
+    parser.add_argument('--no_label_smoothing', action='store_true',
+                        help='Fix all label smoothing at 0 (remove from search space). Use for v5+.')
+
     # Checkpointing
     parser.add_argument('--resume_from', type=Path, help='Resume from checkpoint')
     parser.add_argument('--checkpoint_freq', type=int, default=10, help='Save checkpoint every N epochs')
@@ -847,7 +854,8 @@ def main():
         'use_gpu': use_gpu,
         'n_inner_splits': n_inner_splits,
         'checkpoint_freq': checkpoint_freq,
-        'resume_from': args.resume_from
+        'resume_from': args.resume_from,
+        'no_label_smoothing': args.no_label_smoothing,
     }
     
     # Train fold
