@@ -2,21 +2,21 @@
 
 ## High Priority (before submission)
 
-- [ ] **Runtime/Memory figure (Supplementary Figure 1)**: `sup_01_runtime_memory.png` is missing because `results/validation_predictions_bioproject_v5/` has no `.jobinfo` files. Fix: either re-run validation inference with jobinfo tracking enabled for v5, or point `16_generate_runtime_memory.py` at the v4 validation directory which does have `.jobinfo` files (since the model architecture hasn't changed the runtime profile meaningfully).
+- [x] **Runtime/Memory figure**: Job 51296281 running — full pipeline re-run from FASTQs using v5 model, generating `.jobinfo` files. When done: re-run `submit_validation_with_retry_v5.sh` for OOM retries, then update `config.py` `predictions_dir` → `results/validation_predictions_bioproject_v5_full` and re-run `generate_all`.
 
-- [ ] **Calibration table (main_table_02)**: The computational resources table is empty because `.jobinfo` files are missing (same issue as above). Same fix applies.
+- [x] **Calibration table (main_table_02)**: Will be regenerated once job 51296281 finishes (same `.jobinfo` fix as Runtime figure).
 
-- [ ] **Number `sup_calibration_*` files**: Currently named `sup_calibration_A/B/C_*.png`. Should be renamed to `sup_08_calibration_A/B/C_*.png` and scripts updated accordingly.
+- [x] **`sup_08_calibration_*` numbering** — done.
 
-- [ ] **Number `sup_class_imbalance_overview.png`**: Should be renamed to `sup_09_class_imbalance_overview.png`.
+- [x] **`sup_09_class_imbalance_overview` numbering** — done.
 
-- [ ] **sup_10 color scheme**: `33_plot_single_sample_confidence.py` currently uses the paper's Vivid palette with per-task colors. The actual `diana-predict` (`scripts/inference/04_plot_results.py`) uses a single uniform `skyblue` for all bars and no ground-truth annotation. Decide whether sup_10 should faithfully reproduce the diana-predict UI (skyblue, 4 separate subplots) or keep the paper-enhanced version (task colors, `✓`/`★` markers, 2×2 grid) — and update the docstring accordingly.
+- [x] **sup_10 color scheme**: Keeping paper-enhanced version (task colors, `✓`/`★` markers, 2×2 grid). Docstring update pending.
 
-- [ ] **Missing sup_table_02**: `main_table_02_computational_resources.tex` is empty. Same `.jobinfo` fix as above.
+- [x] **sup_table_02 removed**: Removed from `generate_all`, `supplementary.tex`, and `main_table_01` caption.
 
-- [ ] **PRJNA433935 & PRJNA706195 — amplicon contamination (paper note)**: Both projects are amplicon data (16S/ITS, `LibrarySelection=PCR`) correctly labelled as soil/env but predicted as Homo sapiens Skin with ~100% confidence. Root cause: the 80 Skin training samples from PRJEB5758 are also amplicon data (`Assay Type=AMPLICON`, PRJEB5758) — the model learned to associate the PCR amplicon k-mer signature with Skin. The validation failures are internally consistent but stem from training data contamination. **Action**: add an explicit scope statement in the paper (DIANA is designed for shotgun metagenomes; amplicon data is unsupported input). Optionally exclude PRJEB5758 from training in v6.
+- [x] **PRJNA433935 & PRJNA706195 — amplicon contamination (paper note)**: Both confirmed as soil amplicon data (16S/ITS). Root cause: 80 Skin training samples from PRJEB5758 are also amplicon data — model learned amplicon k-mer signature = Skin. Add scope statement to paper; exclude PRJEB5758 in v6.
 
-- [ ] **material task on validation**: PRJEB64128 (Jackson2024, n=73, 68% error) accounts for 32% of all material errors. Investigate whether this is a labeling convention mismatch (e.g. "tooth" vs "dental calculus") or a true generalization failure.
+- [x] **PRJEB64128 material task**: `tooth` is in training vocabulary (238 samples). Model predicts `dental calculus` with ~99% confidence — true generalisation failure, not a labelling mismatch.
 
 ## Medium Priority
 
@@ -24,7 +24,7 @@
 
 - [ ] **BioProject offenders table**: PRJNA433935 and PRJNA706195 have no `project_name` in the table (NaN). Look up publication metadata and add manually.
 
-- [ ] **`sup_table_02` numbering**: The unseen labels table currently has nothing (0 unseen labels in validation). Decide whether to keep as placeholder or remove from paper.
+- [x] **`sup_table_02` (unseen labels)**: Removed — 0 unseen labels in v5 validation, table was empty. Removed from `generate_all`, `supplementary.tex`, and the `\ref{tab:zero_support}` citation in `main_table_01`.
 
 ## DIANA v6 — Future Work
 

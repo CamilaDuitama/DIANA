@@ -124,9 +124,6 @@ echo ""
 run_script "scripts/paper/01_generate_class_distribution_table.py" \
     "Supplementary Table 1: Class Distribution"
 
-run_script "scripts/paper/05_generate_unseen_labels_table.py" \
-    "Supplementary Table 2: Unseen Labels"
-
 run_script "scripts/paper/04_generate_perclass_performance_table.py" \
     "Supplementary Table 3: Per-Class Performance"
 

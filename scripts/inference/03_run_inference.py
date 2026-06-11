@@ -100,6 +100,9 @@ def load_class_names(label_encoders_path: Path) -> dict:
     Returns:
         Mapping of task -> list of class names.
     """
+    label_encoders_path = Path(label_encoders_path)
+    if label_encoders_path.is_dir():
+        label_encoders_path = label_encoders_path / "label_encoders.json"
     with open(label_encoders_path) as f:
         encoders = json.load(f)
     return {task: info['classes'] for task, info in encoders.items()}

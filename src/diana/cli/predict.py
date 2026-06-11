@@ -16,6 +16,20 @@ import gzip
 
 logger = logging.getLogger(__name__)
 
+# Module-level script resolution so run_single_sample_pipeline() can use it
+_SCRIPTS_FALLBACK = Path(__file__).parents[3] / "scripts" / "inference"
+
+
+def _resolve_script(name: str) -> str:
+    """Return the script path: prefer PATH, fall back to scripts/inference/."""
+    found = shutil.which(name)
+    if found:
+        return found
+    fallback = _SCRIPTS_FALLBACK / name
+    if fallback.is_file():
+        return str(fallback)
+    return name  # will fail at runtime with a clear error
+
 
 def run_command_streaming(cmd: list, step_name: str) -> None:
     """
@@ -352,7 +366,7 @@ def predict_single_sample(
             "--input", str(unitig_fraction),
             "--output", str(predictions_json),
             "--sample-id", sample_id,
-            "--label_encoders", str(model_path.parent)
+            "--label-encoders", str(model_path.parent)
         ], "Step 3: Running model inference")
         
         # ====================================================================
@@ -555,8 +569,6 @@ Resource Requirements:
     # Verify all required pipeline scripts are discoverable
     # Fallback: look in scripts/inference/ relative to this file's package root
     # ========================================================================
-    _SCRIPTS_FALLBACK = Path(__file__).parents[3] / "scripts" / "inference"
-
     required_scripts = [
         "00_extract_reference_kmers.sh",
         "01_count_kmers.sh",
@@ -581,16 +593,6 @@ Resource Requirements:
         logger.error(f"  3. Or set DIANA_SCRIPTS env var to the scripts/inference/ directory")
         sys.exit(1)
 
-    def _resolve_script(name: str) -> str:
-        """Return the script path: prefer PATH, fall back to scripts/inference/."""
-        found = shutil.which(name)
-        if found:
-            return found
-        fallback = _SCRIPTS_FALLBACK / name
-        if fallback.is_file():
-            return str(fallback)
-        return name  # will fail at runtime with a clear error
-    
     # Validate paths
     if not args.model.exists():
         logger.error(f"Model not found: {args.model}")
