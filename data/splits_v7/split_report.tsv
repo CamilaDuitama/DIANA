@@ -1,0 +1,106 @@
+project_name	n_runs	community_types	sample_hosts	materials	split
+Warinner2014	9	oral	Homo sapiens	dental calculus	train
+FellowsYates2021	159	oral	Alouatta palliata, Gorilla beringei beringei, Gorilla beringei graueri, Gorilla gorilla gorilla, Homo sapiens	dental calculus	val
+Weyrich2017	20	oral	Homo sapiens	dental calculus	train
+Modi2020	3	oral	Homo sapiens	dental calculus	train
+Ozga2016	4	oral, skeletal tissue	Homo sapiens	dental calculus, tooth	train
+Borry2020	14	archeological site, gut, midden	Canis lupus, Homo sapiens	midden, palaeofaeces, sediment	val
+Ottoni2019	10	oral	Papio hamadryas	dental calculus	train
+Fotakis2020	1	oral	Homo sapiens	dental calculus	train
+Sabin2020	8	gut	Homo sapiens	latrine	test
+Rampelli2021b	1	gut	Canis lupus	palaeofaeces	train
+Eisenhofer2020	15	oral	Homo sapiens	dental calculus	train
+Williams2020	2	oral	Homo sapiens	dental calculus	val
+Farrer2021	27	oral	Homo sapiens	dental calculus	train
+Maixner2021	19	gut	Homo sapiens	palaeofaeces	train
+Hagan2019	30	gut	Canis lupus, Homo sapiens	palaeofaeces	train
+Philips2017	165	oral	Homo sapiens	tooth	train
+Rifkin2020	5	gut, rock shelter	Homo sapiens	palaeofaeces, sediment	train
+Fagernas2020	24	oral	Homo sapiens	dental calculus	val
+Kazarina2021	15	oral	Homo sapiens	dental calculus	train
+Wibowo2021	11	cave, gut	Homo sapiens	palaeofaeces, sediment	val
+Rampelli2021	14	gut	Homo sapiens neanderthalensis	sediment	test
+Brealey2020	72	oral, skeletal tissue	Gorilla beringei, Rangifer tarandus, Ursus arctos	dental calculus, tooth	val
+Tett2019	6	gut	Homo sapiens	large intestine, palaeofaeces	val
+Neukamm2020	154	oral, skeletal tissue	Homo sapiens	bone, dental calculus, tooth	test
+McDonough2018	12	skeletal tissue, soft tissue		bone, muscle tissue	train
+Jensen2019	9	oral	Homo sapiens	birch pitch	train
+Appelt2014	1	gut	Homo sapiens	palaeofaeces	train
+Witt2021	9	gut	Canis lupus	palaeofaeces	val
+Eerkens2018	4	oral	Homo sapiens	dental calculus	train
+Ferrari2018	16	soft tissue	Mammuthus primigenius	intestine, muscle tissue	train
+Campana2014	16	skeletal tissue	Homo sapiens	bone	val
+Jacobson2020	18	oral	Homo sapiens	dental calculus	train
+Brealey2021	316	oral	Ursus arctos	dental calculus	train
+Maixner2016	17	gut, soft tissue	Homo sapiens	digestive tract contents, muscle tissue	train
+Willmann2018	9	skeletal tissue	Homo sapiens	bone, tooth	val
+Zhou2018	1	oral	Homo sapiens	dental calculus	train
+Velsko2019	90	oral	Homo sapiens	dental calculus	train
+NievesColon2020	1	oral	Homo sapiens	dental calculus	train
+Ozga2019	19	oral	Pan troglodytes schweinfurthii	dental calculus	train
+Bieker2020	83	plant tissue	Ambrosia artemisiifolia, Arabidopsis thaliana	leaf	train
+Granehall2021	20	oral	Homo sapiens	dental calculus	train
+Mann2018	122	oral	Homo sapiens	dental calculus	train
+Kazarina2021b	10	oral	Homo sapiens	tooth	train
+SeguinOrlando2021	238	oral, skeletal tissue	Homo sapiens	bone, tooth	train
+Ottoni2021	44	oral	Homo sapiens	dental calculus	train
+Modi2021	6	oral	Homo sapiens	dental calculus	val
+Scorrano2022	2	oral	Homo sapiens	dental calculus	val
+Fagernas2022	137	oral	Homo sapiens	dental calculus	train
+Velsko2022	178	oral	Homo sapiens	dental calculus	test
+Moraitou2022	96	oral	Gorilla beringei beringei, Gorilla beringei graueri, Gorilla gorilla gorilla	dental calculus	train
+Quagliariello2022	76	oral	Homo sapiens	dental calculus	train
+Sarhan2023	8	oral, skeletal tissue, soft tissue	Homo sapiens	intestine, tooth	train
+Kimsis2023	15	oral, skeletal tissue	Homo sapiens	bone, tooth	train
+Honap2023	28	oral	Homo sapiens	dental calculus	train
+Klapper2023	29	archeological site		sediment	train
+Fontani2023	2	oral	Homo sapiens	dental calculus, tooth	train
+Madison2023	11	gut	Lithobates pipiens	intestine	train
+Nishimura2024	4	gut	Homo sapiens	palaeofaeces	train
+Kirdok2024	70	oral	Homo sapiens	birch pitch	val
+Fiorin2024	4	oral	Homo sapiens	dental calculus	train
+Jackson2024	68	oral	Homo sapiens	tooth	train
+Wright2024	4	oral	Homo sapiens	dental calculus	train
+Austin2024	39	oral	Homo sapiens	dental calculus	train
+Bozzi2024	70	skeletal tissue	Homo sapiens	bone, tooth	test
+Fleskes2024	12	oral	Homo sapiens	dental calculus	train
+Velsko2024	122	oral, skeletal tissue	Homo sapiens	bone, dental calculus	train
+Eriksen2025	132	skeletal tissue	Rangifer tarandus	rib	train
+Guinet2025	16	skeletal tissue	Mammuthus primigenius, Mammuthus sp.	femur, pelvis complex, scapula, tibia, tooth	val
+Poksane2025	10	skeletal tissue	Homo sapiens	bone, tooth	val
+Jin2025	16	gut	Bison priscus	digestive tract contents	train
+Lammers2021	4	lake		lake sediment	val
+Dommain2020	29	swamp forest		sediment	train
+Schulte2021	3	lake		lake sediment	val
+Ardelean2020	35	cave		sediment	train
+Moguel2021	12	lake		lake sediment	test
+Liang2021	12	sea coast		permafrost	train
+Slon2017	85	cave		sediment	train
+Ahmed2018	12	lake		lake sediment	val
+Gaffney2020	36	ocean		shallow marine sediment	test
+Armbrecht2020	21	ocean		marine sediment	val
+DerSarkissian2016	24	shell		shell	train
+Pedersen2016	32	lake		lake sediment	train
+Smith2015	4	ocean		sediment	val
+Graham2016	49	lake		lake sediment	train
+Wang2017	21	lake		lake sediment	train
+Seersholm2016	35	midden		sediment	train
+Armbrecht2022	65	ocean		marine sediment	train
+Courtin2022	10	thermokarst		permafrost	train
+Iwanska2022	16	lake		lake sediment	val
+Gelabert2021	1	cave		sediment	train
+Moore2020	11	midden		midden	train
+Perez2022	20	hydrothermal field, wetland area		soil	train
+Kjaer2022	53	sea coast		permafrost	train
+Nwosu2023	11	lake		lake sediment	val
+Rigou2022	9	thermokarst		permafrost	train
+Armbrecht2021	5	ocean		marine sediment	val
+Vassallo2023	2	midden		soil	val
+Zimmermann2023	25	ocean		marine sediment	train
+Perez2023	30	lake		lake sediment	test
+Buchwald2024	42	ocean		marine sediment	train
+Murchie2023	8	archeological site		permafrost	train
+Liu2024	57	lake		lake sediment	train
+Zampirolo2024	11	rock shelter		sediment	train
+vonHippel2025	58	lake		lake sediment	train
+Schreiber2025	48	ocean		marine sediment	train

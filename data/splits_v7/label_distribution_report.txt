@@ -1,0 +1,501 @@
+================================================================================
+V7 LABEL DISTRIBUTION REPORT
+================================================================================
+
+Train: 2888 samples (74.2%)
+Val:   504 samples (12.9%)
+Test:  502 samples (12.9%)
+
+
+████████████████████████████████████████████████████████████████████████████████
+HOST-ASSOCIATED SAMPLES
+████████████████████████████████████████████████████████████████████████████████
+
+================================================================================
+Task: COMMUNITY_TYPE
+Sample Type: host-associated
+================================================================================
+
+TRAIN (2140 samples, 2117 with labels)
+--------------------------------------------------------------------------------
+   1. oral                                           1612 ( 76.1%)
+   2. skeletal tissue                                 289 ( 13.7%)
+   3. gut                                             100 (  4.7%)
+   4. plant tissue                                     83 (  3.9%)
+   5. soft tissue                                      33 (  1.6%)
+
+  Total unique labels: 5
+
+VAL (416 samples, 416 with labels)
+--------------------------------------------------------------------------------
+   1. oral                                            331 ( 79.6%)
+   2. skeletal tissue                                  55 ( 13.2%)
+   3. gut                                              30 (  7.2%)
+
+  Total unique labels: 3
+
+TEST (424 samples, 424 with labels)
+--------------------------------------------------------------------------------
+   1. oral                                            257 ( 60.6%)
+   2. skeletal tissue                                 145 ( 34.2%)
+   3. gut                                              22 (  5.2%)
+
+  Total unique labels: 3
+
+================================================================================
+Task: SAMPLE_HOST
+Sample Type: host-associated
+================================================================================
+
+TRAIN (2140 samples, 2095 with labels)
+--------------------------------------------------------------------------------
+   1. Homo sapiens                                   1390 ( 66.3%)
+   2. Ursus arctos                                    316 ( 15.1%)
+   3. Rangifer tarandus                               132 (  6.3%)
+   4. Gorilla beringei graueri                         56 (  2.7%)
+   5. Ambrosia artemisiifolia                          49 (  2.3%)
+   6. Arabidopsis thaliana                             34 (  1.6%)
+   7. Gorilla gorilla gorilla                          34 (  1.6%)
+   8. Pan troglodytes schweinfurthii                   19 (  0.9%)
+   9. Mammuthus primigenius                            16 (  0.8%)
+  10. Bison priscus                                    16 (  0.8%)
+  11. Lithobates pipiens                               11 (  0.5%)
+  12. Canis lupus                                      11 (  0.5%)
+  13. Gorilla beringei beringei                         6 (  0.3%)
+  14. Papio hamadryas                                   5 (  0.2%)
+
+  Total unique labels: 14
+
+VAL (416 samples, 416 with labels)
+--------------------------------------------------------------------------------
+   1. Homo sapiens                                    209 ( 50.2%)
+   2. Gorilla beringei beringei                        25 (  6.0%)
+   3. Gorilla beringei                                 24 (  5.8%)
+   4. Rangifer tarandus                                24 (  5.8%)
+   5. Ursus arctos                                     24 (  5.8%)
+   6. Homo sapiens neanderthalensis                    17 (  4.1%)
+   7. Pan troglodytes schweinfurthii                   15 (  3.6%)
+   8. Mammuthus primigenius                            14 (  3.4%)
+   9. Gorilla beringei graueri                         12 (  2.9%)
+  10. Pan troglodytes ellioti                          12 (  2.9%)
+  11. Gorilla gorilla gorilla                          11 (  2.6%)
+  12. Canis lupus                                      10 (  2.4%)
+  13. Pan troglodytes verus                             9 (  2.2%)
+  14. Alouatta palliata                                 8 (  1.9%)
+  15. Mammuthus sp.                                     2 (  0.5%)
+
+  Total unique labels: 15
+
+TEST (424 samples, 424 with labels)
+--------------------------------------------------------------------------------
+   1. Homo sapiens                                    410 ( 96.7%)
+   2. Homo sapiens neanderthalensis                    14 (  3.3%)
+
+  Total unique labels: 2
+
+================================================================================
+Task: MATERIAL
+Sample Type: host-associated
+================================================================================
+
+TRAIN (2140 samples, 2095 with labels)
+--------------------------------------------------------------------------------
+   1. dental calculus                                1243 ( 59.3%)
+   2. tooth                                           360 ( 17.2%)
+   3. bone                                            154 (  7.4%)
+   4. rib                                             132 (  6.3%)
+   5. leaf                                             83 (  4.0%)
+   6. palaeofaeces                                     58 (  2.8%)
+   7. digestive tract contents                         31 (  1.5%)
+   8. intestine                                        16 (  0.8%)
+   9. birch pitch                                       9 (  0.4%)
+  10. muscle tissue                                     9 (  0.4%)
+
+  Total unique labels: 10
+
+VAL (416 samples, 416 with labels)
+--------------------------------------------------------------------------------
+   1. dental calculus                                 261 ( 62.7%)
+   2. birch pitch                                      70 ( 16.8%)
+   3. palaeofaeces                                     29 (  7.0%)
+   4. tooth                                            29 (  7.0%)
+   5. bone                                             22 (  5.3%)
+   6. large intestine                                   1 (  0.2%)
+   7. pelvis complex                                    1 (  0.2%)
+   8. scapula                                           1 (  0.2%)
+   9. femur                                             1 (  0.2%)
+  10. tibia                                             1 (  0.2%)
+
+  Total unique labels: 10
+
+TEST (424 samples, 424 with labels)
+--------------------------------------------------------------------------------
+   1. dental calculus                                 184 ( 43.4%)
+   2. tooth                                           112 ( 26.4%)
+   3. bone                                            106 ( 25.0%)
+   4. sediment                                         14 (  3.3%)
+   5. latrine                                           8 (  1.9%)
+
+  Total unique labels: 5
+
+================================================================================
+Task: SAMPLE_AGE
+Sample Type: host-associated
+================================================================================
+
+TRAIN (2140 samples, 2117 with labels)
+--------------------------------------------------------------------------------
+  Mean (log10):           2.87
+  Median (log10):         2.95
+  Std (log10):            0.73
+  Min (log10):            2.00  [         100 years]
+  Q25 (log10):            2.00
+  Q75 (log10):            3.60
+  Max (log10):            4.72  [       52500 years]
+
+  Total values: 2117
+
+VAL (416 samples, 416 with labels)
+--------------------------------------------------------------------------------
+  Mean (log10):           3.00
+  Median (log10):         2.60
+  Std (log10):            0.91
+  Min (log10):            2.00  [         100 years]
+  Q25 (log10):            2.30
+  Q75 (log10):            3.99
+  Max (log10):            6.04  [     1100000 years]
+
+  Total values: 416
+
+TEST (424 samples, 424 with labels)
+--------------------------------------------------------------------------------
+  Mean (log10):           2.81
+  Median (log10):         2.30
+  Std (log10):            0.61
+  Min (log10):            2.00  [         100 years]
+  Q25 (log10):            2.30
+  Q75 (log10):            3.32
+  Max (log10):            4.72  [       52300 years]
+
+  Total values: 424
+
+================================================================================
+Task: LATITUDE
+Sample Type: host-associated
+================================================================================
+
+TRAIN (2140 samples, 1997 with labels)
+--------------------------------------------------------------------------------
+  Mean:          42.55
+  Median:        48.86
+  Std:           22.43
+  Min:          -27.12
+  Q25:           38.65
+  Q75:           54.01
+  Max:           70.44
+
+  Total values: 1997
+
+VAL (416 samples, 396 with labels)
+--------------------------------------------------------------------------------
+  Mean:          33.87
+  Median:        39.85
+  Std:           28.19
+  Min:          -34.03
+  Q25:            3.41
+  Q75:           58.16
+  Max:           79.00
+
+  Total values: 396
+
+TEST (424 samples, 373 with labels)
+--------------------------------------------------------------------------------
+  Mean:          37.80
+  Median:        38.69
+  Std:           17.06
+  Min:          -28.48
+  Q25:           29.24
+  Q75:           52.55
+  Max:           56.94
+
+  Total values: 373
+
+================================================================================
+Task: LONGITUDE
+Sample Type: host-associated
+================================================================================
+
+TRAIN (2140 samples, 1997 with labels)
+--------------------------------------------------------------------------------
+  Mean:           4.90
+  Median:         4.00
+  Std:           56.26
+  Min:         -175.19
+  Q25:           -8.20
+  Q75:           17.21
+  Max:          177.51
+
+  Total values: 1997
+
+VAL (416 samples, 396 with labels)
+--------------------------------------------------------------------------------
+  Mean:           4.19
+  Median:        11.48
+  Std:           57.99
+  Min:         -179.68
+  Q25:           -2.40
+  Q75:           27.55
+  Max:          179.56
+
+  Total values: 396
+
+TEST (424 samples, 373 with labels)
+--------------------------------------------------------------------------------
+  Mean:          13.14
+  Median:         4.91
+  Std:           18.70
+  Min:          -50.00
+  Q25:            4.91
+  Q75:           31.10
+  Max:           35.22
+
+  Total values: 373
+
+
+████████████████████████████████████████████████████████████████████████████████
+ENVIRONMENTAL SAMPLES
+████████████████████████████████████████████████████████████████████████████████
+
+================================================================================
+Task: FEATURE
+Sample Type: environmental
+================================================================================
+
+TRAIN (748 samples, 748 with labels)
+--------------------------------------------------------------------------------
+   1. lake                                            217 ( 29.0%)
+   2. ocean                                           180 ( 24.1%)
+   3. cave                                            121 ( 16.2%)
+   4. sea coast                                        65 (  8.7%)
+   5. midden                                           46 (  6.1%)
+   6. swamp forest                                     29 (  3.9%)
+   7. shell                                            24 (  3.2%)
+   8. thermokarst                                      19 (  2.5%)
+   9. hydrothermal field                               15 (  2.0%)
+  10. archeological site                               14 (  1.9%)
+  11. rock shelter                                     13 (  1.7%)
+  12. wetland area                                      5 (  0.7%)
+
+  Total unique labels: 12
+
+VAL (88 samples, 88 with labels)
+--------------------------------------------------------------------------------
+   1. lake                                             46 ( 52.3%)
+   2. ocean                                            30 ( 34.1%)
+   3. midden                                            6 (  6.8%)
+   4. cave                                              3 (  3.4%)
+   5. archeological site                                3 (  3.4%)
+
+  Total unique labels: 5
+
+TEST (78 samples, 78 with labels)
+--------------------------------------------------------------------------------
+   1. lake                                             42 ( 53.8%)
+   2. ocean                                            36 ( 46.2%)
+
+  Total unique labels: 2
+
+================================================================================
+Task: MATERIAL
+Sample Type: environmental
+================================================================================
+
+TRAIN (748 samples, 748 with labels)
+--------------------------------------------------------------------------------
+   1. lake sediment                                   217 ( 29.0%)
+   2. sediment                                        204 ( 27.3%)
+   3. marine sediment                                 180 ( 24.1%)
+   4. permafrost                                       92 ( 12.3%)
+   5. shell                                            24 (  3.2%)
+   6. soil                                             20 (  2.7%)
+   7. midden                                           11 (  1.5%)
+
+  Total unique labels: 7
+
+VAL (88 samples, 88 with labels)
+--------------------------------------------------------------------------------
+   1. lake sediment                                    46 ( 52.3%)
+   2. marine sediment                                  26 ( 29.5%)
+   3. sediment                                         10 ( 11.4%)
+   4. midden                                            4 (  4.5%)
+   5. soil                                              2 (  2.3%)
+
+  Total unique labels: 5
+
+TEST (78 samples, 78 with labels)
+--------------------------------------------------------------------------------
+   1. lake sediment                                    42 ( 53.8%)
+   2. shallow marine sediment                          36 ( 46.2%)
+
+  Total unique labels: 2
+
+================================================================================
+Task: SAMPLE_AGE
+Sample Type: environmental
+================================================================================
+
+TRAIN (748 samples, 748 with labels)
+--------------------------------------------------------------------------------
+  Mean (log10):           4.15
+  Median (log10):         4.08
+  Std (log10):            1.03
+  Min (log10):            2.00  [         100 years]
+  Q25 (log10):            3.63
+  Q75 (log10):            4.72
+  Max (log10):            6.30  [     2000000 years]
+
+  Total values: 748
+
+VAL (88 samples, 88 with labels)
+--------------------------------------------------------------------------------
+  Mean (log10):           3.12
+  Median (log10):         3.26
+  Std (log10):            0.82
+  Min (log10):            2.00  [         100 years]
+  Q25 (log10):            2.00
+  Q75 (log10):            3.90
+  Max (log10):            4.29  [       19500 years]
+
+  Total values: 88
+
+TEST (78 samples, 78 with labels)
+--------------------------------------------------------------------------------
+  Mean (log10):           3.18
+  Median (log10):         3.78
+  Std (log10):            0.86
+  Min (log10):            2.00  [         100 years]
+  Q25 (log10):            2.30
+  Q75 (log10):            3.93
+  Max (log10):            4.06  [       11500 years]
+
+  Total values: 78
+
+================================================================================
+Task: LATITUDE
+Sample Type: environmental
+================================================================================
+
+TRAIN (748 samples, 746 with labels)
+--------------------------------------------------------------------------------
+  Mean:          42.56
+  Median:        55.51
+  Std:           38.06
+  Min:          -59.44
+  Q25:           31.10
+  Q75:           69.13
+  Max:           82.58
+
+  Total values: 746
+
+VAL (88 samples, 88 with labels)
+--------------------------------------------------------------------------------
+  Mean:          29.19
+  Median:        51.30
+  Std:           41.37
+  Min:          -42.84
+  Q25:           34.29
+  Q75:           53.59
+  Max:           72.40
+
+  Total values: 88
+
+TEST (78 samples, 78 with labels)
+--------------------------------------------------------------------------------
+  Mean:          12.97
+  Median:        19.26
+  Std:           42.17
+  Min:          -38.03
+  Q25:          -37.90
+  Q75:           53.32
+  Max:           53.32
+
+  Total values: 78
+
+================================================================================
+Task: LONGITUDE
+Sample Type: environmental
+================================================================================
+
+TRAIN (748 samples, 746 with labels)
+--------------------------------------------------------------------------------
+  Mean:           8.19
+  Median:         8.75
+  Std:          100.84
+  Min:         -170.25
+  Q25:          -58.76
+  Q75:           90.25
+  Max:          170.70
+
+  Total values: 746
+
+VAL (88 samples, 88 with labels)
+--------------------------------------------------------------------------------
+  Mean:          50.90
+  Median:        23.37
+  Std:           66.80
+  Min:         -109.80
+  Q25:           12.53
+  Q75:          120.04
+  Max:          148.24
+
+  Total values: 88
+
+TEST (78 samples, 78 with labels)
+--------------------------------------------------------------------------------
+  Mean:          42.08
+  Median:         1.12
+  Std:           90.72
+  Min:          -98.99
+  Q25:            1.12
+  Q75:          147.60
+  Max:          147.74
+
+  Total values: 78
+
+
+████████████████████████████████████████████████████████████████████████████████
+FILE INVENTORY
+████████████████████████████████████████████████████████████████████████████████
+
+This section tracks available files vs. required files for each split.
+Train/Test use unitig files; Validation uses raw FASTQ files.
+
+
+📁 UNITIG FILES (data/unitigs/)
+--------------------------------------------------------------------------------
+  Available unitig files: 3112
+
+  TRAIN SET:
+    Required:  2888
+    Available: 2062 (71.4%)
+    Missing:   826
+
+  TEST SET:
+    Required:  502
+    Available: 425 (84.7%)
+    Missing:   77
+
+📁 VALIDATION FASTQ FILES (data/validation/raw/)
+--------------------------------------------------------------------------------
+  Available FASTQ accessions: 987
+
+  VALIDATION SET:
+    Required:  504
+    Available: 125 (24.8%)
+    Missing:   379
+
+================================================================================
+DOWNLOAD REQUIREMENTS
+================================================================================
+  Unitig files to download:  903 / 3390
+  FASTQ files to download:   379 / 504
