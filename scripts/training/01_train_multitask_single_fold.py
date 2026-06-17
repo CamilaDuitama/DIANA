@@ -1,17 +1,31 @@
+
 #!/usr/bin/env python3
 """
 Multi-Task MLP Hyperparameter Optimization - Single Fold for SLURM Array Jobs
 ==============================================================================
 
 Performs nested cross-validation with Optuna-based Bayesian hyperparameter optimization
-for multi-task classification of ancient DNA samples.
+for multi-task learning on ancient DNA samples.
 
-CLASSIFICATION TARGETS (Multi-Task Learning):
-----------------------------------------------
-1. sample_type (Binary): ancient_metagenome vs modern_metagenome
-2. community_type (6 classes): oral, skeletal tissue, gut, plant tissue, soft tissue, env sample
-3. sample_host (12 classes): Homo sapiens, Ursus arctos, environmental, etc.
-4. material (13 classes): dental calculus, tooth, bone, sediment, etc.
+SUPPORTED TASKS (Config-Driven):
+---------------------------------
+This script handles both classification and regression tasks simultaneously:
+
+Classification (outputs class probabilities, optimized with cross-entropy):
+  - Sample-level: sample_type, sample_host
+  - Community-level: community_type, material
+  - Any custom categorical target
+
+Regression (outputs continuous value in [0,1], optimized with MAE):
+  - Temporal: sample_age (log1p-transformed, then normalized)
+  - Spatial: latitude, longitude (min-max normalized)
+  - Any custom continuous target (auto-scaled to [0,1])
+
+The script automatically:
+  - Detects task types from config (task_types dict)
+  - Applies appropriate normalization for regression
+  - Masks NaN values in regression targets (missing labels)
+  - Combines classification + regression losses in multi-task objective
 
 DEPENDENCIES:
 -------------
@@ -26,45 +40,64 @@ Internal modules:
   - diana.data.loader: MatrixLoader (polars-based fast loading)
 
 Input files:
-  - K-mer matrix (.pa.mat): Space-separated file with sample IDs in column 0
-  - Metadata (.tsv): TSV with Run_accession and classification targets
+  - K-mer matrix (.frac.mat or .pa.mat): Feature matrix with sample IDs
+  - Metadata (.tsv): TSV with Run_accession and task target columns
 
-INPUT DATA:
------------
-- Features: data/splits/train_matrix.pa.mat (2609 samples × 104565 k-mer features)
-- Metadata: data/splits/train_metadata.tsv (sample IDs + target labels)
+INPUT DATA (v7 example):
+------------------------
+- Features: data/matrices/matrix_v7_3190/unitigs.frac.mat (3,190 samples × 78,430 unitigs)
+- Metadata: data/splits_v7/train_metadata.tsv (2,838 samples)
+- Tasks: 3 classification + 3 regression (configured in JSON)
 
 OUTPUT STRUCTURE:
 -----------------
-results_multitask_gpu/fold_{fold_id}/
+<output_dir>/cv_results/fold_{fold_id}/
 ├── multitask_fold_{fold_id}_results_{timestamp}.json    # Metrics + hyperparameters
-├── best_multitask_model_fold_{fold_id}_{timestamp}.pth  # Trained model weights
+├── best_model.pth                                       # Best model (lowest val loss)
+├── final_model.pth                                      # Final model (early stopped)
+├── run_config.json                                      # Copy of run config (reproducibility)
 └── fold_{fold_id}_training_log_{timestamp}.txt          # Detailed training log
+
+Metrics in results JSON:
+  - Classification: accuracy, f1_macro, f1_weighted, balanced_accuracy
+  - Regression: mae_normalised, score (1 - MAE, comparable to classification score)
 
 USAGE:
 ------
-# Local testing (CPU):
+# SLURM GPU array job (5-fold CV):
+sbatch --array=0-4 scripts/training/run_hyperopt_bioproject_v7.sbatch
+
+# Manual run (single fold):
 python scripts/training/01_train_multitask_single_fold.py \\
-    --fold_id 0 --total_folds 2 \\
-    --features data/test_data/splits/train_matrix_100feat.pa.mat \\
-    --metadata data/test_data/splits/train_metadata.tsv \\
-    --output results/test --n_trials 3 --max_epochs 20
-
-# SLURM GPU (5 folds parallel):
-sbatch --array=0-4 scripts/training/run_multitask_gpu.sbatch
-
-Each array task trains one outer CV fold independently with Optuna optimization.
+    --run-config configs/train_config_bioproject_v7.json \\
+    --fold_id 0 --use_gpu
 
 WORKFLOW:
 ---------
-1. Load matrix (polars) and metadata
-2. Split into outer CV fold (stratified by combined sample_type and community_type)
+1. Load feature matrix and metadata from config paths
+2. Create outer CV split (stratified by first 2 classification tasks)
 3. Optuna hyperparameter search with inner CV:
-   - Search space: hidden layers, activation, dropout, batch norm, learning rate, etc.
-   - Objective: Average of (balanced accuracy + macro F1) / 2 across all 4 tasks
-   - No pruning (each trial evaluated on all inner folds)
-4. Train final model on full training fold with best hyperparameters
-5. Save model, hyperparameters, and metrics
+   - Search space: hidden_dims, dropout, lr, batch_size, task_weights, etc.
+   - Objective: Mean of per-task scores
+     - Classification: (balanced_acc + macro_f1) / 2
+     - Regression: 1 - MAE (both in [0,1] range)
+   - Each trial evaluated on ALL inner folds (no pruning for stability)
+4. Train final model on full outer train set with best hyperparameters
+5. Evaluate on held-out test fold (never used for model selection)
+6. Save model weights, hyperparameters, and metrics
+
+REGRESSION NORMALIZATION:
+-------------------------
+Regression targets are transformed before training:
+  - sample_age: log1p(x), then scaled to [0,1] using [log1p(100), log1p(2M)]
+  - latitude: scaled to [0,1] using [-90, 90]
+  - longitude: scaled to [0,1] using [-180, 180]
+
+To denormalize predictions after inference:
+  - sample_age: exp(pred * (max-min) + min) - 1
+  - latitude/longitude: pred * (max-min) + min
+
+See scripts/evaluation/denormalize_predictions.py for utility functions.
 """
 
 import sys
@@ -131,51 +164,108 @@ def load_matrix_data(matrix_path: str, metadata_path: str) -> Tuple[np.ndarray, 
     return features, metadata
 
 
+def denormalize_regression_predictions(
+    preds_normalized: np.ndarray,
+    task: str,
+) -> Tuple[np.ndarray, str]:
+    """
+    Denormalize regression predictions back to original units.
+
+    Args:
+        preds_normalized: Predictions in [0, 1] range
+        task: Task name (sample_age, latitude, longitude)
+
+    Returns:
+        Tuple of (denormalized predictions, unit label)
+
+    Normalization was:
+      - sample_age: log1p(x) then scaled to [0,1]
+      - latitude: linear scale [-90, 90] → [0,1]
+      - longitude: linear scale [-180, 180] → [0,1]
+    """
+    if task == "sample_age":
+        vmin, vmax, _ = np.log1p(100.0), np.log1p(2_000_000.0), True
+        # Reverse: x = exp(pred * (vmax - vmin) + vmin) - 1
+        denormalized = np.exp(preds_normalized * (vmax - vmin) + vmin) - 1
+        return denormalized, "years"
+    elif task == "latitude":
+        vmin, vmax = -90.0, 90.0
+        denormalized = preds_normalized * (vmax - vmin) + vmin
+        return denormalized, "degrees"
+    elif task == "longitude":
+        vmin, vmax = -180.0, 180.0
+        denormalized = preds_normalized * (vmax - vmin) + vmin
+        return denormalized, "degrees"
+    else:
+        # Unknown task: return as-is
+        return preds_normalized, "normalized"
+
+
 def prepare_labels(
     metadata: pd.DataFrame,
-    targets: List[str] = ["sample_type", "community_type", "sample_host", "material"]
-) -> Tuple[Dict[str, np.ndarray], Dict[str, LabelEncoder], Dict[str, int]]:
+    task_names: List[str],
+    task_types: Dict[str, str],
+) -> Tuple[Dict[str, np.ndarray], Dict, Dict[str, int]]:
     """
-    Encode labels for all classification targets.
-    Dynamically determines number of classes from actual data.
-    
-    Args:
-        metadata: Metadata DataFrame
-        targets: List of target column names
-        
+    Prepare labels for all tasks.
+
+    Classification tasks: LabelEncoder → int array.
+    Regression tasks:     normalize to [0, 1] (log1p for sample_age), keep NaN as np.nan.
+
     Returns:
-        Tuple of (labels_dict, encoders_dict, num_classes_dict)
+        labels:      {task: np.ndarray} — int64 for classification, float32 (with NaN) for regression
+        encoders:    {task: LabelEncoder} for classification;
+                     {task: {"min", "max", "log_transform"}} for regression
+        num_classes: {task: int} — classification tasks only
     """
+    # Fixed normalization bounds for known regression tasks (domain-aware)
+    REGRESSION_BOUNDS = {
+        "sample_age": (np.log1p(100.0), np.log1p(2_000_000.0), True),   # (min, max, log_transform)
+        "latitude":   (-90.0, 90.0, False),
+        "longitude":  (-180.0, 180.0, False),
+    }
+
     labels = {}
     encoders = {}
     num_classes = {}
-    
-    for target in targets:
-        encoder = LabelEncoder()
-        labels[target] = encoder.fit_transform(metadata[target].values)
-        encoders[target] = encoder
-        num_classes[target] = len(encoder.classes_)
-        
-        logger.info(f"{target}: {num_classes[target]} classes - {list(encoder.classes_[:5])}...")
-    
+
+    for task in task_names:
+        if task_types.get(task, "classification") == "regression":
+            raw = metadata[task].values.astype(float)
+            if task in REGRESSION_BOUNDS:
+                vmin, vmax, do_log = REGRESSION_BOUNDS[task]
+            else:
+                do_log = False
+                vmin = float(np.nanmin(raw))
+                vmax = float(np.nanmax(raw))
+            transformed = np.log1p(raw) if do_log else raw.copy()
+            normalized = (transformed - vmin) / (vmax - vmin)
+            np.clip(normalized, 0.0, 1.0, out=normalized)
+            # Restore NaN (masked out in loss)
+            normalized[np.isnan(raw)] = np.nan
+            labels[task] = normalized.astype(np.float32)
+            encoders[task] = {"min": vmin, "max": vmax, "log_transform": do_log}
+            logger.info(f"{task} (regression): {(~np.isnan(raw)).sum()} valid / {len(raw)} samples, "
+                        f"range [{np.nanmin(raw):.1f}, {np.nanmax(raw):.1f}]")
+        else:
+            encoder = LabelEncoder()
+            labels[task] = encoder.fit_transform(metadata[task].values)
+            encoders[task] = encoder
+            num_classes[task] = len(encoder.classes_)
+            logger.info(f"{task}: {num_classes[task]} classes - {list(encoder.classes_[:5])}...")
+
     return labels, encoders, num_classes
 
 
 def compute_class_weights(labels_dict: Dict[str, np.ndarray], num_classes: Dict[str, int], device: torch.device) -> Dict[str, torch.Tensor]:
     """
-    Compute class weights for imbalanced datasets.
-    
-    Args:
-        labels_dict: Dictionary of labels for each task
-        num_classes: Dictionary of total number of classes per task
-        device: Torch device
-        
-    Returns:
-        Dictionary of class weights tensors (with correct size for all classes)
+    Compute class weights for imbalanced classification tasks.
+    Regression tasks (not in num_classes) are automatically skipped.
     """
     class_weights = {}
-    
-    for task_name, labels in labels_dict.items():
+
+    for task_name in num_classes:  # num_classes only contains classification tasks
+        labels = labels_dict[task_name]
         n_total_classes = num_classes[task_name]
         unique, counts = np.unique(labels, return_counts=True)
         total = len(labels)
@@ -227,17 +317,29 @@ def train_outer_fold(
     # Device
     device = torch.device('cuda' if torch.cuda.is_available() and config.get('use_gpu', True) else 'cpu')
     logger.info(f"Using device: {device}")
-    
+
+    # Task configuration from config
+    task_names = config["task_names"]
+    task_types = config.get("task_types", {t: "classification" for t in task_names})
+    regression_tasks = [t for t in task_names if task_types.get(t) == "regression"]
+    classification_tasks = [t for t in task_names if task_types.get(t, "classification") == "classification"]
+
     # Prepare labels
-    targets = ["sample_type", "community_type", "sample_host", "material"]
-    labels_dict, encoders, num_classes = prepare_labels(metadata, targets)
-    
-    # Outer CV split (stratify by combined sample_type + community_type for better balance)
-    # Create stratification key combining sample_type and community_type
-    stratify_key = [
-        f"{labels_dict['sample_type'][i]}_{labels_dict['community_type'][i]}"
-        for i in range(len(labels_dict['sample_type']))
-    ]
+    labels_dict, encoders, num_classes = prepare_labels(metadata, task_names, task_types)
+
+    # Outer CV split: stratify by the first two (or one) classification tasks
+    def _make_stratify_key(idx_array):
+        if len(classification_tasks) >= 2:
+            t1, t2 = classification_tasks[0], classification_tasks[1]
+            return [f"{labels_dict[t1][i]}_{labels_dict[t2][i]}" for i in idx_array]
+        elif len(classification_tasks) == 1:
+            t1 = classification_tasks[0]
+            return [str(labels_dict[t1][i]) for i in idx_array]
+        else:
+            return list(idx_array)  # No stratification possible
+
+    all_indices = np.arange(len(metadata))
+    stratify_key = _make_stratify_key(all_indices)
     
     skf_outer = StratifiedKFold(n_splits=total_folds, shuffle=True, random_state=42)
     splits = list(skf_outer.split(features, stratify_key))
@@ -249,14 +351,10 @@ def train_outer_fold(
     n_inner_splits = config.get("n_inner_splits", 3)
     skf_inner = StratifiedKFold(n_splits=n_inner_splits, shuffle=True, random_state=42)
     
-    # Precompute inner CV splits (stratify by combined sample_type + community_type)
-    inner_stratify_key = [
-        f"{labels_dict['sample_type'][train_idx[i]]}_{labels_dict['community_type'][train_idx[i]]}"
-        for i in range(len(train_idx))
-    ]
+    # Precompute inner CV splits (same stratification strategy as outer)
     inner_cv_splits = list(skf_inner.split(
         features[train_idx],
-        inner_stratify_key
+        _make_stratify_key(train_idx)
     ))
     
     logger.info(f"Starting Optuna optimization with {config.get('n_trials', 50)} trials...")
@@ -282,56 +380,47 @@ def train_outer_fold(
         use_batch_norm = trial.suggest_categorical("use_batch_norm", [True, False])
         activation = trial.suggest_categorical("activation", ["relu", "gelu", "leaky_relu"])
         
-        # Task loss weights
-        task_weight_sample_type = trial.suggest_float("task_weight_sample_type", 0.5, 2.0)
-        task_weight_community = trial.suggest_float("task_weight_community", 0.5, 2.0)
-        task_weight_host = trial.suggest_float("task_weight_host", 0.5, 2.0)
-        task_weight_material = trial.suggest_float("task_weight_material", 0.5, 2.0)
-        
-        # Per-task label smoothing (fixed at 0 when --no_label_smoothing is set)
-        if config.get('no_label_smoothing', False):
-            ls_sample_type = ls_community_type = ls_sample_host = ls_material = 0.0
-        else:
-            ls_sample_type = trial.suggest_float("ls_sample_type", 0.0, 0.15)
-            ls_community_type = trial.suggest_float("ls_community_type", 0.0, 0.15)
-            ls_sample_host = trial.suggest_float("ls_sample_host", 0.0, 0.15)
-            ls_material = trial.suggest_float("ls_material", 0.0, 0.15)
-        
+        # Task loss weights (one weight per task, all tasks)
         task_weights = {
-            "sample_type": task_weight_sample_type,
-            "community_type": task_weight_community,
-            "sample_host": task_weight_host,
-            "material": task_weight_material
+            t: trial.suggest_float(f"task_weight_{t}", 0.5, 2.0)
+            for t in task_names
         }
-        
-        label_smoothing_per_task = {
-            "sample_type": ls_sample_type,
-            "community_type": ls_community_type,
-            "sample_host": ls_sample_host,
-            "material": ls_material,
-        }
-        
+
+        # Per-task label smoothing for classification tasks only
+        if config.get('no_label_smoothing', False):
+            label_smoothing_per_task = {t: 0.0 for t in classification_tasks}
+        else:
+            label_smoothing_per_task = {
+                t: trial.suggest_float(f"ls_{t}", 0.0, 0.15)
+                for t in classification_tasks
+            }
+
         # Evaluate on ALL inner CV folds
         fold_scores = []
-        
+
         for inner_fold_idx, (inner_train, inner_val) in enumerate(inner_cv_splits):
             # Get actual indices
             fold_train_idx = train_idx[inner_train]
             fold_val_idx = train_idx[inner_val]
-            
+
             # Prepare data as tensors
             X_train = torch.FloatTensor(features[fold_train_idx])
             X_val = torch.FloatTensor(features[fold_val_idx])
-            
-            y_train = {task: torch.LongTensor(labels_dict[task][fold_train_idx]) 
-                      for task in num_classes.keys()}
-            y_val = {task: torch.LongTensor(labels_dict[task][fold_val_idx]) 
-                    for task in num_classes.keys()}
-            
+
+            y_train = {}
+            y_val = {}
+            for task in task_names:
+                if task in regression_tasks:
+                    y_train[task] = torch.FloatTensor(labels_dict[task][fold_train_idx])
+                    y_val[task]   = torch.FloatTensor(labels_dict[task][fold_val_idx])
+                else:
+                    y_train[task] = torch.LongTensor(labels_dict[task][fold_train_idx])
+                    y_val[task]   = torch.LongTensor(labels_dict[task][fold_val_idx])
+
             # Create DataLoaders with proper batch_size
             train_dataset = TensorDataset(
                 X_train,
-                *[y_train[task] for task in num_classes.keys()]
+                *[y_train[task] for task in task_names]
             )
             train_loader = DataLoader(
                 train_dataset,
@@ -342,7 +431,7 @@ def train_outer_fold(
             
             val_dataset = TensorDataset(
                 X_val,
-                *[y_val[task] for task in num_classes.keys()]
+                *[y_val[task] for task in task_names]
             )
             val_loader = DataLoader(
                 val_dataset,
@@ -355,21 +444,23 @@ def train_outer_fold(
                 input_dim=features.shape[1],
                 hidden_dims=hidden_dims,
                 num_classes=num_classes,
+                regression_tasks=regression_tasks,
                 dropout=dropout,
                 use_batch_norm=use_batch_norm,
                 activation=activation
             ).to(device)
-            
-            # Compute class weights for this fold
+
+            # Compute class weights for this fold (classification tasks only)
             class_weights = compute_class_weights(
                 {task: labels_dict[task][fold_train_idx] for task in num_classes.keys()},
                 num_classes,
                 device
             )
-            
+
             # Loss and optimizer
             criterion = MultiTaskLoss(
-                task_names=list(num_classes.keys()),
+                task_names=task_names,
+                regression_tasks=regression_tasks,
                 task_weights=task_weights,
                 class_weights=class_weights,
                 label_smoothing=label_smoothing_per_task,
@@ -389,65 +480,79 @@ def train_outer_fold(
             
             for epoch in range(max_epochs):
                 model.train()
-                
+
                 # Training loop with mini-batches
                 for batch_data in train_loader:
                     X_batch = batch_data[0].to(device)
-                    y_batch = {task: batch_data[i+1].to(device) for i, task in enumerate(num_classes.keys())}
-                    
+                    y_batch = {task: batch_data[i+1].to(device) for i, task in enumerate(task_names)}
+
                     # Forward pass
                     outputs = model(X_batch)
                     total_loss, task_losses = criterion(outputs, y_batch)
-                    
+
                     # Backward pass
                     optimizer.zero_grad()
                     total_loss.backward()
                     optimizer.step()
-                
+
                 # Validation every 5 epochs
                 if epoch % 5 == 0:
                     model.eval()
-                    val_f1_scores = []
-                    
+                    task_scores = []
+
                     with torch.no_grad():
-                        all_preds = {task: [] for task in num_classes.keys()}
-                        all_true = {task: [] for task in num_classes.keys()}
-                        
+                        all_preds  = {task: [] for task in classification_tasks}
+                        all_true   = {task: [] for task in classification_tasks}
+                        reg_abs_err = {task: [] for task in regression_tasks}
+
                         for batch_data in val_loader:
                             X_batch = batch_data[0].to(device)
-                            y_batch = {task: batch_data[i+1].to(device) for i, task in enumerate(num_classes.keys())}
-                            
+                            y_batch = {task: batch_data[i+1].to(device) for i, task in enumerate(task_names)}
+
                             val_outputs = model(X_batch)
-                            
-                            for task in num_classes.keys():
+
+                            for task in classification_tasks:
                                 preds = torch.argmax(val_outputs[task], dim=1).cpu().numpy()
-                                true = y_batch[task].cpu().numpy()
+                                true  = y_batch[task].cpu().numpy()
                                 all_preds[task].extend(preds)
                                 all_true[task].extend(true)
-                        
-                        # Compute balanced accuracy and macro F1 for all tasks
-                        for task in num_classes.keys():
-                            bal_acc = balanced_accuracy_score(all_true[task], all_preds[task])
-                            macro_f1 = f1_score(all_true[task], all_preds[task], average='macro', zero_division=0)
-                            # Average of balanced accuracy and macro F1
-                            task_score = (bal_acc + macro_f1) / 2.0
-                            val_f1_scores.append(task_score)
-                        
-                        avg_score = np.mean(val_f1_scores)
-                    
+
+                            for task in regression_tasks:
+                                pred = val_outputs[task].cpu()
+                                tgt  = y_batch[task].cpu()
+                                valid = ~torch.isnan(tgt)
+                                if valid.sum() > 0:
+                                    reg_abs_err[task].extend(
+                                        torch.abs(pred[valid] - tgt[valid]).numpy().tolist()
+                                    )
+
+                        # Classification: (balanced_acc + macro_f1) / 2
+                        for task in classification_tasks:
+                            bal_acc   = balanced_accuracy_score(all_true[task], all_preds[task])
+                            macro_f1  = f1_score(all_true[task], all_preds[task], average='macro', zero_division=0)
+                            task_scores.append((bal_acc + macro_f1) / 2.0)
+
+                        # Regression: 1 - mean_absolute_error (both in [0,1])
+                        for task in regression_tasks:
+                            if reg_abs_err[task]:
+                                mae = float(np.mean(reg_abs_err[task]))
+                                task_scores.append(max(0.0, 1.0 - mae))
+
+                        avg_score = np.mean(task_scores) if task_scores else 0.0
+
                     # Early stopping
                     if avg_score > best_val_score:
                         best_val_score = avg_score
                         patience_counter = 0
                     else:
                         patience_counter += 1
-                    
+
                     if patience_counter >= patience:
                         break
-            
+
             # Store this fold's best score
             fold_scores.append(best_val_score)
-        
+
         # Return average score across all inner folds
         avg_score = np.mean(fold_scores)
         return avg_score
@@ -475,50 +580,52 @@ def train_outer_fold(
     # Split train_idx into sub-train and sub-val to avoid test set leakage during early stopping
     logger.info("Training final model with proper train/val split...")
     
-    # Compute class weights on full train_idx before splitting
+    # Compute class weights on full train_idx before splitting (classification only)
     class_weights_full = compute_class_weights(
         {task: labels_dict[task][train_idx] for task in num_classes.keys()},
         num_classes,
         device
     )
-    
+
     sub_train_idx, sub_val_idx = train_test_split(
         train_idx,
-        test_size=0.1,  # Use 10% of training fold for validation
+        test_size=0.1,
         random_state=42,
-        stratify=[
-            f"{labels_dict['sample_type'][i]}_{labels_dict['community_type'][i]}"
-            for i in train_idx
-        ]
+        stratify=_make_stratify_key(train_idx)
     )
     
     logger.info(f"Final training split: {len(sub_train_idx)} train, {len(sub_val_idx)} validation, {len(test_idx)} test")
     
     # Build model with best params
     hidden_dims = [best_params[f"hidden_dim_{i}"] for i in range(best_params["n_layers"])]
-    
+
     model = MultiTaskMLP(
         input_dim=features.shape[1],
         hidden_dims=hidden_dims,
         num_classes=num_classes,
+        regression_tasks=regression_tasks,
         dropout=best_params["dropout"],
         use_batch_norm=best_params["use_batch_norm"],
         activation=best_params["activation"]
     ).to(device)
-    
+
     # Prepare final training data (train/val for early stopping, test for final eval only)
+    def _make_label_tensor(task, idx):
+        vals = labels_dict[task][idx]
+        return torch.FloatTensor(vals) if task in regression_tasks else torch.LongTensor(vals)
+
     X_train = torch.FloatTensor(features[sub_train_idx])
-    X_val = torch.FloatTensor(features[sub_val_idx])
-    X_test = torch.FloatTensor(features[test_idx])
-    
-    y_train = {task: torch.LongTensor(labels[sub_train_idx]) for task, labels in labels_dict.items()}
-    y_val = {task: torch.LongTensor(labels[sub_val_idx]) for task, labels in labels_dict.items()}
-    y_test = {task: torch.LongTensor(labels[test_idx]) for task, labels in labels_dict.items()}
-    
+    X_val   = torch.FloatTensor(features[sub_val_idx])
+    X_test  = torch.FloatTensor(features[test_idx])
+
+    y_train = {task: _make_label_tensor(task, sub_train_idx) for task in task_names}
+    y_val   = {task: _make_label_tensor(task, sub_val_idx)   for task in task_names}
+    y_test  = {task: _make_label_tensor(task, test_idx)      for task in task_names}
+
     # Create DataLoaders with best batch_size
     train_dataset = TensorDataset(
         X_train,
-        *[y_train[task] for task in num_classes.keys()]
+        *[y_train[task] for task in task_names]
     )
     train_loader = DataLoader(
         train_dataset,
@@ -526,20 +633,20 @@ def train_outer_fold(
         shuffle=True,
         drop_last=False
     )
-    
+
     val_dataset = TensorDataset(
         X_val,
-        *[y_val[task] for task in num_classes.keys()]
+        *[y_val[task] for task in task_names]
     )
     val_loader = DataLoader(
         val_dataset,
         batch_size=int(round(best_params["batch_size"])),
         shuffle=False
     )
-    
+
     test_dataset = TensorDataset(
         X_test,
-        *[y_test[task] for task in num_classes.keys()]
+        *[y_test[task] for task in task_names]
     )
     test_loader = DataLoader(
         test_dataset,
@@ -547,22 +654,15 @@ def train_outer_fold(
         shuffle=False
     )
     
-    # Task weights from best params
-    task_weights = {
-        "sample_type": best_params["task_weight_sample_type"],
-        "community_type": best_params["task_weight_community"],
-        "sample_host": best_params["task_weight_host"],
-        "material": best_params["task_weight_material"]
-    }
-    
+    # Task weights and label smoothing from best Optuna params
+    task_weights = {t: best_params[f"task_weight_{t}"] for t in task_names}
     label_smoothing_per_task = {
-        "sample_type":    best_params.get("ls_sample_type",    0.0),
-        "community_type": best_params.get("ls_community_type", 0.0),
-        "sample_host":    best_params.get("ls_sample_host",    0.0),
-        "material":       best_params.get("ls_material",       0.0),
+        t: best_params.get(f"ls_{t}", 0.0)
+        for t in classification_tasks
     }
     criterion = MultiTaskLoss(
-        task_names=list(num_classes.keys()),
+        task_names=task_names,
+        regression_tasks=regression_tasks,
         task_weights=task_weights,
         class_weights=class_weights_full,
         label_smoothing=label_smoothing_per_task,
@@ -607,31 +707,31 @@ def train_outer_fold(
         train_loss_sum = 0.0
         for batch_data in train_loader:
             X_batch = batch_data[0].to(device)
-            y_batch = {task: batch_data[i+1].to(device) for i, task in enumerate(num_classes.keys())}
-            
+            y_batch = {task: batch_data[i+1].to(device) for i, task in enumerate(task_names)}
+
             outputs = model(X_batch)
             total_loss, task_losses = criterion(outputs, y_batch)
-            
+
             optimizer.zero_grad()
             total_loss.backward()
             optimizer.step()
-            
+
             train_loss_sum += total_loss.item()
-        
+
         avg_train_loss = train_loss_sum / len(train_loader)
-        
+
         # Validation (use proper validation set, NOT test set)
         model.eval()
         val_loss_sum = 0.0
-        
+
         with torch.no_grad():
             for batch_data in val_loader:
                 X_batch = batch_data[0].to(device)
-                y_batch = {task: batch_data[i+1].to(device) for i, task in enumerate(num_classes.keys())}
-                
+                y_batch = {task: batch_data[i+1].to(device) for i, task in enumerate(task_names)}
+
                 val_outputs = model(X_batch)
                 val_loss, _ = criterion(val_outputs, y_batch)
-                
+
                 val_loss_sum += val_loss.item()
         
         avg_val_loss = val_loss_sum / len(val_loader)
@@ -670,32 +770,69 @@ def train_outer_fold(
     # Evaluate on test set ONCE (never used for model selection)
     logger.info("Evaluating on held-out test set...")
     model.eval()
-    
+
     with torch.no_grad():
-        all_preds = {task: [] for task in num_classes.keys()}
-        all_true = {task: [] for task in num_classes.keys()}
-        
+        all_preds  = {task: [] for task in classification_tasks}
+        all_true   = {task: [] for task in classification_tasks}
+        reg_preds  = {task: [] for task in regression_tasks}
+        reg_true   = {task: [] for task in regression_tasks}
+
         for batch_data in test_loader:
             X_batch = batch_data[0].to(device)
-            y_batch = {task: batch_data[i+1].to(device) for i, task in enumerate(num_classes.keys())}
-            
+            y_batch = {task: batch_data[i+1].to(device) for i, task in enumerate(task_names)}
+
             test_outputs = model(X_batch)
-            
-            for task in num_classes.keys():
+
+            for task in classification_tasks:
                 preds = torch.argmax(test_outputs[task], dim=1).cpu().numpy()
-                true = y_batch[task].cpu().numpy()
+                true  = y_batch[task].cpu().numpy()
                 all_preds[task].extend(preds)
                 all_true[task].extend(true)
-        
+
+            for task in regression_tasks:
+                pred  = test_outputs[task].cpu()
+                tgt   = y_batch[task].cpu()
+                valid = ~torch.isnan(tgt)
+                reg_preds[task].extend(pred[valid].numpy().tolist())
+                reg_true[task].extend(tgt[valid].numpy().tolist())
+
         test_metrics = {}
-        for task in num_classes.keys():
+        for task in classification_tasks:
             test_metrics[task] = {
-                "accuracy": float(accuracy_score(all_true[task], all_preds[task])),
-                "f1_weighted": float(f1_score(all_true[task], all_preds[task], average='weighted', zero_division=0)),
-                "f1_macro": float(f1_score(all_true[task], all_preds[task], average='macro', zero_division=0)),
+                "accuracy":          float(accuracy_score(all_true[task], all_preds[task])),
+                "f1_weighted":       float(f1_score(all_true[task], all_preds[task], average='weighted', zero_division=0)),
+                "f1_macro":          float(f1_score(all_true[task], all_preds[task], average='macro', zero_division=0)),
                 "balanced_accuracy": float(balanced_accuracy_score(all_true[task], all_preds[task]))
             }
-            
+        for task in regression_tasks:
+            if reg_true[task]:
+                pred_arr = np.array(reg_preds[task])
+                true_arr = np.array(reg_true[task])
+
+                # Normalized MAE (for comparison with classification scores)
+                mae_norm = float(np.mean(np.abs(pred_arr - true_arr)))
+
+                # Denormalize for interpretable metrics
+                pred_denorm, unit = denormalize_regression_predictions(pred_arr, task)
+                true_denorm, _ = denormalize_regression_predictions(true_arr, task)
+                mae_actual = float(np.mean(np.abs(pred_denorm - true_denorm)))
+
+                # Also compute R² score (coefficient of determination)
+                ss_res = np.sum((true_denorm - pred_denorm) ** 2)
+                ss_tot = np.sum((true_denorm - np.mean(true_denorm)) ** 2)
+                r2 = float(1 - (ss_res / ss_tot)) if ss_tot > 0 else 0.0
+
+                test_metrics[task] = {
+                    "mae_normalised": mae_norm,
+                    "mae_actual": mae_actual,
+                    "unit": unit,
+                    "r2": r2,
+                    "score": max(0.0, 1.0 - mae_norm)
+                }
+            else:
+                test_metrics[task] = {"mae_normalised": None, "mae_actual": None, "unit": None, "r2": None, "score": None}
+
+        for task in task_names:
             logger.info(f"{task} test metrics: {test_metrics[task]}")
     
     # Save final model with checkpoint manager
@@ -734,150 +871,154 @@ def train_outer_fold(
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Multi-task MLP hyperparameter optimization')
-    
-    # Configuration
-    parser.add_argument('--config', type=Path, help='YAML configuration file (overrides other args)')
-    
-    # Fold parameters
-    parser.add_argument('--fold_id', type=int, required=True, help='Fold ID (0-indexed)')
-    parser.add_argument('--total_folds', type=int, default=5, help='Total number of folds')
-    
-    # Data paths
-    parser.add_argument('--features', type=str, help='Feature matrix path (.pa.mat file)')
-    parser.add_argument('--metadata', type=str, help='Metadata path (.tsv file)')
-    parser.add_argument('--output', type=str, default='results/experiments/multitask', help='Output directory')
-    
-    # Training parameters
-    parser.add_argument('--n_trials', type=int, default=50, help='Number of Optuna trials')
-    parser.add_argument('--max_epochs', type=int, default=200, help='Maximum training epochs')
-    parser.add_argument('--patience', type=int, default=20, help='Early stopping patience')
-    parser.add_argument('--n_inner_splits', type=int, default=3, help='Number of inner CV folds')
-    parser.add_argument('--random_seed', type=int, default=42, help='Random seed')
-    
-    # Hardware
-    parser.add_argument('--use_gpu', action='store_true', help='Use GPU if available')
+    parser = argparse.ArgumentParser(
+        description='Multi-task MLP hyperparameter optimization — single CV fold.',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Run-config JSON schema (all settings in one file):
+  features_path     : path to .frac.mat feature matrix
+  metadata_path     : path to train_metadata.tsv
+  output_dir        : base output directory
+  task_names        : list of task column names
+  task_types        : {task: "classification"|"regression"} — defaults all to classification
+  n_folds           : total CV folds (default 5)
+  n_trials          : Optuna trials per fold (default 50)
+  max_epochs        : max training epochs (default 100)
+  patience          : early stopping patience (default 15)
+  n_inner_splits    : inner CV folds (default 3)
+  random_seed       : RNG seed (default 42)
+  no_label_smoothing: bool — fix label smoothing at 0 (default true)
 
-    # Label smoothing control
-    parser.add_argument('--no_label_smoothing', action='store_true',
-                        help='Fix all label smoothing at 0 (remove from search space). Use for v5+.')
+Example:
+  python scripts/training/01_train_multitask_single_fold.py \\
+      --run-config configs/train_config_bioproject_v7.json \\
+      --fold_id $SLURM_ARRAY_TASK_ID --use_gpu
+""")
 
-    # Checkpointing
-    parser.add_argument('--resume_from', type=Path, help='Resume from checkpoint')
-    parser.add_argument('--checkpoint_freq', type=int, default=10, help='Save checkpoint every N epochs')
-    
+    # Primary: single config file drives everything
+    parser.add_argument('--run-config', type=Path, dest='run_config', required=True,
+                        help='Path to JSON run-config file. All settings read from here.')
+
+    # SLURM / hardware — must remain CLI args because they vary per job
+    parser.add_argument('--fold_id', type=int, required=True,
+                        help='Fold ID (0-indexed, set by SLURM_ARRAY_TASK_ID)')
+    parser.add_argument('--use_gpu', action='store_true',
+                        help='Use GPU if available')
+
+    # Optional CLI overrides (rarely needed; prefer editing the JSON)
+    parser.add_argument('--n_trials', type=int, default=None)
+    parser.add_argument('--max_epochs', type=int, default=None)
+    parser.add_argument('--patience', type=int, default=None)
+    parser.add_argument('--resume_from', type=Path, default=None)
+
     args = parser.parse_args()
-    
-    # Load configuration if provided
-    config = None
-    if args.config:
-        try:
-            config = ConfigManager.from_yaml(args.config)
-            setup_logging(
-                log_file=Path(args.output) / f"fold_{args.fold_id}_training.log",
-                level=config.get("logging.level", "INFO"),
-                log_to_console=config.get("logging.log_to_console", True),
-                log_to_file=config.get("logging.log_to_file", True)
-            )
-        except Exception as e:
-            print(f"Error loading config: {e}")
-            sys.exit(1)
-    else:
-        setup_logging(
-            log_file=Path(args.output) / f"fold_{args.fold_id}_training.log",
-            level="INFO",
-            log_to_console=True,
-            log_to_file=True
-        )
-    
-    # Set global logger
+
+    # ── Load run-config JSON ────────────────────────────────────────────────
+    if not args.run_config.exists():
+        print(f"ERROR: run-config not found: {args.run_config}", file=sys.stderr)
+        sys.exit(1)
+
+    with open(args.run_config) as fh:
+        cfg = json.load(fh)
+
+    # Required fields
+    features_path  = cfg['features_path']
+    metadata_path  = cfg['metadata_path']
+    output_dir     = Path(cfg['output_dir'])
+    task_names     = cfg['task_names']
+    task_types     = cfg.get('task_types', {t: 'classification' for t in task_names})
+
+    # Optional fields with defaults
+    total_folds        = cfg.get('n_folds', 5)
+    n_trials           = args.n_trials   or cfg.get('n_trials', 50)
+    max_epochs         = args.max_epochs or cfg.get('max_epochs', 100)
+    patience           = args.patience   or cfg.get('patience', 15)
+    n_inner_splits     = cfg.get('n_inner_splits', 3)
+    random_seed        = cfg.get('random_seed', 42)
+    no_label_smoothing = cfg.get('no_label_smoothing', True)
+    checkpoint_freq    = cfg.get('checkpoint_freq', 10)
+
+    # ── Logging ─────────────────────────────────────────────────────────────
+    fold_dir = output_dir / 'cv_results' / f'fold_{args.fold_id}'
+    fold_dir.mkdir(parents=True, exist_ok=True)
+
+    setup_logging(
+        log_file=fold_dir / f'fold_{args.fold_id}_training.log',
+        level='INFO',
+        log_to_console=True,
+        log_to_file=True
+    )
+
     global logger
     logger = logging.getLogger(__name__)
-    
-    logger.info("=" * 80)
-    logger.info("DIANA Multi-Task Hyperparameter Optimization")
-    logger.info("=" * 80)
-    
-    # Get parameters (config overrides command-line args)
-    features_path = config.get("data.train_matrix") if config else args.features
-    metadata_path = config.get("data.train_metadata") if config else args.metadata
-    output_dir = Path(config.get("output.base_dir") if config else args.output)
-    n_trials = config.get("training.n_trials") if config else args.n_trials
-    max_epochs = config.get("training.max_epochs") if config else args.max_epochs
-    patience = config.get("training.early_stopping_patience") if config else args.patience
-    n_inner_splits = config.get("training.n_inner_splits") if config else args.n_inner_splits
-    random_seed = config.get("training.random_seed") if config else args.random_seed
-    use_gpu = config.get("training.use_gpu") if config else args.use_gpu
-    checkpoint_freq = config.get("output.checkpoint_frequency") if config else args.checkpoint_freq
-    
-    # Validate required parameters
-    if not features_path or not metadata_path:
-        logger.error("Must provide --features and --metadata, or --config with data paths")
-        sys.exit(1)
-    
-    # Save configuration for reproducibility
-    fold_dir = output_dir / f"fold_{args.fold_id}"
-    fold_dir.mkdir(parents=True, exist_ok=True)
-    
-    if config:
-        config.save(fold_dir / "config_used.yaml")
-        logger.info(f"Configuration saved to {fold_dir / 'config_used.yaml'}")
-    
-    logger.info(f"Fold: {args.fold_id}/{args.total_folds}")
-    logger.info(f"Features: {features_path}")
-    logger.info(f"Metadata: {metadata_path}")
-    logger.info(f"Output: {output_dir}")
-    logger.info(f"Trials: {n_trials}, Max Epochs: {max_epochs}, Patience: {patience}")
-    logger.info(f"GPU: {use_gpu}, Random Seed: {random_seed}")
-    
-    # Set random seeds
+
+    logger.info('=' * 80)
+    logger.info('DIANA Multi-Task Hyperparameter Optimization')
+    logger.info('=' * 80)
+    logger.info(f'Run config:   {args.run_config}')
+    logger.info(f'Features:     {features_path}')
+    logger.info(f'Metadata:     {metadata_path}')
+    logger.info(f'Output dir:   {output_dir}')
+    logger.info(f'Tasks:        {task_names}')
+    logger.info(f'Task types:   {task_types}')
+    logger.info(f'Fold:         {args.fold_id} / {total_folds}')
+    logger.info(f'Trials:       {n_trials}  Max epochs: {max_epochs}  Patience: {patience}')
+    logger.info(f'GPU:          {args.use_gpu}  Seed: {random_seed}')
+
+    # Save a copy of the config used (for reproducibility)
+    import shutil
+    shutil.copy(args.run_config, fold_dir / 'run_config.json')
+
+    # ── Random seeds ────────────────────────────────────────────────────────
     np.random.seed(random_seed)
     torch.manual_seed(random_seed)
     if torch.cuda.is_available():
         torch.cuda.manual_seed(random_seed)
-        torch.cuda.manual_seed_all(random_seed)  # For multi-GPU
-    
-    # Load data
+        torch.cuda.manual_seed_all(random_seed)
+
+    # ── Load data ────────────────────────────────────────────────────────────
     try:
-        logger.info(f"Loading data from {features_path}")
+        logger.info(f'Loading data from {features_path}')
         features, metadata = load_matrix_data(features_path, metadata_path)
-        logger.info(f"Loaded {features.shape[0]} samples × {features.shape[1]} features")
+        logger.info(f'Loaded {features.shape[0]} samples × {features.shape[1]} features')
     except Exception as e:
-        logger.error(f"Failed to load data: {e}", exc_info=True)
+        logger.error(f'Failed to load data: {e}', exc_info=True)
         sys.exit(1)
-    
-    # Configuration for training
+
+    # ── Train config dict (passed into train_outer_fold) ────────────────────
     train_config = {
-        'n_trials': n_trials,
-        'max_epochs': max_epochs,
-        'patience': patience,
-        'use_gpu': use_gpu,
-        'n_inner_splits': n_inner_splits,
-        'checkpoint_freq': checkpoint_freq,
-        'resume_from': args.resume_from,
-        'no_label_smoothing': args.no_label_smoothing,
+        'task_names':         task_names,
+        'task_types':         task_types,
+        'n_trials':           n_trials,
+        'max_epochs':         max_epochs,
+        'patience':           patience,
+        'use_gpu':            args.use_gpu,
+        'n_inner_splits':     n_inner_splits,
+        'checkpoint_freq':    checkpoint_freq,
+        'resume_from':        args.resume_from,
+        'no_label_smoothing': no_label_smoothing,
     }
-    
-    # Train fold
+
+    # ── Train fold ───────────────────────────────────────────────────────────
     try:
         results = train_outer_fold(
             fold_id=args.fold_id,
-            total_folds=args.total_folds,
+            total_folds=total_folds,
             features=features,
             metadata=metadata,
             config=train_config,
-            output_dir=output_dir
+            output_dir=output_dir / 'cv_results',
         )
-        
-        logger.info("=" * 80)
-        logger.info("=== FOLD COMPLETE ===")
-        logger.info("=" * 80)
-        logger.info(f"Results: {results['test_metrics']}")
-        
+
+        logger.info('=' * 80)
+        logger.info('=== FOLD COMPLETE ===')
+        logger.info('=' * 80)
+        logger.info(f'Results: {results["test_metrics"]}')
+
     except Exception as e:
-        logger.error(f"Training failed: {e}", exc_info=True)
+        logger.error(f'Training failed: {e}', exc_info=True)
         sys.exit(1)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
