@@ -16,22 +16,22 @@
 
 All paper scripts read paths from `scripts/paper/config.py`. To switch between model versions, change only that file.
 
-### v4 pipeline (run from project root)
+### v5 pipeline (run from project root)
 
 ```bash
 # 1. Train  (~1-2 h on GPU)
-sbatch scripts/training/run_final_train_edid_v4.sbatch
+sbatch scripts/training/run_final_train_edid_v5.sbatch
 
 # 2. Evaluate on test set
-sbatch scripts/evaluation/run_test_eval_v4.sbatch
+sbatch scripts/evaluation/run_test_eval_v5.sbatch
 
-# 3. Validation inference (611 array jobs)
-sbatch --array=1-611 scripts/validation/run_inference_bioproject_v4.sbatch
+# 3. Validation inference (array jobs)
+sbatch scripts/validation/run_inference_bioproject_v5.sbatch
 
 # 4. Training-set metrics
 mamba run -p ./env python scripts/evaluation/06_compute_training_metrics.py
 
-# 5. Patch baseline comparison JSON with v4 DIANA values
+# 5. Patch baseline comparison JSON with current DIANA values
 mamba run -p ./env python scripts/evaluation/patch_diana_in_metrics.py
 
 # 6. Regenerate all paper figures and tables
@@ -114,8 +114,8 @@ sbatch scripts/create_umat/02_regenerate_matrix_with_frac.sbatch
 
 ### 2. Prepare Metadata
 
-Metadata files are located in `data/splits_bioproject/`:
-- `train_metadata.tsv` (2,514 samples)
+Metadata files are located in `data/splits_v5/`:
+- `train_metadata.tsv` (2,515 samples)
 - `test_metadata.tsv` (523 samples)
 - `validation_metadata.tsv` (360 samples)
 
@@ -140,12 +140,12 @@ Metadata files are located in `data/splits_bioproject/`:
 
 ## Train/Test Split
 
-The train/test split is **already prepared** in `data/splits_bioproject/` using **BioProject-disjoint stratification** to prevent data leakage from multi-sample studies:
-- `train_ids.txt` (2,514 samples, 82.8%)
+The train/test split is **already prepared** in `data/splits_v5/` using **BioProject-disjoint stratification** to prevent data leakage from multi-sample studies:
+- `train_ids.txt` (2,515 samples, 82.8%)
 - `test_ids.txt` (523 samples, 17.2%)
 
-Metadata files in `data/splits_bioproject/` contain only the respective split samples:
-- `train_metadata.tsv` - Contains only training samples (2,514)
+Metadata files in `data/splits_v5/` contain only the respective split samples:
+- `train_metadata.tsv` - Contains only training samples (2,515)
 - `test_metadata.tsv` - Contains only test samples (523)
 
 **BioProject-disjoint split ensures:**
@@ -159,13 +159,8 @@ Metadata files in `data/splits_bioproject/` contain only the respective split sa
 <summary>To regenerate splits from scratch (optional)</summary>
 
 ```bash
-# Create stratified 85/15 train/test split
-mamba run -p ./env python scripts/data_prep/01_create_splits.py \
-  --metadata data/metadata/DIANA_metadata.tsv \
-  --output data/splits \
-  --train-size 0.85 \
-  --test-size 0.15 \
-  --random-state 42
+# Regenerate BioProject-disjoint v5 split
+mamba run -p ./env python scripts/data_prep/03_create_bioproject_splits_v7_fixed.py
 ```
 
 This will regenerate `train_ids.txt`, `test_ids.txt`, and metadata files.
@@ -176,29 +171,39 @@ This will regenerate `train_ids.txt`, `test_ids.txt`, and metadata files.
 
 ## Model Training
 
-**Configuration:** `configs/train_config_bioproject_v3.yaml`
+**Configuration files:**
+- v5 (4 tasks): `configs/train_config_bioproject_v5.yaml`
+- v7 (6 tasks): `configs/train_config_bioproject_v7.json`
 
-Key settings:
-- **Data:** Uses `data/splits_bioproject/train_metadata.tsv` (2,514 samples only, BioProject-disjoint)
+Key settings (v5 example):
+- **Data:** Uses `data/splits_v5/train_metadata.tsv` (2,515 samples, BioProject-disjoint)
 - **Tasks:** sample_type, material, sample_host, community_type
 - **Class imbalance:** Automatic class-weighted loss (minority classes weighted higher)
 - **CV:** 5-fold outer CV, 3-fold inner CV
 - **Optimization:** 50 Optuna trials per fold
 - **Execution:** SLURM GPU array jobs (`use_slurm: true`)
 
-### Training Workflow
+> **Note:** v7 uses 6 tasks (community_type, sample_host, material, sample_age, latitude, longitude). The `sample_type` task is excluded because all v7 samples are `ancient_metagenome`.
+
+### Training Workflow (Version-Agnostic)
+
+The training pipeline uses config files to specify data paths, tasks, and hyperparameters. The same scripts work for any model version.
 
 **Step 1: Hyperparameter Optimization**
 
 ```bash
 # Submit 5-fold CV hyperparameter search (SLURM array job)
-sbatch --array=0-4 scripts/training/run_hyperopt_bioproject_v3.sbatch
+# v5 example:
+sbatch scripts/training/run_hyperopt_bioproject_v5.sbatch
+
+# v7 example:
+sbatch scripts/training/run_hyperopt_bioproject_v7.sbatch
 ```
 
 Monitor progress:
 ```bash
 squeue -u $USER
-tail -f logs/hyperopt_v3/fold_0_*.out
+tail -f logs/hyperopt_v5/fold_0_*.out  # or hyperopt_v7/
 ```
 
 **Step 2: Aggregate CV Results**
@@ -207,28 +212,27 @@ After all folds complete:
 
 ```bash
 python scripts/training/aggregate_cv_results.py \
-  --cv_dir results/training_bioproject_v3/cv_results \
+  --cv_dir results/training_bioproject_v5/cv_results \
   --n_folds 5
 ```
 
-Creates `results/training_bioproject_v3/final_training_config.json` for step 3.
+Creates `results/training_bioproject_v5/final_training_config.json` (or v7 equivalent) for step 3.
 
 **Step 3: Train Final Model**
 
 ```bash
 python scripts/training/02_train_final_model.py \
-  results/training_bioproject_v3/final_training_config.json
+  results/training_bioproject_v5/final_training_config.json
 ```
 
 Or via SLURM:
 ```bash
-TRAIN_CONFIG=results/training_bioproject_v3/final_training_config.json \
-  sbatch scripts/training/run_final_train_edid.sbatch
+sbatch scripts/training/run_final_train_edid_v5.sbatch  # or v7
 ```
 
 **What happens:**
-- Trains on 90% of training set (2,263 samples)
-- Uses 10% for validation and early stopping (251 samples)
+- Trains on 90% of training set (e.g., 2,263 samples for v5)
+- Uses 10% for validation and early stopping (e.g., 251 samples for v5)
 - Saves final model when validation loss plateaus
 
 
@@ -237,24 +241,36 @@ TRAIN_CONFIG=results/training_bioproject_v3/final_training_config.json \
 
 ## Model Evaluation
 
+The evaluation pipeline is version-agnostic — paths are determined by the model and split config used.
+
 ### Step 4: Test on Held-Out Set
 
 ```bash
-# Evaluate on test set (523 samples, BioProject-disjoint, never seen during training or optimization)
+# Evaluate on test set (BioProject-disjoint, never seen during training or optimization)
+# v5 example (523 samples):
 mamba run -p ./env diana-test \
-  --model results/training_bioproject_v3/best_model.pth \
-  --config results/training_bioproject_v3/final_training_config.json \
+  --model results/training_bioproject_v5/best_model.pth \
+  --config results/training_bioproject_v5/final_training_config.json \
   --matrix data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat \
-  --metadata data/splits_bioproject/test_metadata.tsv \
-  --test-ids data/splits_bioproject/test_ids.txt \
-  --output results/test_evaluation_bioproject_v3
+  --metadata data/splits_v5/test_metadata.tsv \
+  --test-ids data/splits_v5/test_ids.txt \
+  --output results/test_evaluation_bioproject_v5
+
+# v7 example (352 samples):
+mamba run -p ./env diana-test \
+  --model results/training_bioproject_v7/best_model.pth \
+  --config results/training_bioproject_v7/final_training_config.json \
+  --matrix data/matrices/matrix_v7_3190/unitigs.frac.mat \
+  --metadata data/splits_v7/test_metadata.tsv \
+  --test-ids data/splits_v7/test_ids.txt \
+  --output results/test_evaluation_bioproject_v7
 ```
 
 **Expected outputs:**
 ```
-results/test_evaluation_bioproject_v3/
+results/test_evaluation_bioproject_<version>/
 ├── test_metrics.json                 # Per-task accuracy, F1, etc.
-├── test_predictions.tsv              # Predictions for all 523 samples
+├── test_predictions.tsv              # Predictions for all test samples
 ├── confusion_matrices/               # Per-task confusion matrices
 └── classification_reports/           # Detailed per-class metrics
 ```
@@ -263,44 +279,51 @@ results/test_evaluation_bioproject_v3/
 
 ```bash
 # Create publication-ready figures and tables
-mamba run -p ./env python scripts/evaluation/04_model_performance_metrics.py \
-  --metrics results/test_evaluation_bioproject_v3/test_metrics.json \
-  --history results/training_bioproject_v3/training_history.json \
-  --config results/training_bioproject_v3/final_training_config.json \
-  --predictions results/test_evaluation_bioproject_v3/test_predictions.tsv \
-  --label-encoders results/training_bioproject_v3/label_encoders.json \
-  --output-dir paper
+bash scripts/paper/generate_all_paper_materials.sh
 ```
 
 **Expected outputs:**
 ```
-paper/figures/
+paper/figures/final/
 ├── test_set_multitask_performance_summary.html + .png
-├── test_set_confusion_matrix_{task}.html + .png       # 4 tasks
-├── test_set_per_class_metrics_{task}.html + .png      # 4 tasks
-├── test_set_roc_curves_{task}.html + .png             # 4 tasks
-├── test_set_pr_curves_{task}.html + .png              # 4 tasks
+├── test_set_confusion_matrix_{task}.html + .png       # one per task
+├── test_set_per_class_metrics_{task}.html + .png      # one per task
+├── test_set_roc_curves_{task}.html + .png             # one per task
+├── test_set_pr_curves_{task}.html + .png              # one per task
 └── training_set_loss_curves.html + .png
 
-paper/tables/
+paper/tables/final/
 ├── test_set_performance_summary.csv + .tex + .html + .png
-├── test_set_per_class_metrics_{task}.csv + .tex       # 4 tasks
+├── test_set_per_class_metrics_{task}.csv + .tex       # one per task
 └── hyperparameters.csv + .tex + .html + .png
 ```
-### Step 6: Generate Validation Predictions (v3 Model)
 
-Re-run inference using the v3 model on all 611 validation accessions (360 labeled + 251 extra unlabeled). The k-mer fraction files computed previously are reused — only the model changes.
+### Step 6: Generate Validation Predictions
+
+Run inference on validation samples using a trained model. The same script works for any model version.
 
 ```bash
-# Submit SLURM array job (611 tasks, one per accession)
-sbatch scripts/validation/run_inference_bioproject_v3.sbatch
+# Submit SLURM array job (version-agnostic script)
+# Adjust array size to match number of validation samples
+sbatch --array=1-702 scripts/validation/run_sample_inference.sbatch
 ```
 
-```
-Output: results/validation_predictions_bioproject_v3/{ACC}/{ACC}_predictions.json
+The script reads configuration from `configs/validation_inference_config.yaml` by default, or accepts a custom config as argument:
+
+```bash
+sbatch --array=1-500 scripts/validation/run_sample_inference.sbatch configs/my_custom_config.yaml
 ```
 
-> **Note:** Only the 360 labeled samples (in `data/splits_bioproject/validation_metadata.tsv`) are used for performance evaluation. The 251 extra samples are unlabeled and used for exploratory predictions only.
+**Expected outputs:**
+```
+results/validation_predictions_<version>/
+├── {accession}/
+│   ├── {accession}_predictions.json   # Task predictions and confidence
+│   └── {accession}_unitig_abundance.txt  # K-mer abundance vector
+└── ...
+```
+
+> **Note:** Only labeled samples in the validation metadata are used for performance evaluation. Unlabeled samples can be used for exploratory predictions.
 
 ### Step 7: Confidence Calibration Analysis
 
@@ -308,9 +331,9 @@ Evaluates whether predicted confidence scores are reliable (correct predictions 
 
 ```bash
 mamba run -p ./env python scripts/paper/32_confidence_calibration_analysis.py \
-  --predictions results/test_evaluation_bioproject_v3/test_predictions.tsv \
-  --val-pred-dir results/validation_predictions_bioproject_v3 \
-  --label-encoders results/training_bioproject_v3/label_encoders.json
+  --predictions results/test_evaluation_bioproject_v5/test_predictions.tsv \
+  --val-pred-dir results/validation_predictions_bioproject_v5_full \
+  --label-encoders results/training_bioproject_v5/label_encoders.json
 ```
 
 **Expected outputs:**
@@ -330,7 +353,7 @@ mamba run -p ./env python scripts/evaluation/06_compute_training_metrics.py
 ```
 
 ```
-Output: results/training_bioproject_v3/training_set_metrics.json
+Output: results/training_bioproject_v5/training_set_metrics.json
 ```
 
 ### Step 9: Generate All Paper Materials
@@ -345,9 +368,9 @@ bash scripts/paper/generate_all_paper_materials.sh
 > ```bash
 > # Calibration supplementary figures
 > mamba run -p ./env python scripts/paper/32_confidence_calibration_analysis.py \
->   --predictions results/test_evaluation_bioproject_v3/test_predictions.tsv \
->   --val-pred-dir results/validation_predictions_bioproject_v3 \
->   --label-encoders results/training_bioproject_v3/label_encoders.json
+>   --predictions results/test_evaluation_bioproject_v5/test_predictions.tsv \
+>   --val-pred-dir results/validation_predictions_bioproject_v5_full \
+>   --label-encoders results/training_bioproject_v5/label_encoders.json
 >
 > # Generalisation gap slopegraphs (requires baseline comparison to be done first)
 > mamba run -p ./env python scripts/paper/34_generate_generalisation_gap_plots.py
@@ -359,18 +382,39 @@ bash scripts/paper/generate_all_paper_materials.sh
 
 Compares DIANA against classical ML baselines (MajorityClass, LogisticRegression, LinearSVM, RidgeClassifier, RandomForest) on the held-out test set and the labeled validation set. For each model × task combination, Balanced Accuracy and macro F1 are reported with **95% bootstrap confidence intervals** (1,000 resamples). Results feed directly into the comparison figures.
 
-The baseline models are trained once on the full training set (n=2,515, 107K features). This step is compute-intensive; run it on a compute node:
+The baseline comparison script is **version-agnostic** — all paths, tasks, and hyperparameters are specified in a YAML config file.
+
+### Running Baseline Comparison
 
 ```bash
-sbatch scripts/evaluation/run_test_baseline_comparison.sbatch   # ~10–30 min
+# v7 example (6 tasks, 78K features):
+sbatch scripts/evaluation/run_test_baseline_comparison_v7.sbatch
+
+# Custom config:
+python scripts/evaluation/08_test_set_baseline_comparison.py \
+  --config configs/baseline_config_custom.yaml
+```
+
+The script accepts command-line overrides:
+```bash
+# Override tasks only
+python scripts/evaluation/08_test_set_baseline_comparison.py \
+  --config configs/baseline_config_v7.yaml \
+  --tasks community_type,sample_host,material
+
+# Override output directory
+python scripts/evaluation/08_test_set_baseline_comparison.py \
+  --config configs/baseline_config_v7.yaml \
+  --output-dir results/baseline_comparison_custom
 ```
 
 **Expected outputs:**
 ```
-results/baseline_comparison_bioproject/
-├── metrics.json        # All model metrics with 95% bootstrap CIs (used by paper scripts)
-├── summary.csv         # Human-readable performance table
-└── summary.tex         # LaTeX table
+results/baseline_comparison_<version>/
+├── metrics.json              # All model metrics with 95% bootstrap CIs
+├── summary.csv               # Human-readable performance table
+├── summary.tex               # LaTeX table for paper
+└── baseline_comparison.log   # Full execution log
 ```
 
 > **After retraining DIANA** (baselines unchanged), update only the DIANA rows in `metrics.json` without redoing baseline training (~5 sec):
