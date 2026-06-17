@@ -1,0 +1,84 @@
+# DIANA v7 Baseline Comparison Configuration
+# ==========================================
+# This configuration file controls the baseline comparison pipeline.
+# Update version numbers and paths here instead of hardcoding in scripts.
+
+# Version identifier (used for output directories and logging)
+version: "v7"
+
+# Data paths
+data:
+  # Matrix file (k-mer abundance matrix)
+  matrix: "data/matrices/matrix_v7_3190/unitigs.frac.mat"
+
+  # Split metadata files
+  train_metadata: "data/splits_v7/train_metadata.tsv"
+  test_metadata: "data/splits_v7/test_metadata.tsv"
+  val_metadata: "data/splits_v7/val_metadata.tsv"
+
+  # Validation predictions directory (for abundance files + DIANA reference)
+  # Set to null if validation evaluation should be skipped
+  val_pred_dir: null  # "results/validation_predictions_bioproject_v7"
+
+  # DIANA v7 results (for comparison - populate after training v7)
+  diana_metrics: null  # "results/test_evaluation_bioproject_v7/test_metrics.json"
+  diana_preds: null    # "results/test_evaluation_bioproject_v7/test_predictions.tsv"
+
+# Tasks to evaluate
+# Note: sample_type is excluded for v7 as all samples are "ancient_metagenome"
+tasks:
+  - community_type
+  - sample_host
+  - material
+  - sample_age
+  - latitude
+  - longitude
+
+# Model configuration
+models:
+  logistic_regression:
+    C: 1.0
+    solver: "lbfgs"
+    max_iter: 2000
+    class_weight: null  # Options: null, "balanced"
+
+  linear_svm:
+    C: 1.0
+    max_iter: 5000
+    class_weight: null  # Options: null, "balanced"
+
+  ridge_classifier:
+    alpha: 1.0
+    class_weight: null  # Options: null, "balanced"
+
+  random_forest:
+    n_estimators: 200
+    max_features: "sqrt"
+    class_weight: null  # Options: null, "balanced_subsample"
+
+# Bootstrap confidence intervals
+bootstrap:
+  n_boot: 1000
+  seed: 42
+  ci_percentile_low: 2.5
+  ci_percentile_high: 97.5
+
+# Output configuration
+output:
+  base_dir: "results/baseline_comparison_v7"
+  save_json: true
+  save_csv: true
+  save_latex: true
+  save_figures: true
+
+# SLURM configuration (for sbatch scripts)
+slurm:
+  partition: "edid"
+  nodes: 1
+  ntasks: 1
+  cpus_per_task: 8
+  mem: "64G"
+  time: "02:00:00"  # Adjust based on number of tasks
+  job_name: "diana_baseline_v7"
+  mail_type: "END,FAIL"
+  mail_user: "cduitama@pasteur.fr"

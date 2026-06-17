@@ -1,0 +1,60 @@
+# DIANA Validation Inference Configuration
+# =========================================
+# Run inference on validation samples using a trained model.
+# Generates per-sample abundance files and predictions.
+
+# Version identifier (used for output directory)
+version: "v7"
+
+# Model configuration
+model:
+  # Path to trained model weights
+  weights: "results/training_bioproject_v5/best_model.pth"
+
+  # Path to label encoders (from training)
+  label_encoders: "results/training_bioproject_v5/label_encoders.json"
+
+  # Path to model config (for architecture)
+  config: "results/training_bioproject_v5/final_training_config.json"
+
+# Data configuration
+data:
+  # Validation accessions list (one per line)
+  accessions_file: "data/splits_v7/val_accessions.txt"
+
+  # Input FASTQ directory
+  fastq_dir: "data/validation/raw"
+
+  # Output directory for predictions and abundance files
+  output_dir: "results/validation_predictions_bioproject_v7"
+
+  # Reference k-mers (for unitig counting)
+  reference_kmers: "data/matrices/matrix_v7_3190/unitigs.fa"
+
+# Task configuration
+# Must match the tasks the model was trained on
+tasks:
+  - community_type
+  - sample_host
+  - material
+  # Note: sample_age, latitude, longitude require regression heads
+  # sample_type excluded (all v7 samples are "ancient_metagenome")
+
+# Resource configuration
+resources:
+  # Memory per sample (MB) - will auto-scale on OOM
+  initial_memory_mb: 4096
+  max_memory_mb: 32768
+
+  # CPU threads per sample
+  cpus_per_task: 2
+
+  # Time limit per sample
+  time: "00:30:00"
+
+# SLURM configuration
+slurm:
+  partition: "edid"
+  array_chunk_size: 50  # Submit in chunks to avoid overwhelming queue
+  mail_type: "END,FAIL"
+  mail_user: "cduitama@pasteur.fr"
