@@ -9,7 +9,7 @@ test data and generating comprehensive evaluation metrics and visualizations.
 Usage:
     diana-test --model results/full_training/best_model.pth \\
                --config results/full_training/final_training_config.json \\
-               --test-ids data/splits/test_ids.txt \\
+               --test-ids data/splits_v5/test_ids.txt \\
                --output results/test_evaluation
 
 Features:
@@ -41,7 +41,12 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 from diana.data.loader import MatrixLoader
-from diana.models.multitask_mlp import MultiTaskMLP
+from diana.models.multitask_mlp import (
+    MultiTaskMLP,
+    denormalize_regression,
+    split_tasks,
+    task_info_from_encoders,
+)
 
 
 def load_model(model_path: Path, config: dict, device: str = 'cuda'):
@@ -67,7 +72,7 @@ def load_model(model_path: Path, config: dict, device: str = 'cuda'):
     with open(label_encoders_path, 'r') as f:
         encoders_data = json.load(f)
     
-    task_info = {task: len(data['classes']) for task, data in encoders_data.items()}
+    task_info = task_info_from_encoders(encoders_data)
     
     # Create model (don't know input_dim yet, will get from data)
     return task_info, encoders_data
@@ -128,34 +133,43 @@ def encode_labels(metadata: 'pd.DataFrame', task_names: list, encoders_data: dic
     y_test = {}
     
     for task in task_names:
-        # Create encoder from saved classes
-        encoder = LabelEncoder()
-        encoder.classes_ = np.array(encoders_data[task]['classes'])
-        
-        known_classes = set(encoders_data[task]['classes'])
-        # Use -1 as sentinel for labels unseen during training
-        encoded = np.array([
-            encoder.transform([v])[0] if v in known_classes else -1
-            for v in metadata[task].values
-        ])
-        n_unseen = (encoded == -1).sum()
-        if n_unseen > 0:
-            logger.warning(f"{task}: {n_unseen} samples have unseen labels — excluded from metrics")
-        y_test[task] = encoded
-        logger.info(f"Encoded {task}: {(encoded >= 0).sum()} samples with seen labels (of {len(encoded)} total)")
+        enc = encoders_data[task]
+        if 'classes' in enc:
+            # Classification task — LabelEncode, -1 for unseen
+            encoder = LabelEncoder()
+            encoder.classes_ = np.array(enc['classes'])
+            known_classes = set(enc['classes'])
+            encoded = np.array([
+                encoder.transform([v])[0] if v in known_classes else -1
+                for v in metadata[task].values
+            ])
+            n_unseen = (encoded == -1).sum()
+            if n_unseen > 0:
+                logger.warning(f"{task}: {n_unseen} samples have unseen labels — excluded from metrics")
+            y_test[task] = encoded
+            logger.info(f"Encoded {task}: {(encoded >= 0).sum()} samples with seen labels (of {len(encoded)} total)")
+        else:
+            # Regression task — store raw float values (NaN for missing)
+            raw = np.array(metadata[task].values, dtype=float)
+            n_missing = np.isnan(raw).sum()
+            if n_missing > 0:
+                logger.warning(f"{task}: {n_missing} samples have missing values — excluded from metrics")
+            y_test[task] = raw
+            logger.info(f"Loaded {task} (regression): {(~np.isnan(raw)).sum()} valid samples (of {len(raw)} total)")
     
     return y_test
 
 
-def evaluate_model(model, X_test, y_test, task_names, device, batch_size=96):
+def evaluate_model(model, X_test, y_test, task_names, encoders_data, device, batch_size=96):
     """
     Evaluate model on test data.
-    
+
     Args:
         model: Trained model
         X_test: Test features
         y_test: Test labels (dict)
         task_names: List of task names
+        encoders_data: Label encoder data (for task type detection)
         device: Device to run on
         batch_size: Batch size for inference
         
@@ -168,54 +182,88 @@ def evaluate_model(model, X_test, y_test, task_names, device, batch_size=96):
     predictions = {task: [] for task in task_names}
     probabilities = {task: [] for task in task_names}
     
+    # Determine task types from encoders_data
+    task_types = {task: ('classification' if 'classes' in enc else 'regression')
+                  for task, enc in zip(task_names, [encoders_data.get(t, {}) for t in task_names])}
+
     # Run inference in batches
     with torch.no_grad():
         for i in range(0, len(X_test), batch_size):
             batch_X = torch.FloatTensor(X_test[i:i+batch_size]).to(device)
             outputs = model(batch_X)
-            
+
             for task in task_names:
-                # Get predicted classes
-                preds = torch.argmax(outputs[task], dim=1).cpu().numpy()
+                if task_types[task] == 'classification':
+                    preds = torch.argmax(outputs[task], dim=1).cpu().numpy()
+                    probs = torch.softmax(outputs[task], dim=1).cpu().numpy()
+                else:
+                    # forward() already returns (batch,) for regression heads;
+                    # atleast_1d keeps a final batch of size 1 iterable.
+                    preds = np.atleast_1d(outputs[task].cpu().numpy())
+                    probs = preds  # no probabilities for regression
                 predictions[task].extend(preds)
-                
-                # Get probabilities (apply softmax to logits)
-                probs = torch.softmax(outputs[task], dim=1).cpu().numpy()
                 probabilities[task].extend(probs)
-    
+
     # Convert to arrays
     predictions = {task: np.array(preds) for task, preds in predictions.items()}
     probabilities = {task: np.array(probs) for task, probs in probabilities.items()}
-    
-    # Compute metrics for each task (seen labels only)
+
+    # Compute metrics for each task
     results = {}
     for task in task_names:
         y_true_all = y_test[task]
         y_pred_all = predictions[task]
-        
-        # Filter to samples with seen labels (-1 = unseen)
-        seen_mask = y_true_all >= 0
-        y_true = y_true_all[seen_mask]
-        y_pred = y_pred_all[seen_mask]
-        
-        task_results = {
-            'n_samples': int(seen_mask.sum()),
-            'n_unseen': int((~seen_mask).sum()),
-            'accuracy': float(accuracy_score(y_true, y_pred)),
-            'balanced_accuracy': float(balanced_accuracy_score(y_true, y_pred)),
-            'f1_macro': float(f1_score(y_true, y_pred, average='macro', zero_division=0)),
-            'f1_weighted': float(f1_score(y_true, y_pred, average='weighted', zero_division=0)),
-            'precision_macro': float(precision_score(y_true, y_pred, average='macro', zero_division=0)),
-            'recall_macro': float(recall_score(y_true, y_pred, average='macro', zero_division=0)),
-            'confusion_matrix': confusion_matrix(y_true, y_pred).tolist(),
-            'classification_report': classification_report(y_true, y_pred, output_dict=True, zero_division=0)
-        }
-        
+
+        if task_types[task] == 'classification':
+            seen_mask = y_true_all >= 0
+            y_true = y_true_all[seen_mask]
+            y_pred = y_pred_all[seen_mask]
+            task_results = {
+                'task_type': 'classification',
+                'n_samples': int(seen_mask.sum()),
+                'n_unseen': int((~seen_mask).sum()),
+                'accuracy': float(accuracy_score(y_true, y_pred)),
+                'balanced_accuracy': float(balanced_accuracy_score(y_true, y_pred)),
+                'f1_macro': float(f1_score(y_true, y_pred, average='macro', zero_division=0)),
+                'f1_weighted': float(f1_score(y_true, y_pred, average='weighted', zero_division=0)),
+                'precision_macro': float(precision_score(y_true, y_pred, average='macro', zero_division=0)),
+                'recall_macro': float(recall_score(y_true, y_pred, average='macro', zero_division=0)),
+                'confusion_matrix': confusion_matrix(y_true, y_pred).tolist(),
+                'classification_report': classification_report(y_true, y_pred, output_dict=True, zero_division=0)
+            }
+            logger.info(f"{task}: Accuracy={task_results['accuracy']:.4f}, F1={task_results['f1_weighted']:.4f}")
+        else:
+            from sklearn.metrics import mean_absolute_error, r2_score
+            from scipy.stats import pearsonr
+            valid_mask = ~np.isnan(y_true_all)
+            y_true = y_true_all[valid_mask]
+            # Denormalize predictions: map [0,1] → encoder space, then undo log if needed
+            enc = encoders_data[task]
+            y_pred_norm = y_pred_all[valid_mask]
+            # Training normalises with log1p, so the inverse is expm1, not exp.
+            y_pred_actual = np.array([
+                denormalize_regression(v, enc) for v in y_pred_norm
+            ], dtype=float)
+            # Use circular MAE for longitude (handles ±180° wrap)
+            if task == 'longitude':
+                diff = np.abs(y_true - y_pred_actual)
+                mae = float(np.mean(np.minimum(diff, 360.0 - diff)))
+            else:
+                mae = float(mean_absolute_error(y_true, y_pred_actual))
+            r2 = float(r2_score(y_true, y_pred_actual))
+            pearson_r = float(pearsonr(y_true, y_pred_actual)[0]) if len(y_true) > 1 else float('nan')
+            task_results = {
+                'task_type': 'regression',
+                'n_samples': int(valid_mask.sum()),
+                'n_missing': int((~valid_mask).sum()),
+                'mae': mae,
+                'r2': r2,
+                'pearson_r': pearson_r,
+            }
+            logger.info(f"{task}: MAE={mae:.4f}, R²={r2:.4f}, r={pearson_r:.4f}")
+
         results[task] = task_results
-        
-        logger.info(f"{task}: Accuracy={task_results['accuracy']:.4f}, "
-                   f"F1={task_results['f1_weighted']:.4f}")
-    
+
     return predictions, probabilities, results
 
 
@@ -245,20 +293,27 @@ def save_results(results: dict, predictions: dict, probabilities: dict, y_test: 
     predictions_df = metadata[['Run_accession']].copy()
     
     for task in predictions.keys():
-        # Add predicted class index
-        predictions_df[f'{task}_pred_idx'] = predictions[task]
-        predictions_df[f'{task}_true_idx'] = y_test[task]  # -1 for unseen labels
-        
-        # Add predicted class name
-        encoder_classes = encoders_data[task]['classes']
-        predictions_df[f'{task}_pred'] = [encoder_classes[idx] for idx in predictions[task]]
-        # Use original string labels (preserves unseen class names)
-        predictions_df[f'{task}_true'] = metadata[task].values
-        
-        # Add probabilities for each class
-        task_probs = probabilities[task]
-        for i, class_name in enumerate(encoder_classes):
-            predictions_df[f'{task}_prob_{i}'] = task_probs[:, i]
+        enc = encoders_data[task]
+        if 'classes' in enc:
+            # Classification
+            encoder_classes = enc['classes']
+            predictions_df[f'{task}_pred_idx'] = predictions[task]
+            predictions_df[f'{task}_true_idx'] = y_test[task]
+            predictions_df[f'{task}_pred'] = [encoder_classes[idx] if idx >= 0 else 'UNSEEN' for idx in predictions[task]]
+            predictions_df[f'{task}_true'] = metadata[task].values
+            task_probs = probabilities[task]
+            if task_probs.ndim == 2:
+                for i, class_name in enumerate(encoder_classes):
+                    predictions_df[f'{task}_prob_{i}'] = task_probs[:, i]
+        else:
+            # Regression — store predicted and true values in the ORIGINAL units
+            # (years BP, degrees), so headline numbers can be recomputed from this
+            # file directly. Skipping the log inverse here left sample_age_pred in
+            # log1p space while sample_age_true was in years.
+            predictions_df[f'{task}_pred'] = [
+                denormalize_regression(v, enc) for v in predictions[task]
+            ]
+            predictions_df[f'{task}_true'] = y_test[task]
     
     predictions_path = output_dir / 'test_predictions.tsv'
     predictions_df.to_csv(predictions_path, sep='\t', index=False)
@@ -273,11 +328,16 @@ def save_results(results: dict, predictions: dict, probabilities: dict, y_test: 
     
     for task, metrics in results.items():
         logger.info(f"{task.upper()}:")
-        logger.info(f"  Samples (seen):    {metrics['n_samples']} / {len(metadata)} ({metrics['n_unseen']} unseen excluded)")
-        logger.info(f"  Accuracy:          {metrics['accuracy']:.4f}")
-        logger.info(f"  Balanced Accuracy: {metrics['balanced_accuracy']:.4f}")
-        logger.info(f"  F1 (weighted):     {metrics['f1_weighted']:.4f}")
-        logger.info(f"  F1 (macro):        {metrics['f1_macro']:.4f}")
+        if metrics.get('task_type') == 'regression':
+            logger.info(f"  Samples:    {metrics['n_samples']} / {len(metadata)}")
+            logger.info(f"  MAE:        {metrics['mae']:.4f}")
+            logger.info(f"  R²:         {metrics['r2']:.4f}")
+        else:
+            logger.info(f"  Samples (seen):    {metrics['n_samples']} / {len(metadata)} ({metrics['n_unseen']} unseen excluded)")
+            logger.info(f"  Accuracy:          {metrics['accuracy']:.4f}")
+            logger.info(f"  Balanced Accuracy: {metrics['balanced_accuracy']:.4f}")
+            logger.info(f"  F1 (weighted):     {metrics['f1_weighted']:.4f}")
+            logger.info(f"  F1 (macro):        {metrics['f1_macro']:.4f}")
         logger.info("")
     
     logger.info("="*70)
@@ -300,7 +360,7 @@ def main():
                        default=Path('data/metadata/DIANA_metadata.tsv'),
                        help='Path to metadata file')
     parser.add_argument('--test-ids', type=Path,
-                       default=Path('data/splits/test_ids.txt'),
+                       default=Path('data/splits_v5/test_ids.txt'),
                        help='Path to test IDs file')
     parser.add_argument('--output', type=Path, required=True,
                        help='Output directory for results')
@@ -342,10 +402,16 @@ def main():
     # Encode labels
     y_test = encode_labels(metadata_test, task_names, encoders_data)
     
-    # Initialize model with correct architecture
+    # Initialize model with correct architecture. task_info is a flat
+    # {task: n_outputs} mapping; regression tasks must reach the constructor via
+    # regression_tasks=, not num_classes=, or their sigmoid heads are lost.
+    num_classes, regression_tasks = split_tasks(task_info, config.get('task_types'))
+    logger.info(f"Classification tasks: {num_classes}")
+    logger.info(f"Regression tasks: {regression_tasks}")
     model = MultiTaskMLP(
         input_dim=X_test.shape[1],
-        num_classes=task_info,
+        num_classes=num_classes,
+        regression_tasks=regression_tasks,
         **config['hyperparameters']['model_params']
     )
     
@@ -366,7 +432,7 @@ def main():
     
     # Run evaluation
     predictions, probabilities, results = evaluate_model(
-        model, X_test, y_test, task_names, args.device, args.batch_size
+        model, X_test, y_test, task_names, encoders_data, args.device, args.batch_size
     )
     
     # Save results

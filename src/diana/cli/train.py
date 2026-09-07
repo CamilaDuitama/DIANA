@@ -585,6 +585,18 @@ class MultiTaskTrainingPipeline:
         logger.info(f"Sub-train samples: {len(X_train)}")
         logger.info(f"Validation samples: {len(X_val)}")
         
+        # This local path has no continuous-target normalisation, and it stratifies
+        # the validation split on the first task, so it only supports classification.
+        # Regression heads are trained by scripts/training/02_train_final_model.py.
+        task_types = self.config.get('model', {}).get('task_types', {})
+        regression_tasks = [t for t in task_names if task_types.get(t) == 'regression']
+        if regression_tasks:
+            raise NotImplementedError(
+                f"Local training does not support regression tasks {regression_tasks}. "
+                "Use scripts/training/02_train_final_model.py (see the sbatch scripts "
+                "under scripts/training/), or run with --use-slurm."
+            )
+
         # Get task info from metadata
         task_info = {}
         for task_name in task_names:
@@ -595,9 +607,9 @@ class MultiTaskTrainingPipeline:
         # Initialize model with hyperparameters
         model = MultiTaskMLP(
             input_dim=X_full.shape[1],
-            task_info=task_info,
+            num_classes=task_info,
             hidden_dims=hyperparams.get('hidden_dims', [256, 128]),
-            dropout_rate=hyperparams.get('dropout_rate', 0.2),
+            dropout=hyperparams.get('dropout_rate', 0.2),
             use_batch_norm=hyperparams.get('use_batch_norm', False),
             activation=hyperparams.get('activation', 'relu')
         )

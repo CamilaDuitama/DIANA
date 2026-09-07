@@ -40,6 +40,7 @@ import logging
 sys.path.insert(0, str(Path(__file__).parents[2] / "src"))
 
 from diana.inference.predictor import Predictor
+from diana.models.multitask_mlp import denormalize_regression
 
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 logger = logging.getLogger(__name__)
@@ -105,10 +106,27 @@ def load_class_names(label_encoders_path: Path) -> dict:
         label_encoders_path = label_encoders_path / "label_encoders.json"
     with open(label_encoders_path) as f:
         encoders = json.load(f)
-    return {task: info['classes'] for task, info in encoders.items()}
+    return {task: info['classes'] for task, info in encoders.items() if 'classes' in info}
 
 
-def format_predictions(predictions: dict, class_names: dict = None) -> dict:
+def load_regression_bounds(label_encoders_path: Path) -> dict:
+    """Load normalisation bounds for regression tasks from label_encoders.json.
+
+    Regression entries carry {'min', 'max', 'log_transform'} instead of 'classes'.
+
+    Returns:
+        Mapping of task -> bounds dict, used to return predictions in original units.
+    """
+    label_encoders_path = Path(label_encoders_path)
+    if label_encoders_path.is_dir():
+        label_encoders_path = label_encoders_path / "label_encoders.json"
+    with open(label_encoders_path) as f:
+        encoders = json.load(f)
+    return {task: info for task, info in encoders.items() if 'classes' not in info}
+
+
+def format_predictions(predictions: dict, class_names: dict = None,
+                       regression_bounds: dict = None) -> dict:
     """
     Format raw predictions with human-readable labels.
     
@@ -125,9 +143,20 @@ def format_predictions(predictions: dict, class_names: dict = None) -> dict:
             'sample_type': ['ancient_metagenome', 'modern_metagenome'],
         }
     
+    regression_bounds = regression_bounds or {}
+
     formatted = {}
     for target, pred in predictions.items():
-        if isinstance(pred, dict):
+        if isinstance(pred, dict) and 'value' in pred:
+            # Regression head: model emits a normalised [0, 1] scalar.
+            normalized = float(pred['value'])
+            entry = {'normalized_value': normalized}
+            if target in regression_bounds:
+                entry['predicted_value'] = denormalize_regression(
+                    normalized, regression_bounds[target]
+                )
+            formatted[target] = entry
+        elif isinstance(pred, dict):
             # Has probabilities
             class_idx = pred['class']
             probs = pred['probabilities']
@@ -219,9 +248,13 @@ def main():
     
     # Load class names from label encoders if provided
     class_names = None
+    regression_bounds = None
     if args.label_encoders and args.label_encoders.exists():
         logger.info(f"Loading class names from {args.label_encoders}")
         class_names = load_class_names(args.label_encoders)
+        regression_bounds = load_regression_bounds(args.label_encoders)
+        if regression_bounds:
+            logger.info(f"Regression tasks: {sorted(regression_bounds)}")
     else:
         logger.warning("No --label-encoders provided; non-sample_type tasks will use numeric class indices")
 
@@ -230,7 +263,8 @@ def main():
     predictions = predictor.predict(features, return_probabilities=True)
     
     # Format output
-    formatted_preds = format_predictions(predictions, class_names=class_names)
+    formatted_preds = format_predictions(predictions, class_names=class_names,
+                                         regression_bounds=regression_bounds)
     
     output = {
         'sample_id': sample_id,
@@ -251,6 +285,13 @@ def main():
     logger.info("="*60)
     for target, pred in formatted_preds.items():
         logger.info(f"\\n{target}:")
+        if 'normalized_value' in pred:
+            if 'predicted_value' in pred:
+                logger.info(f"  Predicted: {pred['predicted_value']:.3f} "
+                            f"(normalised {pred['normalized_value']:.3f})")
+            else:
+                logger.info(f"  Predicted (normalised): {pred['normalized_value']:.3f}")
+            continue
         logger.info(f"  Predicted: {pred['predicted_class']} (confidence: {pred.get('confidence', 'N/A'):.3f})")
         if 'probabilities' in pred:
             logger.info("  Probabilities:")

@@ -4,13 +4,14 @@ Predictor for Diana Model
 Loads trained models and performs inference on new samples.
 """
 
+import json
 import torch
 import numpy as np
 from pathlib import Path
 from typing import Dict, Optional, Union
 import logging
 
-from ..models.multitask_mlp import MultiTaskMLP
+from ..models.multitask_mlp import MultiTaskMLP, split_tasks
 from ..models.single_task_mlp import SingleTaskMLP
 
 logger = logging.getLogger(__name__)
@@ -132,7 +133,24 @@ class Predictor:
                         num_classes[task_name] = {'dim': output_dim, 'idx': layer_idx}
             
             # Extract just the dimensions
-            num_classes = {task: info['dim'] for task, info in num_classes.items()}
+            task_info = {task: info['dim'] for task, info in num_classes.items()}
+
+            # Split classification from regression. A sibling final_training_config.json
+            # is authoritative; failing that, a single-output head is a regression head
+            # (MultiTaskMLP forbids single-class classification, so this is unambiguous).
+            # Getting this wrong silently drops the sigmoid and pins every regression
+            # prediction to 1.0.
+            task_types = self.config.get('task_types')
+            if task_types is None:
+                cfg_path = self.model_path.parent / 'final_training_config.json'
+                if cfg_path.exists():
+                    with open(cfg_path) as fh:
+                        task_types = json.load(fh).get('task_types')
+                    if task_types:
+                        logger.info(f"Loaded task_types from {cfg_path}")
+            num_classes, regression_tasks = split_tasks(task_info, task_types)
+            if regression_tasks:
+                logger.info(f"Regression heads: {regression_tasks}")
             
             # Infer dropout (default to 0.5 if not in checkpoint)
             dropout = checkpoint.get('dropout', 0.5)
@@ -143,6 +161,7 @@ class Predictor:
                 input_dim=input_dim,
                 hidden_dims=hidden_dims,
                 num_classes=num_classes,
+                regression_tasks=regression_tasks,
                 dropout=dropout,
                 use_batch_norm=use_batch_norm
             )
@@ -206,11 +225,20 @@ class Predictor:
             # Forward pass
             outputs = self.model(x)
             
+            regression_tasks = set(getattr(self.model, 'regression_tasks', []) or [])
+
             predictions = {}
             for target, logits in outputs.items():
+                if target in regression_tasks:
+                    # Regression head: already sigmoid-bounded to [0, 1], shape (batch,).
+                    # Still in normalised units -- the caller denormalises with the
+                    # bounds in label_encoders.json.
+                    predictions[target] = {'value': float(logits.cpu().numpy().reshape(-1)[0])}
+                    continue
+
                 probs = torch.softmax(logits, dim=1).cpu().numpy()[0]
                 pred_class = int(np.argmax(probs))
-                
+
                 if return_probabilities:
                     predictions[target] = {
                         'class': pred_class,
@@ -218,7 +246,7 @@ class Predictor:
                     }
                 else:
                     predictions[target] = pred_class
-            
+
             return predictions
     
     def predict_batch(

@@ -39,7 +39,7 @@ from plotly.subplots import make_subplots
 import yaml
 
 from diana.data.loader import MatrixLoader
-from diana.models.multitask_mlp import MultiTaskMLP
+from diana.models.multitask_mlp import MultiTaskMLP, split_tasks, task_info_from_encoders
 
 # Plotly vivid color palette (consistent with paper figures)
 PLOTLY_VIVID_COLORS = [
@@ -73,9 +73,10 @@ def load_model_and_data(config: Dict):
     with open(config['model']['label_encoders_path'], 'r') as f:
         encoders_data = json.load(f)
     
-    # Get task info
-    task_info = {task: len(data['classes']) for task, data in encoders_data.items()}
+    # Get task info (regression tasks have no 'classes' and get a single output)
+    task_info = task_info_from_encoders(encoders_data)
     task_names = list(task_info.keys())
+    num_classes, regression_tasks = split_tasks(task_info, model_config.get('task_types'))
     
     print("Loading test data...")
     # Load test IDs
@@ -104,7 +105,8 @@ def load_model_and_data(config: Dict):
     device = config['execution']['device']
     model = MultiTaskMLP(
         input_dim=X_test.shape[1],
-        num_classes=task_info,
+        num_classes=num_classes,
+        regression_tasks=regression_tasks,
         **model_config['hyperparameters']['model_params']
     )
     
