@@ -251,12 +251,35 @@ class MultiTaskLoss(nn.Module):
     """
     Weighted multi-task loss combining losses from all tasks.
 
-    Classification tasks: CrossEntropyLoss (optionally with class weights + label smoothing).
+    Classification tasks: CrossEntropyLoss, with either class weights OR logit
+                          adjustment for imbalance (see below), plus label smoothing.
     Regression tasks:     Masked SmoothL1Loss (Huber). NaN values in the target tensor are
                           automatically excluded from the loss so samples with missing
                           continuous metadata do not harm training.
+
+    Handling class imbalance (R3.15)
+    --------------------------------
+    Two mutually exclusive options, and the choice matters:
+
+    `class_weights` re-weights the loss by inverse frequency. v7 used this
+    (`total / (n_classes * count)`, sklearn's "balanced"), which makes the network
+    learn a *balanced* posterior. Taking a plain argmax of that on a naturally
+    imbalanced split then systematically over-predicts rare classes -- this is why
+    158 of 235 `Homo sapiens` test runs were predicted `Papio hamadryas`, a class
+    with 5 training runs. Recovering from it needs a post-hoc correction whose
+    strength is a hyperparameter, and the only clean place to fit that is a
+    validation split.
+
+    `logit_adjust_tau` instead adds `tau * log(prior)` to the logits *inside* the
+    loss (Menon et al., "Long-tail learning via logit adjustment", ICLR 2021).
+    The correction is built into training, so inference is a plain argmax with
+    nothing to tune afterwards. tau=1 is the standard choice and is Fisher-
+    consistent for balanced error; tau=0 disables it.
+
+    Priors are estimated from the training labels actually used, ignoring
+    IGNORE_INDEX, so masked samples do not distort them.
     """
-    
+
     def __init__(
         self,
         task_names: List[str],
@@ -264,6 +287,8 @@ class MultiTaskLoss(nn.Module):
         task_weights: Optional[Dict[str, float]] = None,
         class_weights: Optional[Dict[str, torch.Tensor]] = None,
         label_smoothing: Union[float, Dict[str, float]] = 0.0,
+        class_priors: Optional[Dict[str, torch.Tensor]] = None,
+        logit_adjust_tau: float = 0.0,
     ):
         """
         Initialize multi-task loss.
@@ -275,8 +300,22 @@ class MultiTaskLoss(nn.Module):
             task_weights: Dictionary mapping task names to loss weights (default: equal).
             class_weights: Class weight tensors for classification tasks.
             label_smoothing: Label smoothing for classification tasks.
+            class_priors: Per-task class frequencies (counts or probabilities) used for
+                          logit adjustment. Required when logit_adjust_tau > 0.
+            logit_adjust_tau: Strength of logit adjustment. 0 disables it; 1 is the
+                              standard setting. Mutually exclusive with class_weights.
         """
         super().__init__()
+
+        if logit_adjust_tau and class_weights:
+            raise ValueError(
+                "class_weights and logit_adjust_tau both correct for class imbalance; "
+                "using them together double-corrects and over-predicts rare classes. "
+                "Pick one -- logit adjustment is preferred, as it needs no post-hoc tuning."
+            )
+        if logit_adjust_tau and not class_priors:
+            raise ValueError("logit_adjust_tau > 0 requires class_priors")
+        self.logit_adjust_tau = float(logit_adjust_tau)
 
         self.task_names = task_names
         self.regression_tasks = set(regression_tasks or [])
@@ -292,6 +331,20 @@ class MultiTaskLoss(nn.Module):
             ls_per_task = {name: label_smoothing.get(name, 0.0) for name in self.classification_tasks}
         else:
             ls_per_task = {name: float(label_smoothing) for name in self.classification_tasks}
+
+        # log(prior) per classification task, as buffers so .to(device) moves them.
+        self._adjust_tasks: List[str] = []
+        if self.logit_adjust_tau:
+            for task_name in self.classification_tasks:
+                prior = class_priors.get(task_name)
+                if prior is None:
+                    continue
+                prior = torch.as_tensor(prior, dtype=torch.float32)
+                prior = prior / prior.sum()
+                # Floor at a tiny value: an unobserved class would otherwise give -inf.
+                log_prior = torch.log(prior.clamp_min(1e-12))
+                self.register_buffer(f"_log_prior_{task_name}", log_prior)
+                self._adjust_tasks.append(task_name)
 
         # Create loss functions
         self.criterions = nn.ModuleDict()
@@ -346,7 +399,14 @@ class MultiTaskLoss(nn.Module):
                     # total loss, so contribute an explicit zero that still carries grad.
                     loss = predictions[task_name].sum() * 0.0
                 else:
-                    loss = self.criterions[task_name](predictions[task_name], tgt)
+                    logits = predictions[task_name]
+                    if task_name in self._adjust_tasks:
+                        # Menon et al.: train on logits + tau*log(prior) so the natural
+                        # frequencies are absorbed during fitting. Inference stays a
+                        # plain argmax on the unadjusted logits.
+                        logits = logits + self.logit_adjust_tau * getattr(
+                            self, f"_log_prior_{task_name}")
+                    loss = self.criterions[task_name](logits, tgt)
 
             task_losses[task_name] = loss
             total_loss = total_loss + self.task_weights[task_name] * loss
