@@ -1,0 +1,353 @@
+Run_accession	sample_type	community_type	feature	sample_host	material	sample_age	latitude	longitude	project_name	publication_year	geo_loc_name	sample_name	archive_project	archive_sample_accession
+SRR957738	ancient_metagenome	oral		Homo sapiens	dental calculus	900.0	51.565	8.84	Warinner2014	2014	Germany	B61	PRJNA216965	SRS473742
+SRR957739	ancient_metagenome	oral		Homo sapiens	dental calculus	900.0	51.565	8.84	Warinner2014	2014	Germany	B61	PRJNA216965	SRS473743
+SRR957740	ancient_metagenome	oral		Homo sapiens	dental calculus	900.0	51.565	8.84	Warinner2014	2014	Germany	B61	PRJNA216965	SRS473744
+SRR957741	ancient_metagenome	oral		Homo sapiens	dental calculus	900.0	51.565	8.84	Warinner2014	2014	Germany	B61	PRJNA216965	SRS473745
+SRR957742	ancient_metagenome	oral		Homo sapiens	dental calculus	900.0	51.565	8.84	Warinner2014	2014	Germany	G12	PRJNA216965	SRS473747
+SRR957743	ancient_metagenome	oral		Homo sapiens	dental calculus	900.0	51.565	8.84	Warinner2014	2014	Germany	G12	PRJNA216965	SRS473746
+SRR957744	ancient_metagenome	oral		Homo sapiens	dental calculus	900.0	51.565	8.84	Warinner2014	2014	Germany	G12	PRJNA216965	SRS473748
+SRR957745	ancient_metagenome	oral		Homo sapiens	dental calculus	900.0	51.565	8.84	Warinner2014	2014	Germany	G12	PRJNA216965	SRS473749
+SRR957746	ancient_metagenome	oral		Homo sapiens	dental calculus	900.0	51.565	8.84	Warinner2014	2014	Germany	G12	PRJNA216965	SRS473750
+SRR2229976	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0	40.23	-90.143	Ozga2016	2016	USA	NF-217C-SG	PRJNA293758	SRS1052916
+SRR2229974	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0	40.23	-90.143	Ozga2016	2016	USA	NF-47C-SG	PRJNA293758	SRS1052918
+SRR2229975	ancient_metagenome	skeletal tissue		Homo sapiens	tooth	700.0	40.23	-90.143	Ozga2016	2016	USA	NF-47D-SG	PRJNA293758	SRS1052917
+SRR2229977	ancient_metagenome	skeletal tissue		Homo sapiens	tooth	700.0	40.23	-90.143	Ozga2016	2016	USA	NF-217D-SG	PRJNA293758	SRS1052915
+SRR11176627	ancient_metagenome	oral		Homo sapiens	dental calculus	230.0	35.71	139.78	Eisenhofer2020	2020	Japan	A18023_Japan_Edo_4	PRJNA608555	SRS6212663
+SRR11176628	ancient_metagenome	oral		Homo sapiens	dental calculus	230.0	35.71	139.78	Eisenhofer2020	2020	Japan	A18022_Japan_Edo_3	PRJNA608555	SRS6212662
+SRR11176629	ancient_metagenome	oral		Homo sapiens	dental calculus	230.0	35.71	139.78	Eisenhofer2020	2020	Japan	A18021_Japan_Edo_2	PRJNA608555	SRS6212661
+SRR11176630	ancient_metagenome	oral		Homo sapiens	dental calculus	230.0	35.71	139.78	Eisenhofer2020	2020	Japan	A18020_Japan_Edo_1	PRJNA608555	SRS6212660
+SRR11176631	ancient_metagenome	oral		Homo sapiens	dental calculus	2700.0	38.83	141.18	Eisenhofer2020	2020	Japan	A18019_Japan_Jomon_5	PRJNA608555	SRS6212659
+SRR11176632	ancient_metagenome	oral		Homo sapiens	dental calculus	2700.0	39.12	141.81	Eisenhofer2020	2020	Japan	A18018_Japan_Jomon_4	PRJNA608555	SRS6212658
+SRR11176633	ancient_metagenome	oral		Homo sapiens	dental calculus	2700.0	39.12	141.81	Eisenhofer2020	2020	Japan	A18017_Japan_Jomon_3	PRJNA608555	SRS6212657
+SRR11176634	ancient_metagenome	oral		Homo sapiens	dental calculus	2700.0	34.64	137.14	Eisenhofer2020	2020	Japan	A18016_Japan_Jomon_2	PRJNA608555	SRS6212656
+SRR11176635	ancient_metagenome	oral		Homo sapiens	dental calculus	230.0	35.71	139.78	Eisenhofer2020	2020	Japan	A18033_Japan_Edo_10	PRJNA608555	SRS6212655
+SRR11176636	ancient_metagenome	oral		Homo sapiens	dental calculus	230.0	35.71	139.78	Eisenhofer2020	2020	Japan	A18032_Japan_Edo_9	PRJNA608555	SRS6212654
+SRR11176638	ancient_metagenome	oral		Homo sapiens	dental calculus	230.0	35.71	139.78	Eisenhofer2020	2020	Japan	A18027_Japan_Edo_8	PRJNA608555	SRS6212652
+SRR11176639	ancient_metagenome	oral		Homo sapiens	dental calculus	230.0	35.71	139.78	Eisenhofer2020	2020	Japan	A18026_Japan_Edo_7	PRJNA608555	SRS6212651
+SRR11176640	ancient_metagenome	oral		Homo sapiens	dental calculus	230.0	35.71	139.78	Eisenhofer2020	2020	Japan	A18025_Japan_Edo_6	PRJNA608555	SRS6212650
+SRR11176641	ancient_metagenome	oral		Homo sapiens	dental calculus	230.0	35.713	139.767	Eisenhofer2020	2020	Japan	A18024_Japan_Edo_5	PRJNA608555	SRS6212649
+SRR11176642	ancient_metagenome	oral		Homo sapiens	dental calculus	2700.0	39.12	141.81	Eisenhofer2020	2020	Japan	A18015_Japan_Jomon_1	PRJNA608555	SRS6212648
+SRR8731955	ancient_metagenome	gut		Homo sapiens	palaeofaeces	500.0	-24.74	30.56	Rifkin2020	2020	South Africa	BRS2	PRJNA527177	SRS4491531
+SRR8731958	ancient_metagenome	gut		Homo sapiens	palaeofaeces	500.0	-24.74	30.56	Rifkin2020	2020	South Africa	BRS3	PRJNA527177	SRS4491528
+SRR8731957	ancient_metagenome	gut		Homo sapiens	palaeofaeces	500.0	-24.74	30.56	Rifkin2020	2020	South Africa	BRS4	PRJNA527177	SRS4491529
+ERR3728226	ancient_metagenome	oral		Homo sapiens	dental calculus	1500.0	53.951	-1.1	Fagernas2020	2020	United Kingdom	3DT21	PRJEB35483	ERS4042407
+ERR3728227	ancient_metagenome	oral		Homo sapiens	dental calculus	1500.0	53.951	-1.1	Fagernas2020	2020	United Kingdom	3DT21	PRJEB35483	ERS4042408
+ERR3728228	ancient_metagenome	oral		Homo sapiens	dental calculus	1500.0	53.951	-1.1	Fagernas2020	2020	United Kingdom	3DT21	PRJEB35483	ERS4042409
+ERR3728254	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0	53.91	-1.29	Fagernas2020	2020	United Kingdom	WG1561	PRJEB35483	ERS4042435
+ERR3728255	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0	53.91	-1.29	Fagernas2020	2020	United Kingdom	WG1561	PRJEB35483	ERS4042436
+ERR3728256	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0	53.91	-1.29	Fagernas2020	2020	United Kingdom	WG1561	PRJEB35483	ERS4042437
+ERR3728257	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0	53.91	-1.29	Fagernas2020	2020	United Kingdom	WG1561	PRJEB35483	ERS4042438
+ERR3728245	ancient_metagenome	oral		Homo sapiens	dental calculus	1100.0	42.84	-2.517	Fagernas2020	2020	Spain	SMD 1441-1-1440(044)	PRJEB35483	ERS4042426
+ERR3728246	ancient_metagenome	oral		Homo sapiens	dental calculus	1100.0	42.84	-2.517	Fagernas2020	2020	Spain	SMD 2591-1-2590(159)	PRJEB35483	ERS4042427
+ERR3728247	ancient_metagenome	oral		Homo sapiens	dental calculus	1100.0	42.84	-2.517	Fagernas2020	2020	Spain	SMD 2591-1-2590(159)	PRJEB35483	ERS4042428
+ERR3728248	ancient_metagenome	oral		Homo sapiens	dental calculus	1100.0	42.84	-2.517	Fagernas2020	2020	Spain	SMD 2591-1-2590(159)	PRJEB35483	ERS4042429
+ERR3728249	ancient_metagenome	oral		Homo sapiens	dental calculus	1100.0	42.84	-2.517	Fagernas2020	2020	Spain	SMD 2591-1-2590(159)	PRJEB35483	ERS4042430
+ERR3728250	ancient_metagenome	oral		Homo sapiens	dental calculus	1000.0	42.84	-2.517	Fagernas2020	2020	Spain	SMD 2711-1-2710(171)	PRJEB35483	ERS4042431
+ERR3728251	ancient_metagenome	oral		Homo sapiens	dental calculus	1000.0	42.84	-2.517	Fagernas2020	2020	Spain	SMD 2711-1-2710(171)	PRJEB35483	ERS4042432
+ERR3728252	ancient_metagenome	oral		Homo sapiens	dental calculus	1000.0	42.84	-2.517	Fagernas2020	2020	Spain	SMD 2711-1-2710(171)	PRJEB35483	ERS4042433
+ERR3728238	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	-15.933	-5.75	Fagernas2020	2020	Saint Helena	SK203	PRJEB35483	ERS4042419
+ERR3728239	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	-15.933	-5.75	Fagernas2020	2020	Saint Helena	SK203	PRJEB35483	ERS4042420
+ERR3728240	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	-15.933	-5.75	Fagernas2020	2020	Saint Helena	SK203	PRJEB35483	ERS4042421
+ERR3728241	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	-15.933	-5.75	Fagernas2020	2020	Saint Helena	SK203	PRJEB35483	ERS4042422
+SRR5297130	ancient_metagenome	oral		Homo sapiens	dental calculus	400.0	37.3	-121.8	Eerkens2018	2018	USA	RN4-Calculus	PRJNA377320	SRS2006287
+SRR5297133	ancient_metagenome	oral		Homo sapiens	dental calculus	500.0	37.3	-121.8	Eerkens2018	2018	USA	RN1-Calculus	PRJNA377320	SRS2006289
+SRR5297132	ancient_metagenome	oral		Homo sapiens	dental calculus	400.0	37.3	-121.8	Eerkens2018	2018	USA	RN2-Calculus	PRJNA377320	SRS2006288
+SRR5297131	ancient_metagenome	oral		Homo sapiens	dental calculus	400.0	37.3	-121.8	Eerkens2018	2018	USA	RN3-Calculus	PRJNA377320	SRS2006290
+SRR8899218	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	02C	PRJNA531027	SRS4625244
+SRR8899219	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	04C	PRJNA531027	SRS4625243
+SRR8899220	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	05C	PRJNA531027	SRS4625242
+SRR8899221	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	07C	PRJNA531027	SRS4625241
+SRR8899214	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	13C	PRJNA531027	SRS4625248
+SRR8899215	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	14C	PRJNA531027	SRS4625247
+SRR8899216	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	16C	PRJNA531027	SRS4625246
+SRR8899217	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	17C	PRJNA531027	SRS4625245
+SRR8899212	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	18C	PRJNA531027	SRS4625250
+SRR8899213	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	19C	PRJNA531027	SRS4625249
+SRR8899223	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	20C	PRJNA531027	SRS4625239
+SRR8899224	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	21C	PRJNA531027	SRS4625238
+SRR8899225	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	22C	PRJNA531027	SRS4625237
+SRR8899226	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	24C	PRJNA531027	SRS4625236
+SRR8899227	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	25C	PRJNA531027	SRS4625235
+SRR8899228	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	26C	PRJNA531027	SRS4625234
+SRR8899229	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	27C	PRJNA531027	SRS4625233
+SRR8899230	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	28C	PRJNA531027	SRS4625232
+SRR8899222	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	29C	PRJNA531027	SRS4625240
+ERR5670952	ancient_metagenome	oral		Homo sapiens	dental calculus	6800.0	46.13	11.09	Granehall2021	2021	Italy	2081	PRJEB43389	ERS6205384
+ERR5670953	ancient_metagenome	oral		Homo sapiens	dental calculus	4800.0	46.09	11.12	Granehall2021	2021	Italy	2082	PRJEB43389	ERS6205385
+ERR5670954	ancient_metagenome	oral		Homo sapiens	dental calculus	4800.0	46.09	11.12	Granehall2021	2021	Italy	2083	PRJEB43389	ERS6205386
+ERR5670955	ancient_metagenome	oral		Homo sapiens	dental calculus	4800.0	46.09	11.12	Granehall2021	2021	Italy	2084	PRJEB43389	ERS6205387
+ERR5670956	ancient_metagenome	oral		Homo sapiens	dental calculus	3900.0	46.0	11.09	Granehall2021	2021	Italy	2086	PRJEB43389	ERS6205388
+ERR5670957	ancient_metagenome	oral		Homo sapiens	dental calculus	3900.0	46.0	11.09	Granehall2021	2021	Italy	2087	PRJEB43389	ERS6205389
+ERR5670958	ancient_metagenome	oral		Homo sapiens	dental calculus	1300.0	46.471	11.267	Granehall2021	2021	Italy	2089	PRJEB43389	ERS6205390
+ERR5670959	ancient_metagenome	oral		Homo sapiens	dental calculus	1300.0	46.32	11.29	Granehall2021	2021	Italy	2090	PRJEB43389	ERS6205391
+ERR5670960	ancient_metagenome	oral		Homo sapiens	dental calculus	1300.0	46.53	11.26	Granehall2021	2021	Italy	2091	PRJEB43389	ERS6205392
+ERR5670961	ancient_metagenome	oral		Homo sapiens	dental calculus	1300.0	46.45	11.21	Granehall2021	2021	Italy	2092	PRJEB43389	ERS6205393
+ERR5670962	ancient_metagenome	oral		Homo sapiens	dental calculus	1300.0	46.694	11.144	Granehall2021	2021	Italy	2093	PRJEB43389	ERS6205394
+ERR5670963	ancient_metagenome	oral		Homo sapiens	dental calculus	1300.0	46.69	11.14	Granehall2021	2021	Italy	2094	PRJEB43389	ERS6205395
+ERR5670964	ancient_metagenome	oral		Homo sapiens	dental calculus	1300.0	46.69	11.14	Granehall2021	2021	Italy	2095	PRJEB43389	ERS6205396
+ERR5670965	ancient_metagenome	oral		Homo sapiens	dental calculus	1300.0	46.64	10.67	Granehall2021	2021	Italy	2096	PRJEB43389	ERS6205397
+ERR5670966	ancient_metagenome	oral		Homo sapiens	dental calculus	1300.0	46.7	10.52	Granehall2021	2021	Italy	2097	PRJEB43389	ERS6205398
+ERR5670967	ancient_metagenome	oral		Homo sapiens	dental calculus	1300.0	46.7	10.52	Granehall2021	2021	Italy	2099	PRJEB43389	ERS6205399
+ERR5670968	ancient_metagenome	oral		Homo sapiens	dental calculus	1300.0	46.7	10.52	Granehall2021	2021	Italy	2100	PRJEB43389	ERS6205400
+ERR5670969	ancient_metagenome	oral		Homo sapiens	dental calculus	1300.0	46.73	11.67	Granehall2021	2021	Italy	2102	PRJEB43389	ERS6205401
+ERR5670970	ancient_metagenome	oral		Homo sapiens	dental calculus	1300.0	46.73	11.67	Granehall2021	2021	Italy	2103	PRJEB43389	ERS6205402
+ERR5670971	ancient_metagenome	oral		Homo sapiens	dental calculus	1300.0	46.73	11.67	Granehall2021	2021	Italy	2104	PRJEB43389	ERS6205403
+SRR17604808	ancient_metagenome	oral		Homo sapiens	dental calculus	6900.0	41.21	16.06	Quagliariello2022	2022	Italy	BIC.T2	PRJNA791766	SRS11653536
+SRR17604741	ancient_metagenome	oral		Homo sapiens	dental calculus	4900.0	41.13	15.23	Quagliariello2022	2022	Italy	DEL77	PRJNA791766	SRS11653603
+SRR17604732	ancient_metagenome	oral		Homo sapiens	dental calculus	4300.0	43.16	13.71	Quagliariello2022	2022	Italy	Fer.T64	PRJNA791766	SRS11653612
+SRR17604731	ancient_metagenome	oral		Homo sapiens	dental calculus	4300.0	43.16	13.71	Quagliariello2022	2022	Italy	Fer.T65	PRJNA791766	SRS11653613
+SRR17604806	ancient_metagenome	oral		Homo sapiens	dental calculus	4300.0	43.16	13.71	Quagliariello2022	2022	Italy	Fer.T67	PRJNA791766	SRS11653541
+SRR17604805	ancient_metagenome	oral		Homo sapiens	dental calculus	4300.0	43.16	13.71	Quagliariello2022	2022	Italy	Fer.T69	PRJNA791766	SRS11653539
+SRR17604804	ancient_metagenome	oral		Homo sapiens	dental calculus	4300.0	43.16	13.71	Quagliariello2022	2022	Italy	Fer.T75	PRJNA791766	SRS11653538
+SRR17604802	ancient_metagenome	oral		Homo sapiens	dental calculus	6100.0	41.46	15.55	Quagliariello2022	2022	Italy	Gil12	PRJNA791766	SRS11653542
+SRR17604801	ancient_metagenome	oral		Homo sapiens	dental calculus	4100.0	40.98	14.23	Quagliariello2022	2022	Italy	GR.T12	PRJNA791766	SRS11653543
+SRR17604800	ancient_metagenome	oral		Homo sapiens	dental calculus	4100.0	40.98	14.23	Quagliariello2022	2022	Italy	GR.T15A	PRJNA791766	SRS11653544
+SRR17604799	ancient_metagenome	oral		Homo sapiens	dental calculus	4100.0	40.98	14.23	Quagliariello2022	2022	Italy	GR.T16	PRJNA791766	SRS11653545
+SRR17604798	ancient_metagenome	oral		Homo sapiens	dental calculus	4100.0	40.98	14.23	Quagliariello2022	2022	Italy	GR.T34a	PRJNA791766	SRS11653547
+SRR17604797	ancient_metagenome	oral		Homo sapiens	dental calculus	4100.0	40.98	14.23	Quagliariello2022	2022	Italy	GR.T34b	PRJNA791766	SRS11653546
+SRR17604795	ancient_metagenome	oral		Homo sapiens	dental calculus	4100.0	40.98	14.23	Quagliariello2022	2022	Italy	GR.T8	PRJNA791766	SRS11653549
+SRR17604794	ancient_metagenome	oral		Homo sapiens	dental calculus	5000.0	43.36	13.51	Quagliariello2022	2022	Italy	Kock	PRJNA791766	SRS11653550
+SRR17604807	ancient_metagenome	oral		Homo sapiens	dental calculus	6700.0	41.38	15.55	Quagliariello2022	2022	Italy	CND40_IDA	PRJNA791766	SRS11653537
+SRR17604796	ancient_metagenome	oral		Homo sapiens	dental calculus	7300.0	41.38	15.55	Quagliariello2022	2022	Italy	CND40_IDB	PRJNA791766	SRS11653548
+SRR17604785	ancient_metagenome	oral		Homo sapiens	dental calculus	7300.0	41.38	15.55	Quagliariello2022	2022	Italy	CND43	PRJNA791766	SRS11653559
+SRR17604774	ancient_metagenome	oral		Homo sapiens	dental calculus	7300.0	41.38	15.55	Quagliariello2022	2022	Italy	CND86	PRJNA791766	SRS11653570
+SRR17604763	ancient_metagenome	oral		Homo sapiens	dental calculus	6600.0	41.38	15.55	Quagliariello2022	2022	Italy	CND91	PRJNA791766	SRS11653581
+SRR17604752	ancient_metagenome	oral		Homo sapiens	dental calculus	7300.0	41.38	15.55	Quagliariello2022	2022	Italy	CND92	PRJNA791766	SRS11653592
+SRR17604803	ancient_metagenome	oral		Homo sapiens	dental calculus	7300.0	41.38	15.55	Quagliariello2022	2022	Italy	FFB4A	PRJNA791766	SRS11653540
+SRR17604793	ancient_metagenome	oral		Homo sapiens	dental calculus	4800.0	40.99	15.64	Quagliariello2022	2022	Italy	MELT1	PRJNA791766	SRS11653551
+SRR17604792	ancient_metagenome	oral		Homo sapiens	dental calculus	4800.0	40.99	15.64	Quagliariello2022	2022	Italy	MELT2	PRJNA791766	SRS11653552
+SRR17604791	ancient_metagenome	oral		Homo sapiens	dental calculus	4800.0	40.99	15.64	Quagliariello2022	2022	Italy	MELT3	PRJNA791766	SRS11653553
+SRR17604780	ancient_metagenome	oral		Homo sapiens	dental calculus	24800.0	41.67	15.58	Quagliariello2022	2022	Italy	PA.12	PRJNA791766	SRS11653563
+SRR17604779	ancient_metagenome	oral		Homo sapiens	dental calculus	33000.0	41.67	15.58	Quagliariello2022	2022	Italy	PA.133	PRJNA791766	SRS11653565
+SRR17604778	ancient_metagenome	oral		Homo sapiens	dental calculus	21300.0	41.67	15.58	Quagliariello2022	2022	Italy	PA.14 B	PRJNA791766	SRS11653566
+SRR17604777	ancient_metagenome	oral		Homo sapiens	dental calculus	15500.0	41.67	15.58	Quagliariello2022	2022	Italy	PA.140	PRJNA791766	SRS11653567
+SRR17604776	ancient_metagenome	oral		Homo sapiens	dental calculus	15500.0	41.67	15.58	Quagliariello2022	2022	Italy	PA.150	PRJNA791766	SRS11653568
+SRR17604775	ancient_metagenome	oral		Homo sapiens	dental calculus	15500.0	41.67	15.58	Quagliariello2022	2022	Italy	PA.157	PRJNA791766	SRS11653569
+SRR17604773	ancient_metagenome	oral		Homo sapiens	dental calculus	23470.0	41.67	15.58	Quagliariello2022	2022	Italy	PA.25	PRJNA791766	SRS11653571
+SRR17604772	ancient_metagenome	oral		Homo sapiens	dental calculus	15500.0	41.67	15.58	Quagliariello2022	2022	Italy	PA.38	PRJNA791766	SRS11653572
+SRR17604771	ancient_metagenome	oral		Homo sapiens	dental calculus	15500.0	41.67	15.58	Quagliariello2022	2022	Italy	PA.39	PRJNA791766	SRS11653574
+SRR17604790	ancient_metagenome	oral		Homo sapiens	dental calculus	6500.0	40.58	17.03	Quagliariello2022	2022	Italy	P.T10.1	PRJNA791766	SRS11653554
+SRR17604789	ancient_metagenome	oral		Homo sapiens	dental calculus	6500.0	40.58	17.03	Quagliariello2022	2022	Italy	P.T10.10	PRJNA791766	SRS11653555
+SRR17604788	ancient_metagenome	oral		Homo sapiens	dental calculus	6500.0	40.58	17.03	Quagliariello2022	2022	Italy	P.T10.45	PRJNA791766	SRS11653556
+SRR17604787	ancient_metagenome	oral		Homo sapiens	dental calculus	6500.0	40.58	17.03	Quagliariello2022	2022	Italy	P.T10.65	PRJNA791766	SRS11653557
+SRR17604786	ancient_metagenome	oral		Homo sapiens	dental calculus	6500.0	40.58	17.03	Quagliariello2022	2022	Italy	P.T10.8	PRJNA791766	SRS11653558
+SRR17604784	ancient_metagenome	oral		Homo sapiens	dental calculus	6500.0	40.58	17.03	Quagliariello2022	2022	Italy	P.T3N	PRJNA791766	SRS11653560
+SRR17604783	ancient_metagenome	oral		Homo sapiens	dental calculus	6500.0	40.58	17.03	Quagliariello2022	2022	Italy	P.T3S	PRJNA791766	SRS11653561
+SRR17604782	ancient_metagenome	oral		Homo sapiens	dental calculus	5700.0	40.58	17.03	Quagliariello2022	2022	Italy	P.T7c	PRJNA791766	SRS11653562
+SRR17604781	ancient_metagenome	oral		Homo sapiens	dental calculus	5500.0	40.58	17.03	Quagliariello2022	2022	Italy	P.T8.2	PRJNA791766	SRS11653564
+SRR17604770	ancient_metagenome	oral		Homo sapiens	dental calculus	6200.0	41.55	15.61	Quagliariello2022	2022	Italy	PC-T10Bis	PRJNA791766	SRS11653573
+SRR17604769	ancient_metagenome	oral		Homo sapiens	dental calculus	6200.0	41.55	15.61	Quagliariello2022	2022	Italy	PC-T11	PRJNA791766	SRS11653575
+SRR17604768	ancient_metagenome	oral		Homo sapiens	dental calculus	6200.0	41.55	15.61	Quagliariello2022	2022	Italy	PC-T12	PRJNA791766	SRS11653576
+SRR17604767	ancient_metagenome	oral		Homo sapiens	dental calculus	6200.0	41.55	15.61	Quagliariello2022	2022	Italy	PC-T3	PRJNA791766	SRS11653577
+SRR17604766	ancient_metagenome	oral		Homo sapiens	dental calculus	6200.0	41.55	15.61	Quagliariello2022	2022	Italy	PC-T5	PRJNA791766	SRS11653578
+SRR17604765	ancient_metagenome	oral		Homo sapiens	dental calculus	6200.0	41.55	15.61	Quagliariello2022	2022	Italy	PC-T9	PRJNA791766	SRS11653579
+SRR17604738	ancient_metagenome	oral		Homo sapiens	dental calculus	6500.0	43.56	13.59	Quagliariello2022	2022	Italy	US1034	PRJNA791766	SRS11653606
+SRR17604737	ancient_metagenome	oral		Homo sapiens	dental calculus	6100.0	43.56	13.59	Quagliariello2022	2022	Italy	US1054	PRJNA791766	SRS11653607
+SRR17604736	ancient_metagenome	oral		Homo sapiens	dental calculus	6100.0	43.56	13.59	Quagliariello2022	2022	Italy	US1056_I	PRJNA791766	SRS11653610
+SRR17604735	ancient_metagenome	oral		Homo sapiens	dental calculus	6100.0	43.56	13.59	Quagliariello2022	2022	Italy	US1056_II	PRJNA791766	SRS11653608
+SRR17604764	ancient_metagenome	oral		Homo sapiens	dental calculus	6300.0	41.3	15.2	Quagliariello2022	2022	Italy	Rip.USD304	PRJNA791766	SRS11653580
+SRR17604762	ancient_metagenome	oral		Homo sapiens	dental calculus	6300.0	41.3	15.2	Quagliariello2022	2022	Italy	Rip.USD346	PRJNA791766	SRS11653583
+SRR17604761	ancient_metagenome	oral		Homo sapiens	dental calculus	6300.0	41.3	15.2	Quagliariello2022	2022	Italy	Rip.USD35	PRJNA791766	SRS11653582
+SRR17604760	ancient_metagenome	oral		Homo sapiens	dental calculus	6300.0	41.3	15.2	Quagliariello2022	2022	Italy	Rip.USD359	PRJNA791766	SRS11653584
+SRR17604759	ancient_metagenome	oral		Homo sapiens	dental calculus	6300.0	41.3	15.2	Quagliariello2022	2022	Italy	Rip.USD360	PRJNA791766	SRS11653585
+SRR17604758	ancient_metagenome	oral		Homo sapiens	dental calculus	6300.0	41.3	15.2	Quagliariello2022	2022	Italy	Rip.USD41	PRJNA791766	SRS11653586
+SRR17604757	ancient_metagenome	oral		Homo sapiens	dental calculus	6300.0	41.3	15.2	Quagliariello2022	2022	Italy	Rip.USD527	PRJNA791766	SRS11653587
+SRR17604756	ancient_metagenome	oral		Homo sapiens	dental calculus	6300.0	41.3	15.2	Quagliariello2022	2022	Italy	Rip.USD613	PRJNA791766	SRS11653589
+SRR17604755	ancient_metagenome	oral		Homo sapiens	dental calculus	6300.0	41.3	15.2	Quagliariello2022	2022	Italy	Rip.USD618	PRJNA791766	SRS11653590
+SRR17604754	ancient_metagenome	oral		Homo sapiens	dental calculus	6300.0	41.3	15.2	Quagliariello2022	2022	Italy	Rip.USD625	PRJNA791766	SRS11653588
+SRR17604753	ancient_metagenome	oral		Homo sapiens	dental calculus	6300.0	41.3	15.2	Quagliariello2022	2022	Italy	Rip.USD628	PRJNA791766	SRS11653591
+SRR17604751	ancient_metagenome	oral		Homo sapiens	dental calculus	6300.0	41.3	15.2	Quagliariello2022	2022	Italy	Rip.USD687	PRJNA791766	SRS11653593
+SRR17604750	ancient_metagenome	oral		Homo sapiens	dental calculus	6300.0	41.3	15.2	Quagliariello2022	2022	Italy	Rip.USD688	PRJNA791766	SRS11653594
+SRR17604749	ancient_metagenome	oral		Homo sapiens	dental calculus	6300.0	41.3	15.2	Quagliariello2022	2022	Italy	Rip.USD688.17	PRJNA791766	SRS11653595
+SRR17604748	ancient_metagenome	oral		Homo sapiens	dental calculus	6300.0	41.3	15.2	Quagliariello2022	2022	Italy	Rip.USD688.24	PRJNA791766	SRS11653596
+SRR17604747	ancient_metagenome	oral		Homo sapiens	dental calculus	6300.0	41.3	15.2	Quagliariello2022	2022	Italy	Rip.USD691.A	PRJNA791766	SRS11653597
+SRR17604746	ancient_metagenome	oral		Homo sapiens	dental calculus	6300.0	41.3	15.2	Quagliariello2022	2022	Italy	Rip.USD691.B	PRJNA791766	SRS11653598
+SRR17604745	ancient_metagenome	oral		Homo sapiens	dental calculus	6300.0	41.3	15.2	Quagliariello2022	2022	Italy	Rip.USD697	PRJNA791766	SRS11653599
+SRR17604744	ancient_metagenome	oral		Homo sapiens	dental calculus	4600.0	42.25	11.75	Quagliariello2022	2022	Italy	Tar.T67	PRJNA791766	SRS11653600
+SRR17604743	ancient_metagenome	oral		Homo sapiens	dental calculus	4600.0	42.25	11.75	Quagliariello2022	2022	Italy	Tar.T68	PRJNA791766	SRS11653601
+SRR17604742	ancient_metagenome	oral		Homo sapiens	dental calculus	4600.0	42.25	11.75	Quagliariello2022	2022	Italy	Tar.T71	PRJNA791766	SRS11653602
+SRR17604740	ancient_metagenome	oral		Homo sapiens	dental calculus	5300.0	41.22	15.18	Quagliariello2022	2022	Italy	TR175	PRJNA791766	SRS11653604
+SRR17604739	ancient_metagenome	oral		Homo sapiens	dental calculus	5300.0	41.22	15.18	Quagliariello2022	2022	Italy	TR177	PRJNA791766	SRS11653605
+SRR23699578	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP02	PRJNA885571	SRS15300786
+SRR23699577	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP03	PRJNA885571	SRS15300787
+SRR23699566	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP03	PRJNA885571	SRS15300787
+SRR23699557	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP04	PRJNA885571	SRS15300798
+SRR23699556	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP05	PRJNA885571	SRS15300805
+SRR23699555	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP06	PRJNA885571	SRS15300806
+SRR23699554	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP07	PRJNA885571	SRS15300807
+SRR23699553	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP09	PRJNA885571	SRS15300808
+SRR23699552	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP10	PRJNA885571	SRS15300809
+SRR23699551	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP11	PRJNA885571	SRS15300810
+SRR23699576	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP12	PRJNA885571	SRS15300811
+SRR23699575	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP13	PRJNA885571	SRS15300788
+SRR23699574	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP14	PRJNA885571	SRS15300789
+SRR23699573	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP15	PRJNA885571	SRS15300790
+SRR23699572	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP18	PRJNA885571	SRS15300791
+SRR23699571	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP19	PRJNA885571	SRS15300792
+SRR23699570	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP20	PRJNA885571	SRS15300793
+SRR23699569	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP21	PRJNA885571	SRS15300794
+SRR23699568	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP22	PRJNA885571	SRS15300795
+SRR23699567	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP23	PRJNA885571	SRS15300796
+SRR23699565	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP24	PRJNA885571	SRS15300797
+SRR23699564	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP25	PRJNA885571	SRS15300799
+SRR23699563	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP26	PRJNA885571	SRS15300800
+SRR23699562	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP27	PRJNA885571	SRS15300801
+SRR23699561	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP27	PRJNA885571	SRS15300801
+SRR23699560	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP29	PRJNA885571	SRS15300802
+SRR23699559	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP33	PRJNA885571	SRS15300803
+SRR23699558	ancient_metagenome	oral		Homo sapiens	dental calculus	700.0			Honap2023	2023	USA	WAMP34	PRJNA885571	SRS15300804
+ERR10841228	ancient_metagenome	oral		Homo sapiens	dental calculus	6100.0	39.89	16.33	Fontani2023	2023	Italy	SLBT	PRJEB58818	ERS14581258
+ERR10841194	ancient_metagenome	oral		Homo sapiens	tooth	6100.0	39.89	16.33	Fontani2023	2023	Italy	SLB	PRJEB58818	ERS14410560
+ERR12115115	ancient_metagenome	oral		Homo sapiens	dental calculus	900.0	52.576	-0.254	Fiorin2024	2024	United Kingdom	P18	PRJEB67363	ERS16464521
+ERR12115114	ancient_metagenome	oral		Homo sapiens	dental calculus	900.0	52.576	-0.254	Fiorin2024	2024	United Kingdom	P68	PRJEB67363	ERS16464520
+ERR12115113	ancient_metagenome	oral		Homo sapiens	dental calculus	900.0	52.576	-0.254	Fiorin2024	2024	United Kingdom	P45	PRJEB67363	ERS16464519
+ERR12115116	ancient_metagenome	oral		Homo sapiens	dental calculus	900.0	52.576	-0.254	Fiorin2024	2024	United Kingdom	P112	PRJEB67363	ERS16464522
+SRR27336765	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 32 S	PRJNA1056444	SRS19976951
+SRR27336766	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 1 T	PRJNA1056444	SRS19976950
+SRR27336770	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 3 T	PRJNA1056444	SRS19976946
+SRR27336771	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 4 T	PRJNA1056444	SRS19976945
+SRR27336772	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 36 S	PRJNA1056444	SRS19976944
+SRR27336773	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 37 S	PRJNA1056444	SRS19976943
+SRR27336775	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 38 S	PRJNA1056444	SRS19976941
+SRR27336780	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 23 S	PRJNA1056444	SRS19976936
+SRR27336783	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 7 T	PRJNA1056444	SRS19976933
+SRR27336785	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 25 S	PRJNA1056444	SRS19976931
+SRR27336786	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 11 T	PRJNA1056444	SRS19976930
+SRR27336791	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 10 T	PRJNA1056444	SRS19976925
+SRR27336792	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 14 T	PRJNA1056444	SRS19976924
+SRR27336793	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 15 T	PRJNA1056444	SRS19976923
+SRR27336795	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 27 S	PRJNA1056444	SRS19976921
+SRR27336799	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 33 S	PRJNA1056444	SRS19976917
+SRR27336800	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 18 T	PRJNA1056444	SRS19976916
+SRR27336807	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 20 T	PRJNA1056444	SRS19976909
+SRR27336767	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 35 S	PRJNA1056444	SRS19976949
+SRR27336777	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 5 T	PRJNA1056444	SRS19976939
+SRR27336787	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 26 S	PRJNA1056444	SRS19976929
+SRR27336789	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 12 T	PRJNA1056444	SRS19976927
+SRR27336794	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 16 T	PRJNA1056444	SRS19976922
+SRR27336796	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 17 T	PRJNA1056444	SRS19976920
+SRR27336803	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 30 S	PRJNA1056444	SRS19976913
+SRR27336804	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 28 S	PRJNA1056444	SRS19976912
+SRR27336806	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 19 T	PRJNA1056444	SRS19976910
+SRR27336769	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 2 T	PRJNA1056444	SRS19976947
+SRR27336774	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 29 S	PRJNA1056444	SRS19976942
+SRR27336776	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 39 S	PRJNA1056444	SRS19976940
+SRR27336778	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 22 S	PRJNA1056444	SRS19976938
+SRR27336781	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 24 S	PRJNA1056444	SRS19976935
+SRR27336782	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 6 T	PRJNA1056444	SRS19976934
+SRR27336784	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 8 T	PRJNA1056444	SRS19976932
+SRR27336788	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 9 T	PRJNA1056444	SRS19976928
+SRR27336797	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 21 S	PRJNA1056444	SRS19976919
+SRR27336798	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 31 S	PRJNA1056444	SRS19976918
+SRR27336802	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 13 T	PRJNA1056444	SRS19976914
+SRR27336805	ancient_metagenome	oral		Homo sapiens	dental calculus	100.0	38.65	-90.26	Austin2024	2024	USA	ARP 34 S	PRJNA1056444	SRS19976911
+SRR30066272	ancient_metagenome	oral		Homo sapiens	dental calculus	200.0	32.786	-79.931	Fleskes2024	2024	USA	CHS01	PRJNA1037120	SRS19454881
+SRR30066271	ancient_metagenome	oral		Homo sapiens	dental calculus	200.0	32.786	-79.931	Fleskes2024	2024	USA	CHS03	PRJNA1037120	SRS19454882
+SRR30066265	ancient_metagenome	oral		Homo sapiens	dental calculus	200.0	32.786	-79.931	Fleskes2024	2024	USA	CHS13	PRJNA1037120	SRS19454888
+SRR30066264	ancient_metagenome	oral		Homo sapiens	dental calculus	200.0	32.786	-79.931	Fleskes2024	2024	USA	CHS14	PRJNA1037120	SRS19454889
+SRR30066263	ancient_metagenome	oral		Homo sapiens	dental calculus	200.0	32.786	-79.931	Fleskes2024	2024	USA	CHS20	PRJNA1037120	SRS19454890
+SRR30066262	ancient_metagenome	oral		Homo sapiens	dental calculus	200.0	32.786	-79.931	Fleskes2024	2024	USA	CHS21	PRJNA1037120	SRS19454891
+SRR30066261	ancient_metagenome	oral		Homo sapiens	dental calculus	200.0	32.786	-79.931	Fleskes2024	2024	USA	CHS22	PRJNA1037120	SRS19454892
+SRR30066260	ancient_metagenome	oral		Homo sapiens	dental calculus	200.0	32.786	-79.931	Fleskes2024	2024	USA	CHS26	PRJNA1037120	SRS19454893
+SRR30066259	ancient_metagenome	oral		Homo sapiens	dental calculus	200.0	32.786	-79.931	Fleskes2024	2024	USA	CHS27	PRJNA1037120	SRS19454894
+SRR30066258	ancient_metagenome	oral		Homo sapiens	dental calculus	200.0	32.786	-79.931	Fleskes2024	2024	USA	CHS29	PRJNA1037120	SRS19454895
+SRR30066270	ancient_metagenome	oral		Homo sapiens	dental calculus	200.0	32.786	-79.931	Fleskes2024	2024	USA	CHS31	PRJNA1037120	SRS19454883
+SRR30066269	ancient_metagenome	oral		Homo sapiens	dental calculus	200.0	32.786	-79.931	Fleskes2024	2024	USA	CHS36	PRJNA1037120	SRS19454884
+SRR8731956	ancient_metagenome		rock shelter		sediment	500.0	-24.74	30.56	Rifkin2020	2020	South Africa	BRS1	PRJNA527177	SRS4491530
+SRR8731959	ancient_metagenome		rock shelter		sediment	500.0	-24.74	30.56	Rifkin2020	2020	South Africa	BRS5	PRJNA527177	SRS4491527
+SRR8652706	ancient_metagenome		lake		lake sediment	11500.0	19.257	-98.991	Moguel2021	2021	Mexico	200_4	PRJNA522291	SRS4426901
+SRR8652707	ancient_metagenome		lake		lake sediment	11000.0	19.257	-98.991	Moguel2021	2021	Mexico	200_3	PRJNA522291	SRS4426900
+SRR8652708	ancient_metagenome		lake		lake sediment	9600.0	19.257	-98.991	Moguel2021	2021	Mexico	200_2	PRJNA522291	SRS4426899
+SRR8652709	ancient_metagenome		lake		lake sediment	8700.0	19.257	-98.991	Moguel2021	2021	Mexico	200_1	PRJNA522291	SRS4426898
+SRR8652710	ancient_metagenome		lake		lake sediment	7700.0	19.257	-98.991	Moguel2021	2021	Mexico	100_4	PRJNA522291	SRS4426897
+SRR8652711	ancient_metagenome		lake		lake sediment	7000.0	19.257	-98.991	Moguel2021	2021	Mexico	100_3	PRJNA522291	SRS4426896
+SRR8652712	ancient_metagenome		lake		lake sediment	6500.0	19.257	-98.991	Moguel2021	2021	Mexico	100_2	PRJNA522291	SRS4426895
+SRR8652713	ancient_metagenome		lake		lake sediment	6000.0	19.257	-98.991	Moguel2021	2021	Mexico	100_1	PRJNA522291	SRS4426894
+SRR8652714	ancient_metagenome		lake		lake sediment	3000.0	19.257	-98.991	Moguel2021	2021	Mexico	50_2	PRJNA522291	SRS4426893
+SRR8652715	ancient_metagenome		lake		lake sediment	3000.0	19.257	-98.991	Moguel2021	2021	Mexico	50_1	PRJNA522291	SRS4426892
+SRR8652716	ancient_metagenome		lake		lake sediment	100.0	19.257	-98.991	Moguel2021	2021	Mexico	S2	PRJNA522291	SRS4426891
+SRR8652717	ancient_metagenome		lake		lake sediment	100.0	19.257	-98.991	Moguel2021	2021	Mexico	S1	PRJNA522291	SRS4426890
+SRR5332466	ancient_metagenome		lake		lake sediment	13900.0	56.16	15.01	Ahmed2018	2018	Sweden	HA1.1	PRJNA378719	SRS2040659
+SRR5332464	ancient_metagenome		lake		lake sediment	13100.0	56.16	15.01	Ahmed2018	2018	Sweden	HA3.1	PRJNA378719	SRS2040657
+SRR5332463	ancient_metagenome		lake		lake sediment	12900.0	56.16	15.01	Ahmed2018	2018	Sweden	HA4.1	PRJNA378719	SRS2040656
+SRR5332462	ancient_metagenome		lake		lake sediment	12900.0	56.16	15.01	Ahmed2018	2018	Sweden	HA4.12	PRJNA378719	SRS2040655
+SRR5332461	ancient_metagenome		lake		lake sediment	12500.0	56.16	15.01	Ahmed2018	2018	Sweden	HA5.1	PRJNA378719	SRS2040654
+SRR5332459	ancient_metagenome		lake		lake sediment	12000.0	56.16	15.01	Ahmed2018	2018	Sweden	HA6.12	PRJNA378719	SRS2040652
+SRR5332458	ancient_metagenome		lake		lake sediment	11600.0	56.16	15.01	Ahmed2018	2018	Sweden	HA7.1	PRJNA378719	SRS2040651
+SRR5332457	ancient_metagenome		lake		lake sediment	11600.0	56.16	15.01	Ahmed2018	2018	Sweden	HA7.12	PRJNA378719	SRS2040650
+SRR5332456	ancient_metagenome		lake		lake sediment	11000.0	56.16	15.01	Ahmed2018	2018	Sweden	HA8.1	PRJNA378719	SRS2040649
+SRR5332455	ancient_metagenome		lake		lake sediment	11000.0	56.16	15.01	Ahmed2018	2018	Sweden	HA8.12	PRJNA378719	SRS2040648
+SRR21589120	ancient_metagenome		midden		soil	900.0	38.1	13.4	Vassallo2023	2023	Italy	SU176	PRJNA877812	SRS15128800
+SRR21589119	ancient_metagenome		midden		soil	900.0	38.1	13.4	Vassallo2023	2023	Italy	SU176	PRJNA877812	SRS15128800
+SRR24222632	ancient_metagenome		lake		lake sediment	100.0	-37.9	147.74	Perez2023	2023	Australia	VIC1807	PRJNA957541	SRS17360648
+SRR24222631	ancient_metagenome		lake		lake sediment	100.0	-37.9	147.74	Perez2023	2023	Australia	VIC1807	PRJNA957541	SRS17360650
+SRR24222630	ancient_metagenome		lake		lake sediment	200.0	-37.9	147.74	Perez2023	2023	Australia	VIC1807	PRJNA957541	SRS17360659
+SRR24222629	ancient_metagenome		lake		lake sediment	200.0	-37.9	147.74	Perez2023	2023	Australia	VIC1807	PRJNA957541	SRS17360651
+SRR24222616	ancient_metagenome		lake		lake sediment	100.0	-38.03	147.6	Perez2023	2023	Australia	VIC1812	PRJNA957541	SRS17360665
+SRR24222615	ancient_metagenome		lake		lake sediment	100.0	-38.03	147.6	Perez2023	2023	Australia	VIC1812	PRJNA957541	SRS17360666
+SRR24222628	ancient_metagenome		lake		lake sediment	200.0	-37.9	147.74	Perez2023	2023	Australia	VIC1902	PRJNA957541	SRS17360653
+SRR24222614	ancient_metagenome		lake		lake sediment	200.0	-38.03	147.6	Perez2023	2023	Australia	VIC1901	PRJNA957541	SRS17360667
+SRR24222627	ancient_metagenome		lake		lake sediment	300.0	-37.9	147.74	Perez2023	2023	Australia	VIC1902	PRJNA957541	SRS17360652
+SRR24222626	ancient_metagenome		lake		lake sediment	300.0	-37.9	147.74	Perez2023	2023	Australia	VIC1902	PRJNA957541	SRS17360654
+SRR24222625	ancient_metagenome		lake		lake sediment	300.0	-37.9	147.74	Perez2023	2023	Australia	VIC1902	PRJNA957541	SRS17360655
+SRR24222624	ancient_metagenome		lake		lake sediment	400.0	-37.9	147.74	Perez2023	2023	Australia	VIC1902	PRJNA957541	SRS17360656
+SRR24222623	ancient_metagenome		lake		lake sediment	400.0	-37.9	147.74	Perez2023	2023	Australia	VIC1902	PRJNA957541	SRS17360657
+SRR24222621	ancient_metagenome		lake		lake sediment	400.0	-37.9	147.74	Perez2023	2023	Australia	VIC1902	PRJNA957541	SRS17360660
+SRR24222620	ancient_metagenome		lake		lake sediment	400.0	-37.9	147.74	Perez2023	2023	Australia	VIC1902	PRJNA957541	SRS17360661
+SRR24222613	ancient_metagenome		lake		lake sediment	200.0	-38.03	147.6	Perez2023	2023	Australia	VIC1901	PRJNA957541	SRS17360669
+SRR24222612	ancient_metagenome		lake		lake sediment	300.0	-38.03	147.6	Perez2023	2023	Australia	VIC1901	PRJNA957541	SRS17360668
+SRR24222610	ancient_metagenome		lake		lake sediment	300.0	-38.03	147.6	Perez2023	2023	Australia	VIC1901	PRJNA957541	SRS17360672
+SRR24222609	ancient_metagenome		lake		lake sediment	300.0	-38.03	147.6	Perez2023	2023	Australia	VIC1901	PRJNA957541	SRS17360671
+SRR24222619	ancient_metagenome		lake		lake sediment	100.0	-37.9	147.74	Perez2023	2023	Australia	VIC1807	PRJNA957541	SRS17360662
+SRR24222618	ancient_metagenome		lake		lake sediment	100.0	-37.9	147.74	Perez2023	2023	Australia	VIC1807	PRJNA957541	SRS17360663
+SRR24222608	ancient_metagenome		lake		lake sediment	100.0	-38.03	147.6	Perez2023	2023	Australia	VIC1807	PRJNA957541	SRS17360674
+SRR24222607	ancient_metagenome		lake		lake sediment	100.0	-38.03	147.6	Perez2023	2023	Australia	VIC1812	PRJNA957541	SRS17360673
+SRR24222606	ancient_metagenome		lake		lake sediment	100.0	-38.03	147.6	Perez2023	2023	Australia	VIC1812	PRJNA957541	SRS17360675
+SRR24222605	ancient_metagenome		lake		lake sediment	100.0	-38.03	147.6	Perez2023	2023	Australia	VIC1812	PRJNA957541	SRS17360677
+SRR24222617	ancient_metagenome		lake		lake sediment	200.0	-37.9	147.74	Perez2023	2023	Australia	VIC1902	PRJNA957541	SRS17360664
+SRR24222604	ancient_metagenome		lake		lake sediment	200.0	-38.03	147.6	Perez2023	2023	Australia	VIC1901	PRJNA957541	SRS17360676
+SRR24222603	ancient_metagenome		lake		lake sediment	200.0	-38.03	147.6	Perez2023	2023	Australia	VIC1901	PRJNA957541	SRS17360678
+SRR24222602	ancient_metagenome		lake		lake sediment	300.0	-38.03	147.6	Perez2023	2023	Australia	VIC1901	PRJNA957541	SRS17360679
+SRR24222601	ancient_metagenome		lake		lake sediment	400.0	-38.03	147.6	Perez2023	2023	Australia	VIC1901	PRJNA957541	SRS17360680
+ERR12074346	ancient_metagenome		ocean		marine sediment	94000.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK138L-1_JK138_StB084_KL77-2_933_94000_sample	PRJEB66300	ERS16400015
+ERR12074354	ancient_metagenome		ocean		marine sediment	32290.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK137L-1_JK137_StB104_KL77-2_353_32240_sample	PRJEB66300	ERS16400023
+ERR12074360	ancient_metagenome		ocean		marine sediment	9200.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK136L-3_JK136_StBE126_KL77-2_81_9190_sample	PRJEB66300	ERS16400029
+ERR12074362	ancient_metagenome		ocean		marine sediment	3200.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK136L-1_JK136_StBE122_KL77-2_16_3220_sample	PRJEB66300	ERS16400031
+ERR12074376	ancient_metagenome		ocean		marine sediment	52700.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB108L.03_StB108L_StBE108_KL77-1_533_52700_sample	PRJEB66300	ERS16400045
+ERR12074385	ancient_metagenome		ocean		marine sediment	4700.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB106L.02_StB106L_StBE123_KL77-1_27_4680_sample	PRJEB66300	ERS16400054
+ERR12074386	ancient_metagenome		ocean		marine sediment	1800.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB106L.01_StB106L_StBE121_KL77-1_5_1820_sample	PRJEB66300	ERS16400055
+ERR12074389	ancient_metagenome		ocean		marine sediment	18800.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB097L.06_StB097L_StBE118_KL77-1_236_18750_sample	PRJEB66300	ERS16400058
+ERR12074345	ancient_metagenome		ocean		marine sediment	99600.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK138L-2_JK138_StB086_KL77-2_973_99590_sample	PRJEB66300	ERS16400014
+ERR12074390	ancient_metagenome		ocean		marine sediment	17500.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB097L.05_StB097L_StBE117_KL77-1_226_17540_sample	PRJEB66300	ERS16400059
+ERR12074350	ancient_metagenome		ocean		marine sediment	62700.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK137L-5_JK137_StB094_KL77-2_633_62680_sample	PRJEB66300	ERS16400019
+ERR12074393	ancient_metagenome		ocean		marine sediment	12600.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB097L.02_StB097L_StBE112_KL77-1_156_12620_sample	PRJEB66300	ERS16400062
+ERR12074352	ancient_metagenome		ocean		marine sediment	47100.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK137L-3_JK137_StB107_KL77-2_480_47090_sample	PRJEB66300	ERS16400021
+ERR12074394	ancient_metagenome		ocean		marine sediment	12400.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB097L.01_StB097L_StBE111_KL77-1_150_12430_sample	PRJEB66300	ERS16400063
+ERR12074353	ancient_metagenome		ocean		marine sediment	38100.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK137L-2_JK137_StB105_KL77-2_403_38110_sample	PRJEB66300	ERS16400022
+ERR12074356	ancient_metagenome		ocean		marine sediment	24600.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK136L-7_JK136_StB102_KL77-2_285_24550_sample	PRJEB66300	ERS16400025
+ERR12074357	ancient_metagenome		ocean		marine sediment	14500.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK136L-6_JK136_StBE115_KL77-2_186_14990_sample	PRJEB66300	ERS16400026
+ERR12074359	ancient_metagenome		ocean		marine sediment	11700.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK136L-4_JK136_StBE129_KL77-2_131_11740_sample	PRJEB66300	ERS16400028
+ERR12074365	ancient_metagenome		ocean		marine sediment	122000.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB109L.06_StB109L_StBE077_KL77-1_1142_122030_sample	PRJEB66300	ERS16400034
+ERR12074366	ancient_metagenome		ocean		marine sediment	120400.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB109L.05_StB109L_StBE075_KL77-1_1123_120380_sample	PRJEB66300	ERS16400035
+ERR12074367	ancient_metagenome		ocean		marine sediment	111600.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB109L.04_StB109L_StBE073_KL77-1_1067_111630_sample	PRJEB66300	ERS16400036
+ERR12074369	ancient_metagenome		ocean		marine sediment	103400.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB109L.02_StB109L_StBE089_KL77-1_1003_103370_sample	PRJEB66300	ERS16400038
+ERR12074372	ancient_metagenome		ocean		marine sediment	123900.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB108L.07_StB108L_StBE079_KL77-1_1163_123860_sample	PRJEB66300	ERS16400041
+ERR12074377	ancient_metagenome		ocean		marine sediment	40000.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB108L.02_StB108L_StBE106_KL77-1_423_40030_sample	PRJEB66300	ERS16400046
+ERR12074380	ancient_metagenome		ocean		marine sediment	20500.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB106L.07_StB106L_StBE101_KL77-1_250_20500_sample	PRJEB66300	ERS16400049
+ERR12074344	ancient_metagenome		ocean		marine sediment	101100.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK138L-3_JK138_StB088_KL77-2_984_101130_sample	PRJEB66300	ERS16400013
+ERR12074382	ancient_metagenome		ocean		marine sediment	11200.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB106L.05_StB106L_StBE128_KL77-1_117_11200_sample	PRJEB66300	ERS16400051
+ERR12074348	ancient_metagenome		ocean		marine sediment	86800.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK137L-7_JK137_StB081_KL77-2_873_86820_sample	PRJEB66300	ERS16400017
+ERR12074384	ancient_metagenome		ocean		marine sediment	7200.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB106L.03_StB106L_StBE124_KL77-1_46_7210_sample	PRJEB66300	ERS16400053
+ERR12074349	ancient_metagenome		ocean		marine sediment	77500.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK137L-6_JK137_StB098_KL77-2_793_77480_sample	PRJEB66300	ERS16400018
+ERR12074351	ancient_metagenome		ocean		marine sediment	56300.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK137L-4_JK137_StB091_KL77-2_562_56340_sample	PRJEB66300	ERS16400020
+ERR12074358	ancient_metagenome		ocean		marine sediment	13100.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK136L-5_JK136_StBE113_KL77-2_161_13090_sample	PRJEB66300	ERS16400027
+ERR12074361	ancient_metagenome		ocean		marine sediment	8000.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK136L-2_JK136_StBE125_KL77-2_56_7970_sample	PRJEB66300	ERS16400030
+ERR12074370	ancient_metagenome		ocean		marine sediment	87800.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB109L.01_StB109L_StBE082_KL77-1_884_87830_sample	PRJEB66300	ERS16400039
+ERR12074374	ancient_metagenome		ocean		marine sediment	68100.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB108L.05_StB108L_StBE096_KL77-1_693_68110_sample	PRJEB66300	ERS16400043
+ERR12074378	ancient_metagenome		ocean		marine sediment	26700.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB108L.01_StB108L_StBE103_KL77-1_254_26650_sample	PRJEB66300	ERS16400047
+ERR12074383	ancient_metagenome		ocean		marine sediment	10200.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB106L.04_StB106L_StBE127_KL77-1_100_10150_sample	PRJEB66300	ERS16400052
+ERR12074392	ancient_metagenome		ocean		marine sediment	14300.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB097L.03_StB097L_StBE114_KL77-1_175_14330_sample	PRJEB66300	ERS16400061
+ERR12074397	ancient_metagenome		ocean		marine sediment	121300.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK138L-6_JK138_StB076_KL77-2_1133_121250_sample	PRJEB66300	ERS16400011
+ERR12074391	ancient_metagenome		ocean		marine sediment	16100.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB097L.04_StB097L_StBE116_KL77-1_205_16090_sample	PRJEB66300	ERS16400060
+ERR12074396	ancient_metagenome		ocean		marine sediment	123300.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK138L-7_JK138_StB078_KL77-2_1157_123340_sample	PRJEB66300	ERS16400010
+ERR12074398	ancient_metagenome		ocean		marine sediment	106800.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK138L-4_JK138_StB072_KL77-2_1033_106790_sample	PRJEB66300	ERS16400012

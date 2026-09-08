@@ -7,6 +7,17 @@ import torch.nn.functional as F
 from typing import Dict, List, Optional, Union
 
 
+# Sentinel for "this task does not apply to this sample" in a classification target.
+# -100 is torch's default CrossEntropyLoss ignore_index. Masked samples contribute no
+# gradient and must also be excluded from metrics.
+#
+# Used where a label is absent rather than merely rare: environmental runs have no
+# sample_host and no community_type (they carry `feature` instead); host-associated
+# runs have no `feature`; materials below the support threshold are masked; and runs
+# whose AMD library rows disagree are masked for the conflicting target only.
+IGNORE_INDEX = -100
+
+
 def task_info_from_encoders(encoders_data: Dict[str, dict]) -> Dict[str, int]:
     """Flat {task: n_outputs} mapping from a ``label_encoders.json`` payload.
 
@@ -289,6 +300,7 @@ class MultiTaskLoss(nn.Module):
             self.criterions[task_name] = nn.CrossEntropyLoss(
                 weight=weight,
                 label_smoothing=ls_per_task[task_name],
+                ignore_index=IGNORE_INDEX,
             )
         for task_name in self.regression_tasks:
             # SmoothL1Loss (Huber) per-element so we can apply a NaN mask
@@ -327,7 +339,14 @@ class MultiTaskLoss(nn.Module):
                 else:
                     loss = self.criterions[task_name](pred[valid], tgt[valid]).mean()
             else:
-                loss = self.criterions[task_name](predictions[task_name], targets[task_name])
+                tgt = targets[task_name]
+                if (tgt != IGNORE_INDEX).sum() == 0:
+                    # Every sample in this batch is masked for this task. Cross-entropy
+                    # would return NaN (it divides by the unmasked count) and poison the
+                    # total loss, so contribute an explicit zero that still carries grad.
+                    loss = predictions[task_name].sum() * 0.0
+                else:
+                    loss = self.criterions[task_name](predictions[task_name], tgt)
 
             task_losses[task_name] = loss
             total_loss = total_loss + self.task_weights[task_name] * loss

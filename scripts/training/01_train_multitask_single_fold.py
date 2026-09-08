@@ -114,7 +114,7 @@ import polars as pl
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset, Subset
-from sklearn.model_selection import StratifiedKFold, train_test_split
+from sklearn.model_selection import StratifiedGroupKFold, train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import (
     accuracy_score, f1_score, balanced_accuracy_score,
@@ -340,22 +340,72 @@ def train_outer_fold(
 
     all_indices = np.arange(len(metadata))
     stratify_key = _make_stratify_key(all_indices)
-    
-    skf_outer = StratifiedKFold(n_splits=total_folds, shuffle=True, random_state=42)
-    splits = list(skf_outer.split(features, stratify_key))
+
+    # Runs from one BioProject must never be split across folds. They share
+    # extraction protocol, library prep, sequencing platform, lab contamination
+    # signature and sometimes the physical specimen, so a random split lets the
+    # model tune on fold A having already seen fold B's batch -- the confounder
+    # R3.2 is about. v7 used a plain StratifiedKFold here, which means its
+    # hyperparameters were selected under exactly that leakage.
+    #
+    # archive_project is the BioProject accession. A run without one becomes its
+    # own group (keyed on the run accession) so it is never silently pooled with
+    # unrelated runs.
+    if "archive_project" in metadata.columns:
+        group_col = "archive_project"
+    elif "project_name" in metadata.columns:
+        group_col = "project_name"
+        logger.warning("archive_project absent; grouping CV on project_name instead")
+    else:
+        raise ValueError(
+            "Metadata carries neither archive_project nor project_name, so CV "
+            "folds cannot be made BioProject-disjoint. Refusing to run: ungrouped "
+            "folds silently reproduce the leakage referee 3 flagged (R3.2)."
+        )
+
+    acc_col = "Run_accession" if "Run_accession" in metadata.columns else metadata.columns[0]
+    groups = (metadata[group_col].astype("object")
+              .fillna(pd.Series("__ungrouped_" + metadata[acc_col].astype(str),
+                                index=metadata.index))
+              .to_numpy())
+    n_groups = len(set(groups))
+    logger.info(f"Grouping CV folds on '{group_col}': {n_groups} groups "
+                f"over {len(metadata)} runs")
+    if n_groups < total_folds:
+        raise ValueError(f"{n_groups} groups is fewer than {total_folds} folds; "
+                         "cannot build BioProject-disjoint folds.")
+
+    skf_outer = StratifiedGroupKFold(n_splits=total_folds, shuffle=True, random_state=42)
+    splits = list(skf_outer.split(features, stratify_key, groups=groups))
     train_idx, test_idx = splits[fold_id]
-    
-    logger.info(f"Train: {len(train_idx)}, Test: {len(test_idx)}")
+
+    def _assert_group_disjoint(a_idx, b_idx, label: str) -> None:
+        shared = set(groups[a_idx]) & set(groups[b_idx])
+        if shared:
+            raise AssertionError(
+                f"{label}: {len(shared)} {group_col} value(s) appear on both sides "
+                f"of the split, e.g. {sorted(shared)[:5]}. Folds are not "
+                f"BioProject-disjoint."
+            )
+
+    _assert_group_disjoint(train_idx, test_idx, f"outer fold {fold_id}")
+    logger.info(f"Train: {len(train_idx)}, Test: {len(test_idx)} "
+                f"(outer fold verified {group_col}-disjoint)")
     
     # Inner CV for hyperparameter optimization
     n_inner_splits = config.get("n_inner_splits", 3)
-    skf_inner = StratifiedKFold(n_splits=n_inner_splits, shuffle=True, random_state=42)
-    
-    # Precompute inner CV splits (same stratification strategy as outer)
+    # The inner loop selects the hyperparameters, so it must be grouped too --
+    # leaking here is what actually biases the chosen configuration.
+    skf_inner = StratifiedGroupKFold(n_splits=n_inner_splits, shuffle=True, random_state=42)
+
     inner_cv_splits = list(skf_inner.split(
         features[train_idx],
-        _make_stratify_key(train_idx)
+        _make_stratify_key(train_idx),
+        groups=groups[train_idx],
     ))
+    for i, (a, b) in enumerate(inner_cv_splits):
+        _assert_group_disjoint(train_idx[a], train_idx[b], f"inner fold {i}")
+    logger.info(f"{n_inner_splits} inner folds verified {group_col}-disjoint")
     
     logger.info(f"Starting Optuna optimization with {config.get('n_trials', 50)} trials...")
     logger.info(f"Each trial will be evaluated on {n_inner_splits} inner CV folds")
@@ -590,8 +640,7 @@ def train_outer_fold(
     sub_train_idx, sub_val_idx = train_test_split(
         train_idx,
         test_size=0.1,
-        random_state=42,
-        stratify=_make_stratify_key(train_idx)
+        random_state=42
     )
     
     logger.info(f"Final training split: {len(sub_train_idx)} train, {len(sub_val_idx)} validation, {len(test_idx)} test")

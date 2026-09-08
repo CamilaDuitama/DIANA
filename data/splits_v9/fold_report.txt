@@ -1,0 +1,20 @@
+Fold balance (G4) — read this before training.
+
+train: 2775 runs, 69 BioProjects
+    community_type   n= 2120  classes=  5  majority= 81.8%  evaluable-class runs= 2120
+    feature          n=  620  classes= 10  majority= 35.2%  evaluable-class runs=  567
+    sample_host      n= 2132  classes= 24  majority= 66.5%  evaluable-class runs= 1972
+    material         n= 2698  classes= 16  majority= 52.7%  evaluable-class runs= 2663
+
+val: 253 runs, 14 BioProjects
+    community_type   n=  223  classes=  4  majority= 64.1%  evaluable-class runs=  223
+    feature          n=   44  classes=  3  majority= 47.7%  evaluable-class runs=   44
+    sample_host      n=  223  classes=  3  majority= 87.9%  evaluable-class runs=  223
+    material         n=  248  classes=  9  majority= 54.0%  evaluable-class runs=  248
+
+test: 670 runs, 20 BioProjects
+    community_type   n=  430  classes=  5  majority= 54.4%  evaluable-class runs=  430
+    feature          n=  240  classes=  7  majority= 35.4%  evaluable-class runs=  220
+    sample_host      n=  430  classes=  6  majority= 83.5%  evaluable-class runs=  429
+    material         n=  662  classes= 13  majority= 20.2%  evaluable-class runs=  654
+

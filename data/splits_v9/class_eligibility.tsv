@@ -1,0 +1,61 @@
+target	class	n_runs	n_bioprojects	evaluable
+community_type	oral	2112	44	True
+community_type	skeletal tissue	403	14	True
+community_type	gut	140	13	True
+community_type	plant tissue	83	3	True
+community_type	soft tissue	35	4	True
+feature	lake	288	11	True
+feature	ocean	244	8	True
+feature	cave	133	4	True
+feature	sea coast	65	2	True
+feature	midden	52	4	True
+feature	swamp forest	29	1	False
+feature	shell	24	1	False
+feature	thermokarst	19	2	True
+feature	archeological site	17	3	True
+feature	hydrothermal field	15	1	False
+feature	rock shelter	13	2	True
+feature	wetland area	5	1	False
+material	dental calculus	1604	36	True
+material	tooth	551	16	True
+material	lake sediment	288	11	True
+material	bone	274	9	True
+material	sediment	223	11	True
+material	marine sediment	206	6	True
+material	permafrost	92	5	True
+material	leaf	83	3	True
+material	birch pitch	79	2	True
+material	palaeofaeces	75	8	True
+material	digestive tract contents	31	2	True
+material	shell	24	1	False
+material	soil	22	2	True
+material	intestine	16	3	True
+material	midden	15	2	True
+material	unknown	11	1	False
+material	latrine	8	1	False
+material	muscle tissue	6	2	True
+sample_host	Homo sapiens	1972	52	True
+sample_host	Ursus arctos	340	2	True
+sample_host	Gorilla beringei graueri	68	2	True
+sample_host	Ambrosia artemisiifolia	49	2	True
+sample_host	Gorilla gorilla gorilla	45	2	True
+sample_host	Homo sapiens neanderthalensis	35	3	True
+sample_host	Arabidopsis thaliana	34	1	False
+sample_host	Pan troglodytes schweinfurthii	34	2	True
+sample_host	Gorilla beringei beringei	31	2	True
+sample_host	Mammuthus primigenius	29	2	True
+sample_host	Gorilla beringei	24	1	False
+sample_host	Rangifer tarandus	24	1	False
+sample_host	Canis lupus	21	4	True
+sample_host	Bison priscus	16	1	False
+sample_host	Pan troglodytes ellioti	12	1	False
+sample_host	Lithobates pipiens	11	1	False
+sample_host	Pan troglodytes verus	9	1	False
+sample_host	Alouatta palliata	8	1	False
+sample_host	Papio hamadryas	5	1	False
+sample_host	Conepatus chinga	4	1	False
+sample_host	Gerbilliscus boehmi	4	1	False
+sample_host	Papio anubis	4	1	False
+sample_host	Strigocuscus celebensis	4	1	False
+sample_host	Pan troglodytes	1	1	False
+sample_host	Papio sp.	1	1	False

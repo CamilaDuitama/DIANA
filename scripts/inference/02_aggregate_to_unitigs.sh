@@ -19,18 +19,29 @@ OUT_FRACTION=$5
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SAMPLE_NAME=$(basename "$OUT_ABUNDANCE" | sed 's/_unitig_abundance.txt//')
 
-# Resolve kmat_tools: prefer the conda-installed binary in PATH, fall back to submodule build
-if command -v kmat_tools >/dev/null 2>&1; then
+# Resolve kmat_tools. The project env comes FIRST: an unrelated kmat_tools on the
+# user's PATH (e.g. a personal miniconda) takes different arguments and fails with
+# "unrecognized arguments: -p ... --out-frac" only after the expensive k-mer
+# counting step has already run. CLAUDE.md: there is one environment, use it.
+PROJECT_KMAT="$SCRIPT_DIR/../../env/bin/kmat_tools"
+SUBMODULE_KMAT="$SCRIPT_DIR/../../external/muset/bin/kmat_tools"
+if [ -x "$PROJECT_KMAT" ]; then
+    KMAT_TOOLS="$PROJECT_KMAT"
+elif [ -x "$SUBMODULE_KMAT" ]; then
+    KMAT_TOOLS="$SUBMODULE_KMAT"
+elif command -v kmat_tools >/dev/null 2>&1; then
     KMAT_TOOLS="$(command -v kmat_tools)"
+    echo "[WARN] Using kmat_tools from PATH ($KMAT_TOOLS); ./env/bin/kmat_tools not found."
 else
-    SUBMODULE_KMAT="$SCRIPT_DIR/../../external/muset/bin/kmat_tools"
-    if [ -x "$SUBMODULE_KMAT" ]; then
-        KMAT_TOOLS="$SUBMODULE_KMAT"
-    else
-        echo "[ERROR] kmat_tools not found in PATH or at $SUBMODULE_KMAT"
-        echo "        Make sure the conda environment is activated."
-        exit 2
-    fi
+    echo "[ERROR] kmat_tools not found at $PROJECT_KMAT, $SUBMODULE_KMAT, or on PATH"
+    exit 2
+fi
+
+# Fail fast if the resolved binary is not the MUSET one that supports --out-frac.
+if ! "$KMAT_TOOLS" unitig --help 2>&1 | grep -q -- '--out-frac'; then
+    echo "[ERROR] $KMAT_TOOLS does not support 'unitig --out-frac'."
+    echo "        This is not the MUSET kmat_tools. Expected ./env/bin/kmat_tools (v0.5.x)."
+    exit 2
 fi
 
 OUTPUT_PREFIX="${OUT_ABUNDANCE%_abundance.txt}"

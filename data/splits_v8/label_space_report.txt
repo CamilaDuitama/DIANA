@@ -1,0 +1,27 @@
+Library rows merged: 3944
+Conflicting targets masked after the row merge:
+  community_type     12 runs  (McDonough2018)
+  material           12 runs  (McDonough2018)
+Runs after merge: 3894
+
+material: support counted on train only, min=3
+  retained 18 of 30 training classes
+  masked (too few training runs): brain (1), buccal fat pad (2), caecum (2), dentine (2), dura mater (1), large intestine (1), liver (1), lung (1), omentum (2), peritoneum (2), skull (1), stomach (1)
+  train: masked 17 of 2838 runs (0.6%)
+  test: masked 0 of 352 runs (0.0%)
+  val: masked 172 of 702 runs (24.5%)
+
+Label space per target (non-null runs / classes):
+  community_type    train=2110/5cls  test=254/3cls  val=581/4cls
+  feature           train=707/12cls  test=98/4cls  val=121/6cls
+  sample_host       train=2122/25cls  test=254/2cls  val=581/14cls
+  material          train=2786/18cls  test=352/7cls  val=530/11cls
+  sample_age        train=2815  test=352  val=702
+  latitude          train=2650  test=324  val=702
+  longitude         train=2650  test=324  val=702
+
+Wrote train_metadata.tsv: 2838 runs
+
+Wrote test_metadata.tsv: 352 runs
+
+Wrote val_metadata.tsv: 702 runs
