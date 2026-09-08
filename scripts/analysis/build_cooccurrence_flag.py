@@ -91,15 +91,25 @@ def false_positive_floor(test: pd.DataFrame, lookup: dict, pairs: list,
     return out
 
 
-def flag(predictions: pd.DataFrame, lookup: dict, pairs: list) -> pd.Series:
-    """True where a predicted combination never occurs in training."""
+def flag(predictions: pd.DataFrame, lookup: dict, pairs: list,
+         eligible: dict) -> pd.Series:
+    """True where a predicted combination never occurs in training.
+
+    `eligible` must be the same restriction used to build the lookup and to measure
+    the false-positive floor. Without it the lookup contains only evaluable classes
+    while the flag is applied to every prediction, so any prediction of a
+    non-evaluable class trips it automatically and the measured floor no longer
+    describes the flag's behaviour.
+    """
     flagged = pd.Series(False, index=predictions.index)
     for a, b in pairs:
         key = f"{a}|{b}"
         if key not in lookup or a not in predictions or b not in predictions:
             continue
         obs = set(lookup[key])
-        both = predictions[a].notna() & predictions[b].notna()
+        both = (predictions[a].notna() & predictions[b].notna()
+                & predictions[a].isin(eligible.get(a, set()))
+                & predictions[b].isin(eligible.get(b, set())))
         combo = predictions[a].astype(str) + "\t" + predictions[b].astype(str)
         flagged |= both & ~combo.isin(obs)
     return flagged

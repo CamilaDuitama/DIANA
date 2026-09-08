@@ -1,0 +1,671 @@
+Run_accession	sample_type	community_type	feature	sample_host	material	sample_age	latitude	longitude	project_name	publication_year	geo_loc_name	sample_name	archive_project	archive_sample_accession	community_type_planted	feature_planted	sample_host_planted	material_planted
+ERR10167374	ancient_metagenome	oral		Homo sapiens	dental calculus	14900.0	38.049	14.591	Scorrano2022	2022	Italy	San Teodoro 3	PRJEB55789	ERS13439323	False	False	False	False
+ERR10167375	ancient_metagenome	oral		Homo sapiens	dental calculus	14900.0	38.049	14.591	Scorrano2022	2022	Italy	San Teodoro 5	PRJEB55789	ERS13439324	False	False	False	False
+ERR10841194	ancient_metagenome	oral		Homo sapiens	tooth	6100.0	39.89	16.33	Fontani2023	2023	Italy	SLB	PRJEB58818	ERS14410560	False	False	False	False
+ERR10841228	ancient_metagenome	oral		Homo sapiens	dental calculus	6100.0	39.89	16.33	Fontani2023	2023	Italy	SLBT	PRJEB58818	ERS14581258	False	False	False	False
+ERR10878152	ancient_metagenome		rock shelter		sediment	800.0	50.518	15.071	Zampirolo2024	2024	Czechia	VM2	PRJEB59830	ERS14617135	False	False	False	False
+ERR10878153	ancient_metagenome		rock shelter		sediment	800.0	50.518	15.071	Zampirolo2024	2024	Czechia	VM3	PRJEB59830	ERS14617136	False	False	False	False
+ERR10878154	ancient_metagenome		rock shelter		sediment	3000.0	50.518	15.071	Zampirolo2024	2024	Czechia	VM11	PRJEB59830	ERS14617137	False	False	False	False
+ERR10878155	ancient_metagenome		rock shelter		sediment	3900.0	50.518	15.071	Zampirolo2024	2024	Czechia	VM14	PRJEB59830	ERS14617138	False	False	False	False
+ERR10878156	ancient_metagenome		rock shelter		sediment	4100.0	50.518	15.071	Zampirolo2024	2024	Czechia	VM15	PRJEB59830	ERS14617139	False	False	False	False
+ERR10878157	ancient_metagenome		rock shelter		sediment	5300.0	50.518	15.071	Zampirolo2024	2024	Czechia	VM17	PRJEB59830	ERS14617140	False	False	False	False
+ERR10878158	ancient_metagenome		ocean		sediment	6100.0	50.518	15.071	Zampirolo2024	2024	Czechia	VM19	PRJEB59830	ERS14617141	False	True	False	False
+ERR10878159	ancient_metagenome		sea coast		sediment	6800.0	50.518	15.071	Zampirolo2024	2024	Czechia	VM22	PRJEB59830	ERS14617142	False	True	False	False
+ERR10878160	ancient_metagenome		rock shelter		digestive tract contents	7000.0	50.518	15.071	Zampirolo2024	2024	Czechia	VM24	PRJEB59830	ERS14617143	False	False	False	True
+ERR10878162	ancient_metagenome		rock shelter		sediment	9600.0	50.518	15.071	Zampirolo2024	2024	Czechia	VM26	PRJEB59830	ERS14617144	False	False	False	False
+ERR10878163	ancient_metagenome		rock shelter		sediment	9800.0	50.518	15.071	Zampirolo2024	2024	Czechia	VM28	PRJEB59830	ERS14617145	False	False	False	False
+ERR12074344	ancient_metagenome		ocean		marine sediment	101100.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK138L-3_JK138_StB088_KL77-2_984_101130_sample	PRJEB66300	ERS16400013	False	False	False	False
+ERR12074345	ancient_metagenome		sea coast		marine sediment	99600.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK138L-2_JK138_StB086_KL77-2_973_99590_sample	PRJEB66300	ERS16400014	False	True	False	False
+ERR12074346	ancient_metagenome		ocean		marine sediment	94000.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK138L-1_JK138_StB084_KL77-2_933_94000_sample	PRJEB66300	ERS16400015	False	False	False	False
+ERR12074348	ancient_metagenome		ocean		marine sediment	86800.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK137L-7_JK137_StB081_KL77-2_873_86820_sample	PRJEB66300	ERS16400017	False	False	False	False
+ERR12074349	ancient_metagenome		ocean		unknown	77500.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK137L-6_JK137_StB098_KL77-2_793_77480_sample	PRJEB66300	ERS16400018	False	False	False	True
+ERR12074350	ancient_metagenome		ocean		marine sediment	62700.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK137L-5_JK137_StB094_KL77-2_633_62680_sample	PRJEB66300	ERS16400019	False	False	False	False
+ERR12074351	ancient_metagenome		ocean		marine sediment	56300.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK137L-4_JK137_StB091_KL77-2_562_56340_sample	PRJEB66300	ERS16400020	False	False	False	False
+ERR12074352	ancient_metagenome		cave		marine sediment	47100.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK137L-3_JK137_StB107_KL77-2_480_47090_sample	PRJEB66300	ERS16400021	False	True	False	False
+ERR12074353	ancient_metagenome		ocean		marine sediment	38100.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK137L-2_JK137_StB105_KL77-2_403_38110_sample	PRJEB66300	ERS16400022	False	False	False	False
+ERR12074354	ancient_metagenome		ocean		tooth	32290.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK137L-1_JK137_StB104_KL77-2_353_32240_sample	PRJEB66300	ERS16400023	False	False	False	True
+ERR12074356	ancient_metagenome		ocean		marine sediment	24600.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK136L-7_JK136_StB102_KL77-2_285_24550_sample	PRJEB66300	ERS16400025	False	False	False	False
+ERR12074357	ancient_metagenome		ocean		marine sediment	14500.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK136L-6_JK136_StBE115_KL77-2_186_14990_sample	PRJEB66300	ERS16400026	False	False	False	False
+ERR12074358	ancient_metagenome		ocean		marine sediment	13100.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK136L-5_JK136_StBE113_KL77-2_161_13090_sample	PRJEB66300	ERS16400027	False	False	False	False
+ERR12074359	ancient_metagenome		ocean		marine sediment	11700.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK136L-4_JK136_StBE129_KL77-2_131_11740_sample	PRJEB66300	ERS16400028	False	False	False	False
+ERR12074360	ancient_metagenome		ocean		marine sediment	9200.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK136L-3_JK136_StBE126_KL77-2_81_9190_sample	PRJEB66300	ERS16400029	False	False	False	False
+ERR12074361	ancient_metagenome		ocean		marine sediment	8000.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK136L-2_JK136_StBE125_KL77-2_56_7970_sample	PRJEB66300	ERS16400030	False	False	False	False
+ERR12074362	ancient_metagenome		ocean		marine sediment	3200.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK136L-1_JK136_StBE122_KL77-2_16_3220_sample	PRJEB66300	ERS16400031	False	False	False	False
+ERR12074365	ancient_metagenome		ocean		marine sediment	122000.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB109L.06_StB109L_StBE077_KL77-1_1142_122030_sample	PRJEB66300	ERS16400034	False	False	False	False
+ERR12074366	ancient_metagenome		ocean		marine sediment	120400.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB109L.05_StB109L_StBE075_KL77-1_1123_120380_sample	PRJEB66300	ERS16400035	False	False	False	False
+ERR12074367	ancient_metagenome		ocean		marine sediment	111600.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB109L.04_StB109L_StBE073_KL77-1_1067_111630_sample	PRJEB66300	ERS16400036	False	False	False	False
+ERR12074369	ancient_metagenome		ocean		marine sediment	103400.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB109L.02_StB109L_StBE089_KL77-1_1003_103370_sample	PRJEB66300	ERS16400038	False	False	False	False
+ERR12074370	ancient_metagenome		ocean		marine sediment	87800.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB109L.01_StB109L_StBE082_KL77-1_884_87830_sample	PRJEB66300	ERS16400039	False	False	False	False
+ERR12074372	ancient_metagenome		ocean		marine sediment	123900.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB108L.07_StB108L_StBE079_KL77-1_1163_123860_sample	PRJEB66300	ERS16400041	False	False	False	False
+ERR12074374	ancient_metagenome		ocean		marine sediment	68100.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB108L.05_StB108L_StBE096_KL77-1_693_68110_sample	PRJEB66300	ERS16400043	False	False	False	False
+ERR12074376	ancient_metagenome		ocean		marine sediment	52700.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB108L.03_StB108L_StBE108_KL77-1_533_52700_sample	PRJEB66300	ERS16400045	False	False	False	False
+ERR12074377	ancient_metagenome		ocean		marine sediment	40000.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB108L.02_StB108L_StBE106_KL77-1_423_40030_sample	PRJEB66300	ERS16400046	False	False	False	False
+ERR12074378	ancient_metagenome		ocean		marine sediment	26700.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB108L.01_StB108L_StBE103_KL77-1_254_26650_sample	PRJEB66300	ERS16400047	False	False	False	False
+ERR12074380	ancient_metagenome		ocean		marine sediment	20500.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB106L.07_StB106L_StBE101_KL77-1_250_20500_sample	PRJEB66300	ERS16400049	False	False	False	False
+ERR12074382	ancient_metagenome		ocean		marine sediment	11200.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB106L.05_StB106L_StBE128_KL77-1_117_11200_sample	PRJEB66300	ERS16400051	False	False	False	False
+ERR12074383	ancient_metagenome		ocean		marine sediment	10200.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB106L.04_StB106L_StBE127_KL77-1_100_10150_sample	PRJEB66300	ERS16400052	False	False	False	False
+ERR12074384	ancient_metagenome		ocean		marine sediment	7200.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB106L.03_StB106L_StBE124_KL77-1_46_7210_sample	PRJEB66300	ERS16400053	False	False	False	False
+ERR12074385	ancient_metagenome		ocean		marine sediment	4700.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB106L.02_StB106L_StBE123_KL77-1_27_4680_sample	PRJEB66300	ERS16400054	False	False	False	False
+ERR12074386	ancient_metagenome		ocean		marine sediment	1800.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB106L.01_StB106L_StBE121_KL77-1_5_1820_sample	PRJEB66300	ERS16400055	False	False	False	False
+ERR12074389	ancient_metagenome		ocean		marine sediment	18800.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB097L.06_StB097L_StBE118_KL77-1_236_18750_sample	PRJEB66300	ERS16400058	False	False	False	False
+ERR12074390	ancient_metagenome		lake		marine sediment	17500.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB097L.05_StB097L_StBE117_KL77-1_226_17540_sample	PRJEB66300	ERS16400059	False	True	False	False
+ERR12074391	ancient_metagenome		ocean		midden	16100.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB097L.04_StB097L_StBE116_KL77-1_205_16090_sample	PRJEB66300	ERS16400060	False	False	False	True
+ERR12074392	ancient_metagenome		ocean		marine sediment	14300.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB097L.03_StB097L_StBE114_KL77-1_175_14330_sample	PRJEB66300	ERS16400061	False	False	False	False
+ERR12074393	ancient_metagenome		ocean		marine sediment	12600.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB097L.02_StB097L_StBE112_KL77-1_156_12620_sample	PRJEB66300	ERS16400062	False	False	False	False
+ERR12074394	ancient_metagenome		ocean		marine sediment	12400.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	StB097L.01_StB097L_StBE111_KL77-1_150_12430_sample	PRJEB66300	ERS16400063	False	False	False	False
+ERR12074396	ancient_metagenome		lake		digestive tract contents	123300.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK138L-7_JK138_StB078_KL77-2_1157_123340_sample	PRJEB66300	ERS16400010	False	True	False	True
+ERR12074397	ancient_metagenome		ocean		midden	121300.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK138L-6_JK138_StB076_KL77-2_1133_121250_sample	PRJEB66300	ERS16400011	False	False	False	True
+ERR12074398	ancient_metagenome		ocean		marine sediment	106800.0	56.33	170.699	Buchwald2024	2024	Pacific Ocean	JK138L-4_JK138_StB072_KL77-2_1033_106790_sample	PRJEB66300	ERS16400012	False	False	False	False
+ERR1883403	ancient_metagenome		cave		sediment	438000.0	42.839	2.752	Slon2017	2017	France	SP3799	PRJEB18629	ERS1600710	False	False	False	False
+ERR1883404	ancient_metagenome		cave		sediment	438000.0	42.839	2.752	Slon2017	2017	France	SP3800	PRJEB18629	ERS1600711	False	False	False	False
+ERR1883405	ancient_metagenome		cave		sediment	438000.0	42.839	2.752	Slon2017	2017	France	SP3801	PRJEB18629	ERS1600712	False	False	False	False
+ERR1883406	ancient_metagenome		cave		sediment	438000.0	42.839	2.752	Slon2017	2017	France	SP3802	PRJEB18629	ERS1600713	False	False	False	False
+ERR1883407	ancient_metagenome		cave		sediment	438000.0	42.839	2.752	Slon2017	2017	France	SP3804	PRJEB18629	ERS1600714	False	False	False	False
+ERR1883408	ancient_metagenome		midden		sediment	438000.0	42.839	2.752	Slon2017	2017	France	SP3805	PRJEB18629	ERS1600715	False	True	False	False
+ERR1883409	ancient_metagenome		cave		sediment	438000.0	42.839	2.752	Slon2017	2017	France	SP3806	PRJEB18629	ERS1600716	False	False	False	False
+ERR1883410	ancient_metagenome		cave		sediment	346000.0	42.839	2.752	Slon2017	2017	France	SP3807	PRJEB18629	ERS1600717	False	False	False	False
+ERR1883411	ancient_metagenome		cave		unknown	346000.0	42.839	2.752	Slon2017	2017	France	SP3808	PRJEB18629	ERS1600718	False	False	False	True
+ERR1883412	ancient_metagenome		thermokarst		sediment	550000.0	42.839	2.752	Slon2017	2017	France	SP3809	PRJEB18629	ERS1600719	False	True	False	False
+ERR1883413	ancient_metagenome		cave		sediment	550000.0	42.839	2.752	Slon2017	2017	France	SP3810	PRJEB18629	ERS1600720	False	False	False	False
+ERR1883414	ancient_metagenome		cave		sediment	550000.0	42.839	2.752	Slon2017	2017	France	SP3811	PRJEB18629	ERS1600721	False	False	False	False
+ERR1883415	ancient_metagenome		cave		sediment	550000.0	42.839	2.752	Slon2017	2017	France	SP3812	PRJEB18629	ERS1600722	False	False	False	False
+ERR1883416	ancient_metagenome		cave		sediment	10000.0	51.442	83.155	Slon2017	2017	Russia	SP3843	PRJEB18629	ERS1600723	False	False	False	False
+ERR1883417	ancient_metagenome		cave		sediment	53000.0	51.442	83.155	Slon2017	2017	Russia	SP3844	PRJEB18629	ERS1600724	False	False	False	False
+ERR1883418	ancient_metagenome		cave		sediment	53000.0	51.442	83.155	Slon2017	2017	Russia	SP3845	PRJEB18629	ERS1600725	False	False	False	False
+ERR1883419	ancient_metagenome		cave		sediment	53000.0	51.442	83.155	Slon2017	2017	Russia	SP3846	PRJEB18629	ERS1600726	False	False	False	False
+ERR1883420	ancient_metagenome		cave		digestive tract contents	53000.0	51.442	83.155	Slon2017	2017	Russia	SP3847	PRJEB18629	ERS1600727	False	False	False	True
+ERR1883421	ancient_metagenome		cave		sediment	53000.0	51.442	83.155	Slon2017	2017	Russia	SP3848	PRJEB18629	ERS1600728	False	False	False	False
+ERR1883422	ancient_metagenome		sea coast		sediment	304000.0	51.442	83.155	Slon2017	2017	Russia	SP3849	PRJEB18629	ERS1600729	False	True	False	False
+ERR1883423	ancient_metagenome		cave		sediment	304000.0	51.442	83.155	Slon2017	2017	Russia	SP3850	PRJEB18629	ERS1600730	False	False	False	False
+ERR1883424	ancient_metagenome		cave		sediment	53000.0	51.442	83.155	Slon2017	2017	Russia	SP3851	PRJEB18629	ERS1600731	False	False	False	False
+ERR1883425	ancient_metagenome		cave		sediment	14000.0	51.397	84.676	Slon2017	2017	Russia	SP3870	PRJEB18629	ERS1600732	False	False	False	False
+ERR1883426	ancient_metagenome		cave		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3864	PRJEB18629	ERS1600733	False	False	False	False
+ERR1883427	ancient_metagenome		cave		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3871	PRJEB18629	ERS1600734	False	False	False	False
+ERR1883428	ancient_metagenome		cave		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3863	PRJEB18629	ERS1600735	False	False	False	False
+ERR1883429	ancient_metagenome		cave		palaeofaeces	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3872	PRJEB18629	ERS1600736	False	False	False	True
+ERR1883430	ancient_metagenome		cave		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP2920	PRJEB18629	ERS1600737	False	False	False	False
+ERR1883431	ancient_metagenome		cave		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3862	PRJEB18629	ERS1600738	False	False	False	False
+ERR1883432	ancient_metagenome		cave		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3873	PRJEB18629	ERS1600739	False	False	False	False
+ERR1883433	ancient_metagenome		cave		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3861	PRJEB18629	ERS1600740	False	False	False	False
+ERR1883434	ancient_metagenome		cave		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3874	PRJEB18629	ERS1600741	False	False	False	False
+ERR1883435	ancient_metagenome		cave		permafrost	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3875	PRJEB18629	ERS1600742	False	False	False	True
+ERR1883436	ancient_metagenome		cave		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP2921	PRJEB18629	ERS1600743	False	False	False	False
+ERR1883437	ancient_metagenome		sea coast		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3860	PRJEB18629	ERS1600744	False	True	False	False
+ERR1883438	ancient_metagenome		cave		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP2922	PRJEB18629	ERS1600745	False	False	False	False
+ERR1883439	ancient_metagenome		cave		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3859	PRJEB18629	ERS1600746	False	False	False	False
+ERR1883440	ancient_metagenome		cave		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3858	PRJEB18629	ERS1600747	False	False	False	False
+ERR1883441	ancient_metagenome		archeological site		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3857	PRJEB18629	ERS1600748	False	True	False	False
+ERR1883442	ancient_metagenome		cave		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3869	PRJEB18629	ERS1600749	False	False	False	False
+ERR1883443	ancient_metagenome		cave		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3856	PRJEB18629	ERS1600750	False	False	False	False
+ERR1883444	ancient_metagenome		cave		permafrost	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3876	PRJEB18629	ERS1600751	False	False	False	True
+ERR1883445	ancient_metagenome		cave		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3855	PRJEB18629	ERS1600752	False	False	False	False
+ERR1883446	ancient_metagenome		cave		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3854	PRJEB18629	ERS1600753	False	False	False	False
+ERR1883447	ancient_metagenome		cave		sediment	127000.0	51.397	84.676	Slon2017	2017	Russia	SP3853	PRJEB18629	ERS1600754	False	False	False	False
+ERR1883448	ancient_metagenome		cave		sediment	240000.0	51.397	84.676	Slon2017	2017	Russia	SP3852	PRJEB18629	ERS1600755	False	False	False	False
+ERR1883449	ancient_metagenome		cave		sediment	240000.0	51.397	84.676	Slon2017	2017	Russia	SP3865	PRJEB18629	ERS1600756	False	False	False	False
+ERR1883450	ancient_metagenome		cave		sediment	240000.0	51.397	84.676	Slon2017	2017	Russia	SP3866	PRJEB18629	ERS1600757	False	False	False	False
+ERR1883451	ancient_metagenome		cave		sediment	240000.0	51.397	84.676	Slon2017	2017	Russia	SP3867	PRJEB18629	ERS1600758	False	False	False	False
+ERR1883452	ancient_metagenome		cave		sediment	240000.0	51.397	84.676	Slon2017	2017	Russia	SP3868	PRJEB18629	ERS1600759	False	False	False	False
+ERR1883453	ancient_metagenome		cave		sediment	25000.0	51.397	84.676	Slon2017	2017	Russia	SP3823	PRJEB18629	ERS1600760	False	False	False	False
+ERR1883454	ancient_metagenome		cave		shell	40000.0	51.397	84.676	Slon2017	2017	Russia	SP3824	PRJEB18629	ERS1600761	False	False	False	True
+ERR1883455	ancient_metagenome		cave		sediment	40000.0	51.397	84.676	Slon2017	2017	Russia	SP3825	PRJEB18629	ERS1600762	False	False	False	False
+ERR1883456	ancient_metagenome		cave		sediment	40000.0	51.397	84.676	Slon2017	2017	Russia	SP3826	PRJEB18629	ERS1600763	False	False	False	False
+ERR1883457	ancient_metagenome		cave		sediment	40000.0	51.397	84.676	Slon2017	2017	Russia	SP3827	PRJEB18629	ERS1600764	False	False	False	False
+ERR1883458	ancient_metagenome		cave		sediment	57000.0	51.397	84.676	Slon2017	2017	Russia	SP3828	PRJEB18629	ERS1600765	False	False	False	False
+ERR1883459	ancient_metagenome		cave		sediment	57000.0	51.397	84.676	Slon2017	2017	Russia	SP3829	PRJEB18629	ERS1600766	False	False	False	False
+ERR1883460	ancient_metagenome		cave		sediment	57000.0	51.397	84.676	Slon2017	2017	Russia	SP3830	PRJEB18629	ERS1600767	False	False	False	False
+ERR1883461	ancient_metagenome		shell		sediment	112500.0	51.397	84.676	Slon2017	2017	Russia	SP3831	PRJEB18629	ERS1600768	False	True	False	False
+ERR1883462	ancient_metagenome		cave		sediment	112500.0	51.397	84.676	Slon2017	2017	Russia	SP3832	PRJEB18629	ERS1600769	False	False	False	False
+ERR1883463	ancient_metagenome		lake		sediment	112500.0	51.397	84.676	Slon2017	2017	Russia	SP3833	PRJEB18629	ERS1600770	False	True	False	False
+ERR1883464	ancient_metagenome		shell		sediment	112500.0	51.397	84.676	Slon2017	2017	Russia	SP3877	PRJEB18629	ERS1600771	False	True	False	False
+ERR1883465	ancient_metagenome		cave		sediment	112500.0	51.397	84.676	Slon2017	2017	Russia	SP3834	PRJEB18629	ERS1600772	False	False	False	False
+ERR1883466	ancient_metagenome		cave		dental calculus	112500.0	51.397	84.676	Slon2017	2017	Russia	SP3835	PRJEB18629	ERS1600773	False	False	False	True
+ERR1883468	ancient_metagenome		cave		sediment	112500.0	51.397	84.676	Slon2017	2017	Russia	SP3837	PRJEB18629	ERS1600775	False	False	False	False
+ERR1883469	ancient_metagenome		cave		sediment	112500.0	51.397	84.676	Slon2017	2017	Russia	SP3838	PRJEB18629	ERS1600776	False	False	False	False
+ERR1883470	ancient_metagenome		cave		muscle tissue	112500.0	51.397	84.676	Slon2017	2017	Russia	SP3839	PRJEB18629	ERS1600777	False	False	False	True
+ERR1883471	ancient_metagenome		cave		palaeofaeces	112500.0	51.397	84.676	Slon2017	2017	Russia	SP3878	PRJEB18629	ERS1600778	False	False	False	True
+ERR1883472	ancient_metagenome		cave		sediment	200000.0	51.397	84.676	Slon2017	2017	Russia	SP3879	PRJEB18629	ERS1600779	False	False	False	False
+ERR1883473	ancient_metagenome		cave		sediment	200000.0	51.397	84.676	Slon2017	2017	Russia	SP3840	PRJEB18629	ERS1600780	False	False	False	False
+ERR1883474	ancient_metagenome		cave		sediment	200000.0	51.397	84.676	Slon2017	2017	Russia	SP3841	PRJEB18629	ERS1600781	False	False	False	False
+ERR1883475	ancient_metagenome		shell		sediment	200000.0	51.397	84.676	Slon2017	2017	Russia	SP3842	PRJEB18629	ERS1600782	False	True	False	False
+ERR1883476	ancient_metagenome		cave		sediment	200000.0	51.397	84.676	Slon2017	2017	Russia	SP3880	PRJEB18629	ERS1600783	False	False	False	False
+ERR1883477	ancient_metagenome		sea coast		sediment	42700.0	46.69	0.88	Slon2017	2017	France	SP3674	PRJEB18629	ERS1600784	False	True	False	False
+ERR1883478	ancient_metagenome		cave		sediment	42700.0	46.69	0.88	Slon2017	2017	France	SP3675	PRJEB18629	ERS1600785	False	False	False	False
+ERR1883479	ancient_metagenome		cave		sediment	48100.0	46.69	0.88	Slon2017	2017	France	SP3676	PRJEB18629	ERS1600786	False	False	False	False
+ERR1883480	ancient_metagenome		cave		sediment	48100.0	46.69	0.88	Slon2017	2017	France	SP3677	PRJEB18629	ERS1600787	False	False	False	False
+ERR1883481	ancient_metagenome		cave		sediment	46000.0	50.46	5.29	Slon2017	2017	Belgium	SP3907	PRJEB18629	ERS1600788	False	False	False	False
+ERR1883482	ancient_metagenome		cave		sediment	46000.0	50.46	5.29	Slon2017	2017	Belgium	SP3909	PRJEB18629	ERS1600789	False	False	False	False
+ERR1883483	ancient_metagenome		cave		sediment	46000.0	50.46	5.29	Slon2017	2017	Belgium	SP3908	PRJEB18629	ERS1600790	False	False	False	False
+ERR1883484	ancient_metagenome		cave		sediment	46000.0	50.46	5.29	Slon2017	2017	Belgium	SP3910	PRJEB18629	ERS1600791	False	False	False	False
+ERR1883485	ancient_metagenome		cave		leaf	46000.0	50.46	5.29	Slon2017	2017	Belgium	SP3911	PRJEB18629	ERS1600792	False	False	False	True
+ERR1883486	ancient_metagenome		cave		sediment	42000.0	46.302	16.078	Slon2017	2017	Croatia	SP1736	PRJEB18629	ERS1600793	False	False	False	False
+ERR1883487	ancient_metagenome		cave		sediment	48400.0	43.386	-5.328	Slon2017	2017	Spain	SP3609	PRJEB18629	ERS1600794	False	False	False	False
+ERR3250144	ancient_metagenome	oral		Homo sapiens	birch pitch	5000.0	54.66	11.35	Jensen2019	2019	Denmark	Syltholm_1	PRJEB30280	ERS3337752	False	False	False	False
+ERR3250145	ancient_metagenome	oral		Homo sapiens	birch pitch	5000.0	54.66	11.35	Jensen2019	2019	Denmark	Syltholm_1	PRJEB30280	ERS3337752	False	False	False	False
+ERR3250146	ancient_metagenome	oral		Homo sapiens	birch pitch	5000.0	54.66	11.35	Jensen2019	2019	Denmark	Syltholm_1	PRJEB30280	ERS3337752	False	False	False	False
+ERR3250147	ancient_metagenome	oral		Homo sapiens	birch pitch	5000.0	54.66	11.35	Jensen2019	2019	Denmark	Syltholm_1	PRJEB30280	ERS3337752	False	False	False	False
+ERR3250148	ancient_metagenome	oral		Papio sp.	birch pitch	5000.0	54.66	11.35	Jensen2019	2019	Denmark	Syltholm_1	PRJEB30280	ERS3337752	False	False	True	False
+ERR3250149	ancient_metagenome	oral		Homo sapiens	birch pitch	5000.0	54.66	11.35	Jensen2019	2019	Denmark	Syltholm_1	PRJEB30280	ERS3337752	False	False	False	False
+ERR3250150	ancient_metagenome	oral		Homo sapiens	birch pitch	5000.0	54.66	11.35	Jensen2019	2019	Denmark	Syltholm_1	PRJEB30280	ERS3337752	False	False	False	False
+ERR3250151	ancient_metagenome	oral		Homo sapiens	birch pitch	5000.0	54.66	11.35	Jensen2019	2019	Denmark	Syltholm_1	PRJEB30280	ERS3337752	False	False	False	False
+ERR3250152	ancient_metagenome	oral		Homo sapiens	birch pitch	5000.0	54.66	11.35	Jensen2019	2019	Denmark	Syltholm_1	PRJEB30280	ERS3337752	False	False	False	False
+ERR3596301	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	25.14	-80.92	Bieker2020	2020	USA	BG-13	PRJEB34825	ERS3882361	False	False	False	False
+ERR3597209	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	41.67	-91.53	Bieker2020	2020	USA	BG-102	PRJEB34825	ERS3867520	False	False	False	False
+ERR3597210	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	40.86	-73.87	Bieker2020	2020	USA	BG-5	PRJEB34825	ERS3882362	False	False	False	False
+ERR3597211	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	25.14	-80.92	Bieker2020	2020	USA	BG-56	PRJEB34825	ERS3882363	False	False	False	False
+ERR3597212	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	41.2	-86.39	Bieker2020	2020	USA	BG-62	PRJEB34825	ERS3882364	False	False	False	False
+ERR3597214	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	39.09	-94.58	Bieker2020	2020	USA	BG-73	PRJEB34825	ERS3882366	False	False	False	False
+ERR3597215	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	25.54	-80.33	Bieker2020	2020	USA	BG-68	PRJEB34825	ERS3882365	False	False	False	False
+ERR3597285	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	44.27	-68.57	Bieker2020	2020	USA	HU-10	PRJEB34825	ERS3882367	False	False	False	False
+ERR3597286	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	46.19	-74.63	Bieker2020	2020	USA	HU-146	PRJEB34825	ERS3882369	False	False	False	False
+ERR3597287	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	25.78	-80.21	Bieker2020	2020	USA	HU-158	PRJEB34825	ERS3882371	False	False	False	False
+ERR3597288	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	25.14	-80.92	Bieker2020	2020	USA	HU-157	PRJEB34825	ERS3882370	False	False	False	False
+ERR3597289	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	38.99	-95.22	Bieker2020	2020	USA	HU-185	PRJEB34825	ERS3882374	False	False	False	False
+ERR3597290	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	41.67	-91.53	Bieker2020	2020	USA	HU-203	PRJEB34825	ERS3882376	False	False	False	False
+ERR3597291	ancient_metagenome	oral		Ambrosia artemisiifolia	leaf	100.0	30.41	-88.88	Bieker2020	2020	USA	HU-196	PRJEB34825	ERS3882375	True	False	False	False
+ERR3597292	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	44.37	-71.61	Bieker2020	2020	USA	HU-40	PRJEB34825	ERS3882377	False	False	False	False
+ERR3597293	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	muscle tissue	100.0	28.05	-82.3	Bieker2020	2020	USA	MB-86	PRJEB34825	ERS3882383	False	False	False	True
+ERR3597294	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	42.27	-71.8	Bieker2020	2020	USA	HU-99	PRJEB34825	ERS3882379	False	False	False	False
+ERR3597295	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	200.0	41.58	-72.65	Bieker2020	2020	USA	MB-87	PRJEB34825	ERS3882384	False	False	False	False
+ERR3597296	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	41.43	-91.04	Bieker2020	2020	USA	MB-65	PRJEB34825	ERS3882381	False	False	False	False
+ERR3597297	ancient_metagenome	plant tissue		Homo sapiens neanderthalensis	leaf	100.0	39.98	-75.16	Bieker2020	2020	USA	MB-104	PRJEB34825	ERS3882380	False	False	True	False
+ERR3597390	ancient_metagenome	soft tissue		Ambrosia artemisiifolia	leaf	100.0	44.29	-69.37	Bieker2020	2020	USA	MB-77	PRJEB34825	ERS3882382	True	False	False	False
+ERR3597471	ancient_metagenome	skeletal tissue		Pan troglodytes schweinfurthii	leaf	100.0	52.22	5.97	Bieker2020	2020	Netherlands	NAT-002	PRJEB34825	ERS3882385	True	False	True	False
+ERR3597477	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	bone	100.0	42.0	-93.6	Bieker2020	2020	USA	USNH-39_ENA	PRJEB34825	ERS3882395	False	False	False	True
+ERR3597478	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	dental calculus	100.0	52.22	5.97	Bieker2020	2020	Netherlands	NAT-003	PRJEB34825	ERS3882386	False	False	False	True
+ERR3597479	ancient_metagenome	skeletal tissue		Ambrosia artemisiifolia	leaf	100.0	51.98	6.82	Bieker2020	2020	Netherlands	NAT-112	PRJEB34825	ERS3882394	True	False	False	False
+ERR3597481	ancient_metagenome	soft tissue		Ambrosia artemisiifolia	leaf	100.0	52.22	5.97	Bieker2020	2020	Netherlands	NAT-005	PRJEB34825	ERS3882387	True	False	False	False
+ERR3598121	ancient_metagenome	plant tissue		Pan troglodytes schweinfurthii	leaf	100.0	41.55	-71.29	Bieker2020	2020	USA	HU-105	PRJEB34825	ERS3882368	False	False	True	False
+ERR3598122	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	42.24	-70.8	Bieker2020	2020	USA	HU-79	PRJEB34825	ERS3882378	False	False	False	False
+ERR3598356	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	shell	100.0	52.22	5.97	Bieker2020	2020	Netherlands	NAT-023	PRJEB34825	ERS3882392	False	False	False	True
+ERR3598600	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	52.25	6.2	Bieker2020	2020	Netherlands	NAT-011	PRJEB34825	ERS3882388	False	False	False	False
+ERR3598673	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	52.22	5.97	Bieker2020	2020	Netherlands	NAT-002	PRJEB34825	ERS3882385	False	False	False	False
+ERR3600831	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	52.25	6.2	Bieker2020	2020	Netherlands	NAT-017	PRJEB34825	ERS3882391	False	False	False	False
+ERR3600991	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	45.45	-75.7	Bieker2020	2020	USA	HU-178	PRJEB34825	ERS3882372	False	False	False	False
+ERR3600992	ancient_metagenome	plant tissue		Gerbilliscus boehmi	leaf	100.0	28.04	-82.3	Bieker2020	2020	USA	HU-180	PRJEB34825	ERS3882373	False	False	True	False
+ERR3601422	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	52.25	6.2	Bieker2020	2020	Netherlands	NAT-012	PRJEB34825	ERS3882389	False	False	False	False
+ERR3601441	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	52.25	6.2	Bieker2020	2020	Netherlands	NAT-013	PRJEB34825	ERS3882390	False	False	False	False
+ERR3601480	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	leaf	100.0	52.25	6.2	Bieker2020	2020	Netherlands	NAT-017	PRJEB34825	ERS3882391	False	False	False	False
+ERR3602087	ancient_metagenome	plant tissue		Ambrosia artemisiifolia	intestine	100.0	52.22	5.97	Bieker2020	2020	Netherlands	NAT-026	PRJEB34825	ERS3882393	False	False	False	True
+ERR4863205	ancient_metagenome	skeletal tissue		Homo sapiens	tooth	4400.0	48.858	3.996	SeguinOrlando2021	2021	France	1H04	PRJEB41240	ERS5359126	True	False	False	False
+ERR4863206	ancient_metagenome	oral		Ursus arctos	tooth	4400.0	48.858	3.996	SeguinOrlando2021	2021	France	1H04	PRJEB41240	ERS5359126	False	False	True	False
+ERR4863207	ancient_metagenome	oral		Homo sapiens	tooth	4400.0	48.858	3.996	SeguinOrlando2021	2021	France	1H04	PRJEB41240	ERS5359126	False	False	False	False
+ERR4863208	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.996	SeguinOrlando2021	2021	France	1H06	PRJEB41240	ERS5359127	False	False	False	False
+ERR4863209	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.996	SeguinOrlando2021	2021	France	1H06	PRJEB41240	ERS5359127	False	False	False	False
+ERR4863210	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.996	SeguinOrlando2021	2021	France	1H06	PRJEB41240	ERS5359127	False	False	False	False
+ERR4863211	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.996	SeguinOrlando2021	2021	France	1H07	PRJEB41240	ERS5359128	False	False	False	False
+ERR4863212	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.996	SeguinOrlando2021	2021	France	1H07	PRJEB41240	ERS5359128	False	False	False	False
+ERR4863213	ancient_metagenome	oral		Homo sapiens	tooth	4400.0	48.858	3.996	SeguinOrlando2021	2021	France	1H13	PRJEB41240	ERS5359129	False	False	False	False
+ERR4863214	ancient_metagenome	oral		Homo sapiens	tooth	4400.0	48.858	3.996	SeguinOrlando2021	2021	France	1H13	PRJEB41240	ERS5359129	False	False	False	False
+ERR4863215	ancient_metagenome	oral		Homo sapiens	tooth	4400.0	48.858	3.996	SeguinOrlando2021	2021	France	1H13	PRJEB41240	ERS5359129	False	False	False	False
+ERR4863216	ancient_metagenome	oral		Homo sapiens	leaf	4500.0	48.858	3.996	SeguinOrlando2021	2021	France	1H14	PRJEB41240	ERS5359130	False	False	False	True
+ERR4863217	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.996	SeguinOrlando2021	2021	France	1H14	PRJEB41240	ERS5359130	False	False	False	False
+ERR4863218	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.996	SeguinOrlando2021	2021	France	1H14	PRJEB41240	ERS5359130	False	False	False	False
+ERR4863219	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.996	SeguinOrlando2021	2021	France	2H06	PRJEB41240	ERS5359131	False	False	False	False
+ERR4863220	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H07	PRJEB41240	ERS5359132	False	False	False	False
+ERR4863221	ancient_metagenome	oral		Homo sapiens	lake sediment	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H07	PRJEB41240	ERS5359132	False	False	False	True
+ERR4863222	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR4863223	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR4863224	ancient_metagenome	plant tissue		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	True	False	False	False
+ERR4863225	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR4863226	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR4863227	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR4863228	ancient_metagenome	plant tissue		Canis lupus	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	True	False	True	False
+ERR4863229	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR4863230	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR4863231	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR4863232	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR4863233	ancient_metagenome	gut		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	True	False	False	False
+ERR4863234	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR4863235	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR4863236	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR4863237	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR4863238	ancient_metagenome	oral		Papio hamadryas	marine sediment	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	True	True
+ERR4863239	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR4863240	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR4863241	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR4863242	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR4863243	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR4863244	ancient_metagenome	oral		Homo sapiens	unknown	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	True
+ERR4863245	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR4863246	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR4863247	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR4863248	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR4863249	ancient_metagenome	soft tissue		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	True	False	False	False
+ERR4863250	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR4863251	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR4863252	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR4863253	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H17	PRJEB41240	ERS5359135	False	False	False	False
+ERR4863254	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H17	PRJEB41240	ERS5359135	False	False	False	False
+ERR4863255	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H17	PRJEB41240	ERS5359135	False	False	False	False
+ERR4863256	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H17	PRJEB41240	ERS5359135	False	False	False	False
+ERR4863257	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2HxC5x196x1131	PRJEB41240	ERS5359136	False	False	False	False
+ERR4863258	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2HxC5x196x1131	PRJEB41240	ERS5359136	False	False	False	False
+ERR4863259	ancient_metagenome	skeletal tissue		Papio anubis	midden	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2HxC5x196x1131	PRJEB41240	ERS5359136	False	False	True	True
+ERR4863260	ancient_metagenome	skeletal tissue		Conepatus chinga	bone	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2HxC5x196x1131	PRJEB41240	ERS5359136	False	False	True	False
+ERR4863261	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2HxC5x196x1131	PRJEB41240	ERS5359136	False	False	False	False
+ERR4863262	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2HxC5x196x1131	PRJEB41240	ERS5359136	False	False	False	False
+ERR4863263	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2HxC5x196x1131	PRJEB41240	ERS5359136	False	False	False	False
+ERR4863264	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4600.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQCC	PRJEB41240	ERS5359137	False	False	False	False
+ERR4863265	ancient_metagenome	skeletal tissue		Ursus arctos	tooth	4600.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQCC	PRJEB41240	ERS5359137	False	False	True	True
+ERR4863266	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4600.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQCC	PRJEB41240	ERS5359137	False	False	False	False
+ERR4863267	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQEE	PRJEB41240	ERS5359139	False	False	False	False
+ERR4863268	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQEE	PRJEB41240	ERS5359139	False	False	False	False
+ERR4863269	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQEE	PRJEB41240	ERS5359139	False	False	False	False
+ERR4863270	ancient_metagenome	skeletal tissue		Homo sapiens	lake sediment	4400.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQEE	PRJEB41240	ERS5359139	False	False	False	True
+ERR4863271	ancient_metagenome	plant tissue		Homo sapiens	bone	4400.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQEE	PRJEB41240	ERS5359139	True	False	False	False
+ERR4863272	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQFF	PRJEB41240	ERS5359140	False	False	False	False
+ERR4863273	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQFF	PRJEB41240	ERS5359140	False	False	False	False
+ERR4863274	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQFF	PRJEB41240	ERS5359140	False	False	False	False
+ERR4863275	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQHH	PRJEB41240	ERS5359142	False	False	False	False
+ERR4863276	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQHH	PRJEB41240	ERS5359142	False	False	False	False
+ERR4863277	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQHH	PRJEB41240	ERS5359142	False	False	False	False
+ERR4863278	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQV	PRJEB41240	ERS5359141	False	False	False	False
+ERR4863279	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQV	PRJEB41240	ERS5359141	False	False	False	False
+ERR4863280	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQV	PRJEB41240	ERS5359141	False	False	False	False
+ERR4863281	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQV	PRJEB41240	ERS5359141	False	False	False	False
+ERR4863282	ancient_metagenome	skeletal tissue		Homo sapiens neanderthalensis	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQV	PRJEB41240	ERS5359141	False	False	True	False
+ERR4863283	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQW	PRJEB41240	ERS5359138	False	False	False	False
+ERR4863284	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQW	PRJEB41240	ERS5359138	False	False	False	False
+ERR4863285	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQW	PRJEB41240	ERS5359138	False	False	False	False
+ERR4863286	ancient_metagenome	skeletal tissue		Pan troglodytes schweinfurthii	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTC	PRJEB41240	ERS5359143	False	False	True	False
+ERR4863287	ancient_metagenome	skeletal tissue		Gorilla beringei	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTC	PRJEB41240	ERS5359143	False	False	True	False
+ERR4863288	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTC	PRJEB41240	ERS5359143	False	False	False	False
+ERR4863289	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTC	PRJEB41240	ERS5359143	False	False	False	False
+ERR4863290	ancient_metagenome	skeletal tissue		Homo sapiens	shell	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTC	PRJEB41240	ERS5359143	False	False	False	True
+ERR4863291	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTD	PRJEB41240	ERS5359144	False	False	False	False
+ERR4863292	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTD	PRJEB41240	ERS5359144	False	False	False	False
+ERR4863293	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTD	PRJEB41240	ERS5359144	False	False	False	False
+ERR4863294	ancient_metagenome	skeletal tissue		Conepatus chinga	bone	4400.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTD	PRJEB41240	ERS5359144	False	False	True	False
+ERR4863295	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTD	PRJEB41240	ERS5359144	False	False	False	False
+ERR4863296	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTE	PRJEB41240	ERS5359145	False	False	False	False
+ERR4863297	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTE	PRJEB41240	ERS5359145	False	False	False	False
+ERR4863298	ancient_metagenome	skeletal tissue		Ambrosia artemisiifolia	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTE	PRJEB41240	ERS5359145	False	False	True	False
+ERR4863299	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTE	PRJEB41240	ERS5359145	False	False	False	False
+ERR4863300	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTE	PRJEB41240	ERS5359145	False	False	False	False
+ERR4863301	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3600.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTF	PRJEB41240	ERS5359146	False	False	False	False
+ERR4863302	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3600.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTF	PRJEB41240	ERS5359146	False	False	False	False
+ERR4863303	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3600.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTF	PRJEB41240	ERS5359146	False	False	False	False
+ERR4863304	ancient_metagenome	skeletal tissue		Homo sapiens	unknown	3600.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTF	PRJEB41240	ERS5359146	False	False	False	True
+ERR4863305	ancient_metagenome	oral		Homo sapiens	bone	3600.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTF	PRJEB41240	ERS5359146	True	False	False	False
+ERR4863306	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPK	PRJEB41240	ERS5359147	False	False	False	False
+ERR4863307	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPK	PRJEB41240	ERS5359147	False	False	False	False
+ERR4863308	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPK	PRJEB41240	ERS5359147	False	False	False	False
+ERR4863309	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPK	PRJEB41240	ERS5359147	False	False	False	False
+ERR4863310	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPK	PRJEB41240	ERS5359147	False	False	False	False
+ERR4863311	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPL	PRJEB41240	ERS5359148	False	False	False	False
+ERR4863312	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPL	PRJEB41240	ERS5359148	False	False	False	False
+ERR4863313	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPL	PRJEB41240	ERS5359148	False	False	False	False
+ERR4863314	ancient_metagenome	skeletal tissue		Homo sapiens	intestine	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPL	PRJEB41240	ERS5359148	False	False	False	True
+ERR4863315	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPL	PRJEB41240	ERS5359148	False	False	False	False
+ERR4863316	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPO	PRJEB41240	ERS5359149	False	False	False	False
+ERR4863317	ancient_metagenome	skeletal tissue		Homo sapiens	permafrost	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPO	PRJEB41240	ERS5359149	False	False	False	True
+ERR4863318	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPO	PRJEB41240	ERS5359149	False	False	False	False
+ERR4863319	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPO	PRJEB41240	ERS5359149	False	False	False	False
+ERR4863320	ancient_metagenome	oral		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPO	PRJEB41240	ERS5359149	True	False	False	False
+ERR4863321	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.594	3.919	SeguinOrlando2021	2021	France	MAS15	PRJEB41240	ERS5359150	False	False	False	False
+ERR4863322	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.594	3.919	SeguinOrlando2021	2021	France	MAS15	PRJEB41240	ERS5359150	False	False	False	False
+ERR4863323	ancient_metagenome	gut		Homo sapiens	bone	4400.0	43.594	3.919	SeguinOrlando2021	2021	France	MAS15	PRJEB41240	ERS5359150	True	False	False	False
+ERR5295738	ancient_metagenome	oral		Homo sapiens	tooth	4400.0	48.858	3.996	SeguinOrlando2021	2021	France	1H04	PRJEB41240	ERS5359126	False	False	False	False
+ERR5295739	ancient_metagenome	skeletal tissue		Homo sapiens	tooth	4400.0	48.858	3.996	SeguinOrlando2021	2021	France	1H04	PRJEB41240	ERS5359126	True	False	False	False
+ERR5295740	ancient_metagenome	oral		Homo sapiens	tooth	4400.0	48.858	3.996	SeguinOrlando2021	2021	France	1H04	PRJEB41240	ERS5359126	False	False	False	False
+ERR5295741	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.996	SeguinOrlando2021	2021	France	1H06	PRJEB41240	ERS5359127	False	False	False	False
+ERR5295742	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.996	SeguinOrlando2021	2021	France	1H06	PRJEB41240	ERS5359127	False	False	False	False
+ERR5295743	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.996	SeguinOrlando2021	2021	France	1H06	PRJEB41240	ERS5359127	False	False	False	False
+ERR5295744	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.996	SeguinOrlando2021	2021	France	1H07	PRJEB41240	ERS5359128	False	False	False	False
+ERR5295745	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.996	SeguinOrlando2021	2021	France	1H07	PRJEB41240	ERS5359128	False	False	False	False
+ERR5295746	ancient_metagenome	oral		Homo sapiens	tooth	4400.0	48.858	3.996	SeguinOrlando2021	2021	France	1H13	PRJEB41240	ERS5359129	False	False	False	False
+ERR5295747	ancient_metagenome	oral		Homo sapiens	tooth	4400.0	48.858	3.996	SeguinOrlando2021	2021	France	1H13	PRJEB41240	ERS5359129	False	False	False	False
+ERR5295748	ancient_metagenome	oral		Homo sapiens	tooth	4400.0	48.858	3.996	SeguinOrlando2021	2021	France	1H13	PRJEB41240	ERS5359129	False	False	False	False
+ERR5295749	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.996	SeguinOrlando2021	2021	France	1H14	PRJEB41240	ERS5359130	False	False	False	False
+ERR5295750	ancient_metagenome	oral		Strigocuscus celebensis	tooth	4500.0	48.858	3.996	SeguinOrlando2021	2021	France	1H14	PRJEB41240	ERS5359130	False	False	True	False
+ERR5295751	ancient_metagenome	soft tissue		Homo sapiens	tooth	4500.0	48.858	3.996	SeguinOrlando2021	2021	France	1H14	PRJEB41240	ERS5359130	True	False	False	False
+ERR5295752	ancient_metagenome	skeletal tissue		Pan troglodytes schweinfurthii	tooth	4500.0	48.858	3.996	SeguinOrlando2021	2021	France	2H06	PRJEB41240	ERS5359131	True	False	True	False
+ERR5295753	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H07	PRJEB41240	ERS5359132	False	False	False	False
+ERR5295754	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H07	PRJEB41240	ERS5359132	False	False	False	False
+ERR5295755	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR5295756	ancient_metagenome	skeletal tissue		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	True	False	False	False
+ERR5295757	ancient_metagenome	oral		Homo sapiens neanderthalensis	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	True	False
+ERR5295758	ancient_metagenome	oral		Homo sapiens	digestive tract contents	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	True
+ERR5295759	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR5295760	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR5295761	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR5295762	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR5295763	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR5295764	ancient_metagenome	oral		Gerbilliscus boehmi	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	True	False
+ERR5295765	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR5295766	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR5295767	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR5295768	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR5295769	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR5295770	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H10	PRJEB41240	ERS5359133	False	False	False	False
+ERR5295771	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR5295772	ancient_metagenome	plant tissue		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	True	False	False	False
+ERR5295773	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR5295774	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR5295775	ancient_metagenome	plant tissue		Homo sapiens	bone	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	True	False	False	True
+ERR5295776	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR5295777	ancient_metagenome	gut		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	True	False	False	False
+ERR5295778	ancient_metagenome	oral		Conepatus chinga	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	True	False
+ERR5295779	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR5295780	ancient_metagenome	oral		Homo sapiens	dental calculus	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	True
+ERR5295781	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR5295782	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR5295783	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR5295784	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR5295785	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H11	PRJEB41240	ERS5359134	False	False	False	False
+ERR5295786	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H17	PRJEB41240	ERS5359135	False	False	False	False
+ERR5295787	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H17	PRJEB41240	ERS5359135	False	False	False	False
+ERR5295788	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H17	PRJEB41240	ERS5359135	False	False	False	False
+ERR5295789	ancient_metagenome	oral		Homo sapiens	tooth	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2H17	PRJEB41240	ERS5359135	False	False	False	False
+ERR5295790	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2HxC5x196x1131	PRJEB41240	ERS5359136	False	False	False	False
+ERR5295791	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2HxC5x196x1131	PRJEB41240	ERS5359136	False	False	False	False
+ERR5295792	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2HxC5x196x1131	PRJEB41240	ERS5359136	False	False	False	False
+ERR5295793	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2HxC5x196x1131	PRJEB41240	ERS5359136	False	False	False	False
+ERR5295794	ancient_metagenome	oral		Homo sapiens	bone	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2HxC5x196x1131	PRJEB41240	ERS5359136	True	False	False	False
+ERR5295795	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2HxC5x196x1131	PRJEB41240	ERS5359136	False	False	False	False
+ERR5295796	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	48.858	3.995	SeguinOrlando2021	2021	France	2HxC5x196x1131	PRJEB41240	ERS5359136	False	False	False	False
+ERR5295797	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4600.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQCC	PRJEB41240	ERS5359137	False	False	False	False
+ERR5295798	ancient_metagenome	skeletal tissue		Papio sp.	bone	4600.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQCC	PRJEB41240	ERS5359137	False	False	True	False
+ERR5295799	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4600.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQCC	PRJEB41240	ERS5359137	False	False	False	False
+ERR5295800	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQEE	PRJEB41240	ERS5359139	False	False	False	False
+ERR5295801	ancient_metagenome	plant tissue		Homo sapiens	bone	4400.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQEE	PRJEB41240	ERS5359139	True	False	False	False
+ERR5295802	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQEE	PRJEB41240	ERS5359139	False	False	False	False
+ERR5295803	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQEE	PRJEB41240	ERS5359139	False	False	False	False
+ERR5295804	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQEE	PRJEB41240	ERS5359139	False	False	False	False
+ERR5295805	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQFF	PRJEB41240	ERS5359140	False	False	False	False
+ERR5295806	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQFF	PRJEB41240	ERS5359140	False	False	False	False
+ERR5295807	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQFF	PRJEB41240	ERS5359140	False	False	False	False
+ERR5295808	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQHH	PRJEB41240	ERS5359142	False	False	False	False
+ERR5295809	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQHH	PRJEB41240	ERS5359142	False	False	False	False
+ERR5295810	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQHH	PRJEB41240	ERS5359142	False	False	False	False
+ERR5295811	ancient_metagenome	skeletal tissue		Canis lupus	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQV	PRJEB41240	ERS5359141	False	False	True	False
+ERR5295812	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQV	PRJEB41240	ERS5359141	False	False	False	False
+ERR5295813	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQV	PRJEB41240	ERS5359141	False	False	False	False
+ERR5295814	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQV	PRJEB41240	ERS5359141	False	False	False	False
+ERR5295815	ancient_metagenome	skeletal tissue		Homo sapiens	soil	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQV	PRJEB41240	ERS5359141	False	False	False	True
+ERR5295816	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQW	PRJEB41240	ERS5359138	False	False	False	False
+ERR5295817	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQW	PRJEB41240	ERS5359138	False	False	False	False
+ERR5295818	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4500.0	43.166	3.06	SeguinOrlando2021	2021	France	ROUQW	PRJEB41240	ERS5359138	False	False	False	False
+ERR5295819	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTC	PRJEB41240	ERS5359143	False	False	False	False
+ERR5295820	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTC	PRJEB41240	ERS5359143	False	False	False	False
+ERR5295821	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTC	PRJEB41240	ERS5359143	False	False	False	False
+ERR5295822	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTC	PRJEB41240	ERS5359143	False	False	False	False
+ERR5295823	ancient_metagenome	soft tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTC	PRJEB41240	ERS5359143	True	False	False	False
+ERR5295824	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTD	PRJEB41240	ERS5359144	False	False	False	False
+ERR5295825	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTD	PRJEB41240	ERS5359144	False	False	False	False
+ERR5295826	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTD	PRJEB41240	ERS5359144	False	False	False	False
+ERR5295827	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTD	PRJEB41240	ERS5359144	False	False	False	False
+ERR5295828	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTD	PRJEB41240	ERS5359144	False	False	False	False
+ERR5295829	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTE	PRJEB41240	ERS5359145	False	False	False	False
+ERR5295830	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTE	PRJEB41240	ERS5359145	False	False	False	False
+ERR5295831	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTE	PRJEB41240	ERS5359145	False	False	False	False
+ERR5295832	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTE	PRJEB41240	ERS5359145	False	False	False	False
+ERR5295833	ancient_metagenome	oral		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTE	PRJEB41240	ERS5359145	True	False	False	False
+ERR5295834	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3600.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTF	PRJEB41240	ERS5359146	False	False	False	False
+ERR5295835	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3600.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTF	PRJEB41240	ERS5359146	False	False	False	False
+ERR5295836	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3600.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTF	PRJEB41240	ERS5359146	False	False	False	False
+ERR5295837	ancient_metagenome	oral		Homo sapiens	bone	3600.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTF	PRJEB41240	ERS5359146	True	False	False	False
+ERR5295838	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3600.0	43.149	3.06	SeguinOrlando2021	2021	France	TORTF	PRJEB41240	ERS5359146	False	False	False	False
+ERR5295839	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPK	PRJEB41240	ERS5359147	False	False	False	False
+ERR5295840	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPK	PRJEB41240	ERS5359147	False	False	False	False
+ERR5295841	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPK	PRJEB41240	ERS5359147	False	False	False	False
+ERR5295842	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPK	PRJEB41240	ERS5359147	False	False	False	False
+ERR5295843	ancient_metagenome	soft tissue		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPK	PRJEB41240	ERS5359147	True	False	False	False
+ERR5295844	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPL	PRJEB41240	ERS5359148	False	False	False	False
+ERR5295845	ancient_metagenome	skeletal tissue		Gerbilliscus boehmi	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPL	PRJEB41240	ERS5359148	False	False	True	False
+ERR5295846	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPL	PRJEB41240	ERS5359148	False	False	False	False
+ERR5295847	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPL	PRJEB41240	ERS5359148	False	False	False	False
+ERR5295848	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4000.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPL	PRJEB41240	ERS5359148	False	False	False	False
+ERR5295849	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPO	PRJEB41240	ERS5359149	False	False	False	False
+ERR5295850	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPO	PRJEB41240	ERS5359149	False	False	False	False
+ERR5295851	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPO	PRJEB41240	ERS5359149	False	False	False	False
+ERR5295852	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPO	PRJEB41240	ERS5359149	False	False	False	False
+ERR5295853	ancient_metagenome	skeletal tissue		Homo sapiens	bone	3400.0	43.149	3.06	SeguinOrlando2021	2021	France	GBVPO	PRJEB41240	ERS5359149	False	False	False	False
+ERR5295854	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.594	3.919	SeguinOrlando2021	2021	France	MAS15	PRJEB41240	ERS5359150	False	False	False	False
+ERR5295855	ancient_metagenome	skeletal tissue		Homo sapiens	bone	4400.0	43.594	3.919	SeguinOrlando2021	2021	France	MAS15	PRJEB41240	ERS5359150	False	False	False	False
+ERR5295856	ancient_metagenome	gut		Homo sapiens	soil	4400.0	43.594	3.919	SeguinOrlando2021	2021	France	MAS15	PRJEB41240	ERS5359150	True	False	False	True
+ERR6024164	ancient_metagenome		cave		sediment	25000.0	42.389	42.606	Gelabert2021	2021	Georgia	SAT16-LS29	PRJEB41420	ERS6590040	False	False	False	False
+ERR6221489	ancient_metagenome	oral		Homo sapiens	tooth	200.0	47.554	7.589	Sarhan2023	2023	Switzerland	2077	PRJEB44723	ERS6377567	False	False	False	False
+ERR8202902	ancient_metagenome	soft tissue		Gorilla beringei beringei		200.0	47.554	7.589	Sarhan2023	2023	Switzerland	2132	PRJEB44723	ERS10216481	False	False	True	False
+ERR8202903	ancient_metagenome	soft tissue		Homo sapiens	intestine	200.0	47.554	7.589	Sarhan2023	2023	Switzerland	2133	PRJEB44723	ERS10216482	False	False	False	False
+ERR8202905	ancient_metagenome	skeletal tissue		Strigocuscus celebensis		200.0	47.554	7.589	Sarhan2023	2023	Switzerland	3041	PRJEB44723	ERS10216484	False	False	True	False
+ERR8202906	ancient_metagenome	soft tissue		Homo sapiens		200.0	47.554	7.589	Sarhan2023	2023	Switzerland	3042	PRJEB44723	ERS10216485	False	False	False	False
+ERR8202907	ancient_metagenome	gut		Homo sapiens		200.0	47.554	7.589	Sarhan2023	2023	Switzerland	3043	PRJEB44723	ERS10216486	True	False	False	False
+ERR8202908	ancient_metagenome	soft tissue		Homo sapiens		200.0	47.554	7.589	Sarhan2023	2023	Switzerland	3044	PRJEB44723	ERS10216487	False	False	False	False
+ERR8202909	ancient_metagenome	soft tissue		Homo sapiens		200.0	47.554	7.589	Sarhan2023	2023	Switzerland	3045	PRJEB44723	ERS10216488	False	False	False	False
+SRR12281656	ancient_metagenome	gut		Homo sapiens	latrine	600.0	56.94	24.11	Sabin2020	2020	Latvia	RGA001	PRJNA640385	SRS7054141	False	False	False	False
+SRR12281657	ancient_metagenome	gut		Homo sapiens	latrine	600.0	56.94	24.11	Sabin2020	2020	Latvia	RGA001	PRJNA640385	SRS7054141	False	False	False	False
+SRR12281658	ancient_metagenome	gut		Homo sapiens	latrine	600.0	56.94	24.11	Sabin2020	2020	Latvia	RGA001	PRJNA640385	SRS7054141	False	False	False	False
+SRR12281659	ancient_metagenome	gut		Bison priscus	latrine	600.0	56.94	24.11	Sabin2020	2020	Latvia	RGA001	PRJNA640385	SRS7054141	False	False	True	False
+SRR12281660	ancient_metagenome	plant tissue		Bison priscus	latrine	600.0	31.77	35.22	Sabin2020	2020	West Bank	MAM001	PRJNA640385	SRS7054140	True	False	True	False
+SRR12281661	ancient_metagenome	gut		Homo sapiens	latrine	600.0	31.77	35.22	Sabin2020	2020	West Bank	MAM001	PRJNA640385	SRS7054140	False	False	False	False
+SRR12281662	ancient_metagenome	gut		Homo sapiens	latrine	600.0	31.77	35.22	Sabin2020	2020	West Bank	MAM001	PRJNA640385	SRS7054140	False	False	False	False
+SRR12281663	ancient_metagenome	gut		Homo sapiens	latrine	600.0	31.77	35.22	Sabin2020	2020	West Bank	MAM001	PRJNA640385	SRS7054140	False	False	False	False
+SRR12455956	ancient_metagenome	oral		Lithobates pipiens	palaeofaeces	950.0	38.64	-90.15	Witt2021	2021	USA	ESL 3382-166 (cop_ESL166)	PRJNA657304	SRS7205534	True	False	True	False
+SRR12455957	ancient_metagenome	gut		Canis lupus	palaeofaeces	850.0	38.65	-90.17	Witt2021	2021	USA	JBG 7298-2 (cop_JBG82)	PRJNA657304	SRS7205533	False	False	False	False
+SRR12455958	ancient_metagenome	gut		Canis lupus	marine sediment	850.0	38.65	-90.17	Witt2021	2021	USA	JBG 6227-15 (cop_JBG15)	PRJNA657304	SRS7205532	False	False	False	True
+SRR12455959	ancient_metagenome	gut		Gorilla beringei graueri	palaeofaeces	850.0	38.65	-90.17	Witt2021	2021	USA	JBG 5146-2 (cop_JBG462)	PRJNA657304	SRS7205531	False	False	True	False
+SRR12455960	ancient_metagenome	gut		Canis lupus	palaeofaeces	850.0	38.65	-90.17	Witt2021	2021	USA	JBG 2589-10 (cop_JBG10)	PRJNA657304	SRS7205530	False	False	False	False
+SRR12455961	ancient_metagenome	gut		Canis lupus	palaeofaeces	850.0	38.65	-90.17	Witt2021	2021	USA	JBG 2240-4 (cop_JBG4)	PRJNA657304	SRS7205529	False	False	False	False
+SRR12455963	ancient_metagenome	gut		Canis lupus	palaeofaeces	850.0	38.65	-90.17	Witt2021	2021	USA	JBG 1131-29 (cop_JBG29)	PRJNA657304	SRS7205527	False	False	False	False
+SRR12455974	ancient_metagenome	gut		Canis lupus	palaeofaeces	850.0	38.65	-90.17	Witt2021	2021	USA	JBG 1045-13 (cop_JBG13)	PRJNA657304	SRS7205516	False	False	False	False
+SRR12455975	ancient_metagenome	gut		Pan troglodytes ellioti	unknown	850.0	38.65	-90.17	Witt2021	2021	USA	JBG 750-16 (cop_JBG16)	PRJNA657304	SRS7205515	False	False	True	True
+SRR12557006	ancient_metagenome	oral		Homo sapiens	tooth	900.0	41.892	12.478	Modi2020	2020	Italy	P.O Z. US44	PRJNA660212	SRS7296487	False	False	False	True
+SRR12557007	ancient_metagenome	oral		Homo sapiens	dental calculus	1000.0	41.892	12.478	Modi2020	2020	Italy	P.O 898-11	PRJNA660212	SRS7296488	False	False	False	False
+SRR12557008	ancient_metagenome	skeletal tissue		Homo sapiens	dental calculus	900.0	41.892	12.478	Modi2020	2020	Italy	P.O 108-7	PRJNA660212	SRS7296485	True	False	False	False
+SRR13106729	ancient_metagenome		sea coast		permafrost	110000.0	70.08	159.92	Liang2021	2021	Russia	Ch1_17_14_8	PRJNA680161	SRS7756742	False	False	False	False
+SRR13106730	ancient_metagenome		sea coast		permafrost	110000.0	70.08	159.92	Liang2021	2021	Russia	Ch1_17_14_8	PRJNA680161	SRS7756741	False	False	False	False
+SRR13106731	ancient_metagenome		sea coast		permafrost	110000.0	70.08	159.92	Liang2021	2021	Russia	Ch1_17_5_8	PRJNA680161	SRS7756740	False	False	False	False
+SRR13106732	ancient_metagenome		sea coast		permafrost	110000.0	70.08	159.92	Liang2021	2021	Russia	Ch1_17_5_8	PRJNA680161	SRS7756739	False	False	False	False
+SRR13106733	ancient_metagenome		sea coast		shell	110000.0	70.08	159.92	Liang2021	2021	Russia	Ch1_17_5_8	PRJNA680161	SRS7756738	False	False	False	True
+SRR13106734	ancient_metagenome		sea coast		permafrost	110000.0	70.08	159.92	Liang2021	2021	Russia	Ch1_17_5_8	PRJNA680161	SRS7756737	False	False	False	False
+SRR13106735	ancient_metagenome		sea coast		permafrost	35000.0	70.08	159.92	Liang2021	2021	Russia	Ch1_17_3_4	PRJNA680161	SRS7756736	False	False	False	False
+SRR13106736	ancient_metagenome		sea coast		unknown	35000.0	70.08	159.92	Liang2021	2021	Russia	Ch1_17_3_4	PRJNA680161	SRS7756735	False	False	False	True
+SRR13106737	ancient_metagenome		sea coast		permafrost	110000.0	70.08	159.92	Liang2021	2021	Russia	Ch1_17_14_8	PRJNA680161	SRS7756734	False	False	False	False
+SRR13106738	ancient_metagenome		sea coast		permafrost	110000.0	70.08	159.92	Liang2021	2021	Russia	Ch1_17_14_8	PRJNA680161	SRS7756733	False	False	False	False
+SRR13106739	ancient_metagenome		sea coast		permafrost	35000.0	70.08	159.92	Liang2021	2021	Russia	Ch1_17_3_4	PRJNA680161	SRS7756732	False	False	False	False
+SRR13106740	ancient_metagenome		sea coast		permafrost	35000.0	70.08	159.92	Liang2021	2021	Russia	Ch1_17_3_4	PRJNA680161	SRS7756731	False	False	False	False
+SRR13263116	ancient_metagenome	oral		Homo sapiens	dental calculus	5000.0	15.441	32.381	Weyrich2017	2017	Sudan	Sudan1	PRJNA685265	SRS7890505	False	False	False	False
+SRR13263117	ancient_metagenome	oral		Homo sapiens	dental calculus	5000.0	15.441	32.381	Weyrich2017	2017	Sudan	Sudan2	PRJNA685265	SRS7890503	False	False	False	False
+SRR13263118	ancient_metagenome	oral		Homo sapiens	dental calculus	600.0			Weyrich2017	2017	South Africa	AfrPP1	PRJNA685265	SRS7890504	False	False	False	False
+SRR13263119	ancient_metagenome	oral		Ambrosia artemisiifolia	dental calculus	200.0	51.646	11.512	Weyrich2017	2017	Germany	IndRev1	PRJNA685265	SRS7890501	False	False	True	False
+SRR13263120	ancient_metagenome	oral		Homo sapiens	dental calculus	200.0	51.646	11.512	Weyrich2017	2017	Germany	IndRev2	PRJNA685265	SRS7890502	False	False	False	False
+SRR13263122	ancient_metagenome	skeletal tissue		Pan troglodytes	dental calculus	100.0	7.657	-10.841	Weyrich2017	2017	Sierra Leone	Chimp	PRJNA685265	SRS7890499	True	False	False	False
+SRR13263123	ancient_metagenome	oral		Homo sapiens neanderthalensis	dental calculus	49000.0	43.386	-5.328	Weyrich2017	2017	Spain	ElSidron1	PRJNA685265	SRS7890498	False	False	False	False
+SRR13263124	ancient_metagenome	oral		Gorilla gorilla gorilla	dental calculus	49000.0	43.386	-5.329	Weyrich2017	2017	Spain	ElSidron2	PRJNA685265	SRS7890496	False	False	True	False
+SRR13263126	ancient_metagenome	soft tissue		Homo sapiens	dental calculus	800.0	53.962	-1.075	Weyrich2017	2017	United Kingdom	UrbMed1	PRJNA685265	SRS7890495	True	False	False	False
+SRR13263127	ancient_metagenome	oral		Homo sapiens	dental calculus	800.0	53.962	-1.075	Weyrich2017	2017	United Kingdom	UrbWar2	PRJNA685265	SRS7890492	False	False	False	False
+SRR13263128	ancient_metagenome	oral		Homo sapiens	dental calculus	7600.0	53.96	21.86	Weyrich2017	2017	Poland	EuroHG1	PRJNA685265	SRS7890494	False	False	False	False
+SRR13263130	ancient_metagenome	oral		Homo sapiens neanderthalensis	dental calculus	35800.0	50.48	4.674	Weyrich2017	2017	Belgium	Spy1	PRJNA685265	SRS7890491	False	False	False	False
+SRR13263131	ancient_metagenome	oral		Homo sapiens neanderthalensis	dental calculus	36000.0	50.48	4.674	Weyrich2017	2017	Belgium	Spy2	PRJNA685265	SRS7890487	False	False	False	False
+SRR13263132	ancient_metagenome	oral		Homo sapiens	dental calculus	7600.0	53.96	21.86	Weyrich2017	2017	Poland	EuroHG2	PRJNA685265	SRS7890489	False	False	False	False
+SRR13263133	ancient_metagenome	oral		Homo sapiens	dental calculus	7400.0	48.839	9.227	Weyrich2017	2017	Germany	EuroLBK3	PRJNA685265	SRS7890490	False	False	False	False
+SRR13263134	ancient_metagenome	oral		Homo sapiens	dental calculus	7400.0	48.839	9.227	Weyrich2017	2017	Germany	EuroLBK1	PRJNA685265	SRS7890488	False	False	False	False
+SRR13263135	ancient_metagenome	oral		Homo sapiens	dental calculus	7400.0	48.839	9.227	Weyrich2017	2017	Germany	EuroLBK2	PRJNA685265	SRS7890485	False	False	False	False
+SRR13263136	ancient_metagenome	oral		Homo sapiens	dental calculus	600.0			Weyrich2017	2017	South Africa	AfrPP2	PRJNA685265	SRS7890486	False	False	False	False
+SRR13263137	ancient_metagenome	oral		Homo sapiens	dental calculus	2300.0			Weyrich2017	2017	South Africa	AfrSF1	PRJNA685265	SRS7890483	False	False	False	False
+SRR13263138	ancient_metagenome	oral		Homo sapiens	dental calculus	3800.0			Weyrich2017	2017	South Africa	AfrSF2	PRJNA685265	SRS7890484	False	False	False	False
+SRR13769009	ancient_metagenome	gut		Homo sapiens		1600.0	44.55	28.78	Wright2024	2024	Romania	ROM_10D	PRJNA704183	SRS8307110	True	False	False	False
+SRR13769010	ancient_metagenome	oral		Homo sapiens	dental calculus	1600.0	44.55	28.78	Wright2024	2024	Romania	ROM_9C	PRJNA704183	SRS8307109	False	False	False	False
+SRR13769011	ancient_metagenome	oral		Homo sapiens		1600.0	44.55	28.78	Wright2024	2024	Romania	ROM_5D	PRJNA704183	SRS8307108	False	False	False	False
+SRR13769012	ancient_metagenome	skeletal tissue		Pan troglodytes ellioti	dental calculus	1600.0	44.55	28.78	Wright2024	2024	Romania	ROM_5C	PRJNA704183	SRS8307107	True	False	True	False
+SRR17651668	ancient_metagenome		hydrothermal field		soil	500.0	-19.851	-68.906	Perez2022	2022	Chile	S2	PRJNA794308	SRS11699679	False	False	False	False
+SRR17651669	ancient_metagenome		hydrothermal field		soil	500.0	-19.851	-68.906	Perez2022	2022	Chile	S2	PRJNA794308	SRS11699680	False	False	False	False
+SRR17651670	ancient_metagenome		hydrothermal field		soil	500.0	-19.851	-68.906	Perez2022	2022	Chile	S2	PRJNA794308	SRS11699678	False	False	False	False
+SRR17651671	ancient_metagenome		hydrothermal field		soil	500.0	-19.851	-68.906	Perez2022	2022	Chile	S2	PRJNA794308	SRS11699677	False	False	False	False
+SRR17651672	ancient_metagenome		hydrothermal field		soil	500.0	-19.851	-68.906	Perez2022	2022	Chile	S2	PRJNA794308	SRS11699676	False	False	False	False
+SRR17651673	ancient_metagenome		hydrothermal field		dental calculus	600.0	-19.851	-68.906	Perez2022	2022	Chile	S1	PRJNA794308	SRS11699675	False	False	False	True
+SRR17651674	ancient_metagenome		hydrothermal field		soil	600.0	-19.851	-68.906	Perez2022	2022	Chile	S1	PRJNA794308	SRS11699673	False	False	False	False
+SRR17651684	ancient_metagenome		hydrothermal field		soil	600.0	-19.851	-68.906	Perez2022	2022	Chile	S1	PRJNA794308	SRS11699663	False	False	False	False
+SRR17651685	ancient_metagenome		wetland area		soil	800.0	-20.287	-68.888	Perez2022	2022	Chile	S4	PRJNA794308	SRS11699664	False	False	False	False
+SRR17651686	ancient_metagenome		wetland area		soil	800.0	-20.287	-68.888	Perez2022	2022	Chile	S4	PRJNA794308	SRS11699662	False	False	False	False
+SRR17651687	ancient_metagenome		wetland area		tooth	800.0	-20.287	-68.888	Perez2022	2022	Chile	S4	PRJNA794308	SRS11699660	False	False	False	True
+SRR17651688	ancient_metagenome		wetland area		soil	800.0	-20.287	-68.888	Perez2022	2022	Chile	S4	PRJNA794308	SRS11699661	False	False	False	False
+SRR17651689	ancient_metagenome		wetland area		soil	800.0	-20.287	-68.888	Perez2022	2022	Chile	S4	PRJNA794308	SRS11699659	False	False	False	False
+SRR17651690	ancient_metagenome		hydrothermal field		soil	1100.0	-19.851	-68.906	Perez2022	2022	Chile	S3	PRJNA794308	SRS11699658	False	False	False	False
+SRR17651691	ancient_metagenome		hydrothermal field		soil	1100.0	-19.851	-68.906	Perez2022	2022	Chile	S3	PRJNA794308	SRS11699656	False	False	False	False
+SRR17651692	ancient_metagenome		hydrothermal field		soil	1100.0	-19.851	-68.906	Perez2022	2022	Chile	S3	PRJNA794308	SRS11699657	False	False	False	False
+SRR17651693	ancient_metagenome		hydrothermal field		soil	1100.0	-19.851	-68.906	Perez2022	2022	Chile	S3	PRJNA794308	SRS11699655	False	False	False	False
+SRR17651694	ancient_metagenome		hydrothermal field		soil	1100.0	-19.851	-68.906	Perez2022	2022	Chile	S3	PRJNA794308	SRS11699653	False	False	False	False
+SRR17651695	ancient_metagenome		hydrothermal field		soil	600.0	-19.851	-68.906	Perez2022	2022	Chile	S1	PRJNA794308	SRS11699654	False	False	False	False
+SRR17651696	ancient_metagenome		hydrothermal field		soil	600.0	-19.851	-68.906	Perez2022	2022	Chile	S1	PRJNA794308	SRS11699652	False	False	False	False
+SRR25280049	ancient_metagenome	gut		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	True	False	False	False
+SRR25280050	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	False	False
+SRR25280051	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	False	False
+SRR25280052	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	False	False
+SRR25280053	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	False	False
+SRR25280054	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	False	False
+SRR25280055	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	False	False
+SRR25280056	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	False	False
+SRR25280057	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	False	False
+SRR25280058	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	False	False
+SRR25280059	ancient_metagenome	soft tissue		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	True	False	False	False
+SRR25280060	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	False	False
+SRR25280061	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	False	False
+SRR25280062	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825	False	False	False	False
+SRR25280063	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825	False	False	False	False
+SRR25280064	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825	False	False	False	False
+SRR25280065	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825	False	False	False	False
+SRR25280066	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825	False	False	False	False
+SRR25280067	ancient_metagenome	oral		Alouatta palliata	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825	False	False	True	False
+SRR25280068	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825	False	False	False	False
+SRR25280069	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825	False	False	False	False
+SRR25280070	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280071	ancient_metagenome	skeletal tissue		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825	True	False	False	False
+SRR25280072	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825	False	False	False	False
+SRR25280073	ancient_metagenome	oral		Papio sp.	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825	False	False	True	False
+SRR25280074	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825	False	False	False	False
+SRR25280075	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825	False	False	False	False
+SRR25280076	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825	False	False	False	False
+SRR25280077	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280078	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280079	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280080	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	False	False
+SRR25280081	ancient_metagenome	oral		Gorilla beringei graueri	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	True	False
+SRR25280082	ancient_metagenome	gut		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	True	False	False	False
+SRR25280083	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	False	False
+SRR25280084	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	False	False
+SRR25280085	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	False	False
+SRR25280086	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	False	False
+SRR25280087	ancient_metagenome	oral		Gorilla beringei graueri	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	True	False
+SRR25280088	ancient_metagenome	gut		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	True	False	False	False
+SRR25280089	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826	False	False	False	False
+SRR25280090	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280091	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825	False	False	False	False
+SRR25280092	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825	False	False	False	False
+SRR25280093	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825	False	False	False	False
+SRR25280094	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280095	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280096	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280097	ancient_metagenome	skeletal tissue		Homo sapiens neanderthalensis	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	True	False	True	False
+SRR25280098	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280099	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280100	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280101	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280102	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280103	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280104	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280105	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280106	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280107	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280108	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280109	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280110	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280111	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280112	ancient_metagenome	oral		Papio sp.	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	True	False
+SRR25280113	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280114	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280115	ancient_metagenome	oral		Gerbilliscus boehmi	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	True	False
+SRR25280116	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280117	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR25280118	ancient_metagenome	oral		Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824	False	False	False	False
+SRR3480231	ancient_metagenome		lake		lake sediment	5200.0	57.178	-170.248	Graham2016	2016	USA	PH178_465	PRJNA320875	SRS1424505	False	False	False	False
+SRR3480232	ancient_metagenome		lake		lake sediment	5200.0	57.178	-170.248	Graham2016	2016	USA	PH179_469	PRJNA320875	SRS1424506	False	False	False	False
+SRR3480233	ancient_metagenome		lake		lake sediment	5300.0	57.178	-170.248	Graham2016	2016	USA	PH181_473	PRJNA320875	SRS1424507	False	False	False	False
+SRR3480234	ancient_metagenome		lake		marine sediment	5300.0	57.178	-170.248	Graham2016	2016	USA	PH173_477	PRJNA320875	SRS1424508	False	False	False	True
+SRR3480235	ancient_metagenome		lake		lake sediment	5300.0	57.178	-170.248	Graham2016	2016	USA	PH177_477	PRJNA320875	SRS1424509	False	False	False	False
+SRR3480236	ancient_metagenome		lake		lake sediment	5300.0	57.178	-170.248	Graham2016	2016	USA	PH081-PH155_481	PRJNA320875	SRS1424510	False	False	False	False
+SRR3480246	ancient_metagenome		lake		lake sediment	5300.0	57.178	-170.248	Graham2016	2016	USA	PH081-PH155_481	PRJNA320875	SRS1424510	False	False	False	False
+SRR3480247	ancient_metagenome		lake		intestine	5300.0	57.178	-170.248	Graham2016	2016	USA	PH081-PH155_481	PRJNA320875	SRS1424510	False	False	False	True
+SRR3480248	ancient_metagenome		lake		lake sediment	5300.0	57.178	-170.248	Graham2016	2016	USA	PH170_481	PRJNA320875	SRS1424519	False	False	False	False
+SRR3480249	ancient_metagenome		lake		lake sediment	5400.0	57.178	-170.248	Graham2016	2016	USA	PH156_485	PRJNA320875	SRS1424520	False	False	False	False
+SRR3480252	ancient_metagenome		lake		lake sediment	5400.0	57.178	-170.248	Graham2016	2016	USA	PH157_489	PRJNA320875	SRS1424522	False	False	False	False
+SRR3480253	ancient_metagenome		lake		soil	5500.0	57.178	-170.248	Graham2016	2016	USA	PH144_493	PRJNA320875	SRS1424523	False	False	False	True
+SRR3480254	ancient_metagenome		ocean		lake sediment	5500.0	57.178	-170.248	Graham2016	2016	USA	PH167_495	PRJNA320875	SRS1424524	False	True	False	False
+SRR3480255	ancient_metagenome		lake		lake sediment	5500.0	57.178	-170.248	Graham2016	2016	USA	PH145_497	PRJNA320875	SRS1424525	False	False	False	False
+SRR3480256	ancient_metagenome		lake		tooth	5600.0	57.178	-170.248	Graham2016	2016	USA	PH172_499	PRJNA320875	SRS1424526	False	False	False	True
+SRR3480257	ancient_metagenome		lake		lake sediment	5600.0	57.178	-170.248	Graham2016	2016	USA	PH142_501	PRJNA320875	SRS1424527	False	False	False	False
+SRR3480258	ancient_metagenome		lake		lake sediment	5600.0	57.178	-170.248	Graham2016	2016	USA	PH143_503	PRJNA320875	SRS1424528	False	False	False	False
+SRR3480259	ancient_metagenome		lake		lake sediment	5700.0	57.178	-170.248	Graham2016	2016	USA	PH168_505	PRJNA320875	SRS1424529	False	False	False	False
+SRR3480260	ancient_metagenome		lake		lake sediment	5700.0	57.178	-170.248	Graham2016	2016	USA	PH148_507	PRJNA320875	SRS1424530	False	False	False	False
+SRR3480261	ancient_metagenome		lake		lake sediment	5800.0	57.178	-170.248	Graham2016	2016	USA	PH169_509	PRJNA320875	SRS1424531	False	False	False	False
+SRR3480263	ancient_metagenome		lake		muscle tissue	5800.0	57.178	-170.248	Graham2016	2016	USA	PH150_511	PRJNA320875	SRS1424532	False	False	False	True
+SRR3480264	ancient_metagenome		lake		lake sediment	5800.0	57.178	-170.248	Graham2016	2016	USA	PH175_513	PRJNA320875	SRS1424533	False	False	False	False
+SRR3480265	ancient_metagenome		lake		sediment	5900.0	57.178	-170.248	Graham2016	2016	USA	PH152_515	PRJNA320875	SRS1424534	False	False	False	True
+SRR3480266	ancient_metagenome		lake		soil	5900.0	57.178	-170.248	Graham2016	2016	USA	PH171_517	PRJNA320875	SRS1424535	False	False	False	True
+SRR3480268	ancient_metagenome		lake		unknown	5900.0	57.178	-170.248	Graham2016	2016	USA	PH153_519	PRJNA320875	SRS1424536	False	False	False	True
+SRR3480269	ancient_metagenome		lake		lake sediment	6000.0	57.178	-170.248	Graham2016	2016	USA	PH176_521	PRJNA320875	SRS1424537	False	False	False	False
+SRR3480270	ancient_metagenome		lake		lake sediment	6000.0	57.178	-170.248	Graham2016	2016	USA	PH154_523	PRJNA320875	SRS1424538	False	False	False	False
+SRR3480271	ancient_metagenome		lake		tooth	6000.0	57.178	-170.248	Graham2016	2016	USA	PH174_525	PRJNA320875	SRS1424539	False	False	False	True
+SRR3480272	ancient_metagenome		lake		lake sediment	6100.0	57.178	-170.248	Graham2016	2016	USA	PH118-PH146_527	PRJNA320875	SRS1424540	False	False	False	False
+SRR3480273	ancient_metagenome		archeological site		lake sediment	6100.0	57.178	-170.248	Graham2016	2016	USA	PH118-PH146_527	PRJNA320875	SRS1424540	False	True	False	False
+SRR3480275	ancient_metagenome		lake		lake sediment	6100.0	57.178	-170.248	Graham2016	2016	USA	PH147_531	PRJNA320875	SRS1424541	False	False	False	False
+SRR3480276	ancient_metagenome		lake		lake sediment	6600.0	57.178	-170.248	Graham2016	2016	USA	PH121-PH186_551	PRJNA320875	SRS1424542	False	False	False	False
+SRR3480277	ancient_metagenome		lake		lake sediment	6600.0	57.178	-170.248	Graham2016	2016	USA	PH121-PH186_551	PRJNA320875	SRS1424542	False	False	False	False
+SRR3480278	ancient_metagenome		lake		lake sediment	7300.0	57.178	-170.248	Graham2016	2016	USA	PH082_579	PRJNA320875	SRS1424543	False	False	False	False
+SRR3480279	ancient_metagenome		swamp forest		lake sediment	7300.0	57.178	-170.248	Graham2016	2016	USA	PH082_579	PRJNA320875	SRS1424543	False	True	False	False
+SRR3480280	ancient_metagenome		lake		lake sediment	7800.0	57.178	-170.248	Graham2016	2016	USA	PH083_599	PRJNA320875	SRS1424544	False	False	False	False
+SRR3480281	ancient_metagenome		lake		lake sediment	7800.0	57.178	-170.248	Graham2016	2016	USA	PH083_599	PRJNA320875	SRS1424544	False	False	False	False
+SRR3480282	ancient_metagenome		lake		lake sediment	8300.0	57.178	-170.248	Graham2016	2016	USA	PH119-PH184_619	PRJNA320875	SRS1424545	False	False	False	False
+SRR3480283	ancient_metagenome		lake		lake sediment	8300.0	57.178	-170.248	Graham2016	2016	USA	PH119-PH184_619	PRJNA320875	SRS1424545	False	False	False	False
+SRR3480284	ancient_metagenome		lake		lake sediment	9800.0	57.178	-170.248	Graham2016	2016	USA	PH151_679	PRJNA320875	SRS1424548	False	False	False	False
+SRR3480285	ancient_metagenome		lake		lake sediment	3400.0	57.178	-170.248	Graham2016	2016	USA	PH116-PH182_265	PRJNA320875	SRS1424546	False	False	False	False
+SRR3480286	ancient_metagenome		lake		lake sediment	10900.0	57.178	-170.248	Graham2016	2016	USA	PH120-PH185-PH194_719	PRJNA320875	SRS1424547	False	False	False	False
+SRR3480287	ancient_metagenome		lake		lake sediment	10900.0	57.178	-170.248	Graham2016	2016	USA	PH120-PH185-PH194_719	PRJNA320875	SRS1424547	False	False	False	False
+SRR3480288	ancient_metagenome		lake		lake sediment	10900.0	57.178	-170.248	Graham2016	2016	USA	PH120-PH185-PH194_719	PRJNA320875	SRS1424547	False	False	False	False
+SRR3480289	ancient_metagenome		lake		lake sediment	10900.0	57.178	-170.248	Graham2016	2016	USA	PH120-PH185-PH194_719	PRJNA320875	SRS1424547	False	False	False	False
+SRR3480290	ancient_metagenome		lake		lake sediment	3400.0	57.178	-170.248	Graham2016	2016	USA	PH116-PH182_265	PRJNA320875	SRS1424546	False	False	False	False
+SRR3480291	ancient_metagenome		lake		lake sediment	3400.0	57.178	-170.248	Graham2016	2016	USA	PH116-PH182_265	PRJNA320875	SRS1424546	False	False	False	False
+SRR3480292	ancient_metagenome		lake		lake sediment	4300.0	57.178	-170.248	Graham2016	2016	USA	PH149_373	PRJNA320875	SRS1424549	False	False	False	False
+SRR3480293	ancient_metagenome		lake		marine sediment	5100.0	57.178	-170.248	Graham2016	2016	USA	PH180_461	PRJNA320875	SRS1424550	False	False	False	True
+SRR3992610	ancient_metagenome		lake		lake sediment	12000.0	57.178	-170.248	Wang2017	2017	USA	JK221_806	PRJNA320875	SRS1596529	False	False	False	False
+SRR3992611	ancient_metagenome		lake		lake sediment	12100.0	57.178	-170.248	Wang2017	2017	USA	JK222_814	PRJNA320875	SRS1596530	False	False	False	False
+SRR3992612	ancient_metagenome		lake		lake sediment	12100.0	57.178	-170.248	Wang2017	2017	USA	JK223_818	PRJNA320875	SRS1596531	False	False	False	False
+SRR3992613	ancient_metagenome		lake		bone	12200.0	57.178	-170.248	Wang2017	2017	USA	JK224_826	PRJNA320875	SRS1596532	False	False	False	True
+SRR3992614	ancient_metagenome		sea coast		lake sediment	12200.0	57.178	-170.248	Wang2017	2017	USA	JK225_830	PRJNA320875	SRS1596533	False	True	False	False
+SRR3992615	ancient_metagenome		lake		lake sediment	12300.0	57.178	-170.248	Wang2017	2017	USA	JK226_838	PRJNA320875	SRS1596535	False	False	False	False
+SRR3992616	ancient_metagenome		lake		lake sediment	13300.0	57.178	-170.248	Wang2017	2017	USA	PH187_996	PRJNA320875	SRS1596536	False	False	False	False
+SRR3992617	ancient_metagenome		lake		lake sediment	13300.0	57.178	-170.248	Wang2017	2017	USA	PH188_1000	PRJNA320875	SRS1596538	False	False	False	False
+SRR3992618	ancient_metagenome		rock shelter		lake sediment	13600.0	57.178	-170.248	Wang2017	2017	USA	PH189_1046	PRJNA320875	SRS1596537	False	True	False	False
+SRR3992619	ancient_metagenome		lake		lake sediment	14200.0	57.178	-170.248	Wang2017	2017	USA	PH190_1109	PRJNA320875	SRS1596539	False	False	False	False
+SRR3992620	ancient_metagenome		lake		lake sediment	11800.0	57.178	-170.248	Wang2017	2017	USA	JK143_786	PRJNA320875	SRS1596540	False	False	False	False
+SRR3992621	ancient_metagenome		lake		digestive tract contents	15000.0	57.178	-170.248	Wang2017	2017	USA	PH191_1173	PRJNA320875	SRS1596541	False	False	False	True
+SRR3992622	ancient_metagenome		lake		marine sediment	16700.0	57.178	-170.248	Wang2017	2017	USA	PH192_1237	PRJNA320875	SRS1596542	False	False	False	True
+SRR3992623	ancient_metagenome		lake		lake sediment	17500.0	57.178	-170.248	Wang2017	2017	USA	PH193_1301	PRJNA320875	SRS1596543	False	False	False	False
+SRR3992624	ancient_metagenome		swamp forest		lake sediment	11900.0	57.178	-170.248	Wang2017	2017	USA	JK144_798	PRJNA320875	SRS1596545	False	True	False	False
+SRR3992625	ancient_metagenome		lake		lake sediment	12100.0	57.178	-170.248	Wang2017	2017	USA	JK145_810	PRJNA320875	SRS1596544	False	False	False	False
+SRR3992626	ancient_metagenome		lake		lake sediment	12200.0	57.178	-170.248	Wang2017	2017	USA	JK146_822	PRJNA320875	SRS1596546	False	False	False	False
+SRR3992627	ancient_metagenome		lake		lake sediment	12300.0	57.178	-170.248	Wang2017	2017	USA	JK147_834	PRJNA320875	SRS1596547	False	False	False	False
+SRR3992628	ancient_metagenome		lake		lake sediment	12300.0	57.178	-170.248	Wang2017	2017	USA	JK148_846	PRJNA320875	SRS1596548	False	False	False	False
+SRR3992629	ancient_metagenome		lake		lake sediment	11900.0	57.178	-170.248	Wang2017	2017	USA	JK219_794	PRJNA320875	SRS1596549	False	False	False	False
+SRR3992630	ancient_metagenome		lake		lake sediment	12000.0	57.178	-170.248	Wang2017	2017	USA	JK220_802	PRJNA320875	SRS1596550	False	False	False	False
+SRR8899212	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	18C	PRJNA531027	SRS4625250	False	False	False	False
+SRR8899213	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	19C	PRJNA531027	SRS4625249	False	False	False	False
+SRR8899214	ancient_metagenome	oral		Gorilla beringei graueri	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	13C	PRJNA531027	SRS4625248	False	False	True	False
+SRR8899215	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	14C	PRJNA531027	SRS4625247	False	False	False	False
+SRR8899216	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	16C	PRJNA531027	SRS4625246	False	False	False	False
+SRR8899217	ancient_metagenome	oral		Pan troglodytes schweinfurthii	muscle tissue	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	17C	PRJNA531027	SRS4625245	False	False	False	True
+SRR8899218	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	02C	PRJNA531027	SRS4625244	False	False	False	False
+SRR8899219	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	04C	PRJNA531027	SRS4625243	False	False	False	False
+SRR8899220	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	05C	PRJNA531027	SRS4625242	False	False	False	False
+SRR8899221	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	07C	PRJNA531027	SRS4625241	False	False	False	False
+SRR8899222	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	29C	PRJNA531027	SRS4625240	False	False	False	False
+SRR8899223	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	20C	PRJNA531027	SRS4625239	False	False	False	False
+SRR8899224	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	21C	PRJNA531027	SRS4625238	False	False	False	False
+SRR8899225	ancient_metagenome	oral		Lithobates pipiens	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	22C	PRJNA531027	SRS4625237	False	False	True	False
+SRR8899226	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	24C	PRJNA531027	SRS4625236	False	False	False	False
+SRR8899227	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	25C	PRJNA531027	SRS4625235	False	False	False	False
+SRR8899228	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	26C	PRJNA531027	SRS4625234	False	False	False	False
+SRR8899229	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	27C	PRJNA531027	SRS4625233	False	False	False	False
+SRR8899230	ancient_metagenome	soft tissue		Pan troglodytes schweinfurthii	dental calculus	100.0	-4.69	29.62	Ozga2019	2019	Tanzania	28C	PRJNA531027	SRS4625232	True	False	False	False

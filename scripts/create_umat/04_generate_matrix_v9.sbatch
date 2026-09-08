@@ -57,9 +57,23 @@ fi
 SAMPLE_COUNT=$(wc -l < "$INPUT_FOF")
 echo "Processing $SAMPLE_COUNT unitig files"
 
-if [[ $SAMPLE_COUNT -ne 3191 ]]; then
-    echo "⚠️  WARNING: Expected 3,191 samples but found $SAMPLE_COUNT"
+# Sanity-check the input rather than assert a fixed total. The v7 script compared
+# against a hardcoded 3,191, which would warn on every correct v9 run (2,716 train
+# samples) and so could never flag a real truncation.
+if [[ $SAMPLE_COUNT -lt 100 ]]; then
+    echo "❌ ERROR: $INPUT_FOF has only $SAMPLE_COUNT entries — looks truncated."
+    exit 1
 fi
+MISSING=0
+while read -r line; do
+    f=$(echo "$line" | awk '{print $NF}')
+    [[ -e "$f" ]] || MISSING=$((MISSING+1))
+done < "$INPUT_FOF"
+if [[ $MISSING -gt 0 ]]; then
+    echo "❌ ERROR: $MISSING of $SAMPLE_COUNT input files do not exist."
+    exit 1
+fi
+echo "All $SAMPLE_COUNT input unitig files present."
 
 # Activate local DIANA environment (has ggcat and dependencies)
 echo "Activating DIANA environment..."
@@ -88,7 +102,7 @@ echo ""
 
 # Raise open-file limit as high as the hard limit allows.
 # The merge step in kmtricks opens ~threads × samples files simultaneously.
-# With 32 threads × 3190 samples = 102,080 — must stay under ulimit -n.
+# With 32 threads x $SAMPLE_COUNT samples the merge step must stay under ulimit -n.
 CURRENT_ULIMIT=$(ulimit -Hn)
 ulimit -n "${CURRENT_ULIMIT}"
 echo "Open file limit (ulimit -n): $(ulimit -n)"

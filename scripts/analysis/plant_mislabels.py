@@ -45,7 +45,6 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 SPLITS = PROJECT_ROOT / "data/splits_v9"
 MERGEKEY = PROJECT_ROOT / "results/amd_label_corrections/mergekey_usable.tsv"
 TARGETS = ["community_type", "feature", "sample_host", "material"]
-HOST_TARGETS = {"community_type", "sample_host"}
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -143,8 +142,14 @@ def plant(df: pd.DataFrame, train: pd.DataFrame, eligible: dict, rate: float,
                 new = rng.choice(cand, p=prob)
                 n_emp += 1
             else:
-                alt = confusable.get(truth, np.array([]))
-                alt = alt[alt != truth]
+                if model == "uniform":
+                    # Genuinely uniform over the label space -- that is the point of
+                    # this mode. Drawing from the confusable neighbours instead made
+                    # the "optimistic bound" no looser than `mixed`.
+                    alt = np.array([c for c in eligible.get(target, set()) if c != truth])
+                else:
+                    alt = confusable.get(truth, np.array([]))
+                    alt = alt[alt != truth]
                 if not len(alt):
                     continue
                 new = rng.choice(alt)
@@ -161,8 +166,10 @@ def main() -> int:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--split", default="test", choices=["train", "val", "test"])
     ap.add_argument("--rate", type=float, default=0.10, help="fraction of eligible rows to corrupt")
-    ap.add_argument("--model", default="mixed", choices=["empirical", "plausible", "mixed", "uniform"],
-                    help="mixed = empirical where measured, plausible elsewhere")
+    ap.add_argument("--model", default="mixed", choices=["empirical", "mixed", "uniform"],
+                    help="mixed (default) = empirical where measured, confusability "
+                         "elsewhere; uniform = draw from the whole label space, the "
+                         "optimistic bound to report beside the realistic number")
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--output", type=Path, default=PROJECT_ROOT / "results/planted_mislabels")
     args = ap.parse_args()

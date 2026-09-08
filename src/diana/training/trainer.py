@@ -1,7 +1,10 @@
 """Training loops for multi-task and single-task models."""
 
 import torch
+
+from ..models.multitask_mlp import IGNORE_INDEX
 import torch.nn as nn
+import torch.nn.functional as F
 import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
 from typing import Dict, Optional, List, Union
@@ -12,8 +15,8 @@ from tqdm import tqdm
 
 
 class MultiTaskTrainer:
-    """Trainer for multi-task classification."""
-    
+    """Trainer for multi-task classification and/or regression."""
+
     def __init__(self,
                  model: nn.Module,
                  task_names: List[str],
@@ -22,44 +25,74 @@ class MultiTaskTrainer:
                  weight_decay: float = 0.0,
                  task_weights: Optional[Dict[str, float]] = None,
                  class_weights: Optional[Dict[str, torch.Tensor]] = None,
-                 label_smoothing: Union[float, Dict[str, float]] = 0.0):
+                 class_priors: Optional[Dict[str, torch.Tensor]] = None,
+                 logit_adjust_tau: float = 0.0,
+                 label_smoothing: Union[float, Dict[str, float]] = 0.0,
+                 regression_tasks: Optional[List[str]] = None):
         """
         Initialize trainer.
-        
+
         Args:
             model: Multi-task model
-            task_names: List of task names
+            task_names: List of task names (classification + regression)
             device: Device to train on
             learning_rate: Learning rate
             weight_decay: L2 regularization weight decay
             task_weights: Weights for each task loss
-            class_weights: Per-class weights for handling class imbalance (dict of tensors)
+            class_weights: Per-class weights for classification tasks (dict of tensors).
+            class_priors: Per-class training frequencies, for logit adjustment.
+            logit_adjust_tau: Logit-adjustment strength; 0 disables. Mutually
+                exclusive with class_weights — both correct the same imbalance,
+                and together they double-correct.
             label_smoothing: Label smoothing factor for CrossEntropyLoss (0.0 = off)
+            regression_tasks: Names of regression tasks (targets normalised to [0,1]).
+                              NaN targets are masked out automatically.
         """
         if isinstance(device, str):
             device = torch.device(device)
-        
+
         self.model = model.to(device)
         self.device = device
         self.task_names = task_names
+        self.regression_tasks = set(regression_tasks or [])
         self.optimizer = optim.Adam(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
-        
-        # Task-specific loss functions with optional class weights
-        # label_smoothing can be a single float or a per-task dict
+
+        if logit_adjust_tau and class_weights:
+            raise ValueError(
+                "class_weights and logit_adjust_tau both correct for class imbalance; "
+                "using them together double-corrects. Pick one."
+            )
+        self.logit_adjust_tau = float(logit_adjust_tau or 0.0)
+        # log(prior) per task, on the training device. Masked labels must already be
+        # excluded from the counts by the caller.
+        self.log_priors: Dict[str, torch.Tensor] = {}
+        if self.logit_adjust_tau and class_priors:
+            for target, prior in class_priors.items():
+                pr = torch.as_tensor(prior, dtype=torch.float32, device=device)
+                pr = pr / pr.sum()
+                self.log_priors[target] = torch.log(pr.clamp_min(1e-12))
+
+        # Task-specific loss functions
         ls_per_task = label_smoothing if isinstance(label_smoothing, dict) \
                       else {t: float(label_smoothing) for t in task_names}
         self.criteria = {}
         for target in task_names:
-            ls = ls_per_task.get(target, 0.0)
-            if class_weights is not None and target in class_weights:
-                self.criteria[target] = nn.CrossEntropyLoss(
-                    weight=class_weights[target],
-                    label_smoothing=ls,
-                )
+            if target in self.regression_tasks:
+                # SmoothL1 (Huber) — reduction='none' for NaN masking
+                self.criteria[target] = nn.SmoothL1Loss(reduction='none')
             else:
-                self.criteria[target] = nn.CrossEntropyLoss(
-                    label_smoothing=ls,
-                )
+                ls = ls_per_task.get(target, 0.0)
+                if class_weights is not None and target in class_weights:
+                    self.criteria[target] = nn.CrossEntropyLoss(
+                        weight=class_weights[target],
+                        label_smoothing=ls,
+                        ignore_index=IGNORE_INDEX,
+                    )
+                else:
+                    self.criteria[target] = nn.CrossEntropyLoss(
+                        label_smoothing=ls,
+                        ignore_index=IGNORE_INDEX,
+                    )
         
         # Task weights (default: equal weighting)
         if task_weights is None:
@@ -73,6 +106,18 @@ class MultiTaskTrainer:
             "val_acc": {target: [] for target in task_names}
         }
         
+    def _adjust(self, target: str, logits: "torch.Tensor") -> "torch.Tensor":
+        """Add tau*log(prior) to logits during loss computation only.
+
+        Menon et al., ICLR 2021. The correction is absorbed while fitting, so
+        inference stays a plain argmax on unadjusted logits and there is no
+        post-hoc temperature to tune on a held-out split.
+        """
+        lp = self.log_priors.get(target)
+        if lp is None or not self.logit_adjust_tau:
+            return logits
+        return logits + self.logit_adjust_tau * lp
+
     def fit(self, 
             X_train: Union[np.ndarray, DataLoader],
             y_train: Union[Dict[str, np.ndarray], None] = None,
@@ -111,8 +156,13 @@ class MultiTaskTrainer:
         if train_loader is None:
             if isinstance(X_train, np.ndarray):
                 X_tensor = torch.FloatTensor(X_train)
-                y_tensors = {task: torch.LongTensor(y_train[task]) for task in self.task_names}
-                
+                y_tensors = {}
+                for task in self.task_names:
+                    if task in self.regression_tasks:
+                        y_tensors[task] = torch.FloatTensor(y_train[task])
+                    else:
+                        y_tensors[task] = torch.LongTensor(y_train[task])
+
                 # Create TensorDataset
                 dataset = TensorDataset(
                     X_tensor,
@@ -121,11 +171,16 @@ class MultiTaskTrainer:
                 train_loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
             else:
                 train_loader = X_train  # Assume it's already a DataLoader
-        
+
         if val_loader is None and X_val is not None:
             X_tensor = torch.FloatTensor(X_val)
-            y_tensors = {task: torch.LongTensor(y_val[task]) for task in self.task_names}
-            
+            y_tensors = {}
+            for task in self.task_names:
+                if task in self.regression_tasks:
+                    y_tensors[task] = torch.FloatTensor(y_val[task])
+                else:
+                    y_tensors[task] = torch.LongTensor(y_val[task])
+
             dataset = TensorDataset(
                 X_tensor,
                 *[y_tensors[task] for task in self.task_names]
@@ -217,7 +272,7 @@ class MultiTaskTrainer:
         total_loss = 0
         task_correct = {target: 0 for target in self.task_names}
         task_total = {target: 0 for target in self.task_names}
-        
+
         for batch in train_loader:
             # Unpack batch (X, task1_y, task2_y, ...)
             batch_x = batch[0].to(self.device)
@@ -225,21 +280,35 @@ class MultiTaskTrainer:
                 task: batch[i+1].to(self.device)
                 for i, task in enumerate(self.task_names)
             }
-            
+
             # Forward pass
             self.optimizer.zero_grad()
             outputs = self.model(batch_x)
-            
+
             # Compute losses
             losses = {}
             for target in self.task_names:
-                loss = self.criteria[target](outputs[target], batch_y[target])
-                losses[target] = loss
-                
-                # Accuracy
-                _, predicted = torch.max(outputs[target], 1)
-                task_correct[target] += (predicted == batch_y[target]).sum().item()
-                task_total[target] += batch_y[target].size(0)
+                if target in self.regression_tasks:
+                    pred = outputs[target]          # (batch,)
+                    tgt  = batch_y[target]          # (batch,) float, may contain NaN
+                    valid = ~torch.isnan(tgt)
+                    if valid.sum() == 0:
+                        loss = pred.sum() * 0.0
+                    else:
+                        loss = self.criteria[target](pred[valid], tgt[valid]).mean()
+                    losses[target] = loss
+                    # MAE as proxy metric (lower is better, but tracked as "correct" equivalent)
+                    with torch.no_grad():
+                        if valid.sum() > 0:
+                            task_correct[target] += float((1.0 - torch.abs(pred[valid] - tgt[valid]).mean()).clamp(0, 1).item() * valid.sum().item())
+                            task_total[target] += valid.sum().item()
+                else:
+                    loss = self.criteria[target](
+                        self._adjust(target, outputs[target]), batch_y[target])
+                    losses[target] = loss
+                    _, predicted = torch.max(outputs[target], 1)
+                    task_correct[target] += (predicted == batch_y[target]).sum().item()
+                    task_total[target] += batch_y[target].size(0)
             
             # Combined loss
             total = sum(self.task_weights[t] * losses[t] for t in self.task_names)
@@ -276,19 +345,32 @@ class MultiTaskTrainer:
                     task: batch[i+1].to(self.device)
                     for i, task in enumerate(self.task_names)
                 }
-                
+
                 outputs = self.model(batch_x)
-                
+
                 # Losses and accuracy
                 losses = []
                 for target in self.task_names:
-                    loss = self.criteria[target](outputs[target], batch_y[target])
-                    losses.append(self.task_weights[target] * loss.item())
-                    
-                    _, predicted = torch.max(outputs[target], 1)
-                    task_correct[target] += (predicted == batch_y[target]).sum().item()
-                    task_total[target] += batch_y[target].size(0)
-                
+                    if target in self.regression_tasks:
+                        pred = outputs[target]
+                        tgt  = batch_y[target]
+                        valid = ~torch.isnan(tgt)
+                        if valid.sum() == 0:
+                            loss = 0.0
+                        else:
+                            loss = self.criteria[target](pred[valid], tgt[valid]).mean().item()
+                        losses.append(self.task_weights[target] * loss)
+                        if valid.sum() > 0:
+                            task_correct[target] += float((1.0 - torch.abs(pred[valid] - tgt[valid]).mean()).clamp(0, 1).item() * valid.sum().item())
+                            task_total[target] += valid.sum().item()
+                    else:
+                        loss = self.criteria[target](
+                        self._adjust(target, outputs[target]), batch_y[target])
+                        losses.append(self.task_weights[target] * loss.item())
+                        _, predicted = torch.max(outputs[target], 1)
+                        task_correct[target] += (predicted == batch_y[target]).sum().item()
+                        task_total[target] += batch_y[target].size(0)
+
                 total_loss += sum(losses)
         
         metrics = {
@@ -305,19 +387,24 @@ class MultiTaskTrainer:
         """
         Legacy method for backward compatibility.
         Trains for one epoch using numpy arrays directly.
-        
+
         For new code, use fit() method instead.
         """
         # Convert to DataLoader
         X_tensor = torch.FloatTensor(X)
-        y_tensors = {task: torch.LongTensor(y[task]) for task in self.task_names}
-        
+        y_tensors = {}
+        for task in self.task_names:
+            if task in self.regression_tasks:
+                y_tensors[task] = torch.FloatTensor(y[task])
+            else:
+                y_tensors[task] = torch.LongTensor(y[task])
+
         dataset = TensorDataset(
             X_tensor,
             *[y_tensors[task] for task in self.task_names]
         )
         loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
-        
+
         return self._train_epoch_from_loader(loader)
 
 

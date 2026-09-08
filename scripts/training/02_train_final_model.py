@@ -20,7 +20,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 from diana.data.loader import MatrixLoader
-from diana.models.multitask_mlp import MultiTaskMLP
+from diana.models.multitask_mlp import IGNORE_INDEX, MultiTaskMLP
 from diana.training.trainer import MultiTaskTrainer
 
 def main():
@@ -75,7 +75,7 @@ def main():
     logger.info(f'Total samples in matrix: {len(X_all)}')
     
     # Filter to train samples only (exclude test set)
-    train_ids_path = Path(config.get('train_ids_path', 'data/splits/train_ids.txt'))
+    train_ids_path = Path(config.get('train_ids_path', 'data/splits_v5/train_ids.txt'))
     logger.info(f"Loading train IDs from {train_ids_path}")
     with open(train_ids_path, 'r') as f:
         train_ids = set(line.strip() for line in f if line.strip())
@@ -96,49 +96,86 @@ def main():
     logger.info(f'Train samples: {len(X_full)}')
 
     # Get task info and labels
-    task_names = config['task_names']
-    task_info = {}
-    y_full = {}
+    task_names      = config['task_names']
+    task_types      = config.get('task_types', {t: 'classification' for t in task_names})
+    regression_tasks = [t for t in task_names if task_types.get(t) == 'regression']
+    task_info  = {}   # classification tasks only: {task: n_classes}
+    y_full     = {}   # all tasks: np arrays (int for cls, float for reg)
     label_encoders = {}
-    
+
+    # Fixed normalization bounds for regression tasks (domain-aware)
+    REGRESSION_BOUNDS = {
+        'sample_age': (np.log1p(100.0), np.log1p(2_000_000.0), True),
+        'latitude':   (-90.0, 90.0, False),
+        'longitude':  (-180.0, 180.0, False),
+    }
+
     for task_name in task_names:
-        # Encode string labels to integers
-        encoder = LabelEncoder()
-        y_full[task_name] = encoder.fit_transform(metadata[task_name].values)
-        label_encoders[task_name] = encoder
-        n_classes = len(encoder.classes_)
-        task_info[task_name] = n_classes
-        logger.info(f"Task '{task_name}': {n_classes} classes")
+        if task_name in regression_tasks:
+            raw = metadata[task_name].values.astype(float)
+            if task_name in REGRESSION_BOUNDS:
+                vmin, vmax, do_log = REGRESSION_BOUNDS[task_name]
+            else:
+                do_log = False
+                vmin = float(np.nanmin(raw))
+                vmax = float(np.nanmax(raw))
+            transformed = np.log1p(raw) if do_log else raw.copy()
+            normalized  = (transformed - vmin) / (vmax - vmin)
+            np.clip(normalized, 0.0, 1.0, out=normalized)
+            normalized[np.isnan(raw)] = np.nan
+            y_full[task_name] = normalized.astype(np.float32)
+            label_encoders[task_name] = {'min': vmin, 'max': vmax, 'log_transform': do_log}
+            logger.info(f"Task '{task_name}' (regression): "
+                        f"{(~np.isnan(raw)).sum()} valid / {len(raw)} samples, "
+                        f"range [{np.nanmin(raw):.1f}, {np.nanmax(raw):.1f}]")
+        else:
+            # Absent labels are MASKED, not encoded as a class. Fitting on raw values
+            # makes NaN a trainable class -- on v9 that is 2,155 rows (78 % of
+            # training) for `feature` alone -- while diana-test masks the same rows
+            # out, so the trained and evaluated label spaces would disagree.
+            vals = metadata[task_name].values
+            present = pd.notna(vals)
+            encoder = LabelEncoder()
+            encoder.fit(vals[present])
+            enc = np.full(len(vals), IGNORE_INDEX, dtype=np.int64)
+            enc[present] = encoder.transform(vals[present])
+            y_full[task_name] = enc
+            label_encoders[task_name] = encoder
+            n_classes = len(encoder.classes_)
+            task_info[task_name] = n_classes
+            logger.info(f"Task '{task_name}': {n_classes} classes, "
+                        f"{int(present.sum())} labelled, {int((~present).sum())} masked")
 
     # Save label encoders BEFORE training (in case training crashes)
     encoders_path = Path(config['output_dir']) / 'label_encoders.json'
-    encoders_data = {
-        task: {
-            'classes': encoder.classes_.tolist()
-        }
-        for task, encoder in label_encoders.items()
-    }
+    encoders_data = {}
+    for task, enc in label_encoders.items():
+        if task in regression_tasks:
+            encoders_data[task] = enc  # already a plain dict
+        else:
+            encoders_data[task] = {'classes': enc.classes_.tolist()}
     with open(encoders_path, 'w') as f:
         json.dump(encoders_data, f, indent=2)
     logger.info(f'Label encoders saved to: {encoders_path}')
 
-    # Compute class weights BEFORE split (on full training set)
+    # Compute class weights BEFORE split (classification tasks only)
     logger.info('Computing class weights for handling class imbalance...')
     class_weights = {}
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    
+
     for task_name in task_names:
-        unique, counts = np.unique(y_full[task_name], return_counts=True)
-        total = len(y_full[task_name])
+        if task_name in regression_tasks:
+            continue  # no class weights for regression
+        _lab = y_full[task_name]
+        _lab = _lab[_lab != IGNORE_INDEX]   # masked rows must not skew the weights
+        unique, counts = np.unique(_lab, return_counts=True)
+        total = len(_lab)
         n_total_classes = task_info[task_name]
-        
-        # Initialize weights for all classes with 1.0 (neutral weight for missing classes)
+
         weights = np.ones(n_total_classes, dtype=np.float32)
-        
-        # Compute weights for classes present in training set
         for cls_idx, count in zip(unique, counts):
             weights[cls_idx] = total / (len(unique) * count)
-        
+
         class_weights[task_name] = torch.FloatTensor(weights).to(device)
         logger.info(f"{task_name} - Classes: {len(unique)}, Weights (present): {dict(zip(unique.astype(int), weights[unique]))}")
 
@@ -146,41 +183,57 @@ def main():
     validation_split = config.get('validation_split', 0.1)
     logger.info(f'Creating validation split: {validation_split * 100:.0f}% for validation')
 
-    # Create combined stratification key (sample_type + community_type)
+    # Stratify by first two classification tasks (or first one, or none for pure regression)
+    classification_tasks = [t for t in task_names if t not in regression_tasks]
     stratify_key = None
-    if 'sample_type' in task_names and 'community_type' in task_names:
-        # Combine as string for consistency with hyperopt script
+    if len(classification_tasks) >= 2:
+        t1, t2 = classification_tasks[0], classification_tasks[1]
         stratify_key = np.array([
-            f"{metadata.iloc[i]['sample_type']}_{metadata.iloc[i]['community_type']}"
+            f"{metadata.iloc[i][t1]}_{metadata.iloc[i][t2]}"
             for i in range(len(metadata))
         ])
-        logger.info('Using combined sample_type + community_type for stratification')
+        logger.info(f'Stratifying by {t1} + {t2}')
+    elif len(classification_tasks) == 1:
+        stratify_key = y_full[classification_tasks[0]]
+        logger.info(f'Stratifying by {classification_tasks[0]}')
     else:
-        stratify_key = y_full[task_names[0]]
-        logger.info(f'Using {task_names[0]} for stratification')
+        logger.info('No classification tasks — no stratification')
 
     indices = np.arange(len(X_full))
+    # stratify_key was computed and logged but never passed, so the log asserted the
+    # opposite of what happened. Stratify where it is usable: every class needs at
+    # least 2 members, and masked rows (IGNORE_INDEX) must not form a stratum.
+    strat = None
+    if stratify_key is not None:
+        sk = pd.Series(stratify_key).astype(str)
+        vc = sk.value_counts()
+        sk = sk.where(sk.map(vc) >= 2, "__rare__")
+        if sk.nunique() > 1 and sk.value_counts().min() >= 2:
+            strat = sk.to_numpy()
+        else:
+            logger.warning("stratification not possible for this split; proceeding unstratified")
     train_idx, val_idx = train_test_split(
         indices,
         test_size=validation_split,
         random_state=random_seed,
-        stratify=stratify_key
+        stratify=strat,
     )
 
     X_train, X_val = X_full[train_idx], X_full[val_idx]
     y_train = {task: y_full[task][train_idx] for task in task_names}
-    y_val = {task: y_full[task][val_idx] for task in task_names}
+    y_val   = {task: y_full[task][val_idx]   for task in task_names}
 
     logger.info(f'Sub-train samples: {len(X_train)}')
     logger.info(f'Validation samples: {len(X_val)}')
 
     # P1: Initialize model with clean nested params (use unpacking)
     logger.info(f'Using device: {device}')
-    
+
     model = MultiTaskMLP(
         input_dim=X_full.shape[1],
-        num_classes=task_info,  # Changed from task_info to num_classes
-        **hyperparams['model_params']  # Unpacks: hidden_dims, dropout, activation, use_batch_norm
+        num_classes=task_info,
+        regression_tasks=regression_tasks,
+        **hyperparams['model_params']
     )
 
     # P1: Initialize trainer with clean nested params + class weights
@@ -189,6 +242,23 @@ def main():
         'label_smoothing_per_task',
         config.get('label_smoothing', 0.0)
     )
+    # One imbalance correction only: the v9 config asks for logit adjustment, which
+    # needs no post-hoc tuning. Configs without the block keep inverse-frequency
+    # weighting, so v7 behaviour is unchanged.
+    _imb = config.get('class_imbalance', {}) or {}
+    logit_tau = float(_imb.get('logit_adjust_tau', 0.0) or 0.0)
+    class_priors = None
+    if logit_tau > 0:
+        class_priors = {}
+        for task_name in task_info:
+            lab = y_full[task_name]
+            lab = lab[lab != IGNORE_INDEX]
+            counts = np.bincount(lab, minlength=task_info[task_name]).astype(np.float32)
+            class_priors[task_name] = torch.from_numpy(counts)
+        logger.info('Class imbalance: logit adjustment, tau=%.2f (class weights disabled)', logit_tau)
+    else:
+        logger.info('Class imbalance: inverse-frequency class weights')
+
     trainer = MultiTaskTrainer(
         model=model,
         task_names=task_names,
@@ -196,8 +266,11 @@ def main():
         learning_rate=hyperparams['trainer_params']['learning_rate'],
         weight_decay=hyperparams['trainer_params']['weight_decay'],
         task_weights=hyperparams['trainer_params']['task_weights'],
-        class_weights=class_weights,
+        class_weights=None if logit_tau > 0 else class_weights,
+        class_priors=class_priors,
+        logit_adjust_tau=logit_tau,
         label_smoothing=label_smoothing,
+        regression_tasks=regression_tasks,
     )
 
     # Train with early stopping
