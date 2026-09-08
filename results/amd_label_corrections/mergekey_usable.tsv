@@ -1,0 +1,155 @@
+run	split	field	old	new	usable
+ERR11656730	train	community_type	oral	skeletal tissue	True
+ERR11656731	train	community_type	oral	skeletal tissue	True
+ERR11656732	train	community_type	oral	skeletal tissue	True
+ERR11656733	train	community_type	oral	skeletal tissue	True
+ERR11656734	train	community_type	oral	skeletal tissue	True
+ERR11656735	train	community_type	oral	skeletal tissue	True
+ERR11656736	train	community_type	oral	skeletal tissue	True
+ERR11656738	train	community_type	oral	skeletal tissue	True
+ERR4373119	train	community_type	skeletal tissue	oral	True
+ERR4374008	train	community_type	soft tissue	skeletal tissue	True
+ERR4374011	train	community_type	skeletal tissue	soft tissue	True
+ERR4374017	train	community_type	skeletal tissue	soft tissue	True
+ERR4374020	train	community_type	oral	skeletal tissue	True
+ERR4374021	train	community_type	oral	soft tissue	True
+ERR4374023	train	community_type	skeletal tissue	oral	True
+ERR4374035	train	community_type	skeletal tissue	soft tissue	True
+ERR4374046	train	community_type	skeletal tissue	soft tissue	True
+ERR4374053	train	community_type	skeletal tissue	oral	True
+ERR4374857	train	community_type	skeletal tissue	soft tissue	True
+ERR4374918	train	community_type	oral	skeletal tissue	True
+ERR4374928	train	community_type	oral	skeletal tissue	True
+ERR4375039	train	community_type	skeletal tissue	oral	True
+ERR4386569	train	community_type	soft tissue	skeletal tissue	True
+ERR4386594	train	community_type	skeletal tissue	soft tissue	True
+ERR4388102	train	community_type	skeletal tissue	soft tissue	True
+ERR4388107	train	community_type	skeletal tissue	soft tissue	True
+ERR4388231	train	community_type	skeletal tissue	soft tissue	True
+ERR4388236	train	community_type	skeletal tissue	soft tissue	True
+SRR6877285	train	community_type	oral	skeletal tissue	True
+SRR6877287	train	community_type	oral	skeletal tissue	True
+SRR6877289	train	community_type	oral	skeletal tissue	True
+SRR6877293	train	community_type	oral	skeletal tissue	True
+SRR6877295	train	community_type	oral	skeletal tissue	True
+SRR6877297	train	community_type	oral	skeletal tissue	True
+SRR6877298	train	community_type	oral	skeletal tissue	True
+SRR6877299	train	community_type	oral	skeletal tissue	True
+SRR6877301	train	community_type	oral	skeletal tissue	True
+SRR6877302	train	community_type	oral	skeletal tissue	True
+SRR6877306	train	community_type	oral	skeletal tissue	True
+SRR6877307	train	community_type	oral	skeletal tissue	True
+SRR6877311	train	community_type	oral	skeletal tissue	True
+SRR6877312	train	community_type	skeletal tissue	oral	True
+SRR6877315	train	community_type	oral	skeletal tissue	True
+SRR6877318	train	community_type	skeletal tissue	oral	True
+SRR6877319	train	community_type	oral	skeletal tissue	True
+SRR6877321	train	community_type	oral	skeletal tissue	True
+SRR6877325	train	community_type	oral	skeletal tissue	True
+SRR6877327	train	community_type	oral	skeletal tissue	True
+SRR6877331	train	community_type	oral	skeletal tissue	True
+SRR6877333	train	community_type	oral	skeletal tissue	True
+SRR6877335	train	community_type	oral	skeletal tissue	True
+SRR6877336	train	community_type	skeletal tissue	oral	True
+SRR6877337	train	community_type	oral	skeletal tissue	True
+SRR6877339	train	community_type	skeletal tissue	oral	True
+SRR6877340	train	community_type	skeletal tissue	oral	True
+SRR6877341	train	community_type	oral	skeletal tissue	True
+SRR6877342	train	community_type	skeletal tissue	oral	True
+SRR6877343	train	community_type	oral	skeletal tissue	True
+SRR6877345	train	community_type	oral	skeletal tissue	True
+SRR6877347	train	community_type	oral	skeletal tissue	True
+SRR6877353	train	community_type	oral	skeletal tissue	True
+SRR6877355	train	community_type	oral	skeletal tissue	True
+SRR6877357	train	community_type	oral	skeletal tissue	True
+SRR6877359	train	community_type	oral	skeletal tissue	True
+SRR6877360	train	community_type	oral	skeletal tissue	True
+SRR6877364	train	community_type	oral	skeletal tissue	True
+SRR6877366	train	community_type	oral	skeletal tissue	True
+SRR6877368	train	community_type	oral	skeletal tissue	True
+SRR6877371	train	community_type	oral	skeletal tissue	True
+SRR6877373	train	community_type	oral	skeletal tissue	True
+SRR6877375	train	community_type	oral	skeletal tissue	True
+SRR6877379	train	community_type	oral	skeletal tissue	True
+SRR6877380	train	community_type	oral	skeletal tissue	True
+SRR6877383	train	community_type	oral	skeletal tissue	True
+SRR6877385	train	community_type	oral	skeletal tissue	True
+SRR6877387	train	community_type	oral	skeletal tissue	True
+SRR6877389	train	community_type	oral	skeletal tissue	True
+SRR6877391	train	community_type	oral	skeletal tissue	True
+SRR6877394	train	community_type	oral	skeletal tissue	True
+SRR6877396	train	community_type	oral	skeletal tissue	True
+SRR6877398	train	community_type	oral	skeletal tissue	True
+SRR6877400	train	community_type	oral	skeletal tissue	True
+ERR11656730	train	material	dental calculus	bone	True
+ERR11656731	train	material	dental calculus	bone	True
+ERR11656732	train	material	dental calculus	bone	True
+ERR11656733	train	material	dental calculus	bone	True
+ERR11656734	train	material	dental calculus	bone	True
+ERR11656735	train	material	dental calculus	bone	True
+ERR11656736	train	material	dental calculus	bone	True
+ERR11656738	train	material	dental calculus	bone	True
+ERR4373119	train	material	bone	dental calculus	True
+ERR4373159	train	material	tooth	dental calculus	True
+ERR4374020	train	material	tooth	bone	True
+ERR4374023	train	material	bone	tooth	True
+ERR4374053	train	material	bone	tooth	True
+ERR4374918	train	material	tooth	bone	True
+ERR4374928	train	material	tooth	bone	True
+ERR4375039	train	material	bone	tooth	True
+ERR4391165	train	material	tooth	dental calculus	True
+ERR4391166	train	material	tooth	dental calculus	True
+SRR6877285	train	material	dental calculus	tooth	True
+SRR6877287	train	material	dental calculus	tooth	True
+SRR6877289	train	material	dental calculus	tooth	True
+SRR6877293	train	material	dental calculus	tooth	True
+SRR6877295	train	material	dental calculus	tooth	True
+SRR6877297	train	material	dental calculus	tooth	True
+SRR6877298	train	material	dental calculus	tooth	True
+SRR6877299	train	material	dental calculus	tooth	True
+SRR6877301	train	material	dental calculus	tooth	True
+SRR6877302	train	material	dental calculus	tooth	True
+SRR6877306	train	material	dental calculus	tooth	True
+SRR6877307	train	material	dental calculus	tooth	True
+SRR6877311	train	material	dental calculus	tooth	True
+SRR6877312	train	material	tooth	dental calculus	True
+SRR6877315	train	material	dental calculus	tooth	True
+SRR6877318	train	material	tooth	dental calculus	True
+SRR6877319	train	material	dental calculus	tooth	True
+SRR6877321	train	material	dental calculus	tooth	True
+SRR6877325	train	material	dental calculus	tooth	True
+SRR6877327	train	material	dental calculus	tooth	True
+SRR6877331	train	material	dental calculus	tooth	True
+SRR6877333	train	material	dental calculus	tooth	True
+SRR6877335	train	material	dental calculus	tooth	True
+SRR6877336	train	material	tooth	dental calculus	True
+SRR6877337	train	material	dental calculus	tooth	True
+SRR6877339	train	material	tooth	dental calculus	True
+SRR6877340	train	material	tooth	dental calculus	True
+SRR6877341	train	material	dental calculus	tooth	True
+SRR6877342	train	material	tooth	dental calculus	True
+SRR6877343	train	material	dental calculus	tooth	True
+SRR6877345	train	material	dental calculus	tooth	True
+SRR6877347	train	material	dental calculus	tooth	True
+SRR6877353	train	material	dental calculus	tooth	True
+SRR6877355	train	material	dental calculus	tooth	True
+SRR6877357	train	material	dental calculus	tooth	True
+SRR6877359	train	material	dental calculus	tooth	True
+SRR6877360	train	material	dental calculus	tooth	True
+SRR6877364	train	material	dental calculus	tooth	True
+SRR6877366	train	material	dental calculus	tooth	True
+SRR6877368	train	material	dental calculus	tooth	True
+SRR6877371	train	material	dental calculus	tooth	True
+SRR6877373	train	material	dental calculus	tooth	True
+SRR6877375	train	material	dental calculus	tooth	True
+SRR6877379	train	material	dental calculus	tooth	True
+SRR6877380	train	material	dental calculus	tooth	True
+SRR6877383	train	material	dental calculus	tooth	True
+SRR6877385	train	material	dental calculus	tooth	True
+SRR6877387	train	material	dental calculus	tooth	True
+SRR6877389	train	material	dental calculus	tooth	True
+SRR6877391	train	material	dental calculus	tooth	True
+SRR6877394	train	material	dental calculus	tooth	True
+SRR6877396	train	material	dental calculus	tooth	True
+SRR6877398	train	material	dental calculus	tooth	True
+SRR6877400	train	material	dental calculus	tooth	True
