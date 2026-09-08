@@ -1,0 +1,36 @@
+AMD historical label corrections
+
+field-level changes found : 262
+distinct samples          : 145
+distinct runs             : 133
+
+by change type:
+    vocabulary normalisation     151
+    genuine relabel               86
+    fill/blank                    25
+
+GENUINE relabels: 86 changes over 55 runs
+  by table/field:
+    environmental    feature             45
+    environmental    material            22
+    hostassociated   community_type       5
+    hostassociated   material             6
+    hostassociated   sample_host          8
+
+  usable now — genuine relabels whose run is in a v9 split:
+    train           31
+    not_in_v9       26
+    val             18
+    test            11
+
+  most common corrections:
+      25x  marine sediment  ->  ocean
+      13x  rock shelter  ->  sediment
+       9x  soil  ->  permafrost
+       6x  lake  ->  thermokarst
+       6x  archaeological site  ->  archeological site
+       5x  slump  ->  archeological site
+       4x  human  ->  Homo sapiens
+       3x  alas  ->  thermokarst
+       1x  dental calculus  ->  bone
+       1x  Mammuthus trogontherii  ->  Mammuthus sp.
