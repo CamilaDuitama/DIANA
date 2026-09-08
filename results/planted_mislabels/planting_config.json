@@ -1,0 +1,7 @@
+{
+  "split": "test",
+  "rate": 0.1,
+  "model": "mixed",
+  "seed": 42,
+  "file": "planted_test_mixed_r0.1.tsv"
+}
