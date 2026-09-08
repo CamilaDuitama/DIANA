@@ -1,0 +1,82 @@
+{
+  "community_type": {
+    "n_train": 2120,
+    "n_test": 430,
+    "n_eligible_classes": 5,
+    "MajorityClass": {
+      "accuracy": 0.5441860465116279,
+      "balanced_accuracy": 0.2,
+      "f1_macro_eligible": 0.14096385542168674
+    },
+    "Depth_LogReg": {
+      "accuracy": 0.14418604651162792,
+      "balanced_accuracy": 0.15807608513490867,
+      "f1_macro_eligible": 0.08690352732412385
+    },
+    "Depth_RandomForest": {
+      "accuracy": 0.46511627906976744,
+      "balanced_accuracy": 0.17156695156695156,
+      "f1_macro_eligible": 0.13385782649138733
+    }
+  },
+  "feature": {
+    "n_train": 620,
+    "n_test": 220,
+    "n_eligible_classes": 5,
+    "MajorityClass": {
+      "accuracy": 0.3181818181818182,
+      "balanced_accuracy": 0.2,
+      "f1_macro_eligible": 0.09655172413793103
+    },
+    "Depth_LogReg": {
+      "accuracy": 0.013636363636363636,
+      "balanced_accuracy": 0.05454545454545454,
+      "f1_macro_eligible": 0.046153846153846156
+    },
+    "Depth_RandomForest": {
+      "accuracy": 0.004545454545454545,
+      "balanced_accuracy": 0.002857142857142857,
+      "f1_macro_eligible": 0.002857142857142857
+    }
+  },
+  "sample_host": {
+    "n_train": 2132,
+    "n_test": 429,
+    "n_eligible_classes": 5,
+    "MajorityClass": {
+      "accuracy": 0.8368298368298368,
+      "balanced_accuracy": 0.2,
+      "f1_macro_eligible": 0.18223350253807108
+    },
+    "Depth_LogReg": {
+      "accuracy": 0.009324009324009324,
+      "balanced_accuracy": 0.0022284122562674096,
+      "f1_macro_eligible": 0.00440771349862259
+    },
+    "Depth_RandomForest": {
+      "accuracy": 0.6456876456876457,
+      "balanced_accuracy": 0.1543175487465181,
+      "f1_macro_eligible": 0.15783475783475784
+    }
+  },
+  "material": {
+    "n_train": 2698,
+    "n_test": 575,
+    "n_eligible_classes": 11,
+    "MajorityClass": {
+      "accuracy": 0.0817391304347826,
+      "balanced_accuracy": 0.09090909090909091,
+      "f1_macro_eligible": 0.013738672902660039
+    },
+    "Depth_LogReg": {
+      "accuracy": 0.0817391304347826,
+      "balanced_accuracy": 0.045494842037395226,
+      "f1_macro_eligible": 0.03703294341592214
+    },
+    "Depth_RandomForest": {
+      "accuracy": 0.05217391304347826,
+      "balanced_accuracy": 0.04895739380384101,
+      "f1_macro_eligible": 0.02335619771326506
+    }
+  }
+}

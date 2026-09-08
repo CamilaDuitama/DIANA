@@ -1,0 +1,28 @@
+Depth-only control (R3.7 / R3.8)
+
+Features: log10(read_count), log10(download_size). Nothing else.
+
+community_type  (train 2120, test 430, 5 eligible classes)
+    model                      acc  bal_acc  F1_elig
+    MajorityClass            0.544    0.200    0.141
+    Depth_LogReg             0.144    0.158    0.087
+    Depth_RandomForest       0.465    0.172    0.134
+
+feature  (train 620, test 220, 5 eligible classes)
+    model                      acc  bal_acc  F1_elig
+    MajorityClass            0.318    0.200    0.097
+    Depth_LogReg             0.014    0.055    0.046
+    Depth_RandomForest       0.005    0.003    0.003
+
+sample_host  (train 2132, test 429, 5 eligible classes)
+    model                      acc  bal_acc  F1_elig
+    MajorityClass            0.837    0.200    0.182
+    Depth_LogReg             0.009    0.002    0.004
+    Depth_RandomForest       0.646    0.154    0.158
+
+material  (train 2698, test 575, 11 eligible classes)
+    model                      acc  bal_acc  F1_elig
+    MajorityClass            0.082    0.091    0.014
+    Depth_LogReg             0.082    0.045    0.037
+    Depth_RandomForest       0.052    0.049    0.023
+
