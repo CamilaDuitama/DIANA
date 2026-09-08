@@ -42,6 +42,7 @@ logger = logging.getLogger(__name__)
 
 from diana.data.loader import MatrixLoader
 from diana.models.multitask_mlp import (
+    IGNORE_INDEX,
     MultiTaskMLP,
     denormalize_regression,
     split_tasks,
@@ -139,15 +140,29 @@ def encode_labels(metadata: 'pd.DataFrame', task_names: list, encoders_data: dic
             encoder = LabelEncoder()
             encoder.classes_ = np.array(enc['classes'])
             known_classes = set(enc['classes'])
+
+            # Two different things must not be conflated:
+            #   IGNORE_INDEX -- the task does not apply to this run (an environmental
+            #                   run has no sample_host), so it is masked and must not
+            #                   appear in any denominator;
+            #   -1           -- the run HAS a label, but one the model was never
+            #                   trained on. That is out-of-vocabulary, and reporting
+            #                   the count is R3.5.
+            # Lumping them together makes the out-of-vocabulary count meaningless.
             encoded = np.array([
-                encoder.transform([v])[0] if v in known_classes else -1
+                IGNORE_INDEX if (v is None or (isinstance(v, float) and np.isnan(v)))
+                else (encoder.transform([v])[0] if v in known_classes else -1)
                 for v in metadata[task].values
             ])
-            n_unseen = (encoded == -1).sum()
-            if n_unseen > 0:
-                logger.warning(f"{task}: {n_unseen} samples have unseen labels — excluded from metrics")
+            n_masked = int((encoded == IGNORE_INDEX).sum())
+            n_oov = int((encoded == -1).sum())
+            if n_oov:
+                logger.warning(f"{task}: {n_oov} runs carry a label absent from training "
+                               f"(out-of-vocabulary, R3.5) — excluded from metrics")
             y_test[task] = encoded
-            logger.info(f"Encoded {task}: {(encoded >= 0).sum()} samples with seen labels (of {len(encoded)} total)")
+            logger.info(f"Encoded {task}: {(encoded >= 0).sum()} scored, "
+                        f"{n_masked} masked (task not applicable), "
+                        f"{n_oov} out-of-vocabulary, of {len(encoded)} runs")
         else:
             # Regression task — store raw float values (NaN for missing)
             raw = np.array(metadata[task].values, dtype=float)
@@ -221,6 +236,8 @@ def evaluate_model(model, X_test, y_test, task_names, encoders_data, device, bat
             task_results = {
                 'task_type': 'classification',
                 'n_samples': int(seen_mask.sum()),
+                'n_masked': int((y_true_all == IGNORE_INDEX).sum()),
+                'n_out_of_vocabulary': int((y_true_all == -1).sum()),
                 'n_unseen': int((~seen_mask).sum()),
                 'accuracy': float(accuracy_score(y_true, y_pred)),
                 'balanced_accuracy': float(balanced_accuracy_score(y_true, y_pred)),

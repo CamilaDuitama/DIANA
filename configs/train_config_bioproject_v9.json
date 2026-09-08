@@ -1,0 +1,39 @@
+{
+  "_comment": "v9: v8 label space on the v9 BioProject-disjoint partition. Four classification heads, no regression -- sample_age/latitude/longitude were dropped (see PROJECT.md section 3) and sample_type is out of v7 onward. Features come from matrix_v9_train, whose vocabulary is built from TRAINING RUNS ONLY (R3.4); val and test are projected onto it.",
+  "features_path": "data/matrices/matrix_v9_train/unitigs.frac.mat",
+  "metadata_path": "data/splits_v9/train_metadata.tsv",
+  "train_ids_path": "data/splits_v9/train_accessions.txt",
+  "output_dir": "results/training_bioproject_v9",
+  "task_names": [
+    "community_type",
+    "feature",
+    "sample_host",
+    "material"
+  ],
+  "task_types": {
+    "community_type": "classification",
+    "feature": "classification",
+    "sample_host": "classification",
+    "material": "classification"
+  },
+  "class_imbalance": {
+    "method": "logit_adjustment",
+    "logit_adjust_tau": 1.0,
+    "_comment": "Replaces v7's inverse-frequency class weights, which taught the net a balanced posterior that was then argmaxed on an imbalanced split -- the 158-of-235 Homo sapiens runs predicted Papio hamadryas. tau=1 is parameter-free and needs no post-hoc correction fitted on a held-out split. class_weights must stay null: MultiTaskLoss raises if both are set.",
+    "class_weights": null
+  },
+  "masking": {
+    "ignore_index": -100,
+    "_comment": "Absent labels are masked, not encoded as a class. Environmental runs have no community_type/sample_host; host runs have no feature; material classes under 3 training runs are masked; 12 McDonough2018 runs have conflicting labels masked per target."
+  },
+  "validation_split": 0.1,
+  "max_epochs": 200,
+  "early_stopping_patience": 20,
+  "patience": 20,
+  "random_seed": 42,
+  "n_inner_splits": 3,
+  "n_trials": 50,
+  "checkpoint_freq": 1,
+  "use_gpu": true,
+  "group_column": "archive_project"
+}
