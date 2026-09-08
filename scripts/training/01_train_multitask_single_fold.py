@@ -128,7 +128,7 @@ from optuna.samplers import TPESampler
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
-from diana.models.multitask_mlp import MultiTaskMLP, MultiTaskLoss
+from diana.models.multitask_mlp import IGNORE_INDEX, MultiTaskMLP, MultiTaskLoss
 from diana.data.loader import MatrixLoader
 from diana.config import ConfigManager
 from diana.utils.config import setup_logging
@@ -248,13 +248,43 @@ def prepare_labels(
             logger.info(f"{task} (regression): {(~np.isnan(raw)).sum()} valid / {len(raw)} samples, "
                         f"range [{np.nanmin(raw):.1f}, {np.nanmax(raw):.1f}]")
         else:
+            # Absent labels are MASKED, never encoded as a class. Fitting the encoder
+            # on raw values turns NaN into a real trainable class -- on v9 that is a
+            # 'nan' class for all four heads, including 2,155 rows (78 % of training)
+            # for `feature`. diana-test masks those same rows out, so the train and
+            # test label spaces would silently disagree and every metric would be
+            # computed against a different vocabulary than was trained.
+            vals = metadata[task].values
+            present = pd.notna(vals)
             encoder = LabelEncoder()
-            labels[task] = encoder.fit_transform(metadata[task].values)
+            encoder.fit(vals[present])
+            enc = np.full(len(vals), IGNORE_INDEX, dtype=np.int64)
+            enc[present] = encoder.transform(vals[present])
+            labels[task] = enc
             encoders[task] = encoder
             num_classes[task] = len(encoder.classes_)
-            logger.info(f"{task}: {num_classes[task]} classes - {list(encoder.classes_[:5])}...")
+            logger.info(f"{task}: {num_classes[task]} classes, {int(present.sum())} labelled, "
+                        f"{int((~present).sum())} masked - {list(encoder.classes_[:5])}...")
 
     return labels, encoders, num_classes
+
+
+def compute_class_priors(labels_dict: Dict[str, np.ndarray],
+                         num_classes: Dict[str, int]) -> Dict[str, "torch.Tensor"]:
+    """Per-class training frequencies for logit adjustment (masked rows excluded).
+
+    Logit adjustment needs the *natural* class distribution. Inverse-frequency
+    class weighting and logit adjustment correct for the same thing, so exactly one
+    of them should be active -- MultiTaskLoss raises if both are passed.
+    """
+    priors = {}
+    for task_name in num_classes:
+        labels = labels_dict[task_name]
+        labels = labels[labels != IGNORE_INDEX]
+        counts = np.bincount(labels, minlength=num_classes[task_name]).astype(np.float32)
+        priors[task_name] = torch.from_numpy(counts)
+        logger.info(f"{task_name} priors: {counts.astype(int).tolist()}")
+    return priors
 
 
 def compute_class_weights(labels_dict: Dict[str, np.ndarray], num_classes: Dict[str, int], device: torch.device) -> Dict[str, torch.Tensor]:
@@ -266,6 +296,7 @@ def compute_class_weights(labels_dict: Dict[str, np.ndarray], num_classes: Dict[
 
     for task_name in num_classes:  # num_classes only contains classification tasks
         labels = labels_dict[task_name]
+        labels = labels[labels != IGNORE_INDEX]   # masked rows must not skew the weights
         n_total_classes = num_classes[task_name]
         unique, counts = np.unique(labels, return_counts=True)
         total = len(labels)
@@ -322,6 +353,16 @@ def train_outer_fold(
     task_names = config["task_names"]
     task_types = config.get("task_types", {t: "classification" for t in task_names})
     regression_tasks = [t for t in task_names if task_types.get(t) == "regression"]
+
+    # Exactly one imbalance correction may be active. The v9 config asks for logit
+    # adjustment; applying it on top of inverse-frequency weights double-corrects and
+    # MultiTaskLoss raises. Default to class weights so older configs are unchanged.
+    _imb = config.get("class_imbalance", {}) or {}
+    LOGIT_TAU = float(_imb.get("logit_adjust_tau", 0.0) or 0.0)
+    USE_PRIORS = LOGIT_TAU > 0
+    logger.info("Class imbalance: %s",
+                f"logit adjustment, tau={LOGIT_TAU:.2f} (class weights disabled)"
+                if USE_PRIORS else "inverse-frequency class weights")
     classification_tasks = [t for t in task_names if task_types.get(t, "classification") == "classification"]
 
     # Prepare labels
@@ -512,7 +553,9 @@ def train_outer_fold(
                 task_names=task_names,
                 regression_tasks=regression_tasks,
                 task_weights=task_weights,
-                class_weights=class_weights,
+                class_weights=None if USE_PRIORS else class_weights,
+                class_priors=compute_class_priors(labels_dict, num_classes) if USE_PRIORS else None,
+                logit_adjust_tau=LOGIT_TAU,
                 label_smoothing=label_smoothing_per_task,
             ).to(device)
             
@@ -713,7 +756,9 @@ def train_outer_fold(
         task_names=task_names,
         regression_tasks=regression_tasks,
         task_weights=task_weights,
-        class_weights=class_weights_full,
+        class_weights=None if USE_PRIORS else class_weights_full,
+        class_priors=compute_class_priors(labels_dict, num_classes) if USE_PRIORS else None,
+        logit_adjust_tau=LOGIT_TAU,
         label_smoothing=label_smoothing_per_task,
     ).to(device)
     

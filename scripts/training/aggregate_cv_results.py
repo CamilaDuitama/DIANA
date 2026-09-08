@@ -22,7 +22,7 @@ import json
 import numpy as np
 from pathlib import Path
 from collections import defaultdict
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
 from scipy import stats
 
 
@@ -101,15 +101,19 @@ def aggregate_metrics(fold_results: List[Dict[str, Any]]) -> Dict[str, Dict[str,
         Dict mapping task -> metric -> {'mean', 'std', 'min', 'max'}
     """
     task_names = list(fold_results[0]['test_metrics'].keys())
-    metric_names = list(fold_results[0]['test_metrics'][task_names[0]].keys())
     
     aggregated = {}
     
     for task in task_names:
         aggregated[task] = {}
+        metric_names = list(fold_results[0]['test_metrics'][task].keys())
         
         for metric in metric_names:
-            values = [result['test_metrics'][task][metric] for result in fold_results]
+            values = [result['test_metrics'][task][metric] for result in fold_results
+                      if metric in result['test_metrics'].get(task, {})]
+            if not values or not isinstance(values[0], (int, float)):
+                aggregated[task][metric] = values[0] if values else None
+                continue
             aggregated[task][metric] = {
                 'mean': float(np.mean(values)),
                 'std': float(np.std(values)),
@@ -123,9 +127,11 @@ def aggregate_metrics(fold_results: List[Dict[str, Any]]) -> Dict[str, Dict[str,
 def create_final_training_config(
     cv_dir: Path,
     best_params: Dict[str, Any],
-    features_path: str = "data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat",
-    metadata_path: str = "data/splits_bioproject/train_metadata.tsv",
-    train_ids_path: str = "data/splits_bioproject/train_ids.txt"
+    features_path: str = "data/matrices/matrix_v7_3190/unitigs.frac.mat",
+    metadata_path: str = "data/splits_v7/train_metadata.tsv",
+    train_ids_path: str = "data/splits_v7/train_ids.txt",
+    task_types: Optional[Dict[str, str]] = None,
+    extra: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """
     Create configuration file for final model training.
@@ -135,25 +141,20 @@ def create_final_training_config(
     # Extract model architecture params
     n_layers = int(round(best_params['n_layers']))
     hidden_dims = [int(round(best_params[f'hidden_dim_{i}'])) for i in range(n_layers)]
-    
-    # Extract task weights
+
+    # Task types must be carried through from the run config. Defaulting to
+    # "everything is classification" is right for v9 and for any config that omits
+    # them; guessing a six-task v7 layout is what broke model reconstruction.
+    if task_types is None:
+        task_types = {}
+
+    # Extract task weights — use whatever task_weight_* keys are present
     task_weights = {
-        'sample_type': best_params['task_weight_sample_type'],
-        'community_type': best_params['task_weight_community'],
-        'sample_host': best_params['task_weight_host'],
-        'material': best_params['task_weight_material']
+        k.replace('task_weight_', ''): v
+        for k, v in best_params.items()
+        if k.startswith('task_weight_')
     }
-    
-    # Extract label smoothing (if present, v3 has this)
-    label_smoothing = {}
-    if 'ls_sample_type' in best_params:
-        label_smoothing = {
-            'sample_type': best_params['ls_sample_type'],
-            'community_type': best_params['ls_community_type'],
-            'sample_host': best_params['ls_sample_host'],
-            'material': best_params['ls_material']
-        }
-    
+
     config = {
         'features_path': features_path,
         'metadata_path': metadata_path,
@@ -173,18 +174,20 @@ def create_final_training_config(
             },
             'batch_size': int(round(best_params['batch_size']))
         },
-        'task_names': ['sample_type', 'community_type', 'sample_host', 'material'],
-        'task_weights': task_weights,  # Backward compatibility
+        'task_names': list(task_weights.keys()),
+        # Must come from the run config, not a literal. Hardcoding the v7 six-task
+        # set writes `sample_age`/`latitude`/`longitude` into every
+        # final_training_config.json; for v9 (four classification heads) split_tasks()
+        # then raises and both diana-test and Predictor fail to rebuild the model.
+        'task_types': {t: task_types.get(t, 'classification')
+                       for t in task_weights.keys()},
+        'task_weights': task_weights,
         'validation_split': 0.1,
         'max_epochs': 200,
         'early_stopping_patience': 20,
         'random_seed': 42
     }
-    
-    # Add label smoothing if present (v3 only)
-    if label_smoothing:
-        config['label_smoothing_per_task'] = label_smoothing
-    
+
     return config
 
 
@@ -195,13 +198,13 @@ def main():
     parser.add_argument('--n_folds', type=int, default=5,
                        help='Number of CV folds')
     parser.add_argument('--features', type=str,
-                       default='data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat',
+                       default='data/matrices/matrix_v7_3190/unitigs.frac.mat',
                        help='Features path for final training config')
     parser.add_argument('--metadata', type=str,
-                       default='data/splits_bioproject/train_metadata.tsv',
+                       default='data/splits_v7/train_metadata.tsv',
                        help='Metadata path for final training config')
     parser.add_argument('--train_ids', type=str,
-                       default='data/splits_bioproject/train_ids.txt',
+                       default='data/splits_v7/train_ids.txt',
                        help='Train IDs path for final training config')
     
     args = parser.parse_args()
@@ -236,7 +239,10 @@ def main():
     for task, metrics in aggregated_metrics.items():
         print(f"\n  {task}:")
         for metric_name, values in metrics.items():
-            print(f"    {metric_name}: {values['mean']:.4f} ± {values['std']:.4f}")
+            if isinstance(values, dict):
+                print(f"    {metric_name}: {values['mean']:.4f} ± {values['std']:.4f}")
+            else:
+                print(f"    {metric_name}: {values}")
     print()
     
     # Save best hyperparameters
@@ -270,12 +276,25 @@ def main():
     
     # Create final training config
     print("\nStep 5: Creating final training configuration...")
+    # Carry task_types from the fold run config so the final config matches the
+    # model that was actually trained.
+    run_task_types = None
+    for cand in sorted(args.cv_dir.glob('fold_*/run_config.json')):
+        try:
+            run_task_types = json.load(open(cand)).get('task_types')
+        except Exception:
+            continue
+        if run_task_types:
+            print(f"task_types taken from {cand}: {run_task_types}")
+            break
+
     final_config = create_final_training_config(
         args.cv_dir,
         best_params,
         args.features,
         args.metadata,
-        args.train_ids
+        args.train_ids,
+        task_types=run_task_types,
     )
     
     config_file = args.cv_dir.parent / 'final_training_config.json'
