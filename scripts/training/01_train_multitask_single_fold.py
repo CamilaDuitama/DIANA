@@ -275,6 +275,14 @@ def compute_class_priors(labels_dict: Dict[str, np.ndarray],
                          num_classes: Dict[str, int]) -> Dict[str, "torch.Tensor"]:
     """Per-class training frequencies for logit adjustment (masked rows excluded).
 
+    Pass only the rows the model is fitted on. Passing the whole dataset leaks the
+    test half into the prior and, worse, hands a finite prior to classes with no
+    training examples in this fold: the loss then gives their logits no gradient
+    while `_adjust` subtracts a large constant, so their raw logits drift and win
+    the argmax at inference. That is how `feature` scored exactly 0.000 on three
+    folds while predicting `thermokarst`, a class absent from those folds' training
+    rows.
+
     Logit adjustment needs the *natural* class distribution. Inverse-frequency
     class weighting and logit adjustment correct for the same thing, so exactly one
     of them should be active -- MultiTaskLoss raises if both are passed.
@@ -456,6 +464,27 @@ def train_outer_fold(
                 f"BioProject-disjoint."
             )
 
+    def _support_mask(idx_array, task: str) -> "torch.Tensor":
+        """Classes this fold actually trains on.
+
+        A head keeps one output per class in the global label space, but a
+        BioProject-grouped fold may contain no example of some of them. Those units
+        get no gradient, so their logits are arbitrary and can win the argmax --
+        `feature` predicted `thermokarst`, absent from that fold's training rows, on
+        every test sample. Restrict the decision to the classes the model has seen.
+        """
+        lab = labels_dict[task][idx_array]
+        lab = lab[lab != IGNORE_INDEX]
+        m = torch.zeros(num_classes[task], dtype=torch.bool)
+        if lab.size:
+            m[torch.from_numpy(np.unique(lab).astype(np.int64))] = True
+        return m
+
+    def _masked_argmax(logits, mask):
+        z = logits.clone()
+        z[:, ~mask.to(z.device)] = float("-inf")
+        return torch.argmax(z, dim=1)
+
     _assert_group_disjoint(train_idx, test_idx, f"outer fold {fold_id}")
     logger.info(f"Train: {len(train_idx)}, Test: {len(test_idx)} "
                 f"(outer fold verified {group_col}-disjoint)")
@@ -568,6 +597,8 @@ def train_outer_fold(
                 activation=activation
             ).to(device)
 
+            inner_support = {t: _support_mask(fold_train_idx, t) for t in classification_tasks}
+
             # Class weights only when logit adjustment is off -- computing them under
             # logit adjustment logs weights that are never applied.
             class_weights = None if USE_PRIORS else compute_class_weights(
@@ -582,7 +613,9 @@ def train_outer_fold(
                 regression_tasks=regression_tasks,
                 task_weights=task_weights,
                 class_weights=None if USE_PRIORS else class_weights,
-                class_priors=compute_class_priors(labels_dict, num_classes) if USE_PRIORS else None,
+                class_priors=compute_class_priors(
+                    {t: labels_dict[t][fold_train_idx] for t in num_classes},
+                    num_classes) if USE_PRIORS else None,
                 logit_adjust_tau=LOGIT_TAU,
                 label_smoothing=label_smoothing_per_task,
             ).to(device)
@@ -633,7 +666,9 @@ def train_outer_fold(
                             val_outputs = model(X_batch)
 
                             for task in classification_tasks:
-                                preds = torch.argmax(val_outputs[task], dim=1).cpu().numpy()
+                                preds = _masked_argmax(
+                                    val_outputs[task],
+                                    inner_support[task]).cpu().numpy()
                                 true  = y_batch[task].cpu().numpy()
                                 keep  = true != IGNORE_INDEX   # absent labels are not predictions to score
                                 all_preds[task].extend(preds[keep])
@@ -721,6 +756,13 @@ def train_outer_fold(
     # Split train_idx into sub-train and sub-val to avoid test set leakage during early stopping
     logger.info("Training final model with proper train/val split...")
     
+    outer_support = {t: _support_mask(train_idx, t) for t in classification_tasks}
+    for t in classification_tasks:
+        n_sup = int(outer_support[t].sum())
+        if n_sup < num_classes[t]:
+            logger.info("%s: %d/%d classes have training support in this fold",
+                        t, n_sup, num_classes[t])
+
     # Class weights only when logit adjustment is off (see note above).
     class_weights_full = None if USE_PRIORS else compute_class_weights(
         {task: labels_dict[task][train_idx] for task in num_classes.keys()},
@@ -805,7 +847,9 @@ def train_outer_fold(
         regression_tasks=regression_tasks,
         task_weights=task_weights,
         class_weights=None if USE_PRIORS else class_weights_full,
-        class_priors=compute_class_priors(labels_dict, num_classes) if USE_PRIORS else None,
+        class_priors=compute_class_priors(
+            {t: labels_dict[t][train_idx] for t in num_classes},
+            num_classes) if USE_PRIORS else None,
         logit_adjust_tau=LOGIT_TAU,
         label_smoothing=label_smoothing_per_task,
     ).to(device)
@@ -926,7 +970,7 @@ def train_outer_fold(
             test_outputs = model(X_batch)
 
             for task in classification_tasks:
-                preds = torch.argmax(test_outputs[task], dim=1).cpu().numpy()
+                preds = _masked_argmax(test_outputs[task], outer_support[task]).cpu().numpy()
                 true  = y_batch[task].cpu().numpy()
                 keep  = true != IGNORE_INDEX   # absent labels are not predictions to score
                 all_preds[task].extend(preds[keep])
