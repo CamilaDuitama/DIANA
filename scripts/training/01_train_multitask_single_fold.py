@@ -370,7 +370,14 @@ def train_outer_fold(
     _imb = config.get("class_imbalance", {}) or {}
     LOGIT_TAU = float(_imb.get("logit_adjust_tau", 0.0) or 0.0)
     USE_PRIORS = LOGIT_TAU > 0
-    logger.info("Class imbalance: %s",
+    SEARCH_TAU = bool(_imb.get("search_tau", False))
+    if SEARCH_TAU and not USE_PRIORS:
+        raise ValueError("search_tau needs logit adjustment active; set a non-zero "
+                         "logit_adjust_tau as the starting value.")
+    if SEARCH_TAU:
+        logger.info("Class imbalance: logit adjustment, tau SEARCHED in [0.05, 0.8]")
+    else:
+        logger.info("Class imbalance: %s",
                 f"logit adjustment, tau={LOGIT_TAU:.2f} (class weights disabled)"
                 if USE_PRIORS else "inverse-frequency class weights")
     classification_tasks = [t for t in task_names if task_types.get(t, "classification") == "classification"]
@@ -526,6 +533,14 @@ def train_outer_fold(
         batch_size = trial.suggest_categorical("batch_size", [32, 64, 128, 256])
         use_batch_norm = trial.suggest_categorical("use_batch_norm", [True, False])
         activation = trial.suggest_categorical("activation", ["relu", "gelu", "leaky_relu"])
+
+        # Logit-adjustment strength. tau=1 is the parameter-free default in Menon et
+        # al., but at this imbalance it over-corrects badly: a class with n=2 gets a
+        # +5.3 logit offset, so the model picks it whenever unsure. Measured on dev
+        # fold 2, single-task `feature`: tau=1.00 -> accuracy 0.009, tau=0.25 ->
+        # 0.484. It is a hyperparameter here, not a constant, and is reported as one.
+        trial_tau = (trial.suggest_float("logit_adjust_tau", 0.05, 0.8)
+                     if SEARCH_TAU else LOGIT_TAU)
         
         # Task loss weights (one weight per task, all tasks)
         task_weights = {
@@ -573,7 +588,11 @@ def train_outer_fold(
                 train_dataset,
                 batch_size=batch_size,
                 shuffle=True,
-                drop_last=False
+                # A trailing batch of 1 makes BatchNorm raise in train mode
+                # ("Expected more than 1 value per channel"). The search varies
+                # batch_size, so this fires whenever n_train % batch_size == 1 and
+                # would kill those trials rather than score them.
+                drop_last=True
             )
             
             val_dataset = TensorDataset(
@@ -616,7 +635,7 @@ def train_outer_fold(
                 class_priors=compute_class_priors(
                     {t: labels_dict[t][fold_train_idx] for t in num_classes},
                     num_classes) if USE_PRIORS else None,
-                logit_adjust_tau=LOGIT_TAU,
+                logit_adjust_tau=trial_tau,
                 label_smoothing=label_smoothing_per_task,
             ).to(device)
             
@@ -813,7 +832,7 @@ def train_outer_fold(
         train_dataset,
         batch_size=int(round(best_params["batch_size"])),
         shuffle=True,
-        drop_last=False
+        drop_last=True   # see note above: a trailing batch of 1 breaks BatchNorm
     )
 
     val_dataset = TensorDataset(
@@ -850,7 +869,7 @@ def train_outer_fold(
         class_priors=compute_class_priors(
             {t: labels_dict[t][train_idx] for t in num_classes},
             num_classes) if USE_PRIORS else None,
-        logit_adjust_tau=LOGIT_TAU,
+        logit_adjust_tau=float(best_params.get("logit_adjust_tau", LOGIT_TAU)),
         label_smoothing=label_smoothing_per_task,
     ).to(device)
     
