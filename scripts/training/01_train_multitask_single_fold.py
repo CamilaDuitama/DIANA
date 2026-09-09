@@ -543,10 +543,16 @@ def train_outer_fold(
                      if SEARCH_TAU else LOGIT_TAU)
         
         # Task loss weights (one weight per task, all tasks)
-        task_weights = {
-            t: trial.suggest_float(f"task_weight_{t}", 0.5, 2.0)
-            for t in task_names
-        }
+        # With one head, task_weight only rescales the loss, which learning_rate
+        # already does -- searching it would spend a dimension on a no-op and
+        # handicap the single-task control against the multi-task arm.
+        if len(task_names) > 1:
+            task_weights = {
+                t: trial.suggest_float(f"task_weight_{t}", 0.5, 2.0)
+                for t in task_names
+            }
+        else:
+            task_weights = {t: 1.0 for t in task_names}
 
         # Per-task label smoothing for classification tasks only
         if config.get('no_label_smoothing', False):
@@ -768,6 +774,10 @@ def train_outer_fold(
         )
 
         best_params = study.best_params
+        # aggregate_cv_results reads task_names off the task_weight_* keys, so they
+        # must be present even for a single-task run that never searched them.
+        for t in task_names:
+            best_params.setdefault(f"task_weight_{t}", 1.0)
         logger.info(f"Best hyperparameters (averaged over {n_inner_splits} folds): {best_params}")
         logger.info(f"Best CV score: {study.best_value:.4f}")
     
@@ -856,7 +866,7 @@ def train_outer_fold(
     )
     
     # Task weights and label smoothing from best Optuna params
-    task_weights = {t: best_params[f"task_weight_{t}"] for t in task_names}
+    task_weights = {t: float(best_params.get(f"task_weight_{t}", 1.0)) for t in task_names}
     label_smoothing_per_task = {
         t: best_params.get(f"ls_{t}", 0.0)
         for t in classification_tasks
