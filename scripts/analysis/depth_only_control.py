@@ -137,6 +137,12 @@ def main() -> int:
         "metadata depth  [log10(read_count), log10(download_size)]": ["log_reads", "log_size"],
         "sequence depth  [log10(total unitig abundance), mean k-mer fraction]":
             ["log_abundance", "mean_fraction"],
+        # Split the pair. Total abundance is genuine sequencing depth. Mean fraction
+        # is how much of the vocabulary a sample covers -- effectively a one-number
+        # summary of the features themselves, so if it carries the combined result
+        # then that result is not evidence of a depth confound.
+        "depth alone     [log10(total unitig abundance)]": ["log_abundance"],
+        "coverage alone  [mean k-mer fraction]": ["mean_fraction"],
     }
 
     results, lines = {}, ["Depth-only control (R3.7 / R3.8)", ""]
@@ -179,17 +185,26 @@ def _run_feature_set(feats, results, lines, depth, tr, te, el, args) -> None:
         results[target] = {"n_train": len(ytr), "n_test": len(yte),
                            "n_eligible_classes": len(elig)}
         lines.append(f"{target}  (train {len(ytr)}, test {len(yte)}, {len(elig)} eligible classes)")
-        lines.append(f"    {'model':22s} {'acc':>7s} {'bal_acc':>8s} {'F1_elig':>8s}")
+        lines.append(f"    {'model':22s} {'acc':>7s} {'bal_acc':>8s} {'F1_elig':>8s} | "
+                     f"{'tr_acc':>7s} {'tr_bal':>8s} {'tr_F1':>8s}")
+        def _score(y_true, y_pred, labels):
+            return {"accuracy": float(accuracy_score(y_true, y_pred)),
+                    "balanced_accuracy": float(balanced_accuracy_score(y_true, y_pred)),
+                    "f1_macro_eligible": float(f1_score(y_true, y_pred, labels=labels,
+                                                        average="macro", zero_division=0))
+                    if labels else float("nan")}
+
+        # Train scores matter here: a depth-only model that fits training well and
+        # collapses on held-out is showing the BioProject shift, not a depth signal.
+        elig_tr = sorted(c for c in set(ytr) if c in eligible)
         for name, m in models.items():
             m.fit(Xtr, ytr)
-            p = m.predict(Xte)
-            r = {"accuracy": float(accuracy_score(yte, p)),
-                 "balanced_accuracy": float(balanced_accuracy_score(yte, p)),
-                 "f1_macro_eligible": float(f1_score(yte, p, labels=elig, average="macro",
-                                                     zero_division=0)) if elig else float("nan")}
-            results[target][name] = r
+            r = _score(yte, m.predict(Xte), elig)
+            r_tr = _score(ytr, m.predict(Xtr), elig_tr)
+            results[target][name] = {"test": r, "train": r_tr}
             lines.append(f"    {name:22s} {r['accuracy']:7.3f} {r['balanced_accuracy']:8.3f} "
-                         f"{r['f1_macro_eligible']:8.3f}")
+                         f"{r['f1_macro_eligible']:8.3f} | {r_tr['accuracy']:7.3f} "
+                         f"{r_tr['balanced_accuracy']:8.3f} {r_tr['f1_macro_eligible']:8.3f}")
         lines.append("")
 
 
