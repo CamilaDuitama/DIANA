@@ -27,7 +27,7 @@ train+test, and validation runs have per-sample vectors under
 
 Inputs
 ------
-data/splits_v8/{train,test,val}_metadata.tsv   (v8 label space; targets only)
+data/v9_labels_prepartition/{train,test,val}_metadata.tsv   (corrected targets)
 data/matrices/matrix_v7_3190/unitigs.frac.mat  (which runs have matrix features)
 results/validation_vectors_v7/                 (per-sample vectors)
 
@@ -157,7 +157,7 @@ def fold_report(parts: dict, df: pd.DataFrame, elig: pd.DataFrame) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--metadata-dir", type=Path, default=PROJECT_ROOT / "data/splits_v8")
+    ap.add_argument("--metadata-dir", type=Path, default=PROJECT_ROOT / "data/v9_labels_prepartition")
     ap.add_argument("--matrix", type=Path,
                     default=PROJECT_ROOT / "data/matrices/matrix_v7_3190/unitigs.frac.mat")
     ap.add_argument("--vector-dir", type=Path,

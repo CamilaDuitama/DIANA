@@ -6,15 +6,64 @@
 
 ## Model Versions
 
-| Version | Path | Architecture | HPO valid? | Label smoothing | Recommended? |
-|---------|------|-------------|-----------|-----------------|:------------:|
-| v1 / v2 | `results/training_bioproject/` | [230, 346], relu, LR=1.31e-3, batch=70 | ❌ Broken (full-batch, test-set leakage, trials split across folds) | None | ❌ |
-| v3 | `results/training_bioproject_v3/` | [294, 384, 288], leaky_relu, LR=4.06e-4, batch=32 | ✅ Fixed | Per-task ε (0.043–0.064) | ❌ |
-| **v4** | `results/training_bioproject_v4/` | Same as v3 | ✅ Reused from v3 | **None (ε = 0)** | ✅ |
+> **v9 is the current version. Everything else on this page is historical.**
+> Do not train, evaluate or report from v5 or v7 artefacts — their splits, labels
+> and feature vocabulary are all superseded, and their numbers are not comparable
+> with v9's. See `PROJECT.md` for the full rationale.
 
-**v4 is the production model.** It uses the correct v3 architecture and hyperparameters but drops label smoothing, which caused `sample_host` validation balanced accuracy to collapse from 80.9% (v2) to 41.8% (v3) and test ECE to worsen from 0.074 to 0.488.
+### v9 — current
 
-All paper scripts read paths from `scripts/paper/config.py`. To switch between model versions, change only that file.
+| | |
+|---|---|
+| labels | `data/v9_labels_prepartition/` (corrected targets, pre-split) |
+| split | `data/splits_v9/` — BioProject-disjoint, asserted in code |
+| features | `data/matrices/matrix_v9_train/` — 110,202 unitigs |
+| config | `configs/train_config_bioproject_v9.json` |
+| results | `results/training_bioproject_v9/` |
+
+**Four classification heads:** `community_type` (host-associated vocabulary),
+`feature` (environmental vocabulary), `sample_host`, `material`. No regression:
+`sample_age`, `latitude` and `longitude` were dropped as future work, and
+`sample_type` has been out since v7 (every sample is an ancient metagenome).
+
+What makes v9 different, and why the older numbers cannot be reused:
+
+1. **The split is genuinely BioProject-disjoint and checked.** v7's
+   `split_config.json` claimed disjointness across all three splits; only
+   train↔test actually held. Disjointness is now asserted in the split script,
+   which refuses to write if it fails.
+2. **The feature vocabulary is built from training runs only** (R3.4). v7 built it
+   over train *and* test together, so the test set influenced which unitigs exist.
+   Val and test are scored against the fixed v9 vocabulary afterwards, using the
+   same feature-extraction path as `diana-predict`.
+3. **Absent labels are masked, not encoded as a class.** An environmental run has
+   no `sample_host`; that is now excluded from the loss and from every metric,
+   rather than trained as a `nan` category.
+4. **Class imbalance is handled by logit adjustment** (τ=1) rather than
+   inverse-frequency weights, which taught v7 a balanced posterior that was then
+   argmaxed on an imbalanced split.
+5. **Hyperparameters are selected on BioProject-grouped folds.** v7's were tuned
+   with a plain `StratifiedKFold`, so R3.2 applied to the search as well as to the
+   split.
+
+**There is no v8 model.** `05_build_v9_labels.py` writes the corrected label table
+and `06_create_bioproject_splits_v9.py` partitions it; the two landed on different
+days and the intermediate briefly carried a v8 name. Nothing is trained from it.
+
+### Historical versions
+
+Kept for provenance only. **Not recommended for any new work.**
+
+| Version | Path | Note |
+|---------|------|------|
+| v1 / v2 | `results/training_bioproject/` | broken HPO: full-batch, test-set leakage |
+| v3 | `results/training_bioproject_v3/` | HPO fixed; label smoothing collapsed `sample_host` |
+| v4 | `results/training_bioproject_v4/` | v3 architecture without label smoothing |
+| v5 | `results/training_bioproject_v5/` | 4 tasks incl. `sample_type` |
+| v7 | `results/training_bioproject_v7/` | 6 tasks; leaked split and vocabulary — see above |
+
+The `paper` branch reproduces the submitted manuscript from v5-era artefacts and
+must not be updated with new results.
 
 ### v5 pipeline (run from project root)
 

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Build v8 train/test/val metadata from AncientMetagenomeDir v26.03.0.
+"""Build the v9 label table from AncientMetagenomeDir v26.03.0.
 
 Question answered
 -----------------
 v7's targets cap macro-F1 for reasons that have nothing to do with the model
-(see results/label_space_audit/). v8 rebuilds the label space so the targets are
+(see results/label_space_audit/). v9 rebuilds the label space so the targets are
 learnable and honestly scored. The runs and the feature matrix are unchanged —
 only the labels.
 
@@ -42,6 +42,15 @@ What changes from v7
 Absent labels are written as empty cells and become IGNORE_INDEX at encoding
 time, so they contribute no gradient and are excluded from metrics.
 
+NOTE ON NAMING
+--------------
+This produces the *label table* only -- corrected targets, before any
+partitioning. It is an intermediate consumed by
+06_create_bioproject_splits_v9.py, which adds the BioProject-disjoint split and
+writes data/splits_v9/. There is no v8 model, no v8 config and no v8 training
+run; the label work and the partition work simply landed on different days.
+Everything trained from here is v9.
+
 Inputs
 ------
 data/metadata/AncientMetagenomeDir-v26.03.0/*.tsv
@@ -49,8 +58,8 @@ data/splits_v7/{train,test,val}_accessions.txt   (same runs, same BioProject spl
 
 Outputs
 -------
-data/splits_v8/{train,test,val}_metadata.tsv
-data/splits_v8/label_space_report.txt
+data/v9_labels_prepartition/{train,test,val}_metadata.tsv
+data/v9_labels_prepartition/label_space_report.txt
 """
 
 from __future__ import annotations
@@ -146,8 +155,8 @@ def main() -> int:
     ap.add_argument("--amd-dir", type=Path,
                     default=PROJECT_ROOT / "data/metadata/AncientMetagenomeDir-v26.03.0")
     ap.add_argument("--splits-dir", type=Path, default=PROJECT_ROOT / "data/splits_v7",
-                    help="Source of the accession lists (v8 reuses the v7 BioProject split)")
-    ap.add_argument("--output-dir", type=Path, default=PROJECT_ROOT / "data/splits_v8")
+                    help="Source of the accession lists (v9 reuses the v7 BioProject split)")
+    ap.add_argument("--output-dir", type=Path, default=PROJECT_ROOT / "data/v9_labels_prepartition")
     ap.add_argument("--material-min-support", type=int, default=3,
                     help="Minimum TRAINING runs for a material class to be retained")
     args = ap.parse_args()
