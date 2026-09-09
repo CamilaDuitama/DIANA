@@ -1,20 +1,14 @@
 {
-  "_comment": "v9: v8 label space on the v9 BioProject-disjoint partition. Four classification heads, no regression -- sample_age/latitude/longitude were dropped (see PROJECT.md section 3) and sample_type is out of v7 onward. Features come from matrix_v9_train, whose vocabulary is built from TRAINING RUNS ONLY (R3.4); val and test are projected onto it.",
+  "_comment": "Fixed hyperparameters, no Optuna search. Both arms use identical settings so any multi-task vs single-task difference is task sharing, not a luckier draw from the search space. Values are mid-range of the v7 search space. Single-task control for 'feature'.",
   "features_path": "data/matrices/matrix_v9_train/unitigs.frac.mat",
   "metadata_path": "data/splits_v9/train_metadata.tsv",
   "train_ids_path": "data/splits_v9/train_accessions.txt",
-  "output_dir": "results/training_bioproject_v9",
+  "output_dir": "results/training_v9_fixed_single_feature",
   "task_names": [
-    "community_type",
-    "feature",
-    "sample_host",
-    "material"
+    "feature"
   ],
   "task_types": {
-    "community_type": "classification",
-    "feature": "classification",
-    "sample_host": "classification",
-    "material": "classification"
+    "feature": "classification"
   },
   "class_imbalance": {
     "method": "logit_adjustment",
@@ -36,6 +30,19 @@
   "checkpoint_freq": 1,
   "use_gpu": true,
   "group_column": "archive_project",
+  "fixed_hyperparameters": {
+    "n_layers": 3,
+    "hidden_dim_0": 512,
+    "hidden_dim_1": 256,
+    "hidden_dim_2": 128,
+    "dropout": 0.3,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "batch_size": 64,
+    "use_batch_norm": true,
+    "activation": "relu",
+    "task_weight_feature": 1.0
+  },
   "dev_folds_path": "data/splits_v9/dev_folds.tsv",
   "n_folds": 5
 }

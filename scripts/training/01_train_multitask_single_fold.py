@@ -418,9 +418,34 @@ def train_outer_fold(
         raise ValueError(f"{n_groups} groups is fewer than {total_folds} folds; "
                          "cannot build BioProject-disjoint folds.")
 
-    skf_outer = StratifiedGroupKFold(n_splits=total_folds, shuffle=True, random_state=42)
-    splits = list(skf_outer.split(features, stratify_key, groups=groups))
-    train_idx, test_idx = splits[fold_id]
+    # Prefer the canonical dev folds. The internal StratifiedGroupKFold stratifies on
+    # classification_tasks[0:2], so a 4-head config and a 1-head config generate
+    # DIFFERENT folds -- measured as 51 vs 64 scored `feature` rows on fold 0, which
+    # makes a multi-task vs single-task comparison meaningless. dev_folds.tsv fixes
+    # one fold assignment for every arm, and it is already asserted BioProject-
+    # disjoint and free of held-out runs when it is written.
+    dev_folds_path = config.get("dev_folds_path")
+    if dev_folds_path and Path(dev_folds_path).exists():
+        dev = pd.read_csv(dev_folds_path, sep="\t")
+        fold_of = dict(zip(dev["Run_accession"], dev["fold"]))
+        acc_series = metadata[acc_col].astype(str)
+        unassigned = set(acc_series) - set(fold_of)
+        if unassigned:
+            raise ValueError(
+                f"{len(unassigned)} run(s) have no entry in {dev_folds_path}, e.g. "
+                f"{sorted(unassigned)[:5]}. Regenerate the dev folds for this split.")
+        assigned = acc_series.map(fold_of).to_numpy()
+        n_dev = len(set(assigned))
+        if fold_id >= n_dev:
+            raise ValueError(f"fold_id {fold_id} but {dev_folds_path} has {n_dev} folds.")
+        test_idx  = np.where(assigned == fold_id)[0]
+        train_idx = np.where(assigned != fold_id)[0]
+        logger.info("Outer fold %d taken from %s (%d dev folds)",
+                    fold_id, dev_folds_path, n_dev)
+    else:
+        skf_outer = StratifiedGroupKFold(n_splits=total_folds, shuffle=True, random_state=42)
+        splits = list(skf_outer.split(features, stratify_key, groups=groups))
+        train_idx, test_idx = splits[fold_id]
 
     def _assert_group_disjoint(a_idx, b_idx, label: str) -> None:
         shared = set(groups[a_idx]) & set(groups[b_idx])
@@ -656,24 +681,41 @@ def train_outer_fold(
         avg_score = np.mean(fold_scores)
         return avg_score
     
-    # Create study and optimize
-    # Note: Using NopPruner because each trial is evaluated on multiple folds
-    # and pruning mid-trial would discard incomplete fold evaluations
-    study = optuna.create_study(
-        direction="maximize",
-        sampler=TPESampler(seed=42),
-        pruner=optuna.pruners.NopPruner()  # No pruning for multi-fold CV
-    )
-    
-    study.optimize(
-        objective_with_cv,
-        n_trials=config.get('n_trials', 50),
-        show_progress_bar=False
-    )
-    
-    best_params = study.best_params
-    logger.info(f"Best hyperparameters (averaged over {n_inner_splits} folds): {best_params}")
-    logger.info(f"Best CV score: {study.best_value:.4f}")
+    # A fixed-hyperparameter arm skips the search entirely. Used to compare the
+    # multi-task net against a single-task control on identical settings: with no
+    # search, any difference between the arms is task sharing rather than a luckier
+    # draw from the search space.
+    fixed_params = config.get("fixed_hyperparameters")
+    if fixed_params:
+        best_params = dict(fixed_params)
+        n_layers_fixed = int(best_params.get("n_layers", 0))
+        for i in range(n_layers_fixed):
+            if f"hidden_dim_{i}" not in best_params:
+                raise ValueError(
+                    f"fixed_hyperparameters says n_layers={n_layers_fixed} but "
+                    f"hidden_dim_{i} is missing.")
+        for t in task_names:
+            best_params.setdefault(f"task_weight_{t}", 1.0)
+        logger.info("Fixed hyperparameters, no search: %s", best_params)
+    else:
+        # Create study and optimize
+        # Note: Using NopPruner because each trial is evaluated on multiple folds
+        # and pruning mid-trial would discard incomplete fold evaluations
+        study = optuna.create_study(
+            direction="maximize",
+            sampler=TPESampler(seed=42),
+            pruner=optuna.pruners.NopPruner()  # No pruning for multi-fold CV
+        )
+
+        study.optimize(
+            objective_with_cv,
+            n_trials=config.get('n_trials', 50),
+            show_progress_bar=False
+        )
+
+        best_params = study.best_params
+        logger.info(f"Best hyperparameters (averaged over {n_inner_splits} folds): {best_params}")
+        logger.info(f"Best CV score: {study.best_value:.4f}")
     
     # Train final model with best hyperparameters
     # Split train_idx into sub-train and sub-val to avoid test set leakage during early stopping
@@ -1094,7 +1136,15 @@ Example:
         sys.exit(1)
 
     # ── Train config dict (passed into train_outer_fold) ────────────────────
+    #
+    # Start from the run config so every key reaches train_outer_fold, then override
+    # only what the CLI and defaults resolve. This used to be a hand-maintained
+    # whitelist, and anything omitted was read as absent rather than as an error:
+    # `class_imbalance` went missing (logit adjustment silently became v7 class
+    # weights) and so did `fixed_hyperparameters` (the no-search arm silently ran a
+    # full Optuna search). Spreading cfg makes that class of bug impossible.
     train_config = {
+        **cfg,
         'task_names':         task_names,
         'task_types':         task_types,
         'n_trials':           n_trials,
@@ -1108,6 +1158,9 @@ Example:
         # Read by train_outer_fold to choose logit adjustment over class weights.
         # Omitting it silently reverted v9 to v7's inverse-frequency weighting.
         'class_imbalance':    cfg.get('class_imbalance', {}) or {},
+        # Same trap as class_imbalance: read by train_outer_fold, so it must be
+        # copied here or the fixed-hyperparameter arm silently runs a full search.
+        'fixed_hyperparameters': cfg.get('fixed_hyperparameters') or None,
     }
 
     # ── Train fold ───────────────────────────────────────────────────────────
