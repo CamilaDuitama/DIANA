@@ -1,10 +1,15 @@
 #!/usr/bin/env python
 """Assemble a feature matrix for v9 runs from both sources.
 
-v9 spans two feature stores: the v7 matrix (train+test of the old split) and the
-per-sample vectors built for validation runs. Both are 78,430-dimensional and in
-the same unitig order, so they concatenate directly -- but nothing else in the
-repo knows that, so every v9 consumer needs this.
+v9 spans two feature stores: matrix_v9_train, built from the 2,716 training runs
+that define the vocabulary, and the per-sample vectors built for every other run
+by the diana-predict feature-extraction path. Both are 110,202-dimensional in the
+same unitig order, so they concatenate directly -- but nothing else in the repo
+knows that, so every v9 consumer needs this.
+
+A vector that is present but entirely zero is treated as missing: it means the
+sample could not be represented at k=31 (a truncated or near-empty input), not
+that it genuinely shares no k-mers with the reference.
 
 Used by the v9 baselines and any v9 model training.
 """
@@ -19,9 +24,9 @@ import numpy as np
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
-MATRIX = PROJECT_ROOT / "data/matrices/matrix_v7_3190/unitigs.frac.mat"
-VECTORS = PROJECT_ROOT / "results/validation_vectors_v7"
-N_FEATURES = 78430
+MATRIX = PROJECT_ROOT / "data/matrices/matrix_v9_train/unitigs.frac.mat"
+VECTORS = PROJECT_ROOT / "results/v9_vectors"
+N_FEATURES = 110202
 
 
 def load_features(accessions: Iterable[str]) -> tuple:

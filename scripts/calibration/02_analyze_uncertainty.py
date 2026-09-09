@@ -506,6 +506,40 @@ def plot_confidence_vs_uncertainty(
     logger.info(f"Saved confidence vs uncertainty plot to {output_path}")
 
 
+
+# ---------------------------------------------------------------------------
+# Stale-path guard (added 2026-09-09).
+#
+# This script's defaults pointed at v5 artefacts. Run without explicit paths
+# during v9 work it would silently produce v5 numbers under a v9 filename, which
+# is the exact failure mode we spent the day removing elsewhere. Rather than
+# repoint the defaults -- which would leave the same trap for whatever comes
+# after v9 -- required paths must now be given explicitly.
+#
+# Current version and its artefacts are listed at the top of README.md.
+# ---------------------------------------------------------------------------
+_SUPERSEDED = ("splits_v5", "splits_v7", "large_matrix_3070", "matrix_v7_3190",
+               "training_bioproject_v5", "training_bioproject_v7",
+               "validation_vectors_v7")
+
+
+def _refuse_superseded_paths(args) -> None:
+    """Abort if any path argument still points at a superseded artefact."""
+    hits = []
+    for name, value in vars(args).items():
+        if value is None:
+            continue
+        text = str(value)
+        for marker in _SUPERSEDED:
+            if marker in text:
+                hits.append(f"  --{name.replace('_', '-')} = {text}   ({marker})")
+    if hits:
+        raise SystemExit(
+            "Refusing to run: these arguments point at superseded artefacts.\n"
+            + "\n".join(hits)
+            + "\n\nv9 is current. See README.md for the paths. Pass them explicitly."
+        )
+
 def main():
     parser = argparse.ArgumentParser(
         description="Analyze prediction uncertainty using MC Dropout"
@@ -519,13 +553,13 @@ def main():
     parser.add_argument(
         "--features",
         type=Path,
-        default=Path("data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat"),
+        default=None,
         help="Path to feature matrix for validation"
     )
     parser.add_argument(
         "--metadata",
         type=Path,
-        default=Path("data/splits_v5/train_metadata.tsv"),
+        default=None,
         help="Path to validation metadata"
     )
     parser.add_argument(
@@ -565,6 +599,8 @@ def main():
     )
     
     args = parser.parse_args()
+    
+    _refuse_superseded_paths(args)
     
     # Setup
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

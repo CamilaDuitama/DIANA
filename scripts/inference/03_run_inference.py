@@ -125,6 +125,61 @@ def load_regression_bounds(label_encoders_path: Path) -> dict:
     return {task: info for task, info in encoders.items() if 'classes' not in info}
 
 
+
+def assess_representation(fractions: np.ndarray) -> dict:
+    """Judge whether this sample can be represented in the feature space at all.
+
+    A unitig vector of all zeros does not mean "this sample shares nothing with the
+    reference". It means there was effectively nothing to compare: the input was
+    truncated, or its reads are shorter than k=31 and so yield no k-mers at all.
+    Two of the runs we have seen (SRR867035, SRR867040) have modal read length
+    24-26 bp; another (ERR1883466) assembled to 563 nucleotides in total.
+
+    A softmax over zeros still returns a confident-looking answer, so this has to
+    be surfaced explicitly or the caller will believe it.
+    """
+    n = int(fractions.size)
+    nonzero = int((fractions > 0).sum())
+    coverage = nonzero / n if n else 0.0
+
+    if nonzero == 0:
+        return {
+            "status": "unrepresentable",
+            "nonzero_unitigs": 0,
+            "total_unitigs": n,
+            "coverage": 0.0,
+            "message": (
+                "No reference k-mers were detected in this sample, so every unitig "
+                "feature is zero. DIANA cannot classify it, and any label below is "
+                "an artefact of the model's prior rather than evidence from the "
+                "data. The usual causes are a truncated or near-empty input, or "
+                "reads shorter than k=31 (ancient libraries are often 24-30 bp), "
+                "which yield no k-mers by construction. Check the input depth and "
+                "read-length distribution before interpreting anything here."
+            ),
+        }
+    if coverage < 0.01:
+        return {
+            "status": "poorly_represented",
+            "nonzero_unitigs": nonzero,
+            "total_unitigs": n,
+            "coverage": coverage,
+            "message": (
+                f"Only {nonzero} of {n} unitigs ({100 * coverage:.2f}%) carry any "
+                "signal. This is far below what the model was trained on, so the "
+                "predictions are unreliable and their confidences should not be "
+                "read as calibrated. Treat them as a hint, not a result."
+            ),
+        }
+    return {
+        "status": "ok",
+        "nonzero_unitigs": nonzero,
+        "total_unitigs": n,
+        "coverage": coverage,
+        "message": "",
+    }
+
+
 def format_predictions(predictions: dict, class_names: dict = None,
                        regression_bounds: dict = None) -> dict:
     """
@@ -258,6 +313,15 @@ def main():
     else:
         logger.warning("No --label-encoders provided; non-sample_type tasks will use numeric class indices")
 
+    # Can this sample be represented at all? An all-zero vector still yields a
+    # confident-looking softmax, so say so before reporting any label.
+    representation = assess_representation(features)
+    if representation["status"] != "ok":
+        logger.warning("=" * 70)
+        logger.warning("SAMPLE %s: %s", sample_id, representation["status"].upper())
+        logger.warning("%s", representation["message"])
+        logger.warning("=" * 70)
+
     # Run inference
     logger.info("Running inference...")
     predictions = predictor.predict(features, return_probabilities=True)
@@ -270,7 +334,12 @@ def main():
         'sample_id': sample_id,
         'input_file': str(args.input),
         'model_path': str(args.model),
-        'predictions': formatted_preds
+        # Machine-readable, so downstream consumers can filter on it rather than
+        # having to parse the log.
+        'representation': representation,
+        'predictions': ({} if representation['status'] == 'unrepresentable'
+                        else formatted_preds),
+        'predictions_suppressed': representation['status'] == 'unrepresentable',
     }
     
     # Save results
