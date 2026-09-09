@@ -43,5 +43,20 @@
     "file": "excluded_no_matrix.txt",
     "date": "2026-09-09",
     "held_out_untouched": true
+  },
+  "dev_folds": {
+    "seed": 191,
+    "n_folds": 5,
+    "stratified_on": [
+      "community_type",
+      "feature",
+      "sample_host",
+      "material"
+    ],
+    "selected_by": "max of the mean-across-tasks worst-per-fold in-vocabulary coverage; objective uses labels and BioProject membership only, never a model",
+    "seeds_searched": 300,
+    "objective": 0.8573,
+    "previous_objective": 0.7015,
+    "date": "2026-09-09"
   }
 }
