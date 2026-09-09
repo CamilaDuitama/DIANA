@@ -287,6 +287,21 @@ def main() -> int:
                 )
         logger.info("Verified: no held-out run helped build the feature matrix.")
 
+        # The converse. A training run with no matrix column is dropped in
+        # silence by MatrixLoader, so the split reports a training set larger
+        # than the one actually trained on -- 2,775 claimed against 2,716 real
+        # on 2026-09-09. Runs without Logan unitigs are the usual cause.
+        orphans = set(df.loc[parts["train"], "Run_accession"]) - matrix_runs
+        if orphans and not args.allow_missing_features:
+            raise AssertionError(
+                f"{len(orphans)} training run(s) have no column in the feature "
+                f"matrix, e.g. {sorted(orphans)[:5]}. They would be dropped "
+                "silently and the recorded train count would be wrong. Either "
+                "exclude them (scripts/data_prep/07_reconcile_train_to_matrix_v9.py) "
+                "or rebuild the matrix to include them."
+            )
+        logger.info("Verified: every training run has a feature-matrix column.")
+
     report = fold_report(parts, df, elig)
     print("\n" + report)
 

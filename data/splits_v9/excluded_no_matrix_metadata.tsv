@@ -1,0 +1,60 @@
+Run_accession	sample_type	community_type	feature	sample_host	material	sample_age	latitude	longitude	project_name	publication_year	geo_loc_name	sample_name	archive_project	archive_sample_accession
+ERR10493279	ancient_metagenome		sea coast		permafrost	2000000.0	82.496	-21.559	Kjaer2022	2022	Greenland	119_B3_116_L0_KapK-12-1-25	PRJEB55522	ERS14240265
+ERR13615624	ancient_metagenome	skeletal tissue		Homo sapiens	tooth	800.0	56.6	25.3	Poksane2025	2025	Latvia	KNPT1	PRJEB79566	ERS20926378
+ERR13615625	ancient_metagenome	skeletal tissue		Homo sapiens	tooth	800.0	56.6	25.3	Poksane2025	2025	Latvia	KPT1	PRJEB79566	ERS20926376
+ERR13615627	ancient_metagenome	skeletal tissue		Homo sapiens	tooth	800.0	56.6	25.3	Poksane2025	2025	Latvia	KPT2	PRJEB79566	ERS20926377
+ERR13615628	ancient_metagenome	skeletal tissue		Homo sapiens	bone	800.0	56.6	25.3	Poksane2025	2025	Latvia	VNPB1	PRJEB79566	ERS20926374
+ERR13615629	ancient_metagenome	skeletal tissue		Homo sapiens	bone	800.0	56.6	25.3	Poksane2025	2025	Latvia	VNPB2	PRJEB79566	ERS20926375
+ERR13615630	ancient_metagenome	skeletal tissue		Homo sapiens	tooth	800.0	56.6	25.3	Poksane2025	2025	Latvia	VNPT1	PRJEB79566	ERS20926371
+ERR13615631	ancient_metagenome	skeletal tissue		Homo sapiens	tooth	800.0	56.6	25.3	Poksane2025	2025	Latvia	VNPT2	PRJEB79566	ERS20926372
+ERR13615632	ancient_metagenome	skeletal tissue		Homo sapiens	bone	800.0	56.6	25.3	Poksane2025	2025	Latvia	VPB1	PRJEB79566	ERS20926373
+ERR13615633	ancient_metagenome	skeletal tissue		Homo sapiens	tooth	800.0	56.6	25.3	Poksane2025	2025	Latvia	VPT1	PRJEB79566	ERS20926369
+ERR13615634	ancient_metagenome	skeletal tissue		Homo sapiens	tooth	800.0	56.6	25.3	Poksane2025	2025	Latvia	VPT2	PRJEB79566	ERS20926370
+ERR1688784	ancient_metagenome		midden		sediment	1600.0	69.128	-50.702	Seersholm2016	2016	Greenland	QB4	PRJEB13329	ERS1280202
+ERR1688791	ancient_metagenome		midden		sediment	2600.0	69.128	-50.702	Seersholm2016	2016	Greenland	QA4	PRJEB13329	ERS1280209
+ERR1688793	ancient_metagenome		midden		sediment	2600.0	69.128	-50.702	Seersholm2016	2016	Greenland	QA5	PRJEB13329	ERS1280211
+ERR1688796	ancient_metagenome		midden		sediment	2600.0	69.128	-50.702	Seersholm2016	2016	Greenland	QA6(seq1,seq2)	PRJEB13329	ERS1280214
+ERR1688802	ancient_metagenome		midden		sediment	2600.0	69.128	-50.702	Seersholm2016	2016	Greenland	QA8(seq1,seq2,seq3)	PRJEB13329	ERS1280220
+ERR1688809	ancient_metagenome		midden		sediment	4000.0	68.593	-51.072	Seersholm2016	2016	Greenland	QT3(seq1,seq2)	PRJEB13329	ERS1280227
+ERR2269774	ancient_metagenome	plant tissue		Arabidopsis thaliana	leaf	100.0	39.688	-82.993	Bieker2020	2020	USA	JK2510	PRJEB24619	ERS2159300
+ERR2269806	ancient_metagenome	plant tissue		Arabidopsis thaliana	leaf	100.0	40.643	-111.967	Bieker2020	2020	USA	JK401	PRJEB24619	ERS2159332
+ERR3579679	ancient_metagenome	oral		Gorilla beringei beringei	dental calculus	200.0	-1.5	29.45	FellowsYates2021	2021	Democratic Republic of the Congo	MTK001.A	PRJEB34569	ERS3774383
+ERR3579684	ancient_metagenome	oral		Gorilla beringei beringei	dental calculus	200.0	-1.46	29.42	FellowsYates2021	2021	Democratic Republic of the Congo	MTM013.A	PRJEB34569	ERS3774394
+ERR3579686	ancient_metagenome	oral		Gorilla beringei beringei	dental calculus	200.0	-1.5	29.45	FellowsYates2021	2021	Democratic Republic of the Congo	MTS002.A	PRJEB34569	ERS3774396
+ERR3579717	ancient_metagenome	oral		Pan troglodytes ellioti	dental calculus	200.0	3.41	13.53	FellowsYates2021	2021	Cameroon	DJA007.A	PRJEB34569	ERS3774429
+ERR3579718	ancient_metagenome	oral		Pan troglodytes ellioti	dental calculus	200.0	3.41	13.53	FellowsYates2021	2021	Cameroon	DJA007.A	PRJEB34569	ERS3774429
+ERR3579724	ancient_metagenome	oral		Pan troglodytes ellioti	dental calculus	200.0	2.91	11.15	FellowsYates2021	2021	Cameroon	EBO008.A	PRJEB34569	ERS3774430
+ERR3579725	ancient_metagenome	oral		Pan troglodytes ellioti	dental calculus	200.0	2.91	11.15	FellowsYates2021	2021	Cameroon	EBO008.A	PRJEB34569	ERS3774430
+ERR3579736	ancient_metagenome	oral		Homo sapiens	dental calculus	18700.0	38.919	-0.121	FellowsYates2021	2021	Spain	EMN001.A	PRJEB34569	ERS3774464
+ERR3579737	ancient_metagenome	oral		Homo sapiens	dental calculus	18700.0	38.919	-0.121	FellowsYates2021	2021	Spain	EMN001.A	PRJEB34569	ERS3774464
+ERR3579739	ancient_metagenome	oral		Homo sapiens	dental calculus	300.0	31.51	-9.76	FellowsYates2021	2021	Morocco	ESA004.A	PRJEB34569	ERS3774472
+ERR3579769	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	200.0	0.48	30.38	FellowsYates2021	2021	Uganda	KNP007.A	PRJEB34569	ERS3774424
+ERR3579770	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	200.0	0.48	30.38	FellowsYates2021	2021	Uganda	KNP009.A	PRJEB34569	ERS3774425
+ERR3579771	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	200.0	0.48	30.38	FellowsYates2021	2021	Uganda	KNP009.A	PRJEB34569	ERS3774425
+ERR3579772	ancient_metagenome	oral		Pan troglodytes schweinfurthii	dental calculus	200.0	0.48	30.38	FellowsYates2021	2021	Uganda	KNP009.A	PRJEB34569	ERS3774425
+ERR3579773	ancient_metagenome	oral		Homo sapiens	dental calculus	300.0	31.51	-9.76	FellowsYates2021	2021	Portugal	LIS001.A	PRJEB34569	ERS3774477
+ERR3579778	ancient_metagenome	oral		Gorilla beringei beringei	dental calculus	200.0	-1.46	29.42	FellowsYates2021	2021	Democratic Republic of the Congo	MTM004.A	PRJEB34569	ERS3774387
+ERR3579780	ancient_metagenome	oral		Gorilla beringei beringei	dental calculus	200.0	-1.46	29.42	FellowsYates2021	2021	Democratic Republic of the Congo	MTM006.A	PRJEB34569	ERS3774389
+ERR3579794	ancient_metagenome	oral		Alouatta palliata	dental calculus	200.0	11.41	-85.53	FellowsYates2021	2021	Nicaragua	OME003.A	PRJEB34569	ERS3774379
+ERR3579795	ancient_metagenome	oral		Alouatta palliata	dental calculus	200.0	11.41	-85.53	FellowsYates2021	2021	Nicaragua	OME003.A	PRJEB34569	ERS3774379
+ERR3579808	ancient_metagenome	oral		Homo sapiens neanderthalensis	dental calculus	55000.0	37.743	-0.953	FellowsYates2021	2021	Spain	SPM002.A	PRJEB34569	ERS3774443
+ERR3678178	ancient_metagenome	oral		Gorilla beringei beringei	dental calculus	200.0	-1.5	29.45	FellowsYates2021	2021	Democratic Republic of the Congo	MTK001.A	PRJEB34569	ERS3774383
+ERR3678183	ancient_metagenome	oral		Gorilla beringei beringei	dental calculus	200.0	-1.46	29.42	FellowsYates2021	2021	Democratic Republic of the Congo	MTM013.A	PRJEB34569	ERS3774394
+ERR3678185	ancient_metagenome	oral		Gorilla beringei beringei	dental calculus	200.0	-1.5	29.45	FellowsYates2021	2021	Democratic Republic of the Congo	MTS002.A	PRJEB34569	ERS3774396
+ERR3728225	ancient_metagenome	oral		Homo sapiens	dental calculus	1500.0	53.951	-1.1	Fagernas2020	2020	United Kingdom	3DT21	PRJEB35483	ERS4042406
+ERR3728242	ancient_metagenome	oral		Homo sapiens	dental calculus	1100.0	42.84	-2.517	Fagernas2020	2020	Spain	SMD 1441-1-1440(044)	PRJEB35483	ERS4042423
+ERR3728243	ancient_metagenome	oral		Homo sapiens	dental calculus	1100.0	42.84	-2.517	Fagernas2020	2020	Spain	SMD 1441-1-1440(044)	PRJEB35483	ERS4042424
+ERR3728244	ancient_metagenome	oral		Homo sapiens	dental calculus	1100.0	42.84	-2.517	Fagernas2020	2020	Spain	SMD 1441-1-1440(044)	PRJEB35483	ERS4042425
+ERR3728253	ancient_metagenome	oral		Homo sapiens	dental calculus	1000.0	42.84	-2.517	Fagernas2020	2020	Spain	SMD 2711-1-2710(171)	PRJEB35483	ERS4042434
+ERR4172564	ancient_metagenome	oral		Gorilla beringei	dental calculus	100.0	-1.508	29.445	Brealey2020	2020	Democratic Republic of the Congo	Gb1	PRJEB33363	ERS4545903
+ERR4172565	ancient_metagenome	oral		Gorilla beringei	dental calculus	100.0	-1.508	29.445	Brealey2020	2020	Democratic Republic of the Congo	Gb1	PRJEB33363	ERS4545903
+ERR4172752	ancient_metagenome	oral		Gorilla beringei	dental calculus	100.0	-1.508	29.445	Brealey2020	2020	Democratic Republic of the Congo	Gb1	PRJEB33363	ERS4545903
+ERR4172754	ancient_metagenome	oral		Gorilla beringei	dental calculus	100.0	-1.508	29.445	Brealey2020	2020	Democratic Republic of the Congo	Gb1	PRJEB33363	ERS4545903
+ERR4173038	ancient_metagenome	oral		Ursus arctos	dental calculus	100.0	61.004	14.537	Brealey2020	2020	Sweden	Ua14	PRJEB33363	ERS4545913
+ERR4334728	ancient_metagenome		lake		lake sediment	200.0	51.305	23.366	Iwanska2022	2022	Poland	LS-35-2	PRJEB39351	ERS4817945
+ERR567365	ancient_metagenome		ocean		sediment	8000.0	50.7	-1.5	Smith2015	2015	United Kingdom	S308-2	PRJEB6766	ERS510181
+ERR567367	ancient_metagenome		ocean		sediment	8000.0	50.7	-1.5	Smith2015	2015	United Kingdom	S308-4	PRJEB6766	ERS510183
+ERR7919461	ancient_metagenome	oral		Gorilla beringei graueri	dental calculus	100.0	-4.05	29.05	Moraitou2022	2022	Democratic Republic of the Congo	G0009	PRJEB49638	ERS9656251
+SRR5332460	ancient_metagenome		lake		lake sediment	12000.0	56.16	15.01	Ahmed2018	2018	Sweden	HA6.1	PRJNA378719	SRS2040653
+SRR5332465	ancient_metagenome		lake		lake sediment	13900.0	56.16	15.01	Ahmed2018	2018	Sweden	HA1.12	PRJNA378719	SRS2040658
+SRR866664	ancient_metagenome	skeletal tissue		Homo sapiens	bone	400.0	17.49	-97.46	Campana2014	2014	Mexico	TP37	PRJNA205039	SRS428963

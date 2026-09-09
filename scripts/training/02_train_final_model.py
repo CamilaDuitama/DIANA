@@ -65,7 +65,9 @@ def main():
     loader = MatrixLoader(Path(config['features_path']))
     X_all, metadata_pl = loader.load_with_metadata(
         metadata_path=Path(config['metadata_path']),
-        align_to_matrix=True
+        align_to_matrix=True,
+        # Refuse to train on fewer runs than the split claims.
+        require_all_metadata=True
     )
     
     # Convert metadata to pandas for compatibility

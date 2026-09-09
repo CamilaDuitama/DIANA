@@ -51,7 +51,7 @@ REF_KMERS=data/matrices/matrix_v9_train/matrix.filtered.fasta
 UNITIGS=data/matrices/matrix_v9_train/unitigs.fa
 KMER_SIZE=31
 N_FEATURES=110202
-OUTDIR=results/v9_vectors
+OUTDIR=${OUTDIR:-results/v9_vectors}
 LOGAN_DIR=/pasteur/appa/scratch/cduitama/EDID/decOM-classify/data/unitigs
 
 ACC=$(sed -n "${SLURM_ARRAY_TASK_ID}p" "$ACC_LIST")

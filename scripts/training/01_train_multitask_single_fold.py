@@ -153,7 +153,9 @@ def load_matrix_data(matrix_path: str, metadata_path: str) -> Tuple[np.ndarray, 
     loader = MatrixLoader(Path(matrix_path))
     features, metadata_pl = loader.load_with_metadata(
         metadata_path=Path(metadata_path),
-        align_to_matrix=True
+        align_to_matrix=True,
+        # Refuse to train on fewer runs than the split claims.
+        require_all_metadata=True
     )
     
     # Convert metadata to pandas for sklearn compatibility
@@ -541,8 +543,9 @@ def train_outer_fold(
                 activation=activation
             ).to(device)
 
-            # Compute class weights for this fold (classification tasks only)
-            class_weights = compute_class_weights(
+            # Class weights only when logit adjustment is off -- computing them under
+            # logit adjustment logs weights that are never applied.
+            class_weights = None if USE_PRIORS else compute_class_weights(
                 {task: labels_dict[task][fold_train_idx] for task in num_classes.keys()},
                 num_classes,
                 device
@@ -607,8 +610,9 @@ def train_outer_fold(
                             for task in classification_tasks:
                                 preds = torch.argmax(val_outputs[task], dim=1).cpu().numpy()
                                 true  = y_batch[task].cpu().numpy()
-                                all_preds[task].extend(preds)
-                                all_true[task].extend(true)
+                                keep  = true != IGNORE_INDEX   # absent labels are not predictions to score
+                                all_preds[task].extend(preds[keep])
+                                all_true[task].extend(true[keep])
 
                             for task in regression_tasks:
                                 pred = val_outputs[task].cpu()
@@ -621,6 +625,8 @@ def train_outer_fold(
 
                         # Classification: (balanced_acc + macro_f1) / 2
                         for task in classification_tasks:
+                            if not all_true[task]:
+                                continue   # no labelled rows for this task in this inner fold
                             bal_acc   = balanced_accuracy_score(all_true[task], all_preds[task])
                             macro_f1  = f1_score(all_true[task], all_preds[task], average='macro', zero_division=0)
                             task_scores.append((bal_acc + macro_f1) / 2.0)
@@ -673,8 +679,8 @@ def train_outer_fold(
     # Split train_idx into sub-train and sub-val to avoid test set leakage during early stopping
     logger.info("Training final model with proper train/val split...")
     
-    # Compute class weights on full train_idx before splitting (classification only)
-    class_weights_full = compute_class_weights(
+    # Class weights only when logit adjustment is off (see note above).
+    class_weights_full = None if USE_PRIORS else compute_class_weights(
         {task: labels_dict[task][train_idx] for task in num_classes.keys()},
         num_classes,
         device
@@ -880,8 +886,9 @@ def train_outer_fold(
             for task in classification_tasks:
                 preds = torch.argmax(test_outputs[task], dim=1).cpu().numpy()
                 true  = y_batch[task].cpu().numpy()
-                all_preds[task].extend(preds)
-                all_true[task].extend(true)
+                keep  = true != IGNORE_INDEX   # absent labels are not predictions to score
+                all_preds[task].extend(preds[keep])
+                all_true[task].extend(true[keep])
 
             for task in regression_tasks:
                 pred  = test_outputs[task].cpu()
@@ -892,7 +899,14 @@ def train_outer_fold(
 
         test_metrics = {}
         for task in classification_tasks:
+            if not all_true[task]:
+                logger.warning(f"{task}: no labelled rows in the held-out set; metrics are undefined")
+                test_metrics[task] = {"accuracy": None, "f1_weighted": None,
+                                      "f1_macro": None, "balanced_accuracy": None,
+                                      "n_scored": 0}
+                continue
             test_metrics[task] = {
+                "n_scored":          int(len(all_true[task])),
                 "accuracy":          float(accuracy_score(all_true[task], all_preds[task])),
                 "f1_weighted":       float(f1_score(all_true[task], all_preds[task], average='weighted', zero_division=0)),
                 "f1_macro":          float(f1_score(all_true[task], all_preds[task], average='macro', zero_division=0)),
@@ -1091,6 +1105,9 @@ Example:
         'checkpoint_freq':    checkpoint_freq,
         'resume_from':        args.resume_from,
         'no_label_smoothing': no_label_smoothing,
+        # Read by train_outer_fold to choose logit adjustment over class weights.
+        # Omitting it silently reverted v9 to v7's inverse-frequency weighting.
+        'class_imbalance':    cfg.get('class_imbalance', {}) or {},
     }
 
     # ── Train fold ───────────────────────────────────────────────────────────

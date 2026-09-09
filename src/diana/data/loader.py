@@ -37,7 +37,7 @@ features, sample_ids, _ = loader.load()
 # Load matrix with aligned metadata:
 loader = MatrixLoader("data/splits/train_matrix.pa.mat")
 features, metadata = loader.load_with_metadata(
-    metadata_path="data/splits/train_metadata.tsv",
+    metadata_path="data/splits_v5/train_metadata.tsv",
     align_to_matrix=True
 )
 
@@ -185,7 +185,8 @@ class MatrixLoader:
         self,
         metadata_path: Path,
         align_to_matrix: bool = True,
-        filter_matrix_to_metadata: bool = True
+        filter_matrix_to_metadata: bool = True,
+        require_all_metadata: bool = False
     ) -> Tuple[np.ndarray, pl.DataFrame]:
         """
         Load matrix and align with metadata.
@@ -195,7 +196,13 @@ class MatrixLoader:
             align_to_matrix: If True, reorder metadata to match matrix sample order
             filter_matrix_to_metadata: If True, filter matrix to only samples in metadata
                                       (useful for train/test splits)
-            
+            require_all_metadata: If True, raise when the metadata lists runs the
+                                  matrix has no column for. Training must set this:
+                                  the v9 split listed 2,775 train runs against a
+                                  2,716-sample matrix and 59 were dropped in
+                                  silence, so the recorded and trained sample
+                                  counts disagreed.
+
         Returns:
             Tuple of (features_matrix, metadata_df)
         """
@@ -207,6 +214,16 @@ class MatrixLoader:
         metadata = pl.read_csv(metadata_path, separator='\t')
         logger.info(f"Metadata: {metadata.height} rows × {metadata.width} columns")
         
+        if require_all_metadata:
+            missing = set(metadata['Run_accession'].to_list()) - set(sample_ids)
+            if missing:
+                raise ValueError(
+                    f"{len(missing)} run(s) in {metadata_path} have no column in "
+                    f"{self.matrix_path} (e.g. {sorted(missing)[:5]}). They would be "
+                    "dropped silently. Reconcile the split with the matrix first: "
+                    "scripts/data_prep/07_reconcile_train_to_matrix_v9.py"
+                )
+
         if filter_matrix_to_metadata:
             # Filter matrix to only samples present in metadata
             metadata_samples = set(metadata['Run_accession'].to_list())

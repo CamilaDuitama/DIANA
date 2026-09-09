@@ -127,9 +127,9 @@ def aggregate_metrics(fold_results: List[Dict[str, Any]]) -> Dict[str, Dict[str,
 def create_final_training_config(
     cv_dir: Path,
     best_params: Dict[str, Any],
-    features_path: str = "data/matrices/matrix_v7_3190/unitigs.frac.mat",
-    metadata_path: str = "data/splits_v7/train_metadata.tsv",
-    train_ids_path: str = "data/splits_v7/train_ids.txt",
+    features_path: str = "data/matrices/matrix_v9_train/unitigs.frac.mat",
+    metadata_path: str = "data/splits_v9/train_metadata.tsv",
+    train_ids_path: str = "data/splits_v9/train_accessions.txt",
     task_types: Optional[Dict[str, str]] = None,
     extra: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
@@ -188,6 +188,13 @@ def create_final_training_config(
         'random_seed': 42
     }
 
+    # `extra` carries settings that must survive from the run config into the
+    # final fit -- above all class_imbalance. Dropping it silently reverted the
+    # final model to inverse-frequency class weights (v7 behaviour), undoing the
+    # logit adjustment R3.15 asks for.
+    if extra:
+        config.update(extra)
+
     return config
 
 
@@ -198,13 +205,13 @@ def main():
     parser.add_argument('--n_folds', type=int, default=5,
                        help='Number of CV folds')
     parser.add_argument('--features', type=str,
-                       default='data/matrices/matrix_v7_3190/unitigs.frac.mat',
+                       default='data/matrices/matrix_v9_train/unitigs.frac.mat',
                        help='Features path for final training config')
     parser.add_argument('--metadata', type=str,
-                       default='data/splits_v7/train_metadata.tsv',
+                       default='data/splits_v9/train_metadata.tsv',
                        help='Metadata path for final training config')
     parser.add_argument('--train_ids', type=str,
-                       default='data/splits_v7/train_ids.txt',
+                       default='data/splits_v9/train_accessions.txt',
                        help='Train IDs path for final training config')
     
     args = parser.parse_args()
@@ -279,13 +286,21 @@ def main():
     # Carry task_types from the fold run config so the final config matches the
     # model that was actually trained.
     run_task_types = None
+    run_extra = {}
     for cand in sorted(args.cv_dir.glob('fold_*/run_config.json')):
         try:
-            run_task_types = json.load(open(cand)).get('task_types')
+            _rc = json.load(open(cand))
         except Exception:
             continue
+        run_task_types = _rc.get('task_types')
+        # The imbalance correction must match what the folds were tuned under.
+        # Losing it here silently retrains the final model with class weights.
+        if _rc.get('class_imbalance'):
+            run_extra['class_imbalance'] = _rc['class_imbalance']
         if run_task_types:
             print(f"task_types taken from {cand}: {run_task_types}")
+            if 'class_imbalance' in run_extra:
+                print(f"class_imbalance carried over: {run_extra['class_imbalance']}")
             break
 
     final_config = create_final_training_config(
@@ -295,6 +310,7 @@ def main():
         args.metadata,
         args.train_ids,
         task_types=run_task_types,
+        extra=run_extra,
     )
     
     config_file = args.cv_dir.parent / 'final_training_config.json'
