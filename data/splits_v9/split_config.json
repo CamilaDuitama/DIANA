@@ -8,13 +8,11 @@
   "code_commit": "1de0ae660b537443b8c6ed04aeac592bcba8e8c0",
   "counts": {
     "train": 2775,
-    "val": 253,
-    "test": 670
+    "test": 922
   },
   "bioprojects": {
     "train": 69,
-    "val": 14,
-    "test": 20
+    "test": 34
   },
   "classes_single_bioproject": 22,
   "out_of_vocabulary": {
@@ -28,8 +26,14 @@
     "test_material": 87
   },
   "assertion_log": [
-    "train vs val: 69 / 14 BioProjects, shared=0",
-    "train vs test: 69 / 20 BioProjects, shared=0",
-    "val vs test: 14 / 20 BioProjects, shared=0"
-  ]
+    "train vs test: 69 / 34 BioProjects, shared=0",
+    "held-out runs that built the matrix: 0 (of 2716 matrix runs)"
+  ],
+  "structure": "two-way: train + held-out",
+  "merged_from": "val (253) + test (670), merged in place 2026-09-09",
+  "dropped_unrepresentable": [
+    "ERR1883466"
+  ],
+  "why_two_way": "The v9 matrix is built from training runs only (R3.4), so val and test are both fully external to it and are no longer different kinds of set. Tuning uses the grouped dev folds in dev_folds.tsv.",
+  "why_merged_in_place": "Regenerating the split would move runs that built the matrix into the held-out set (677 of them, measured) and reintroduce the R3.4 leak. The split and the matrix are locked together."
 }

@@ -149,17 +149,28 @@ def main() -> int:
             t0 = time.time()
             try:
                 model.fit(Xtr, ytr)
-                pred = model.predict(Xte)
+                pred_te = model.predict(Xte)
+                # Report TRAIN as well. Referee 1 objected that the v5 baselines were
+                # compared on the training set only; reporting both shows the
+                # train/test gap, which is itself a measure of overfitting and of how
+                # much the BioProject-disjoint split costs.
+                pred_tr = model.predict(Xtr)
             except Exception as exc:  # a model failing must not lose the rest
                 logger.warning("%s / %s failed: %s", target, name, exc)
                 continue
-            m = metrics(yte, pred, eligible)
-            m.update(bootstrap_ci(yte, pred, eligible, args.n_boot, args.seed))
+
+            m = metrics(yte, pred_te, eligible)
+            m.update(bootstrap_ci(yte, pred_te, eligible, args.n_boot, args.seed))
             m["fit_predict_s"] = round(time.time() - t0, 1)
-            results[target][name] = m
+            m_tr = metrics(ytr, pred_tr, eligible)
+
+            results[target][name] = {"test": m, "train": m_tr}
             rows.append({"model": name, "split": "test", "task": target, **m})
-            logger.info("  %-24s acc=%.3f  f1_elig=%.3f  (%.0fs)",
-                        name, m["accuracy"], m["f1_macro_eligible"], m["fit_predict_s"])
+            rows.append({"model": name, "split": "train", "task": target, **m_tr})
+            logger.info("  %-24s test: acc=%.3f bal=%.3f f1=%.3f | train: acc=%.3f bal=%.3f f1=%.3f  (%.0fs)",
+                        name, m["accuracy"], m["balanced_accuracy"], m["f1_macro_eligible"],
+                        m_tr["accuracy"], m_tr["balanced_accuracy"], m_tr["f1_macro_eligible"],
+                        m["fit_predict_s"])
 
     json.dump(results, open(args.output / "metrics.json", "w"), indent=2)
     pd.DataFrame(rows).to_csv(args.output / "summary.csv", index=False)

@@ -23,13 +23,13 @@ placed by hand.
 
 Only runs that actually have features can be partitioned: the v7 matrix covers
 train+test, and validation runs have per-sample vectors under
-`results/validation_vectors_v7/`. Runs without features are excluded and counted.
+`results/v9_vectors/`. Runs without features are excluded and counted.
 
 Inputs
 ------
 data/v9_labels_prepartition/{train,test,val}_metadata.tsv   (corrected targets)
-data/matrices/matrix_v7_3190/unitigs.frac.mat  (which runs have matrix features)
-results/validation_vectors_v7/                 (per-sample vectors)
+data/matrices/matrix_v9_train/unitigs.frac.mat  (which runs have matrix features)
+results/v9_vectors/                            (per-sample vectors, 110,202-dim)
 
 Outputs (data/splits_v9/)
 -------
@@ -159,21 +159,24 @@ def main() -> int:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--metadata-dir", type=Path, default=PROJECT_ROOT / "data/v9_labels_prepartition")
     ap.add_argument("--matrix", type=Path,
-                    default=PROJECT_ROOT / "data/matrices/matrix_v7_3190/unitigs.frac.mat")
+                    default=PROJECT_ROOT / "data/matrices/matrix_v9_train/unitigs.frac.mat")
     ap.add_argument("--vector-dir", type=Path,
-                    default=PROJECT_ROOT / "results/validation_vectors_v7")
+                    default=PROJECT_ROOT / "results/v9_vectors")
     ap.add_argument("--output", type=Path, default=PROJECT_ROOT / "data/splits_v9")
     ap.add_argument("--n-holdout-splits", type=int, default=7,
                     help="1/n of BioProjects become the frozen holdout (7 -> ~14 %%)")
     ap.add_argument("--n-dev-folds", type=int, default=5)
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--min-stratum", type=int, default=10)
+    ap.add_argument("--three-way", action="store_true",
+                    help="emit train/val/test instead of train/held-out. Only for\n                         reproducing the earlier v9 split; under the train-only\n                         vocabulary val and test are the same kind of set.")
     ap.add_argument("--allow-missing-features", action="store_true",
                     help="partition all runs, even those without features (testing only)")
     args = ap.parse_args()
 
     df = pd.concat([pd.read_csv(args.metadata_dir / f"{s}_metadata.tsv", sep="\t")
-                    for s in ("train", "test", "val")], ignore_index=True)
+                    for s in ("train", "test", "val")
+                    if (args.metadata_dir / f"{s}_metadata.tsv").exists()], ignore_index=True)
     df = df.drop_duplicates("Run_accession").reset_index(drop=True)
     logger.info("pooled metadata: %d runs", len(df))
 
@@ -206,13 +209,43 @@ def main() -> int:
     for k, (_, vi) in enumerate(dev.split(rest, ry, groups=rg)):
         fold_of.iloc[vi] = k
 
+    # Two sets, not three.
+    #
+    # The original design had three: train (parameters and hyperparameters, by
+    # internal CV), test (held out from the same unitig matrix), and validation
+    # (external — never used to build the matrix). Those answered different
+    # questions, so they were not redundant.
+    #
+    # The R3.4 fix collapsed the distinction. The v9 matrix is built from TRAINING
+    # runs only, so val and test are now both fully external to it: 0 of 253 and 0
+    # of 670 respectively appear in the matrix. Keeping two names for one kind of
+    # set would be misleading, and fitting a temperature on one of them means
+    # fitting on data indistinguishable from the other.
+    #
+    # So: everything tunable -- hyperparameters, logit-adjustment tau, per-head
+    # temperature -- comes from out-of-fold predictions on the BioProject-grouped
+    # dev folds of train, which the hyperparameter search produces anyway. The
+    # held-out set is then spent exactly once. This also makes it 923 runs rather
+    # than 670, which matters most for `feature` (~163 test runs instead of 44).
     val_local = rest.index[fold_of == 0]
     train_local = rest.index[fold_of != 0]
-    parts = {
-        "train": df.index[df.Run_accession.isin(rest.loc[train_local, "Run_accession"])],
-        "val": df.index[df.Run_accession.isin(rest.loc[val_local, "Run_accession"])],
-        "test": df.index[hold_idx],
-    }
+    if args.three_way:
+        parts = {
+            "train": df.index[df.Run_accession.isin(rest.loc[train_local, "Run_accession"])],
+            "val": df.index[df.Run_accession.isin(rest.loc[val_local, "Run_accession"])],
+            "test": df.index[hold_idx],
+        }
+    else:
+        # The held-out set is the outer fold ONLY. An earlier version also added dev
+        # fold 0, which made the holdout 0.20 + (0.80 x 0.20) = 36 % of the corpus
+        # and silently reshuffled the split.
+        parts = {
+            "train": df.index[df.Run_accession.isin(rest.Run_accession)],
+            "test": df.index[hold_idx],
+        }
+        logger.info("Two-way split: train %d + held-out %d. Tuning uses the grouped "
+                    "dev folds in dev_folds.tsv, not a separate val set.",
+                    len(parts["train"]), len(parts["test"]))
 
     log: list = []
     logger.info("G3: asserting BioProject disjointness on every pair")
@@ -227,11 +260,32 @@ def main() -> int:
     tr = df.loc[parts["train"]]
     for t in TARGETS:
         seen = set(tr[t].dropna())
-        for name in ("val", "test"):
+        for name in (n for n in parts if n != "train"):
             s = df.loc[parts[name], t].dropna()
             oov[f"{name}_{t}"] = int((~s.isin(seen)).sum())
     logger.info("out-of-vocabulary runs per split/target (R3.5): %s",
                 {k: v for k, v in oov.items() if v})
+
+    # The matrix and the split are locked together. Once a matrix exists, any split
+    # that moves its input runs out of train reintroduces the R3.4 feature leak --
+    # measured at 677 runs when this was tried on 2026-09-09. Refuse to write one.
+    fof = PROJECT_ROOT / "data/train_samples_v9.fof"
+    if fof.exists():
+        matrix_runs = {l.split(":")[0].strip()
+                       for l in fof.read_text().splitlines() if l.strip()}
+        for name, idx in parts.items():
+            if name == "train":
+                continue
+            leak = set(df.loc[idx, "Run_accession"]) & matrix_runs
+            if leak:
+                raise AssertionError(
+                    f"{len(leak)} runs in '{name}' were used to BUILD the feature "
+                    f"matrix ({fof.name}), e.g. {sorted(leak)[:5]}. Evaluating on them "
+                    "is the R3.4 leak. The matrix and the split are locked together: "
+                    "either keep the existing split, or rebuild the matrix from this "
+                    "split's training runs."
+                )
+        logger.info("Verified: no held-out run helped build the feature matrix.")
 
     report = fold_report(parts, df, elig)
     print("\n" + report)
@@ -242,7 +296,35 @@ def main() -> int:
         (args.output / f"{name}_accessions.txt").write_text(
             "\n".join(sub.Run_accession) + "\n")
         sub.to_csv(args.output / f"{name}_metadata.tsv", sep="\t", index=False)
-    rest.assign(fold=fold_of.values)[["Run_accession", GROUP_COL, "fold"]].to_csv(
+    # Dev folds must cover the TRAINING runs and nothing else. In the three-way
+    # layout fold 0 doubled as the validation set; after val was merged into the
+    # held-out set those 253 runs stayed in the file, so anything tuning on
+    # dev_folds.tsv -- the hyperparameter search, tau selection, temperature scaling
+    # -- would have tuned on held-out data. Build the folds from parts["train"] and
+    # assert it.
+    train_acc = set(df.loc[parts["train"], "Run_accession"])
+    dev = rest.assign(fold=fold_of.values)
+    dev = dev[dev.Run_accession.isin(train_acc)]
+    if args.three_way:
+        # fold 0 IS the val set here, so it is legitimately absent from train.
+        dev = rest.assign(fold=fold_of.values)
+    else:
+        missing = train_acc - set(dev.Run_accession)
+        if missing:
+            raise AssertionError(
+                f"{len(missing)} training runs have no dev fold, e.g. "
+                f"{sorted(missing)[:5]}. Every training run must be tunable-on."
+            )
+        held_acc = set(df.loc[parts["test"], "Run_accession"])
+        leak = set(dev.Run_accession) & held_acc
+        if leak:
+            raise AssertionError(
+                f"{len(leak)} held-out runs appear in dev_folds.tsv, e.g. "
+                f"{sorted(leak)[:5]}. Tuning on these would tune on the held-out set."
+            )
+        logger.info("Dev folds: %d runs over %d folds, no held-out overlap.",
+                    len(dev), dev.fold.nunique())
+    dev[["Run_accession", GROUP_COL, "fold"]].to_csv(
         args.output / "dev_folds.tsv", sep="\t", index=False)
     elig.to_csv(args.output / "class_eligibility.tsv", sep="\t", index=False)
     (args.output / "fold_report.txt").write_text(report + "\n")
