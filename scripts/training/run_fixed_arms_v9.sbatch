@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --partition=edid_rtx6000
+#SBATCH --partition=edid_rtx6000,gpu
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
@@ -25,6 +25,10 @@
 # CV fold within train (2,716 runs); the 922-run held-out set is NOT touched here.
 #
 # v7's sbatch had --chdir=/pasteur/appa/... , which is not this project root.
+#
+# Both GPU partitions are listed: edid_rtx6000 alone caps this array at ~2
+# concurrent tasks (QOSGrpGRES), so 23 of 25 sat pending. SLURM takes whichever
+# frees first, keeping edid_rtx6000 as the preferred one.
 #
 # USAGE:
 #   sbatch scripts/training/run_fixed_arms_v9.sbatch
