@@ -63,6 +63,58 @@ def depth_table() -> pd.DataFrame:
     return out.set_index("Run_accession")
 
 
+def sequence_depth_table() -> pd.DataFrame:
+    """Depth measured from the data, not from SRA bookkeeping.
+
+    `read_count` and `download_size` are proxies: download size depends on
+    compression, and read counts include reads that never survive filtering. The
+    honest measure of how much sequence reached the features is the k-mer evidence
+    itself, which is what the coverage analysis brief asked for:
+
+      * total abundance  -- sum of a sample's unitig abundances, i.e. how many
+        k-mer observations it contributed
+      * mean fraction    -- how much of the 110,202-unitig vocabulary it covers
+
+    Training runs come from the matrix; everything else from the projected vectors.
+    """
+    from diana.data.loader import MatrixLoader
+
+    rows = {}
+    abund = PROJECT_ROOT / "data/matrices/matrix_v9_train/unitigs.abundance.mat"
+    frac = PROJECT_ROOT / "data/matrices/matrix_v9_train/unitigs.frac.mat"
+    if abund.exists() and frac.exists():
+        A, ids, _ = MatrixLoader(abund).load()
+        F, ids_f, _ = MatrixLoader(frac).load()
+        if list(ids) != list(ids_f):
+            raise AssertionError("abundance and fraction matrices disagree on sample order")
+        tot, mfr = A.sum(axis=1), F.mean(axis=1)
+        for i, acc in enumerate(ids):
+            rows[str(acc)] = (float(tot[i]), float(mfr[i]))
+        del A, F
+        logger.info("sequence depth from the matrix for %d runs", len(rows))
+
+    vec = PROJECT_ROOT / "results/v9_vectors"
+    n_vec = 0
+    if vec.exists():
+        for d in sorted(vec.iterdir()):
+            if not d.is_dir() or d.name in rows:
+                continue
+            fa, ff = d / f"{d.name}_unitig_abundance.txt", d / f"{d.name}_unitig_fraction.txt"
+            if not (fa.exists() and ff.exists()):
+                continue
+            a = pd.read_csv(fa, header=None, dtype="float32").to_numpy().ravel()
+            f = pd.read_csv(ff, header=None, dtype="float32").to_numpy().ravel()
+            rows[d.name] = (float(a.sum()), float(f.mean()))
+            n_vec += 1
+        logger.info("sequence depth from projected vectors for %d runs", n_vec)
+
+    out = pd.DataFrame.from_dict(rows, orient="index",
+                                 columns=["total_abundance", "mean_fraction"])
+    out.index.name = "Run_accession"
+    out["log_abundance"] = np.log10(out.total_abundance.clip(lower=1))
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -76,10 +128,33 @@ def main() -> int:
     te = pd.read_csv(SPLITS / "test_metadata.tsv", sep="\t")
     el = pd.read_csv(SPLITS / "class_eligibility.tsv", sep="\t")
 
-    feats = ["log_reads", "log_size"]
-    results, lines = {}, ["Depth-only control (R3.7 / R3.8)", "",
-                          "Features: log10(read_count), log10(download_size). Nothing else.", ""]
+    seqdepth = sequence_depth_table()
+    depth = depth.join(seqdepth, how="outer")
 
+    # Two definitions of depth. The metadata pair is SRA bookkeeping; the sequence
+    # pair is measured from the k-mer evidence itself and is the stronger control.
+    FEATURE_SETS = {
+        "metadata depth  [log10(read_count), log10(download_size)]": ["log_reads", "log_size"],
+        "sequence depth  [log10(total unitig abundance), mean k-mer fraction]":
+            ["log_abundance", "mean_fraction"],
+    }
+
+    results, lines = {}, ["Depth-only control (R3.7 / R3.8)", ""]
+
+    for set_name, feats in FEATURE_SETS.items():
+        lines += [f"### {set_name}", ""]
+        results[set_name] = {}
+        _run_feature_set(feats, results[set_name], lines, depth, tr, te, el, args)
+
+    report = "\n".join(lines)
+    print(report)
+    json.dump(results, open(args.output / "metrics.json", "w"), indent=2)
+    (args.output / "summary.txt").write_text(report + "\n")
+    logger.info("wrote %s", args.output)
+    return 0
+
+
+def _run_feature_set(feats, results, lines, depth, tr, te, el, args) -> None:
     for target in TARGETS:
         eligible = set(el[(el.target == target) & el.evaluable]["class"])
         a = tr[tr[target].notna()].join(depth, on="Run_accession")
@@ -116,13 +191,6 @@ def main() -> int:
             lines.append(f"    {name:22s} {r['accuracy']:7.3f} {r['balanced_accuracy']:8.3f} "
                          f"{r['f1_macro_eligible']:8.3f}")
         lines.append("")
-
-    report = "\n".join(lines)
-    print(report)
-    json.dump(results, open(args.output / "metrics.json", "w"), indent=2)
-    (args.output / "summary.txt").write_text(report + "\n")
-    logger.info("wrote %s", args.output)
-    return 0
 
 
 if __name__ == "__main__":
