@@ -29,9 +29,11 @@ Provenance:
 
 Output: results/paper/v9_architecture.png
 """
+import json
 from pathlib import Path
 
 import matplotlib as mpl
+import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
 
@@ -45,12 +47,90 @@ mpl.rcParams.update({
     "axes.titlesize": BASE, "figure.dpi": 300, "savefig.dpi": 300,
 })
 
-HEADS = [
-    ("community type", 5,  "#1F4E79"),
-    ("feature",        10, "#3F9C8E"),
-    ("sample host",    24, "#C77F00"),
-    ("material",       16, "#7B5AA6"),
-]
+TASKS = ["community_type", "feature", "sample_host", "material"]
+HEAD_LABEL = {"community_type": "community type", "feature": "feature",
+              "sample_host": "sample host", "material": "material"}
+HEAD_COLOUR = {"community_type": "#1F4E79", "feature": "#3F9C8E",
+               "sample_host": "#C77F00", "material": "#7B5AA6"}
+
+# Values used only if no search output exists yet, so the figure still renders
+# while the search runs. Every one is overwritten as soon as it does.
+FALLBACK = {"hidden_dims": [128, 192, 192], "dropout": 0.32, "activation": "gelu",
+            "batch_norm": False, "tau": 0.27,
+            "weights": {"community_type": 1.40, "feature": 1.74,
+                        "sample_host": 1.49, "material": 1.27},
+            "smoothing": {"community_type": 0.02, "feature": 0.04,
+                          "sample_host": 0.07, "material": 0.11}}
+
+SEARCH_DIRS = [ROOT / "results/search_v9_multitask", ROOT / "results/search_v9_final"]
+
+
+def load_searched() -> dict:
+    """Read the hyperparameters the grouped search selected.
+
+    Tried in order, first hit wins:
+      1. <search>/final_training_config.json          (resolved hidden_dims list)
+      2. <search>/cv_results/best_hyperparameters.json (hidden_dim_<i>, may be float)
+      3. <search>/**/search_all_train_best_params.json (single all-train search)
+
+    Optuna returns hidden_dim_<i> as a float; aggregate_cv_results.py converts
+    with int(round(...)) and this mirrors that, so the figure shows exactly the
+    widths the model was built with. Falls back to FALLBACK with a printed
+    warning, never silently.
+    """
+    cands = []
+    for d in SEARCH_DIRS:
+        cands += [d / "final_training_config.json",
+                  d / "cv_results" / "best_hyperparameters.json"]
+        cands += sorted(d.rglob("search_all_train_best_params.json"))
+    src = next((c for c in cands if c.exists()), None)
+    if src is None:
+        print(f"WARNING: no search output under {[str(d) for d in SEARCH_DIRS]} — "
+              "figure drawn from FALLBACK values, do NOT use in the paper")
+        return {**FALLBACK, "source": "FALLBACK (search not finished)"}
+
+    raw = json.loads(src.read_text())
+    p = raw.get("model", raw) if "hidden_dims" in raw.get("model", {}) else raw
+    p = {**raw, **(raw.get("model") or {}), **(raw.get("best_hyperparameters") or {})}
+
+    if isinstance(p.get("hidden_dims"), list):
+        dims = [int(round(v)) for v in p["hidden_dims"]]
+    else:
+        n = int(p.get("n_layers", 3))
+        dims = [int(round(p[f"hidden_dim_{i}"])) for i in range(n)]
+
+    hp = {
+        "hidden_dims": dims,
+        "dropout": float(p["dropout"]),
+        "activation": str(p.get("activation", "gelu")),
+        "batch_norm": bool(round(float(p.get("use_batch_norm", 0)))),
+        "tau": float(p.get("logit_adjust_tau", 0.0) or 0.0),
+        "weights": {t: float(p[f"task_weight_{t}"]) for t in TASKS
+                    if f"task_weight_{t}" in p},
+        "smoothing": {t: float(p[f"ls_{t}"]) for t in TASKS if f"ls_{t}" in p},
+        "source": str(src.relative_to(ROOT)),
+    }
+    for k in ("weights", "smoothing"):
+        if not hp[k]:
+            print(f"WARNING: {k} absent from {hp['source']} — using FALLBACK for it")
+            hp[k] = FALLBACK[k]
+    return hp
+
+
+def class_counts() -> dict:
+    """Head sizes as they are in the split the model was trained on."""
+    md = pd.read_csv(ROOT / "data/splits_v9/train_metadata.tsv", sep="\t",
+                     low_memory=False)
+    out = {}
+    for t in TASKS:
+        v = md[t].astype(str).str.strip()
+        out[t] = int(v[~v.str.lower().isin(["nan", "none", "null", ""])].nunique())
+    return out
+
+
+HP = load_searched()
+NCLS = class_counts()
+HEADS = [(HEAD_LABEL[t], NCLS[t], HEAD_COLOUR[t]) for t in TASKS]
 GREY, INK, TRUNK = "#9AA0A6", "#202124", "#5F6368"
 FILL = "#DDE3E9"
 
@@ -82,30 +162,37 @@ for ax in (axa, axb):
 box(axa, 0.005, 0.24, 0.088, 0.52, "#EEF1F4", TRUNK,
     "110,202\nunitig\nfractions", ANN)
 
-trunk_x, trunk_h = [0.155, 0.262, 0.369], [0.42, 0.58, 0.58]
-for i, (x, h) in enumerate(zip(trunk_x, trunk_h)):
-    box(axa, x, 0.5 - h / 2, 0.082, h, FILL, TRUNK,
-        f"Linear\n{[128, 192, 192][i]}", ANN, TRUNK)
-    arrow(axa, 0.093 if i == 0 else trunk_x[i - 1] + 0.082, 0.5, x, 0.5)
+dims = HP["hidden_dims"]
+bw, gap, x0 = 0.082, 0.025, 0.155
+trunk_x = [x0 + i * (bw + gap) for i in range(len(dims))]
+trunk_h = [0.30 + 0.28 * (d / max(dims)) for d in dims]
+for i, (x, h, d) in enumerate(zip(trunk_x, trunk_h, dims)):
+    box(axa, x, 0.5 - h / 2, bw, h, FILL, TRUNK, f"Linear\n{d}", ANN, TRUNK)
+    arrow(axa, 0.093 if i == 0 else trunk_x[i - 1] + bw, 0.5, x, 0.5)
+trunk_mid = (trunk_x[0] + trunk_x[-1] + bw) / 2
+head_x = trunk_x[-1] + bw + 0.044
 
-axa.text(0.278, 0.87, "shared trunk", ha="center", va="bottom",
+axa.text(trunk_mid, 0.87, "shared trunk", ha="center", va="bottom",
          fontsize=ANN, color=TRUNK)
-axa.text(0.278, 0.08, "GELU · dropout 0.32 · no batch norm",
+axa.text(trunk_mid, 0.08,
+         f"{HP['activation'].upper()} · dropout {HP['dropout']:.2f} · "
+         f"{'batch norm' if HP['batch_norm'] else 'no batch norm'}",
          ha="center", va="top", fontsize=TICK, color=TRUNK)
 
 ys = [0.855, 0.620, 0.385, 0.150]
 for (name, k, col), y in zip(HEADS, ys):
-    arrow(axa, 0.451, 0.5, 0.495, y, color=col, lw=1.0)
-    box(axa, 0.495, y - 0.065, 0.100, 0.13, "white", col, "192 → 96", TICK, col)
-    arrow(axa, 0.595, y, 0.630, y, color=col, lw=1.0)
+    arrow(axa, trunk_x[-1] + bw, 0.5, head_x, y, color=col, lw=1.0)
+    box(axa, head_x, y - 0.065, 0.100, 0.13, "white", col,
+        f"{dims[-1]} → {dims[-1] // 2}", TICK, col)
+    arrow(axa, head_x + 0.100, y, 0.630, y, color=col, lw=1.0)
     box(axa, 0.630, y - 0.075, 0.365, 0.15, col, col,
         f"{name}\n{k} classes", ANN, "white")
 
-axa.text(0.545, 0.08, "task head", ha="center", va="top",
+axa.text(head_x + 0.050, 0.08, "task head", ha="center", va="top",
          fontsize=TICK, color=TRUNK)
 axa.text(0.0, -0.12,
          "loss = Σ (per-head weight × smoothed cross-entropy), "
-         "logit-adjusted at τ = 0.27;   absent labels masked",
+         f"logit-adjusted at τ = {HP['tau']:.2f};   absent labels masked",
          transform=axa.transAxes, ha="left", va="top", fontsize=TICK, color=INK)
 
 # ------------------------------------------------------------------ panel b
@@ -120,6 +207,28 @@ axa.set_title("a   DIANA v9 — shared trunk, four task heads", loc="left", pad=
 axb.set_title("b   Single-task control — no shared trunk", loc="left", pad=4)
 
 fig.savefig(OUT / "v9_architecture.png", bbox_inches="tight")
+
+w = HP["weights"]; ls = HP["smoothing"]
+print(f"hyperparameters read from: {HP['source']}")
+print("CAPTION (paste into the paper / PROJECT.md):")
+print(f"  DIANA v9. A shared trunk of {len(dims)} fully-connected blocks "
+      f"({', '.join(str(d) for d in dims)} units; {HP['activation'].upper()}; "
+      f"dropout {HP['dropout']:.2f}; "
+      f"{'batch normalisation' if HP['batch_norm'] else 'no batch normalisation'}) "
+      f"maps the 110,202-dimensional unitig-fraction vector, standardised with "
+      f"statistics fit on the training folds, to {len(TASKS)} task-specific heads. "
+      f"Each head is Linear({dims[-1]} -> {dims[-1] // 2}) -> "
+      f"{HP['activation'].upper()} -> dropout -> Linear. The objective is a "
+      f"weighted sum of per-head cross-entropies with logit adjustment at "
+      f"tau = {HP['tau']:.2f}; absent labels are masked rather than encoded as a "
+      f"class. Per-head loss weights are "
+      + ", ".join(f"{w[t]:.2f} ({HEAD_LABEL[t]})" for t in TASKS if t in w)
+      + ", with label smoothing "
+      + ", ".join(f"{ls[t]:.2f}" for t in TASKS if t in ls)
+      + " respectively. Head sizes are "
+      + ", ".join(f"{NCLS[t]} ({HEAD_LABEL[t]})" for t in TASKS)
+      + " classes. (b) The single-task control: the same recipe fitted "
+        "independently per target, with no shared trunk.")
 
 r = fig.canvas.get_renderer()
 tick = {t for ax in fig.axes for t in ax.get_xticklabels() + ax.get_yticklabels()}
