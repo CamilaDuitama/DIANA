@@ -312,6 +312,9 @@ unitigs_without_blast_stats.txt
 # Archives created for sharing (zip files)
 *.zip
 
+# Legacy/local-only folders (kept locally, not pushed)
+**/legacy/
+
 # Metadata backups (kept locally only)
 paper/metadata/backups/
 paper/metadata/*_BACKUP*
@@ -328,3 +331,34 @@ data/splits/train_ids_backup*
 # Cluster/runtime artefacts (kept locally only)
 results/training/cv_results/slurm_run_config.json
 results/training/diana_train.log
+
+# Claude Code local context files (kept locally only)
+CLAUDE.md
+PROJECT.md
+.claude/
+
+# ---- Large data and per-sample outputs: regenerable, kept local only ----------
+# Feature vectors: 1.1 GB across ~3,900 files. Rebuildable with
+# scripts/validation/11_project_onto_v9_vocabulary.sbatch from the matrix.
+results/v9_vectors/
+results/route_bias_fastq/
+results/route_check_vectors/
+# Logan unitigs and SRA downloads.
+data/unitigs/
+data/validation/
+# Retired split directories. v9 is the only live one; these are kept on disk for
+# provenance but must not be cited (see PROJECT.md "Read first").
+data/splits_v5/
+data/splits_v7_mergefix/
+data/splits_v9/pre_matrix_reconcile/
+# Upstream metadata mirrors, re-fetchable from the AncientMetagenomeDir repo.
+data/metadata/AncientMetagenomeDir-upstream/
+data/metadata/AncientMetagenomeDir-v26.03.0/
+# One-off hand-off bundle, includes a 1.2 GB matrix copy.
+data/for_dlee_coverage_analysis/
+data/for_dlee_coverage_analysis.tar.gz
+# Superseded model outputs, retained on disk because referee responses cite them.
+results/training_bioproject_v5/
+results/training_bioproject_v7/
+results/validation_predictions_bioproject_v5_full/
+results/validation_vectors_v7/

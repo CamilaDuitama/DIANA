@@ -28,69 +28,25 @@
       "rock shelter\tsediment",
       "sea coast\tpermafrost",
       "thermokarst\tpermafrost"
-    ],
-    "community_type|material": [
-      "gut\tdigestive tract contents",
-      "gut\tintestine",
-      "gut\tpalaeofaeces",
-      "oral\tdental calculus",
-      "oral\ttooth",
-      "plant tissue\tleaf",
-      "skeletal tissue\tbone",
-      "skeletal tissue\ttooth",
-      "soft tissue\tintestine",
-      "soft tissue\tmuscle tissue"
-    ],
-    "sample_host|material": [
-      "Ambrosia artemisiifolia\tleaf",
-      "Canis lupus\tpalaeofaeces",
-      "Gorilla beringei beringei\tdental calculus",
-      "Gorilla beringei graueri\tdental calculus",
-      "Gorilla gorilla gorilla\tdental calculus",
-      "Homo sapiens\tbone",
-      "Homo sapiens\tdental calculus",
-      "Homo sapiens\tpalaeofaeces",
-      "Homo sapiens\ttooth",
-      "Homo sapiens neanderthalensis\tdental calculus",
-      "Mammuthus primigenius\tintestine",
-      "Mammuthus primigenius\tmuscle tissue",
-      "Pan troglodytes schweinfurthii\tdental calculus",
-      "Ursus arctos\tdental calculus"
     ]
   },
   "false_positive_floor": {
     "community_type|sample_host": {
-      "n_evaluated": 429,
-      "n_flagged": 0,
-      "false_positive_rate": 0.0,
-      "upper_95_if_zero": 0.006993006993006993,
-      "examples": {}
+      "n_evaluated": 652,
+      "n_flagged": 27,
+      "false_positive_rate": 0.04141104294478527,
+      "upper_95_if_zero": null,
+      "examples": {
+        "gut + Homo sapiens neanderthalensis": 14,
+        "skeletal tissue + Mammuthus primigenius": 13
+      }
     },
     "feature|material": {
-      "n_evaluated": 220,
+      "n_evaluated": 263,
       "n_flagged": 0,
       "false_positive_rate": 0.0,
-      "upper_95_if_zero": 0.013636363636363636,
+      "upper_95_if_zero": 0.011406844106463879,
       "examples": {}
-    },
-    "community_type|material": {
-      "n_evaluated": 414,
-      "n_flagged": 79,
-      "false_positive_rate": 0.19082125603864733,
-      "upper_95_if_zero": null,
-      "examples": {
-        "oral + birch pitch": 79
-      }
-    },
-    "sample_host|material": {
-      "n_evaluated": 413,
-      "n_flagged": 80,
-      "false_positive_rate": 0.1937046004842615,
-      "upper_95_if_zero": null,
-      "examples": {
-        "Homo sapiens + birch pitch": 79,
-        "Homo sapiens + intestine": 1
-      }
     }
   },
   "usable_pairs": [

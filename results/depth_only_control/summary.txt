@@ -1,28 +1,106 @@
 Depth-only control (R3.7 / R3.8)
 
-Features: log10(read_count), log10(download_size). Nothing else.
+### metadata depth  [log10(read_count), log10(download_size)]
 
-community_type  (train 2120, test 430, 5 eligible classes)
-    model                      acc  bal_acc  F1_elig
-    MajorityClass            0.544    0.200    0.141
-    Depth_LogReg             0.144    0.158    0.087
-    Depth_RandomForest       0.465    0.172    0.134
+community_type  (train 2073, test 653, 5 eligible classes)
+    model                      acc  bal_acc  F1_elig |  tr_acc   tr_bal    tr_F1
+    MajorityClass            0.577    0.200    0.146 |   0.821    0.200    0.180
+    Depth_LogReg             0.161    0.164    0.103 |   0.561    0.424    0.306
+    Depth_RandomForest       0.519    0.193    0.164 |   1.000    1.000    1.000
 
-feature  (train 620, test 220, 5 eligible classes)
-    model                      acc  bal_acc  F1_elig
-    MajorityClass            0.318    0.200    0.097
-    Depth_LogReg             0.014    0.055    0.046
-    Depth_RandomForest       0.005    0.003    0.003
+feature  (train 608, test 263, 6 eligible classes)
+    model                      acc  bal_acc  F1_elig |  tr_acc   tr_bal    tr_F1
+    MajorityClass            0.266    0.167    0.070 |   0.354    0.100    0.065
+    Depth_LogReg             0.061    0.223    0.103 |   0.270    0.361    0.236
+    Depth_RandomForest       0.019    0.013    0.009 |   1.000    1.000    1.000
 
-sample_host  (train 2132, test 429, 5 eligible classes)
-    model                      acc  bal_acc  F1_elig
-    MajorityClass            0.837    0.200    0.182
-    Depth_LogReg             0.009    0.002    0.004
-    Depth_RandomForest       0.646    0.154    0.158
+sample_host  (train 2085, test 652, 6 eligible classes)
+    model                      acc  bal_acc  F1_elig |  tr_acc   tr_bal    tr_F1
+    MajorityClass            0.851    0.167    0.153 |   0.670    0.042    0.080
+    Depth_LogReg             0.006    0.001    0.002 |   0.093    0.247    0.116
+    Depth_RandomForest       0.699    0.137    0.138 |   1.000    1.000    1.000
 
-material  (train 2698, test 575, 11 eligible classes)
-    model                      acc  bal_acc  F1_elig
-    MajorityClass            0.082    0.091    0.014
-    Depth_LogReg             0.082    0.045    0.037
-    Depth_RandomForest       0.052    0.049    0.023
+material  (train 2639, test 822, 13 eligible classes)
+    model                      acc  bal_acc  F1_elig |  tr_acc   tr_bal    tr_F1
+    MajorityClass            0.220    0.077    0.028 |   0.526    0.062    0.049
+    Depth_LogReg             0.085    0.044    0.046 |   0.404    0.333    0.186
+    Depth_RandomForest       0.127    0.074    0.057 |   1.000    1.000    1.000
+
+### sequence depth  [log10(total unitig abundance), mean k-mer fraction]
+
+community_type  (train 2073, test 653, 5 eligible classes)
+    model                      acc  bal_acc  F1_elig |  tr_acc   tr_bal    tr_F1
+    MajorityClass            0.577    0.200    0.146 |   0.821    0.200    0.180
+    Depth_LogReg             0.507    0.275    0.233 |   0.478    0.378    0.248
+    Depth_RandomForest       0.579    0.203    0.156 |   1.000    1.000    1.000
+
+feature  (train 608, test 263, 6 eligible classes)
+    model                      acc  bal_acc  F1_elig |  tr_acc   tr_bal    tr_F1
+    MajorityClass            0.266    0.167    0.070 |   0.354    0.100    0.065
+    Depth_LogReg             0.156    0.108    0.094 |   0.242    0.445    0.196
+    Depth_RandomForest       0.152    0.099    0.061 |   0.998    1.000    0.999
+
+sample_host  (train 2085, test 652, 6 eligible classes)
+    model                      acc  bal_acc  F1_elig |  tr_acc   tr_bal    tr_F1
+    MajorityClass            0.851    0.167    0.153 |   0.670    0.042    0.080
+    Depth_LogReg             0.179    0.035    0.056 |   0.264    0.229    0.102
+    Depth_RandomForest       0.752    0.172    0.189 |   1.000    1.000    1.000
+
+material  (train 2639, test 822, 13 eligible classes)
+    model                      acc  bal_acc  F1_elig |  tr_acc   tr_bal    tr_F1
+    MajorityClass            0.220    0.077    0.028 |   0.526    0.062    0.049
+    Depth_LogReg             0.270    0.144    0.105 |   0.356    0.267    0.136
+    Depth_RandomForest       0.310    0.123    0.090 |   0.999    0.999    1.000
+
+### depth alone     [log10(total unitig abundance)]
+
+community_type  (train 2073, test 653, 5 eligible classes)
+    model                      acc  bal_acc  F1_elig |  tr_acc   tr_bal    tr_F1
+    MajorityClass            0.577    0.200    0.146 |   0.821    0.200    0.180
+    Depth_LogReg             0.511    0.276    0.235 |   0.592    0.318    0.252
+    Depth_RandomForest       0.513    0.199    0.188 |   1.000    1.000    1.000
+
+feature  (train 608, test 263, 6 eligible classes)
+    model                      acc  bal_acc  F1_elig |  tr_acc   tr_bal    tr_F1
+    MajorityClass            0.266    0.167    0.070 |   0.354    0.100    0.065
+    Depth_LogReg             0.011    0.008    0.014 |   0.163    0.242    0.154
+    Depth_RandomForest       0.163    0.110    0.082 |   0.998    1.000    0.999
+
+sample_host  (train 2085, test 652, 6 eligible classes)
+    model                      acc  bal_acc  F1_elig |  tr_acc   tr_bal    tr_F1
+    MajorityClass            0.851    0.167    0.153 |   0.670    0.042    0.080
+    Depth_LogReg             0.008    0.002    0.003 |   0.014    0.098    0.020
+    Depth_RandomForest       0.500    0.098    0.115 |   0.998    0.988    0.995
+
+material  (train 2639, test 822, 13 eligible classes)
+    model                      acc  bal_acc  F1_elig |  tr_acc   tr_bal    tr_F1
+    MajorityClass            0.220    0.077    0.028 |   0.526    0.062    0.049
+    Depth_LogReg             0.190    0.113    0.075 |   0.397    0.205    0.122
+    Depth_RandomForest       0.234    0.108    0.098 |   0.997    0.998    0.998
+
+### coverage alone  [mean k-mer fraction]
+
+community_type  (train 2073, test 653, 5 eligible classes)
+    model                      acc  bal_acc  F1_elig |  tr_acc   tr_bal    tr_F1
+    MajorityClass            0.577    0.200    0.146 |   0.821    0.200    0.180
+    Depth_LogReg             0.363    0.368    0.256 |   0.441    0.350    0.197
+    Depth_RandomForest       0.562    0.224    0.214 |   1.000    1.000    1.000
+
+feature  (train 608, test 263, 6 eligible classes)
+    model                      acc  bal_acc  F1_elig |  tr_acc   tr_bal    tr_F1
+    MajorityClass            0.266    0.167    0.070 |   0.354    0.100    0.065
+    Depth_LogReg             0.095    0.241    0.146 |   0.123    0.263    0.100
+    Depth_RandomForest       0.133    0.132    0.120 |   0.998    1.000    0.999
+
+sample_host  (train 2085, test 652, 6 eligible classes)
+    model                      acc  bal_acc  F1_elig |  tr_acc   tr_bal    tr_F1
+    MajorityClass            0.851    0.167    0.153 |   0.670    0.042    0.080
+    Depth_LogReg             0.032    0.159    0.043 |   0.046    0.123    0.055
+    Depth_RandomForest       0.491    0.096    0.113 |   1.000    1.000    1.000
+
+material  (train 2639, test 822, 13 eligible classes)
+    model                      acc  bal_acc  F1_elig |  tr_acc   tr_bal    tr_F1
+    MajorityClass            0.220    0.077    0.028 |   0.526    0.062    0.049
+    Depth_LogReg             0.180    0.073    0.073 |   0.303    0.130    0.063
+    Depth_RandomForest       0.270    0.114    0.097 |   0.998    0.997    0.998
 
