@@ -1,0 +1,40 @@
+{
+  "_comment": "Same space and budget as the legacy-objective search, run in parallel with it. Only search_objective differs, so the two sets differ in the objective and nothing else. Held-out untouched.",
+  "features_path": "data/matrices/matrix_v9_train/unitigs.frac.mat",
+  "metadata_path": "data/splits_v9/train_metadata.tsv",
+  "train_ids_path": "data/splits_v9/train_accessions.txt",
+  "output_dir": "results/search_v9_pooled_single_sample_host",
+  "task_names": [
+    "sample_host"
+  ],
+  "task_types": {
+    "sample_host": "classification"
+  },
+  "class_imbalance": {
+    "method": "logit_adjustment",
+    "logit_adjust_tau": 0.25,
+    "search_tau": true,
+    "class_weights": null,
+    "_comment": "tau is SEARCHED in [0.05, 0.8]. tau=1.0, the parameter-free default, over-corrects at this imbalance: dev fold 2 single-task `feature` scored 0.009 at tau=1.0 against 0.484 at tau=0.25."
+  },
+  "masking": {
+    "ignore_index": -100,
+    "_comment": "Absent labels are masked, not encoded as a class. Environmental runs have no community_type/sample_host; host runs have no feature; material classes under 3 training runs are masked; 12 McDonough2018 runs have conflicting labels masked per target."
+  },
+  "validation_split": 0.1,
+  "max_epochs": 200,
+  "early_stopping_patience": 20,
+  "patience": 20,
+  "random_seed": 42,
+  "n_inner_splits": 3,
+  "n_trials": 100,
+  "checkpoint_freq": 1,
+  "use_gpu": true,
+  "group_column": "archive_project",
+  "dev_folds_path": "data/splits_v9/dev_folds.tsv",
+  "n_folds": 5,
+  "no_label_smoothing": false,
+  "search_only": true,
+  "class_eligibility_path": "data/splits_v9/class_eligibility.tsv",
+  "search_objective": "eligible_pooled"
+}
