@@ -378,10 +378,20 @@ def save_results(results: dict, predictions: dict, probabilities: dict, y_test: 
             logger.info(f"  R²:         {metrics['r2']:.4f}")
         else:
             logger.info(f"  Samples (seen):    {metrics['n_samples']} / {len(metadata)} ({metrics['n_unseen']} unseen excluded)")
-            logger.info(f"  Accuracy:          {metrics['accuracy']:.4f}")
+            # The two headline metrics first. Accuracy is reported but is misleading
+            # under this imbalance and must not be quoted on its own.
             logger.info(f"  Balanced Accuracy: {metrics['balanced_accuracy']:.4f}")
+            _fe = metrics.get('f1_macro_eligible')
+            if _fe is not None and _fe == _fe:
+                _ci = ("" if 'f1_macro_eligible_ci_low' not in metrics else
+                       f"  [{metrics['f1_macro_eligible_ci_low']:.3f},"
+                       f"{metrics['f1_macro_eligible_ci_high']:.3f}]")
+                logger.info(f"  F1 macro ELIGIBLE: {_fe:.4f}{_ci}   "
+                            f"({metrics.get('n_classes_eligible', 0)}"
+                            f"/{metrics.get('n_classes_seen', 0)} classes)")
+            logger.info(f"  F1 (macro, seen):  {metrics['f1_macro_seen']:.4f}")
             logger.info(f"  F1 (weighted):     {metrics['f1_weighted']:.4f}")
-            logger.info(f"  F1 (macro):        {metrics['f1_macro']:.4f}")
+            logger.info(f"  Accuracy:          {metrics['accuracy']:.4f}")
         logger.info("")
     
     logger.info("="*70)
