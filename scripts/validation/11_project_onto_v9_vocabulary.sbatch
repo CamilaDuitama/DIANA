@@ -80,7 +80,14 @@ fi
 # Assembly has already done the error filtering, and --out-frac asks only which
 # k-mers are PRESENT, so threshold 1 is correct for unitig input.
 FILELIST="$SAMPLE_DIR/${ACC}_files.txt"
-if [ -e "$LOGAN_DIR/${ACC}.unitigs.fa.gz" ]; then
+# FORCE_SRC=fastq projects a run from raw reads even when Logan unitigs exist. Used
+# to measure whether the input route biases the features: 238 held-out runs have
+# both, so the same run can be pushed through each route and the vectors compared.
+if [ "${FORCE_SRC:-}" = "fastq" ]; then
+    find data/validation/raw -type f -name "${ACC}*.fastq.gz" | sort > "$FILELIST"
+    SRC="fastq-forced"
+    MIN_ABUNDANCE=2
+elif [ -e "$LOGAN_DIR/${ACC}.unitigs.fa.gz" ]; then
     echo "$LOGAN_DIR/${ACC}.unitigs.fa.gz" > "$FILELIST"
     SRC="logan-unitigs"
     MIN_ABUNDANCE=1
