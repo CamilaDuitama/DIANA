@@ -1,0 +1,32 @@
+Candidate search objectives over 14 trials
+
+Every candidate is computed from the SAME trained models, so any
+disagreement is the metric's, not training noise.
+
+candidate                     mean     min     max  best trial
+eligible_foldmean           0.4582  0.3129  0.5772          11
+legacy_foldmean             0.2801  0.1572  0.3567          11
+eligible_pooled             0.3041  0.1900  0.4605          11
+eligible_pooled_balacc      0.3243  0.2083  0.4823          11
+
+Spearman rank correlation between candidates:
+
+pair                                                     rho         p  same best?
+eligible_foldmean vs legacy_foldmean                   0.903    0.0000  yes
+eligible_foldmean vs eligible_pooled                   0.934    0.0000  yes
+eligible_foldmean vs eligible_pooled_balacc            0.960    0.0000  yes
+legacy_foldmean vs eligible_pooled                     0.798    0.0006  yes
+legacy_foldmean vs eligible_pooled_balacc              0.842    0.0002  yes
+eligible_pooled vs eligible_pooled_balacc              0.943    0.0000  yes
+
+The decision:
+  legacy_foldmean vs eligible_pooled: rho = +0.798, same best trial = True
+
+  rho near 1 and the same best trial means the running searches
+  would land in much the same place under the pooled objective, so a
+  rerun buys little. A low rho means the objective is choosing the
+  hyperparameters and the rerun is necessary.
+
+  Read with the sample size in mind: this is a handful of trials at
+  reduced epochs, enough to separate 'essentially the same ordering'
+  from 'unrelated' and not enough for anything finer.

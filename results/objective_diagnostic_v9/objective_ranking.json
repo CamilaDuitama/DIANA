@@ -1,0 +1,47 @@
+{
+  "n_trials": 14,
+  "pairs": [
+    {
+      "a": "eligible_foldmean",
+      "b": "legacy_foldmean",
+      "rho": 0.9032967032967033,
+      "p": 9.558659401055547e-06,
+      "same_best_trial": true
+    },
+    {
+      "a": "eligible_foldmean",
+      "b": "eligible_pooled",
+      "rho": 0.9340659340659341,
+      "p": 1.0279787693084366e-06,
+      "same_best_trial": true
+    },
+    {
+      "a": "eligible_foldmean",
+      "b": "eligible_pooled_balacc",
+      "rho": 0.9604395604395607,
+      "p": 5.081053892329076e-08,
+      "same_best_trial": true
+    },
+    {
+      "a": "legacy_foldmean",
+      "b": "eligible_pooled",
+      "rho": 0.7978021978021977,
+      "p": 0.0006282758224581759,
+      "same_best_trial": true
+    },
+    {
+      "a": "legacy_foldmean",
+      "b": "eligible_pooled_balacc",
+      "rho": 0.8417582417582418,
+      "p": 0.0001597377591745287,
+      "same_best_trial": true
+    },
+    {
+      "a": "eligible_pooled",
+      "b": "eligible_pooled_balacc",
+      "rho": 0.9428571428571428,
+      "p": 4.4409928509609024e-07,
+      "same_best_trial": true
+    }
+  ]
+}
