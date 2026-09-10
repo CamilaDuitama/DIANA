@@ -44,6 +44,8 @@ from sklearn.svm import LinearSVC
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT / "scripts/analysis"))
+
+from diana.evaluation.metrics import classification_metrics
 from load_v9_features import load_features  # noqa: E402
 
 TARGETS = ["community_type", "feature", "sample_host", "material"]
@@ -68,18 +70,13 @@ def build_models(seed: int) -> dict:
 
 
 def metrics(y_true, y_pred, eligible: set) -> dict:
-    seen = sorted(set(y_true))
-    elig = sorted(c for c in seen if c in eligible)
-    return {
-        "accuracy": float(accuracy_score(y_true, y_pred)),
-        "balanced_accuracy": float(balanced_accuracy_score(y_true, y_pred)),
-        "f1_macro_seen": float(f1_score(y_true, y_pred, labels=seen,
-                                        average="macro", zero_division=0)),
-        "f1_macro_eligible": float(f1_score(y_true, y_pred, labels=elig,
-                                            average="macro", zero_division=0)) if elig else float("nan"),
-        "n_classes_seen": len(seen),
-        "n_classes_eligible": len(elig),
-    }
+    """Delegates to diana.evaluation.metrics so the baselines and diana-test cannot
+    drift. They had already drifted once: diana-test passed no `labels=` to
+    f1_score, which averages over the union of true and predicted classes, while
+    this script passed `labels=seen`. Under a BioProject-disjoint split the model
+    often predicts classes absent from the test rows, so the two macro-F1s were not
+    the same quantity."""
+    return classification_metrics(y_true, y_pred, eligible)
 
 
 def bootstrap_ci(y_true, y_pred, eligible: set, n_boot: int, seed: int) -> dict:

@@ -48,6 +48,11 @@ from diana.models.multitask_mlp import (
     split_tasks,
     task_info_from_encoders,
 )
+from diana.evaluation.metrics import (
+    bootstrap_ci,
+    classification_metrics,
+    load_eligible_classes,
+)
 
 
 def load_model(model_path: Path, config: dict, device: str = 'cuda'):
@@ -175,7 +180,8 @@ def encode_labels(metadata: 'pd.DataFrame', task_names: list, encoders_data: dic
     return y_test
 
 
-def evaluate_model(model, X_test, y_test, task_names, encoders_data, device, batch_size=96):
+def evaluate_model(model, X_test, y_test, task_names, encoders_data, device,
+                   batch_size=96, eligible_names=None):
     """
     Evaluate model on test data.
 
@@ -239,16 +245,37 @@ def evaluate_model(model, X_test, y_test, task_names, encoders_data, device, bat
                 'n_masked': int((y_true_all == IGNORE_INDEX).sum()),
                 'n_out_of_vocabulary': int((y_true_all == -1).sum()),
                 'n_unseen': int((~seen_mask).sum()),
-                'accuracy': float(accuracy_score(y_true, y_pred)),
-                'balanced_accuracy': float(balanced_accuracy_score(y_true, y_pred)),
-                'f1_macro': float(f1_score(y_true, y_pred, average='macro', zero_division=0)),
-                'f1_weighted': float(f1_score(y_true, y_pred, average='weighted', zero_division=0)),
                 'precision_macro': float(precision_score(y_true, y_pred, average='macro', zero_division=0)),
                 'recall_macro': float(recall_score(y_true, y_pred, average='macro', zero_division=0)),
                 'confusion_matrix': confusion_matrix(y_true, y_pred).tolist(),
                 'classification_report': classification_report(y_true, y_pred, output_dict=True, zero_division=0)
             }
-            logger.info(f"{task}: Accuracy={task_results['accuracy']:.4f}, F1={task_results['f1_weighted']:.4f}")
+
+            # balanced accuracy and f1_macro_eligible are the two metrics that matter
+            # here, and they come from diana.evaluation.metrics so that a model number
+            # and a baseline number are computed identically. Eligibility is by class
+            # NAME, y_true is encoded, so map through the encoder.
+            eligible_enc = None
+            if eligible_names is not None:
+                classes = np.array(encoders_data[task]['classes'])
+                eligible_enc = {i for i, c in enumerate(classes)
+                                if c in eligible_names.get(task, set())}
+            task_results.update(classification_metrics(y_true, y_pred, eligible_enc))
+            if eligible_enc:
+                task_results.update(bootstrap_ci(y_true, y_pred, eligible_enc,
+                                                 n_boot=1000, seed=42))
+
+            _fe = task_results.get('f1_macro_eligible')
+            logger.info(
+                f"{task}: balanced_acc={task_results['balanced_accuracy']:.4f}  "
+                f"f1_macro_eligible="
+                + (f"{_fe:.4f}" if _fe is not None and _fe == _fe else "n/a")
+                + (f" [{task_results['f1_macro_eligible_ci_low']:.3f},"
+                   f"{task_results['f1_macro_eligible_ci_high']:.3f}]"
+                   if 'f1_macro_eligible_ci_low' in task_results else "")
+                + f"  ({task_results.get('n_classes_eligible', 0)}"
+                  f"/{task_results['n_classes_seen']} classes eligible)"
+                + f"  acc={task_results['accuracy']:.4f}")
         else:
             from sklearn.metrics import mean_absolute_error, r2_score
             from scipy.stats import pearsonr
@@ -376,8 +403,11 @@ def main():
     parser.add_argument('--metadata', type=Path,
                        default=Path('data/metadata/DIANA_metadata.tsv'),
                        help='Path to metadata file')
-    parser.add_argument('--test-ids', type=Path,
-                       default=Path('data/splits_v5/test_ids.txt'),
+    parser.add_argument('--eligibility', type=Path,
+                       default=Path('data/splits_v9/class_eligibility.tsv'),
+                       help='class_eligibility.tsv; classes in >=2 BioProjects form '
+                            'the f1_macro_eligible denominator. Pass "none" to skip.')
+    parser.add_argument('--test-ids', type=Path, required=True,
                        help='Path to test IDs file')
     parser.add_argument('--output', type=Path, required=True,
                        help='Output directory for results')
@@ -448,8 +478,22 @@ def main():
     logger.info("Model loaded successfully")
     
     # Run evaluation
+    # Eligible classes: those in >=2 BioProjects, the f1_macro_eligible denominator.
+    eligible_names = None
+    if str(args.eligibility).lower() != 'none':
+        if not args.eligibility.exists():
+            raise FileNotFoundError(
+                f"eligibility table not found: {args.eligibility}. Pass "
+                "--eligibility none to report macro-F1 over all seen classes instead, "
+                "but then the number is NOT comparable to the baseline table.")
+        eligible_names = {t: load_eligible_classes(args.eligibility, t)
+                          for t in task_names}
+        logger.info("Eligible classes per task: %s",
+                    {t: len(v) for t, v in eligible_names.items()})
+
     predictions, probabilities, results = evaluate_model(
-        model, X_test, y_test, task_names, encoders_data, args.device, args.batch_size
+        model, X_test, y_test, task_names, encoders_data, args.device,
+        args.batch_size, eligible_names=eligible_names
     )
     
     # Save results
