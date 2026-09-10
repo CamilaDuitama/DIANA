@@ -1,0 +1,39 @@
+{
+  "fold_id": 1,
+  "total_folds": 5,
+  "n_outer_train": 2417,
+  "n_sub_train": 2175,
+  "n_sub_val": 242,
+  "n_test": 299,
+  "num_classes": {
+    "material": 16
+  },
+  "best_params": {
+    "n_layers": 3,
+    "hidden_dim_0": 448,
+    "hidden_dim_1": 64,
+    "hidden_dim_2": 320,
+    "dropout": 0.40325045144561794,
+    "learning_rate": 0.005447821067941039,
+    "weight_decay": 1.248181643208142e-06,
+    "batch_size": 64,
+    "use_batch_norm": false,
+    "activation": "relu",
+    "logit_adjust_tau": 0.08569386842533437,
+    "ls_material": 0.0569939757423311,
+    "task_weight_material": 1.0
+  },
+  "test_metrics": {
+    "material": {
+      "n_scored": 291,
+      "accuracy": 0.563573883161512,
+      "f1_weighted": 0.5794978780731267,
+      "f1_macro": 0.19695417565303153,
+      "balanced_accuracy": 0.23054834054834053
+    }
+  },
+  "best_model_path": "results/search_v9_single_material/cv_results/fold_1/best_model.pth",
+  "final_model_path": "results/search_v9_single_material/cv_results/fold_1/final_model_20260909_211927.pth",
+  "timestamp": "20260909_180059",
+  "note": "Test set ONLY used for final evaluation, never for model selection"
+}

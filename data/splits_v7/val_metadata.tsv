@@ -1,0 +1,703 @@
+Run_accession	sample_type	community_type	sample_host	material	sample_age	latitude	longitude	project_name	publication_year	geo_loc_name	sample_name	archive_project	archive_sample_accession
+ERR3579684	ancient_metagenome	oral	Gorilla beringei beringei	dental calculus	200.0	-1.46	29.42	FellowsYates2021	2021	Democratic Republic of the Congo	MTM013.A	PRJEB34569	ERS3774394
+ERR3678183	ancient_metagenome	oral	Gorilla beringei beringei	dental calculus	200.0	-1.46	29.42	FellowsYates2021	2021	Democratic Republic of the Congo	MTM013.A	PRJEB34569	ERS3774394
+ERR3579686	ancient_metagenome	oral	Gorilla beringei beringei	dental calculus	200.0	-1.5	29.45	FellowsYates2021	2021	Democratic Republic of the Congo	MTS002.A	PRJEB34569	ERS3774396
+ERR3678185	ancient_metagenome	oral	Gorilla beringei beringei	dental calculus	200.0	-1.5	29.45	FellowsYates2021	2021	Democratic Republic of the Congo	MTS002.A	PRJEB34569	ERS3774396
+ERR3579772	ancient_metagenome	oral	Pan troglodytes schweinfurthii	dental calculus	200.0	0.48	30.38	FellowsYates2021	2021	Uganda	KNP009.A	PRJEB34569	ERS3774425
+ERR3579717	ancient_metagenome	oral	Pan troglodytes ellioti	dental calculus	200.0	3.41	13.53	FellowsYates2021	2021	Cameroon	DJA007.A	PRJEB34569	ERS3774429
+ERR3579769	ancient_metagenome	oral	Pan troglodytes schweinfurthii	dental calculus	200.0	0.48	30.38	FellowsYates2021	2021	Uganda	KNP007.A	PRJEB34569	ERS3774424
+ERR3579770	ancient_metagenome	oral	Pan troglodytes schweinfurthii	dental calculus	200.0	0.48	30.38	FellowsYates2021	2021	Uganda	KNP009.A	PRJEB34569	ERS3774425
+ERR3579771	ancient_metagenome	oral	Pan troglodytes schweinfurthii	dental calculus	200.0	0.48	30.38	FellowsYates2021	2021	Uganda	KNP009.A	PRJEB34569	ERS3774425
+ERR3579808	ancient_metagenome	oral	Homo sapiens neanderthalensis	dental calculus	55000.0	37.743	-0.953	FellowsYates2021	2021	Spain	SPM002.A	PRJEB34569	ERS3774443
+ERR3579718	ancient_metagenome	oral	Pan troglodytes ellioti	dental calculus	200.0	3.41	13.53	FellowsYates2021	2021	Cameroon	DJA007.A	PRJEB34569	ERS3774429
+ERR3579724	ancient_metagenome	oral	Pan troglodytes ellioti	dental calculus	200.0	2.91	11.15	FellowsYates2021	2021	Cameroon	EBO008.A	PRJEB34569	ERS3774430
+ERR3579725	ancient_metagenome	oral	Pan troglodytes ellioti	dental calculus	200.0	2.91	11.15	FellowsYates2021	2021	Cameroon	EBO008.A	PRJEB34569	ERS3774430
+ERR3579739	ancient_metagenome	oral	Homo sapiens	dental calculus	300.0	31.51	-9.76	FellowsYates2021	2021	Morocco	ESA004.A	PRJEB34569	ERS3774472
+ERR3579737	ancient_metagenome	oral	Homo sapiens	dental calculus	18700.0	38.919	-0.121	FellowsYates2021	2021	Spain	EMN001.A	PRJEB34569	ERS3774464
+ERR3579736	ancient_metagenome	oral	Homo sapiens	dental calculus	18700.0	38.919	-0.121	FellowsYates2021	2021	Spain	EMN001.A	PRJEB34569	ERS3774464
+ERR3579773	ancient_metagenome	oral	Homo sapiens	dental calculus	300.0	31.51	-9.76	FellowsYates2021	2021	Portugal	LIS001.A	PRJEB34569	ERS3774477
+ERR3761413	ancient_metagenome	gut	Homo sapiens	palaeofaeces	1300.0	25.771	-105.786	Borry2020	2020	Mexico	Zape 31	PRJEB35362	ERS4181287
+ERR3761407	ancient_metagenome	gut	Canis lupus	palaeofaeces	400.0	53.8	-2.07	Borry2020	2020	United Kingdom	YRK001	PRJEB35362	ERS4181282
+ERR3761410	ancient_metagenome	gut	Homo sapiens	palaeofaeces	1300.0	25.771	-105.786	Borry2020	2020	Mexico	Zape 23	PRJEB35362	ERS4181283
+ERR3761411	ancient_metagenome	gut	Homo sapiens	palaeofaeces	1300.0	25.771	-105.786	Borry2020	2020	Mexico	Zape 25	PRJEB35362	ERS4181284
+ERR3761408	ancient_metagenome	gut	Homo sapiens	palaeofaeces	1300.0	25.771	-105.786	Borry2020	2020	Mexico	Zape 27	PRJEB35362	ERS4181285
+ERR3761409	ancient_metagenome	gut	Homo sapiens	palaeofaeces	1300.0	25.771	-105.786	Borry2020	2020	Mexico	Zape 27	PRJEB35362	ERS4181285
+ERR3761412	ancient_metagenome	gut	Homo sapiens	palaeofaeces	1300.0	25.771	-105.786	Borry2020	2020	Mexico	Zape 29	PRJEB35362	ERS4181286
+SRR13355800	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8822	PRJNA688065	SRS7967573
+SRR13355785	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8825	PRJNA688065	SRS7967588
+SRR13355784	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8826	PRJNA688065	SRS7967589
+SRR13355813	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8827	PRJNA688065	SRS7967560
+SRR13355812	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8829	PRJNA688065	SRS7967561
+SRR13355799	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8830	PRJNA688065	SRS7967574
+SRR13355811	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8831	PRJNA688065	SRS7967562
+SRR13355810	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8833	PRJNA688065	SRS7967563
+SRR13355805	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8810	PRJNA688065	SRS7967568
+SRR13355794	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8811	PRJNA688065	SRS7967579
+SRR13355792	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8813	PRJNA688065	SRS7967581
+SRR13355801	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8815	PRJNA688065	SRS7967572
+SRR13355791	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8816	PRJNA688065	SRS7967582
+SRR13355787	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8818	PRJNA688065	SRS7967586
+SRR13355790	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8819	PRJNA688065	SRS7967583
+SRR13355789	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8820	PRJNA688065	SRS7967584
+SRR13355786	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8809	PRJNA688065	SRS7967587
+SRR13355803	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8856	PRJNA688065	SRS7967570
+SRR13355802	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8857	PRJNA688065	SRS7967571
+SRR13355809	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8834	PRJNA688065	SRS7967564
+SRR13355798	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8835	PRJNA688065	SRS7967575
+SRR13355797	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8838	PRJNA688065	SRS7967576
+SRR13355796	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8839	PRJNA688065	SRS7967577
+SRR13355808	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8840	PRJNA688065	SRS7967565
+SRR13355807	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8843	PRJNA688065	SRS7967566
+SRR13355806	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8844	PRJNA688065	SRS7967567
+SRR13355804	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	53.962	-1.075	Farrer2021	2021	United Kingdom	Jewbury8855	PRJNA688065	SRS7967569
+ERR4593927	ancient_metagenome	oral	Homo sapiens	dental calculus	400.0	56.958	24.121	Kazarina2021	2021	Latvia	ZA_10C	PRJEB40382	ERS5073264
+ERR3728253	ancient_metagenome	oral	Homo sapiens	dental calculus	1000.0	42.84	-2.517	Fagernas2020	2020	Spain	SMD 2711-1-2710(171)	PRJEB35483	ERS4042434
+ERR3728242	ancient_metagenome	oral	Homo sapiens	dental calculus	1100.0	42.84	-2.517	Fagernas2020	2020	Spain	SMD 1441-1-1440(044)	PRJEB35483	ERS4042423
+ERR3728243	ancient_metagenome	oral	Homo sapiens	dental calculus	1100.0	42.84	-2.517	Fagernas2020	2020	Spain	SMD 1441-1-1440(044)	PRJEB35483	ERS4042424
+ERR3728244	ancient_metagenome	oral	Homo sapiens	dental calculus	1100.0	42.84	-2.517	Fagernas2020	2020	Spain	SMD 1441-1-1440(044)	PRJEB35483	ERS4042425
+ERR3728225	ancient_metagenome	oral	Homo sapiens	dental calculus	1500.0	53.951	-1.1	Fagernas2020	2020	United Kingdom	3DT21	PRJEB35483	ERS4042406
+SRR12557705	ancient_metagenome	gut	Homo sapiens	palaeofaeces	1200.0	25.771	-105.786	Wibowo2021	2021	Mexico	Zape2	PRJNA561510	SRS5300669
+SRR12557704	ancient_metagenome	gut	Homo sapiens	palaeofaeces	1300.0	25.771	-105.786	Wibowo2021	2021	Mexico	Zape3	PRJNA561510	SRS5300638
+SRR12557734	ancient_metagenome	gut	Homo sapiens	palaeofaeces	1900.0	37.5	-109.8	Wibowo2021	2021	USA	UT30.3	PRJNA561510	SRS5300636
+SRR12557733	ancient_metagenome	gut	Homo sapiens	palaeofaeces	2000.0	37.5	-109.8	Wibowo2021	2021	USA	UT43.2	PRJNA561510	SRS5300648
+SRR12557722	ancient_metagenome	gut	Homo sapiens	palaeofaeces	1500.0	37.5	-110.0	Wibowo2021	2021	USA	AW107 / AZ107	PRJNA561510	SRS5300659
+SRR12557711	ancient_metagenome	gut	Homo sapiens	palaeofaeces	1400.0	37.5	-110.0	Wibowo2021	2021	USA	AW108 / AZ108	PRJNA561510	SRS5300666
+SRR12557707	ancient_metagenome	gut	Homo sapiens	palaeofaeces	1400.0	37.5	-110.0	Wibowo2021	2021	USA	AW110A/ AZ110A	PRJNA561510	SRS5300667
+SRR12557706	ancient_metagenome	gut	Homo sapiens	palaeofaeces	1100.0	25.771	-105.786	Wibowo2021	2021	Mexico	Zape1	PRJNA561510	SRS5300670
+ERR4172564	ancient_metagenome	oral	Gorilla beringei	dental calculus	100.0	-1.508	29.445	Brealey2020	2020	Democratic Republic of the Congo	Gb1	PRJEB33363	ERS4545903
+ERR4172565	ancient_metagenome	oral	Gorilla beringei	dental calculus	100.0	-1.508	29.445	Brealey2020	2020	Democratic Republic of the Congo	Gb1	PRJEB33363	ERS4545903
+ERR4172752	ancient_metagenome	oral	Gorilla beringei	dental calculus	100.0	-1.508	29.445	Brealey2020	2020	Democratic Republic of the Congo	Gb1	PRJEB33363	ERS4545903
+ERR4172754	ancient_metagenome	oral	Gorilla beringei	dental calculus	100.0	-1.508	29.445	Brealey2020	2020	Democratic Republic of the Congo	Gb1	PRJEB33363	ERS4545903
+ERR4173038	ancient_metagenome	oral	Ursus arctos	dental calculus	100.0	61.004	14.537	Brealey2020	2020	Sweden	Ua14	PRJEB33363	ERS4545913
+SRR12455975	ancient_metagenome	gut	Canis lupus	palaeofaeces	850.0	38.65	-90.17	Witt2021	2021	USA	JBG 750-16 (cop_JBG16)	PRJNA657304	SRS7205515
+SRR12455956	ancient_metagenome	gut	Canis lupus	palaeofaeces	950.0	38.64	-90.15	Witt2021	2021	USA	ESL 3382-166 (cop_ESL166)	PRJNA657304	SRS7205534
+SRR12455957	ancient_metagenome	gut	Canis lupus	palaeofaeces	850.0	38.65	-90.17	Witt2021	2021	USA	JBG 7298-2 (cop_JBG82)	PRJNA657304	SRS7205533
+SRR12455958	ancient_metagenome	gut	Canis lupus	palaeofaeces	850.0	38.65	-90.17	Witt2021	2021	USA	JBG 6227-15 (cop_JBG15)	PRJNA657304	SRS7205532
+SRR12455959	ancient_metagenome	gut	Canis lupus	palaeofaeces	850.0	38.65	-90.17	Witt2021	2021	USA	JBG 5146-2 (cop_JBG462)	PRJNA657304	SRS7205531
+SRR12455960	ancient_metagenome	gut	Canis lupus	palaeofaeces	850.0	38.65	-90.17	Witt2021	2021	USA	JBG 2589-10 (cop_JBG10)	PRJNA657304	SRS7205530
+SRR12455961	ancient_metagenome	gut	Canis lupus	palaeofaeces	850.0	38.65	-90.17	Witt2021	2021	USA	JBG 2240-4 (cop_JBG4)	PRJNA657304	SRS7205529
+SRR12455963	ancient_metagenome	gut	Canis lupus	palaeofaeces	850.0	38.65	-90.17	Witt2021	2021	USA	JBG 1131-29 (cop_JBG29)	PRJNA657304	SRS7205527
+SRR12455974	ancient_metagenome	gut	Canis lupus	palaeofaeces	850.0	38.65	-90.17	Witt2021	2021	USA	JBG 1045-13 (cop_JBG13)	PRJNA657304	SRS7205516
+SRR867036	ancient_metagenome	skeletal tissue	Homo sapiens	bone	400.0	17.49	-97.46	Campana2014	2014	Mexico	TP32,TP42,TP45,TP48	PRJNA205039	SRS428972
+SRR867037	ancient_metagenome	skeletal tissue	Homo sapiens	bone	400.0	17.49	-97.46	Campana2014	2014	Mexico	TP32,TP42,TP45,TP48	PRJNA205039	SRS428972
+SRR867038	ancient_metagenome	skeletal tissue	Homo sapiens	bone	400.0	17.49	-97.46	Campana2014	2014	Mexico	TP32,TP42,TP45,TP48	PRJNA205039	SRS428972
+SRR867039	ancient_metagenome	skeletal tissue	Homo sapiens	bone	400.0	17.49	-97.46	Campana2014	2014	Mexico	TP32,TP42,TP45,TP48	PRJNA205039	SRS428972
+SRR867040	ancient_metagenome	skeletal tissue	Homo sapiens	bone	400.0	17.49	-97.46	Campana2014	2014	Mexico	TP32,TP42,TP45,TP48	PRJNA205039	SRS428972
+SRR866664	ancient_metagenome	skeletal tissue	Homo sapiens	bone	400.0	17.49	-97.46	Campana2014	2014	Mexico	TP37	PRJNA205039	SRS428963
+SRR866665	ancient_metagenome	skeletal tissue	Homo sapiens	bone	400.0	17.49	-97.46	Campana2014	2014	Mexico	TP9	PRJNA205039	SRS428960
+SRR866666	ancient_metagenome	skeletal tissue	Homo sapiens	bone	400.0	17.49	-97.46	Campana2014	2014	Mexico	TP48	PRJNA205039	SRS428964
+SRR867031	ancient_metagenome	skeletal tissue	Homo sapiens	bone	400.0	17.49	-97.46	Campana2014	2014	Mexico	TP02,TP10,TP15,TP26	PRJNA205039	SRS428958
+SRR867032	ancient_metagenome	skeletal tissue	Homo sapiens	bone	400.0	17.49	-97.46	Campana2014	2014	Mexico	TP02,TP10,TP15,TP26	PRJNA205039	SRS428958
+SRR867033	ancient_metagenome	skeletal tissue	Homo sapiens	bone	400.0	17.49	-97.46	Campana2014	2014	Mexico	TP02,TP10,TP15,TP26	PRJNA205039	SRS428958
+SRR867034	ancient_metagenome	skeletal tissue	Homo sapiens	bone	400.0	17.49	-97.46	Campana2014	2014	Mexico	TP02,TP10,TP15,TP26	PRJNA205039	SRS428958
+SRR867035	ancient_metagenome	skeletal tissue	Homo sapiens	bone	400.0	17.49	-97.46	Campana2014	2014	Mexico	TP02,TP10,TP15,TP26	PRJNA205039	SRS428958
+SRR866660	ancient_metagenome	skeletal tissue	Homo sapiens	bone	400.0	17.49	-97.46	Campana2014	2014	Mexico	TP4	PRJNA205039	SRS428959
+SRR866662	ancient_metagenome	skeletal tissue	Homo sapiens	bone	400.0	17.49	-97.46	Campana2014	2014	Mexico	TP10	PRJNA205039	SRS428961
+SRR866663	ancient_metagenome	skeletal tissue	Homo sapiens	bone	400.0	17.49	-97.46	Campana2014	2014	Mexico	TP18	PRJNA205039	SRS428962
+SRR5581853	ancient_metagenome	skeletal tissue	Homo sapiens	tooth	200.0	48.006	0.199	Willmann2018	2018	France	403	PRJNA302605	SRS2213345
+SRR5581854	ancient_metagenome	skeletal tissue	Homo sapiens	tooth	200.0	48.006	0.199	Willmann2018	2018	France	406	PRJNA302605	SRS2213344
+SRR5581849	ancient_metagenome	skeletal tissue	Homo sapiens	bone	200.0	48.006	0.199	Willmann2018	2018	France	702	PRJNA302605	SRS2213350
+SRR5581852	ancient_metagenome	skeletal tissue	Homo sapiens	bone	200.0	48.006	0.199	Willmann2018	2018	France	312	PRJNA302605	SRS2213346
+SRR5581857	ancient_metagenome	skeletal tissue	Homo sapiens	bone	200.0	48.006	0.199	Willmann2018	2018	France	307	PRJNA302605	SRS2213342
+calculus_lib1	ancient_metagenome	oral	Homo sapiens	dental calculus	800.0	63.425	10.392	Zhou2018	2018	Norway	SK152	E56xgi8CEl	calculus_lib1
+ERR3003613	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS01	PRJEB30331	ERS2985742
+ERR3589317	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS01	PRJEB30331	ERS3881508
+SRR5581855	ancient_metagenome	skeletal tissue	Homo sapiens	tooth	200.0	48.006	0.199	Willmann2018	2018	France	213	PRJNA302605	SRS1170472
+SRR5581856	ancient_metagenome	skeletal tissue	Homo sapiens	tooth	200.0	48.006	0.199	Willmann2018	2018	France	306	PRJNA302605	SRS2213343
+SRR5581858	ancient_metagenome	skeletal tissue	Homo sapiens	tooth	200.0	48.006	0.199	Willmann2018	2018	France	308	PRJNA302605	SRS2213341
+SRR5581851	ancient_metagenome	skeletal tissue	Homo sapiens	tooth	200.0	48.006	0.199	Willmann2018	2018	France	309	PRJNA302605	SRS2213347
+ERR3003625	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS15	PRJEB30331	ERS2985754
+ERR3589331	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS15	PRJEB30331	ERS3881522
+ERR3003626	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS16	PRJEB30331	ERS2985755
+ERR3589332	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS16	PRJEB30331	ERS3881523
+ERR3003627	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS17	PRJEB30331	ERS2985756
+ERR3589333	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS17	PRJEB30331	ERS3881524
+ERR3003628	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS18	PRJEB30331	ERS2985757
+ERR3589334	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS18	PRJEB30331	ERS3881525
+ERR3003621	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS11	PRJEB30331	ERS2985750
+ERR3589327	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS11	PRJEB30331	ERS3881518
+ERR3003622	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS12	PRJEB30331	ERS2985751
+ERR3589328	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS12	PRJEB30331	ERS3881519
+ERR3003623	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS13	PRJEB30331	ERS2985752
+ERR3589329	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS13	PRJEB30331	ERS3881520
+ERR3003624	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS14	PRJEB30331	ERS2985753
+ERR3589330	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS14	PRJEB30331	ERS3881521
+ERR3003617	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS07	PRJEB30331	ERS2985746
+ERR3589323	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS07	PRJEB30331	ERS3881514
+ERR3003618	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS08	PRJEB30331	ERS2985747
+ERR3589324	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS08	PRJEB30331	ERS3881515
+ERR3003619	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS09	PRJEB30331	ERS2985748
+ERR3589325	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS09	PRJEB30331	ERS3881516
+ERR3003620	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS10	PRJEB30331	ERS2985749
+ERR3589326	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS10	PRJEB30331	ERS3881517
+ERR3003614	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS02	PRJEB30331	ERS2985743
+ERR3589318	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS02	PRJEB30331	ERS3881509
+ERR3003615	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS03	PRJEB30331	ERS2985744
+ERR3589319	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS03	PRJEB30331	ERS3881510
+ERR3003616	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS04	PRJEB30331	ERS2985745
+ERR3589320	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS04	PRJEB30331	ERS3881511
+ERR3589321	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS05	PRJEB30331	ERS3881512
+ERR3589322	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS06	PRJEB30331	ERS3881513
+ERR3003641	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS32	PRJEB30331	ERS2985770
+ERR3589347	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS32	PRJEB30331	ERS3881538
+ERR3003642	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS33	PRJEB30331	ERS2985771
+ERR3589348	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS33	PRJEB30331	ERS3881539
+ERR3003643	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS34	PRJEB30331	ERS2985772
+ERR3589349	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS34	PRJEB30331	ERS3881540
+ERR3003644	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS35	PRJEB30331	ERS2985773
+ERR3589350	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS35	PRJEB30331	ERS3881541
+ERR3003637	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS28	PRJEB30331	ERS2985766
+ERR3589343	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS28	PRJEB30331	ERS3881534
+ERR3003638	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS29	PRJEB30331	ERS2985767
+ERR3589344	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS29	PRJEB30331	ERS3881535
+ERR3003639	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS30	PRJEB30331	ERS2985768
+ERR3589345	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS30	PRJEB30331	ERS3881536
+ERR3003640	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS31	PRJEB30331	ERS2985769
+ERR3589346	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS31	PRJEB30331	ERS3881537
+ERR3003633	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS23	PRJEB30331	ERS2985762
+ERR3589339	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS23	PRJEB30331	ERS3881530
+ERR3003634	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS24	PRJEB30331	ERS2985763
+ERR3589340	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS24	PRJEB30331	ERS3881531
+ERR3003635	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS26	PRJEB30331	ERS2985764
+ERR3589341	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS26	PRJEB30331	ERS3881532
+ERR3003636	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS27	PRJEB30331	ERS2985765
+ERR3589342	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS27	PRJEB30331	ERS3881533
+ERR3003629	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS19	PRJEB30331	ERS2985758
+ERR3589335	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS19	PRJEB30331	ERS3881526
+ERR3003630	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS20	PRJEB30331	ERS2985759
+ERR3589336	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS20	PRJEB30331	ERS3881527
+ERR3003631	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS21	PRJEB30331	ERS2985760
+ERR3589337	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS21	PRJEB30331	ERS3881528
+ERR3003632	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS22	PRJEB30331	ERS2985761
+ERR3589338	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS22	PRJEB30331	ERS3881529
+ERR3003653	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS45	PRJEB30331	ERS2985782
+ERR3589359	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS45	PRJEB30331	ERS3881550
+ERR3003654	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS46	PRJEB30331	ERS2985783
+ERR3589360	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS46	PRJEB30331	ERS3881551
+ERR3003655	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS47	PRJEB30331	ERS2985784
+ERR3589361	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS47	PRJEB30331	ERS3881552
+ERR3003656	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS48	PRJEB30331	ERS2985785
+ERR3589362	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS48	PRJEB30331	ERS3881553
+ERR3003649	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS40	PRJEB30331	ERS2985778
+ERR3589355	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS40	PRJEB30331	ERS3881546
+ERR3003650	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS42	PRJEB30331	ERS2985779
+ERR3589356	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS42	PRJEB30331	ERS3881547
+ERR3003651	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS43	PRJEB30331	ERS2985780
+ERR3589357	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS43	PRJEB30331	ERS3881548
+ERR3003652	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS44	PRJEB30331	ERS2985781
+ERR3589358	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS44	PRJEB30331	ERS3881549
+ERR3003645	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS36	PRJEB30331	ERS2985774
+ERR3589351	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS36	PRJEB30331	ERS3881542
+ERR3003646	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS37	PRJEB30331	ERS2985775
+ERR3589352	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS37	PRJEB30331	ERS3881543
+ERR3003647	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS38	PRJEB30331	ERS2985776
+ERR3589353	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS38	PRJEB30331	ERS3881544
+ERR3003648	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS39	PRJEB30331	ERS2985777
+ERR3589354	ancient_metagenome	oral	Homo sapiens	dental calculus	200.0	51.752	-1.257	Velsko2019	2019	United Kingdom	CS39	PRJEB30331	ERS3881545
+ERR2269774	ancient_metagenome	plant tissue	Arabidopsis thaliana	leaf	100.0	39.688	-82.993	Bieker2020	2020	USA	JK2510	PRJEB24619	ERS2159300
+ERR2269806	ancient_metagenome	plant tissue	Arabidopsis thaliana	leaf	100.0	40.643	-111.967	Bieker2020	2020	USA	JK401	PRJEB24619	ERS2159332
+ERR6178858	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM042.C	PRJEB46022	ERS6636090
+ERR6178859	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM042.C	PRJEB46022	ERS6636090
+ERR6178860	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM042.E	PRJEB46022	ERS6636091
+ERR6178861	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM042.E	PRJEB46022	ERS6636091
+ERR6178862	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM042.G	PRJEB46022	ERS6636092
+ERR6178863	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM042.G	PRJEB46022	ERS6636092
+ERR6178864	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM042.H	PRJEB46022	ERS6636093
+ERR6178865	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM042.H	PRJEB46022	ERS6636093
+ERR6178850	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM041.G	PRJEB46022	ERS6636085
+ERR6178851	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM041.G	PRJEB46022	ERS6636085
+ERR6178852	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM041.K	PRJEB46022	ERS6636086
+ERR6178853	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM041.K	PRJEB46022	ERS6636086
+ERR6178854	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM041.U	PRJEB46022	ERS6636087
+ERR6178855	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM041.V	PRJEB46022	ERS6636088
+ERR6178856	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM041.Y	PRJEB46022	ERS6636089
+ERR6178857	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM041.Y	PRJEB46022	ERS6636089
+SRR14894172	ancient_metagenome	oral	Homo sapiens	dental calculus	3400.0	42.527	11.601	Modi2021	2021	Italy	PsP_6417	PRJNA739881	SRS9263819
+SRR14894173	ancient_metagenome	oral	Homo sapiens	dental calculus	3400.0	42.527	11.601	Modi2021	2021	Italy	PsP_6416	PRJNA739881	SRS9263820
+SRR14894174	ancient_metagenome	oral	Homo sapiens	dental calculus	3400.0	42.527	11.601	Modi2021	2021	Italy	PsP_6410	PRJNA739881	SRS9263818
+SRR14894175	ancient_metagenome	oral	Homo sapiens	dental calculus	3400.0	42.527	11.601	Modi2021	2021	Italy	PsP_6408	PRJNA739881	SRS9263822
+SRR14894176	ancient_metagenome	oral	Homo sapiens	dental calculus	3400.0	42.527	11.601	Modi2021	2021	Italy	PsP_6407	PRJNA739881	SRS9263817
+SRR14894177	ancient_metagenome	oral	Homo sapiens	dental calculus	3400.0	42.527	11.601	Modi2021	2021	Italy	PsP_6405	PRJNA739881	SRS9263816
+ERR10167374	ancient_metagenome	oral	Homo sapiens	dental calculus	14900.0	38.049	14.591	Scorrano2022	2022	Italy	San Teodoro 3	PRJEB55789	ERS13439323
+ERR10167375	ancient_metagenome	oral	Homo sapiens	dental calculus	14900.0	38.049	14.591	Scorrano2022	2022	Italy	San Teodoro 5	PRJEB55789	ERS13439324
+ERR6178890	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM045.L	PRJEB46022	ERS6636109
+ERR6178891	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM045.M	PRJEB46022	ERS6636110
+ERR6178892	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM045.Q	PRJEB46022	ERS6636111
+ERR6178893	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM045.Q	PRJEB46022	ERS6636111
+ERR6178894	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM045.R	PRJEB46022	ERS6636112
+ERR6178895	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM045.S	PRJEB46022	ERS6636113
+ERR6178897	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM046.A	PRJEB46022	ERS6636115
+ERR6178898	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM046.A	PRJEB46022	ERS6636115
+ERR6178882	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM045.F	PRJEB46022	ERS6636105
+ERR6178883	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM045.F	PRJEB46022	ERS6636105
+ERR6178884	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM045.G	PRJEB46022	ERS6636106
+ERR6178885	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM045.G	PRJEB46022	ERS6636106
+ERR6178886	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM045.H	PRJEB46022	ERS6636107
+ERR6178887	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM045.H	PRJEB46022	ERS6636107
+ERR6178888	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM045.I	PRJEB46022	ERS6636108
+ERR6178889	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM045.I	PRJEB46022	ERS6636108
+ERR6178874	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM043.L	PRJEB46022	ERS6636099
+ERR6178875	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM043.P	PRJEB46022	ERS6636100
+ERR6178876	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM043.T	PRJEB46022	ERS6636101
+ERR6178877	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM043.U	PRJEB46022	ERS6636102
+ERR6178878	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM043.X	PRJEB46022	ERS6636103
+ERR6178879	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM043.X	PRJEB46022	ERS6636103
+ERR6178880	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM043.Y	PRJEB46022	ERS6636104
+ERR6178881	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM043.Y	PRJEB46022	ERS6636104
+ERR6178866	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM042.M	PRJEB46022	ERS6636094
+ERR6178867	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM042.P	PRJEB46022	ERS6636095
+ERR6178868	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM042.Q	PRJEB46022	ERS6636096
+ERR6178869	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM042.Q	PRJEB46022	ERS6636096
+ERR6178870	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM042.U	PRJEB46022	ERS6636097
+ERR6178871	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM042.U	PRJEB46022	ERS6636097
+ERR6178872	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM042.W	PRJEB46022	ERS6636098
+ERR6178873	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM042.W	PRJEB46022	ERS6636098
+ERR6178924	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM048.A	PRJEB46022	ERS6636130
+ERR6178925	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM048.D	PRJEB46022	ERS6636131
+ERR6178926	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM048.E	PRJEB46022	ERS6636132
+ERR6178927	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM048.F	PRJEB46022	ERS6636133
+ERR6178928	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM048.I	PRJEB46022	ERS6636134
+ERR6178929	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM048.K	PRJEB46022	ERS6636135
+ERR6178930	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM048.N	PRJEB46022	ERS6636136
+ERR6178931	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM048.O	PRJEB46022	ERS6636137
+ERR6178915	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM047.B	PRJEB46022	ERS6636124
+ERR6178916	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM047.E	PRJEB46022	ERS6636125
+ERR6178917	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM047.E	PRJEB46022	ERS6636125
+ERR6178918	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM047.H	PRJEB46022	ERS6636126
+ERR6178919	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM047.H	PRJEB46022	ERS6636126
+ERR6178920	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM047.S	PRJEB46022	ERS6636127
+ERR6178921	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM047.V	PRJEB46022	ERS6636128
+ERR6178923	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM048.A	PRJEB46022	ERS6636130
+ERR6178907	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM046.N	PRJEB46022	ERS6636120
+ERR6178908	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM046.N	PRJEB46022	ERS6636120
+ERR6178909	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM046.Q	PRJEB46022	ERS6636121
+ERR6178910	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM046.V	PRJEB46022	ERS6636122
+ERR6178911	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM046.V	PRJEB46022	ERS6636122
+ERR6178912	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM046.Y	PRJEB46022	ERS6636123
+ERR6178913	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM046.Y	PRJEB46022	ERS6636123
+ERR6178914	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM047.B	PRJEB46022	ERS6636124
+ERR6178899	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM046.B	PRJEB46022	ERS6636116
+ERR6178900	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM046.B	PRJEB46022	ERS6636116
+ERR6178901	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM046.F	PRJEB46022	ERS6636117
+ERR6178902	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM046.F	PRJEB46022	ERS6636117
+ERR6178903	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM046.G	PRJEB46022	ERS6636118
+ERR6178904	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM046.G	PRJEB46022	ERS6636118
+ERR6178905	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM046.H	PRJEB46022	ERS6636119
+ERR6178906	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM046.H	PRJEB46022	ERS6636119
+ERR6178956	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM049.W	PRJEB46022	ERS6636153
+ERR6178957	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM049.W	PRJEB46022	ERS6636153
+ERR6178958	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM050.L	PRJEB46022	ERS6636154
+ERR6178959	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM050.V	PRJEB46022	ERS6636155
+ERR6178960	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM050.X	PRJEB46022	ERS6636156
+ERR6178961	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM050.Z	PRJEB46022	ERS6636157
+ERR6178962	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM050.Z	PRJEB46022	ERS6636157
+ERR6178963	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM051.A	PRJEB46022	ERS6636158
+ERR6178948	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM049.I	PRJEB46022	ERS6636148
+ERR6178949	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM049.K	PRJEB46022	ERS6636149
+ERR6178950	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM049.K	PRJEB46022	ERS6636149
+ERR6178951	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM049.M	PRJEB46022	ERS6636150
+ERR6178952	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM049.M	PRJEB46022	ERS6636150
+ERR6178953	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM049.P	PRJEB46022	ERS6636151
+ERR6178954	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM049.P	PRJEB46022	ERS6636151
+ERR6178955	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM049.S	PRJEB46022	ERS6636152
+ERR6178940	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM048.Z	PRJEB46022	ERS6636143
+ERR6178941	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM049.A	PRJEB46022	ERS6636144
+ERR6178942	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM049.A	PRJEB46022	ERS6636144
+ERR6178943	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM049.D	PRJEB46022	ERS6636145
+ERR6178944	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM049.D	PRJEB46022	ERS6636145
+ERR6178945	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM049.E	PRJEB46022	ERS6636146
+ERR6178946	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM049.F	PRJEB46022	ERS6636147
+ERR6178947	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM049.F	PRJEB46022	ERS6636147
+ERR6178932	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM048.P	PRJEB46022	ERS6636138
+ERR6178933	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM048.Q	PRJEB46022	ERS6636139
+ERR6178934	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM048.S	PRJEB46022	ERS6636140
+ERR6178935	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM048.S	PRJEB46022	ERS6636140
+ERR6178936	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM048.V	PRJEB46022	ERS6636141
+ERR6178937	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM048.V	PRJEB46022	ERS6636141
+ERR6178938	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM048.W	PRJEB46022	ERS6636142
+ERR6178939	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM048.W	PRJEB46022	ERS6636142
+ERR6178988	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM052.N	PRJEB46022	ERS6636173
+ERR6178980	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM052.I	PRJEB46022	ERS6636169
+ERR6178981	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM052.I	PRJEB46022	ERS6636169
+ERR6178982	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM052.J	PRJEB46022	ERS6636170
+ERR6178983	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM052.J	PRJEB46022	ERS6636170
+ERR6178984	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM052.K	PRJEB46022	ERS6636171
+ERR6178985	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM052.M	PRJEB46022	ERS6636172
+ERR6178986	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM052.M	PRJEB46022	ERS6636172
+ERR6178987	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM052.N	PRJEB46022	ERS6636173
+ERR6178972	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM051.S	PRJEB46022	ERS6636164
+ERR6178973	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM051.S	PRJEB46022	ERS6636164
+ERR6178974	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM051.U	PRJEB46022	ERS6636165
+ERR6178975	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM051.V	PRJEB46022	ERS6636166
+ERR6178976	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM051.V	PRJEB46022	ERS6636166
+ERR6178977	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM051.Z	PRJEB46022	ERS6636167
+ERR6178978	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM052.F	PRJEB46022	ERS6636168
+ERR6178979	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM052.F	PRJEB46022	ERS6636168
+ERR6178964	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM051.A	PRJEB46022	ERS6636158
+ERR6178965	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM051.D	PRJEB46022	ERS6636159
+ERR6178966	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM051.G	PRJEB46022	ERS6636160
+ERR6178967	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM051.I	PRJEB46022	ERS6636161
+ERR6178968	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM051.M	PRJEB46022	ERS6636162
+ERR6178969	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM051.M	PRJEB46022	ERS6636162
+ERR6178970	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM051.R	PRJEB46022	ERS6636163
+ERR6178971	ancient_metagenome	oral	Homo sapiens	dental calculus	4700.0	38.102	-1.865	Fagernas2022	2022	Spain	CDM051.R	PRJEB46022	ERS6636163
+ERR7919461	ancient_metagenome	oral	Gorilla beringei graueri	dental calculus	100.0	-4.05	29.05	Moraitou2022	2022	Democratic Republic of the Congo	G0009	PRJEB49638	ERS9656251
+ERR13615628	ancient_metagenome	skeletal tissue	Homo sapiens	bone	800.0	56.6	25.3	Poksane2025	2025	Latvia	VNPB1	PRJEB79566	ERS20926374
+ERR13615629	ancient_metagenome	skeletal tissue	Homo sapiens	bone	800.0	56.6	25.3	Poksane2025	2025	Latvia	VNPB2	PRJEB79566	ERS20926375
+ERR13615625	ancient_metagenome	skeletal tissue	Homo sapiens	tooth	800.0	56.6	25.3	Poksane2025	2025	Latvia	KPT1	PRJEB79566	ERS20926376
+ERR13615627	ancient_metagenome	skeletal tissue	Homo sapiens	tooth	800.0	56.6	25.3	Poksane2025	2025	Latvia	KPT2	PRJEB79566	ERS20926377
+ERR13615624	ancient_metagenome	skeletal tissue	Homo sapiens	tooth	800.0	56.6	25.3	Poksane2025	2025	Latvia	KNPT1	PRJEB79566	ERS20926378
+ERR13897435	ancient_metagenome	skeletal tissue	Mammuthus primigenius	tooth	4085.0	71.213	178.906	Guinet2025	2025	Russia	M40	PRJEB78615	ERS21099215
+ERR15756722	ancient_metagenome	skeletal tissue	Mammuthus sp.	tooth	1100000.0	67.5	135.7	Guinet2025	2025	Russia	P033	PRJEB78615	ERS21099509
+ERR13897340	ancient_metagenome	skeletal tissue	Mammuthus primigenius	tooth	5016.0	71.54	-179.539	Guinet2025	2025	Russia	L418	PRJEB78615	ERS21099246
+ERR13615633	ancient_metagenome	skeletal tissue	Homo sapiens	tooth	800.0	56.6	25.3	Poksane2025	2025	Latvia	VPT1	PRJEB79566	ERS20926369
+ERR13615634	ancient_metagenome	skeletal tissue	Homo sapiens	tooth	800.0	56.6	25.3	Poksane2025	2025	Latvia	VPT2	PRJEB79566	ERS20926370
+ERR13615630	ancient_metagenome	skeletal tissue	Homo sapiens	tooth	800.0	56.6	25.3	Poksane2025	2025	Latvia	VNPT1	PRJEB79566	ERS20926371
+ERR13615631	ancient_metagenome	skeletal tissue	Homo sapiens	tooth	800.0	56.6	25.3	Poksane2025	2025	Latvia	VNPT2	PRJEB79566	ERS20926372
+ERR13615632	ancient_metagenome	skeletal tissue	Homo sapiens	bone	800.0	56.6	25.3	Poksane2025	2025	Latvia	VPB1	PRJEB79566	ERS20926373
+ERR13897122	ancient_metagenome	skeletal tissue	Mammuthus primigenius	tooth	7077.0	71.3	-179.42	Guinet2025	2025	Russia	L414	PRJEB78615	ERS21099283
+ERR13897345	ancient_metagenome	skeletal tissue	Mammuthus primigenius	tooth	6124.0	71.202	179.564	Guinet2025	2025	Russia	L422	PRJEB78615	ERS21099265
+ERR13897349	ancient_metagenome	skeletal tissue	Mammuthus primigenius	tooth	5378.0	71.275	-179.301	Guinet2025	2025	Russia	L423	PRJEB78615	ERS21099256
+ERR13897352	ancient_metagenome	skeletal tissue	Mammuthus primigenius	tooth	7462.0	71.518	-179.682	Guinet2025	2025	Russia	L426	PRJEB78615	ERS21099290
+ERR13903112	ancient_metagenome	skeletal tissue	Mammuthus primigenius	scapula	33800.0	73.517	101.006	Guinet2025	2025	Russia	FK001	PRJEB78615	ERS21099439
+ERR13897471	ancient_metagenome	skeletal tissue	Mammuthus primigenius	femur	17627.0	69.583	168.695	Guinet2025	2025	Russia	MD024	PRJEB78615	ERS21099141
+ERR13901449	ancient_metagenome	skeletal tissue	Mammuthus sp.	tooth	1100000.0	67.5	135.7	Guinet2025	2025	Russia	P033	PRJEB78615	ERS21099510
+ERR15696080	ancient_metagenome	skeletal tissue	Mammuthus primigenius	tibia	30000.0	70.724	135.413	Guinet2025	2025	Russia	MD213	PRJEB78615	ERS21099090
+SRR25280090	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280079	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280078	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280077	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280116	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280115	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280114	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280113	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+DRR525851	ancient_metagenome	gut	Homo sapiens	palaeofaeces	6400.0	35.557	135.898	Nishimura2024	2024	Japan	TH74	PRJDB15258	DRS361450
+DRR525848	ancient_metagenome	gut	Homo sapiens	palaeofaeces	6400.0	35.557	135.898	Nishimura2024	2024	Japan	TH55	PRJDB15258	DRS361563
+SRR25280118	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280117	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280106	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280095	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280070	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280059	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+DRR525850	ancient_metagenome	gut	Homo sapiens	palaeofaeces	6400.0	35.557	135.898	Nishimura2024	2024	Japan	TH62	PRJDB15258	DRS361428
+DRR525849	ancient_metagenome	gut	Homo sapiens	palaeofaeces	6400.0	35.557	135.898	Nishimura2024	2024	Japan	TH58	PRJDB15258	DRS361172
+SRR25280072	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825
+SRR25280071	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825
+SRR25280069	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825
+SRR25280068	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825
+SRR25280067	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825
+SRR25280066	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825
+SRR25280065	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825
+SRR25280064	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825
+SRR25280094	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280093	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825
+SRR25280092	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825
+SRR25280091	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825
+SRR25280076	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825
+SRR25280075	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825
+SRR25280074	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825
+SRR25280073	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825
+SRR25280103	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280102	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280101	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280100	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280099	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280098	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280097	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280096	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280112	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280111	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280110	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280109	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280108	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280107	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280105	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280104	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble004	PRJNA994900	SRS18297824
+SRR25280087	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280086	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280085	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280084	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280083	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280082	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280081	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280080	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280054	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280053	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280052	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280051	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280050	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280049	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280089	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280088	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280063	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825
+SRR25280062	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble007	PRJNA994900	SRS18297825
+SRR25280061	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280060	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280058	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280057	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280056	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+SRR25280055	ancient_metagenome	oral	Homo sapiens	birch pitch	9700.0	58.16	11.48	Kirdok2024	2024	Sweden	ble008	PRJNA994900	SRS18297826
+LV7001887941-101_S58_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	101	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	101_S58
+LV7001887953-102_S59_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	102	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	102_S59
+LV7001887953-102_S59_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	102	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	102_S59
+LV7001887953-102_S59_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	102	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	102_S59
+LV7001887953-102_S59_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	102	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	102_S59
+LV7001887977-103_S60_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	103	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	103_S60
+LV7001887977-103_S60_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	103	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	103_S60
+LV7001887977-103_S60_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	103	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	103_S60
+LV7001887941-101_S58_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	101	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	101_S58
+LV7001887941-101_S58_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	101	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	101_S58
+LV7001887941-101_S58_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	101	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	101_S58
+LV7001887940-109_S66_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	109	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	109_S66
+LV7001887976-111_S68_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	111	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	111_S68
+LV7001887976-111_S68_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	111	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	111_S68
+LV7001887976-111_S68_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	111	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	111_S68
+LV7001887976-111_S68_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	111	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	111_S68
+LV7001887988-112_S69_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	112	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	112_S69
+LV7001887988-112_S69_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	112	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	112_S69
+LV7001887988-112_S69_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	112	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	112_S69
+LV7001888025-107_S64_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	107	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	107_S64
+LV7001887928-108_S65_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	100.0	66.937	-53.658	Eriksen2025	2025	Greenland	108	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	108_S65
+LV7001887928-108_S65_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	100.0	66.937	-53.658	Eriksen2025	2025	Greenland	108	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	108_S65
+LV7001887928-108_S65_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	100.0	66.937	-53.658	Eriksen2025	2025	Greenland	108	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	108_S65
+LV7001887928-108_S65_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	100.0	66.937	-53.658	Eriksen2025	2025	Greenland	108	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	108_S65
+LV7001887940-109_S66_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	109	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	109_S66
+LV7001887940-109_S66_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	109	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	109_S66
+LV7001887940-109_S66_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	109	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	109_S66
+LV7001888001-105_S62_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	105	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	105_S62
+LV7001888013-106_S63_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	106	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	106_S63
+LV7001888013-106_S63_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	106	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	106_S63
+LV7001888013-106_S63_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	106	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	106_S63
+LV7001888013-106_S63_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	106	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	106_S63
+LV7001888025-107_S64_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	107	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	107_S64
+LV7001888025-107_S64_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	107	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	107_S64
+LV7001888025-107_S64_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	107	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	107_S64
+LV7001887977-103_S60_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	103	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	103_S60
+LV7001887989-104_S61_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	104	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	104_S61
+LV7001887989-104_S61_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	104	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	104_S61
+LV7001887989-104_S61_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	104	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	104_S61
+LV7001887989-104_S61_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	104	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	104_S61
+LV7001888001-105_S62_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	105	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	105_S62
+LV7001888001-105_S62_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	105	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	105_S62
+LV7001888001-105_S62_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	105	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	105_S62
+LV7001887951-118_S75_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	100.0	66.937	-53.658	Eriksen2025	2025	Greenland	118	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	118_S75
+LV7001887999-121_S78_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	100.0	66.937	-53.658	Eriksen2025	2025	Greenland	121	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	121_S78
+LV7001887999-121_S78_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	100.0	66.937	-53.658	Eriksen2025	2025	Greenland	121	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	121_S78
+LV7001887999-121_S78_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	100.0	66.937	-53.658	Eriksen2025	2025	Greenland	121	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	121_S78
+LV7001887999-121_S78_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	100.0	66.937	-53.658	Eriksen2025	2025	Greenland	121	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	121_S78
+LV7001888011-122_S79_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	122	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	122_S79
+LV7001888011-122_S79_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	122	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	122_S79
+LV7001888011-122_S79_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	122	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	122_S79
+LV7001887927-116_S73_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	116	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	116_S73
+LV7001887939-117_S74_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	117	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	117_S74
+LV7001887939-117_S74_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	117	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	117_S74
+LV7001887939-117_S74_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	117	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	117_S74
+LV7001887939-117_S74_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	117	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	117_S74
+LV7001887951-118_S75_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	100.0	66.937	-53.658	Eriksen2025	2025	Greenland	118	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	118_S75
+LV7001887951-118_S75_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	100.0	66.937	-53.658	Eriksen2025	2025	Greenland	118	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	118_S75
+LV7001887951-118_S75_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	100.0	66.937	-53.658	Eriksen2025	2025	Greenland	118	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	118_S75
+LV7001888012-114_S71_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	114	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	114_S71
+LV7001888024-115_S72_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	115	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	115_S72
+LV7001888024-115_S72_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	115	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	115_S72
+LV7001888024-115_S72_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	115	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	115_S72
+LV7001888024-115_S72_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	115	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	115_S72
+LV7001887927-116_S73_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	116	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	116_S73
+LV7001887927-116_S73_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	116	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	116_S73
+LV7001887927-116_S73_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	116	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	116_S73
+LV7001887988-112_S69_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	112	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	112_S69
+LV7001888000-113_S70_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	113	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	113_S70
+LV7001888000-113_S70_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	113	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	113_S70
+LV7001888000-113_S70_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	113	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	113_S70
+LV7001888000-113_S70_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	113	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	113_S70
+LV7001888012-114_S71_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	114	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	114_S71
+LV7001888012-114_S71_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	114	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	114_S71
+LV7001888012-114_S71_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	114	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	114_S71
+LV7001887986-128_S85_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	128	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	128_S85
+LV7001887998-129_S86_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	129	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	129_S86
+LV7001887998-129_S86_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	129	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	129_S86
+LV7001887998-129_S86_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	129	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	129_S86
+LV7001887998-129_S86_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	129	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	129_S86
+LV7001888010-130_S87_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	130	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	130_S87
+LV7001888010-130_S87_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	130	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	130_S87
+LV7001888010-130_S87_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	130	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	130_S87
+LV7001887950-126_S83_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	126	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	126_S83
+LV7001887974-127_S84_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	127	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	127_S84
+LV7001887974-127_S84_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	127	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	127_S84
+LV7001887974-127_S84_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	127	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	127_S84
+LV7001887974-127_S84_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	127	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	127_S84
+LV7001887986-128_S85_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	128	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	128_S85
+LV7001887986-128_S85_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	128	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	128_S85
+LV7001887986-128_S85_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	128	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	128_S85
+LV7001887926-124_S81_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	124	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	124_S81
+LV7001887938-125_S82_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	125	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	125_S82
+LV7001887938-125_S82_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	125	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	125_S82
+LV7001887938-125_S82_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	125	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	125_S82
+LV7001887938-125_S82_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	125	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	125_S82
+LV7001887950-126_S83_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	126	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	126_S83
+LV7001887950-126_S83_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	126	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	126_S83
+LV7001887950-126_S83_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	126	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	126_S83
+LV7001888011-122_S79_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	122	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	122_S79
+LV7001888023-123_S80_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	123	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	123_S80
+LV7001888023-123_S80_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	123	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	123_S80
+LV7001888023-123_S80_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	123	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	123_S80
+LV7001888023-123_S80_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	123	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	123_S80
+LV7001887926-124_S81_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	124	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	124_S81
+LV7001887926-124_S81_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	124	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	124_S81
+LV7001887926-124_S81_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	200.0	66.937	-53.658	Eriksen2025	2025	Greenland	124	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	124_S81
+LV7001887985-137_S93_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	137	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	137_S93
+ERR13897408	ancient_metagenome	skeletal tissue	Mammuthus primigenius	tooth	7910.0	71.202	179.564	Guinet2025	2025	Russia	M13	PRJEB78615	ERS21099302
+ERR13897097	ancient_metagenome	skeletal tissue	Mammuthus primigenius	tooth	4335.0	71.213	178.906	Guinet2025	2025	Russia	L389	PRJEB78615	ERS21099221
+ERR13896924	ancient_metagenome	skeletal tissue	Mammuthus primigenius	tooth	100000.0	73.54	100.431	Guinet2025	2025	Russia	FK012	PRJEB78615	ERS21099451
+ERR13896964	ancient_metagenome	skeletal tissue	Mammuthus primigenius	pelvis complex	30000.0	70.724	135.413	Guinet2025	2025	Russia	FK033	PRJEB78615	ERS21099082
+ERR13900238	ancient_metagenome	skeletal tissue	Mammuthus primigenius	tooth	216000.0	67.6	-139.8	Guinet2025	2025	Canada	MD228	PRJEB78615	ERS21099095
+LV7001887949-135_S91_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	135	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	135_S91
+LV7001887973-136_S92_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	136	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	136_S92
+LV7001887973-136_S92_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	136	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	136_S92
+LV7001887973-136_S92_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	136	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	136_S92
+LV7001887973-136_S92_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	136	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	136_S92
+LV7001887985-137_S93_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	137	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	137_S93
+LV7001887985-137_S93_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	137	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	137_S93
+LV7001887985-137_S93_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	137	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	137_S93
+LV7001887925-133_S89_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	133	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	133_S89
+LV7001887937-134_S90_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	134	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	134_S90
+LV7001887937-134_S90_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	134	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	134_S90
+LV7001887937-134_S90_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	134	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	134_S90
+LV7001887937-134_S90_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	134	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	134_S90
+LV7001887949-135_S91_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	135	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	135_S91
+LV7001887949-135_S91_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	135	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	135_S91
+LV7001887949-135_S91_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	600.0	66.937	-53.658	Eriksen2025	2025	Greenland	135	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	135_S91
+LV7001888010-130_S87_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	130	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	130_S87
+LV7001888022-132_S88_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	132	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	132_S88
+LV7001888022-132_S88_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	132	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	132_S88
+LV7001888022-132_S88_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	132	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	132_S88
+LV7001888022-132_S88_L004	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	132	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	132_S88
+LV7001887925-133_S89_L001	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	133	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	133_S89
+LV7001887925-133_S89_L002	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	133	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	133_S89
+LV7001887925-133_S89_L003	ancient_metagenome	skeletal tissue	Rangifer tarandus	rib	300.0	66.937	-53.658	Eriksen2025	2025	Greenland	133	10.17894/ucph.b159460b-6491-4951-b1f4-8282d627f229	133_S89
+ERR3579780	ancient_metagenome	oral	Gorilla beringei beringei	dental calculus	200.0	-1.46	29.42	FellowsYates2021	2021	Democratic Republic of the Congo	MTM006.A	PRJEB34569	ERS3774389
+ERR3579679	ancient_metagenome	oral	Gorilla beringei beringei	dental calculus	200.0	-1.5	29.45	FellowsYates2021	2021	Democratic Republic of the Congo	MTK001.A	PRJEB34569	ERS3774383
+ERR3678178	ancient_metagenome	oral	Gorilla beringei beringei	dental calculus	200.0	-1.5	29.45	FellowsYates2021	2021	Democratic Republic of the Congo	MTK001.A	PRJEB34569	ERS3774383
+ERR3579778	ancient_metagenome	oral	Gorilla beringei beringei	dental calculus	200.0	-1.46	29.42	FellowsYates2021	2021	Democratic Republic of the Congo	MTM004.A	PRJEB34569	ERS3774387
+ERR3579794	ancient_metagenome	oral	Alouatta palliata	dental calculus	200.0	11.41	-85.53	FellowsYates2021	2021	Nicaragua	OME003.A	PRJEB34569	ERS3774379
+ERR3579795	ancient_metagenome	oral	Alouatta palliata	dental calculus	200.0	11.41	-85.53	FellowsYates2021	2021	Nicaragua	OME003.A	PRJEB34569	ERS3774379
+ERR4128916	ancient_metagenome	lake		lake sediment	19500.0	69.25	16.04	Lammers2021	2021	Norway	Andøya_LGM_A	PRJEB38213	ERS4545921
+ERR4128917	ancient_metagenome	lake		lake sediment	17700.0	69.25	16.04	Lammers2021	2021	Norway	Andøya_LGM_B	PRJEB38213	ERS4545922
+ERR4128918	ancient_metagenome	lake		lake sediment	17700.0	69.25	16.04	Lammers2021	2021	Norway	Andøya_LGM_B	PRJEB38213	ERS4545922
+SRR12557703	ancient_metagenome	cave		sediment	2000.0	37.5	-109.8	Wibowo2021	2021	USA	1026.1.4	PRJNA561510	SRS5300639
+SRR12557702	ancient_metagenome	cave		sediment	2000.0	37.5	-109.8	Wibowo2021	2021	USA	1043.4.1	PRJNA561510	SRS5300640
+SRR12557732	ancient_metagenome	cave		sediment	2000.0	37.5	-109.8	Wibowo2021	2021	USA	3567.1.1	PRJNA561510	SRS5300641
+ERR4128915	ancient_metagenome	lake		lake sediment	19500.0	69.25	16.04	Lammers2021	2021	Norway	Andøya_LGM_A	PRJEB38213	ERS4545921
+ERR3772643	ancient_metagenome	lake		lake sediment	6700.0	72.4	102.29	Schulte2021	2021	Russia	6700_cal-BP	PRJEB35838	ERS4197088
+ERR3772644	ancient_metagenome	lake		lake sediment	5400.0	72.4	102.29	Schulte2021	2021	Russia	5400_cal-BP	PRJEB35838	ERS4197089
+ERR3772645	ancient_metagenome	lake		lake sediment	1900.0	72.4	102.29	Schulte2021	2021	Russia	1900_cal-BP	PRJEB35838	ERS4197090
+ERR3761400	ancient_metagenome	midden		midden	1900.0	54.676	-1.677	Borry2020	2020	United Kingdom	AP5-798-162	PRJEB35362	ERS4181275
+ERR3761401	ancient_metagenome	midden		midden	7300.0	39.1	-8.71	Borry2020	2020	Portugal	AP4-A6-2860	PRJEB35362	ERS4181276
+ERR3761402	ancient_metagenome	archeological site		sediment	7000.0	40.45	-0.11	Borry2020	2020	Spain	AP8-CMN-M1	PRJEB35362	ERS4181277
+ERR3761403	ancient_metagenome	midden		midden	7000.0	53.757	-7.394	Borry2020	2020	Ireland	AP3-C197S163	PRJEB35362	ERS4181278
+ERR3761404	ancient_metagenome	archeological site		sediment	7500.0	38.92	-0.12	Borry2020	2020	Spain	AP7-6-28353	PRJEB35362	ERS4181279
+ERR3761405	ancient_metagenome	midden		midden	1000.0	51.339	12.373	Borry2020	2020	Germany	AP6-LPZ702	PRJEB35362	ERS4181280
+ERR3761406	ancient_metagenome	archeological site		sediment	2300.0	48.51	17.423	Borry2020	2020	Slovakia	AP9-17590	PRJEB35362	ERS4181281
+SRR5332465	ancient_metagenome	lake		lake sediment	13900.0	56.16	15.01	Ahmed2018	2018	Sweden	HA1.12	PRJNA378719	SRS2040658
+SRR5332460	ancient_metagenome	lake		lake sediment	12000.0	56.16	15.01	Ahmed2018	2018	Sweden	HA6.1	PRJNA378719	SRS2040653
+ERR3459729	ancient_metagenome	ocean		shallow marine sediment	9200.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_167_S80_ELFM1D1	PRJEB33717	ERS3605444
+ERR3459730	ancient_metagenome	ocean		shallow marine sediment	9200.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_167_S80_ELFM2D2	PRJEB33717	ERS3605445
+ERR3459731	ancient_metagenome	ocean		shallow marine sediment	9200.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_167_S80_ELFN1D3	PRJEB33717	ERS3605446
+ERR3459732	ancient_metagenome	ocean		shallow marine sediment	9200.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_167_S80_ELFN1D4	PRJEB33717	ERS3605447
+ERR3459733	ancient_metagenome	ocean		shallow marine sediment	9200.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_212_S75_ELFM1D1	PRJEB33717	ERS3605448
+ERR3459734	ancient_metagenome	ocean		shallow marine sediment	9200.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_212_S75_ELFM2D2	PRJEB33717	ERS3605449
+ERR3459735	ancient_metagenome	ocean		shallow marine sediment	9200.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_212_S75_ELFN1D3	PRJEB33717	ERS3605450
+ERR3459736	ancient_metagenome	ocean		shallow marine sediment	9200.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_212_S75_ELFN1D4	PRJEB33717	ERS3605451
+ERR3458791	ancient_metagenome	ocean		shallow marine sediment	8000.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_138_F1_ELFN3D1	PRJEB33717	ERS3605436
+ERR3458792	ancient_metagenome	ocean		shallow marine sediment	8000.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_138_F2_ELFN3D2	PRJEB33717	ERS3605437
+ERR3459725	ancient_metagenome	ocean		shallow marine sediment	8000.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_138_S79_ELFM1D1	PRJEB33717	ERS3605438
+ERR3459726	ancient_metagenome	ocean		shallow marine sediment	8000.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_138_S79_ELFM2D2	PRJEB33717	ERS3605439
+ERR3459727	ancient_metagenome	ocean		shallow marine sediment	8000.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_138_S79_ELFN1D3	PRJEB33717	ERS3605440
+ERR3459728	ancient_metagenome	ocean		shallow marine sediment	8000.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_138_S79_ELFN1D4	PRJEB33717	ERS3605441
+ERR3458793	ancient_metagenome	ocean		shallow marine sediment	8100.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_149_G1_ELFN3D1	PRJEB33717	ERS3605442
+ERR3458794	ancient_metagenome	ocean		shallow marine sediment	8100.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_149_G2_ELFN3D2	PRJEB33717	ERS3605443
+ERR3459721	ancient_metagenome	ocean		shallow marine sediment	6000.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_104_S78_ELFM1D1	PRJEB33717	ERS3605428
+ERR3459722	ancient_metagenome	ocean		shallow marine sediment	6000.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_104_S78_ELFM2D2	PRJEB33717	ERS3605429
+ERR3459723	ancient_metagenome	ocean		shallow marine sediment	6000.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_104_S78_ELFN1D3	PRJEB33717	ERS3605430
+ERR3459724	ancient_metagenome	ocean		shallow marine sediment	6000.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_104_S78_ELFN1D4	PRJEB33717	ERS3605431
+ERR3458787	ancient_metagenome	ocean		shallow marine sediment	8100.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_120_D1_ELFN3D1	PRJEB33717	ERS3605432
+ERR3458788	ancient_metagenome	ocean		shallow marine sediment	8100.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_120_D2_ELFN3D2	PRJEB33717	ERS3605433
+ERR3458789	ancient_metagenome	ocean		shallow marine sediment	8000.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_126_E1_ELFN3D1	PRJEB33717	ERS3605434
+ERR3458790	ancient_metagenome	ocean		shallow marine sediment	8000.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_126_E2_ELFN3D2	PRJEB33717	ERS3605435
+ERR3459717	ancient_metagenome	ocean		shallow marine sediment	6000.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_95_S81_ELFM1D1	PRJEB33717	ERS3605424
+ERR3459718	ancient_metagenome	ocean		shallow marine sediment	6000.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_95_S81_ELFM2D2	PRJEB33717	ERS3605425
+ERR3459719	ancient_metagenome	ocean		shallow marine sediment	6000.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_95_S81_ELFN1D3	PRJEB33717	ERS3605426
+ERR3459720	ancient_metagenome	ocean		shallow marine sediment	6000.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_95_S81_ELFN1D4	PRJEB33717	ERS3605427
+SRR9900881	ancient_metagenome	ocean		marine sediment	100.0	-42.845	148.24	Armbrecht2020	2020	Tasman Sea	20871_MI_5-6cm	PRJNA558683	SRS5214220
+SRR9900884	ancient_metagenome	ocean		marine sediment	100.0	-42.845	148.24	Armbrecht2020	2020	Tasman Sea	20871_MI_5-6cm	PRJNA558683	SRS5214220
+SRR9900885	ancient_metagenome	ocean		marine sediment	100.0	-42.845	148.24	Armbrecht2020	2020	Tasman Sea	20871_MI_5-6cm	PRJNA558683	SRS5214220
+SRR9900888	ancient_metagenome	ocean		marine sediment	100.0	-42.845	148.24	Armbrecht2020	2020	Tasman Sea	20871_MI_5-6cm	PRJNA558683	SRS5214220
+SRR9900889	ancient_metagenome	ocean		marine sediment	100.0	-42.845	148.24	Armbrecht2020	2020	Tasman Sea	20871_MI_5-6cm	PRJNA558683	SRS5214220
+SRR9900891	ancient_metagenome	ocean		marine sediment	100.0	-42.845	148.24	Armbrecht2020	2020	Tasman Sea	20871_MI_5-6cm	PRJNA558683	SRS5214220
+SRR9900878	ancient_metagenome	ocean		marine sediment	100.0	-42.845	148.24	Armbrecht2020	2020	Tasman Sea	20871_MI_5-6cm	PRJNA558683	SRS5214220
+ERR3459737	ancient_metagenome	ocean		shallow marine sediment	9200.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_247_S76_ELFM1D1	PRJEB33717	ERS3605452
+ERR3459738	ancient_metagenome	ocean		shallow marine sediment	9200.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_247_S76_ELFM2D2	PRJEB33717	ERS3605453
+ERR3459739	ancient_metagenome	ocean		shallow marine sediment	9200.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_282_S77_ELFM1D1	PRJEB33717	ERS3605454
+ERR3459740	ancient_metagenome	ocean		shallow marine sediment	9200.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_282_S77_ELFM2D2	PRJEB33717	ERS3605455
+ERR3459741	ancient_metagenome	ocean		shallow marine sediment	9200.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_310_S73_ELFM1D1	PRJEB33717	ERS3605456
+ERR3459742	ancient_metagenome	ocean		shallow marine sediment	9200.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_310_S73_ELFM2D2	PRJEB33717	ERS3605457
+ERR3459743	ancient_metagenome	ocean		shallow marine sediment	9200.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_348_S74_ELFM1D1	PRJEB33717	ERS3605458
+ERR3459744	ancient_metagenome	ocean		shallow marine sediment	9200.0	53.322	1.118	Gaffney2020	2020	North Sea	ELF001A_348_S74_ELFM2D2	PRJEB33717	ERS3605459
+ERR567367	ancient_metagenome	ocean		sediment	8000.0	50.7	-1.5	Smith2015	2015	United Kingdom	S308-4	PRJEB6766	ERS510183
+ERR567364	ancient_metagenome	ocean		sediment	8000.0	50.7	-1.5	Smith2015	2015	United Kingdom	S308-1	PRJEB6766	ERS510180
+ERR567365	ancient_metagenome	ocean		sediment	8000.0	50.7	-1.5	Smith2015	2015	United Kingdom	S308-2	PRJEB6766	ERS510181
+ERR567366	ancient_metagenome	ocean		sediment	8000.0	50.7	-1.5	Smith2015	2015	United Kingdom	S308-3	PRJEB6766	ERS510182
+SRR3992624	ancient_metagenome	lake		lake sediment	11900.0	57.178	-170.248	Wang2017	2017	USA	JK144_798	PRJNA320875	SRS1596545
+SRR3992625	ancient_metagenome	lake		lake sediment	12100.0	57.178	-170.248	Wang2017	2017	USA	JK145_810	PRJNA320875	SRS1596544
+SRR3992626	ancient_metagenome	lake		lake sediment	12200.0	57.178	-170.248	Wang2017	2017	USA	JK146_822	PRJNA320875	SRS1596546
+SRR3992627	ancient_metagenome	lake		lake sediment	12300.0	57.178	-170.248	Wang2017	2017	USA	JK147_834	PRJNA320875	SRS1596547
+SRR3992628	ancient_metagenome	lake		lake sediment	12300.0	57.178	-170.248	Wang2017	2017	USA	JK148_846	PRJNA320875	SRS1596548
+SRR3992629	ancient_metagenome	lake		lake sediment	11900.0	57.178	-170.248	Wang2017	2017	USA	JK219_794	PRJNA320875	SRS1596549
+SRR3992630	ancient_metagenome	lake		lake sediment	12000.0	57.178	-170.248	Wang2017	2017	USA	JK220_802	PRJNA320875	SRS1596550
+SRR3992616	ancient_metagenome	lake		lake sediment	13300.0	57.178	-170.248	Wang2017	2017	USA	PH187_996	PRJNA320875	SRS1596536
+SRR3992617	ancient_metagenome	lake		lake sediment	13300.0	57.178	-170.248	Wang2017	2017	USA	PH188_1000	PRJNA320875	SRS1596538
+SRR3992618	ancient_metagenome	lake		lake sediment	13600.0	57.178	-170.248	Wang2017	2017	USA	PH189_1046	PRJNA320875	SRS1596537
+SRR3992619	ancient_metagenome	lake		lake sediment	14200.0	57.178	-170.248	Wang2017	2017	USA	PH190_1109	PRJNA320875	SRS1596539
+SRR3992620	ancient_metagenome	lake		lake sediment	11800.0	57.178	-170.248	Wang2017	2017	USA	JK143_786	PRJNA320875	SRS1596540
+SRR3992621	ancient_metagenome	lake		lake sediment	15000.0	57.178	-170.248	Wang2017	2017	USA	PH191_1173	PRJNA320875	SRS1596541
+SRR3992622	ancient_metagenome	lake		lake sediment	16700.0	57.178	-170.248	Wang2017	2017	USA	PH192_1237	PRJNA320875	SRS1596542
+SRR3992623	ancient_metagenome	lake		lake sediment	17500.0	57.178	-170.248	Wang2017	2017	USA	PH193_1301	PRJNA320875	SRS1596543
+SRR3992610	ancient_metagenome	lake		lake sediment	12000.0	57.178	-170.248	Wang2017	2017	USA	JK221_806	PRJNA320875	SRS1596529
+SRR3992611	ancient_metagenome	lake		lake sediment	12100.0	57.178	-170.248	Wang2017	2017	USA	JK222_814	PRJNA320875	SRS1596530
+SRR3992612	ancient_metagenome	lake		lake sediment	12100.0	57.178	-170.248	Wang2017	2017	USA	JK223_818	PRJNA320875	SRS1596531
+SRR3992613	ancient_metagenome	lake		lake sediment	12200.0	57.178	-170.248	Wang2017	2017	USA	JK224_826	PRJNA320875	SRS1596532
+SRR3992614	ancient_metagenome	lake		lake sediment	12200.0	57.178	-170.248	Wang2017	2017	USA	JK225_830	PRJNA320875	SRS1596533
+SRR3992615	ancient_metagenome	lake		lake sediment	12300.0	57.178	-170.248	Wang2017	2017	USA	JK226_838	PRJNA320875	SRS1596535
+ERR1688784	ancient_metagenome	midden		sediment	1600.0	69.128	-50.702	Seersholm2016	2016	Greenland	QB4	PRJEB13329	ERS1280202
+ERR1688809	ancient_metagenome	midden		sediment	4000.0	68.593	-51.072	Seersholm2016	2016	Greenland	QT3(seq1,seq2)	PRJEB13329	ERS1280227
+ERR1688791	ancient_metagenome	midden		sediment	2600.0	69.128	-50.702	Seersholm2016	2016	Greenland	QA4	PRJEB13329	ERS1280209
+ERR1688793	ancient_metagenome	midden		sediment	2600.0	69.128	-50.702	Seersholm2016	2016	Greenland	QA5	PRJEB13329	ERS1280211
+ERR1688796	ancient_metagenome	midden		sediment	2600.0	69.128	-50.702	Seersholm2016	2016	Greenland	QA6(seq1,seq2)	PRJEB13329	ERS1280214
+ERR1688802	ancient_metagenome	midden		sediment	2600.0	69.128	-50.702	Seersholm2016	2016	Greenland	QA8(seq1,seq2,seq3)	PRJEB13329	ERS1280220
+ERR3804378	ancient_metagenome	lake		lake sediment	1500.0	51.305	23.366	Iwanska2022	2022	Poland	LS-76-2	PRJEB36143	ERS4230028
+ERR4334733	ancient_metagenome	lake		lake sediment	1800.0	51.305	23.366	Iwanska2022	2022	Poland	LS-85-1	PRJEB39351	ERS4817950
+ERR4334734	ancient_metagenome	lake		lake sediment	1800.0	51.305	23.366	Iwanska2022	2022	Poland	LS-85-2	PRJEB39351	ERS4817951
+ERR4334735	ancient_metagenome	lake		lake sediment	2000.0	51.305	23.366	Iwanska2022	2022	Poland	LS-93-1	PRJEB39351	ERS4817952
+ERR4334736	ancient_metagenome	lake		lake sediment	2000.0	51.305	23.366	Iwanska2022	2022	Poland	LS-93-2	PRJEB39351	ERS4817953
+ERR3804374	ancient_metagenome	lake		lake sediment	700.0	51.305	23.366	Iwanska2022	2022	Poland	LS-55-2	PRJEB36143	ERS4230024
+ERR4334729	ancient_metagenome	lake		lake sediment	1100.0	51.305	23.366	Iwanska2022	2022	Poland	LS-63-1	PRJEB39351	ERS4817946
+ERR4334730	ancient_metagenome	lake		lake sediment	1100.0	51.305	23.366	Iwanska2022	2022	Poland	LS-63-2	PRJEB39351	ERS4817947
+ERR3804375	ancient_metagenome	lake		lake sediment	1300.0	51.305	23.366	Iwanska2022	2022	Poland	LS-65-1	PRJEB36143	ERS4230025
+ERR3804376	ancient_metagenome	lake		lake sediment	1300.0	51.305	23.366	Iwanska2022	2022	Poland	LS-65-2	PRJEB36143	ERS4230026
+ERR4334731	ancient_metagenome	lake		lake sediment	1400.0	51.305	23.366	Iwanska2022	2022	Poland	LS-67-1	PRJEB39351	ERS4817948
+ERR4334732	ancient_metagenome	lake		lake sediment	1400.0	51.305	23.366	Iwanska2022	2022	Poland	LS-67-2	PRJEB39351	ERS4817949
+ERR3804377	ancient_metagenome	lake		lake sediment	1500.0	51.305	23.366	Iwanska2022	2022	Poland	LS-76-1	PRJEB36143	ERS4230027
+ERR4334727	ancient_metagenome	lake		lake sediment	200.0	51.305	23.366	Iwanska2022	2022	Poland	LS-35-1	PRJEB39351	ERS4817944
+ERR4334728	ancient_metagenome	lake		lake sediment	200.0	51.305	23.366	Iwanska2022	2022	Poland	LS-35-2	PRJEB39351	ERS4817945
+ERR3804373	ancient_metagenome	lake		lake sediment	700.0	51.305	23.366	Iwanska2022	2022	Poland	LS-55-1	PRJEB36143	ERS4230023
+ERR10493279	ancient_metagenome	sea coast		permafrost	2000000.0	82.496	-21.559	Kjaer2022	2022	Greenland	119_B3_116_L0_KapK-12-1-25	PRJEB55522	ERS14240265
+ERR9465628	ancient_metagenome	lake		lake sediment	2000.0	53.592	12.529	Nwosu2023	2023	Germany	H2_185-186	PRJEB51951	ERS11453813
+ERR9465629	ancient_metagenome	lake		lake sediment	3500.0	53.592	12.529	Nwosu2023	2023	Germany	H3_125-126	PRJEB51951	ERS11453815
+ERR9465630	ancient_metagenome	lake		lake sediment	5100.0	53.592	12.529	Nwosu2023	2023	Germany	H4_50-51	PRJEB51951	ERS11453816
+ERR9465631	ancient_metagenome	lake		lake sediment	7500.0	53.592	12.529	Nwosu2023	2023	Germany	H5_20-21	PRJEB51951	ERS11453817
+ERR9465632	ancient_metagenome	lake		lake sediment	11300.0	53.592	12.529	Nwosu2023	2023	Germany	H6_15-16	PRJEB51951	ERS11453818
+ERR9465622	ancient_metagenome	lake		lake sediment	100.0	53.59	12.52	Nwosu2023	2023	Germany	H1_4-5	PRJEB51951	ERS11453805
+ERR9465623	ancient_metagenome	lake		lake sediment	100.0	53.592	12.529	Nwosu2023	2023	Germany	H1_9-10	PRJEB51951	ERS11453806
+ERR9465624	ancient_metagenome	lake		lake sediment	100.0	53.592	12.529	Nwosu2023	2023	Germany	H1_20-21	PRJEB51951	ERS11453807
+ERR9465625	ancient_metagenome	lake		lake sediment	200.0	53.592	12.529	Nwosu2023	2023	Germany	H2_10-11	PRJEB51951	ERS11453809
+ERR9465626	ancient_metagenome	lake		lake sediment	800.0	53.592	12.529	Nwosu2023	2023	Germany	H2_60-61	PRJEB51951	ERS11453811
+ERR9465627	ancient_metagenome	lake		lake sediment	1300.0	53.592	12.529	Nwosu2023	2023	Germany	H2_80-81	PRJEB51951	ERS11453812

@@ -1,0 +1,400 @@
+2026-09-09 17:21:00 - root - INFO - Logging to file: results/search_v9_single_community_type/cv_results/fold_2/fold_2_training.log
+2026-09-09 17:21:00 - __main__ - INFO - ================================================================================
+2026-09-09 17:21:00 - __main__ - INFO - DIANA Multi-Task Hyperparameter Optimization
+2026-09-09 17:21:00 - __main__ - INFO - ================================================================================
+2026-09-09 17:21:00 - __main__ - INFO - Run config:   configs/train_config_v9_search_single_community_type.json
+2026-09-09 17:21:00 - __main__ - INFO - Features:     data/matrices/matrix_v9_train/unitigs.frac.mat
+2026-09-09 17:21:00 - __main__ - INFO - Metadata:     data/splits_v9/train_metadata.tsv
+2026-09-09 17:21:00 - __main__ - INFO - Output dir:   results/search_v9_single_community_type
+2026-09-09 17:21:00 - __main__ - INFO - Tasks:        ['community_type']
+2026-09-09 17:21:00 - __main__ - INFO - Task types:   {'community_type': 'classification'}
+2026-09-09 17:21:00 - __main__ - INFO - Fold:         2 / 5
+2026-09-09 17:21:00 - __main__ - INFO - Trials:       100  Max epochs: 200  Patience: 20
+2026-09-09 17:21:00 - __main__ - INFO - GPU:          True  Seed: 42
+2026-09-09 17:21:00 - __main__ - INFO - Loading data from data/matrices/matrix_v9_train/unitigs.frac.mat
+2026-09-09 17:21:00 - diana.data.loader - INFO - Loading matrix from data/matrices/matrix_v9_train/unitigs.frac.mat
+2026-09-09 17:21:21 - diana.data.loader - INFO - Loaded 110202 features × 2716 samples (before transpose)
+2026-09-09 17:21:21 - diana.data.loader - INFO - Transposed to 2716 samples × 110202 features
+2026-09-09 17:21:21 - diana.data.loader - INFO - Reading sample IDs from data/matrices/matrix_v9_train/kmer_matrix/kmtricks.fof
+2026-09-09 17:21:21 - diana.data.loader - INFO - Sample IDs: ['ERR10114844', 'ERR10114845', 'ERR10114846']...
+2026-09-09 17:21:21 - diana.data.loader - INFO - Loading metadata from data/splits_v9/train_metadata.tsv
+2026-09-09 17:21:21 - diana.data.loader - INFO - Metadata: 2716 rows × 15 columns
+2026-09-09 17:21:21 - diana.data.loader - INFO - Metadata aligned to matrix sample order
+2026-09-09 17:21:21 - __main__ - INFO - Loaded 2716 samples with 110202 features
+2026-09-09 17:21:21 - __main__ - INFO - Loaded 2716 samples × 110202 features
+2026-09-09 17:21:21 - __main__ - INFO - === FOLD 2/4 ===
+2026-09-09 17:21:21 - __main__ - INFO - Output directory: results/search_v9_single_community_type/cv_results/fold_2
+2026-09-09 17:21:21 - __main__ - INFO - Using device: cuda
+2026-09-09 17:21:21 - __main__ - INFO - Class imbalance: logit adjustment, tau SEARCHED in [0.05, 0.8]
+2026-09-09 17:21:21 - __main__ - INFO - community_type: 5 classes, 2073 labelled, 643 masked - ['gut', 'oral', 'plant tissue', 'skeletal tissue', 'soft tissue']...
+2026-09-09 17:21:21 - __main__ - INFO - Grouping CV folds on 'archive_project': 68 groups over 2716 runs
+2026-09-09 17:21:21 - __main__ - INFO - Outer fold 2 taken from data/splits_v9/dev_folds.tsv (5 dev folds)
+2026-09-09 17:21:21 - __main__ - INFO - Train: 2003, Test: 713 (outer fold verified archive_project-disjoint)
+2026-09-09 17:21:22 - __main__ - INFO - 3 inner folds verified archive_project-disjoint
+2026-09-09 17:21:22 - __main__ - INFO - Starting Optuna optimization with 100 trials...
+2026-09-09 17:21:22 - __main__ - INFO - Each trial will be evaluated on 3 inner CV folds
+2026-09-09 17:21:22 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:22:50 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:23:53 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:24:31 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:24:54 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:25:25 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:25:58 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:26:16 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:26:35 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:26:51 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:27:14 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:27:49 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:28:09 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:28:25 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:28:51 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:29:08 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:29:33 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:29:48 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:30:04 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:30:25 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:30:45 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:30:56 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:32:14 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:33:33 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:34:11 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:34:31 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:34:50 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:35:00 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:35:30 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:36:03 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:36:32 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:36:50 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:37:06 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:37:22 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:37:36 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:38:02 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:38:24 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:38:46 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:39:10 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:39:25 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:39:40 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:40:06 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:40:29 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:41:07 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:41:47 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:42:13 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:42:33 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:42:52 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:43:08 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:43:28 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:43:53 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:44:06 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:44:35 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:45:04 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:45:19 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:45:33 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:45:51 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:46:02 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:46:29 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:46:52 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:47:07 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:47:31 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:47:57 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:48:09 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:48:34 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:48:59 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:49:13 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:49:29 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:49:54 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:50:06 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:50:25 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:50:45 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:50:58 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:51:22 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:51:48 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:52:09 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:52:26 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:52:48 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:53:01 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:53:17 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:53:34 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:53:49 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:54:17 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:54:47 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:55:13 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:55:33 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:55:50 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:56:09 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:56:29 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:57:04 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:57:20 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:57:35 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:58:00 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:58:13 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:58:37 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 17:58:55 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 17:59:14 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 17:59:39 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:00:04 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:00:19 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:00:43 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:01:05 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:01:21 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:01:47 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:02:09 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:02:29 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:02:56 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:03:24 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:03:38 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:03:55 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:04:20 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:04:42 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:05:00 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:05:27 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:05:44 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:06:02 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:06:16 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:06:33 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:06:59 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:07:26 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:07:49 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:08:04 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:08:18 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:08:36 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:08:53 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:09:16 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:09:28 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:09:42 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:10:09 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:10:22 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:10:48 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:11:12 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:11:27 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:11:54 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:12:22 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:12:46 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:12:59 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:13:16 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:13:31 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:13:57 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:14:25 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:14:48 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:15:08 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:15:33 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:15:49 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:16:40 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:17:34 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:18:17 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:18:30 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:18:48 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:18:59 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:19:48 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:20:58 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:21:49 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:22:01 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:22:19 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:22:34 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:22:49 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:23:01 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:23:14 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:23:27 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:23:38 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:23:48 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:24:02 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:24:19 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:24:33 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:24:47 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:25:07 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:25:23 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:25:37 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:25:58 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:26:12 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:26:32 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:26:47 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:26:57 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:27:09 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:27:26 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:27:38 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:27:58 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:28:15 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:28:27 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:28:42 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:29:02 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:29:13 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:29:28 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:29:42 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:30:00 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:30:23 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:30:45 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:30:56 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:31:19 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:31:31 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:31:41 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:32:02 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:32:16 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:32:32 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:32:54 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:33:15 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:33:30 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:33:46 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:34:00 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:34:13 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:34:38 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:35:06 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:35:31 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:35:54 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:36:15 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:36:33 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:36:56 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:37:11 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:37:24 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:37:45 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:38:08 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:38:22 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:38:46 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:39:06 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:39:23 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:39:43 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:39:58 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:40:14 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:40:37 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:40:52 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:41:11 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:41:29 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:41:52 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:42:14 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:42:34 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:42:49 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:43:03 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:43:20 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:43:42 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:43:53 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:44:11 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:44:33 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:44:51 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:45:10 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:45:29 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:45:42 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:46:05 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:46:30 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:46:43 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:46:57 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:47:11 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:47:25 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:47:47 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:48:16 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:48:36 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:49:03 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:49:31 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:49:46 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:50:11 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:50:37 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:51:02 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:51:25 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:51:53 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:52:18 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:52:45 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:53:14 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:53:39 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:54:00 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:54:23 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:54:42 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:55:10 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:55:37 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:56:01 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:56:39 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:57:40 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:58:14 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:58:40 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 18:59:03 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 18:59:19 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 18:59:47 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 19:00:02 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 19:00:27 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 19:00:51 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 19:01:15 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 19:01:36 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 19:01:52 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 19:02:21 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 19:02:35 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 19:03:03 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 19:03:30 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 19:03:54 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 19:04:15 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 19:04:37 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 19:04:48 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 19:05:11 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 19:05:34 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 19:05:47 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 19:06:10 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 19:06:28 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 19:06:41 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 19:06:56 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 19:07:11 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 19:07:22 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 19:07:47 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 19:08:06 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 19:08:22 - __main__ - INFO - community_type priors: [54, 885, 0, 84, 0]
+2026-09-09 19:08:40 - __main__ - INFO - community_type priors: [20, 1214, 11, 26, 16]
+2026-09-09 19:09:01 - __main__ - INFO - community_type priors: [70, 735, 11, 70, 16]
+2026-09-09 19:09:11 - __main__ - INFO - Best hyperparameters (averaged over 3 folds): {'n_layers': 4, 'hidden_dim_0': 64, 'hidden_dim_1': 384, 'hidden_dim_2': 256, 'hidden_dim_3': 128, 'dropout': 0.22968379876718303, 'learning_rate': 0.004502406163506268, 'weight_decay': 6.200180079942211e-05, 'batch_size': 256, 'use_batch_norm': True, 'activation': 'leaky_relu', 'logit_adjust_tau': 0.6608819654055716, 'ls_community_type': 0.040792717514035653, 'task_weight_community_type': 1.0}
+2026-09-09 19:09:11 - __main__ - INFO - Best CV score: 0.5942
+2026-09-09 19:09:11 - __main__ - INFO - Training final model with proper train/val split...
+2026-09-09 19:09:11 - __main__ - INFO - Final training split: 1802 train, 201 validation, 713 test
+2026-09-09 19:09:11 - __main__ - INFO - community_type priors: [72, 1417, 11, 90, 16]
+2026-09-09 19:09:11 - diana.utils.checkpointing - INFO - CheckpointManager initialized: results/search_v9_single_community_type/cv_results/fold_2
+2026-09-09 19:09:11 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_1_20260909_190911.pth
+2026-09-09 19:09:11 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_2/best_model.pth (val_loss: 0.5344)
+2026-09-09 19:09:12 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_2_20260909_190912.pth
+2026-09-09 19:09:12 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_2/best_model.pth (val_loss: 0.5011)
+2026-09-09 19:09:12 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_3_20260909_190912.pth
+2026-09-09 19:09:12 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_2/best_model.pth (val_loss: 0.4788)
+2026-09-09 19:09:13 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_4_20260909_190913.pth
+2026-09-09 19:09:13 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_2/best_model.pth (val_loss: 0.4693)
+2026-09-09 19:09:13 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_5_20260909_190913.pth
+2026-09-09 19:09:13 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_2/best_model.pth (val_loss: 0.4585)
+2026-09-09 19:09:14 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_6_20260909_190913.pth
+2026-09-09 19:09:14 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_2/best_model.pth (val_loss: 0.4491)
+2026-09-09 19:09:14 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_7_20260909_190914.pth
+2026-09-09 19:09:14 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_2/best_model.pth (val_loss: 0.4441)
+2026-09-09 19:09:15 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_8_20260909_190914.pth
+2026-09-09 19:09:15 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_2/best_model.pth (val_loss: 0.4415)
+2026-09-09 19:09:15 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_9_20260909_190915.pth
+2026-09-09 19:09:15 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_2/best_model.pth (val_loss: 0.4321)
+2026-09-09 19:09:16 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_10_20260909_190915.pth
+2026-09-09 19:09:16 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_2/best_model.pth (val_loss: 0.4095)
+2026-09-09 19:09:16 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_11_20260909_190916.pth
+2026-09-09 19:09:16 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_2/best_model.pth (val_loss: 0.3866)
+2026-09-09 19:09:16 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_12_20260909_190916.pth
+2026-09-09 19:09:17 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_13_20260909_190917.pth
+2026-09-09 19:09:17 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_2/best_model.pth (val_loss: 0.3610)
+2026-09-09 19:09:17 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_14_20260909_190917.pth
+2026-09-09 19:09:18 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_15_20260909_190917.pth
+2026-09-09 19:09:18 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_16_20260909_190918.pth
+2026-09-09 19:09:18 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_17_20260909_190918.pth
+2026-09-09 19:09:18 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_18_20260909_190918.pth
+2026-09-09 19:09:19 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_19_20260909_190919.pth
+2026-09-09 19:09:19 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_20_20260909_190919.pth
+2026-09-09 19:09:19 - __main__ - INFO - Epoch 20/200, Train Loss: 0.4326, Val Loss: 0.4261
+2026-09-09 19:09:19 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_21_20260909_190919.pth
+2026-09-09 19:09:19 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_22_20260909_190919.pth
+2026-09-09 19:09:20 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_23_20260909_190920.pth
+2026-09-09 19:09:20 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_24_20260909_190920.pth
+2026-09-09 19:09:20 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_25_20260909_190920.pth
+2026-09-09 19:09:21 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_26_20260909_190920.pth
+2026-09-09 19:09:21 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_27_20260909_190921.pth
+2026-09-09 19:09:21 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_28_20260909_190921.pth
+2026-09-09 19:09:22 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_29_20260909_190921.pth
+2026-09-09 19:09:22 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_30_20260909_190922.pth
+2026-09-09 19:09:22 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_31_20260909_190922.pth
+2026-09-09 19:09:22 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_32_20260909_190922.pth
+2026-09-09 19:09:23 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_2/checkpoint_epoch_33_20260909_190922.pth
+2026-09-09 19:09:23 - __main__ - INFO - Early stopping triggered after 33 epochs (patience=20)
+2026-09-09 19:09:23 - diana.utils.checkpointing - INFO - Loading checkpoint: results/search_v9_single_community_type/cv_results/fold_2/best_model.pth
+2026-09-09 19:09:23 - __main__ - INFO - Loaded best model from epoch 13 (val_loss: 0.3610)
+2026-09-09 19:09:23 - __main__ - INFO - Evaluating on held-out test set...
+2026-09-09 19:09:23 - __main__ - INFO - community_type test metrics: {'n_scored': 467, 'accuracy': 0.5610278372591007, 'f1_weighted': 0.6057509049197303, 'f1_macro': 0.27507054665348196, 'balanced_accuracy': 0.3034756928668787}
+2026-09-09 19:09:23 - diana.utils.checkpointing - INFO - Final model saved: results/search_v9_single_community_type/cv_results/fold_2/final_model_20260909_190923.pth
+2026-09-09 19:09:23 - __main__ - INFO - Final model saved to results/search_v9_single_community_type/cv_results/fold_2/final_model_20260909_190923.pth
+2026-09-09 19:09:23 - __main__ - INFO - Results saved to results/search_v9_single_community_type/cv_results/fold_2/multitask_fold_2_results_20260909_172121.json
+2026-09-09 19:09:23 - __main__ - INFO - ================================================================================
+2026-09-09 19:09:23 - __main__ - INFO - ================================================================================
+2026-09-09 19:09:23 - __main__ - INFO - === FOLD COMPLETE ===
+2026-09-09 19:09:23 - __main__ - INFO - ================================================================================
+2026-09-09 19:09:23 - __main__ - INFO - Results: {'community_type': {'n_scored': 467, 'accuracy': 0.5610278372591007, 'f1_weighted': 0.6057509049197303, 'f1_macro': 0.27507054665348196, 'balanced_accuracy': 0.3034756928668787}}

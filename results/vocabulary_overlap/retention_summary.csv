@@ -1,0 +1,4 @@
+subset,n,exact,fully_retained,mostly_retained,any_kmer,none,median_frac
+all paper unitigs,107480,37734,86107,101366,101697,5783,1.0
+BLAST-annotated,82853,30198,66369,78109,78376,4477,1.0
+no BLAST hit,24627,7536,19738,23257,23321,1306,1.0

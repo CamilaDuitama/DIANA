@@ -1,0 +1,60 @@
+AMD release dir : AncientMetagenomeDir-v26.03.0
+library rows    : 4315
+rows sharing a Run_accession with another row : 660
+unique Run_accession after dedup : 3894
+Run_accession values containing a separator (',' or ';') : 0
+
+[train] n=2838  not found in AMD: 0
+[train] source_table: {'hostassociated': 2145, 'environmental': 693}
+[train] community_type  disagreements=   0  missing_in_split=  23  missing_in_amd=  23
+[train] sample_host     disagreements=   0  missing_in_split= 716  missing_in_amd= 716
+[train] material        disagreements=   0  missing_in_split=  23  missing_in_amd=  23
+[train] sample_age      disagreements=   0  missing_in_split=  23  missing_in_amd=  23
+[train] latitude        disagreements=   0  missing_in_split= 188  missing_in_amd= 188
+[train] longitude       disagreements=   0  missing_in_split= 188  missing_in_amd= 188
+
+[val] n=702  not found in AMD: 0
+[val] source_table: {'hostassociated': 581, 'environmental': 121}
+[val] community_type  disagreements=   0  missing_in_split=   0  missing_in_amd=   0
+[val] sample_host     disagreements=   0  missing_in_split= 121  missing_in_amd= 121
+[val] material        disagreements=   0  missing_in_split=   0  missing_in_amd=   0
+[val] sample_age      disagreements=   0  missing_in_split=   0  missing_in_amd=   0
+[val] latitude        disagreements=   0  missing_in_split=   0  missing_in_amd=   0
+[val] longitude       disagreements=   0  missing_in_split=   0  missing_in_amd=   0
+
+[test] n=352  not found in AMD: 0
+[test] source_table: {'hostassociated': 254, 'environmental': 98}
+[test] community_type  disagreements=   0  missing_in_split=   0  missing_in_amd=   0
+[test] sample_host     disagreements=   0  missing_in_split=  98  missing_in_amd=  98
+[test] material        disagreements=   0  missing_in_split=   0  missing_in_amd=   0
+[test] sample_age      disagreements=   0  missing_in_split=   0  missing_in_amd=   0
+[test] latitude        disagreements=   0  missing_in_split=  28  missing_in_amd=  28
+[test] longitude       disagreements=   0  missing_in_split=  28  missing_in_amd=  28
+
+No label disagreements found.
+
+community_type by AMD source table (environmental values come from the `feature` column):
+source_table        environmental  hostassociated
+community_type                                   
+archeological site             17               0
+cave                          122               0
+gut                             0             152
+hydrothermal field             15               0
+lake                          305               0
+midden                         52               0
+ocean                         246               0
+oral                            0            2181
+plant tissue                    0              83
+rock shelter                   13               0
+sea coast                      65               0
+shell                          24               0
+skeletal tissue                 0             506
+soft tissue                     0              35
+swamp forest                   29               0
+thermokarst                    19               0
+wetland area                    5               0
+NaN                             0              23
+
+community_type: 17 distinct values, 23 missing, 0 values with <=2 runs across all splits
+sample_host: 26 distinct values, 935 missing, 3 values with <=2 runs across all splits
+material: 38 distinct values, 23 missing, 17 values with <=2 runs across all splits

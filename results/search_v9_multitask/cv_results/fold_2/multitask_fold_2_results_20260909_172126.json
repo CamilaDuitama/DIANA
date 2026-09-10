@@ -1,0 +1,68 @@
+{
+  "fold_id": 2,
+  "total_folds": 5,
+  "n_outer_train": 2003,
+  "n_sub_train": 1802,
+  "n_sub_val": 201,
+  "n_test": 713,
+  "num_classes": {
+    "community_type": 5,
+    "feature": 10,
+    "sample_host": 24,
+    "material": 16
+  },
+  "best_params": {
+    "n_layers": 2,
+    "hidden_dim_0": 256,
+    "hidden_dim_1": 192,
+    "dropout": 0.323498293115114,
+    "learning_rate": 4.6424273910225056e-05,
+    "weight_decay": 6.998322965926765e-06,
+    "batch_size": 32,
+    "use_batch_norm": false,
+    "activation": "relu",
+    "logit_adjust_tau": 0.3233953197973953,
+    "task_weight_community_type": 0.8047826977494001,
+    "task_weight_feature": 0.9188250924223008,
+    "task_weight_sample_host": 0.9679181305919675,
+    "task_weight_material": 1.696601700567736,
+    "ls_community_type": 0.016664592747224392,
+    "ls_feature": 0.03514576022165783,
+    "ls_sample_host": 0.1435284294686009,
+    "ls_material": 0.03248167769980223
+  },
+  "test_metrics": {
+    "community_type": {
+      "n_scored": 467,
+      "accuracy": 0.6895074946466809,
+      "f1_weighted": 0.6047524183994808,
+      "f1_macro": 0.38254688599199693,
+      "balanced_accuracy": 0.4132184234438891
+    },
+    "feature": {
+      "n_scored": 223,
+      "accuracy": 0.4663677130044843,
+      "f1_weighted": 0.42658430067881603,
+      "f1_macro": 0.17643989438861235,
+      "balanced_accuracy": 0.2834848484848485
+    },
+    "sample_host": {
+      "n_scored": 467,
+      "accuracy": 0.8351177730192719,
+      "f1_weighted": 0.8607979013408978,
+      "f1_macro": 0.11992619926199262,
+      "balanced_accuracy": 0.31026252983293556
+    },
+    "material": {
+      "n_scored": 690,
+      "accuracy": 0.5434782608695652,
+      "f1_weighted": 0.4910022115030645,
+      "f1_macro": 0.2720088989211783,
+      "balanced_accuracy": 0.3687297680363308
+    }
+  },
+  "best_model_path": "results/search_v9_multitask/cv_results/fold_2/best_model.pth",
+  "final_model_path": "results/search_v9_multitask/cv_results/fold_2/final_model_20260909_214143.pth",
+  "timestamp": "20260909_172126",
+  "note": "Test set ONLY used for final evaluation, never for model selection"
+}

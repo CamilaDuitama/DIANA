@@ -1,0 +1,7 @@
+n_splits	n_holdout	pct_holdout	n_bioprojects	community_type_min_per_evaluable_class	community_type_n_holdout_labelled	feature_min_per_evaluable_class	feature_n_holdout_labelled	sample_host_min_per_evaluable_class	sample_host_n_holdout_labelled	material_min_per_evaluable_class	material_n_holdout_labelled	passes
+4	600	16.5	25	6	353	0	247	0	353	0	594	False
+5	412	11.3	15	0	274	0	138	0	274	0	402	False
+6	364	10.0	13	0	242	0	122	0	242	0	353	False
+7	171	4.7	13	6	64	0	107	0	64	0	165	False
+8	388	10.7	13	0	291	0	85	0	303	0	376	False
+10	226	6.2	5	0	161	0	65	0	161	0	220	False

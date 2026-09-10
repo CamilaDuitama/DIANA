@@ -1,0 +1,564 @@
+2026-09-09 17:20:17 - root - INFO - Logging to file: results/search_v9_single_community_type/cv_results/fold_0/fold_0_training.log
+2026-09-09 17:20:17 - __main__ - INFO - ================================================================================
+2026-09-09 17:20:17 - __main__ - INFO - DIANA Multi-Task Hyperparameter Optimization
+2026-09-09 17:20:17 - __main__ - INFO - ================================================================================
+2026-09-09 17:20:17 - __main__ - INFO - Run config:   configs/train_config_v9_search_single_community_type.json
+2026-09-09 17:20:17 - __main__ - INFO - Features:     data/matrices/matrix_v9_train/unitigs.frac.mat
+2026-09-09 17:20:17 - __main__ - INFO - Metadata:     data/splits_v9/train_metadata.tsv
+2026-09-09 17:20:17 - __main__ - INFO - Output dir:   results/search_v9_single_community_type
+2026-09-09 17:20:17 - __main__ - INFO - Tasks:        ['community_type']
+2026-09-09 17:20:17 - __main__ - INFO - Task types:   {'community_type': 'classification'}
+2026-09-09 17:20:17 - __main__ - INFO - Fold:         0 / 5
+2026-09-09 17:20:17 - __main__ - INFO - Trials:       100  Max epochs: 200  Patience: 20
+2026-09-09 17:20:17 - __main__ - INFO - GPU:          True  Seed: 42
+2026-09-09 17:20:17 - __main__ - INFO - Loading data from data/matrices/matrix_v9_train/unitigs.frac.mat
+2026-09-09 17:20:17 - diana.data.loader - INFO - Loading matrix from data/matrices/matrix_v9_train/unitigs.frac.mat
+2026-09-09 17:21:17 - diana.data.loader - INFO - Loaded 110202 features × 2716 samples (before transpose)
+2026-09-09 17:21:17 - diana.data.loader - INFO - Transposed to 2716 samples × 110202 features
+2026-09-09 17:21:17 - diana.data.loader - INFO - Reading sample IDs from data/matrices/matrix_v9_train/kmer_matrix/kmtricks.fof
+2026-09-09 17:21:17 - diana.data.loader - INFO - Sample IDs: ['ERR10114844', 'ERR10114845', 'ERR10114846']...
+2026-09-09 17:21:17 - diana.data.loader - INFO - Loading metadata from data/splits_v9/train_metadata.tsv
+2026-09-09 17:21:17 - diana.data.loader - INFO - Metadata: 2716 rows × 15 columns
+2026-09-09 17:21:17 - diana.data.loader - INFO - Metadata aligned to matrix sample order
+2026-09-09 17:21:17 - __main__ - INFO - Loaded 2716 samples with 110202 features
+2026-09-09 17:21:17 - __main__ - INFO - Loaded 2716 samples × 110202 features
+2026-09-09 17:21:17 - __main__ - INFO - === FOLD 0/4 ===
+2026-09-09 17:21:17 - __main__ - INFO - Output directory: results/search_v9_single_community_type/cv_results/fold_0
+2026-09-09 17:21:17 - __main__ - INFO - Using device: cuda
+2026-09-09 17:21:17 - __main__ - INFO - Class imbalance: logit adjustment, tau SEARCHED in [0.05, 0.8]
+2026-09-09 17:21:17 - __main__ - INFO - community_type: 5 classes, 2073 labelled, 643 masked - ['gut', 'oral', 'plant tissue', 'skeletal tissue', 'soft tissue']...
+2026-09-09 17:21:17 - __main__ - INFO - Grouping CV folds on 'archive_project': 68 groups over 2716 runs
+2026-09-09 17:21:17 - __main__ - INFO - Outer fold 0 taken from data/splits_v9/dev_folds.tsv (5 dev folds)
+2026-09-09 17:21:17 - __main__ - INFO - Train: 2045, Test: 671 (outer fold verified archive_project-disjoint)
+2026-09-09 17:21:17 - __main__ - INFO - 3 inner folds verified archive_project-disjoint
+2026-09-09 17:21:17 - __main__ - INFO - Starting Optuna optimization with 100 trials...
+2026-09-09 17:21:17 - __main__ - INFO - Each trial will be evaluated on 3 inner CV folds
+2026-09-09 17:21:18 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 17:22:33 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 17:24:27 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 17:25:40 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 17:26:11 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 17:26:42 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 17:27:22 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 17:27:43 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 17:28:05 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 17:28:46 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 17:29:14 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 17:29:44 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 17:30:19 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 17:30:39 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 17:31:18 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 17:31:59 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 17:32:31 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 17:33:30 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 17:34:39 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 17:35:05 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 17:35:35 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 17:36:27 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 17:37:29 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 17:38:38 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 17:40:15 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 17:41:07 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 17:41:45 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 17:42:32 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 17:43:25 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 17:44:10 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 17:44:49 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 17:45:23 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 17:46:12 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 17:47:11 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 17:47:53 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 17:48:39 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 17:49:10 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 17:49:55 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 17:51:05 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 17:51:46 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 17:52:18 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 17:53:04 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 17:54:07 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 17:54:41 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 17:55:40 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 17:56:12 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 17:57:23 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 17:58:18 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 17:58:58 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 17:59:47 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:00:21 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:00:52 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:01:58 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:02:35 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:03:11 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:03:49 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:04:47 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:05:37 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:06:02 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:06:39 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:07:02 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:07:34 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:08:18 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:08:44 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:09:16 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:09:53 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:10:21 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:10:50 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:11:26 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:11:57 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:12:29 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:13:01 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:13:33 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:14:29 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:15:18 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:16:35 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:17:18 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:17:53 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:18:26 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:19:04 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:19:57 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:20:51 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:21:44 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:22:49 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:23:58 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:24:26 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:25:14 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:25:48 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:26:18 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:26:56 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:27:55 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:28:36 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:29:14 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:29:48 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:30:57 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:32:02 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:32:47 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:33:29 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:34:01 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:34:59 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:36:02 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:37:01 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:37:37 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:38:27 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:39:22 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:40:08 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:40:55 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:41:45 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:42:26 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:43:32 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:44:43 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:46:02 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:46:38 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:47:40 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:48:26 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:48:55 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:49:34 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:50:06 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:51:07 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:51:45 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:52:43 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:53:11 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:53:36 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:53:58 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:54:30 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:55:26 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:55:58 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:57:00 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 18:57:52 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 18:58:33 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 18:59:21 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:00:15 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:01:09 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:01:38 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:02:32 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:03:07 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:03:39 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:04:40 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:05:36 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:06:10 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:07:08 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:07:41 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:08:16 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:09:19 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:10:00 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:10:52 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:12:10 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:12:54 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:13:23 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:14:09 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:14:49 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:15:11 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:15:33 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:16:03 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:17:02 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:17:55 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:18:43 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:19:14 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:20:08 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:20:55 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:21:58 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:22:52 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:23:35 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:24:31 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:25:10 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:25:48 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:26:10 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:26:49 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:27:20 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:28:24 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:29:21 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:30:13 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:31:15 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:32:10 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:32:53 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:33:25 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:34:19 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:34:52 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:35:26 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:36:28 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:37:33 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:38:12 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:39:15 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:40:09 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:40:55 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:41:48 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:42:30 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:43:15 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:44:07 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:44:42 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:45:43 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:46:35 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:47:14 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:47:49 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:48:43 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:49:41 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:50:40 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:51:11 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:51:43 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:53:05 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:53:54 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:55:08 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:56:07 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:56:35 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:57:03 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:57:37 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:58:01 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 19:58:32 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 19:58:57 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 19:59:32 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:00:05 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:00:34 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:01:07 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:01:37 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:02:18 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:03:10 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:03:53 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:04:29 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:05:22 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:05:59 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:06:51 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:07:46 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:08:42 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:09:22 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:10:02 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:10:52 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:11:23 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:12:02 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:12:39 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:13:39 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:14:31 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:15:05 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:15:51 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:16:47 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:17:33 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:18:29 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:19:18 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:19:50 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:20:45 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:21:36 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:22:02 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:22:56 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:23:40 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:24:36 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:25:21 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:26:14 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:26:56 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:27:25 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:28:18 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:29:02 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:29:53 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:30:43 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:31:17 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:32:13 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:32:52 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:33:26 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:34:04 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:34:58 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:35:43 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:36:36 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:37:18 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:37:41 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:38:46 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:39:41 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:40:12 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:40:50 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:41:17 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:41:51 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:42:25 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:43:25 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:44:20 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:45:17 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:46:12 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:47:08 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:48:11 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:49:05 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:50:02 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:50:32 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:51:18 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:52:01 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:52:34 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:53:31 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:54:26 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:55:30 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:56:25 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:57:03 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 20:57:42 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 20:58:38 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 20:59:12 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 21:00:13 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 21:01:04 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 21:01:37 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 21:02:41 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 21:03:25 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 21:03:55 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 21:04:55 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 21:05:48 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 21:06:28 - __main__ - INFO - community_type priors: [56, 823, 43, 188, 11]
+2026-09-09 21:07:23 - __main__ - INFO - community_type priors: [23, 671, 43, 101, 27]
+2026-09-09 21:07:53 - __main__ - INFO - community_type priors: [33, 846, 0, 135, 16]
+2026-09-09 21:08:22 - __main__ - INFO - Best hyperparameters (averaged over 3 folds): {'n_layers': 3, 'hidden_dim_0': 320, 'hidden_dim_1': 320, 'hidden_dim_2': 128, 'dropout': 0.21071084081163194, 'learning_rate': 0.00022272662603577004, 'weight_decay': 5.857550538475618e-06, 'batch_size': 64, 'use_batch_norm': True, 'activation': 'gelu', 'logit_adjust_tau': 0.7592465326328222, 'ls_community_type': 0.0529562873889801, 'task_weight_community_type': 1.0}
+2026-09-09 21:08:22 - __main__ - INFO - Best CV score: 0.5226
+2026-09-09 21:08:22 - __main__ - INFO - Training final model with proper train/val split...
+2026-09-09 21:08:22 - __main__ - INFO - Final training split: 1840 train, 205 validation, 671 test
+2026-09-09 21:08:22 - __main__ - INFO - community_type priors: [56, 1170, 43, 212, 27]
+2026-09-09 21:08:22 - diana.utils.checkpointing - INFO - CheckpointManager initialized: results/search_v9_single_community_type/cv_results/fold_0
+2026-09-09 21:08:24 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_1_20260909_210823.pth
+2026-09-09 21:08:25 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.8273)
+2026-09-09 21:08:26 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_2_20260909_210825.pth
+2026-09-09 21:08:27 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.7964)
+2026-09-09 21:08:29 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_3_20260909_210828.pth
+2026-09-09 21:08:30 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.7608)
+2026-09-09 21:08:31 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_4_20260909_210830.pth
+2026-09-09 21:08:32 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.7453)
+2026-09-09 21:08:34 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_5_20260909_210833.pth
+2026-09-09 21:08:34 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.7263)
+2026-09-09 21:08:36 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_6_20260909_210835.pth
+2026-09-09 21:08:36 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.7193)
+2026-09-09 21:08:38 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_7_20260909_210837.pth
+2026-09-09 21:08:40 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_8_20260909_210839.pth
+2026-09-09 21:08:41 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.6998)
+2026-09-09 21:08:42 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_9_20260909_210841.pth
+2026-09-09 21:08:43 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_10_20260909_210843.pth
+2026-09-09 21:08:44 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.6816)
+2026-09-09 21:08:46 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_11_20260909_210845.pth
+2026-09-09 21:08:47 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.6611)
+2026-09-09 21:08:48 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_12_20260909_210847.pth
+2026-09-09 21:08:50 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_13_20260909_210849.pth
+2026-09-09 21:08:51 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_14_20260909_210850.pth
+2026-09-09 21:08:52 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.6283)
+2026-09-09 21:08:54 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_15_20260909_210853.pth
+2026-09-09 21:08:54 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.6221)
+2026-09-09 21:08:56 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_16_20260909_210855.pth
+2026-09-09 21:08:58 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_17_20260909_210857.pth
+2026-09-09 21:08:59 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_18_20260909_210858.pth
+2026-09-09 21:09:01 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_19_20260909_210859.pth
+2026-09-09 21:09:02 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_20_20260909_210901.pth
+2026-09-09 21:09:03 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.5919)
+2026-09-09 21:09:03 - __main__ - INFO - Epoch 20/200, Train Loss: 0.5298, Val Loss: 0.5919
+2026-09-09 21:09:04 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_21_20260909_210903.pth
+2026-09-09 21:09:06 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_22_20260909_210905.pth
+2026-09-09 21:09:07 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_23_20260909_210906.pth
+2026-09-09 21:09:09 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.5775)
+2026-09-09 21:09:10 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_24_20260909_210909.pth
+2026-09-09 21:09:12 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_25_20260909_210911.pth
+2026-09-09 21:09:13 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_26_20260909_210913.pth
+2026-09-09 21:09:15 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_27_20260909_210914.pth
+2026-09-09 21:09:17 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_28_20260909_210916.pth
+2026-09-09 21:09:18 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_29_20260909_210917.pth
+2026-09-09 21:09:20 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_30_20260909_210919.pth
+2026-09-09 21:09:22 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_31_20260909_210921.pth
+2026-09-09 21:09:23 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.5582)
+2026-09-09 21:09:24 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_32_20260909_210923.pth
+2026-09-09 21:09:26 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_33_20260909_210925.pth
+2026-09-09 21:09:27 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_34_20260909_210926.pth
+2026-09-09 21:09:29 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.5552)
+2026-09-09 21:09:30 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_35_20260909_210929.pth
+2026-09-09 21:09:32 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_36_20260909_210931.pth
+2026-09-09 21:09:33 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.5417)
+2026-09-09 21:09:34 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_37_20260909_210933.pth
+2026-09-09 21:09:36 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_38_20260909_210935.pth
+2026-09-09 21:09:37 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_39_20260909_210936.pth
+2026-09-09 21:09:39 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_40_20260909_210938.pth
+2026-09-09 21:09:39 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.5358)
+2026-09-09 21:09:40 - __main__ - INFO - Epoch 40/200, Train Loss: 0.4828, Val Loss: 0.5358
+2026-09-09 21:09:41 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_41_20260909_210940.pth
+2026-09-09 21:09:42 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.5211)
+2026-09-09 21:09:44 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_42_20260909_210943.pth
+2026-09-09 21:09:45 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_43_20260909_210944.pth
+2026-09-09 21:09:47 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_44_20260909_210946.pth
+2026-09-09 21:09:48 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_45_20260909_210947.pth
+2026-09-09 21:09:50 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_46_20260909_210949.pth
+2026-09-09 21:09:51 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_47_20260909_210950.pth
+2026-09-09 21:09:53 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_48_20260909_210952.pth
+2026-09-09 21:09:54 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_49_20260909_210954.pth
+2026-09-09 21:09:56 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_50_20260909_210955.pth
+2026-09-09 21:09:57 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_51_20260909_210957.pth
+2026-09-09 21:09:59 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_52_20260909_210958.pth
+2026-09-09 21:10:00 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_53_20260909_211000.pth
+2026-09-09 21:10:02 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_54_20260909_211001.pth
+2026-09-09 21:10:03 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_55_20260909_211003.pth
+2026-09-09 21:10:05 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_56_20260909_211004.pth
+2026-09-09 21:10:06 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.5163)
+2026-09-09 21:10:08 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_57_20260909_211007.pth
+2026-09-09 21:10:09 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.5072)
+2026-09-09 21:10:10 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_58_20260909_211009.pth
+2026-09-09 21:10:12 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_59_20260909_211011.pth
+2026-09-09 21:10:13 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_60_20260909_211012.pth
+2026-09-09 21:10:14 - __main__ - INFO - Epoch 60/200, Train Loss: 0.4913, Val Loss: 0.5224
+2026-09-09 21:10:15 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_61_20260909_211014.pth
+2026-09-09 21:10:17 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_62_20260909_211016.pth
+2026-09-09 21:10:18 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_63_20260909_211017.pth
+2026-09-09 21:10:20 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.4965)
+2026-09-09 21:10:21 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_64_20260909_211020.pth
+2026-09-09 21:10:23 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_65_20260909_211022.pth
+2026-09-09 21:10:24 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.4948)
+2026-09-09 21:10:25 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_66_20260909_211024.pth
+2026-09-09 21:10:27 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_67_20260909_211026.pth
+2026-09-09 21:10:28 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_68_20260909_211028.pth
+2026-09-09 21:10:30 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_69_20260909_211029.pth
+2026-09-09 21:10:32 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_70_20260909_211031.pth
+2026-09-09 21:10:33 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_71_20260909_211032.pth
+2026-09-09 21:10:35 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_72_20260909_211034.pth
+2026-09-09 21:10:37 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_73_20260909_211036.pth
+2026-09-09 21:10:38 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_74_20260909_211037.pth
+2026-09-09 21:10:40 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_75_20260909_211039.pth
+2026-09-09 21:10:41 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_76_20260909_211040.pth
+2026-09-09 21:10:43 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_77_20260909_211042.pth
+2026-09-09 21:10:45 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_78_20260909_211043.pth
+2026-09-09 21:10:46 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_79_20260909_211045.pth
+2026-09-09 21:10:48 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_80_20260909_211047.pth
+2026-09-09 21:10:48 - __main__ - INFO - Epoch 80/200, Train Loss: 0.4546, Val Loss: 0.5184
+2026-09-09 21:10:49 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_81_20260909_211048.pth
+2026-09-09 21:10:51 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_82_20260909_211050.pth
+2026-09-09 21:10:53 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_83_20260909_211052.pth
+2026-09-09 21:10:54 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.4848)
+2026-09-09 21:10:55 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_84_20260909_211054.pth
+2026-09-09 21:10:57 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_85_20260909_211056.pth
+2026-09-09 21:10:59 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_86_20260909_211058.pth
+2026-09-09 21:11:00 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_87_20260909_211059.pth
+2026-09-09 21:11:02 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_88_20260909_211101.pth
+2026-09-09 21:11:03 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_89_20260909_211102.pth
+2026-09-09 21:11:05 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_90_20260909_211104.pth
+2026-09-09 21:11:06 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_91_20260909_211105.pth
+2026-09-09 21:11:08 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_92_20260909_211107.pth
+2026-09-09 21:11:09 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_93_20260909_211108.pth
+2026-09-09 21:11:11 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_94_20260909_211110.pth
+2026-09-09 21:11:12 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_95_20260909_211111.pth
+2026-09-09 21:11:14 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_96_20260909_211113.pth
+2026-09-09 21:11:15 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_97_20260909_211114.pth
+2026-09-09 21:11:17 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_98_20260909_211116.pth
+2026-09-09 21:11:19 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_99_20260909_211118.pth
+2026-09-09 21:11:20 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.4821)
+2026-09-09 21:11:21 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_100_20260909_211120.pth
+2026-09-09 21:11:22 - __main__ - INFO - Epoch 100/200, Train Loss: 0.4552, Val Loss: 0.5280
+2026-09-09 21:11:23 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_101_20260909_211122.pth
+2026-09-09 21:11:24 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_102_20260909_211124.pth
+2026-09-09 21:11:25 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.4770)
+2026-09-09 21:11:27 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_103_20260909_211126.pth
+2026-09-09 21:11:28 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_104_20260909_211128.pth
+2026-09-09 21:11:30 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_105_20260909_211129.pth
+2026-09-09 21:11:32 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_106_20260909_211131.pth
+2026-09-09 21:11:33 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_107_20260909_211132.pth
+2026-09-09 21:11:34 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_108_20260909_211134.pth
+2026-09-09 21:11:36 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_109_20260909_211135.pth
+2026-09-09 21:11:38 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_110_20260909_211137.pth
+2026-09-09 21:11:39 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_111_20260909_211138.pth
+2026-09-09 21:11:41 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_112_20260909_211140.pth
+2026-09-09 21:11:42 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_113_20260909_211141.pth
+2026-09-09 21:11:44 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_114_20260909_211143.pth
+2026-09-09 21:11:45 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_115_20260909_211144.pth
+2026-09-09 21:11:47 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_116_20260909_211146.pth
+2026-09-09 21:11:48 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_117_20260909_211147.pth
+2026-09-09 21:11:50 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_118_20260909_211149.pth
+2026-09-09 21:11:51 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_119_20260909_211150.pth
+2026-09-09 21:11:52 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.4768)
+2026-09-09 21:11:54 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_120_20260909_211153.pth
+2026-09-09 21:11:54 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.4644)
+2026-09-09 21:11:55 - __main__ - INFO - Epoch 120/200, Train Loss: 0.4413, Val Loss: 0.4644
+2026-09-09 21:11:56 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_121_20260909_211155.pth
+2026-09-09 21:11:57 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.4497)
+2026-09-09 21:11:59 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_122_20260909_211158.pth
+2026-09-09 21:12:00 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_123_20260909_211159.pth
+2026-09-09 21:12:02 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_124_20260909_211201.pth
+2026-09-09 21:12:03 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_125_20260909_211202.pth
+2026-09-09 21:12:05 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_126_20260909_211204.pth
+2026-09-09 21:12:06 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_127_20260909_211205.pth
+2026-09-09 21:12:08 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_128_20260909_211207.pth
+2026-09-09 21:12:09 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_129_20260909_211209.pth
+2026-09-09 21:12:11 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_130_20260909_211210.pth
+2026-09-09 21:12:13 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_131_20260909_211212.pth
+2026-09-09 21:12:14 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_132_20260909_211213.pth
+2026-09-09 21:12:15 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.4401)
+2026-09-09 21:12:17 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_133_20260909_211216.pth
+2026-09-09 21:12:19 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_134_20260909_211218.pth
+2026-09-09 21:12:20 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_135_20260909_211219.pth
+2026-09-09 21:12:22 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_136_20260909_211221.pth
+2026-09-09 21:12:23 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_137_20260909_211222.pth
+2026-09-09 21:12:25 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_138_20260909_211224.pth
+2026-09-09 21:12:26 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_139_20260909_211225.pth
+2026-09-09 21:12:27 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_140_20260909_211226.pth
+2026-09-09 21:12:28 - __main__ - INFO - Epoch 140/200, Train Loss: 0.4245, Val Loss: 0.4679
+2026-09-09 21:12:29 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_141_20260909_211228.pth
+2026-09-09 21:12:31 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_142_20260909_211230.pth
+2026-09-09 21:12:32 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_143_20260909_211231.pth
+2026-09-09 21:12:34 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_144_20260909_211233.pth
+2026-09-09 21:12:35 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_145_20260909_211234.pth
+2026-09-09 21:12:37 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_146_20260909_211236.pth
+2026-09-09 21:12:38 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_147_20260909_211237.pth
+2026-09-09 21:12:39 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_148_20260909_211238.pth
+2026-09-09 21:12:41 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_149_20260909_211240.pth
+2026-09-09 21:12:42 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_150_20260909_211241.pth
+2026-09-09 21:12:44 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_151_20260909_211243.pth
+2026-09-09 21:12:45 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_152_20260909_211244.pth
+2026-09-09 21:12:47 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth (val_loss: 0.4245)
+2026-09-09 21:12:48 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_153_20260909_211247.pth
+2026-09-09 21:12:50 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_154_20260909_211249.pth
+2026-09-09 21:12:51 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_155_20260909_211250.pth
+2026-09-09 21:12:53 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_156_20260909_211252.pth
+2026-09-09 21:12:54 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_157_20260909_211253.pth
+2026-09-09 21:12:56 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_158_20260909_211255.pth
+2026-09-09 21:12:57 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_159_20260909_211256.pth
+2026-09-09 21:12:59 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_160_20260909_211258.pth
+2026-09-09 21:12:59 - __main__ - INFO - Epoch 160/200, Train Loss: 0.4051, Val Loss: 0.4427
+2026-09-09 21:13:01 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_161_20260909_211300.pth
+2026-09-09 21:13:02 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_162_20260909_211301.pth
+2026-09-09 21:13:04 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_163_20260909_211303.pth
+2026-09-09 21:13:05 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_164_20260909_211304.pth
+2026-09-09 21:13:06 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_165_20260909_211306.pth
+2026-09-09 21:13:08 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_166_20260909_211307.pth
+2026-09-09 21:13:09 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_167_20260909_211308.pth
+2026-09-09 21:13:11 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_168_20260909_211310.pth
+2026-09-09 21:13:12 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_169_20260909_211311.pth
+2026-09-09 21:13:14 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_170_20260909_211313.pth
+2026-09-09 21:13:15 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_171_20260909_211314.pth
+2026-09-09 21:13:16 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_community_type/cv_results/fold_0/checkpoint_epoch_172_20260909_211316.pth
+2026-09-09 21:13:16 - __main__ - INFO - Early stopping triggered after 172 epochs (patience=20)
+2026-09-09 21:13:16 - diana.utils.checkpointing - INFO - Loading checkpoint: results/search_v9_single_community_type/cv_results/fold_0/best_model.pth
+2026-09-09 21:13:17 - __main__ - INFO - Loaded best model from epoch 152 (val_loss: 0.4245)
+2026-09-09 21:13:17 - __main__ - INFO - Evaluating on held-out test set...
+2026-09-09 21:13:17 - __main__ - INFO - community_type test metrics: {'n_scored': 565, 'accuracy': 0.7008849557522124, 'f1_weighted': 0.7830828679154278, 'f1_macro': 0.24598288467929544, 'balanced_accuracy': 0.8743330194601381}
+2026-09-09 21:13:17 - diana.utils.checkpointing - INFO - Final model saved: results/search_v9_single_community_type/cv_results/fold_0/final_model_20260909_211317.pth
+2026-09-09 21:13:17 - __main__ - INFO - Final model saved to results/search_v9_single_community_type/cv_results/fold_0/final_model_20260909_211317.pth
+2026-09-09 21:13:17 - __main__ - INFO - Results saved to results/search_v9_single_community_type/cv_results/fold_0/multitask_fold_0_results_20260909_172117.json
+2026-09-09 21:13:17 - __main__ - INFO - ================================================================================
+2026-09-09 21:13:17 - __main__ - INFO - ================================================================================
+2026-09-09 21:13:17 - __main__ - INFO - === FOLD COMPLETE ===
+2026-09-09 21:13:17 - __main__ - INFO - ================================================================================
+2026-09-09 21:13:17 - __main__ - INFO - Results: {'community_type': {'n_scored': 565, 'accuracy': 0.7008849557522124, 'f1_weighted': 0.7830828679154278, 'f1_macro': 0.24598288467929544, 'balanced_accuracy': 0.8743330194601381}}

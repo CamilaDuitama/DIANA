@@ -1,0 +1,16 @@
+R3.7 / R3.8 — depth vs predictors vs DIANA   (f1_macro_eligible)
+
+task            split        major   metadata depth   sequence depth      depth alone   coverage alone  PREDICTOR   DIANA
+-------------------------------------------------------------------------------------------------------------------------
+community_type  train        0.180            1.000            1.000            1.000            1.000      1.000 pending
+community_type  held-out     0.146            0.164            0.233            0.235            0.256      0.547 pending
+feature         train        0.065            1.000            0.999            0.999            0.999      0.999 pending
+feature         held-out     0.070            0.103            0.094            0.082            0.146      0.388 pending
+sample_host     train        0.080            1.000            1.000            0.995            1.000      1.000 pending
+sample_host     held-out     0.153            0.138            0.189            0.115            0.113      0.629 pending
+material        train        0.049            1.000            1.000            0.998            0.998      1.000 pending
+material        held-out     0.028            0.057            0.105            0.098            0.097      0.480 pending
+
+On held-out, the full features beat the strongest depth definition by 2.1-4.6x.
+Depth does beat the majority baseline, so it is not signal-free -- the
+claim is that it is not what the model is using.

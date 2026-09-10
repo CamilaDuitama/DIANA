@@ -1,0 +1,120 @@
+{
+  "split_sizes": {
+    "train": 2838,
+    "test": 352,
+    "val": 702
+  },
+  "community_type_vocabularies": {
+    "host_associated_terms": [
+      "gut",
+      "oral",
+      "plant tissue",
+      "skeletal tissue",
+      "soft tissue"
+    ],
+    "environmental_terms": [
+      "archeological site",
+      "cave",
+      "hydrothermal field",
+      "lake",
+      "midden",
+      "ocean",
+      "rock shelter",
+      "sea coast",
+      "shell",
+      "swamp forest",
+      "thermokarst",
+      "wetland area"
+    ],
+    "overlap": [],
+    "runs_by_source": {
+      "train": {
+        "host_vocab": 2122,
+        "env_vocab": 693
+      },
+      "test": {
+        "host_vocab": 254,
+        "env_vocab": 98
+      },
+      "val": {
+        "host_vocab": 581,
+        "env_vocab": 121
+      }
+    }
+  },
+  "missingness": {
+    "community_type": {
+      "train": 23,
+      "test": 0,
+      "val": 0
+    },
+    "sample_host": {
+      "train": 716,
+      "test": 98,
+      "val": 121
+    },
+    "material": {
+      "train": 23,
+      "test": 0,
+      "val": 0
+    },
+    "sample_age": {
+      "train": 23,
+      "test": 0,
+      "val": 0
+    },
+    "latitude": {
+      "train": 188,
+      "test": 28,
+      "val": 0
+    },
+    "longitude": {
+      "train": 188,
+      "test": 28,
+      "val": 0
+    }
+  },
+  "dedup_stability": {
+    "runs_total": 3894,
+    "runs_with_multiple_library_rows": 239,
+    "runs_with_tied_completeness": 225,
+    "runs_where_tied_rows_disagree": 178,
+    "runs_unstable_across_permutations": 178,
+    "changed_per_permutation": [
+      85,
+      95,
+      86,
+      83,
+      92,
+      95,
+      88,
+      104,
+      96,
+      97
+    ]
+  },
+  "label_space": {
+    "community_type": {
+      "train_label_space": 17,
+      "classes_with_test_support": 7,
+      "full_space_macro_f1_ceiling": 0.4118
+    },
+    "sample_host": {
+      "train_label_space": 25,
+      "classes_with_test_support": 2,
+      "full_space_macro_f1_ceiling": 0.08
+    },
+    "material": {
+      "train_label_space": 32,
+      "classes_with_test_support": 7,
+      "full_space_macro_f1_ceiling": 0.2188
+    }
+  },
+  "sample_host_null_inflation": {
+    "test_rows": 352,
+    "rows_with_real_host": 254,
+    "accuracy_including_null_class": 0.4034,
+    "accuracy_on_real_hosts_only": 0.1732,
+    "free_correct_from_null_class": 98
+  }
+}

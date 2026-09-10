@@ -1,0 +1,69 @@
+{
+  "fold_id": 1,
+  "total_folds": 5,
+  "n_outer_train": 2417,
+  "n_sub_train": 2175,
+  "n_sub_val": 242,
+  "n_test": 299,
+  "num_classes": {
+    "community_type": 5,
+    "feature": 10,
+    "sample_host": 24,
+    "material": 16
+  },
+  "best_params": {
+    "n_layers": 3,
+    "hidden_dim_0": 64,
+    "hidden_dim_1": 448,
+    "hidden_dim_2": 256,
+    "dropout": 0.38956102991265484,
+    "learning_rate": 0.0010210914203241143,
+    "weight_decay": 2.1487182752468544e-06,
+    "batch_size": 64,
+    "use_batch_norm": false,
+    "activation": "relu",
+    "logit_adjust_tau": 0.08705797424625357,
+    "task_weight_community_type": 1.6741619511596786,
+    "task_weight_feature": 1.2352029944006158,
+    "task_weight_sample_host": 0.6550382441079852,
+    "task_weight_material": 1.8660332545060268,
+    "ls_community_type": 0.03270724255705327,
+    "ls_feature": 0.1172196740475889,
+    "ls_sample_host": 0.022715909184717047,
+    "ls_material": 0.14258883247162107
+  },
+  "test_metrics": {
+    "community_type": {
+      "n_scored": 190,
+      "accuracy": 0.9263157894736842,
+      "f1_weighted": 0.9137692716640085,
+      "f1_macro": 0.45707070707070707,
+      "balanced_accuracy": 0.7083333333333334
+    },
+    "feature": {
+      "n_scored": 109,
+      "accuracy": 0.42201834862385323,
+      "f1_weighted": 0.5621386169146557,
+      "f1_macro": 0.10527544351073763,
+      "balanced_accuracy": 0.16666666666666666
+    },
+    "sample_host": {
+      "n_scored": 190,
+      "accuracy": 0.4,
+      "f1_weighted": 0.31767458573839313,
+      "f1_macro": 0.10812611465968996,
+      "balanced_accuracy": 0.3287101787101787
+    },
+    "material": {
+      "n_scored": 291,
+      "accuracy": 0.6838487972508591,
+      "f1_weighted": 0.7336994196190274,
+      "f1_macro": 0.25966317432115477,
+      "balanced_accuracy": 0.3725757575757576
+    }
+  },
+  "best_model_path": "results/search_v9_multitask/cv_results/fold_1/best_model.pth",
+  "final_model_path": "results/search_v9_multitask/cv_results/fold_1/final_model_20260909_215039.pth",
+  "timestamp": "20260909_172126",
+  "note": "Test set ONLY used for final evaluation, never for model selection"
+}

@@ -1,0 +1,34 @@
+{
+  "features_path": "data/matrices/matrix_v7_3190/unitigs.frac.mat",
+  "metadata_path": "data/splits_v7/train_metadata.tsv",
+  "train_ids_path": "data/splits_v7/train_ids.txt",
+  "output_dir": "results/training_bioproject_v7",
+
+  "task_names": [
+    "community_type",
+    "sample_host",
+    "material",
+    "sample_age",
+    "latitude",
+    "longitude"
+  ],
+  "task_types": {
+    "community_type": "classification",
+    "sample_host":    "classification",
+    "material":       "classification",
+    "sample_age":     "regression",
+    "latitude":       "regression",
+    "longitude":      "regression"
+  },
+
+  "n_folds":         5,
+  "n_trials":        50,
+  "max_epochs":      100,
+  "patience":        15,
+  "n_inner_splits":  3,
+  "random_seed":     42,
+  "no_label_smoothing": true,
+
+  "validation_split": 0.1,
+  "checkpoint_freq":  10
+}

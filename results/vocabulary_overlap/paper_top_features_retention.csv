@@ -1,0 +1,401 @@
+task,feature_index,genus,best_hit_species,best_pident,best_evalue,has_blast_hit_x,paper_unitig_id,length,n_kmers,n_kmers_in_v9,frac_kmers_in_v9,exact_match_in_v9,has_blast_hit_y
+sample_type,55208,Streptococcus,Streptococcus parasanguinis,100.0,4.46e-25,True,2576579,70,40,40,1.0,True,True
+sample_type,2732,Uncultured,Cutibacterium acnes,100.0,2.57e-20,True,2378701,61,31,31,1.0,True,True
+sample_type,81533,Neisseria,Neisseria oralis,100.0,2.57e-20,True,2667129,61,31,31,1.0,True,True
+sample_type,106873,Aggregatibacter,Aggregatibacter aphrophilus,100.0,1.14e-49,True,2754620,116,86,86,1.0,True,True
+sample_type,34788,Schaalia,Schaalia odontolytica,100.0,2.57e-20,True,2506732,61,31,31,1.0,True,True
+sample_type,86507,Unknown,Uncultured bacterium,100.0,2.57e-20,True,2684330,61,31,31,1.0,True,True
+sample_type,83289,Ailuropoda,No blast hit,100.0,5.79e-23,False,2673068,66,36,0,0.0,False,True
+sample_type,81434,Unknown,MAG: Nitrospira,100.0,1.15e-26,True,2666828,73,43,43,1.0,True,True
+sample_type,34226,Streptococcus,Lactococcus lactis,100.0,7.68e-21,True,2505245,62,32,32,1.0,True,True
+sample_type,56071,Unknown,Arachnia propionica,100.0,2.29e-21,True,2580978,63,33,33,1.0,True,True
+sample_type,35508,Acinetobacter,Acinetobacter sp.,100.0,7.68e-21,True,2511119,62,32,32,1.0,True,True
+sample_type,42769,Staphylococcus,No blast hit,100.0,0.0,False,2532208,5416,5386,5380,0.9988860007426662,False,True
+sample_type,96298,Selenomonas,Selenomonas infelix,100.0,2.18e-30,True,2716541,80,50,0,0.0,False,True
+sample_type,81527,Eikenella,Neisseria elongata,100.0,2.57e-20,True,2667104,61,31,31,1.0,True,True
+sample_type,1305,Arachnia,Pseudopropionibacterium propionicum,100.0,8.58e-37,True,2372602,92,62,62,1.0,True,True
+sample_type,12332,Desulfobacca,No blast hit,98.387,3.26e-19,False,2423568,62,32,32,1.0,True,True
+sample_type,72772,,No blast hit,,,False,2637543,63,33,33,1.0,True,True
+sample_type,62885,Unknown,Uncultured Actinomycetales,100.0,2.57e-20,True,2604750,61,31,31,1.0,True,True
+sample_type,5039,Arachnia,Pseudopropionibacterium propionicum,100.0,7.43e-30,True,2385778,79,49,49,1.0,False,True
+sample_type,65915,Propionibacterium,Cutibacterium acnes,100.0,7.68e-21,True,2614178,62,32,32,1.0,True,True
+sample_type,23230,Unknown,uncultured bacterium,100.0,4.46e-25,True,2460569,70,40,40,1.0,False,True
+sample_type,71228,Arachnia,Arachnia propionica,100.0,1.18e-34,True,2631981,88,58,46,0.7931034482758621,False,True
+sample_type,61486,Unknown,MAG: Nitrospira,100.0,3.66e-27,True,2599697,77,47,31,0.6595744680851063,False,True
+sample_type,45990,,No blast hit,,,False,2544635,76,46,46,1.0,False,False
+sample_type,88473,,No blast hit,,,False,2689193,84,54,54,1.0,True,True
+sample_type,25485,Arachnia,Arachnia propionica,100.0,5.739999999999998e-54,True,2467075,124,94,94,1.0,False,True
+sample_type,60405,Unknown,Eubacterium minutum,100.0,1.38e-33,True,2594922,86,56,56,1.0,True,True
+sample_type,34795,,No blast hit,,,False,2506748,68,38,0,0.0,False,True
+sample_type,22777,,No blast hit,,,False,2455731,71,41,41,1.0,True,True
+sample_type,79819,,No blast hit,,,False,2660861,61,31,31,1.0,True,True
+sample_type,83626,Arachnia,Arachnia propionica,100.0,4.71e-33,True,2673571,85,55,55,1.0,True,True
+sample_type,11194,Unknown,MAG: Steroidobacteraceae,100.0,8.61e-29,True,2417721,77,47,47,1.0,True,True
+sample_type,17198,Actinomadura,Nonomuraea sp.,100.0,2.57e-20,True,2438938,61,31,0,0.0,False,True
+sample_type,51067,,No blast hit,,,False,2563218,61,31,31,1.0,True,True
+sample_type,59337,Candidatus Nitrosocosmicus,No blast hit,100.0,4.71e-33,False,2590848,85,55,47,0.8545454545454545,False,True
+sample_type,97345,,No blast hit,,,False,2721414,72,42,42,1.0,False,True
+sample_type,99091,Unknown,Uncultured bacterium,100.0,5.79e-23,True,2726756,66,36,36,1.0,True,True
+sample_type,63713,Nitrososphaera,No blast hit,100.0,2.13e-38,False,2606162,95,65,35,0.5384615384615384,False,True
+sample_type,60694,Arachnia,Arachnia propionica,100.0,6.57e-46,True,2595220,109,79,79,1.0,True,True
+sample_type,37425,Arachnia,No blast hit,100.0,2.94e-36,False,2517329,91,61,31,0.5081967213114754,False,True
+sample_type,87006,,No blast hit,,,False,2685654,69,39,32,0.8205128205128205,False,True
+sample_type,44502,Streptococcus,Streptococcus oralis,100.0,2.57e-20,True,2539970,61,31,31,1.0,True,True
+sample_type,58162,,No blast hit,,,False,2587591,61,31,0,0.0,False,False
+sample_type,57775,,No blast hit,,,False,2586713,62,32,32,1.0,True,True
+sample_type,61060,Actinomyces,No blast hit,100.0,2.57e-20,False,2598635,61,31,31,1.0,True,True
+sample_type,15340,,No blast hit,,,False,2432617,78,48,0,0.0,False,True
+sample_type,35098,Unknown,Uncultured bacterium,100.0,8.19e-100,True,2507108,209,179,179,1.0,True,True
+sample_type,85193,,No blast hit,,,False,2679705,61,31,31,1.0,True,True
+sample_type,41084,Arachnia,Pseudopropionibacterium propionicum,100.0,2.57e-20,True,2529265,61,31,31,1.0,True,True
+sample_type,15447,,No blast hit,,,False,2432745,83,53,0,0.0,False,True
+sample_type,59001,,No blast hit,,,False,2590209,66,36,36,1.0,False,True
+sample_type,85132,,No blast hit,,,False,2679629,61,31,0,0.0,False,True
+sample_type,29794,,No blast hit,,,False,2482857,62,32,32,1.0,True,True
+sample_type,79328,,No blast hit,,,False,2657629,87,57,57,1.0,True,True
+sample_type,89128,,No blast hit,,,False,2693057,61,31,0,0.0,False,False
+sample_type,7061,,No blast hit,,,False,2392968,62,32,0,0.0,False,True
+sample_type,48400,,No blast hit,,,False,2552419,73,43,43,1.0,True,True
+sample_type,83807,,No blast hit,,,False,2673795,65,35,28,0.8,False,True
+sample_type,22015,Clostridium,Clostridium butyricum,100.0,8.61e-29,True,2454622,77,47,47,1.0,True,True
+sample_type,91033,,No blast hit,,,False,2699605,62,32,32,1.0,True,True
+sample_type,105272,,No blast hit,,,False,2748303,61,31,31,1.0,True,True
+sample_type,31929,Arachnia,No blast hit,100.0,1.51e-40,False,2489735,99,69,69,1.0,True,True
+sample_type,89125,,No blast hit,,,False,2693025,70,40,40,1.0,True,True
+sample_type,31893,Corynebacterium,Corynebacterium pseudotuberculosis,100.0,3.3800000000000006e-27,True,2489691,74,44,44,1.0,True,True
+sample_type,44596,Myotis,Rhinolophus hipposideros,100.0,2.29e-21,True,2540445,63,33,0,0.0,False,False
+sample_type,23052,,No blast hit,,,False,2460096,61,31,31,1.0,True,True
+sample_type,34819,Streptococcus,Streptococcus parasanguinis,100.0,5.79e-23,True,2506793,66,36,36,1.0,True,True
+sample_type,80295,,No blast hit,,,False,2662036,73,43,41,0.9534883720930233,False,True
+sample_type,66098,Gemella,No blast hit,100.0,1.32e-25,False,2614914,71,41,0,0.0,False,True
+sample_type,105830,Streptococcus,Streptococcus agalactiae,100.0,2.29e-21,True,2749102,63,33,0,0.0,False,True
+sample_type,24280,,No blast hit,,,False,2461903,103,73,73,1.0,True,True
+sample_type,89294,Clostridium,Clostridium cochlearium,100.0,5.23e-17,True,2693636,64,34,34,1.0,False,True
+sample_type,9544,Hoylesella,Bacteroides zoogleoformans,100.0,6.81e-22,True,2402872,64,34,31,0.9117647058823529,False,True
+sample_type,61875,,No blast hit,,,False,2600192,92,62,62,1.0,False,True
+sample_type,14198,,No blast hit,,,False,2428367,71,41,32,0.7804878048780488,False,True
+sample_type,98856,,No blast hit,,,False,2725821,61,31,31,1.0,True,True
+sample_type,2050,,No blast hit,,,False,2375146,76,46,46,1.0,False,True
+sample_type,92651,,No blast hit,,,False,2705145,77,47,45,0.9574468085106383,False,True
+sample_type,50967,,No blast hit,,,False,2562951,90,60,34,0.5666666666666667,False,True
+sample_type,2940,,No blast hit,,,False,2379031,73,43,0,0.0,False,True
+sample_type,61644,Methanobacterium,No blast hit,100.0,5.09e-24,False,2599928,68,38,38,1.0,True,True
+sample_type,105289,,No blast hit,,,False,2748339,74,44,44,1.0,True,True
+sample_type,24649,,No blast hit,,,False,2465584,61,31,31,1.0,True,True
+sample_type,44503,,No blast hit,,,False,2539973,61,31,31,1.0,True,True
+sample_type,2359,,No blast hit,,,False,2375466,169,139,139,1.0,True,True
+sample_type,45502,,No blast hit,,,False,2541753,170,140,140,1.0,False,True
+sample_type,1750,Unknown,No blast hit,100.0,2.57e-20,False,2374570,61,31,31,1.0,True,True
+sample_type,74820,,No blast hit,,,False,2643381,112,82,0,0.0,False,True
+sample_type,11007,Propioniciclava,Arachnia propionica,100.0,1.7199999999999998e-23,True,2417501,67,37,37,1.0,True,True
+sample_type,11995,,No blast hit,,,False,2420307,92,62,0,0.0,False,True
+sample_type,23694,Cardiobacterium,No blast hit,100.0,7.43e-30,False,2461301,79,49,49,1.0,True,True
+sample_type,34020,,No blast hit,,,False,2504906,66,36,36,1.0,True,True
+sample_type,97570,Arachnia,No blast hit,100.0,3.73e-42,False,2721879,102,72,72,1.0,True,True
+sample_type,52699,,No blast hit,,,False,2569103,68,38,38,1.0,True,True
+sample_type,55169,,No blast hit,,,False,2576534,98,68,68,1.0,True,True
+sample_type,28638,,No blast hit,,,False,2479626,61,31,31,1.0,True,True
+sample_type,58368,,No blast hit,,,False,2587839,134,104,104,1.0,True,True
+sample_type,37268,,No blast hit,,,False,2517116,86,56,54,0.9642857142857143,False,True
+sample_type,63548,Streptococcus,No blast hit,100.0,2.53e-29,False,2605991,78,48,48,1.0,True,True
+sample_type,84880,Lactococcus,Lactococcus garvieae,100.0,2.57e-20,True,2679018,61,31,31,1.0,True,True
+community_type,42769,Staphylococcus,Staphylococcus haemolyticus,100.0,0.0,True,2532208,5416,5386,5380,0.9988860007426662,False,True
+community_type,55208,Streptococcus,Streptococcus parasanguinis,100.0,4.46e-25,True,2576579,70,40,40,1.0,True,True
+community_type,12332,Desulfobacca,Desulfobacca acetoxidans,98.387,3.26e-19,True,2423568,62,32,32,1.0,True,True
+community_type,58162,,No blast hit,,,False,2587591,61,31,0,0.0,False,False
+community_type,63713,Nitrososphaera,No blast hit,100.0,2.13e-38,False,2606162,95,65,35,0.5384615384615384,False,True
+community_type,55081,,No blast hit,,,False,2576441,61,31,31,1.0,True,False
+community_type,45990,,No blast hit,,,False,2544635,76,46,46,1.0,False,False
+community_type,83289,Ailuropoda,PREDICTED: Ailuropoda,100.0,5.79e-23,True,2673068,66,36,0,0.0,False,True
+community_type,89078,Unknown,Uncultured bacterium,100.0,2.57e-20,True,2692596,61,31,31,1.0,True,True
+community_type,61486,Unknown,MAG: Nitrospira,100.0,3.66e-27,True,2599697,77,47,31,0.6595744680851063,False,True
+community_type,59337,Candidatus Nitrosocosmicus,No blast hit,100.0,4.71e-33,False,2590848,85,55,47,0.8545454545454545,False,True
+community_type,2732,Uncultured,No blast hit,100.0,2.57e-20,False,2378701,61,31,31,1.0,True,True
+community_type,89128,,No blast hit,,,False,2693057,61,31,0,0.0,False,False
+community_type,58044,Unknown,Steroidobacter denitrificans,100.0,3.89e-26,True,2587432,72,42,0,0.0,False,True
+community_type,81434,Unknown,No blast hit,100.0,1.15e-26,False,2666828,73,43,43,1.0,True,True
+community_type,17198,Actinomadura,No blast hit,100.0,2.57e-20,False,2438938,61,31,0,0.0,False,True
+community_type,73483,,No blast hit,,,False,2638325,123,93,0,0.0,False,False
+community_type,84899,Paenibacillus,Paenibacillus sp.,100.0,2.57e-20,True,2679056,61,31,31,1.0,True,True
+community_type,89129,,No blast hit,,,False,2693058,61,31,0,0.0,False,False
+community_type,13237,Desulfobulbus,Desulfobulbus oralis,100.0,8.61e-29,True,2425448,77,47,47,1.0,False,True
+community_type,106873,Aggregatibacter,No blast hit,100.0,1.14e-49,False,2754620,116,86,86,1.0,True,True
+community_type,35835,Unknown,No blast hit,100.0,1.7199999999999998e-23,False,2511568,67,37,37,1.0,True,True
+community_type,81533,Neisseria,No blast hit,100.0,2.57e-20,False,2667129,61,31,31,1.0,True,True
+community_type,11194,Unknown,No blast hit,100.0,8.61e-29,False,2417721,77,47,47,1.0,True,True
+community_type,34226,Streptococcus,No blast hit,100.0,7.68e-21,False,2505245,62,32,32,1.0,True,True
+community_type,49132,Mycobacterium,Mycolicibacterium smegmatis,100.0,2.29e-21,True,2556722,63,33,0,0.0,False,True
+community_type,86778,Unknown,No blast hit,100.0,6.81e-22,False,2685292,64,34,33,0.9705882352941176,False,True
+community_type,0,,No blast hit,,,False,496659,61,31,31,1.0,True,False
+community_type,46190,Fusobacterium,Fusobacterium polymorphum,100.0,5.79e-23,True,2545043,66,36,36,1.0,True,True
+community_type,101923,Parvicardium,No blast hit,100.0,1.7199999999999998e-23,False,2735640,67,37,0,0.0,False,True
+community_type,44870,,No blast hit,,,False,2541042,75,45,0,0.0,False,True
+community_type,52750,Roseiconus,No blast hit,100.0,2.57e-20,False,2569240,61,31,0,0.0,False,True
+community_type,27398,Desulfobulbus,Desulfobulbus propionicus,98.485,2.4600000000000003e-21,True,2475089,66,36,0,0.0,False,True
+community_type,92564,Unknown,No blast hit,100.0,4.46e-25,False,2704911,70,40,40,1.0,True,True
+community_type,6909,Paenarthrobacter,Paenarthrobacter nitroguajacolicus,100.0,2.57e-20,True,2392070,61,31,31,1.0,False,True
+community_type,11757,Clostridium,No blast hit,100.0,2.57e-20,False,2419967,61,31,31,1.0,True,True
+community_type,98913,Crambe,No blast hit,100.0,6.81e-22,False,2726263,64,34,34,1.0,False,True
+community_type,23230,Unknown,No blast hit,100.0,4.46e-25,False,2460569,70,40,40,1.0,False,True
+community_type,66093,Mycolicibacterium,No blast hit,100.0,5.09e-24,False,2614903,68,38,0,0.0,False,True
+community_type,2,,No blast hit,,,False,610007,61,31,0,0.0,False,False
+community_type,70036,Eubacterium,Eubacterium ramulus,95.89,2.5300000000000003e-22,True,2626921,73,43,43,1.0,False,True
+community_type,83004,,No blast hit,,,False,2672153,61,31,31,1.0,True,False
+community_type,99091,Unknown,No blast hit,100.0,5.79e-23,False,2726756,66,36,36,1.0,True,True
+community_type,15887,Fusobacterium,Fusobacterium nucleatum,100.0,1.15e-26,True,2433232,73,43,43,1.0,True,True
+community_type,86507,Unknown,No blast hit,100.0,2.57e-20,False,2684330,61,31,31,1.0,True,True
+community_type,17428,Unknown,Achromobacter xylosoxidans,100.0,2.57e-20,True,2439597,61,31,31,1.0,False,True
+community_type,22241,,No blast hit,,,False,2454877,61,31,31,1.0,True,False
+community_type,26031,,No blast hit,,,False,2469361,61,31,31,1.0,False,True
+community_type,76265,Tachysurus,No blast hit,100.0,5.5e-32,False,2648766,83,53,53,1.0,True,True
+community_type,48061,Mycolicibacterium,Mycolicibacterium chitae,100.0,6.81e-22,True,2551664,64,34,0,0.0,False,True
+community_type,53107,Tardiphaga,Chromobacterium violaceum,100.0,6.81e-22,True,2569730,64,34,0,0.0,False,True
+community_type,43484,,No blast hit,,,False,2536885,83,53,53,1.0,True,True
+community_type,81588,Mycobacterium,Mycobacterium sp.,100.0,1.32e-25,True,2667239,71,41,41,1.0,True,True
+community_type,61028,Prunus,No blast hit,100.0,2.57e-20,False,2598450,61,31,31,1.0,True,True
+community_type,59122,Brassicibacter,No blast hit,100.0,7.68e-21,False,2590518,62,32,32,1.0,True,True
+community_type,29794,,No blast hit,,,False,2482857,62,32,32,1.0,True,True
+community_type,72532,,No blast hit,,,False,2637135,61,31,31,1.0,True,True
+community_type,12309,Crambe,No blast hit,100.0,2.57e-20,False,2423315,61,31,31,1.0,True,True
+community_type,49573,Phreatobacter,No blast hit,100.0,6.21e-39,False,2557712,96,66,0,0.0,False,True
+community_type,67868,,No blast hit,,,False,2620871,66,36,36,1.0,True,True
+community_type,41717,Unknown,Anaerolineaceae bacterium,100.0,1.2e-34,True,2531105,89,59,59,1.0,True,True
+community_type,59312,,No blast hit,,,False,2590817,73,43,43,1.0,False,True
+community_type,5039,Arachnia,No blast hit,100.0,7.43e-30,False,2385778,79,49,49,1.0,False,True
+community_type,80500,Clostridium,Clostridium botulinum,100.0,8.58e-37,True,2662285,92,62,62,1.0,True,True
+community_type,79805,Rhodoferax,Rhodoferax sp.,100.0,2.29e-21,True,2660680,63,33,33,1.0,True,True
+community_type,23373,Acidovorax,Ramlibacter sp.,100.0,1.18e-34,True,2460873,88,58,58,1.0,True,True
+community_type,97345,,No blast hit,,,False,2721414,72,42,42,1.0,False,True
+community_type,79839,,No blast hit,,,False,2661024,72,42,0,0.0,False,True
+community_type,34788,Schaalia,No blast hit,100.0,2.57e-20,False,2506732,61,31,31,1.0,True,True
+community_type,31092,Paenalkalicoccus,No blast hit,100.0,7.68e-21,False,2486809,62,32,0,0.0,False,True
+community_type,70008,,No blast hit,,,False,2626891,99,69,69,1.0,True,True
+community_type,60405,Unknown,No blast hit,100.0,1.38e-33,False,2594922,86,56,56,1.0,True,True
+community_type,38856,,No blast hit,,,False,2521644,62,32,0,0.0,False,True
+community_type,4825,,No blast hit,,,False,2385023,61,31,31,1.0,True,True
+community_type,88473,,No blast hit,,,False,2689193,84,54,54,1.0,True,True
+community_type,73966,,No blast hit,,,False,2641345,64,34,0,0.0,False,True
+community_type,89528,,No blast hit,,,False,2694204,64,34,0,0.0,False,True
+community_type,35508,Acinetobacter,No blast hit,100.0,7.68e-21,False,2511119,62,32,32,1.0,True,True
+community_type,56845,Aeoliella,No blast hit,100.0,5.09e-24,False,2582161,68,38,0,0.0,False,True
+community_type,82952,Sparganium,Silene latifolia,100.0,2.57e-20,True,2671710,61,31,31,1.0,True,True
+community_type,41084,Arachnia,No blast hit,100.0,2.57e-20,False,2529265,61,31,31,1.0,True,True
+community_type,15340,,No blast hit,,,False,2432617,78,48,0,0.0,False,True
+community_type,66014,,No blast hit,,,False,2614705,61,31,31,1.0,True,False
+community_type,74301,Lysinibacillus,Psychrobacillus glaciei,100.0,5.09e-24,True,2642684,68,38,38,1.0,True,True
+community_type,42281,,No blast hit,,,False,2531719,71,41,0,0.0,False,True
+community_type,48067,,No blast hit,,,False,2551718,61,31,31,1.0,True,True
+community_type,36992,Gottschalkia,Gottschalkia acidurici,97.222,2.02e-23,True,2516516,72,42,42,1.0,True,True
+community_type,74861,,No blast hit,,,False,2643428,127,97,97,1.0,False,True
+community_type,41128,Unknown,No blast hit,100.0,1.51e-24,False,2529645,69,39,39,1.0,False,True
+community_type,98039,Fusobacterium,Fusobacterium polymorphum,100.0,3.89e-26,True,2722449,72,42,42,1.0,True,True
+community_type,72772,,No blast hit,,,False,2637543,63,33,33,1.0,True,True
+community_type,39027,Gemmatimonas,No blast hit,100.0,1.7199999999999998e-23,False,2521890,67,37,37,1.0,True,True
+community_type,44866,,No blast hit,,,False,2541036,63,33,33,1.0,True,True
+community_type,1305,Arachnia,No blast hit,100.0,8.58e-37,False,2372602,92,62,62,1.0,True,True
+community_type,13014,Unknown,No blast hit,100.0,8.58e-37,False,2425203,92,62,62,1.0,True,True
+community_type,101979,,No blast hit,,,False,2735795,74,44,0,0.0,False,True
+community_type,4986,,No blast hit,,,False,2385693,70,40,40,1.0,True,True
+community_type,55805,Styrax,No blast hit,100.0,7.68e-21,False,2578289,62,32,32,1.0,False,True
+community_type,105289,,No blast hit,,,False,2748339,74,44,44,1.0,True,True
+community_type,65915,Propionibacterium,Cutibacterium acnes,100.0,7.68e-21,True,2614178,62,32,32,1.0,True,True
+sample_host,42769,Staphylococcus,Staphylococcus haemolyticus,100.0,0.0,True,2532208,5416,5386,5380,0.9988860007426662,False,True
+sample_host,55081,,No blast hit,,,False,2576441,61,31,31,1.0,True,False
+sample_host,58162,,No blast hit,,,False,2587591,61,31,0,0.0,False,False
+sample_host,63713,Nitrososphaera,Uncultured archaeon,100.0,2.13e-38,True,2606162,95,65,35,0.5384615384615384,False,True
+sample_host,22241,,No blast hit,,,False,2454877,61,31,31,1.0,True,False
+sample_host,59337,Candidatus Nitrosocosmicus,Candidatus Nitrosocosmicus,100.0,4.71e-33,True,2590848,85,55,47,0.8545454545454545,False,True
+sample_host,12332,Desulfobacca,Desulfobacca acetoxidans,98.387,3.26e-19,True,2423568,62,32,32,1.0,True,True
+sample_host,73220,,No blast hit,,,False,2638059,124,94,94,1.0,False,True
+sample_host,12309,Crambe,No blast hit,100.0,2.57e-20,False,2423315,61,31,31,1.0,True,True
+sample_host,45990,,No blast hit,,,False,2544635,76,46,46,1.0,False,False
+sample_host,83289,Ailuropoda,PREDICTED: Ailuropoda,100.0,5.79e-23,True,2673068,66,36,0,0.0,False,True
+sample_host,31823,,No blast hit,,,False,2489478,61,31,31,1.0,True,True
+sample_host,73483,,No blast hit,,,False,2638325,123,93,0,0.0,False,False
+sample_host,52750,Roseiconus,MAG: Mariniblastus,100.0,2.57e-20,True,2569240,61,31,0,0.0,False,True
+sample_host,35835,Unknown,Uncultured archaeon,100.0,1.7199999999999998e-23,True,2511568,67,37,37,1.0,True,True
+sample_host,49132,Mycobacterium,Mycolicibacterium smegmatis,100.0,2.29e-21,True,2556722,63,33,0,0.0,False,True
+sample_host,86778,Unknown,uncultured bacterium,100.0,6.81e-22,True,2685292,64,34,33,0.9705882352941176,False,True
+sample_host,61028,Prunus,No blast hit,100.0,2.57e-20,False,2598450,61,31,31,1.0,True,True
+sample_host,11757,Clostridium,Clostridium perfringens,100.0,2.57e-20,True,2419967,61,31,31,1.0,True,True
+sample_host,13237,Desulfobulbus,Desulfobulbus oralis,100.0,8.61e-29,True,2425448,77,47,47,1.0,False,True
+sample_host,98913,Crambe,No blast hit,100.0,6.81e-22,False,2726263,64,34,34,1.0,False,True
+sample_host,84899,Paenibacillus,Paenibacillus sp.,100.0,2.57e-20,True,2679056,61,31,31,1.0,True,True
+sample_host,59312,,No blast hit,,,False,2590817,73,43,43,1.0,False,True
+sample_host,101923,Parvicardium,No blast hit,100.0,1.7199999999999998e-23,False,2735640,67,37,0,0.0,False,True
+sample_host,17198,Actinomadura,No blast hit,100.0,2.57e-20,False,2438938,61,31,0,0.0,False,True
+sample_host,58044,Unknown,Steroidobacter denitrificans,100.0,3.89e-26,True,2587432,72,42,0,0.0,False,True
+sample_host,55805,Styrax,No blast hit,100.0,7.68e-21,False,2578289,62,32,32,1.0,False,True
+sample_host,2,,No blast hit,,,False,610007,61,31,0,0.0,False,False
+sample_host,76265,Tachysurus,No blast hit,100.0,5.5e-32,False,2648766,83,53,53,1.0,True,True
+sample_host,89078,Unknown,No blast hit,100.0,2.57e-20,False,2692596,61,31,31,1.0,True,True
+sample_host,89128,,No blast hit,,,False,2693057,61,31,0,0.0,False,False
+sample_host,83004,,No blast hit,,,False,2672153,61,31,31,1.0,True,False
+sample_host,92564,Unknown,No blast hit,100.0,4.46e-25,False,2704911,70,40,40,1.0,True,True
+sample_host,43484,,No blast hit,,,False,2536885,83,53,53,1.0,True,True
+sample_host,29794,,No blast hit,,,False,2482857,62,32,32,1.0,True,True
+sample_host,0,,No blast hit,,,False,496659,61,31,31,1.0,True,False
+sample_host,61486,Unknown,MAG: Nitrospira,100.0,3.66e-27,True,2599697,77,47,31,0.6595744680851063,False,True
+sample_host,44870,,No blast hit,,,False,2541042,75,45,0,0.0,False,True
+sample_host,89129,,No blast hit,,,False,2693058,61,31,0,0.0,False,False
+sample_host,472,,No blast hit,,,False,2369876,61,31,0,0.0,False,False
+sample_host,60405,Unknown,No blast hit,100.0,1.38e-33,False,2594922,86,56,56,1.0,True,True
+sample_host,31092,Paenalkalicoccus,Bacillus velezensis,100.0,7.68e-21,True,2486809,62,32,0,0.0,False,True
+sample_host,17428,Unknown,Achromobacter xylosoxidans,100.0,2.57e-20,True,2439597,61,31,31,1.0,False,True
+sample_host,55208,Streptococcus,No blast hit,100.0,4.46e-25,False,2576579,70,40,40,1.0,True,True
+sample_host,27398,Desulfobulbus,Desulfobulbus propionicus,98.485,2.4600000000000003e-21,True,2475089,66,36,0,0.0,False,True
+sample_host,59122,Brassicibacter,No blast hit,100.0,7.68e-21,False,2590518,62,32,32,1.0,True,True
+sample_host,46190,Fusobacterium,Fusobacterium polymorphum,100.0,5.79e-23,True,2545043,66,36,36,1.0,True,True
+sample_host,11194,Unknown,No blast hit,100.0,8.61e-29,False,2417721,77,47,47,1.0,True,True
+sample_host,79805,Rhodoferax,Rhodoferax sp.,100.0,2.29e-21,True,2660680,63,33,33,1.0,True,True
+sample_host,14338,Tachysurus,No blast hit,100.0,1.7199999999999998e-23,False,2428611,67,37,0,0.0,False,True
+sample_host,6909,Paenarthrobacter,Paenarthrobacter nitroguajacolicus,100.0,2.57e-20,True,2392070,61,31,31,1.0,False,True
+sample_host,58666,,No blast hit,,,False,2588142,147,117,117,1.0,True,True
+sample_host,26031,,No blast hit,,,False,2469361,61,31,31,1.0,False,True
+sample_host,56845,Aeoliella,No blast hit,100.0,5.09e-24,False,2582161,68,38,0,0.0,False,True
+sample_host,39027,Gemmatimonas,Gemmatimonadales bacterium,100.0,1.7199999999999998e-23,True,2521890,67,37,37,1.0,True,True
+sample_host,4006,Campylobacter,Campylobacter showae,100.0,1.38e-33,True,2382803,86,56,40,0.7142857142857143,False,True
+sample_host,81434,Unknown,No blast hit,100.0,1.15e-26,False,2666828,73,43,43,1.0,True,True
+sample_host,44866,,No blast hit,,,False,2541036,63,33,33,1.0,True,True
+sample_host,15887,Fusobacterium,No blast hit,100.0,1.15e-26,False,2433232,73,43,43,1.0,True,True
+sample_host,41717,Unknown,Anaerolineaceae bacterium,100.0,1.2e-34,True,2531105,89,59,59,1.0,True,True
+sample_host,32725,Janthinobacterium,Janthinobacterium lividum,100.0,1.15e-26,True,2491740,73,43,43,1.0,True,True
+sample_host,66014,,No blast hit,,,False,2614705,61,31,31,1.0,True,False
+sample_host,66093,Mycolicibacterium,Mycobacteriaceae bacterium,100.0,5.09e-24,True,2614903,68,38,0,0.0,False,True
+sample_host,101401,,No blast hit,,,False,2733424,62,32,0,0.0,False,True
+sample_host,48061,Mycolicibacterium,Mycolicibacterium chitae,100.0,6.81e-22,True,2551664,64,34,0,0.0,False,True
+sample_host,23373,Acidovorax,Ramlibacter sp.,100.0,1.18e-34,True,2460873,88,58,58,1.0,True,True
+sample_host,81533,Neisseria,No blast hit,100.0,2.57e-20,False,2667129,61,31,31,1.0,True,True
+sample_host,15117,,No blast hit,,,False,2432135,61,31,31,1.0,True,True
+sample_host,80500,Clostridium,No blast hit,100.0,8.58e-37,False,2662285,92,62,62,1.0,True,True
+sample_host,13014,Unknown,Anaerolineaceae bacterium,100.0,8.58e-37,True,2425203,92,62,62,1.0,True,True
+sample_host,37281,,No blast hit,,,False,2517133,63,33,33,1.0,True,True
+sample_host,106873,Aggregatibacter,No blast hit,100.0,1.14e-49,False,2754620,116,86,86,1.0,True,True
+sample_host,44596,Myotis,No blast hit,100.0,2.29e-21,False,2540445,63,33,0,0.0,False,False
+sample_host,49623,,No blast hit,,,False,2557784,62,32,32,1.0,False,True
+sample_host,18952,,No blast hit,,,False,2444361,70,40,40,1.0,False,True
+sample_host,74301,Lysinibacillus,Psychrobacillus glaciei,100.0,5.09e-24,True,2642684,68,38,38,1.0,True,True
+sample_host,79328,,No blast hit,,,False,2657629,87,57,57,1.0,True,True
+sample_host,48067,,No blast hit,,,False,2551718,61,31,31,1.0,True,True
+sample_host,79839,,No blast hit,,,False,2661024,72,42,0,0.0,False,True
+sample_host,56264,Prunus,Symphoricarpos occidentalis,100.0,9.96e-28,True,2581432,75,45,45,1.0,False,True
+sample_host,15570,,No blast hit,,,False,2432905,125,95,46,0.4842105263157895,False,True
+sample_host,89528,,No blast hit,,,False,2694204,64,34,0,0.0,False,True
+sample_host,9918,,No blast hit,,,False,2403964,75,45,45,1.0,True,True
+sample_host,33461,,No blast hit,,,False,2494312,89,59,59,1.0,True,True
+sample_host,17488,,No blast hit,,,False,2439670,80,50,49,0.98,False,True
+sample_host,26657,,No blast hit,,,False,2473393,61,31,0,0.0,False,True
+sample_host,5863,,No blast hit,,,False,2390346,62,32,0,0.0,False,True
+sample_host,62322,,No blast hit,,,False,2600651,147,117,117,1.0,True,True
+sample_host,83577,Unknown,No blast hit,100.0,2.9299999999999997e-28,False,2673505,76,46,0,0.0,False,True
+sample_host,38856,,No blast hit,,,False,2521644,62,32,0,0.0,False,True
+sample_host,73966,,No blast hit,,,False,2641345,64,34,0,0.0,False,True
+sample_host,75826,Actinomyces,No blast hit,100.0,1.95e-22,False,2647737,65,35,35,1.0,True,True
+sample_host,104008,,No blast hit,,,False,2743115,62,32,32,1.0,True,True
+sample_host,105507,,No blast hit,,,False,2748717,62,32,32,1.0,False,True
+sample_host,69387,,No blast hit,,,False,2625915,61,31,31,1.0,True,True
+sample_host,99701,,No blast hit,,,False,2727509,92,62,0,0.0,False,True
+sample_host,92584,Tubastraea,No blast hit,100.0,7.68e-21,False,2704976,62,32,32,1.0,True,True
+sample_host,53107,Tardiphaga,Chromobacterium violaceum,100.0,6.81e-22,True,2569730,64,34,0,0.0,False,True
+sample_host,43821,Georgenia,Arcanobacterium buesumense,100.0,1.38e-33,True,2537274,86,56,56,1.0,True,True
+sample_host,97781,Actinomyces,Actinomyces timonensis,100.0,3.89e-26,True,2722178,72,42,42,1.0,False,True
+material,42769,Staphylococcus,Staphylococcus haemolyticus,100.0,0.0,True,2532208,5416,5386,5380,0.9988860007426662,False,True
+material,55208,Streptococcus,Streptococcus parasanguinis,100.0,4.46e-25,True,2576579,70,40,40,1.0,True,True
+material,12332,Desulfobacca,Desulfobacca acetoxidans,98.387,3.26e-19,True,2423568,62,32,32,1.0,True,True
+material,63713,Nitrososphaera,No blast hit,100.0,2.13e-38,False,2606162,95,65,35,0.5384615384615384,False,True
+material,58162,,No blast hit,,,False,2587591,61,31,0,0.0,False,False
+material,2732,Uncultured,No blast hit,100.0,2.57e-20,False,2378701,61,31,31,1.0,True,True
+material,59337,Candidatus Nitrosocosmicus,No blast hit,100.0,4.71e-33,False,2590848,85,55,47,0.8545454545454545,False,True
+material,17198,Actinomadura,No blast hit,100.0,2.57e-20,False,2438938,61,31,0,0.0,False,True
+material,45990,,No blast hit,,,False,2544635,76,46,46,1.0,False,False
+material,81533,Neisseria,No blast hit,100.0,2.57e-20,False,2667129,61,31,31,1.0,True,True
+material,83289,Ailuropoda,PREDICTED: Ailuropoda,100.0,5.79e-23,True,2673068,66,36,0,0.0,False,True
+material,106873,Aggregatibacter,No blast hit,100.0,1.14e-49,False,2754620,116,86,86,1.0,True,True
+material,13237,Desulfobulbus,Desulfobulbus oralis,100.0,8.61e-29,True,2425448,77,47,47,1.0,False,True
+material,55081,,No blast hit,,,False,2576441,61,31,31,1.0,True,False
+material,34226,Streptococcus,No blast hit,100.0,7.68e-21,False,2505245,62,32,32,1.0,True,True
+material,11194,Unknown,No blast hit,100.0,8.61e-29,False,2417721,77,47,47,1.0,True,True
+material,89128,,No blast hit,,,False,2693057,61,31,0,0.0,False,False
+material,86507,Unknown,No blast hit,100.0,2.57e-20,False,2684330,61,31,31,1.0,True,True
+material,52750,Roseiconus,MAG: Mariniblastus,100.0,2.57e-20,True,2569240,61,31,0,0.0,False,True
+material,61486,Unknown,MAG: Nitrospira,100.0,3.66e-27,True,2599697,77,47,31,0.6595744680851063,False,True
+material,35835,Unknown,No blast hit,100.0,1.7199999999999998e-23,False,2511568,67,37,37,1.0,True,True
+material,81434,Unknown,No blast hit,100.0,1.15e-26,False,2666828,73,43,43,1.0,True,True
+material,89129,,No blast hit,,,False,2693058,61,31,0,0.0,False,False
+material,86778,Unknown,uncultured bacterium,100.0,6.81e-22,True,2685292,64,34,33,0.9705882352941176,False,True
+material,27398,Desulfobulbus,No blast hit,98.485,2.4600000000000003e-21,False,2475089,66,36,0,0.0,False,True
+material,84899,Paenibacillus,Paenibacillus sp.,100.0,2.57e-20,True,2679056,61,31,31,1.0,True,True
+material,2,,No blast hit,,,False,610007,61,31,0,0.0,False,False
+material,49132,Mycobacterium,Mycolicibacterium smegmatis,100.0,2.29e-21,True,2556722,63,33,0,0.0,False,True
+material,92564,Unknown,No blast hit,100.0,4.46e-25,False,2704911,70,40,40,1.0,True,True
+material,58044,Unknown,Steroidobacter denitrificans,100.0,3.89e-26,True,2587432,72,42,0,0.0,False,True
+material,44870,,No blast hit,,,False,2541042,75,45,0,0.0,False,True
+material,101923,Parvicardium,No blast hit,100.0,1.7199999999999998e-23,False,2735640,67,37,0,0.0,False,True
+material,34788,Schaalia,No blast hit,100.0,2.57e-20,False,2506732,61,31,31,1.0,True,True
+material,46190,Fusobacterium,Fusobacterium polymorphum,100.0,5.79e-23,True,2545043,66,36,36,1.0,True,True
+material,35508,Acinetobacter,No blast hit,100.0,7.68e-21,False,2511119,62,32,32,1.0,True,True
+material,41717,Unknown,Anaerolineaceae bacterium,100.0,1.2e-34,True,2531105,89,59,59,1.0,True,True
+material,43484,,No blast hit,,,False,2536885,83,53,53,1.0,True,True
+material,44596,Myotis,No blast hit,100.0,2.29e-21,False,2540445,63,33,0,0.0,False,False
+material,11757,Clostridium,No blast hit,100.0,2.57e-20,False,2419967,61,31,31,1.0,True,True
+material,23230,Unknown,No blast hit,100.0,4.46e-25,False,2460569,70,40,40,1.0,False,True
+material,0,,No blast hit,,,False,496659,61,31,31,1.0,True,False
+material,56071,Unknown,No blast hit,100.0,2.29e-21,False,2580978,63,33,33,1.0,True,True
+material,79805,Rhodoferax,Rhodoferax sp.,100.0,2.29e-21,True,2660680,63,33,33,1.0,True,True
+material,23373,Acidovorax,Ramlibacter sp.,100.0,1.18e-34,True,2460873,88,58,58,1.0,True,True
+material,15340,,No blast hit,,,False,2432617,78,48,0,0.0,False,True
+material,73483,,No blast hit,,,False,2638325,123,93,0,0.0,False,False
+material,29794,,No blast hit,,,False,2482857,62,32,32,1.0,True,True
+material,89078,Unknown,No blast hit,100.0,2.57e-20,False,2692596,61,31,31,1.0,True,True
+material,73220,,No blast hit,,,False,2638059,124,94,94,1.0,False,True
+material,26031,,No blast hit,,,False,2469361,61,31,31,1.0,False,True
+material,88473,,No blast hit,,,False,2689193,84,54,54,1.0,True,True
+material,99091,Unknown,No blast hit,100.0,5.79e-23,False,2726756,66,36,36,1.0,True,True
+material,60405,Unknown,No blast hit,100.0,1.38e-33,False,2594922,86,56,56,1.0,True,True
+material,17428,Unknown,Achromobacter xylosoxidans,100.0,2.57e-20,True,2439597,61,31,31,1.0,False,True
+material,6909,Paenarthrobacter,Paenarthrobacter nitroguajacolicus,100.0,2.57e-20,True,2392070,61,31,31,1.0,False,True
+material,81527,Eikenella,No blast hit,100.0,2.57e-20,False,2667104,61,31,31,1.0,True,True
+material,66014,,No blast hit,,,False,2614705,61,31,31,1.0,True,False
+material,49573,Phreatobacter,No blast hit,100.0,6.21e-39,False,2557712,96,66,0,0.0,False,True
+material,56845,Aeoliella,No blast hit,100.0,5.09e-24,False,2582161,68,38,0,0.0,False,True
+material,13014,Unknown,No blast hit,100.0,8.58e-37,False,2425203,92,62,62,1.0,True,True
+material,17488,,No blast hit,,,False,2439670,80,50,49,0.98,False,True
+material,44866,,No blast hit,,,False,2541036,63,33,33,1.0,True,True
+material,48061,Mycolicibacterium,Mycolicibacterium chitae,100.0,6.81e-22,True,2551664,64,34,0,0.0,False,True
+material,1305,Arachnia,No blast hit,100.0,8.58e-37,False,2372602,92,62,62,1.0,True,True
+material,15887,Fusobacterium,No blast hit,100.0,1.15e-26,False,2433232,73,43,43,1.0,True,True
+material,39027,Gemmatimonas,Gemmatimonadales bacterium,100.0,1.7199999999999998e-23,True,2521890,67,37,37,1.0,True,True
+material,72772,,No blast hit,,,False,2637543,63,33,33,1.0,True,True
+material,85132,,No blast hit,,,False,2679629,61,31,0,0.0,False,True
+material,22241,,No blast hit,,,False,2454877,61,31,31,1.0,True,False
+material,79839,,No blast hit,,,False,2661024,72,42,0,0.0,False,True
+material,5863,,No blast hit,,,False,2390346,62,32,0,0.0,False,True
+material,66093,Mycolicibacterium,No blast hit,100.0,5.09e-24,False,2614903,68,38,0,0.0,False,True
+material,82952,Sparganium,Silene latifolia,100.0,2.57e-20,True,2671710,61,31,31,1.0,True,True
+material,74184,Kitasatospora,No blast hit,100.0,1.51e-24,False,2642386,69,39,0,0.0,False,True
+material,34795,,No blast hit,,,False,2506748,68,38,0,0.0,False,True
+material,5039,Arachnia,No blast hit,100.0,7.43e-30,False,2385778,79,49,49,1.0,False,True
+material,104255,Homo,No blast hit,100.0,6.81e-22,False,2743630,64,34,34,1.0,False,True
+material,31092,Paenalkalicoccus,No blast hit,100.0,7.68e-21,False,2486809,62,32,0,0.0,False,True
+material,70008,,No blast hit,,,False,2626891,99,69,69,1.0,True,True
+material,9918,,No blast hit,,,False,2403964,75,45,45,1.0,True,True
+material,31823,,No blast hit,,,False,2489478,61,31,31,1.0,True,True
+material,41128,Unknown,MAG: uncultured,100.0,1.51e-24,True,2529645,69,39,39,1.0,False,True
+material,89294,Clostridium,No blast hit,100.0,5.23e-17,False,2693636,64,34,34,1.0,False,True
+material,76265,Tachysurus,Danio rerio,100.0,5.5e-32,True,2648766,83,53,53,1.0,True,True
+material,105344,Streptomyces,No blast hit,100.0,6.81e-22,False,2748481,64,34,0,0.0,False,True
+material,96298,Selenomonas,No blast hit,100.0,2.18e-30,False,2716541,80,50,0,0.0,False,True
+material,32725,Janthinobacterium,Janthinobacterium lividum,100.0,1.15e-26,True,2491740,73,43,43,1.0,True,True
+material,92766,,No blast hit,,,False,2705503,74,44,0,0.0,False,True
+material,80500,Clostridium,No blast hit,100.0,8.58e-37,False,2662285,92,62,62,1.0,True,True
+material,105289,,No blast hit,,,False,2748339,74,44,44,1.0,True,True
+material,83626,Arachnia,No blast hit,100.0,4.71e-33,False,2673571,85,55,55,1.0,True,True
+material,47325,,No blast hit,,,False,2548180,88,58,0,0.0,False,True
+material,99287,,No blast hit,,,False,2727055,61,31,31,1.0,False,True
+material,97345,,No blast hit,,,False,2721414,72,42,42,1.0,False,True
+material,75809,Chaetomium,No blast hit,100.0,2.29e-21,False,2647627,63,33,33,1.0,True,True
+material,74861,,No blast hit,,,False,2643428,127,97,97,1.0,False,True
+material,48067,,No blast hit,,,False,2551718,61,31,31,1.0,True,True
+material,67868,,No blast hit,,,False,2620871,66,36,36,1.0,True,True
+material,99701,,No blast hit,,,False,2727509,92,62,0,0.0,False,True
+material,74301,Lysinibacillus,No blast hit,100.0,5.09e-24,False,2642684,68,38,38,1.0,True,True

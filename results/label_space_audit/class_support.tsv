@@ -1,0 +1,82 @@
+target	class	train	test	val	total
+community_type	oral	1564	249	368	2181
+community_type	skeletal tissue	321	2	183	506
+community_type	lake	196	52	57	305
+community_type	ocean	157	42	47	246
+community_type	gut	121	3	28	152
+community_type	cave	119	0	3	122
+community_type	plant tissue	81	0	2	83
+community_type	sea coast	64	0	1	65
+community_type	midden	40	2	10	52
+community_type	soft tissue	35	0	0	35
+community_type	swamp forest	29	0	0	29
+community_type	shell	24	0	0	24
+community_type	thermokarst	19	0	0	19
+community_type	archeological site	14	0	3	17
+community_type	hydrothermal field	15	0	0	15
+community_type	rock shelter	11	2	0	13
+community_type	wetland area	5	0	0	5
+sample_host	Homo sapiens	1378	235	396	2009
+sample_host	Ursus arctos	339	0	1	340
+sample_host	Rangifer tarandus	24	0	132	156
+sample_host	Gorilla beringei graueri	67	0	1	68
+sample_host	Ambrosia artemisiifolia	49	0	0	49
+sample_host	Gorilla gorilla gorilla	45	0	0	45
+sample_host	Homo sapiens neanderthalensis	34	0	1	35
+sample_host	Arabidopsis thaliana	32	0	2	34
+sample_host	Pan troglodytes schweinfurthii	11	19	4	34
+sample_host	Gorilla beringei beringei	23	0	8	31
+sample_host	Mammuthus primigenius	16	0	14	30
+sample_host	Gorilla beringei	20	0	4	24
+sample_host	Canis lupus	11	0	10	21
+sample_host	Bison priscus	16	0	0	16
+sample_host	Pan troglodytes ellioti	8	0	4	12
+sample_host	Lithobates pipiens	11	0	0	11
+sample_host	Pan troglodytes verus	9	0	0	9
+sample_host	Alouatta palliata	6	0	2	8
+sample_host	Papio hamadryas	5	0	0	5
+sample_host	Strigocuscus celebensis	4	0	0	4
+sample_host	Papio anubis	4	0	0	4
+sample_host	Gerbilliscus boehmi	4	0	0	4
+sample_host	Conepatus chinga	4	0	0	4
+sample_host	Mammuthus sp.	0	0	2	2
+sample_host	Pan troglodytes	1	0	0	1
+sample_host	Papio sp.	1	0	0	1
+material	dental calculus	1123	248	298	1669
+material	tooth	491	3	25	519
+material	lake sediment	196	52	57	305
+material	bone	259	0	22	281
+material	sediment	208	2	16	226
+material	marine sediment	157	42	7	206
+material	rib	0	0	132	132
+material	permafrost	91	0	1	92
+material	palaeofaeces	56	3	28	87
+material	leaf	81	0	2	83
+material	birch pitch	9	0	70	79
+material	shallow marine sediment	0	0	36	36
+material	digestive tract contents	31	0	0	31
+material	shell	24	0	0	24
+material	soil	20	2	0	22
+material	intestine	16	0	0	16
+material	midden	11	0	4	15
+material	muscle tissue	9	0	0	9
+material	latrine	8	0	0	8
+material	skin	3	0	0	3
+material	keratinous claw	3	0	0	3
+material	unknown	2	0	0	2
+material	dentine	2	0	0	2
+material	peritoneum	2	0	0	2
+material	buccal fat pad	2	0	0	2
+material	caecum	2	0	0	2
+material	omentum	2	0	0	2
+material	skull	1	0	0	1
+material	stomach	1	0	0	1
+material	large intestine	1	0	0	1
+material	lung	1	0	0	1
+material	dura mater	1	0	0	1
+material	brain	1	0	0	1
+material	liver	1	0	0	1
+material	femur	0	0	1	1
+material	scapula	0	0	1	1
+material	tibia	0	0	1	1
+material	pelvis complex	0	0	1	1

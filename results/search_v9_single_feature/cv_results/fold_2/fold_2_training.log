@@ -1,0 +1,451 @@
+2026-09-09 17:28:48 - root - INFO - Logging to file: results/search_v9_single_feature/cv_results/fold_2/fold_2_training.log
+2026-09-09 17:28:48 - __main__ - INFO - ================================================================================
+2026-09-09 17:28:48 - __main__ - INFO - DIANA Multi-Task Hyperparameter Optimization
+2026-09-09 17:28:48 - __main__ - INFO - ================================================================================
+2026-09-09 17:28:48 - __main__ - INFO - Run config:   configs/train_config_v9_search_single_feature.json
+2026-09-09 17:28:48 - __main__ - INFO - Features:     data/matrices/matrix_v9_train/unitigs.frac.mat
+2026-09-09 17:28:48 - __main__ - INFO - Metadata:     data/splits_v9/train_metadata.tsv
+2026-09-09 17:28:48 - __main__ - INFO - Output dir:   results/search_v9_single_feature
+2026-09-09 17:28:48 - __main__ - INFO - Tasks:        ['feature']
+2026-09-09 17:28:48 - __main__ - INFO - Task types:   {'feature': 'classification'}
+2026-09-09 17:28:48 - __main__ - INFO - Fold:         2 / 5
+2026-09-09 17:28:48 - __main__ - INFO - Trials:       100  Max epochs: 200  Patience: 20
+2026-09-09 17:28:48 - __main__ - INFO - GPU:          True  Seed: 42
+2026-09-09 17:28:48 - __main__ - INFO - Loading data from data/matrices/matrix_v9_train/unitigs.frac.mat
+2026-09-09 17:28:48 - diana.data.loader - INFO - Loading matrix from data/matrices/matrix_v9_train/unitigs.frac.mat
+2026-09-09 17:29:12 - diana.data.loader - INFO - Loaded 110202 features × 2716 samples (before transpose)
+2026-09-09 17:29:12 - diana.data.loader - INFO - Transposed to 2716 samples × 110202 features
+2026-09-09 17:29:12 - diana.data.loader - INFO - Reading sample IDs from data/matrices/matrix_v9_train/kmer_matrix/kmtricks.fof
+2026-09-09 17:29:12 - diana.data.loader - INFO - Sample IDs: ['ERR10114844', 'ERR10114845', 'ERR10114846']...
+2026-09-09 17:29:12 - diana.data.loader - INFO - Loading metadata from data/splits_v9/train_metadata.tsv
+2026-09-09 17:29:12 - diana.data.loader - INFO - Metadata: 2716 rows × 15 columns
+2026-09-09 17:29:12 - diana.data.loader - INFO - Metadata aligned to matrix sample order
+2026-09-09 17:29:12 - __main__ - INFO - Loaded 2716 samples with 110202 features
+2026-09-09 17:29:12 - __main__ - INFO - Loaded 2716 samples × 110202 features
+2026-09-09 17:29:12 - __main__ - INFO - === FOLD 2/4 ===
+2026-09-09 17:29:12 - __main__ - INFO - Output directory: results/search_v9_single_feature/cv_results/fold_2
+2026-09-09 17:29:12 - __main__ - INFO - Using device: cuda
+2026-09-09 17:29:12 - __main__ - INFO - Class imbalance: logit adjustment, tau SEARCHED in [0.05, 0.8]
+2026-09-09 17:29:12 - __main__ - INFO - feature: 10 classes, 608 labelled, 2108 masked - ['archeological site', 'cave', 'lake', 'midden', 'ocean']...
+2026-09-09 17:29:12 - __main__ - INFO - Grouping CV folds on 'archive_project': 68 groups over 2716 runs
+2026-09-09 17:29:12 - __main__ - INFO - Outer fold 2 taken from data/splits_v9/dev_folds.tsv (5 dev folds)
+2026-09-09 17:29:12 - __main__ - INFO - Train: 2003, Test: 713 (outer fold verified archive_project-disjoint)
+2026-09-09 17:29:12 - __main__ - INFO - 3 inner folds verified archive_project-disjoint
+2026-09-09 17:29:12 - __main__ - INFO - Starting Optuna optimization with 100 trials...
+2026-09-09 17:29:12 - __main__ - INFO - Each trial will be evaluated on 3 inner CV folds
+2026-09-09 17:29:12 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:30:02 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:30:38 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:31:56 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:32:38 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:32:55 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:33:17 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:33:26 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:33:34 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:33:49 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:34:17 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:34:44 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:35:15 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:35:36 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:35:55 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:36:14 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:36:40 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:37:00 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:37:15 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:37:38 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:37:48 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:38:03 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:38:47 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:39:23 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:40:02 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:40:28 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:40:40 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:40:53 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:41:13 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:41:28 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:41:52 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:42:10 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:42:23 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:42:36 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:43:01 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:43:11 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:43:23 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:43:47 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:43:57 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:44:18 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:44:41 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:44:52 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:45:03 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:45:27 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:45:37 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:45:48 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:46:11 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:46:19 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:46:31 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:46:54 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:47:04 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:47:16 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:47:40 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:47:49 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:48:10 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:48:32 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:48:42 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:49:03 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:49:17 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:49:25 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:49:42 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:50:04 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:50:13 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:50:32 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:50:56 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:51:07 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:51:20 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:51:44 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:51:55 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:52:06 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:52:29 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:52:41 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:52:53 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:53:11 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:53:21 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:53:32 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:53:56 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:54:06 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:54:17 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:54:43 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:54:55 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:55:11 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:55:34 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:55:43 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:56:04 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:56:32 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:56:50 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 17:57:24 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 17:58:57 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 17:59:33 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:00:51 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:01:14 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:01:24 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:01:36 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:01:57 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:02:06 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:02:25 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:02:50 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:02:59 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:03:10 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:03:34 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:03:44 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:03:56 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:04:23 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:04:35 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:04:49 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:05:38 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:05:56 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:06:20 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:07:11 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:07:56 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:09:01 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:09:28 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:09:39 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:09:52 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:10:06 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:10:18 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:10:33 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:11:18 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:11:36 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:12:12 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:12:44 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:12:58 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:13:16 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:13:38 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:13:49 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:14:02 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:14:28 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:14:39 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:14:53 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:15:21 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:15:31 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:15:56 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:16:13 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:16:26 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:16:40 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:17:05 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:17:15 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:17:31 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:17:56 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:18:07 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:18:19 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:18:45 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:18:56 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:19:08 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:19:33 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:19:43 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:19:56 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:20:13 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:20:23 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:20:36 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:21:07 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:21:20 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:21:40 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:22:35 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:22:57 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:23:23 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:24:11 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:24:33 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:24:56 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:25:46 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:26:06 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:26:28 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:26:56 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:27:17 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:27:42 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:27:57 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:28:12 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:28:29 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:28:44 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:29:04 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:29:22 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:29:50 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:30:11 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:30:35 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:31:03 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:31:15 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:31:28 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:31:58 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:32:33 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:33:12 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:33:37 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:33:47 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:34:04 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:34:30 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:34:41 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:34:54 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:35:21 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:35:31 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:35:43 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:35:56 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:36:09 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:36:26 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:36:51 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:37:01 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:37:14 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:37:30 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:37:42 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:37:57 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:38:23 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:38:35 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:38:56 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:39:20 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:39:35 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:39:59 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:40:25 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:40:37 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:40:48 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:41:12 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:41:22 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:41:34 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:42:10 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:42:33 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:42:56 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:43:19 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:43:29 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:43:41 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:44:05 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:44:15 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:44:27 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:44:50 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:45:00 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:45:11 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:45:28 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:45:36 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:45:47 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:46:03 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:46:12 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:46:26 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:46:50 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:47:08 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:47:20 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:47:43 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:47:53 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:48:14 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:48:39 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:48:50 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:49:02 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:49:27 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:49:37 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:49:58 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:50:23 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:50:34 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:50:46 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:51:10 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:51:20 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:51:41 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:52:05 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:52:15 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:52:27 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:52:44 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:52:53 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:53:05 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:53:23 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:53:33 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:53:44 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:54:09 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:54:19 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:54:32 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:54:56 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:55:06 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:55:18 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:55:43 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:55:53 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:56:05 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:56:29 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:56:39 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:56:51 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:57:13 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:57:23 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:57:33 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:57:56 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:58:06 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:58:17 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:58:40 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:58:49 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:59:00 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 18:59:23 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 18:59:33 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 18:59:54 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 19:00:19 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 19:00:28 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 19:00:40 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 19:01:05 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 19:01:15 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 19:01:26 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 19:01:47 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 19:01:58 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 19:02:11 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 19:02:56 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 19:03:44 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 19:04:38 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 19:04:55 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 19:05:05 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 19:05:28 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 19:05:54 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 19:06:04 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 19:06:16 - __main__ - INFO - feature priors: [11, 34, 123, 33, 90, 0, 0, 0, 29, 10]
+2026-09-09 19:06:42 - __main__ - INFO - feature priors: [11, 34, 77, 35, 64, 2, 0, 0, 0, 0]
+2026-09-09 19:06:53 - __main__ - INFO - feature priors: [0, 0, 70, 2, 104, 2, 0, 0, 29, 10]
+2026-09-09 19:07:05 - __main__ - INFO - Best hyperparameters (averaged over 3 folds): {'n_layers': 2, 'hidden_dim_0': 128, 'hidden_dim_1': 128, 'dropout': 0.3803871213581939, 'learning_rate': 0.0011083969334402196, 'weight_decay': 0.00024484432801494336, 'batch_size': 256, 'use_batch_norm': False, 'activation': 'relu', 'logit_adjust_tau': 0.12438035411154132, 'ls_feature': 0.04761826958712422, 'task_weight_feature': 1.0}
+2026-09-09 19:07:05 - __main__ - INFO - Best CV score: 0.4110
+2026-09-09 19:07:05 - __main__ - INFO - Training final model with proper train/val split...
+2026-09-09 19:07:05 - __main__ - INFO - feature: 8/10 classes have training support in this fold
+2026-09-09 19:07:05 - __main__ - INFO - Final training split: 1802 train, 201 validation, 713 test
+2026-09-09 19:07:05 - __main__ - INFO - feature priors: [11, 34, 135, 35, 129, 2, 0, 0, 29, 10]
+2026-09-09 19:07:05 - diana.utils.checkpointing - INFO - CheckpointManager initialized: results/search_v9_single_feature/cv_results/fold_2
+2026-09-09 19:07:05 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_1_20260909_190705.pth
+2026-09-09 19:07:06 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 1.9793)
+2026-09-09 19:07:07 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_2_20260909_190706.pth
+2026-09-09 19:07:07 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 1.8287)
+2026-09-09 19:07:08 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_3_20260909_190707.pth
+2026-09-09 19:07:08 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 1.7369)
+2026-09-09 19:07:09 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_4_20260909_190708.pth
+2026-09-09 19:07:09 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 1.5311)
+2026-09-09 19:07:09 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_5_20260909_190709.pth
+2026-09-09 19:07:10 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 1.3831)
+2026-09-09 19:07:10 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_6_20260909_190710.pth
+2026-09-09 19:07:11 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 1.2851)
+2026-09-09 19:07:11 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_7_20260909_190711.pth
+2026-09-09 19:07:12 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 1.2183)
+2026-09-09 19:07:12 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_8_20260909_190712.pth
+2026-09-09 19:07:13 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 1.1597)
+2026-09-09 19:07:13 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_9_20260909_190713.pth
+2026-09-09 19:07:14 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 1.0927)
+2026-09-09 19:07:14 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_10_20260909_190714.pth
+2026-09-09 19:07:15 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 1.0336)
+2026-09-09 19:07:15 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_11_20260909_190715.pth
+2026-09-09 19:07:16 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.9490)
+2026-09-09 19:07:16 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_12_20260909_190716.pth
+2026-09-09 19:07:16 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.8975)
+2026-09-09 19:07:17 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_13_20260909_190717.pth
+2026-09-09 19:07:17 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.8382)
+2026-09-09 19:07:18 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_14_20260909_190718.pth
+2026-09-09 19:07:18 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.7803)
+2026-09-09 19:07:19 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_15_20260909_190719.pth
+2026-09-09 19:07:19 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.7686)
+2026-09-09 19:07:20 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_16_20260909_190720.pth
+2026-09-09 19:07:20 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.7417)
+2026-09-09 19:07:21 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_17_20260909_190721.pth
+2026-09-09 19:07:21 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.7216)
+2026-09-09 19:07:22 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_18_20260909_190721.pth
+2026-09-09 19:07:22 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.6921)
+2026-09-09 19:07:23 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_19_20260909_190722.pth
+2026-09-09 19:07:23 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.6731)
+2026-09-09 19:07:24 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_20_20260909_190723.pth
+2026-09-09 19:07:24 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.6488)
+2026-09-09 19:07:24 - __main__ - INFO - Epoch 20/200, Train Loss: 0.4714, Val Loss: 0.6488
+2026-09-09 19:07:25 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_21_20260909_190724.pth
+2026-09-09 19:07:25 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.6027)
+2026-09-09 19:07:26 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_22_20260909_190725.pth
+2026-09-09 19:07:26 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.5864)
+2026-09-09 19:07:27 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_23_20260909_190726.pth
+2026-09-09 19:07:27 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.5767)
+2026-09-09 19:07:28 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_24_20260909_190727.pth
+2026-09-09 19:07:28 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_25_20260909_190728.pth
+2026-09-09 19:07:29 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.5701)
+2026-09-09 19:07:29 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_26_20260909_190729.pth
+2026-09-09 19:07:30 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_27_20260909_190729.pth
+2026-09-09 19:07:30 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_28_20260909_190730.pth
+2026-09-09 19:07:31 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.5679)
+2026-09-09 19:07:31 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_29_20260909_190731.pth
+2026-09-09 19:07:32 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.5477)
+2026-09-09 19:07:32 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_30_20260909_190732.pth
+2026-09-09 19:07:33 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_31_20260909_190733.pth
+2026-09-09 19:07:33 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_32_20260909_190733.pth
+2026-09-09 19:07:34 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.5476)
+2026-09-09 19:07:34 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_33_20260909_190734.pth
+2026-09-09 19:07:35 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.5425)
+2026-09-09 19:07:35 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_34_20260909_190735.pth
+2026-09-09 19:07:36 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_35_20260909_190736.pth
+2026-09-09 19:07:37 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_36_20260909_190736.pth
+2026-09-09 19:07:37 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_37_20260909_190737.pth
+2026-09-09 19:07:38 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_38_20260909_190737.pth
+2026-09-09 19:07:38 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_39_20260909_190738.pth
+2026-09-09 19:07:39 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_40_20260909_190738.pth
+2026-09-09 19:07:39 - __main__ - INFO - Epoch 40/200, Train Loss: 0.3488, Val Loss: 0.5540
+2026-09-09 19:07:39 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_41_20260909_190739.pth
+2026-09-09 19:07:40 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_42_20260909_190740.pth
+2026-09-09 19:07:40 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.5397)
+2026-09-09 19:07:41 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_43_20260909_190741.pth
+2026-09-09 19:07:41 - diana.utils.checkpointing - INFO - New best model saved: results/search_v9_single_feature/cv_results/fold_2/best_model.pth (val_loss: 0.5387)
+2026-09-09 19:07:42 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_44_20260909_190741.pth
+2026-09-09 19:07:42 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_45_20260909_190742.pth
+2026-09-09 19:07:43 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_46_20260909_190743.pth
+2026-09-09 19:07:44 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_47_20260909_190743.pth
+2026-09-09 19:07:44 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_48_20260909_190744.pth
+2026-09-09 19:07:45 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_49_20260909_190744.pth
+2026-09-09 19:07:45 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_50_20260909_190745.pth
+2026-09-09 19:07:46 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_51_20260909_190745.pth
+2026-09-09 19:07:46 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_52_20260909_190746.pth
+2026-09-09 19:07:47 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_53_20260909_190746.pth
+2026-09-09 19:07:47 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_54_20260909_190747.pth
+2026-09-09 19:07:48 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_55_20260909_190748.pth
+2026-09-09 19:07:48 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_56_20260909_190748.pth
+2026-09-09 19:07:49 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_57_20260909_190749.pth
+2026-09-09 19:07:50 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_58_20260909_190749.pth
+2026-09-09 19:07:50 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_59_20260909_190750.pth
+2026-09-09 19:07:51 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_60_20260909_190750.pth
+2026-09-09 19:07:51 - __main__ - INFO - Epoch 60/200, Train Loss: 0.3222, Val Loss: 0.5590
+2026-09-09 19:07:51 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_61_20260909_190751.pth
+2026-09-09 19:07:52 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_62_20260909_190751.pth
+2026-09-09 19:07:52 - diana.utils.checkpointing - INFO - Checkpoint saved: results/search_v9_single_feature/cv_results/fold_2/checkpoint_epoch_63_20260909_190752.pth
+2026-09-09 19:07:52 - __main__ - INFO - Early stopping triggered after 63 epochs (patience=20)
+2026-09-09 19:07:52 - diana.utils.checkpointing - INFO - Loading checkpoint: results/search_v9_single_feature/cv_results/fold_2/best_model.pth
+2026-09-09 19:07:52 - __main__ - INFO - Loaded best model from epoch 43 (val_loss: 0.5387)
+2026-09-09 19:07:52 - __main__ - INFO - Evaluating on held-out test set...
+2026-09-09 19:07:52 - __main__ - INFO - feature test metrics: {'n_scored': 223, 'accuracy': 0.5291479820627802, 'f1_weighted': 0.4259677558657382, 'f1_macro': 0.1622934370476926, 'balanced_accuracy': 0.3045833333333333}
+2026-09-09 19:07:53 - diana.utils.checkpointing - INFO - Final model saved: results/search_v9_single_feature/cv_results/fold_2/final_model_20260909_190752.pth
+2026-09-09 19:07:53 - __main__ - INFO - Final model saved to results/search_v9_single_feature/cv_results/fold_2/final_model_20260909_190752.pth
+2026-09-09 19:07:53 - __main__ - INFO - Results saved to results/search_v9_single_feature/cv_results/fold_2/multitask_fold_2_results_20260909_172912.json
+2026-09-09 19:07:53 - __main__ - INFO - ================================================================================
+2026-09-09 19:07:53 - __main__ - INFO - ================================================================================
+2026-09-09 19:07:53 - __main__ - INFO - === FOLD COMPLETE ===
+2026-09-09 19:07:53 - __main__ - INFO - ================================================================================
+2026-09-09 19:07:53 - __main__ - INFO - Results: {'feature': {'n_scored': 223, 'accuracy': 0.5291479820627802, 'f1_weighted': 0.4259677558657382, 'f1_macro': 0.1622934370476926, 'balanced_accuracy': 0.3045833333333333}}
