@@ -371,6 +371,7 @@ def train_outer_fold(
     LOGIT_TAU = float(_imb.get("logit_adjust_tau", 0.0) or 0.0)
     USE_PRIORS = LOGIT_TAU > 0
     SEARCH_TAU = bool(_imb.get("search_tau", False))
+    SEARCH_ONLY = bool(config.get("search_only", False))
     if SEARCH_TAU and not USE_PRIORS:
         raise ValueError("search_tau needs logit adjustment active; set a non-zero "
                          "logit_adjust_tau as the starting value.")
@@ -440,7 +441,15 @@ def train_outer_fold(
     # one fold assignment for every arm, and it is already asserted BioProject-
     # disjoint and free of held-out runs when it is written.
     dev_folds_path = config.get("dev_folds_path")
-    if dev_folds_path and Path(dev_folds_path).exists():
+    if SEARCH_ONLY:
+        # The outer folds already gave the generalisation estimate. This is the
+        # nested-CV endpoint: one search over ALL of train, so the chosen
+        # hyperparameters are not selected on whichever fold happened to be easiest
+        # (fold 4 scored 0.453 against 0.154-0.238 purely because it had 98.8 %
+        # in-vocabulary coverage and a 75.3 % majority class).
+        train_idx = np.arange(len(metadata))
+        test_idx = np.array([], dtype=int)
+    elif dev_folds_path and Path(dev_folds_path).exists():
         dev = pd.read_csv(dev_folds_path, sep="\t")
         fold_of = dict(zip(dev["Run_accession"], dev["fold"]))
         acc_series = metadata[acc_col].astype(str)
@@ -492,9 +501,13 @@ def train_outer_fold(
         z[:, ~mask.to(z.device)] = float("-inf")
         return torch.argmax(z, dim=1)
 
-    _assert_group_disjoint(train_idx, test_idx, f"outer fold {fold_id}")
-    logger.info(f"Train: {len(train_idx)}, Test: {len(test_idx)} "
-                f"(outer fold verified {group_col}-disjoint)")
+    if SEARCH_ONLY:
+        logger.info("search-only: %d training runs, no outer fold held back",
+                    len(train_idx))
+    else:
+        _assert_group_disjoint(train_idx, test_idx, f"outer fold {fold_id}")
+        logger.info(f"Train: {len(train_idx)}, Test: {len(test_idx)} "
+                    f"(outer fold verified {group_col}-disjoint)")
     
     # Inner CV for hyperparameter optimization
     n_inner_splits = config.get("n_inner_splits", 3)
@@ -502,11 +515,26 @@ def train_outer_fold(
     # leaking here is what actually biases the chosen configuration.
     skf_inner = StratifiedGroupKFold(n_splits=n_inner_splits, shuffle=True, random_state=42)
 
-    inner_cv_splits = list(skf_inner.split(
-        features[train_idx],
-        _make_stratify_key(train_idx),
-        groups=groups[train_idx],
-    ))
+    if SEARCH_ONLY and dev_folds_path and Path(dev_folds_path).exists():
+        # Use the audited dev folds as the inner CV: already asserted
+        # BioProject-disjoint, free of held-out runs, and chosen for class coverage.
+        # Every candidate is therefore scored on all 5 folds, easy and hard alike.
+        _dev = pd.read_csv(dev_folds_path, sep="\t")
+        _fold_of = dict(zip(_dev["Run_accession"], _dev["fold"]))
+        _assigned = metadata[acc_col].astype(str).map(_fold_of).to_numpy()
+        if pd.isna(_assigned).any():
+            raise ValueError(f"some runs have no entry in {dev_folds_path}")
+        inner_cv_splits = [(np.where(_assigned != k)[0], np.where(_assigned == k)[0])
+                           for k in sorted(set(_assigned))]
+        n_inner_splits = len(inner_cv_splits)
+        logger.info("inner CV = the %d dev folds from %s",
+                    n_inner_splits, dev_folds_path)
+    else:
+        inner_cv_splits = list(skf_inner.split(
+            features[train_idx],
+            _make_stratify_key(train_idx),
+            groups=groups[train_idx],
+        ))
     for i, (a, b) in enumerate(inner_cv_splits):
         _assert_group_disjoint(train_idx[a], train_idx[b], f"inner fold {i}")
     logger.info(f"{n_inner_splits} inner folds verified {group_col}-disjoint")
@@ -781,6 +809,18 @@ def train_outer_fold(
         logger.info(f"Best hyperparameters (averaged over {n_inner_splits} folds): {best_params}")
         logger.info(f"Best CV score: {study.best_value:.4f}")
     
+    if SEARCH_ONLY:
+        out = output_dir / "search_all_train_best_params.json"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        json.dump({"best_params": best_params,
+                   "n_train": int(len(train_idx)),
+                   "n_inner_folds": int(n_inner_splits),
+                   "note": "single search over all of train; the nested-CV endpoint. "
+                           "Feed to 02_train_final_model.py via aggregate_cv_results.py."},
+                  open(out, "w"), indent=2)
+        logger.info("search-only complete -> %s", out)
+        return {"best_params": best_params, "search_only": True}
+
     # Train final model with best hyperparameters
     # Split train_idx into sub-train and sub-val to avoid test set leakage during early stopping
     logger.info("Training final model with proper train/val split...")
@@ -1250,7 +1290,10 @@ Example:
         logger.info('=' * 80)
         logger.info('=== FOLD COMPLETE ===')
         logger.info('=' * 80)
-        logger.info(f'Results: {results["test_metrics"]}')
+        if results.get("search_only"):
+            logger.info("Search-only run: best params written, no test metrics.")
+        else:
+            logger.info(f'Results: {results["test_metrics"]}')
 
     except Exception as e:
         logger.error(f'Training failed: {e}', exc_info=True)

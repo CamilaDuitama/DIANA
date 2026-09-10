@@ -77,7 +77,13 @@ def main():
     logger.info(f'Total samples in matrix: {len(X_all)}')
     
     # Filter to train samples only (exclude test set)
-    train_ids_path = Path(config.get('train_ids_path', 'data/splits_v5/train_ids.txt'))
+    # No default. It used to fall back to data/splits_v5/train_ids.txt, a retired
+    # split -- a config that merely forgot the key would have trained on v5 ids
+    # against a v9 matrix.
+    if not config.get('train_ids_path'):
+        raise ValueError("config must set train_ids_path explicitly "
+                         "(expected data/splits_v9/train_accessions.txt)")
+    train_ids_path = Path(config['train_ids_path'])
     logger.info(f"Loading train IDs from {train_ids_path}")
     with open(train_ids_path, 'r') as f:
         train_ids = set(line.strip() for line in f if line.strip())

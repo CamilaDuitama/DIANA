@@ -51,6 +51,31 @@ def load_fold_results(cv_dir: Path, n_folds: int) -> List[Dict[str, Any]]:
     return results
 
 
+def best_fold_hyperparameters(fold_results: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """Hyperparameters of the best-scoring fold, verbatim.
+
+    Averaging across folds mixes structural choices and yields a configuration no
+    fold ever ran: the v9 multi-task search averaged to hidden_dims [179, 192],
+    and 179 is not even on the search grid (64-512 step 64). This returns a
+    configuration that was actually trained and scored.
+
+    Folds are ranked by mean f1_macro across tasks on their outer dev fold. Dev
+    folds exist for tuning, so selecting on them is legitimate; the held-out set is
+    untouched.
+    """
+    best, best_score = None, -1.0
+    for r in fold_results:
+        tm = r.get("test_metrics", {})
+        vals = [m["f1_macro"] for m in tm.values()
+                if isinstance(m, dict) and m.get("f1_macro") is not None]
+        score = float(np.mean(vals)) if vals else -1.0
+        print(f"  fold {r.get('fold_id')}: mean f1_macro = {score:.4f}")
+        if score > best_score:
+            best, best_score = r, score
+    print(f"  -> taking fold {best.get('fold_id')} (f1_macro {best_score:.4f})")
+    return dict(best["best_params"])
+
+
 def aggregate_hyperparameters(fold_results: List[Dict[str, Any]]) -> Dict[str, Any]:
     """
     Average hyperparameters across folds.
@@ -182,6 +207,11 @@ def create_final_training_config(
         'task_types': {t: task_types.get(t, 'classification')
                        for t in task_weights.keys()},
         'task_weights': task_weights,
+        # Both were searched, and both were being dropped here: the final fit fell
+        # back to the config's starting tau and to label smoothing 0.0, discarding
+        # what the search selected.
+        'label_smoothing_per_task': {k[3:]: v for k, v in best_params.items()
+                                     if k.startswith('ls_')},
         'validation_split': 0.1,
         'max_epochs': 200,
         'early_stopping_patience': 20,
@@ -195,6 +225,13 @@ def create_final_training_config(
     if extra:
         config.update(extra)
 
+    if 'logit_adjust_tau' in best_params:
+        imb = dict(config.get('class_imbalance') or {})
+        imb['logit_adjust_tau'] = float(best_params['logit_adjust_tau'])
+        imb['search_tau'] = False        # the search is over; this is the chosen value
+        imb['_selected_by'] = 'grouped Optuna search over the dev folds'
+        config['class_imbalance'] = imb
+
     return config
 
 
@@ -204,6 +241,11 @@ def main():
                        help='Path to cv_results directory')
     parser.add_argument('--n_folds', type=int, default=5,
                        help='Number of CV folds')
+    parser.add_argument('--strategy', choices=['best_fold', 'average'], default='best_fold',
+                       help="best_fold: use the best-scoring fold's hyperparameters "
+                            "verbatim (a configuration that was actually validated). "
+                            "average: mean/mode across folds, which can produce "
+                            "off-grid values no fold ever ran.")
     parser.add_argument('--features', type=str,
                        default='data/matrices/matrix_v9_train/unitigs.frac.mat',
                        help='Features path for final training config')
@@ -230,7 +272,10 @@ def main():
     
     # Aggregate hyperparameters
     print("Step 2: Aggregating hyperparameters...")
-    best_params = aggregate_hyperparameters(fold_results)
+    if args.strategy == 'best_fold':
+        best_params = best_fold_hyperparameters(fold_results)
+    else:
+        best_params = aggregate_hyperparameters(fold_results)
     print("✓ Averaged hyperparameters:")
     for key, value in sorted(best_params.items()):
         if isinstance(value, float):
