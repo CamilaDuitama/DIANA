@@ -362,3 +362,5 @@ results/training_bioproject_v5/
 results/training_bioproject_v7/
 results/validation_predictions_bioproject_v5_full/
 results/validation_vectors_v7/
+# Per-fold training logs churn while a job runs; the metrics JSONs are the record.
+results/**/fold_*_training.log
