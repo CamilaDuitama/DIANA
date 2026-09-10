@@ -5,15 +5,15 @@
 \toprule
 Category & Parameter & Value \\
 \midrule
-\multirow{5}{*}{Architecture} & Number of layers & 4 \\
- & Hidden layer sizes & {[}282, 333, 320, 384{]} \\
+\multirow{4}{*}{Architecture} & Input features & 107,480 \\
+ & Hidden layers & {[}282, 333, 320, 384{]} \\
  & Dropout rate & 0.1638 \\
  & Activation & leaky\_relu \\
- & Batch normalisation & No \\
 \addlinespace
-\multirow{3}{*}{Training} & Learning rate & 0.000339 \\
+\multirow{4}{*}{Training} & Learning rate & 0.000339 \\
  & Weight decay & 7.97e-05 \\
  & Batch size & 32 \\
+ & Max epochs & 200 \\
 \addlinespace
 \multirow{4}{*}{Task Weights} & Sample Type & 0.909 \\
  & Community Type & 1.074 \\
@@ -22,4 +22,4 @@ Category & Parameter & Value \\
 \bottomrule
 \end{tabular*}
 \\[2mm]
-{\footnotesize \textbf{Columns}: \textit{Category}---group of related parameters: \textit{Architecture} (network structure), \textit{Training} (optimisation settings), \textit{Task Weights} (per-task loss weight in the joint objective). \textit{Parameter}---hyperparameter name. \textit{Value}---value selected by Optuna. All 12 parameters were optimised via 5-fold cross-validation with 50 Optuna trials per fold; values reflect the final model configuration. Fixed settings not shown: max epochs = 200 with early stopping on validation loss.}
+{\footnotesize \textbf{Columns}: \textit{Category}---group of related parameters: \textit{Architecture} (network structure), \textit{Training} (optimisation settings), \textit{Task Weights} (per-task loss weight in the joint objective). \textit{Parameter}---hyperparameter name. \textit{Value}---value selected by Optuna. Hyperparameters selected via 5-fold cross-validation with 50 Optuna trials per fold; values reflect the final model configuration used for training. Input features: 107,480 unitigs. Max epochs: 200 with early stopping on validation loss.}

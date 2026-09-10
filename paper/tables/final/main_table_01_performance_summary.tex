@@ -1,5 +1,5 @@
 \centering
-\caption{Final model performance across the Training set, the held-out Test set, and the external Validation set. Balanced Accuracy is the unweighted mean of per-class recall. F1$^{\dagger}$ is the macro-averaged F1-score computed only over classes that are represented in the respective evaluation set (i.e.\ excluding training classes with zero samples in that split).}
+\caption{Final model performance across the Training set, the held-out Test set, and the external Validation set. Balanced Accuracy is the unweighted mean of per-class recall. F1$^{\dagger}$ is the macro-averaged F1-score computed only over classes that are represented in the respective evaluation set (i.e.\ excluding training classes with zero samples in that split; see Supplementary Table~\ref{tab:zero_support}).}
 \label{tab:performance}
 \small
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrr@{}}
@@ -20,7 +20,7 @@ Sample Host (12 species) & Training & 98.1 & 99.3 & 93.5 \\
 \addlinespace
 Material (13 types) & Training & 97.4 & 97.9 & 89.5 \\
  & Test & 63.5 & 51.9 & 54.6 \\
- & Validation & 56.9 & 46.1 & 35.3 \\
+ & Validation & 56.9 & 46.1 & 35.2 \\
 \addlinespace
 \bottomrule
 \end{tabular*}

@@ -4,48 +4,51 @@
 \toprule
 Task & Class & Training & Test & Validation & Total \\
 \midrule
-\multirow{2}{*}{Sample Type} & ancient & 2410 & 424 & 870 & 3704 \\
- & modern & 199 & 37 & 87 & 323 \\
+\multirow{2}{*}{Sample Type} & ancient & 2338 & 490 & 279 & 3107 \\
+ & modern & 177 & 33 & 81 & 291 \\
 \addlinespace
-\multirow{6}{*}{Community Type} & Not applicable - env sample & 755 & 133 & 251 & 1139 \\
- & gut & 86 & 15 & 25 & 126 \\
- & oral & 1401 & 248 & 578 & 2227 \\
- & plant tissue & 81 & 14 & 7 & 102 \\
- & skeletal tissue & 267 & 47 & 84 & 398 \\
- & soft tissue & 19 & 4 & 12 & 35 \\
+\multirow{6}{*}{Community Type} & Not applicable - env sample & 603 & 122 & 62 & 787 \\
+ & gut & 90 & 11 & 0 & 101 \\
+ & oral & 1373 & 343 & 240 & 1956 \\
+ & plant tissue & 95 & 0 & 0 & 95 \\
+ & skeletal tissue & 267 & 47 & 40 & 354 \\
+ & soft tissue & 87 & 0 & 18 & 105 \\
 \addlinespace
-\multirow{12}{*}{Sample Host} & \textit{Ambrosia artemisiifolia} & 57 & 9 & 3 & 69 \\
- & \textit{Arabidopsis thaliana} & 24 & 5 & 4 & 33 \\
- & \textit{Canis lupus} & 11 & 8 & 2 & 21 \\
- & \textit{Gorilla sp.} & 110 & 25 & 0 & 135 \\
- & \textit{Homo sapiens} & 1290 & 207 & 581 & 2078 \\
- & \textit{Homo sapiens neanderthalensis} & 25 & 10 & 9 & 44 \\
- & \textit{Mammuthus primigenius} & 12 & 4 & 0 & 16 \\
- & \textit{Not applicable - env sample} & 755 & 133 & 242 & 1130 \\
- & \textit{Other mammal} & 9 & 3 & 0 & 12 \\
- & \textit{Pan troglodytes} & 40 & 8 & 0 & 48 \\
- & \textit{Rangifer tarandus} & 19 & 5 & 0 & 24 \\
- & \textit{Ursus arctos} & 257 & 44 & 39 & 340 \\
+\multirow{11}{*}{Sample Host} & \textit{Ambrosia artemisiifolia} & 66 & 0 & 0 & 66 \\
+ & \textit{Arabidopsis thaliana} & 29 & 0 & 0 & 29 \\
+ & \textit{Canis lupus} & 19 & 0 & 0 & 19 \\
+ & \textit{Gorilla sp.} & 60 & 75 & 0 & 135 \\
+ & \textit{Homo sapiens} & 1342 & 302 & 298 & 1942 \\
+ & \textit{Homo sapiens neanderthalensis} & 31 & 4 & 0 & 35 \\
+ & \textit{Not applicable - env sample} & 603 & 122 & 62 & 787 \\
+ & \textit{Other mammal} & 12 & 0 & 0 & 12 \\
+ & \textit{Pan troglodytes} & 28 & 20 & 0 & 48 \\
+ & \textit{Rangifer tarandus} & 24 & 0 & 0 & 24 \\
+ & \textit{Ursus arctos} & 301 & 0 & 0 & 301 \\
 \addlinespace
-\multirow{13}{*}{Material} & Oral & 67 & 12 & 47 & 126 \\
- & Skin & 69 & 11 & 9 & 89 \\
- & bone & 195 & 41 & 52 & 288 \\
- & dental calculus & 1103 & 204 & 356 & 1663 \\
- & digestive contents & 92 & 17 & 1 & 110 \\
- & leaf & 81 & 14 & 7 & 102 \\
- & midden & 11 & 1 & 1 & 13 \\
- & permafrost & 58 & 13 & 16 & 87 \\
- & sediment & 454 & 78 & 38 & 570 \\
- & shell & 19 & 5 & 0 & 24 \\
- & soft tissue & 13 & 2 & 0 & 15 \\
- & soil & 77 & 13 & 28 & 118 \\
- & tooth & 370 & 50 & 126 & 546 \\
+\multirow{17}{*}{Material} & Skin & 80 & 0 & 18 & 98 \\
+ & bone & 208 & 28 & 22 & 258 \\
+ & dental calculus & 1162 & 173 & 158 & 1493 \\
+ & digestive contents & 92 & 11 & 0 & 103 \\
+ & gingiva & 2 & 0 & 0 & 2 \\
+ & leaf & 95 & 0 & 0 & 95 \\
+ & midden & 4 & 8 & 0 & 12 \\
+ & permafrost & 71 & 0 & 8 & 79 \\
+ & saliva & 5 & 7 & 5 & 17 \\
+ & sediment & 435 & 93 & 3 & 531 \\
+ & shell & 24 & 0 & 0 & 24 \\
+ & soft tissue & 5 & 0 & 0 & 5 \\
+ & soil & 69 & 21 & 51 & 141 \\
+ & supragingival plaque & 6 & 0 & 0 & 6 \\
+ & throat swab & 17 & 0 & 0 & 17 \\
+ & tongue & 2 & 0 & 4 & 6 \\
+ & tooth & 238 & 182 & 91 & 511 \\
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}
 \item Training and test samples from curated AncientMetagenomeDir dataset (Logan et al.).
 \item Validation samples from AncientMetagenomeDir v25.09.0 and MGnify modern samples, excluding overlaps with train/test.
-\item Validation set: 950 samples with successful predictions (out of 957 total attempted).
+\item Validation set: 611 samples with successful predictions (out of 360 total attempted).
 \item Classes with 0 validation samples were present in training but not in the external validation set.
 \item Classes with 0 training samples are UNSEEN by the model and cannot be correctly predicted.
 \end{tablenotes}
