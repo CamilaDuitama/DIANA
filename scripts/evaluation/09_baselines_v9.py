@@ -57,17 +57,46 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 
-def build_models(seed: int) -> dict:
+TUNED = PROJECT_ROOT / "results/baselines_tuned_v9/best_per_model.tsv"
+
+
+def tuned_params(target: str) -> dict:
+    """Hyperparameters selected for this task on the dev folds, if they exist.
+
+    Without these the baselines run at scikit-learn defaults while every MLP arm
+    gets 100 Optuna trials, so a network win could be attributed to tuning budget.
+    R1.3 is that objection. Selected by 12_tune_baselines_v9.py on the same 5
+    grouped dev folds and the same metric; held-out was not used.
+    """
+    if not TUNED.exists():
+        logger.warning("%s missing: baselines run at scikit-learn DEFAULTS, which is "
+                       "not a fair comparator for the MLP arms", TUNED)
+        return {}
+    t = pd.read_csv(TUNED, sep="\t")
+    return {r.model: json.loads(r.params) for r in t[t.task == target].itertuples()}
+
+
+def build_models(seed: int, params: dict | None = None) -> dict:
+    params = params or {}
+
+    def kw(name, **default):
+        return {**default, **params.get(name, {})}
+
     return {
         "MajorityClass": DummyClassifier(strategy="most_frequent"),
-        "LogisticRegression_Bal": LogisticRegression(max_iter=2000, class_weight="balanced", n_jobs=-1),
-        "LinearSVM_Bal": LinearSVC(max_iter=5000, class_weight="balanced"),
-        "RandomForest": RandomForestClassifier(n_estimators=300, max_features="sqrt",
-                                               n_jobs=-1, random_state=seed),
-        "RandomForest_Bal": RandomForestClassifier(n_estimators=300, max_features="sqrt",
-                                                   class_weight="balanced_subsample",
-                                                   n_jobs=-1, random_state=seed),
-        "kNN_5": KNeighborsClassifier(n_neighbors=5, n_jobs=-1),
+        "LogisticRegression_Bal": LogisticRegression(
+            max_iter=3000, class_weight="balanced", n_jobs=-1,
+            **kw("LogisticRegression_Bal", C=1.0)),
+        "LinearSVM_Bal": LinearSVC(max_iter=8000, class_weight="balanced",
+                                   **kw("LinearSVM_Bal", C=1.0)),
+        "RandomForest": RandomForestClassifier(
+            n_jobs=-1, random_state=seed,
+            **kw("RandomForest_Bal", n_estimators=300, max_features="sqrt")),
+        "RandomForest_Bal": RandomForestClassifier(
+            class_weight="balanced_subsample", n_jobs=-1, random_state=seed,
+            **kw("RandomForest_Bal", n_estimators=300, max_features="sqrt")),
+        "kNN": KNeighborsClassifier(n_jobs=-1,
+                                    **kw("kNN", n_neighbors=5, weights="uniform")),
     }
 
 
@@ -115,12 +144,11 @@ def main() -> int:
     te = te.set_index("Run_accession").loc[kte].reset_index()
     logger.info("train %s  test %s", Xtr_all.shape, Xte_all.shape)
 
-    models = build_models(args.seed)
-    if args.models:
-        models = {k: v for k, v in models.items() if k in args.models}
-
     results, rows = {}, []
     for target in args.targets:
+        models = build_models(args.seed, tuned_params(target))
+        if args.models:
+            models = {k: v for k, v in models.items() if k in args.models}
         eligible = set(elig_tbl[(elig_tbl.target == target) & elig_tbl.evaluable]["class"])
         mtr = tr[target].notna().to_numpy()
         mte = te[target].notna().to_numpy()
@@ -136,6 +164,7 @@ def main() -> int:
         Xte, yte = Xte_all[mte][in_vocab], yte_all[in_vocab]
         # BioProject of each scored held-out row: the CI resampling unit.
         gte = te.loc[mte, GROUP_COL].astype(str).to_numpy()[in_vocab]
+        gtr = tr.loc[mtr, GROUP_COL].astype(str).to_numpy()
         logger.info("%s: train %d, test %d (+%d out-of-vocabulary excluded), "
                     "%d eligible classes", target, len(ytr), len(yte), n_oov, len(eligible))
         results.setdefault(target, {"n_train": len(ytr), "n_test": len(yte),
@@ -160,6 +189,8 @@ def main() -> int:
             m.update(bootstrap_ci(yte, pred_te, eligible, gte, args.n_boot, args.seed))
             m["fit_predict_s"] = round(time.time() - t0, 1)
             m_tr = metrics(ytr, pred_tr, eligible)
+            m_tr.update(bootstrap_ci(ytr, pred_tr, eligible, gtr,
+                                     args.n_boot, args.seed))
 
             results[target][name] = {"test": m, "train": m_tr}
             rows.append({"model": name, "split": "test", "task": target, **m})

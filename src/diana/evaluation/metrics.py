@@ -96,7 +96,7 @@ def classification_metrics(y_true, y_pred, eligible: set | None = None) -> Dict:
 
 def bootstrap_ci(y_true, y_pred, eligible: set, groups, n_boot: int = 1000,
                  seed: int = 42, alpha: float = 0.05) -> Dict:
-    """Percentile CI for f1_macro_eligible, resampling GROUPS (R1.10).
+    """Percentile CIs for f1_macro_eligible and balanced accuracy, resampling GROUPS (R1.10).
 
     `groups` is required, and is the BioProject of each run. Whole projects are
     drawn with replacement and every run in a drawn project comes with it.
@@ -131,12 +131,16 @@ def bootstrap_ci(y_true, y_pred, eligible: set, groups, n_boot: int = 1000,
     uniq = np.unique(groups)
     idx_by_group = {g: np.flatnonzero(groups == g) for g in uniq}
     rng = np.random.default_rng(seed)
-    vals = []
+    f1s, bals = [], []
     for _ in range(n_boot):
         drawn = rng.choice(uniq, size=len(uniq), replace=True)
         idx = np.concatenate([idx_by_group[g] for g in drawn])
-        vals.append(f1_score(y_true[idx], y_pred[idx], labels=elig,
-                             average="macro", zero_division=0))
-    return {"f1_macro_eligible_ci_low": float(np.percentile(vals, 100 * alpha / 2)),
-            "f1_macro_eligible_ci_high": float(np.percentile(vals, 100 * (1 - alpha / 2))),
+        f1s.append(f1_score(y_true[idx], y_pred[idx], labels=elig,
+                            average="macro", zero_division=0))
+        bals.append(balanced_accuracy_score(y_true[idx], y_pred[idx]))
+    lo, hi = 100 * alpha / 2, 100 * (1 - alpha / 2)
+    return {"f1_macro_eligible_ci_low": float(np.percentile(f1s, lo)),
+            "f1_macro_eligible_ci_high": float(np.percentile(f1s, hi)),
+            "balanced_accuracy_ci_low": float(np.percentile(bals, lo)),
+            "balanced_accuracy_ci_high": float(np.percentile(bals, hi)),
             "ci_resampling_unit": "group", "n_groups": int(len(uniq))}

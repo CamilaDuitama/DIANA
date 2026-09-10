@@ -45,7 +45,13 @@ def main() -> int:
                     default=PROJECT_ROOT / "results/per_class_by_representation")
     args = ap.parse_args()
 
-    pred = pd.read_csv(args.predictions)
+    # diana-test writes a TAB-separated test_predictions.tsv; reading it with the
+    # default comma separator yields a single column and every task appears missing.
+    sep = "\t" if args.predictions.suffix in (".tsv", ".tab") else ","
+    pred = pd.read_csv(args.predictions, sep=sep)
+    if pred.shape[1] == 1:
+        raise SystemExit(f"{args.predictions} parsed to one column with sep={sep!r}; "
+                         "check the delimiter")
     train = pd.read_csv(SPLITS / "train_metadata.tsv", sep="\t", low_memory=False)
     elig_tbl = pd.read_csv(SPLITS / "class_eligibility.tsv", sep="\t")
 
