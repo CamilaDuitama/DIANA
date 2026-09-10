@@ -45,11 +45,13 @@ from sklearn.svm import LinearSVC
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT / "scripts/analysis"))
 
-from diana.evaluation.metrics import classification_metrics
+from diana.evaluation.metrics import (classification_metrics,
+                                      bootstrap_ci as _shared_bootstrap_ci)
 from load_v9_features import load_features  # noqa: E402
 
 TARGETS = ["community_type", "feature", "sample_host", "material"]
 SPLITS = PROJECT_ROOT / "data/splits_v9"
+GROUP_COL = "archive_project"   # the CI resampling unit
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -79,20 +81,16 @@ def metrics(y_true, y_pred, eligible: set) -> dict:
     return classification_metrics(y_true, y_pred, eligible)
 
 
-def bootstrap_ci(y_true, y_pred, eligible: set, n_boot: int, seed: int) -> dict:
-    rng = np.random.default_rng(seed)
-    n = len(y_true)
-    elig = sorted(c for c in set(y_true) if c in eligible)
-    vals = []
-    for _ in range(n_boot):
-        i = rng.integers(0, n, size=n)
-        if elig:
-            vals.append(f1_score(y_true[i], y_pred[i], labels=elig,
-                                 average="macro", zero_division=0))
-    if not vals:
-        return {}
-    return {"f1_macro_eligible_ci_low": float(np.percentile(vals, 2.5)),
-            "f1_macro_eligible_ci_high": float(np.percentile(vals, 97.5))}
+def bootstrap_ci(y_true, y_pred, eligible: set, groups, n_boot: int, seed: int) -> dict:
+    """Delegates to diana.evaluation.metrics, which resamples BioProjects.
+
+    This used to resample runs, which is why summary.csv previously carried
+    intervals 2.2-5.1x too narrow -- e.g. 0.510-0.582 for community_type where the
+    project-level interval is 0.362-0.725. Runs from one study are not independent
+    observations, so those numbers were not a tighter measurement but a wrong one.
+    """
+    return _shared_bootstrap_ci(y_true, y_pred, eligible, groups=groups,
+                                n_boot=n_boot, seed=seed)
 
 
 def main() -> int:
@@ -136,6 +134,8 @@ def main() -> int:
 
         Xtr, ytr = Xtr_all[mtr], ytr_all
         Xte, yte = Xte_all[mte][in_vocab], yte_all[in_vocab]
+        # BioProject of each scored held-out row: the CI resampling unit.
+        gte = te.loc[mte, GROUP_COL].astype(str).to_numpy()[in_vocab]
         logger.info("%s: train %d, test %d (+%d out-of-vocabulary excluded), "
                     "%d eligible classes", target, len(ytr), len(yte), n_oov, len(eligible))
         results.setdefault(target, {"n_train": len(ytr), "n_test": len(yte),
@@ -157,7 +157,7 @@ def main() -> int:
                 continue
 
             m = metrics(yte, pred_te, eligible)
-            m.update(bootstrap_ci(yte, pred_te, eligible, args.n_boot, args.seed))
+            m.update(bootstrap_ci(yte, pred_te, eligible, gte, args.n_boot, args.seed))
             m["fit_predict_s"] = round(time.time() - t0, 1)
             m_tr = metrics(ytr, pred_tr, eligible)
 

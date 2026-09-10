@@ -94,25 +94,49 @@ def classification_metrics(y_true, y_pred, eligible: set | None = None) -> Dict:
     return out
 
 
-def bootstrap_ci(y_true, y_pred, eligible: set, n_boot: int = 1000,
+def bootstrap_ci(y_true, y_pred, eligible: set, groups, n_boot: int = 1000,
                  seed: int = 42, alpha: float = 0.05) -> Dict:
-    """Percentile bootstrap CI for f1_macro_eligible (R1.10).
+    """Percentile CI for f1_macro_eligible, resampling GROUPS (R1.10).
+
+    `groups` is required, and is the BioProject of each run. Whole projects are
+    drawn with replacement and every run in a drawn project comes with it.
+
+    Resampling individual runs instead treats two runs from one study as two
+    independent observations. They are not: they share extraction protocol, library
+    prep, platform and sometimes the physical specimen. Measured here, that mistake
+    narrows the interval by 2.2-5.1x -- `community_type` reads 0.510-0.582 instead
+    of 0.362-0.725 -- which is not a better measurement, just a false one. Passing
+    groups is therefore mandatory rather than an option, because this function had
+    already been wired into diana-test while resampling runs.
 
     The eligible class set is fixed from the full sample, not recomputed per
     resample, so every resample scores the same denominator.
     """
+    if groups is None:
+        raise ValueError(
+            "bootstrap_ci requires `groups` (the BioProject of each run). Resampling "
+            "runs understates the interval by 2.2-5.1x here; see PROJECT.md rule 6.")
     y_true = np.asarray(y_true)
     y_pred = np.asarray(y_pred)
+    groups = np.asarray(groups)
+    if groups.shape[0] != y_true.shape[0]:
+        raise ValueError(f"groups has {groups.shape[0]} entries for "
+                         f"{y_true.shape[0]} predictions")
     elig = sorted(c for c in set(y_true.tolist()) if c in eligible)
     if not elig:
         return {"f1_macro_eligible_ci_low": float("nan"),
-                "f1_macro_eligible_ci_high": float("nan")}
+                "f1_macro_eligible_ci_high": float("nan"),
+                "ci_resampling_unit": "group", "n_groups": 0}
+
+    uniq = np.unique(groups)
+    idx_by_group = {g: np.flatnonzero(groups == g) for g in uniq}
     rng = np.random.default_rng(seed)
-    n = len(y_true)
     vals = []
     for _ in range(n_boot):
-        idx = rng.integers(0, n, n)
+        drawn = rng.choice(uniq, size=len(uniq), replace=True)
+        idx = np.concatenate([idx_by_group[g] for g in drawn])
         vals.append(f1_score(y_true[idx], y_pred[idx], labels=elig,
                              average="macro", zero_division=0))
     return {"f1_macro_eligible_ci_low": float(np.percentile(vals, 100 * alpha / 2)),
-            "f1_macro_eligible_ci_high": float(np.percentile(vals, 100 * (1 - alpha / 2)))}
+            "f1_macro_eligible_ci_high": float(np.percentile(vals, 100 * (1 - alpha / 2))),
+            "ci_resampling_unit": "group", "n_groups": int(len(uniq))}

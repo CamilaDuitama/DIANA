@@ -181,7 +181,7 @@ def encode_labels(metadata: 'pd.DataFrame', task_names: list, encoders_data: dic
 
 
 def evaluate_model(model, X_test, y_test, task_names, encoders_data, device,
-                   batch_size=96, eligible_names=None):
+                   batch_size=96, eligible_names=None, groups=None):
     """
     Evaluate model on test data.
 
@@ -261,9 +261,16 @@ def evaluate_model(model, X_test, y_test, task_names, encoders_data, device,
                 eligible_enc = {i for i, c in enumerate(classes)
                                 if c in eligible_names.get(task, set())}
             task_results.update(classification_metrics(y_true, y_pred, eligible_enc))
-            if eligible_enc:
+            if eligible_enc and groups is not None:
+                # Resample BioProjects, not runs: runs from one study are not
+                # independent observations (PROJECT.md rule 6).
                 task_results.update(bootstrap_ci(y_true, y_pred, eligible_enc,
+                                                 groups=np.asarray(groups)[seen_mask],
                                                  n_boot=1000, seed=42))
+            elif eligible_enc:
+                logger.warning("%s: no BioProject column, so no CI is reported. A "
+                               "run-level CI would understate the interval 2.2-5.1x.",
+                               task)
 
             _fe = task_results.get('f1_macro_eligible')
             logger.info(
@@ -501,9 +508,18 @@ def main():
         logger.info("Eligible classes per task: %s",
                     {t: len(v) for t, v in eligible_names.items()})
 
+    group_col = next((c for c in ("archive_project", "project_name")
+                      if c in metadata_test.columns), None)
+    groups = metadata_test[group_col].astype(str).to_numpy() if group_col else None
+    if groups is None:
+        logger.warning("no BioProject column in the metadata; CIs will be omitted")
+    else:
+        logger.info("CI resampling unit: %s (%d groups over %d runs)",
+                    group_col, len(set(groups)), len(groups))
+
     predictions, probabilities, results = evaluate_model(
         model, X_test, y_test, task_names, encoders_data, args.device,
-        args.batch_size, eligible_names=eligible_names
+        args.batch_size, eligible_names=eligible_names, groups=groups
     )
     
     # Save results
