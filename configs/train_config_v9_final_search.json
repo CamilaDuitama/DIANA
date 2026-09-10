@@ -40,5 +40,6 @@
   "dev_folds_path": "data/splits_v9/dev_folds.tsv",
   "n_folds": 5,
   "no_label_smoothing": false,
-  "search_only": true
+  "search_only": true,
+  "class_eligibility_path": "data/splits_v9/class_eligibility.tsv"
 }

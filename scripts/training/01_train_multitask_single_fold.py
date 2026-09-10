@@ -133,6 +133,7 @@ from diana.data.loader import MatrixLoader
 from diana.config import ConfigManager
 from diana.utils.config import setup_logging
 from diana.utils.checkpointing import CheckpointManager
+from diana.evaluation.metrics import classification_metrics
 
 # Logger will be initialized in main() after args are parsed
 logger = None
@@ -386,6 +387,55 @@ def train_outer_fold(
     # Prepare labels
     labels_dict, encoders, num_classes = prepare_labels(metadata, task_names, task_types)
 
+    # Eligible-class indices, for the search objective. The baselines are selected on
+    # f1_macro_eligible (12_tune_baselines_v9.py); if the search optimises anything
+    # else, the R1.3 comparison is partly decided by the objective rather than by the
+    # models. No fallback: a missing path must stop the run, not silently restore the
+    # old objective.
+    # Which candidate the search maximises. Named explicitly with no default: the
+    # objective decides which configurations TPE ever tries, so it must never be
+    # inherited silently from an older config.
+    #   legacy_foldmean   mean over tasks and folds of (bal_acc + f1_macro) / 2, all
+    #                     classes, OOV rows scored wrong. What the first v9 searches used.
+    #   eligible_foldmean same but f1_macro_eligible with OOV rows dropped. Inflated
+    #                     where a fold leaves one eligible class: that fold saturates
+    #                     at 1.0 and carries the mean.
+    #   eligible_pooled   the five folds' cross-validated predictions concatenated and
+    #                     scored once. Same metric and same exclusion rule, but every
+    #                     class keeps its weight and no fold can degenerate.
+    # Both are needed only by the search objective. A fixed-hyperparameter run never
+    # calls it, and requiring them there would break the arms of the architecture test
+    # and the final fits, which pass hyperparameters in rather than searching.
+    SEARCH_OBJECTIVE = None
+    ELIG_IDX = {}
+    if not config.get("fixed_hyperparameters"):
+        SEARCH_OBJECTIVE = config.get("search_objective")
+        _allowed = ("legacy_foldmean", "eligible_foldmean", "eligible_pooled")
+        if SEARCH_OBJECTIVE not in _allowed:
+            raise ValueError(f"search_objective must be one of {_allowed}, "
+                             f"got {SEARCH_OBJECTIVE!r}")
+        logger.info("Search objective: %s", SEARCH_OBJECTIVE)
+
+        elig_path = config.get("class_eligibility_path")
+        if not elig_path:
+            raise ValueError(
+                "class_eligibility_path is required; the search objective is "
+                "f1_macro_eligible and cannot be computed without the eligibility table.")
+        if not Path(elig_path).exists():
+            raise FileNotFoundError(f"class_eligibility_path does not exist: {elig_path}")
+        _elig_tbl = pd.read_csv(elig_path, sep="\t")
+        for _t in [t for t in task_names
+                   if task_types.get(t, "classification") == "classification"]:
+            _names = set(_elig_tbl[(_elig_tbl.target == _t)
+                                   & _elig_tbl.evaluable]["class"].astype(str))
+            ELIG_IDX[_t] = {i for i, c in enumerate(encoders[_t].classes_) if str(c) in _names}
+            if not ELIG_IDX[_t]:
+                raise ValueError(f"{_t}: no eligible class survived the encoder mapping")
+            logger.info("%s: %d/%d classes eligible for the objective",
+                        _t, len(ELIG_IDX[_t]), num_classes[_t])
+    else:
+        logger.info("Fixed hyperparameters: no search, so no search objective needed")
+
     # Outer CV split: stratify by the first two (or one) classification tasks
     def _make_stratify_key(idx_array):
         if len(classification_tasks) >= 2:
@@ -593,6 +643,10 @@ def train_outer_fold(
 
         # Evaluate on ALL inner CV folds
         fold_scores = []
+        fold_task_scores = []
+        fold_candidates = []
+        pooled_true = {t: [] for t in classification_tasks}
+        pooled_pred = {t: [] for t in classification_tasks}
 
         for inner_fold_idx, (inner_train, inner_val) in enumerate(inner_cv_splits):
             # Get actual indices
@@ -683,6 +737,9 @@ def train_outer_fold(
             max_epochs = config.get("max_epochs", 100)
             patience = config.get("patience", 15)
             best_val_score = 0
+            best_task_scores = {}
+            best_cand = {}
+            best_pooled = {}
             patience_counter = 0
             
             for epoch in range(max_epochs):
@@ -706,10 +763,14 @@ def train_outer_fold(
                 if epoch % 5 == 0:
                     model.eval()
                     task_scores = []
+                    task_score_by_name = {}
+                    cand_by_name = {}
+                    pooled_rows = {t: [] for t in classification_tasks}
 
                     with torch.no_grad():
                         all_preds  = {task: [] for task in classification_tasks}
                         all_true   = {task: [] for task in classification_tasks}
+                        all_invocab = {task: [] for task in classification_tasks}
                         reg_abs_err = {task: [] for task in regression_tasks}
 
                         for batch_data in val_loader:
@@ -723,9 +784,24 @@ def train_outer_fold(
                                     val_outputs[task],
                                     inner_support[task]).cpu().numpy()
                                 true  = y_batch[task].cpu().numpy()
-                                keep  = true != IGNORE_INDEX   # absent labels are not predictions to score
+                                # Two exclusions. Absent labels are not predictions to
+                                # score. And a run whose true class this inner fold
+                                # never trains on cannot be predicted at all, because
+                                # _masked_argmax removes that class from the argmax, so
+                                # counting it wrong makes the search chase an
+                                # unreachable row. The baselines drop these too
+                                # (12_tune_baselines_v9.py, "OOV excluded, as elsewhere").
+                                # Absent labels are never predictions to score. Rows
+                                # whose true class this inner fold does not train on are
+                                # kept but flagged: _masked_argmax cannot emit that
+                                # class, so whether to score them is a choice rather
+                                # than a given, and the flag lets every candidate
+                                # objective be measured from a single pass.
+                                sup   = inner_support[task].cpu().numpy()
+                                keep  = true != IGNORE_INDEX
                                 all_preds[task].extend(preds[keep])
                                 all_true[task].extend(true[keep])
+                                all_invocab[task].extend(sup[true[keep]])
 
                             for task in regression_tasks:
                                 pred = val_outputs[task].cpu()
@@ -736,13 +812,43 @@ def train_outer_fold(
                                         torch.abs(pred[valid] - tgt[valid]).numpy().tolist()
                                     )
 
-                        # Classification: (balanced_acc + macro_f1) / 2
+                        # Every candidate objective, from the same predictions, so
+                        # the choice between them is a measurement and not a rerun.
+                        #   legacy   (bal_acc + f1_macro over all classes) / 2, OOV
+                        #            rows scored wrong -- what the v9 searches used
+                        #   eligible f1_macro_eligible, OOV rows excluded -- the
+                        #            headline metric and the baselines' selector
+                        # Early stopping follows `eligible`; the rest are recorded.
                         for task in classification_tasks:
                             if not all_true[task]:
                                 continue   # no labelled rows for this task in this inner fold
-                            bal_acc   = balanced_accuracy_score(all_true[task], all_preds[task])
-                            macro_f1  = f1_score(all_true[task], all_preds[task], average='macro', zero_division=0)
-                            task_scores.append((bal_acc + macro_f1) / 2.0)
+                            yt = np.asarray(all_true[task])
+                            yp = np.asarray(all_preds[task])
+                            iv = np.asarray(all_invocab[task], dtype=bool)
+                            legacy = classification_metrics(yt, yp)
+                            m_leg = (legacy["balanced_accuracy"]
+                                     + f1_score(yt, yp, average="macro", zero_division=0)) / 2.0
+                            elig = (classification_metrics(yt[iv], yp[iv], ELIG_IDX[task])
+                                    if iv.any() else {"f1_macro_eligible": float("nan"),
+                                                      "balanced_accuracy": float("nan"),
+                                                      "n_classes_eligible": 0})
+                            cand_by_name[task] = {
+                                "legacy": float(m_leg),
+                                "eligible": float(elig["f1_macro_eligible"]),
+                                "eligible_bal_acc": float(elig["balanced_accuracy"]),
+                                "n_eligible_scored": int(elig["n_classes_eligible"]),
+                                "n_rows": int(iv.sum()), "n_rows_labelled": int(len(yt)),
+                            }
+                            # Pooling across folds needs the rows, not the summary.
+                            pooled_rows[task].append((yt[iv], yp[iv]))
+                            # Early stopping follows the objective's own family, so
+                            # the epoch a fold selects is the one that family prefers.
+                            sc = (m_leg if SEARCH_OBJECTIVE == "legacy_foldmean"
+                                  else elig["f1_macro_eligible"])
+                            if np.isnan(sc):
+                                continue   # no eligible class seen in this inner fold
+                            task_scores.append(sc)
+                            task_score_by_name[task] = float(sc)
 
                         # Regression: 1 - mean_absolute_error (both in [0,1])
                         for task in regression_tasks:
@@ -755,6 +861,10 @@ def train_outer_fold(
                     # Early stopping
                     if avg_score > best_val_score:
                         best_val_score = avg_score
+                        best_task_scores = dict(task_score_by_name)
+                        best_cand = dict(cand_by_name)
+                        best_pooled = {t: (v[0][0].copy(), v[0][1].copy())
+                                       for t, v in pooled_rows.items() if v}
                         patience_counter = 0
                     else:
                         patience_counter += 1
@@ -764,10 +874,60 @@ def train_outer_fold(
 
             # Store this fold's best score
             fold_scores.append(best_val_score)
+            fold_task_scores.append(best_task_scores)
+            fold_candidates.append(best_cand)
+            for t, (yt, yp) in best_pooled.items():
+                pooled_true[t].append(yt)
+                pooled_pred[t].append(yp)
 
         # Return average score across all inner folds
         avg_score = np.mean(fold_scores)
-        return avg_score
+
+        # The pooled candidate. Averaging a per-fold macro-F1 lets a fold in which only
+        # one eligible class survives saturate at 1.0 and carry the mean; concatenating
+        # the cross-validated predictions and scoring once gives every class its own
+        # weight and no fold can degenerate. Same metric, same exclusion rule, applied
+        # once over all of train instead of five times over uneven slices.
+        pooled = {}
+        for t in classification_tasks:
+            if not pooled_true[t]:
+                continue
+            yt = np.concatenate(pooled_true[t])
+            yp = np.concatenate(pooled_pred[t])
+            m = classification_metrics(yt, yp, ELIG_IDX[t])
+            pooled[t] = {"f1_macro_eligible": float(m["f1_macro_eligible"]),
+                         "balanced_accuracy": float(m["balanced_accuracy"]),
+                         "n_classes_eligible": int(m["n_classes_eligible"]),
+                         "n_rows": int(len(yt))}
+        def _mean(vals):
+            vals = [v for v in vals if v is not None and not np.isnan(v)]
+            return float(np.mean(vals)) if vals else float("nan")
+
+        # Every candidate, from the same trained models, so which one to optimise is a
+        # decision that can be revisited by re-ranking this record rather than by
+        # spending another night of GPU time.
+        trial.set_user_attr("objective_used", SEARCH_OBJECTIVE)
+        trial.set_user_attr("fold_scores", [float(x) for x in fold_scores])
+        trial.set_user_attr("fold_task_scores", fold_task_scores)
+        trial.set_user_attr("fold_candidates", fold_candidates)
+        trial.set_user_attr("pooled", pooled)
+        # Each candidate is derived from the per-fold record, never from avg_score:
+        # avg_score now holds whichever family early stopping followed, so reading a
+        # named candidate off it would mislabel the other families.
+        trial.set_user_attr("candidates", {
+            "eligible_foldmean": _mean([c[t]["eligible"]
+                                        for c in fold_candidates for t in c]),
+            "legacy_foldmean": _mean([c[t]["legacy"]
+                                      for c in fold_candidates for t in c]),
+            "eligible_pooled": _mean([v["f1_macro_eligible"] for v in pooled.values()]),
+            "eligible_pooled_balacc": _mean([v["balanced_accuracy"]
+                                             for v in pooled.values()]),
+        })
+        chosen = trial.user_attrs["candidates"][SEARCH_OBJECTIVE]
+        if np.isnan(chosen):
+            logger.warning("trial %s: %s is nan, returning 0", trial.number, SEARCH_OBJECTIVE)
+            return 0.0
+        return float(chosen)
     
     # A fixed-hyperparameter arm skips the search entirely. Used to compare the
     # multi-task net against a single-task control on identical settings: with no
@@ -795,11 +955,35 @@ def train_outer_fold(
             pruner=optuna.pruners.NopPruner()  # No pruning for multi-fold CV
         )
 
+        # The study is in memory, so set_user_attr alone would die with the process
+        # and a question about the search could only be answered by repeating it --
+        # which is what forced this rerun. One appended line per trial fixes that, and
+        # survives a kill. Deliberately not a SQLite storage: this filesystem is
+        # shared, and SQLite locking there can hang the run it is meant to protect.
+        trials_path = output_dir / "optuna_trials.jsonl"
+        trials_path.parent.mkdir(parents=True, exist_ok=True)
+
+        def _record_trial(study_, trial_) -> None:
+            try:
+                with open(trials_path, "a") as fh:
+                    fh.write(json.dumps({
+                        "number": trial_.number,
+                        "value": trial_.value,
+                        "state": str(trial_.state),
+                        "params": trial_.params,
+                        **trial_.user_attrs,
+                    }) + "\n")
+            except OSError as exc:          # never lose a search to a logging failure
+                logger.warning("could not append trial %s to %s: %s",
+                               trial_.number, trials_path, exc)
+
         study.optimize(
             objective_with_cv,
             n_trials=config.get('n_trials', 50),
-            show_progress_bar=False
+            show_progress_bar=False,
+            callbacks=[_record_trial]
         )
+        logger.info("per-trial record -> %s", trials_path)
 
         best_params = study.best_params
         # aggregate_cv_results reads task_names off the task_weight_* keys, so they
