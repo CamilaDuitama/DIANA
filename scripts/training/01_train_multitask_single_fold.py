@@ -1173,6 +1173,10 @@ Example:
     parser.add_argument('--max_epochs', type=int, default=None)
     parser.add_argument('--patience', type=int, default=None)
     parser.add_argument('--resume_from', type=Path, default=None)
+    parser.add_argument('--seed', type=int, default=None,
+                        help='override random_seed. Used by the architecture paired '
+                             'test, where several seeds per fold separate the effect '
+                             'of the architecture from run-to-run noise.')
 
     args = parser.parse_args()
 
@@ -1197,12 +1201,14 @@ Example:
     max_epochs         = args.max_epochs or cfg.get('max_epochs', 100)
     patience           = args.patience   or cfg.get('patience', 15)
     n_inner_splits     = cfg.get('n_inner_splits', 3)
-    random_seed        = cfg.get('random_seed', 42)
+    random_seed        = args.seed if args.seed is not None else cfg.get('random_seed', 42)
     no_label_smoothing = cfg.get('no_label_smoothing', True)
     checkpoint_freq    = cfg.get('checkpoint_freq', 10)
 
     # ── Logging ─────────────────────────────────────────────────────────────
-    fold_dir = output_dir / 'cv_results' / f'fold_{args.fold_id}'
+    fold_dir = output_dir / 'cv_results' / (
+        f'fold_{args.fold_id}' if args.seed is None
+        else f'fold_{args.fold_id}_seed{args.seed}')
     fold_dir.mkdir(parents=True, exist_ok=True)
 
     setup_logging(
