@@ -14,7 +14,7 @@ INPUTS (from config.py):
     - PATHS['validation_metadata']: validation metadata TSV
 
 OUTPUTS:
-    - paper/tables/final/sup_table_ZZ_zero_support_classes.tex
+    - paper/tables/final/sup_table_12_zero_support_classes.tex
 
 USAGE:
     python scripts/paper/30_generate_zero_support_supplement.py
@@ -198,7 +198,7 @@ def generate_table(output_dir: Path) -> None:
         r"Classes present in both splits are not shown.}",
     ]
 
-    out = output_dir / "sup_table_10_zero_support_classes.tex"
+    out = output_dir / "sup_table_12_zero_support_classes.tex"
     with open(out, 'w') as f:
         f.write('\n'.join(lines))
     print(f"  ✓ {out}")

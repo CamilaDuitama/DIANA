@@ -47,7 +47,7 @@ from config import PATHS, PLOT_CONFIG
 BIOPROJECT_METRICS = Path("results/baseline_comparison_bioproject/metrics.json")
 CV_BASELINE        = Path("results/baseline_comparison/aggregated_metrics.json")
 CV_DIANA           = Path(PATHS["cv_results"])
-VAL_META           = Path("data/splits_bioproject/validation_metadata.tsv")
+VAL_META           = Path("data/splits_v5/validation_metadata.tsv")
 VAL_PRED_DIR       = Path(PATHS["predictions_dir"])
 OUTPUT_DIR         = Path(PATHS["figures_dir"])
 

@@ -56,15 +56,18 @@ import pandas as pd
 from packaging.version import Version
 from sklearn import __version__ as sklearn_version
 from sklearn.base import clone
-from sklearn.dummy import DummyClassifier
-from sklearn.linear_model import LogisticRegression, RidgeClassifier
-from sklearn.svm import LinearSVC
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.dummy import DummyClassifier, DummyRegressor
+from sklearn.linear_model import LogisticRegression, RidgeClassifier, Ridge
+from sklearn.svm import LinearSVC, LinearSVR
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import (
     accuracy_score,
     balanced_accuracy_score,
     f1_score,
+    mean_absolute_error,
+    mean_squared_error,
+    r2_score,
 )
 
 warnings.filterwarnings("ignore")
@@ -168,6 +171,7 @@ DIANA_METRICS = None
 DIANA_TEST_PREDS = None
 OUTPUT_DIR = None
 TASKS = []
+TASK_TYPES = {}   # task -> "classification" | "regression"
 N_BOOT = 1000
 
 
@@ -175,7 +179,7 @@ def _init_config():
     """Initialize global configuration from args and/or config file."""
     global _ARGS, _CONFIG, GET
     global MATRIX_PATH, TRAIN_META, TEST_META, VAL_META, VAL_PRED_DIR
-    global SKIP_VAL, DIANA_METRICS, DIANA_TEST_PREDS, OUTPUT_DIR, TASKS, N_BOOT
+    global SKIP_VAL, DIANA_METRICS, DIANA_TEST_PREDS, OUTPUT_DIR, TASKS, TASK_TYPES, N_BOOT
 
     _ARGS, _CONFIG, GET = _parse_args()
 
@@ -201,12 +205,19 @@ def _init_config():
 
     # Tasks: from config or default
     tasks_arg = GET("tasks", default=None)
-    if tasks_arg:
-        TASKS = [t.strip() for t in tasks_arg.split(",")]
+    if tasks_arg is not None:
+        if isinstance(tasks_arg, list):
+            TASKS = tasks_arg
+        else:
+            TASKS = [t.strip() for t in tasks_arg.split(",")]
     elif "tasks" in _CONFIG.get("data", {}):
         TASKS = _CONFIG["data"]["tasks"]
     else:
         TASKS = ["sample_type", "community_type", "sample_host", "material"]
+
+    # Task types: classification or regression per task
+    raw_types = _CONFIG.get("task_types", {}) if _CONFIG else {}
+    TASK_TYPES = {t: raw_types.get(t, "classification") for t in TASKS}
 
     # Bootstrap samples
     N_BOOT = GET("n-boot", "bootstrap.n_boot", 1000)
@@ -292,6 +303,33 @@ def _build_models() -> dict:
         )
 
     return models
+
+
+def _build_regression_models() -> dict:
+    """Build baseline regressors for continuous targets."""
+    model_cfg = _CONFIG.get("models", {}) if _CONFIG else {}
+    ridge_cfg = model_cfg.get("ridge_regressor", {})
+    svr_cfg   = model_cfg.get("linear_svr", {})
+    rf_cfg    = model_cfg.get("random_forest", {})
+
+    return {
+        "MeanPredictor": DummyRegressor(strategy="mean"),
+        "MedianPredictor": DummyRegressor(strategy="median"),
+        "Ridge": Ridge(
+            alpha=ridge_cfg.get("alpha", 1.0),
+        ),
+        "LinearSVR": LinearSVR(
+            C=svr_cfg.get("C", 1.0),
+            max_iter=svr_cfg.get("max_iter", 5000),
+            random_state=RANDOM_STATE,
+        ),
+        "RandomForestRegressor": RandomForestRegressor(
+            n_estimators=rf_cfg.get("n_estimators", 200),
+            max_features=rf_cfg.get("max_features", "sqrt"),
+            n_jobs=-1,
+            random_state=RANDOM_STATE,
+        ),
+    }
 
 
 # ─── Logging ────────────────────────────────────────────────────────────────
@@ -403,6 +441,44 @@ def compute_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> dict:
     }
 
 
+def compute_regression_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> dict:
+    """Point-estimate regression metrics."""
+    mae  = float(mean_absolute_error(y_true, y_pred))
+    rmse = float(np.sqrt(mean_squared_error(y_true, y_pred)))
+    r2   = float(r2_score(y_true, y_pred))
+    return {"mae": mae, "rmse": rmse, "r2": r2}
+
+
+def bootstrap_regression_ci(
+    y_true: np.ndarray,
+    y_pred: np.ndarray,
+    n_boot: int = 1000,
+    seed: int = 42,
+) -> dict:
+    """95 % percentile-bootstrap CI for MAE and R²."""
+    rng = np.random.default_rng(seed)
+    n   = len(y_true)
+    mae_vals, r2_vals = [], []
+    for _ in range(n_boot):
+        idx = rng.integers(0, n, size=n)
+        yt, yp = y_true[idx], y_pred[idx]
+        mae_vals.append(mean_absolute_error(yt, yp))
+        r2_vals.append(r2_score(yt, yp))
+    return {
+        "mae_ci_low":  float(np.percentile(mae_vals, 2.5)),
+        "mae_ci_high": float(np.percentile(mae_vals, 97.5)),
+        "r2_ci_low":   float(np.percentile(r2_vals, 2.5)),
+        "r2_ci_high":  float(np.percentile(r2_vals, 97.5)),
+    }
+
+
+def evaluate_regression_with_ci(y_true: np.ndarray, y_pred: np.ndarray) -> dict:
+    """Compute regression point-estimate metrics + 95 % bootstrap CI."""
+    m = compute_regression_metrics(y_true, y_pred)
+    m.update(bootstrap_regression_ci(y_true, y_pred))
+    return m
+
+
 def bootstrap_ci(
     y_true: np.ndarray,
     y_pred: np.ndarray,
@@ -468,44 +544,76 @@ def main():
     logger.info(f"Data loaded in {time.time() - t0:.1f}s")
 
     # Encode labels — fit on train, apply to test and val
+    # For regression tasks: float arrays with NaN mask; for classification: LabelEncoder
     le_map: dict = {}
     y_train: dict = {}
     y_test:  dict = {}
     y_val:   dict = {}
     for task in TASKS:
-        le = LabelEncoder()
-        le.fit(meta_train[task].fillna("Unknown"))
-        le_map[task] = le
+        task_type = TASK_TYPES.get(task, "classification")
 
-        y_train[task] = le.transform(meta_train[task].fillna("Unknown"))
+        if task_type == "regression":
+            # Float targets; NaN → excluded via mask
+            train_vals = pd.to_numeric(meta_train[task], errors="coerce")
+            mask_train_reg = train_vals.notna()
+            y_train[task] = train_vals[mask_train_reg].values.astype(np.float32)
+            le_map[f"{task}_train_mask"] = mask_train_reg.values
 
-        known = set(le.classes_)
+            test_vals = pd.to_numeric(meta_test[task], errors="coerce")
+            mask_test = test_vals.notna()
+            y_test[task] = test_vals[mask_test].values.astype(np.float32)
+            le_map[f"{task}_test_mask"] = mask_test.values
 
-        # Test mask
-        test_labels = meta_test[task].fillna("Unknown")
-        n_unseen = (~test_labels.isin(known)).sum()
-        if n_unseen > 0:
-            logger.warning(f"  {task}: {n_unseen} test samples have unseen labels — excluded")
-        mask_test = test_labels.isin(known)
-        y_test[task] = le.transform(test_labels[mask_test])
-        le_map[f"{task}_test_mask"] = mask_test.values
+            if not SKIP_VAL and len(meta_val) > 0:
+                val_vals = pd.to_numeric(meta_val[task], errors="coerce")
+                mask_val = val_vals.notna()
+                y_val[task] = val_vals[mask_val].values.astype(np.float32)
+                le_map[f"{task}_val_mask"] = mask_val.values
+            else:
+                mask_val = pd.Series([], dtype=bool)
+                y_val[task] = np.array([], dtype=np.float32)
+                le_map[f"{task}_val_mask"] = np.array([], dtype=bool)
 
-        # Validation mask
-        if not SKIP_VAL and len(meta_val) > 0:
-            val_labels = meta_val[task].fillna("Unknown")
-            n_unseen_val = (~val_labels.isin(known)).sum()
-            if n_unseen_val > 0:
-                logger.warning(f"  {task}: {n_unseen_val} val samples have unseen labels — excluded")
-            mask_val = val_labels.isin(known)
-            y_val[task] = le.transform(val_labels[mask_val])
-            le_map[f"{task}_val_mask"] = mask_val.values
+            n_nan_train = (~mask_train_reg).sum()
+            logger.info(f"  {task} [regression]: train n={mask_train_reg.sum()} "
+                        f"(NaN excluded: {n_nan_train}), test n={mask_test.sum()}, "
+                        f"val n={mask_val.sum()}")
+
         else:
-            mask_val = pd.Series([], dtype=bool)
-            y_val[task] = np.array([])
-            le_map[f"{task}_val_mask"] = np.array([], dtype=bool)
+            le = LabelEncoder()
+            le.fit(meta_train[task].fillna("Unknown"))
+            le_map[task] = le
 
-        logger.info(f"  {task}: {len(le.classes_)} classes — "
-                    f"test n={mask_test.sum()}, val n={mask_val.sum()}")
+            y_train[task] = le.transform(meta_train[task].fillna("Unknown"))
+            le_map[f"{task}_train_mask"] = np.ones(len(meta_train), dtype=bool)
+
+            known = set(le.classes_)
+
+            # Test mask
+            test_labels = meta_test[task].fillna("Unknown")
+            n_unseen = (~test_labels.isin(known)).sum()
+            if n_unseen > 0:
+                logger.warning(f"  {task}: {n_unseen} test samples have unseen labels — excluded")
+            mask_test = test_labels.isin(known)
+            y_test[task] = le.transform(test_labels[mask_test])
+            le_map[f"{task}_test_mask"] = mask_test.values
+
+            # Validation mask
+            if not SKIP_VAL and len(meta_val) > 0:
+                val_labels = meta_val[task].fillna("Unknown")
+                n_unseen_val = (~val_labels.isin(known)).sum()
+                if n_unseen_val > 0:
+                    logger.warning(f"  {task}: {n_unseen_val} val samples have unseen labels — excluded")
+                mask_val = val_labels.isin(known)
+                y_val[task] = le.transform(val_labels[mask_val])
+                le_map[f"{task}_val_mask"] = mask_val.values
+            else:
+                mask_val = pd.Series([], dtype=bool)
+                y_val[task] = np.array([])
+                le_map[f"{task}_val_mask"] = np.array([], dtype=bool)
+
+            logger.info(f"  {task} [classification]: {len(le.classes_)} classes — "
+                        f"test n={mask_test.sum()}, val n={mask_val.sum()}")
 
     # Load DIANA reference
     diana_ref: dict = {}
@@ -595,23 +703,34 @@ def main():
             )
 
     # ── Run baselines ────────────────────────────────────────────────────────
-    MODELS = _build_models()
-    results_test: dict = {m: {} for m in MODELS}
-    results_val:  dict = {m: {} for m in MODELS}
+    clf_tasks = [t for t in TASKS if TASK_TYPES.get(t, "classification") == "classification"]
+    reg_tasks = [t for t in TASKS if TASK_TYPES.get(t, "classification") == "regression"]
+    logger.info(f"\nClassification tasks: {clf_tasks}")
+    logger.info(f"Regression tasks:     {reg_tasks}")
 
-    for model_name, model_proto in MODELS.items():
+    CLF_MODELS = _build_models()
+    REG_MODELS = _build_regression_models()
+
+    results_test: dict = {}
+    results_val:  dict = {}
+
+    # ── Classification models ──
+    for model_name, model_proto in CLF_MODELS.items():
+        results_test[model_name] = {}
+        results_val[model_name]  = {}
         logger.info(f"\n{'─' * 60}")
-        logger.info(f"Model: {model_name}")
+        logger.info(f"Model: {model_name} [classifier]")
         t_model = time.time()
 
-        for task in TASKS:
+        for task in clf_tasks:
             model = clone(model_proto)
-            mask_test = le_map[f"{task}_test_mask"]
-            mask_val  = le_map[f"{task}_val_mask"]
+            mask_train = le_map[f"{task}_train_mask"]
+            mask_test  = le_map[f"{task}_test_mask"]
+            mask_val   = le_map[f"{task}_val_mask"]
 
             t_task = time.time()
             try:
-                model.fit(X_train, y_train[task])
+                model.fit(X_train[mask_train], y_train[task])
                 # Test
                 y_pred_test = model.predict(X_test[mask_test])
                 metrics_test = evaluate_with_ci(y_test[task], y_pred_test)
@@ -635,13 +754,61 @@ def main():
             results_val[model_name][task]  = metrics_val
 
             logger.info(
-                f"  {task}: "
-                f"test bal_acc={metrics_test['balanced_accuracy']:.3f} f1†={metrics_test['f1_macro_seen']:.3f}"
-                + (f"  val bal_acc={metrics_val['balanced_accuracy']:.3f} f1†={metrics_val['f1_macro_seen']:.3f}" if not SKIP_VAL else "")
+                f"  {task}: test bal_acc={metrics_test.get('balanced_accuracy', float('nan')):.3f} "
+                f"f1†={metrics_test.get('f1_macro_seen', float('nan')):.3f}"
+                + (f"  val bal_acc={metrics_val.get('balanced_accuracy', float('nan')):.3f}" if not SKIP_VAL else "")
                 + f"  ({elapsed:.1f}s)"
             )
 
-        logger.info(f"  Total: {time.time() - t_model:.1f}s")
+        logger.info(f"  Classifier total: {time.time() - t_model:.1f}s")
+
+    # ── Regression models ──
+    for model_name, model_proto in REG_MODELS.items():
+        results_test[model_name] = {}
+        results_val[model_name]  = {}
+        logger.info(f"\n{'─' * 60}")
+        logger.info(f"Model: {model_name} [regressor]")
+        t_model = time.time()
+
+        for task in reg_tasks:
+            model = clone(model_proto)
+            mask_train = le_map[f"{task}_train_mask"]
+            mask_test  = le_map[f"{task}_test_mask"]
+            mask_val   = le_map[f"{task}_val_mask"]
+
+            t_task = time.time()
+            try:
+                model.fit(X_train[mask_train], y_train[task])
+                # Test
+                y_pred_test = model.predict(X_test[mask_test])
+                metrics_test = evaluate_regression_with_ci(y_test[task], y_pred_test)
+                # Validation
+                if not SKIP_VAL and len(y_val[task]) > 0:
+                    y_pred_val = model.predict(X_val[mask_val])
+                    metrics_val = evaluate_regression_with_ci(y_val[task], y_pred_val)
+                else:
+                    empty = {k: float("nan") for k in ["mae", "rmse", "r2"]}
+                    metrics_val = empty
+            except Exception as exc:
+                logger.error(f"  [{task}] FAILED: {exc}")
+                empty = {k: float("nan") for k in ["mae", "rmse", "r2"]}
+                metrics_test = metrics_val = empty
+
+            elapsed = time.time() - t_task
+            metrics_test["fit_predict_s"] = round(elapsed, 2)
+            results_test[model_name][task] = metrics_test
+            results_val[model_name][task]  = metrics_val
+
+            logger.info(
+                f"  {task}: test MAE={metrics_test.get('mae', float('nan')):.3f} "
+                f"R²={metrics_test.get('r2', float('nan')):.3f}"
+                + (f"  val MAE={metrics_val.get('mae', float('nan')):.3f}" if not SKIP_VAL else "")
+                + f"  ({elapsed:.1f}s)"
+            )
+
+        logger.info(f"  Regressor total: {time.time() - t_model:.1f}s")
+
+    ALL_MODELS = {**CLF_MODELS, **REG_MODELS}
 
     # ── Save raw JSON ────────────────────────────────────────────────────────
     out = {
@@ -656,135 +823,197 @@ def main():
             "date":      datetime.now().isoformat(),
             "sklearn":   sklearn_version,
             "n_boot":    N_BOOT,
-            "config":    _ARGS.config if _ARGS.config else "command-line",
-        },
+            "config":    _ARGS.config if _ARGS.config else "command-line",            "task_types": TASK_TYPES,        },
     }
     with open(OUTPUT_DIR / "metrics.json", "w") as f:
         json.dump(out, f, indent=2, default=str)
     logger.info(f"\nRaw metrics saved to {OUTPUT_DIR / 'metrics.json'}")
 
     # ── Build summary table ──────────────────────────────────────────────────
-    METRIC_COLS = ["accuracy", "balanced_accuracy", "f1_macro_seen"]
+    CLF_METRIC_COLS = ["accuracy", "balanced_accuracy", "f1_macro_seen"]
+    REG_METRIC_COLS = ["mae", "rmse", "r2"]
     DISPLAY_NAMES = {
-        "MajorityClass":        "Majority Class",
-        "LogisticRegression":   "Logistic Regression",
+        "MajorityClass":          "Majority Class",
+        "LogisticRegression":     "Logistic Regression",
         "LogisticRegression_Bal": "Logistic Regression (Bal.)",
-        "LinearSVM":            "Linear SVM",
-        "LinearSVM_Bal":        "Linear SVM (Bal.)",
-        "RidgeClassifier":      "Ridge Classifier",
-        "RidgeClassifier_Bal":  "Ridge Classifier (Bal.)",
-        "RandomForest":         "Random Forest",
-        "RandomForest_Bal":     "Random Forest (Bal.)",
-        "DIANA":                "DIANA (multi-task MLP)",
+        "LinearSVM":              "Linear SVM",
+        "LinearSVM_Bal":          "Linear SVM (Bal.)",
+        "RidgeClassifier":        "Ridge Classifier",
+        "RidgeClassifier_Bal":    "Ridge Classifier (Bal.)",
+        "RandomForest":           "Random Forest",
+        "RandomForest_Bal":       "Random Forest (Bal.)",
+        "MeanPredictor":          "Mean Predictor",
+        "MedianPredictor":        "Median Predictor",
+        "Ridge":                  "Ridge Regression",
+        "LinearSVR":              "Linear SVR",
+        "RandomForestRegressor":  "Random Forest Regressor",
+        "DIANA":                  "DIANA (multi-task MLP)",
     }
 
+    clf_tasks = [t for t in TASKS if TASK_TYPES.get(t, "classification") == "classification"]
+    reg_tasks = [t for t in TASKS if TASK_TYPES.get(t, "classification") == "regression"]
+
     rows = []
-    # DIANA row
-    for task in TASKS:
+    # DIANA rows (classification only — regression metrics added when model trained)
+    for task in clf_tasks:
         d = diana_ref.get(task, {})
-        row = {"model": "DIANA", "split": "test", "task": task}
-        for m in METRIC_COLS:
+        row = {"model": "DIANA", "split": "test", "task": task, "task_type": "classification"}
+        for m in CLF_METRIC_COLS:
             row[m] = d.get(m, float("nan"))
         rows.append(row)
 
-    # Baseline rows — both splits
-    for model_name in MODELS:
+    # Classification baseline rows
+    for model_name in CLF_MODELS:
         for split, res_dict in (("test", results_test), ("val", results_val)):
-            for task in TASKS:
+            for task in clf_tasks:
                 m_dict = res_dict[model_name].get(task, {})
-                row = {"model": model_name, "split": split, "task": task}
-                for m in METRIC_COLS:
+                row = {"model": model_name, "split": split, "task": task, "task_type": "classification"}
+                for m in CLF_METRIC_COLS:
+                    row[m] = m_dict.get(m, float("nan"))
+                rows.append(row)
+
+    # Regression baseline rows
+    for model_name in REG_MODELS:
+        for split, res_dict in (("test", results_test), ("val", results_val)):
+            for task in reg_tasks:
+                m_dict = res_dict[model_name].get(task, {})
+                row = {"model": model_name, "split": split, "task": task, "task_type": "regression"}
+                for m in REG_METRIC_COLS:
                     row[m] = m_dict.get(m, float("nan"))
                 rows.append(row)
 
     df = pd.DataFrame(rows)
     df.to_csv(OUTPUT_DIR / "summary.csv", index=False)
 
-    # ── LaTeX table ─────────────────────────────────────────────────────────
+    # ── LaTeX tables (one for classification, one for regression) ────────────
     task_labels = {t: t.replace("_", " ").title() for t in TASKS}
-    model_order = ["DIANA"] + list(MODELS.keys())
-    model_order = [m for m in model_order if m in set(df["model"])]
+
+    def _write_clf_latex(df_test_clf, clf_model_order, out_path):
+        lines = [
+            r"\centering",
+            r"\caption{Comparison of DIANA against baseline classifiers on the held-out"
+            r" BioProject-disjoint test set. Bal.\ = class\_weight=`balanced'.}",
+            r"\label{tab:baseline_comparison_clf}",
+            r"\small",
+            r"\begin{tabular}{ll" + "r" * len(CLF_METRIC_COLS) + r"}",
+            r"\toprule",
+            r"Model & Task & Accuracy (\%) & Bal.\ Acc.\ (\%) & F1$^{\dagger}$ (\%) \\",
+            r"\midrule",
+        ]
+        for i, model_name in enumerate(clf_model_order):
+            display = DISPLAY_NAMES.get(model_name, model_name)
+            first_row = True
+            for task in clf_tasks:
+                subset = df_test_clf[(df_test_clf["model"] == model_name) & (df_test_clf["task"] == task)]
+                if subset.empty:
+                    continue
+                r = subset.iloc[0]
+                acc     = f"{r['accuracy']*100:.1f}" if not pd.isna(r.get('accuracy', float('nan'))) else "--"
+                bal_acc = f"{r['balanced_accuracy']*100:.1f}" if not pd.isna(r.get('balanced_accuracy', float('nan'))) else "--"
+                f1      = f"{r['f1_macro_seen']*100:.1f}" if not pd.isna(r.get('f1_macro_seen', float('nan'))) else "--"
+                lines.append(f"{display if first_row else ''} & {task_labels.get(task, task)} & {acc} & {bal_acc} & {f1} \\\\")
+                first_row = False
+            if model_name == "DIANA":
+                lines.append(r"\midrule")
+            elif i < len(clf_model_order) - 1:
+                lines.append(r"\addlinespace")
+        lines += [r"\bottomrule", r"\end{tabular}"]
+        with open(out_path, "w") as f:
+            f.write("\n".join(lines))
+
+    def _write_reg_latex(df_test_reg, reg_model_order, out_path):
+        lines = [
+            r"\centering",
+            r"\caption{Comparison of DIANA against baseline regressors on the held-out"
+            r" BioProject-disjoint test set (continuous tasks).}",
+            r"\label{tab:baseline_comparison_reg}",
+            r"\small",
+            r"\begin{tabular}{ll" + "r" * len(REG_METRIC_COLS) + r"}",
+            r"\toprule",
+            r"Model & Task & MAE & RMSE & R$^2$ \\",
+            r"\midrule",
+        ]
+        for i, model_name in enumerate(reg_model_order):
+            display = DISPLAY_NAMES.get(model_name, model_name)
+            first_row = True
+            for task in reg_tasks:
+                subset = df_test_reg[(df_test_reg["model"] == model_name) & (df_test_reg["task"] == task)]
+                if subset.empty:
+                    continue
+                r = subset.iloc[0]
+                mae  = f"{r['mae']:.2f}"  if not pd.isna(r.get('mae',  float('nan'))) else "--"
+                rmse = f"{r['rmse']:.2f}" if not pd.isna(r.get('rmse', float('nan'))) else "--"
+                r2   = f"{r['r2']:.3f}"   if not pd.isna(r.get('r2',   float('nan'))) else "--"
+                lines.append(f"{display if first_row else ''} & {task_labels.get(task, task)} & {mae} & {rmse} & {r2} \\\\")
+                first_row = False
+            if i < len(reg_model_order) - 1:
+                lines.append(r"\addlinespace")
+        lines += [r"\bottomrule", r"\end{tabular}"]
+        with open(out_path, "w") as f:
+            f.write("\n".join(lines))
+
     df_test = df[df["split"] == "test"]
+    df_test_clf = df_test[df_test["task_type"] == "classification"]
+    df_test_reg = df_test[df_test["task_type"] == "regression"]
 
-    lines = [
-        r"\centering",
-        r"\caption{Comparison of DIANA against baseline classifiers on the held-out"
-        r" BioProject-disjoint test set. All models are trained on the full"
-        r" training set and evaluated on samples with known labels only."
-        r" Bal.\ = class\_weight=`balanced'.}",
-        r"\label{tab:baseline_comparison}",
-        r"\small",
-        r"\begin{tabular}{ll" + "r" * len(METRIC_COLS) + r"}",
-        r"\toprule",
-        r"Model & Task & Accuracy (\%) & Bal.\ Acc.\ (\%) & F1$^{\dagger}$ (\%) \\",
-        r"\midrule",
-    ]
+    clf_model_order = ["DIANA"] + list(CLF_MODELS.keys())
+    clf_model_order = [m for m in clf_model_order if m in set(df_test_clf["model"])]
+    reg_model_order = list(REG_MODELS.keys())
+    reg_model_order = [m for m in reg_model_order if m in set(df_test_reg["model"])]
 
-    for i, model_name in enumerate(model_order):
-        display = DISPLAY_NAMES.get(model_name, model_name)
-        first_row = True
-        for task in TASKS:
-            subset = df_test[(df_test["model"] == model_name) & (df_test["task"] == task)]
-            if subset.empty:
-                continue
-            r = subset.iloc[0]
-            acc     = f"{r['accuracy']*100:.1f}" if not pd.isna(r['accuracy']) else "nan"
-            bal_acc = f"{r['balanced_accuracy']*100:.1f}" if not pd.isna(r['balanced_accuracy']) else "nan"
-            f1      = f"{r['f1_macro_seen']*100:.1f}" if not pd.isna(r['f1_macro_seen']) else "nan"
-            task_str = task_labels.get(task, task)
-            model_str = display if first_row else ""
-            lines.append(f"{model_str} & {task_str} & {acc} & {bal_acc} & {f1} \\\\")
-            first_row = False
-
-        # Separator between groups (except last)
-        if model_name == "DIANA":
-            lines.append(r"\midrule")
-        elif i < len(model_order) - 1:
-            lines.append(r"\addlinespace")
-
-    lines += [
-        r"\bottomrule",
-        r"\end{tabular}",
-    ]
-
-    tex = "\n".join(lines)
-    with open(OUTPUT_DIR / "summary.tex", "w") as f:
-        f.write(tex)
+    if clf_tasks:
+        _write_clf_latex(df_test_clf, clf_model_order, OUTPUT_DIR / "summary_classification.tex")
+        _write_clf_latex(df_test_clf, clf_model_order, OUTPUT_DIR / "summary.tex")  # backward compat
+        logger.info(f"LaTeX classification table → {OUTPUT_DIR / 'summary_classification.tex'}")
+    if reg_tasks:
+        _write_reg_latex(df_test_reg, reg_model_order, OUTPUT_DIR / "summary_regression.tex")
+        logger.info(f"LaTeX regression table     → {OUTPUT_DIR / 'summary_regression.tex'}")
 
     # ── Console summary ──────────────────────────────────────────────────────
     logger.info("\n" + "=" * 70)
-    logger.info("SUMMARY — Balanced Accuracy  |  F1† (seen classes only)")
+    logger.info("SUMMARY (test set)")
     logger.info("=" * 70)
-    for split_label, split_key, res_dict in [
-        ("TEST",       "test", results_test),
-        ("VALIDATION", "val",  results_val),
-    ]:
-        logger.info(f"\n  [{split_label}]")
-        header = f"  {'Model':<32} " + "  ".join(f"{t:<16}" for t in TASKS)
+
+    if clf_tasks:
+        logger.info("\n  CLASSIFICATION — Balanced Accuracy | F1†")
+        header = f"  {'Model':<32} " + "  ".join(f"{t:<20}" for t in clf_tasks)
         logger.info(header)
         logger.info("  " + "-" * (len(header) - 2))
-        for model_name in model_order:
+        for model_name in clf_model_order:
             display = DISPLAY_NAMES.get(model_name, model_name)
-            if model_name == "DIANA":
-                src = df[(df["model"] == "DIANA") & (df["split"] == "test")]
-            else:
-                src = df[(df["model"] == model_name) & (df["split"] == split_key)]
+            src = df[(df["model"] == model_name) & (df["split"] == "test")]
             vals = []
-            for task in TASKS:
+            for task in clf_tasks:
                 row = src[src["task"] == task]
                 if row.empty:
-                    vals.append("  N/A          ")
+                    vals.append("N/A                 ")
                 else:
-                    ba = row.iloc[0]["balanced_accuracy"]
-                    f1 = row.iloc[0]["f1_macro_seen"]
-                    if pd.isna(ba):
-                        vals.append("  nan          ")
-                    else:
-                        vals.append(f"{ba*100:.1f}% / {f1*100:.1f}%")
-            logger.info(f"  {display:<32} " + "  ".join(f"{v:<16}" for v in vals))
+                    ba = row.iloc[0].get("balanced_accuracy", float("nan"))
+                    f1 = row.iloc[0].get("f1_macro_seen", float("nan"))
+                    vals.append(f"{ba*100:.1f}% / {f1*100:.1f}%" if not pd.isna(ba) else "nan")
+            logger.info(f"  {display:<32} " + "  ".join(f"{v:<20}" for v in vals))
+
+    if reg_tasks:
+        logger.info("\n  REGRESSION — MAE | R²")
+        header = f"  {'Model':<32} " + "  ".join(f"{t:<22}" for t in reg_tasks)
+        logger.info(header)
+        logger.info("  " + "-" * (len(header) - 2))
+        for model_name in reg_model_order:
+            display = DISPLAY_NAMES.get(model_name, model_name)
+            src = df[(df["model"] == model_name) & (df["split"] == "test")]
+            vals = []
+            for task in reg_tasks:
+                row = src[src["task"] == task]
+                if row.empty:
+                    vals.append("N/A                   ")
+                else:
+                    mae = row.iloc[0].get("mae", float("nan"))
+                    r2  = row.iloc[0].get("r2",  float("nan"))
+                    vals.append(f"MAE={mae:.2f} R²={r2:.3f}" if not pd.isna(mae) else "nan")
+            logger.info(f"  {display:<32} " + "  ".join(f"{v:<22}" for v in vals))
 
     logger.info(f"\nOutputs in: {OUTPUT_DIR}/")
-    logger.info(f"  summary.csv  summary.tex  metrics.json  baseline_comparison.log")
+    logger.info(f"  summary.csv  summary.tex  summary_classification.tex  summary_regression.tex  metrics.json")
     logger.info("DONE")
 
 

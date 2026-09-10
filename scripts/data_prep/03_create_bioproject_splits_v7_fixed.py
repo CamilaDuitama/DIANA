@@ -7,17 +7,19 @@ FIXES V6 ISSUE:
     these labels only appeared in bioprojects that were randomly assigned to val/test.
     
 SOLUTION (V7):
-    1. Identify rare community_type labels (≤2 bioprojects) and force to training
-    2. Stratify host and environmental samples SEPARATELY to prevent competition
-    3. Remove singleton/near-singleton classes (< 5 samples) from training
-    4. Accept rare material labels as zero-shot cases (not forced to training)
+    1. Identify rare labels (≤max_bioprojects) in community_type, sample_host, material
+    2. Force at least one bioproject with each rare label → TRAINING
+    3. Stratify host and environmental samples SEPARATELY to prevent competition
+    4. Remove singleton/near-singleton classes (< min_samples_per_class) from training
     5. Generate label distribution report automatically
 
 KEY IMPROVEMENTS:
-    - Only community_type rare labels forced to training (material can be zero-shot)
+    - Multi-task rare label forcing: community_type, sample_host, material
     - Host and env samples stratified independently (no quota competition)
-    - Tighter quota multiplier (1.2× vs 1.5×) prevents large bioproject dominance
+    - Configurable quota multiplier prevents large bioproject dominance
     - Singleton removal ensures reliable class learning
+    - Comprehensive verification assertions for split integrity
+    - Forced bioproject tracking in config file
     - Integrated label distribution reporting
 
 USAGE:
@@ -27,7 +29,9 @@ USAGE:
         --val-size 0.15 \
         --test-size 0.15 \
         --random-state 42 \
-        --min-samples-per-class 5
+        --min-samples-per-class 5 \
+        --max-bioprojects-for-rare-label 2 \
+        --quota-multiplier 1.2
 """
 
 import argparse
@@ -76,7 +80,7 @@ def find_rare_labels(df: pd.DataFrame,
     """
     Find labels that appear in very few bioprojects (≤ max_bioprojects).
     
-    ONLY use for community_type — material rare labels should be zero-shot cases.
+    Used for community_type, sample_host, and material to force rare labels to training.
     
     Returns:
         dict mapping label -> list of bioprojects containing that label
@@ -108,23 +112,25 @@ def stratified_bioproject_split_with_label_coverage(
         val_size: float = 0.15,
         test_size: float = 0.15,
         random_state: int = 42,
-        min_samples_per_class: int = 5) -> Tuple[List[str], List[str], List[str]]:
+        min_samples_per_class: int = 5,
+        max_bioprojects_for_rare: int = 2,
+        quota_multiplier: float = 1.2) -> Tuple[List[str], List[str], List[str], pd.DataFrame, Set[str]]:
     """
     Assign BioProjects to train/val/test ensuring:
       1. No BioProject appears in multiple splits (disjoint by design)
-      2. community_type rare labels in TRAINING (material rare labels OK as zero-shot)
+      2. Rare labels (community_type, sample_host, material) forced to TRAINING
       3. Approximately correct split proportions
       4. Stratified SEPARATELY for host and environmental samples
       5. Classes with < min_samples_per_class removed from training
     
     Strategy:
-      - Identify rare community_type labels (appear in ≤2 bioprojects)
-      - Force at least one bioproject with each rare community_type → TRAINING
+      - Identify rare labels in community_type, sample_host, material (≤max_bioprojects)
+      - Force at least one bioproject with each rare label → TRAINING
       - Stratify host and environmental samples separately then combine
       - Remove singleton/near-singleton classes after split
     
     Returns:
-        train_accessions, val_accessions, test_accessions (after filtering)
+        train_accessions, val_accessions, test_accessions (after filtering), df_masked, forced_train_bps
     """
     assert abs(train_size + val_size + test_size - 1.0) < 1e-6
     
@@ -141,16 +147,28 @@ def stratified_bioproject_split_with_label_coverage(
     logger.info(f"Target split: train={train_size:.0%}, val={val_size:.0%}, test={test_size:.0%}")
     
     # =========================================================================
-    # STEP 1: Identify rare community_type labels ONLY (not material)
+    # STEP 1: Identify rare labels in community_type, sample_host, material
     # =========================================================================
     forced_train_bps: Set[str] = set()
+    forced_bp_reasons: Dict[str, List[str]] = defaultdict(list)  # Track which labels forced each BP
     
-    if stratify_col in df.columns:
-        # Bug Fix 3: Use host-only df for rare community_type label search
-        host_only_df = df[df['sample_type'] == 'host-associated']
-        rare_labels = find_rare_labels(host_only_df, bioproject_col, stratify_col, max_bioprojects=2)
+    # Define which columns to force rare labels to training
+    force_rare_labels_for = ['community_type', 'sample_host', 'material']
+    
+    for label_col in force_rare_labels_for:
+        if label_col not in df.columns:
+            continue
+        
+        # Use host-only df for host-specific labels; full df for environmental
+        if label_col in ['community_type', 'sample_host', 'material']:
+            search_df = df[df['sample_type'] == 'host-associated']
+        else:
+            search_df = df
+        
+        rare_labels = find_rare_labels(search_df, bioproject_col, label_col, max_bioprojects=max_bioprojects_for_rare)
+        
         if rare_labels:
-            logger.info(f"\n🔍 {stratify_col}: Found {len(rare_labels)} rare labels (≤2 bioprojects)")
+            logger.info(f"\n🔍 {label_col}: Found {len(rare_labels)} rare labels (≤{max_bioprojects_for_rare} bioprojects)")
             
             # Build profile for sizing
             profile_for_sizing = compute_bioproject_profile(df, bioproject_col, stratify_col, accession_col)
@@ -163,9 +181,18 @@ def stratified_bioproject_split_with_label_coverage(
                     largest_bp = max(bp_sizes, key=lambda x: x[1])[0]
                     if largest_bp not in forced_train_bps:
                         forced_train_bps.add(largest_bp)
-                        logger.info(f"  ✓ {largest_bp} → TRAIN (ensures '{label}' in training)")
+                        forced_bp_reasons[largest_bp].append(f"{label_col}='{label}'")
+                        logger.info(f"  ✓ {largest_bp} → TRAIN (ensures '{label}' in training for {label_col})")
+                    else:
+                        forced_bp_reasons[largest_bp].append(f"{label_col}='{label}'")
+                        logger.info(f"    {largest_bp} already forced (also has '{label}' in {label_col})")
     
     logger.info(f"\nTotal forced-train bioprojects: {len(forced_train_bps)}")
+    if forced_train_bps:
+        logger.info(f"Forced bioprojects summary:")
+        for bp in sorted(forced_train_bps):
+            reasons = "; ".join(forced_bp_reasons[bp])
+            logger.info(f"  - {bp}: {reasons}")
     
     # =========================================================================
     # STEP 2: Stratify HOST and ENVIRONMENTAL samples SEPARATELY
@@ -221,24 +248,24 @@ def stratified_bioproject_split_with_label_coverage(
             # Shuffle deterministically
             shuffled = rng.permutation(label_bps).tolist()
             
-            # Assign to val (tightened multiplier: 1.2× instead of 1.5×)
+            # Assign to val (using quota_multiplier)
             accumulated_val = 0
             for bp in shuffled[:]:
                 if accumulated_val >= label_val_quota:
                     break
                 bp_size = profile.loc[bp, "n_samples"]
-                if accumulated_val + bp_size <= label_val_quota * 1.2:
+                if accumulated_val + bp_size <= label_val_quota * quota_multiplier:
                     val_bp_set.add(bp)
                     accumulated_val += bp_size
                     shuffled.remove(bp)
             
-            # Assign to test (tightened multiplier: 1.2× instead of 1.5×)
+            # Assign to test (using quota_multiplier)
             accumulated_test = 0
             for bp in shuffled[:]:
                 if accumulated_test >= label_test_quota:
                     break
                 bp_size = profile.loc[bp, "n_samples"]
-                if accumulated_test + bp_size <= label_test_quota * 1.2:
+                if accumulated_test + bp_size <= label_test_quota * quota_multiplier:
                     test_bp_set.add(bp)
                     accumulated_test += bp_size
                     shuffled.remove(bp)
@@ -249,9 +276,23 @@ def stratified_bioproject_split_with_label_coverage(
     host_val_bps, host_test_bps = stratify_sample_type(host_df, "Host-associated")
     env_val_bps, env_test_bps = stratify_sample_type(env_df, "Environmental")
     
-    # Combine
+    # Combine - ensure no overlap if a bioproject has both host AND env samples
     val_bp_set = host_val_bps | env_val_bps
     test_bp_set = host_test_bps | env_test_bps
+    
+    # Fix overlap: if a bioproject was assigned to both, keep it in val (arbitrary choice)
+    overlap = val_bp_set & test_bp_set
+    if overlap:
+        logger.warning(f"  ⚠️  {len(overlap)} bioprojects have both host AND env samples")
+        logger.warning(f"     Assigned to both val and test by stratification → resolving by keeping in VALIDATION")
+        logger.warning(f"     Affected bioprojects: {sorted(overlap)}")
+        for bp in sorted(overlap):
+            bp_df = df[df[bioproject_col] == bp]
+            n_host = (bp_df['sample_type'] == 'host-associated').sum()
+            n_env = (bp_df['sample_type'] == 'environmental').sum()
+            logger.warning(f"       - {bp}: {n_host} host + {n_env} env samples")
+        test_bp_set = test_bp_set - overlap
+        logger.warning(f"     Test set reduced from {len(host_test_bps | env_test_bps)} to {len(test_bp_set)} bioprojects")
     
     # Get all bioprojects
     all_bps = set(bp_groups.keys())
@@ -274,6 +315,16 @@ def stratified_bioproject_split_with_label_coverage(
     assert len(train_bp_set & test_bp_set) == 0, "Train/Test overlap!"
     assert len(val_bp_set & test_bp_set) == 0, "Val/Test overlap!"
     logger.info(f"  ✓ Verified: All splits are disjoint")
+    
+    # Verify all bioprojects are assigned
+    unassigned = all_bps - train_bp_set - val_bp_set - test_bp_set
+    assert len(unassigned) == 0, f"Unassigned bioprojects: {unassigned}"
+    logger.info(f"  ✓ Verified: All bioprojects assigned to a split")
+    
+    # Verify forced bioprojects ended up in training
+    forced_not_in_train = forced_train_bps - train_bp_set
+    assert len(forced_not_in_train) == 0, f"Forced bioprojects not in training: {forced_not_in_train}"
+    logger.info(f"  ✓ Verified: All {len(forced_train_bps)} forced bioprojects in training")
 
     # =========================================================================
     # STEP 4: Collect accessions (before singleton removal)
@@ -333,7 +384,7 @@ def stratified_bioproject_split_with_label_coverage(
     else:
         logger.info(f"  ✅ No singleton classes found — all classes have ≥ {min_samples_per_class} samples")
 
-    return train_accessions, val_accessions, test_accessions, df_masked if total_masked > 0 else df
+    return train_accessions, val_accessions, test_accessions, df_masked if total_masked > 0 else df, forced_train_bps
 
 
 def verify_label_coverage(df: pd.DataFrame,
@@ -404,9 +455,9 @@ def main():
         help="Path to environmental samples TSV",
     )
     parser.add_argument(
-        "--logan-accessions",
-        default="data/metadata/AncientMetagenomeDir-v26.03.0/all_amd_accessions.txt",
-        help="Path to file with accessions that have Logan unitigs",
+        "--available-unitigs",
+        default="data/metadata/available_unitig_accessions.txt",
+        help="Path to file with accessions that have unitig files available (for train/test)",
     )
     parser.add_argument(
         "--output",
@@ -442,6 +493,18 @@ def main():
         type=int,
         default=5,
         help="Minimum samples per class in training (default: 5). Classes with fewer samples are removed.",
+    )
+    parser.add_argument(
+        "--max-bioprojects-for-rare-label",
+        type=int,
+        default=2,
+        help="Maximum bioprojects for a label to be considered 'rare' and forced to training (default: 2).",
+    )
+    parser.add_argument(
+        "--quota-multiplier",
+        type=float,
+        default=1.2,
+        help="Quota multiplier for val/test assignment flexibility (default: 1.2).",
     )
     args = parser.parse_args()
 
@@ -479,35 +542,54 @@ def main():
     df = pd.concat([host_df, env_df], ignore_index=True)
     logger.info(f"Loaded {len(df)} total libraries ({len(host_df)} host + {len(env_df)} env)")
 
-    # Filter to samples with Logan unitigs
-    logan_accessions = set(open(args.logan_accessions).read().strip().split('\n'))
-    logger.info(f"Loaded {len(logan_accessions)} Logan accessions")
+    # -------------------------------------------------------------------------
+    # Separate samples by unitig availability
+    # -------------------------------------------------------------------------
+    # Load available unitig accessions
+    with open(args.available_unitigs, 'r') as f:
+        available_unitigs = set(line.strip() for line in f if line.strip())
+    logger.info(f"Loaded {len(available_unitigs)} available unitig accessions")
+    
+    # Verify no whitespace in accessions
+    whitespace_accs = [acc for acc in available_unitigs if acc != acc.strip()]
+    assert len(whitespace_accs) == 0, f"Found {len(whitespace_accs)} accessions with whitespace"
     
     accession_col = "archive_data_accession"
-    before = len(df)
-    df = df[df[accession_col].isin(logan_accessions)]
-    logger.info(f"Filtered to {len(df)} libraries with Logan unitigs (dropped {before - len(df)})")
+    
+    # Split dataframe
+    df_with_unitigs = df[df[accession_col].isin(available_unitigs)].copy()
+    df_without_unitigs = df[~df[accession_col].isin(available_unitigs)].copy()
+    
+    logger.info(f"Samples WITH unitigs: {len(df_with_unitigs)} (can be train/val/test)")
+    logger.info(f"Samples WITHOUT unitigs: {len(df_without_unitigs)} (validation-only)")
+    
+    # Drop duplicates in with_unitigs (this is what we'll split)
+    before = len(df_with_unitigs)
+    df_with_unitigs = df_with_unitigs.drop_duplicates(subset=[accession_col])
+    if len(df_with_unitigs) < before:
+        logger.warning(f"Dropped {before - len(df_with_unitigs)} duplicate {accession_col} rows from with_unitigs")
+    
+    # Drop duplicates in without_unitigs
+    before = len(df_without_unitigs)
+    df_without_unitigs = df_without_unitigs.drop_duplicates(subset=[accession_col])
+    if len(df_without_unitigs) < before:
+        logger.warning(f"Dropped {before - len(df_without_unitigs)} duplicate {accession_col} rows from without_unitigs")
 
-    # Drop duplicates
-    before = len(df)
-    df = df.drop_duplicates(subset=[accession_col])
-    if len(df) < before:
-        logger.warning(f"Dropped {before - len(df)} duplicate {accession_col} rows")
-
-    # Fill missing BioProject
+    # Fill missing BioProject in with_unitigs
     bioproject_col = "project_name"
-    n_missing_bp = df[bioproject_col].isna().sum()
+    n_missing_bp = df_with_unitigs[bioproject_col].isna().sum()
     if n_missing_bp > 0:
-        logger.warning(f"{n_missing_bp} samples missing {bioproject_col} → assigning unique IDs")
-        missing_mask = df[bioproject_col].isna()
-        df.loc[missing_mask, bioproject_col] = "UNKNOWN_" + df.loc[missing_mask, accession_col]
+        logger.warning(f"{n_missing_bp} samples (with unitigs) missing {bioproject_col} → assigning unique IDs")
+        missing_mask = df_with_unitigs[bioproject_col].isna()
+        df_with_unitigs.loc[missing_mask, bioproject_col] = "UNKNOWN_" + df_with_unitigs.loc[missing_mask, accession_col]
 
     # -------------------------------------------------------------------------
-    # Create splits with label coverage guarantee for community_type only
+    # Create splits with label coverage guarantee for rare labels
+    # Note: Only samples WITH unitigs are split across train/val/test
     # -------------------------------------------------------------------------
     label_cols = ["community_type", "sample_host", "material", "feature"]
-    train_ids, val_ids, test_ids, df = stratified_bioproject_split_with_label_coverage(
-        df=df,
+    train_ids, val_ids, test_ids, df_with_unitigs, forced_train_bps = stratified_bioproject_split_with_label_coverage(
+        df=df_with_unitigs,
         bioproject_col=bioproject_col,
         stratify_col="community_type",
         label_cols=label_cols,
@@ -517,11 +599,25 @@ def main():
         test_size=args.test_size,
         random_state=args.random_state,
         min_samples_per_class=args.min_samples_per_class,
+        max_bioprojects_for_rare=args.max_bioprojects_for_rare_label,
+        quota_multiplier=args.quota_multiplier,
     )
+    
+    # -------------------------------------------------------------------------
+    # Add samples WITHOUT unitigs to validation set
+    # -------------------------------------------------------------------------
+    validation_only_ids = df_without_unitigs[accession_col].tolist()
+    if validation_only_ids:
+        logger.info(f"\n📥 Adding {len(validation_only_ids)} samples without unitigs to VALIDATION")
+        val_ids.extend(validation_only_ids)
+        logger.info(f"   Updated validation size: {len(val_ids)}")
+    
+    # Merge dataframes for final reporting (combine with_unitigs and without_unitigs)
+    df_final = pd.concat([df_with_unitigs, df_without_unitigs], ignore_index=True)
 
-    train_df = df[df[accession_col].isin(train_ids)].copy()
-    val_df = df[df[accession_col].isin(val_ids)].copy()
-    test_df = df[df[accession_col].isin(test_ids)].copy()
+    train_df = df_final[df_final[accession_col].isin(train_ids)].copy()
+    val_df = df_final[df_final[accession_col].isin(val_ids)].copy()
+    test_df = df_final[df_final[accession_col].isin(test_ids)].copy()
 
     # -------------------------------------------------------------------------
     # Sanity check: warn if host-associated samples have environmental materials
@@ -547,7 +643,7 @@ def main():
     # Verify label coverage (warnings only, not errors)
     # -------------------------------------------------------------------------
     label_cols = ["community_type", "sample_host", "material", "feature"]
-    all_labels_covered = verify_label_coverage(df, train_ids, val_ids, test_ids, label_cols, accession_col)
+    all_labels_covered = verify_label_coverage(df_final, train_ids, val_ids, test_ids, label_cols, accession_col)
     
     if not all_labels_covered:
         logger.info(f"\n⚠️  Some labels missing from training (acceptable for zero-shot evaluation)")
@@ -567,8 +663,8 @@ def main():
 
     # Create split report
     split_report = []
-    for bp in df[bioproject_col].unique():
-        bp_df = df[df[bioproject_col] == bp]
+    for bp in df_final[bioproject_col].unique():
+        bp_df = df_final[df_final[bioproject_col] == bp]
         bp_train = bp_df[bp_df[accession_col].isin(train_ids)]
         bp_val = bp_df[bp_df[accession_col].isin(val_ids)]
         bp_test = bp_df[bp_df[accession_col].isin(test_ids)]
@@ -581,6 +677,8 @@ def main():
             split = "test"
         else:
             split = "none"
+            logger.error(f"Bioproject {bp} not assigned to any split!")
+            raise ValueError(f"Bioproject {bp} has {len(bp_df)} samples but is not in any split")
         
         community_types = ", ".join(sorted(bp_df['community_type'].dropna().unique()))
         sample_hosts = ", ".join(sorted(bp_df['sample_host'].dropna().unique())[:5])  # Limit to 5
@@ -604,7 +702,7 @@ def main():
     # -------------------------------------------------------------------------
     logger.info(f"\n📊 Generating label distribution report...")
     
-    total_samples = len(df)
+    total_samples = len(df_final)
     report_lines = []
     def log_report(line=""):
         """Print and save to report."""
@@ -702,14 +800,14 @@ def main():
     log_report("█" * 80)
     
     for task in ['community_type', 'sample_host', 'material', 'sample_age', 'latitude', 'longitude']:
-        analyze_task(df, task, 'host-associated')
+        analyze_task(df_final, task, 'host-associated')
     
     log_report("\n\n" + "█" * 80)
     log_report("ENVIRONMENTAL SAMPLES")
     log_report("█" * 80)
     
     for task in ['feature', 'material', 'sample_age', 'latitude', 'longitude']:
-        analyze_task(df, task, 'environmental')
+        analyze_task(df_final, task, 'environmental')
     
     # -------------------------------------------------------------------------
     # File inventory section
@@ -817,30 +915,35 @@ def main():
     if fastq_dir.exists():
         log_report(f"  FASTQ files to download:   {len(val_missing)} / {len(val_accessions)}")
     
-    # Save report
+    # Save report (with trailing newline)
     report_path = output_dir / "label_distribution_report.txt"
     with open(report_path, 'w') as f:
-        f.write('\n'.join(report_lines))
+        f.write('\n'.join(report_lines) + '\n')
     logger.info(f"Saved label distribution report to {report_path}")
 
     # Save config
     config = {
         "version": "v7",
-        "method": "bioproject_disjoint_with_selective_label_coverage",
-        "description": "BioProjects disjoint across splits. Forces community_type rare labels to training; accepts material rare labels as zero-shot. Stratifies host and env separately. Removes singleton classes.",
+        "method": "bioproject_disjoint_with_multi_task_label_coverage",
+        "description": "BioProjects disjoint across splits. Forces rare labels (community_type, sample_host, material) to training. Stratifies host and env separately. Removes singleton classes.",
         "parameters": {
             "train_size": args.train_size,
             "val_size": args.val_size,
             "test_size": args.test_size,
             "random_state": args.random_state,
             "min_samples_per_class": args.min_samples_per_class,
-            "quota_multiplier": 1.2,
+            "max_bioprojects_for_rare_label": args.max_bioprojects_for_rare_label,
+            "quota_multiplier": args.quota_multiplier,
+        },
+        "forced_train_bioprojects": {
+            "count": len(forced_train_bps),
+            "bioprojects": sorted(list(forced_train_bps)),
         },
         "results": {
             "n_train": len(train_ids),
             "n_val": len(val_ids),
             "n_test": len(test_ids),
-            "n_total": len(df),
+            "n_total": len(df_final),
             "n_train_bioprojects": len(train_df[bioproject_col].unique()),
             "n_val_bioprojects": len(val_df[bioproject_col].unique()),
             "n_test_bioprojects": len(test_df[bioproject_col].unique()),

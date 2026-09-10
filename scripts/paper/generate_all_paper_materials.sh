@@ -51,6 +51,17 @@ run_script() {
 # MAIN FIGURES
 # ============================================================================
 
+echo "DATA OVERVIEW"
+echo "-------------"
+echo ""
+
+run_script "scripts/paper/00_generate_world_map.py" \
+    "World Map: Geographic distribution of train/test samples"
+
+run_script "scripts/paper/06_generate_latex_tables.py" \
+    "LaTeX Tables: Full performance, per-class, and class distribution tables"
+
+echo ""
 echo "MAIN FIGURES"
 echo "------------"
 echo ""
@@ -144,6 +155,15 @@ run_script "scripts/paper/18_generate_matrix_generation_table.py" \
 
 run_script "scripts/paper/26_generate_bioproject_offenders_table.py" \
     "Supplementary Table 9: BioProject Error Sources (offenders)"
+
+run_script "scripts/paper/28_generate_confusion_table.py" \
+    "Supplementary Table 10: Top Misclassification Patterns"
+
+run_script "scripts/paper/30_generate_zero_support_supplement.py" \
+    "Supplementary Table 12: Classes with Zero Support in Test/Validation"
+
+run_script "scripts/paper/36_generate_search_space_table.py" \
+    "Supplementary Table 13: Optuna Hyperparameter Search Space"
 
 # ============================================================================
 # SUMMARY

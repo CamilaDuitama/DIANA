@@ -212,12 +212,12 @@ def parse_arguments() -> argparse.Namespace:
     )
     parser.add_argument(
         '--train-metadata', type=str,
-        default='data/splits/train_metadata.tsv',
+        default='data/splits_v5/train_metadata.tsv',
         help='Path to training metadata TSV'
     )
     parser.add_argument(
         '--test-metadata', type=str,
-        default='data/splits/test_metadata.tsv',
+        default='data/splits_v5/test_metadata.tsv',
         help='Path to test metadata TSV'
     )
     parser.add_argument(

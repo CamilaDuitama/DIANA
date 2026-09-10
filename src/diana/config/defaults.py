@@ -8,10 +8,10 @@ This configuration can be loaded and overridden by user-provided YAML files.
 DEFAULT_CONFIG = {
     # Data paths
     "data": {
-        "train_matrix": "data/splits/train_matrix.pa.mat",
-        "train_metadata": "data/splits/train_metadata.tsv",
-        "test_matrix": "data/splits/test_matrix.pa.mat",
-        "test_metadata": "data/splits/test_metadata.tsv",
+        "train_matrix": "data/splits_v5/train_matrix.pa.mat",
+        "train_metadata": "data/splits_v5/train_metadata.tsv",
+        "test_matrix": "data/splits_v5/test_matrix.pa.mat",
+        "test_metadata": "data/splits_v5/test_metadata.tsv",
     },
     
     # Output directories

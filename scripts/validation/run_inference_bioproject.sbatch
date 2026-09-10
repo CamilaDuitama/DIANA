@@ -10,7 +10,7 @@
 
 set -e
 
-ACCESSIONS="data/splits_bioproject/validation_accessions.txt"
+ACCESSIONS="data/splits_v5/validation_accessions.txt"
 INPUT_DIR="results/validation_predictions"
 OUTPUT_DIR="results/validation_predictions_bioproject"
 MODEL="results/training_bioproject/best_model.pth"

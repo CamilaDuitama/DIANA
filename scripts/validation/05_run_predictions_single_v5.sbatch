@@ -20,7 +20,7 @@ echo ""
 mkdir -p logs/validation
 
 # Get sample from accessions file (v5 uses bioproject-disjoint split: 611 samples)
-ACCESSIONS="data/splits_bioproject/all_validation_accessions.txt"
+ACCESSIONS="data/splits_v5/all_validation_accessions.txt"
 RUN_ACCESSION=$(sed -n "${TASK_ID}p" "$ACCESSIONS")
 
 if [ -z "$RUN_ACCESSION" ]; then

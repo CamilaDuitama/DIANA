@@ -3,7 +3,7 @@
 # Reviewer correction: train/test/validation sets are now fully disjoint
 # at the BioProject level, eliminating any BioProject identity confounding.
 #
-# Split summary (data/splits_bioproject/):
+# Split summary (data/splits_v5/):
 #   Train:      2,515 samples across 77 BioProjects
 #   Test:         543 samples across 26 BioProjects (~18%)
 #   Validation:   611 samples across 37 BioProjects (BioProject-disjoint from train+test)
@@ -14,7 +14,7 @@
 
 data:
   features_path: data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat
-  metadata_path: data/splits_bioproject/train_metadata.tsv  # ← BioProject-disjoint train set
+  metadata_path: data/splits_v5/train_metadata.tsv  # ← BioProject-disjoint train set
 
 model:
   task_names:

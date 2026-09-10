@@ -2,17 +2,17 @@
 # ================================
 # Configuration for extracting and analyzing discriminant features
 
-# Data paths (should match training config)
+# Data paths (v5 model — BioProject-disjoint split, no label smoothing)
 data:
   matrix_path: data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat
-  metadata_path: paper/metadata/test_metadata.tsv
-  test_ids_path: data/splits/test_ids.txt
+  metadata_path: data/splits_v5/test_metadata.tsv
+  test_ids_path: data/splits_v5/test_ids.txt
 
 # Model paths
 model:
-  checkpoint_path: results/training_bioproject/best_model.pth
-  config_path: results/training_bioproject/final_training_config.json
-  label_encoders_path: results/training_bioproject/label_encoders.json
+  checkpoint_path: results/training_bioproject_v5/best_model.pth
+  config_path: results/training_bioproject_v5/final_training_config.json
+  label_encoders_path: results/training_bioproject_v5/label_encoders.json
 
 # Feature importance methods
 feature_importance:

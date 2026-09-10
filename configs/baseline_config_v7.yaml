@@ -34,6 +34,17 @@ tasks:
   - latitude
   - longitude
 
+# Task types — controls which baseline models and metrics are used per task
+# classification: LabelEncoder + classifiers (accuracy, balanced_acc, F1)
+# regression:     float targets + regressors (MAE, RMSE, R²)
+task_types:
+  community_type: classification
+  sample_host: classification
+  material: classification
+  sample_age: regression
+  latitude: regression
+  longitude: regression
+
 # Model configuration
 models:
   logistic_regression:

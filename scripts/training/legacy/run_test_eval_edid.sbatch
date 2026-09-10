@@ -42,8 +42,8 @@ echo "Python: $(which python)"
 MODEL=${MODEL:-"results/training_bioproject/best_model.pth"}
 CONFIG=${CONFIG:-"results/training_bioproject/final_training_config.json"}
 MATRIX=${MATRIX:-"data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat"}
-METADATA=${METADATA:-"data/splits_bioproject/test_metadata.tsv"}
-TEST_IDS=${TEST_IDS:-"data/splits_bioproject/test_ids.txt"}
+METADATA=${METADATA:-"data/splits_v5/test_metadata.tsv"}
+TEST_IDS=${TEST_IDS:-"data/splits_v5/test_ids.txt"}
 OUTPUT=${OUTPUT:-"results/test_evaluation_bioproject"}
 
 mkdir -p "$OUTPUT"

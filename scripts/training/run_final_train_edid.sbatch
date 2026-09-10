@@ -34,8 +34,8 @@
 #     --model results/training_bioproject/best_model.pth \
 #     --config results/training_bioproject/final_training_config.json \
 #     --matrix data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat \
-#     --metadata data/splits_bioproject/test_metadata.tsv \
-#     --test-ids data/splits_bioproject/test_ids.txt \
+#     --metadata data/splits_v5/test_metadata.tsv \
+#     --test-ids data/splits_v5/test_ids.txt \
 #     --output results/test_evaluation_bioproject
 ################################################################################
 
@@ -90,6 +90,6 @@ echo "  mamba run -p /pasteur/appa/scratch/cduitama/EDID/DIANA/env diana-test \\
 echo "    --model $OUTPUT_DIR/best_model.pth \\"
 echo "    --config $OUTPUT_DIR/final_training_config.json \\"
 echo "    --matrix data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat \\"
-echo "    --metadata data/splits_bioproject/test_metadata.tsv \\"
-echo "    --test-ids data/splits_bioproject/test_ids.txt \\"
+echo "    --metadata data/splits_v5/test_metadata.tsv \\"
+echo "    --test-ids data/splits_v5/test_ids.txt \\"
 echo "    --output results/test_evaluation_bioproject"

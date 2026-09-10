@@ -15,7 +15,7 @@
 ################################################################################
 #
 # Runs 5-fold cross-validation hyperparameter search on the BioProject-disjoint
-# training split (data/splits_bioproject/train_metadata.tsv, 2515 samples).
+# training split (data/splits_v5/train_metadata.tsv, 2515 samples).
 #
 # Partition: edid_rtx6000 — 2x RTX 6000 (96 GB each), 32 cores, 340 GB RAM.
 # No time limit on this partition; add -t if you want one.
@@ -62,7 +62,7 @@ if [ -n "$RUN_CONFIG" ] && [ -f "$RUN_CONFIG" ]; then
     USE_CLI=true
 else
     FEATURES=${FEATURES:-"data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat"}
-    METADATA=${METADATA:-"data/splits_bioproject/train_metadata.tsv"}
+    METADATA=${METADATA:-"data/splits_v5/train_metadata.tsv"}
     OUTPUT_DIR=${OUTPUT_DIR:-"results/training_bioproject"}
     TOTAL_FOLDS=${TOTAL_FOLDS:-5}
     N_TRIALS=${N_TRIALS:-50}

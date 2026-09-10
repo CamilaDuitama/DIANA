@@ -18,7 +18,7 @@ echo "========================================"
 echo "Started: $(date)"
 echo ""
 
-ACCESSIONS="data/splits_bioproject/all_validation_accessions.txt"
+ACCESSIONS="data/splits_v5/all_validation_accessions.txt"
 OUTPUT_DIR="results/validation_predictions_bioproject_v5_full"
 MAX_MEMORY=512000
 MEMORY_TIERS=(32000 64000 128000 256000 512000)

@@ -5,30 +5,53 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --gres=gpu:1
 #SBATCH --mem=64G
-#SBATCH --job-name=diana_test_bp_v5
-#SBATCH --output=logs/final_training/diana_test_bp_v5_%j.out
-#SBATCH --error=logs/final_training/diana_test_bp_v5_%j.err
+#SBATCH --job-name=diana_test_eval
+#SBATCH --output=logs/final_training/diana_test_eval_%j.out
+#SBATCH --error=logs/final_training/diana_test_eval_%j.err
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=cduitama@pasteur.fr
 #SBATCH --chdir=/pasteur/appa/scratch/cduitama/EDID/decOM-classify
 
 ################################################################################
-# DIANA v5 Test Evaluation — BioProject-Disjoint Split
+# DIANA Test Evaluation — generic, config-driven
 #
-# Evaluates the v5 model on the held-out test set (523 samples).
-# Run AFTER run_final_train_edid_v5.sbatch completes.
+# Evaluates a trained DIANA model on the held-out test set.
+# All paths are passed as environment variables — do NOT hardcode versions here.
+#
+# Required environment variables (set before sbatch, or export before sourcing):
+#   MODEL      path to best_model.pth
+#   CONFIG     path to final_training_config.json
+#   MATRIX     path to unitigs.frac.mat
+#   METADATA   path to test_metadata.tsv
+#   TEST_IDS   path to test_ids.txt
+#   OUTPUT     output directory
+#
+# Example (v7):
+#   MODEL=results/training_bioproject_v7/best_model.pth \
+#   CONFIG=results/training_bioproject_v7/final_training_config.json \
+#   MATRIX=data/matrices/matrix_v7_3190/unitigs.frac.mat \
+#   METADATA=data/splits_v7/test_metadata.tsv \
+#   TEST_IDS=data/splits_v7/test_ids.txt \
+#   OUTPUT=results/test_evaluation_bioproject_v7 \
+#   sbatch scripts/evaluation/run_test_eval_v5.sbatch
 #
 # OUTPUT:
-#   results/test_evaluation_bioproject_v5/test_predictions.tsv
-#   results/test_evaluation_bioproject_v5/test_metrics.json
-#
-# NEXT STEPS:
-#   sbatch --array=1-611 scripts/validation/run_inference_bioproject_v5.sbatch
+#   $OUTPUT/test_predictions.tsv
+#   $OUTPUT/test_metrics.json
 ################################################################################
 
 set -e
 
-echo "=== DIANA v5 TEST EVALUATION (BioProject-disjoint split) ==="
+# Validate required variables
+for var in MODEL CONFIG MATRIX METADATA TEST_IDS OUTPUT; do
+    if [ -z "${!var}" ]; then
+        echo "ERROR: environment variable '$var' is not set."
+        echo "See script header for usage."
+        exit 1
+    fi
+done
+
+echo "=== DIANA TEST EVALUATION ==="
 echo "Job ID:  $SLURM_JOB_ID"
 echo "Node:    $(hostname)"
 echo "Start:   $(date)"
@@ -36,28 +59,24 @@ echo ""
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
-eval "$(/pasteur/appa/homes/cduitama/miniconda3/bin/conda shell.bash hook)"
-conda activate ./env
-echo "Python: $(which python)"
-
-MODEL="results/training_bioproject_v5/best_model.pth"
-CONFIG="results/training_bioproject_v5/final_training_config.json"
-MATRIX="data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat"
-METADATA="data/splits_bioproject/test_metadata.tsv"
-TEST_IDS="data/splits_bioproject/test_ids.txt"
-OUTPUT="results/test_evaluation_bioproject_v5"
+PYTHON=/pasteur/appa/scratch/cduitama/EDID/decOM-classify/env/bin/python
+DIANA_TEST=/pasteur/appa/scratch/cduitama/EDID/decOM-classify/env/bin/diana-test
+echo "Python: $PYTHON"
 
 mkdir -p "$OUTPUT" logs/final_training
 
 echo "Model:    $MODEL"
 echo "Config:   $CONFIG"
+echo "Matrix:   $MATRIX"
+echo "Metadata: $METADATA"
+echo "Test IDs: $TEST_IDS"
 echo "Output:   $OUTPUT"
 echo ""
 
 nvidia-smi --query-gpu=name,memory.total,memory.free --format=csv
 echo ""
 
-diana-test \
+$DIANA_TEST \
     --model "$MODEL" \
     --config "$CONFIG" \
     --matrix "$MATRIX" \
@@ -69,5 +88,3 @@ diana-test \
 echo ""
 echo "=== TEST EVALUATION COMPLETE — $(date) ==="
 echo "Results in: $OUTPUT"
-echo ""
-echo "Next: sbatch --array=1-611 scripts/validation/run_inference_bioproject_v5.sbatch"

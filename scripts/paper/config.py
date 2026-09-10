@@ -14,12 +14,12 @@ import plotly.express as px
 
 PATHS = {
     # Metadata files (BioProject-disjoint split)
-    'validation_metadata': 'data/splits_bioproject/validation_metadata.tsv',
-    'train_metadata': 'data/splits_bioproject/train_metadata.tsv',
-    'test_metadata': 'data/splits_bioproject/test_metadata.tsv',
+    'validation_metadata': 'data/splits_v5/validation_metadata.tsv',
+    'train_metadata': 'data/splits_v5/train_metadata.tsv',
+    'test_metadata': 'data/splits_v5/test_metadata.tsv',
     
     # Prediction results (BioProject-disjoint model v5 — re-tuned HPO, no label smoothing (ε=0))
-    'predictions_dir': 'results/validation_predictions_bioproject_v5',
+    'predictions_dir': 'results/validation_predictions_bioproject_v5_full',
     
     # Model files (BioProject-disjoint model v5 — re-tuned HPO, no label smoothing (ε=0))
     'label_encoders': 'results/training_bioproject_v5/label_encoders.json',

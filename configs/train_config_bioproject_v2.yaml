@@ -5,7 +5,7 @@
 
 data:
   features_path: data/matrices/large_matrix_3070_with_frac/unitigs.frac.mat
-  metadata_path: data/splits_bioproject/train_metadata.tsv  # 2515 train samples
+  metadata_path: data/splits_v5/train_metadata.tsv  # 2515 train samples
 
 model:
   task_names:
@@ -23,7 +23,7 @@ training:
   early_stopping_patience: 15
   use_gpu: true
   use_slurm: true
-  train_ids_path: data/splits_bioproject/train_ids.txt
+  train_ids_path: data/splits_v5/train_ids.txt
   final_training_sbatch: scripts/training/run_final_train_edid.sbatch
 
 hyperparameters:

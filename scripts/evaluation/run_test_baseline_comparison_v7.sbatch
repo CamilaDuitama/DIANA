@@ -10,6 +10,7 @@
 #SBATCH --error=logs/baseline/diana_baseline_v7_%j.err
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=cduitama@pasteur.fr
+#SBATCH --chdir=/pasteur/appa/scratch/cduitama/EDID/decOM-classify
 
 ################################################################################
 # DIANA Test-Set Baseline Comparison — v7
@@ -49,11 +50,9 @@ echo ""
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
-# Activate environment
-eval "$(/pasteur/appa/homes/cduitama/miniconda3/bin/conda shell.bash hook)"
-conda activate ./env
+PYTHON=/pasteur/appa/scratch/cduitama/EDID/decOM-classify/env/bin/python
 
-echo "Python: $(which python)"
+echo "Python: $PYTHON"
 echo "Config: configs/baseline_config_v7.yaml"
 echo ""
 
@@ -61,7 +60,7 @@ echo ""
 mkdir -p logs/baseline results/baseline_comparison_v7
 
 # Run baseline comparison with config file
-python scripts/evaluation/08_test_set_baseline_comparison.py \
+$PYTHON scripts/evaluation/08_test_set_baseline_comparison.py \
     --config configs/baseline_config_v7.yaml
 
 echo ""

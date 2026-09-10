@@ -28,8 +28,18 @@ data:
   # Output directory for predictions and abundance files
   output_dir: "results/validation_predictions_bioproject_v7"
 
-  # Reference k-mers (for unitig counting)
-  reference_kmers: "data/matrices/matrix_v7_3190/unitigs.fa"
+  # Reference k-mers (for unitig counting).
+  #
+  # This is the file `back_to_sequences --in-kmers` consumes, i.e. the k-mer FASTA,
+  # NOT the unitig FASTA. In matrix_v7_3190, `reference_kmers.fasta` was a symlink
+  # to `matrix.filtered.fasta`; the previous value here pointed at `unitigs.fa`,
+  # which no script in the repo passes to --in-kmers.
+  # See scripts/validation/11_project_onto_v9_vocabulary.sbatch (REF_KMERS).
+  #
+  # Aggregating those counts to the 110,202 unitig features additionally needs
+  # matrix_v9_train/unitigs.fa and matrix_v9_train/unitigs.sshash.dict — all three
+  # files must survive any cleanup of data/matrices/.
+  reference_kmers: "data/matrices/matrix_v9_train/matrix.filtered.fasta"
 
 # Task configuration
 # Must match the tasks the model was trained on

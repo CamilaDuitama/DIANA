@@ -1,11 +1,3 @@
-================================================================================
-V7 LABEL DISTRIBUTION REPORT
-================================================================================
-
-Train: 2888 samples (74.2%)
-Val:   504 samples (12.9%)
-Test:  502 samples (12.9%)
-
 
 ████████████████████████████████████████████████████████████████████████████████
 HOST-ASSOCIATED SAMPLES
@@ -16,29 +8,29 @@ Task: COMMUNITY_TYPE
 Sample Type: host-associated
 ================================================================================
 
-TRAIN (2140 samples, 2117 with labels)
+TRAIN (2392 samples, 2369 with labels, 23 missing)
 --------------------------------------------------------------------------------
-   1. oral                                           1612 ( 76.1%)
-   2. skeletal tissue                                 289 ( 13.7%)
-   3. gut                                             100 (  4.7%)
-   4. plant tissue                                     83 (  3.9%)
-   5. soft tissue                                      33 (  1.6%)
+   1. oral                                           1698 ( 71.7%)
+   2. skeletal tissue                                 407 ( 17.2%)
+   3. gut                                             126 (  5.3%)
+   4. plant tissue                                     83 (  3.5%)
+   5. soft tissue                                      55 (  2.3%)
 
   Total unique labels: 5
 
-VAL (416 samples, 416 with labels)
+VAL (450 samples, 450 with labels, 0 missing)
 --------------------------------------------------------------------------------
-   1. oral                                            331 ( 79.6%)
-   2. skeletal tissue                                  55 ( 13.2%)
-   3. gut                                              30 (  7.2%)
+   1. oral                                            245 ( 54.4%)
+   2. skeletal tissue                                 191 ( 42.4%)
+   3. gut                                              14 (  3.1%)
 
   Total unique labels: 3
 
-TEST (424 samples, 424 with labels)
+TEST (331 samples, 331 with labels, 0 missing)
 --------------------------------------------------------------------------------
-   1. oral                                            257 ( 60.6%)
-   2. skeletal tissue                                 145 ( 34.2%)
-   3. gut                                              22 (  5.2%)
+   1. oral                                            282 ( 85.2%)
+   2. skeletal tissue                                  37 ( 11.2%)
+   3. gut                                              12 (  3.6%)
 
   Total unique labels: 3
 
@@ -47,219 +39,354 @@ Task: SAMPLE_HOST
 Sample Type: host-associated
 ================================================================================
 
-TRAIN (2140 samples, 2095 with labels)
+TRAIN (2392 samples, 2369 with labels, 23 missing)
 --------------------------------------------------------------------------------
-   1. Homo sapiens                                   1390 ( 66.3%)
-   2. Ursus arctos                                    316 ( 15.1%)
-   3. Rangifer tarandus                               132 (  6.3%)
-   4. Gorilla beringei graueri                         56 (  2.7%)
-   5. Ambrosia artemisiifolia                          49 (  2.3%)
-   6. Arabidopsis thaliana                             34 (  1.6%)
-   7. Gorilla gorilla gorilla                          34 (  1.6%)
-   8. Pan troglodytes schweinfurthii                   19 (  0.9%)
-   9. Mammuthus primigenius                            16 (  0.8%)
-  10. Bison priscus                                    16 (  0.8%)
-  11. Lithobates pipiens                               11 (  0.5%)
-  12. Canis lupus                                      11 (  0.5%)
-  13. Gorilla beringei beringei                         6 (  0.3%)
-  14. Papio hamadryas                                   5 (  0.2%)
+   1. Homo sapiens                                   1531 ( 64.6%)
+   2. Ursus arctos                                    340 ( 14.4%)
+   3. Rangifer tarandus                               156 (  6.6%)
+   4. Ambrosia artemisiifolia                          49 (  2.1%)
+   5. Arabidopsis thaliana                             34 (  1.4%)
+   6. Pan troglodytes schweinfurthii                   34 (  1.4%)
+   7. Mammuthus primigenius                            30 (  1.3%)
+   8. Gorilla beringei beringei                        25 (  1.1%)
+   9. Gorilla beringei                                 24 (  1.0%)
+  10. Homo sapiens neanderthalensis                    21 (  0.9%)
+  11. Canis lupus                                      21 (  0.9%)
+  12. Bison priscus                                    16 (  0.7%)
+  13. Gorilla beringei graueri                         12 (  0.5%)
+  14. Pan troglodytes ellioti                          12 (  0.5%)
+  15. Lithobates pipiens                               11 (  0.5%)
+  16. Gorilla gorilla gorilla                          11 (  0.5%)
+  17. Pan troglodytes verus                             9 (  0.4%)
+  18. Alouatta palliata                                 8 (  0.3%)
+  19. Papio hamadryas                                   5 (  0.2%)
+  20. Gerbilliscus boehmi                               4 (  0.2%)
+  21. Papio anubis                                      4 (  0.2%)
+  22. Conepatus chinga                                  4 (  0.2%)
+  23. Strigocuscus celebensis                           4 (  0.2%)
+  24. Mammuthus sp.                                     2 (  0.1%)
+  25. Pan troglodytes                                   1 (  0.0%)
+  26. Papio sp.                                         1 (  0.0%)
 
-  Total unique labels: 14
+  Total unique labels: 26
 
-VAL (416 samples, 416 with labels)
+VAL (450 samples, 450 with labels, 0 missing)
 --------------------------------------------------------------------------------
-   1. Homo sapiens                                    209 ( 50.2%)
-   2. Gorilla beringei beringei                        25 (  6.0%)
-   3. Gorilla beringei                                 24 (  5.8%)
-   4. Rangifer tarandus                                24 (  5.8%)
-   5. Ursus arctos                                     24 (  5.8%)
-   6. Homo sapiens neanderthalensis                    17 (  4.1%)
-   7. Pan troglodytes schweinfurthii                   15 (  3.6%)
-   8. Mammuthus primigenius                            14 (  3.4%)
-   9. Gorilla beringei graueri                         12 (  2.9%)
-  10. Pan troglodytes ellioti                          12 (  2.9%)
-  11. Gorilla gorilla gorilla                          11 (  2.6%)
-  12. Canis lupus                                      10 (  2.4%)
-  13. Pan troglodytes verus                             9 (  2.2%)
-  14. Alouatta palliata                                 8 (  1.9%)
-  15. Mammuthus sp.                                     2 (  0.5%)
-
-  Total unique labels: 15
-
-TEST (424 samples, 424 with labels)
---------------------------------------------------------------------------------
-   1. Homo sapiens                                    410 ( 96.7%)
-   2. Homo sapiens neanderthalensis                    14 (  3.3%)
+   1. Homo sapiens                                    436 ( 96.9%)
+   2. Homo sapiens neanderthalensis                    14 (  3.1%)
 
   Total unique labels: 2
+
+TEST (331 samples, 331 with labels, 0 missing)
+--------------------------------------------------------------------------------
+   1. Homo sapiens                                    235 ( 71.0%)
+   2. Gorilla beringei graueri                         56 ( 16.9%)
+   3. Gorilla gorilla gorilla                          34 ( 10.3%)
+   4. Gorilla beringei beringei                         6 (  1.8%)
+
+  Total unique labels: 4
 
 ================================================================================
 Task: MATERIAL
 Sample Type: host-associated
 ================================================================================
 
-TRAIN (2140 samples, 2095 with labels)
+TRAIN (2392 samples, 2369 with labels, 23 missing)
 --------------------------------------------------------------------------------
-   1. dental calculus                                1243 ( 59.3%)
-   2. tooth                                           360 ( 17.2%)
-   3. bone                                            154 (  7.4%)
-   4. rib                                             132 (  6.3%)
-   5. leaf                                             83 (  4.0%)
-   6. palaeofaeces                                     58 (  2.8%)
-   7. digestive tract contents                         31 (  1.5%)
-   8. intestine                                        16 (  0.8%)
-   9. birch pitch                                       9 (  0.4%)
-  10. muscle tissue                                     9 (  0.4%)
+   1. dental calculus                                1181 ( 49.9%)
+   2. tooth                                           452 ( 19.1%)
+   3. bone                                            254 ( 10.7%)
+   4. rib                                             132 (  5.6%)
+   5. leaf                                             83 (  3.5%)
+   6. birch pitch                                      79 (  3.3%)
+   7. palaeofaeces                                     75 (  3.2%)
+   8. digestive tract contents                         31 (  1.3%)
+   9. unknown                                          22 (  0.9%)
+  10. intestine                                        16 (  0.7%)
+  11. muscle tissue                                     9 (  0.4%)
+  12. latrine                                           8 (  0.3%)
+  13. skin                                              3 (  0.1%)
+  14. keratinous claw                                   3 (  0.1%)
+  15. dentine                                           2 (  0.1%)
+  16. omentum                                           2 (  0.1%)
+  17. peritoneum                                        2 (  0.1%)
+  18. buccal fat pad                                    2 (  0.1%)
+  19. caecum                                            2 (  0.1%)
+  20. large intestine                                   1 (  0.0%)
+  21. stomach                                           1 (  0.0%)
+  22. skull                                             1 (  0.0%)
+  23. liver                                             1 (  0.0%)
+  24. lung                                              1 (  0.0%)
+  25. brain                                             1 (  0.0%)
+  26. dura mater                                        1 (  0.0%)
+  27. pelvis complex                                    1 (  0.0%)
+  28. scapula                                           1 (  0.0%)
+  29. femur                                             1 (  0.0%)
+  30. tibia                                             1 (  0.0%)
 
-  Total unique labels: 10
+  Total unique labels: 30
 
-VAL (416 samples, 416 with labels)
+VAL (450 samples, 450 with labels, 0 missing)
 --------------------------------------------------------------------------------
-   1. dental calculus                                 261 ( 62.7%)
-   2. birch pitch                                      70 ( 16.8%)
-   3. palaeofaeces                                     29 (  7.0%)
-   4. tooth                                            29 (  7.0%)
-   5. bone                                             22 (  5.3%)
-   6. large intestine                                   1 (  0.2%)
-   7. pelvis complex                                    1 (  0.2%)
-   8. scapula                                           1 (  0.2%)
-   9. femur                                             1 (  0.2%)
-  10. tibia                                             1 (  0.2%)
+   1. dental calculus                                 244 ( 54.2%)
+   2. tooth                                           161 ( 35.8%)
+   3. bone                                             31 (  6.9%)
+   4. sediment                                         14 (  3.1%)
 
-  Total unique labels: 10
+  Total unique labels: 4
 
-TEST (424 samples, 424 with labels)
+TEST (331 samples, 331 with labels, 0 missing)
 --------------------------------------------------------------------------------
-   1. dental calculus                                 184 ( 43.4%)
-   2. tooth                                           112 ( 26.4%)
-   3. bone                                            106 ( 25.0%)
-   4. sediment                                         14 (  3.3%)
-   5. latrine                                           8 (  1.9%)
+   1. dental calculus                                 282 ( 85.2%)
+   2. bone                                             22 (  6.6%)
+   3. tooth                                            15 (  4.5%)
+   4. palaeofaeces                                     12 (  3.6%)
 
-  Total unique labels: 5
+  Total unique labels: 4
 
 ================================================================================
 Task: SAMPLE_AGE
 Sample Type: host-associated
 ================================================================================
 
-TRAIN (2140 samples, 2117 with labels)
+TRAIN (2392 samples, 2369 with labels, 23 missing)
 --------------------------------------------------------------------------------
-  Mean (log10):           2.87
-  Median (log10):         2.95
-  Std (log10):            0.73
-  Min (log10):            2.00  [         100 years]
-  Q25 (log10):            2.00
-  Q75 (log10):            3.60
-  Max (log10):            4.72  [       52500 years]
+   1. 100.0                                           582 ( 24.6%)
+   2. 200.0                                           301 ( 12.7%)
+   3. 4500.0                                          138 (  5.8%)
+   4. 4700.0                                          137 (  5.8%)
+   5. 300.0                                            75 (  3.2%)
+   6. 9700.0                                           70 (  3.0%)
+   7. 3800.0                                           69 (  2.9%)
+   8. 1900.0                                           64 (  2.7%)
+   9. 1300.0                                           60 (  2.5%)
+  10. 1000.0                                           48 (  2.0%)
+  11. 900.0                                            46 (  1.9%)
+  12. 2200.0                                           45 (  1.9%)
+  13. 4400.0                                           38 (  1.6%)
+  14. 1800.0                                           38 (  1.6%)
+  15. 2600.0                                           35 (  1.5%)
+  16. 600.0                                            35 (  1.5%)
+  17. 1500.0                                           34 (  1.4%)
+  18. 4000.0                                           34 (  1.4%)
+  19. 1700.0                                           30 (  1.3%)
+  20. 400.0                                            25 (  1.1%)
+  ... +88 more labels (465 samples, 19.6%)
 
-  Total values: 2117
+  Total unique labels: 108
 
-VAL (416 samples, 416 with labels)
+VAL (450 samples, 450 with labels, 0 missing)
 --------------------------------------------------------------------------------
-  Mean (log10):           3.00
-  Median (log10):         2.60
-  Std (log10):            0.91
-  Min (log10):            2.00  [         100 years]
-  Q25 (log10):            2.30
-  Q75 (log10):            3.99
-  Max (log10):            6.04  [     1100000 years]
+   1. 1000.0                                          217 ( 48.2%)
+   2. 200.0                                            44 (  9.8%)
+   3. 700.0                                            36 (  8.0%)
+   4. 800.0                                            35 (  7.8%)
+   5. 100.0                                            13 (  2.9%)
+   6. 52300.0                                          11 (  2.4%)
+   7. 300.0                                             8 (  1.8%)
+   8. 1400.0                                            8 (  1.8%)
+   9. 4700.0                                            8 (  1.8%)
+  10. 4400.0                                            8 (  1.8%)
+  11. 400.0                                             5 (  1.1%)
+  12. 7500.0                                            5 (  1.1%)
+  13. 900.0                                             5 (  1.1%)
+  14. 5800.0                                            4 (  0.9%)
+  15. 7600.0                                            4 (  0.9%)
+  16. 44700.0                                           3 (  0.7%)
+  17. 14800.0                                           2 (  0.4%)
+  18. 9500.0                                            2 (  0.4%)
+  19. 7100.0                                            2 (  0.4%)
+  20. 8100.0                                            2 (  0.4%)
+  ... +23 more labels (28 samples, 6.2%)
 
-  Total values: 416
+  Total unique labels: 43
 
-TEST (424 samples, 424 with labels)
+TEST (331 samples, 331 with labels, 0 missing)
 --------------------------------------------------------------------------------
-  Mean (log10):           2.81
-  Median (log10):         2.30
-  Std (log10):            0.61
-  Min (log10):            2.00  [         100 years]
-  Q25 (log10):            2.30
-  Q75 (log10):            3.32
-  Max (log10):            4.72  [       52300 years]
+   1. 200.0                                           177 ( 53.5%)
+   2. 100.0                                            96 ( 29.0%)
+   3. 400.0                                            16 (  4.8%)
+   4. 800.0                                            10 (  3.0%)
+   5. 3400.0                                            6 (  1.8%)
+   6. 500.0                                             5 (  1.5%)
+   7. 900.0                                             5 (  1.5%)
+   8. 700.0                                             4 (  1.2%)
+   9. 6400.0                                            4 (  1.2%)
+  10. 1400.0                                            2 (  0.6%)
+  11. 1300.0                                            1 (  0.3%)
+  12. 1200.0                                            1 (  0.3%)
+  13. 1900.0                                            1 (  0.3%)
+  14. 2000.0                                            1 (  0.3%)
+  15. 1100.0                                            1 (  0.3%)
+  16. 1500.0                                            1 (  0.3%)
 
-  Total values: 424
+  Total unique labels: 16
 
 ================================================================================
 Task: LATITUDE
 Sample Type: host-associated
 ================================================================================
 
-TRAIN (2140 samples, 1997 with labels)
+TRAIN (2392 samples, 2257 with labels, 135 missing)
 --------------------------------------------------------------------------------
-  Mean:          42.55
-  Median:        48.86
-  Std:           22.43
-  Min:          -27.12
-  Q25:           38.65
-  Q75:           54.01
-  Max:           70.44
+   1. 29.24                                           196 (  8.7%)
+   2. 38.102                                          137 (  6.1%)
+   3. 66.937                                          132 (  5.8%)
+   4. 48.858                                          118 (  5.2%)
+   5. 51.752                                           90 (  4.0%)
+   6. 58.16                                            70 (  3.1%)
+   7. 43.149                                           70 (  3.1%)
+   8. 52.6                                             68 (  3.0%)
+   9. 52.699                                           61 (  2.7%)
+  10. 38.65                                            47 (  2.1%)
+  11. 43.166                                           46 (  2.0%)
+  12. -9.878                                           45 (  2.0%)
+  13. 25.771                                           41 (  1.8%)
+  14. 50.719                                           37 (  1.6%)
+  15. -18.142                                          29 (  1.3%)
+  16. 50.722                                           27 (  1.2%)
+  17. 52.211                                           21 (  0.9%)
+  18. -1.46                                            19 (  0.8%)
+  19. 47.56                                            19 (  0.8%)
+  20. -4.69                                            19 (  0.8%)
+  ... +262 more labels (965 samples, 42.8%)
 
-  Total values: 1997
+  Total unique labels: 282
 
-VAL (416 samples, 396 with labels)
+VAL (450 samples, 371 with labels, 79 missing)
 --------------------------------------------------------------------------------
-  Mean:          33.87
-  Median:        39.85
-  Std:           28.19
-  Min:          -34.03
-  Q25:            3.41
-  Q75:           58.16
-  Max:           79.00
+   1. 54.005                                          195 ( 52.6%)
+   2. 53.962                                           27 (  7.3%)
+   3. 38.687                                           14 (  3.8%)
+   4. 32.786                                           12 (  3.2%)
+   5. 41.96                                            10 (  2.7%)
+   6. 44.6                                              8 (  2.2%)
+   7. 16.254                                            8 (  2.2%)
+   8. 40.23                                             8 (  2.2%)
+   9. 52.548                                            8 (  2.2%)
+  10. 29.27                                             8 (  2.2%)
+  11. 38.102                                            8 (  2.2%)
+  12. 49.66                                             8 (  2.2%)
+  13. -19.82                                            7 (  1.9%)
+  14. 44.53                                             7 (  1.9%)
+  15. 44.557                                            5 (  1.3%)
+  16. 37.3                                              4 (  1.1%)
+  17. 52.576                                            4 (  1.1%)
+  18. 44.162                                            4 (  1.1%)
+  19. -17.51                                            3 (  0.8%)
+  20. -20.24                                            2 (  0.5%)
+  ... +15 more labels (21 samples, 5.7%)
 
-  Total values: 396
+  Total unique labels: 35
 
-TEST (424 samples, 373 with labels)
+TEST (331 samples, 331 with labels, 0 missing)
 --------------------------------------------------------------------------------
-  Mean:          37.80
-  Median:        38.69
-  Std:           17.06
-  Min:          -28.48
-  Q25:           29.24
-  Q75:           52.55
-  Max:           56.94
+   1. 52.548                                          152 ( 45.9%)
+   2. -4.05                                            20 (  6.0%)
+   3. 43.182                                           16 (  4.8%)
+   4. 17.49                                            16 (  4.8%)
+   5. -0.06                                            12 (  3.6%)
+   6. 56.6                                             10 (  3.0%)
+   7. 48.006                                            9 (  2.7%)
+   8. -2.42                                             6 (  1.8%)
+   9. 42.527                                            6 (  1.8%)
+  10. 3.12                                              6 (  1.8%)
+  11. 38.247                                            5 (  1.5%)
+  12. 38.696                                            5 (  1.5%)
+  13. 37.5                                              5 (  1.5%)
+  14. -2.2                                              4 (  1.2%)
+  15. 40.23                                             4 (  1.2%)
+  16. -1.3                                              4 (  1.2%)
+  17. -1.46                                             4 (  1.2%)
+  18. 1.56                                              4 (  1.2%)
+  19. 2.47                                              4 (  1.2%)
+  20. -1.04                                             4 (  1.2%)
+  ... +11 more labels (35 samples, 10.6%)
 
-  Total values: 373
+  Total unique labels: 31
 
 ================================================================================
 Task: LONGITUDE
 Sample Type: host-associated
 ================================================================================
 
-TRAIN (2140 samples, 1997 with labels)
+TRAIN (2392 samples, 2257 with labels, 135 missing)
 --------------------------------------------------------------------------------
-  Mean:           4.90
-  Median:         4.00
-  Std:           56.26
-  Min:         -175.19
-  Q25:           -8.20
-  Q75:           17.21
-  Max:          177.51
+   1. 31.1                                            196 (  8.7%)
+   2. -1.865                                          137 (  6.1%)
+   3. -53.658                                         132 (  5.8%)
+   4. 3.06                                            114 (  5.1%)
+   5. -1.257                                           90 (  4.0%)
+   6. 3.995                                            88 (  3.9%)
+   7. 11.48                                            70 (  3.1%)
+   8. -8.33                                            68 (  3.0%)
+   9. 17.605                                           61 (  2.7%)
+  10. 167.177                                          45 (  2.0%)
+  11. -105.786                                         41 (  1.8%)
+  12. -90.26                                           39 (  1.7%)
+  13. 16.835                                           37 (  1.6%)
+  14. 3.996                                            30 (  1.3%)
+  15. 177.508                                          29 (  1.3%)
+  16. 23.892                                           27 (  1.2%)
+  17. 16.893                                           21 (  0.9%)
+  18. 13.63                                            19 (  0.8%)
+  19. 29.42                                            19 (  0.8%)
+  20. 29.62                                            19 (  0.8%)
+  ... +273 more labels (975 samples, 43.2%)
 
-  Total values: 1997
+  Total unique labels: 293
 
-VAL (416 samples, 396 with labels)
+VAL (450 samples, 371 with labels, 79 missing)
 --------------------------------------------------------------------------------
-  Mean:           4.19
-  Median:        11.48
-  Std:           57.99
-  Min:         -179.68
-  Q25:           -2.40
-  Q75:           27.55
-  Max:          179.56
+   1. -8.201                                          195 ( 52.6%)
+   2. -1.075                                           27 (  7.3%)
+   3. -0.508                                           14 (  3.8%)
+   4. -79.931                                          12 (  3.2%)
+   5. 13.56                                            10 (  2.7%)
+   6. -1.865                                            8 (  2.2%)
+   7. 4.912                                             8 (  2.2%)
+   8. 99.61                                             8 (  2.2%)
+   9. -90.143                                           8 (  2.2%)
+  10. 84.03                                             8 (  2.2%)
+  11. -61.203                                           8 (  2.2%)
+  12. 22.05                                             7 (  1.9%)
+  13. -41.44                                            7 (  1.9%)
+  14. 22.0                                              7 (  1.9%)
+  15. 22.026                                            5 (  1.3%)
+  16. -121.8                                            4 (  1.1%)
+  17. 8.328                                             4 (  1.1%)
+  18. -0.254                                            4 (  1.1%)
+  19. -41.34                                            3 (  0.8%)
+  20. 22.61                                             2 (  0.5%)
+  ... +16 more labels (22 samples, 5.9%)
 
-  Total values: 396
+  Total unique labels: 36
 
-TEST (424 samples, 373 with labels)
+TEST (331 samples, 331 with labels, 0 missing)
 --------------------------------------------------------------------------------
-  Mean:          13.14
-  Median:         4.91
-  Std:           18.70
-  Min:          -50.00
-  Q25:            4.91
-  Q75:           31.10
-  Max:           35.22
+   1. 4.914                                           152 ( 45.9%)
+   2. 29.05                                            20 (  6.0%)
+   3. -97.46                                           16 (  4.8%)
+   4. -2.573                                           16 (  4.8%)
+   5. 29.16                                            12 (  3.6%)
+   6. 25.3                                             10 (  3.0%)
+   7. 0.199                                             9 (  2.7%)
+   8. 11.601                                            6 (  1.8%)
+   9. 27.2                                              6 (  1.8%)
+  10. 14.05                                             6 (  1.8%)
+  11. -2.862                                            5 (  1.5%)
+  12. -0.808                                            5 (  1.5%)
+  13. 13.4                                              4 (  1.2%)
+  14. 12.85                                             4 (  1.2%)
+  15. 12.08                                             4 (  1.2%)
+  16. -90.143                                           4 (  1.2%)
+  17. 15.3                                              4 (  1.2%)
+  18. 29.42                                             4 (  1.2%)
+  19. 27.03                                             4 (  1.2%)
+  20. 29.13                                             4 (  1.2%)
+  ... +12 more labels (36 samples, 10.9%)
 
-  Total values: 373
+  Total unique labels: 32
 
 
 ████████████████████████████████████████████████████████████████████████████████
@@ -271,231 +398,312 @@ Task: FEATURE
 Sample Type: environmental
 ================================================================================
 
-TRAIN (748 samples, 748 with labels)
+TRAIN (759 samples, 759 with labels, 0 missing)
 --------------------------------------------------------------------------------
-   1. lake                                            217 ( 29.0%)
-   2. ocean                                           180 ( 24.1%)
-   3. cave                                            121 ( 16.2%)
-   4. sea coast                                        65 (  8.7%)
-   5. midden                                           46 (  6.1%)
-   6. swamp forest                                     29 (  3.9%)
-   7. shell                                            24 (  3.2%)
-   8. thermokarst                                      19 (  2.5%)
-   9. hydrothermal field                               15 (  2.0%)
-  10. archeological site                               14 (  1.9%)
+   1. lake                                            202 ( 26.6%)
+   2. ocean                                           191 ( 25.2%)
+   3. cave                                            121 ( 15.9%)
+   4. sea coast                                        65 (  8.6%)
+   5. midden                                           50 (  6.6%)
+   6. swamp forest                                     29 (  3.8%)
+   7. archeological site                               25 (  3.3%)
+   8. shell                                            24 (  3.2%)
+   9. thermokarst                                      19 (  2.5%)
+  10. hydrothermal field                               15 (  2.0%)
   11. rock shelter                                     13 (  1.7%)
   12. wetland area                                      5 (  0.7%)
 
   Total unique labels: 12
 
-VAL (88 samples, 88 with labels)
+VAL (103 samples, 103 with labels, 0 missing)
 --------------------------------------------------------------------------------
-   1. lake                                             46 ( 52.3%)
-   2. ocean                                            30 ( 34.1%)
-   3. midden                                            6 (  6.8%)
-   4. cave                                              3 (  3.4%)
-   5. archeological site                                3 (  3.4%)
+   1. lake                                             57 ( 55.3%)
+   2. ocean                                            30 ( 29.1%)
+   3. cave                                             14 ( 13.6%)
+   4. midden                                            2 (  1.9%)
 
-  Total unique labels: 5
+  Total unique labels: 4
 
-TEST (78 samples, 78 with labels)
+TEST (280 samples, 280 with labels, 0 missing)
 --------------------------------------------------------------------------------
-   1. lake                                             42 ( 53.8%)
-   2. ocean                                            36 ( 46.2%)
+   1. lake                                            252 ( 90.0%)
+   2. ocean                                            25 (  8.9%)
+   3. cave                                              3 (  1.1%)
 
-  Total unique labels: 2
+  Total unique labels: 3
 
 ================================================================================
 Task: MATERIAL
 Sample Type: environmental
 ================================================================================
 
-TRAIN (748 samples, 748 with labels)
+TRAIN (759 samples, 759 with labels, 0 missing)
 --------------------------------------------------------------------------------
-   1. lake sediment                                   217 ( 29.0%)
-   2. sediment                                        204 ( 27.3%)
-   3. marine sediment                                 180 ( 24.1%)
-   4. permafrost                                       92 ( 12.3%)
-   5. shell                                            24 (  3.2%)
-   6. soil                                             20 (  2.7%)
-   7. midden                                           11 (  1.5%)
+   1. sediment                                        207 ( 27.3%)
+   2. lake sediment                                   202 ( 26.6%)
+   3. marine sediment                                 155 ( 20.4%)
+   4. permafrost                                      100 ( 13.2%)
+   5. shallow marine sediment                          36 (  4.7%)
+   6. shell                                            24 (  3.2%)
+   7. soil                                             20 (  2.6%)
+   8. midden                                           15 (  2.0%)
 
-  Total unique labels: 7
+  Total unique labels: 8
 
-VAL (88 samples, 88 with labels)
+VAL (103 samples, 103 with labels, 0 missing)
 --------------------------------------------------------------------------------
-   1. lake sediment                                    46 ( 52.3%)
-   2. marine sediment                                  26 ( 29.5%)
-   3. sediment                                         10 ( 11.4%)
-   4. midden                                            4 (  4.5%)
-   5. soil                                              2 (  2.3%)
+   1. lake sediment                                    57 ( 55.3%)
+   2. marine sediment                                  26 ( 25.2%)
+   3. sediment                                         18 ( 17.5%)
+   4. soil                                              2 (  1.9%)
 
-  Total unique labels: 5
+  Total unique labels: 4
 
-TEST (78 samples, 78 with labels)
+TEST (280 samples, 280 with labels, 0 missing)
 --------------------------------------------------------------------------------
-   1. lake sediment                                    42 ( 53.8%)
-   2. shallow marine sediment                          36 ( 46.2%)
+   1. lake sediment                                   252 ( 90.0%)
+   2. marine sediment                                  25 (  8.9%)
+   3. sediment                                          3 (  1.1%)
 
-  Total unique labels: 2
+  Total unique labels: 3
 
 ================================================================================
 Task: SAMPLE_AGE
 Sample Type: environmental
 ================================================================================
 
-TRAIN (748 samples, 748 with labels)
+TRAIN (759 samples, 759 with labels, 0 missing)
 --------------------------------------------------------------------------------
-  Mean (log10):           4.15
-  Median (log10):         4.08
-  Std (log10):            1.03
-  Min (log10):            2.00  [         100 years]
-  Q25 (log10):            3.63
-  Q75 (log10):            4.72
-  Max (log10):            6.30  [     2000000 years]
+   1. 2000000.0                                        53 (  7.0%)
+   2. 100.0                                            35 (  4.6%)
+   3. 127000.0                                         22 (  2.9%)
+   4. 9200.0                                           19 (  2.5%)
+   5. 6000.0                                           16 (  2.1%)
+   6. 600.0                                            16 (  2.1%)
+   7. 12000.0                                          13 (  1.7%)
+   8. 13900.0                                          12 (  1.6%)
+   9. 300.0                                            12 (  1.6%)
+  10. 112500.0                                         11 (  1.4%)
+  11. 2600.0                                           10 (  1.3%)
+  12. 8000.0                                            9 (  1.2%)
+  13. 800.0                                             9 (  1.2%)
+  14. 110000.0                                          8 (  1.1%)
+  15. 500.0                                             8 (  1.1%)
+  16. 5300.0                                            8 (  1.1%)
+  17. 15600.0                                           8 (  1.1%)
+  18. 53000.0                                           7 (  0.9%)
+  19. 1100.0                                            7 (  0.9%)
+  20. 438000.0                                          7 (  0.9%)
+  ... +266 more labels (469 samples, 61.8%)
 
-  Total values: 748
+  Total unique labels: 286
 
-VAL (88 samples, 88 with labels)
+VAL (103 samples, 103 with labels, 0 missing)
 --------------------------------------------------------------------------------
-  Mean (log10):           3.12
-  Median (log10):         3.26
-  Std (log10):            0.82
-  Min (log10):            2.00  [         100 years]
-  Q25 (log10):            2.00
-  Q75 (log10):            3.90
-  Max (log10):            4.29  [       19500 years]
+   1. 100.0                                            22 ( 21.4%)
+   2. 52300.0                                          11 ( 10.7%)
+   3. 8000.0                                            4 (  3.9%)
+   4. 44700.0                                           3 (  2.9%)
+   5. 900.0                                             3 (  2.9%)
+   6. 17700.0                                           2 (  1.9%)
+   7. 17400.0                                           2 (  1.9%)
+   8. 9000.0                                            2 (  1.9%)
+   9. 11700.0                                           2 (  1.9%)
+  10. 11200.0                                           2 (  1.9%)
+  11. 10300.0                                           2 (  1.9%)
+  12. 9300.0                                            2 (  1.9%)
+  13. 12200.0                                           2 (  1.9%)
+  14. 14100.0                                           2 (  1.9%)
+  15. 14700.0                                           2 (  1.9%)
+  16. 15500.0                                           2 (  1.9%)
+  17. 4300.0                                            2 (  1.9%)
+  18. 8200.0                                            2 (  1.9%)
+  19. 7600.0                                            2 (  1.9%)
+  20. 7200.0                                            2 (  1.9%)
+  ... +28 more labels (30 samples, 29.1%)
 
-  Total values: 88
+  Total unique labels: 48
 
-TEST (78 samples, 78 with labels)
+TEST (280 samples, 280 with labels, 0 missing)
 --------------------------------------------------------------------------------
-  Mean (log10):           3.18
-  Median (log10):         3.78
-  Std (log10):            0.86
-  Min (log10):            2.00  [         100 years]
-  Q25 (log10):            2.30
-  Q75 (log10):            3.93
-  Max (log10):            4.06  [       11500 years]
+   1. 200.0                                            70 ( 25.0%)
+   2. 300.0                                            63 ( 22.5%)
+   3. 100.0                                            60 ( 21.4%)
+   4. 400.0                                            45 ( 16.1%)
+   5. 2000.0                                            5 (  1.8%)
+   6. 700.0                                             2 (  0.7%)
+   7. 1100.0                                            2 (  0.7%)
+   8. 1300.0                                            2 (  0.7%)
+   9. 1500.0                                            2 (  0.7%)
+  10. 1400.0                                            2 (  0.7%)
+  11. 1800.0                                            2 (  0.7%)
+  12. 19900.0                                           1 (  0.4%)
+  13. 5600.0                                            1 (  0.4%)
+  14. 19300.0                                           1 (  0.4%)
+  15. 18390.0                                           1 (  0.4%)
+  16. 17340.0                                           1 (  0.4%)
+  17. 15910.0                                           1 (  0.4%)
+  18. 16500.0                                           1 (  0.4%)
+  19. 14000.0                                           1 (  0.4%)
+  20. 12600.0                                           1 (  0.4%)
+  ... +16 more labels (16 samples, 5.7%)
 
-  Total values: 78
+  Total unique labels: 36
 
 ================================================================================
 Task: LATITUDE
 Sample Type: environmental
 ================================================================================
 
-TRAIN (748 samples, 746 with labels)
+TRAIN (759 samples, 757 with labels, 2 missing)
 --------------------------------------------------------------------------------
-  Mean:          42.56
-  Median:        55.51
-  Std:           38.06
-  Min:          -59.44
-  Q25:           31.10
-  Q75:           69.13
-  Max:           82.58
+   1. 57.178                                           70 (  9.2%)
+   2. 69.554                                           58 (  7.7%)
+   3. 56.33                                            56 (  7.4%)
+   4. 51.397                                           52 (  6.9%)
+   5. 53.322                                           36 (  4.8%)
+   6. 24.62                                            35 (  4.6%)
+   7. -57.442                                          33 (  4.4%)
+   8. -1.07                                            29 (  3.8%)
+   9. 82.498                                           25 (  3.3%)
+  10. 79.068                                           22 (  2.9%)
+  11. 55.51                                            18 (  2.4%)
+  12. -53.19                                           17 (  2.2%)
+  13. 75.319                                           17 (  2.2%)
+  14. 82.496                                           16 (  2.1%)
+  15. -59.441                                          15 (  2.0%)
+  16. 69.128                                           15 (  2.0%)
+  17. -19.851                                          15 (  2.0%)
+  18. 42.839                                           13 (  1.7%)
+  19. 70.08                                            12 (  1.6%)
+  20. 19.257                                           12 (  1.6%)
+  ... +49 more labels (191 samples, 25.2%)
 
-  Total values: 746
+  Total unique labels: 69
 
-VAL (88 samples, 88 with labels)
+VAL (103 samples, 103 with labels, 0 missing)
 --------------------------------------------------------------------------------
-  Mean:          29.19
-  Median:        51.30
-  Std:           41.37
-  Min:          -42.84
-  Q25:           34.29
-  Q75:           53.59
-  Max:           72.40
+   1. 31.1                                             57 ( 55.3%)
+   2. -42.845                                          21 ( 20.4%)
+   3. 38.687                                           14 ( 13.6%)
+   4. 34.288                                            5 (  4.9%)
+   5. 50.7                                              4 (  3.9%)
+   6. 38.1                                              2 (  1.9%)
 
-  Total values: 88
+  Total unique labels: 6
 
-TEST (78 samples, 78 with labels)
+TEST (280 samples, 280 with labels, 0 missing)
 --------------------------------------------------------------------------------
-  Mean:          12.97
-  Median:        19.26
-  Std:           42.17
-  Min:          -38.03
-  Q25:          -37.90
-  Q75:           53.32
-  Max:           53.32
+   1. -37.9                                           123 ( 43.9%)
+   2. -38.03                                          113 ( 40.4%)
+   3. 53.993                                           25 (  8.9%)
+   4. 51.305                                           16 (  5.7%)
+   5. 37.5                                              3 (  1.1%)
 
-  Total values: 78
+  Total unique labels: 5
 
 ================================================================================
 Task: LONGITUDE
 Sample Type: environmental
 ================================================================================
 
-TRAIN (748 samples, 746 with labels)
+TRAIN (759 samples, 757 with labels, 2 missing)
 --------------------------------------------------------------------------------
-  Mean:           8.19
-  Median:         8.75
-  Std:          100.84
-  Min:         -170.25
-  Q25:          -58.76
-  Q75:           90.25
-  Max:          170.70
+   1. -170.248                                         70 (  9.2%)
+   2. 90.255                                           58 (  7.7%)
+   3. 84.676                                           52 (  6.9%)
+   4. 170.699                                          42 (  5.5%)
+   5. 1.118                                            36 (  4.8%)
+   6. -101.15                                          35 (  4.6%)
+   7. -43.358                                          33 (  4.4%)
+   8. 29.75                                            29 (  3.8%)
+   9. -21.219                                          25 (  3.3%)
+  10. 11.903                                           22 (  2.9%)
+  11. -119.58                                          18 (  2.4%)
+  12. -58.76                                           17 (  2.2%)
+  13. 61.91                                            17 (  2.2%)
+  14. -21.559                                          16 (  2.1%)
+  15. -41.061                                          15 (  2.0%)
+  16. -50.702                                          15 (  2.0%)
+  17. -68.906                                          15 (  2.0%)
+  18. -120.96                                          14 (  1.8%)
+  19. 2.752                                            13 (  1.7%)
+  20. -98.991                                          12 (  1.6%)
+  ... +50 more labels (203 samples, 26.8%)
 
-  Total values: 746
+  Total unique labels: 70
 
-VAL (88 samples, 88 with labels)
+VAL (103 samples, 103 with labels, 0 missing)
 --------------------------------------------------------------------------------
-  Mean:          50.90
-  Median:        23.37
-  Std:           66.80
-  Min:         -109.80
-  Q25:           12.53
-  Q75:          120.04
-  Max:          148.24
+   1. 99.75                                            57 ( 55.3%)
+   2. 148.24                                           21 ( 20.4%)
+   3. -0.508                                           14 ( 13.6%)
+   4. 120.036                                           5 (  4.9%)
+   5. -1.5                                              4 (  3.9%)
+   6. 13.4                                              2 (  1.9%)
 
-  Total values: 88
+  Total unique labels: 6
 
-TEST (78 samples, 78 with labels)
+TEST (280 samples, 280 with labels, 0 missing)
 --------------------------------------------------------------------------------
-  Mean:          42.08
-  Median:         1.12
-  Std:           90.72
-  Min:          -98.99
-  Q25:            1.12
-  Q75:          147.60
-  Max:          147.74
+   1. 147.74                                          123 ( 43.9%)
+   2. 147.6                                           113 ( 40.4%)
+   3. 162.37                                           25 (  8.9%)
+   4. 23.366                                           16 (  5.7%)
+   5. -109.8                                            3 (  1.1%)
 
-  Total values: 78
+  Total unique labels: 5
 
-
-████████████████████████████████████████████████████████████████████████████████
-FILE INVENTORY
-████████████████████████████████████████████████████████████████████████████████
-
-This section tracks available files vs. required files for each split.
-Train/Test use unitig files; Validation uses raw FASTQ files.
-
-
-📁 UNITIG FILES (data/unitigs/)
---------------------------------------------------------------------------------
-  Available unitig files: 3112
-
-  TRAIN SET:
-    Required:  2888
-    Available: 2062 (71.4%)
-    Missing:   826
-
-  TEST SET:
-    Required:  502
-    Available: 425 (84.7%)
-    Missing:   77
-
-📁 VALIDATION FASTQ FILES (data/validation/raw/)
---------------------------------------------------------------------------------
-  Available FASTQ accessions: 987
-
-  VALIDATION SET:
-    Required:  504
-    Available: 125 (24.8%)
-    Missing:   379
 
 ================================================================================
-DOWNLOAD REQUIREMENTS
+SUMMARY STATISTICS
 ================================================================================
-  Unitig files to download:  903 / 3390
-  FASTQ files to download:   379 / 504
+
+TRAIN: 3151 total samples
+  Host-associated: 2392 (75.9%)
+  Environmental: 759 (24.1%)
+
+VAL: 553 total samples
+  Host-associated: 450 (81.4%)
+  Environmental: 103 (18.6%)
+
+TEST: 611 total samples
+  Host-associated: 331 (54.2%)
+  Environmental: 280 (45.8%)
+
+
+================================================================================
+LABEL COVERAGE VERIFICATION
+================================================================================
+
+COMMUNITY_TYPE:
+  Total unique labels: 5
+  In training: 5
+  In validation: 3
+  In test: 3
+  ✅ ALL labels present in training
+
+SAMPLE_HOST:
+  Total unique labels: 26
+  In training: 26
+  In validation: 2
+  In test: 4
+  ✅ ALL labels present in training
+
+MATERIAL:
+  Total unique labels: 38
+  In training: 38
+  In validation: 7
+  In test: 7
+  ✅ ALL labels present in training
+
+FEATURE:
+  Total unique labels: 12
+  In training: 12
+  In validation: 4
+  In test: 3
+  ✅ ALL labels present in training
+
+================================================================================
+DONE
+================================================================================

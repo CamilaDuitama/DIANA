@@ -1,22 +1,45 @@
 {
   "version": "v7",
-  "method": "bioproject_disjoint_with_selective_label_coverage",
-  "description": "BioProjects disjoint across splits. Forces community_type rare labels to training; accepts material rare labels as zero-shot. Stratifies host and env separately. Removes singleton classes.",
+  "method": "bioproject_disjoint_with_multi_task_label_coverage",
+  "description": "BioProjects disjoint across splits. Forces rare labels (community_type, sample_host, material) to training. Stratifies host and env separately. Removes singleton classes.",
   "parameters": {
     "train_size": 0.7,
     "val_size": 0.15,
     "test_size": 0.15,
     "random_state": 42,
     "min_samples_per_class": 5,
+    "max_bioprojects_for_rare_label": 2,
     "quota_multiplier": 1.2
   },
+  "forced_train_bioprojects": {
+    "count": 17,
+    "bioprojects": [
+      "Bieker2020",
+      "Brealey2020",
+      "Brealey2021",
+      "FellowsYates2021",
+      "Ferrari2018",
+      "Jensen2019",
+      "Jin2025",
+      "Madison2023",
+      "Maixner2016",
+      "McDonough2018",
+      "Ottoni2019",
+      "Rampelli2021",
+      "Sabin2020",
+      "Sarhan2023",
+      "Tett2019",
+      "Weyrich2017",
+      "Wright2024"
+    ]
+  },
   "results": {
-    "n_train": 2888,
-    "n_val": 504,
-    "n_test": 502,
+    "n_train": 2840,
+    "n_val": 702,
+    "n_test": 352,
     "n_total": 3894,
-    "n_train_bioprojects": 73,
-    "n_val_bioprojects": 24,
-    "n_test_bioprojects": 8
+    "n_train_bioprojects": 63,
+    "n_val_bioprojects": 33,
+    "n_test_bioprojects": 19
   }
 }

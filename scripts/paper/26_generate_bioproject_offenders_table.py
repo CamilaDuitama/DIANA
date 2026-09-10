@@ -154,7 +154,7 @@ def load_test_errors() -> pd.DataFrame:
     Returns long-form: Run_accession, BioProject, project_name, task, is_correct
     """
     preds = pd.read_csv(
-        REPO / "results/test_evaluation/test_predictions.tsv", sep="\t", low_memory=False
+        REPO / "results/test_evaluation_bioproject_v5/test_predictions.tsv", sep="\t", low_memory=False
     )
     test_meta = pd.read_csv(
         REPO / "paper/metadata/test_metadata.tsv", sep="\t", low_memory=False
@@ -187,8 +187,10 @@ def build_ranking() -> pd.DataFrame:
 
     # Errors per BioProject per split
     def split_errors(df):
+        if df.empty:
+            return pd.DataFrame(columns=["BioProject", "n"])
         return (
-            df[~df["is_correct"]]
+            df[~df["is_correct"].astype(bool)]
             .groupby("BioProject").size()
             .reset_index(name="n")
         )

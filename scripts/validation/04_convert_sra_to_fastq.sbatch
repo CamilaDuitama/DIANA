@@ -1,6 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=sra2fastq
-#SBATCH --partition=seqbio
+#SBATCH --partition=edid
+#SBATCH --account=edid
 #SBATCH --output=logs/downloads/convert_%A_%a.out
 #SBATCH --error=logs/downloads/convert_%A_%a.err
 #SBATCH --time=12:00:00

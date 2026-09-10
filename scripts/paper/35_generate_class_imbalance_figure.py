@@ -8,9 +8,9 @@ PURPOSE:
     split.  Bars within each task are sorted descending by train count.
 
 INPUTS:
-    - data/splits_bioproject/train_metadata.tsv
-    - data/splits_bioproject/test_metadata.tsv
-    - data/splits_bioproject/validation_metadata.tsv
+    - data/splits_v5/train_metadata.tsv
+    - data/splits_v5/test_metadata.tsv
+    - data/splits_v5/validation_metadata.tsv
 
 OUTPUTS:
     - paper/figures/final/sup_09_class_imbalance_overview.html
@@ -32,7 +32,7 @@ from config import PATHS, PLOT_CONFIG
 
 # ─── Paths ───────────────────────────────────────────────────────────────────
 
-SPLITS_DIR = Path("data/splits_bioproject")
+SPLITS_DIR = Path("data/splits_v5")
 OUTPUT_DIR = Path(PATHS["figures_dir"])
 
 # ─── Constants ───────────────────────────────────────────────────────────────

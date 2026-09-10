@@ -55,7 +55,7 @@ TEST_TSV        = Path(PATHS.get("test_predictions",
                       "results/test_evaluation_bioproject_v3/test_predictions.tsv"))
 VAL_PRED_DIR    = Path(PATHS.get("predictions_dir",
                       "results/validation_predictions_bioproject_v3"))
-VAL_META        = Path("data/splits_bioproject/validation_metadata.tsv")
+VAL_META        = Path("data/splits_v5/validation_metadata.tsv")
 LABEL_ENCODERS  = Path(PATHS["label_encoders"])
 OUTPUT_DIR      = Path("results/calibration_analysis")
 FIGURES_DIR     = Path(PATHS["figures_dir"])
