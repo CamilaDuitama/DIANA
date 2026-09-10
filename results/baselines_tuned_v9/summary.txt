@@ -1,0 +1,30 @@
+Tuned baselines — selected on the 5 BioProject-grouped dev folds
+
+Same folds and same metric (f1_macro_eligible) as the network arms.
+Held-out was not used. Apply these settings when re-running
+09_baselines_v9.py to produce the Table 2 comparator.
+
+community_type
+    RandomForest_Bal        0.5764   {"n_estimators": 800, "max_features": "sqrt", "min_samples_leaf": 3}
+    LogisticRegression_Bal  0.5249   {"C": 0.1}
+    LinearSVM_Bal           0.5189   {"C": 0.01}
+    kNN                     0.4954   {"n_neighbors": 1, "weights": "uniform"}
+
+feature
+    kNN                     0.5096   {"n_neighbors": 3, "weights": "distance"}
+    RandomForest_Bal        0.4825   {"n_estimators": 300, "max_features": 0.05, "min_samples_leaf": 3}
+    LogisticRegression_Bal  0.4599   {"C": 10.0}
+    LinearSVM_Bal           0.4590   {"C": 0.1}
+
+sample_host
+    LinearSVM_Bal           0.7661   {"C": 1.0}
+    kNN                     0.7517   {"n_neighbors": 1, "weights": "uniform"}
+    RandomForest_Bal        0.7503   {"n_estimators": 300, "max_features": "sqrt", "min_samples_leaf": 3}
+    LogisticRegression_Bal  0.7363   {"C": 10.0}
+
+material
+    LogisticRegression_Bal  0.4967   {"C": 0.1}
+    LinearSVM_Bal           0.4960   {"C": 0.01}
+    RandomForest_Bal        0.4515   {"n_estimators": 300, "max_features": "sqrt", "min_samples_leaf": 3}
+    kNN                     0.4358   {"n_neighbors": 1, "weights": "distance"}
+

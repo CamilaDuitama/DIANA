@@ -1,0 +1,17 @@
+task	model	params	mean_f1_eligible	n_folds
+community_type	LinearSVM_Bal	"{""C"": 0.01}"	0.5188509248407916	5
+community_type	LogisticRegression_Bal	"{""C"": 0.1}"	0.5248788694367089	5
+community_type	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.5763846672557078	5
+community_type	kNN	"{""n_neighbors"": 1, ""weights"": ""uniform""}"	0.49538828979715355	5
+feature	LinearSVM_Bal	"{""C"": 0.1}"	0.4589827537615177	5
+feature	LogisticRegression_Bal	"{""C"": 10.0}"	0.45992297099118495	5
+feature	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": 0.05, ""min_samples_leaf"": 3}"	0.4824661264661265	5
+feature	kNN	"{""n_neighbors"": 3, ""weights"": ""distance""}"	0.5096142072773822	5
+material	LinearSVM_Bal	"{""C"": 0.01}"	0.4959531643985285	5
+material	LogisticRegression_Bal	"{""C"": 0.1}"	0.49673870856578634	5
+material	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.4515242837281416	5
+material	kNN	"{""n_neighbors"": 1, ""weights"": ""distance""}"	0.43580765543121397	5
+sample_host	LinearSVM_Bal	"{""C"": 1.0}"	0.7660568018817993	5
+sample_host	LogisticRegression_Bal	"{""C"": 10.0}"	0.7362627717141794	5
+sample_host	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.7503425553776506	5
+sample_host	kNN	"{""n_neighbors"": 1, ""weights"": ""uniform""}"	0.7517340044006721	5

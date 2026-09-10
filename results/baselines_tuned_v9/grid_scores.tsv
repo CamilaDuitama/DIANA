@@ -1,0 +1,105 @@
+task	model	params	mean_f1_eligible	n_folds
+community_type	LogisticRegression_Bal	"{""C"": 0.01}"	0.5046684468818181	5
+community_type	LogisticRegression_Bal	"{""C"": 0.1}"	0.5248788694367089	5
+community_type	LogisticRegression_Bal	"{""C"": 1.0}"	0.5081169779892625	5
+community_type	LogisticRegression_Bal	"{""C"": 10.0}"	0.5248343423928759	5
+community_type	LinearSVM_Bal	"{""C"": 0.001}"	0.5010265370251493	5
+community_type	LinearSVM_Bal	"{""C"": 0.01}"	0.5188509248407916	5
+community_type	LinearSVM_Bal	"{""C"": 0.1}"	0.5003237759894594	5
+community_type	LinearSVM_Bal	"{""C"": 1.0}"	0.4739100948030662	5
+community_type	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 1}"	0.5177750527676946	5
+community_type	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.568746849009389	5
+community_type	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": 0.05, ""min_samples_leaf"": 1}"	0.5324559097819573	5
+community_type	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": 0.05, ""min_samples_leaf"": 3}"	0.523388427200605	5
+community_type	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": ""sqrt"", ""min_samples_leaf"": 1}"	0.5233263584961039	5
+community_type	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.5763846672557078	5
+community_type	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": 0.05, ""min_samples_leaf"": 1}"	0.5313779708038163	5
+community_type	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": 0.05, ""min_samples_leaf"": 3}"	0.5226894464871042	5
+community_type	kNN	"{""n_neighbors"": 1, ""weights"": ""uniform""}"	0.49538828979715355	5
+community_type	kNN	"{""n_neighbors"": 1, ""weights"": ""distance""}"	0.49538828979715355	5
+community_type	kNN	"{""n_neighbors"": 3, ""weights"": ""uniform""}"	0.4754654452170701	5
+community_type	kNN	"{""n_neighbors"": 3, ""weights"": ""distance""}"	0.47616475745918363	5
+community_type	kNN	"{""n_neighbors"": 5, ""weights"": ""uniform""}"	0.465146501874888	5
+community_type	kNN	"{""n_neighbors"": 5, ""weights"": ""distance""}"	0.4655459481954212	5
+community_type	kNN	"{""n_neighbors"": 10, ""weights"": ""uniform""}"	0.4275144255589236	5
+community_type	kNN	"{""n_neighbors"": 10, ""weights"": ""distance""}"	0.4404827280128701	5
+community_type	kNN	"{""n_neighbors"": 20, ""weights"": ""uniform""}"	0.43961312328181085	5
+community_type	kNN	"{""n_neighbors"": 20, ""weights"": ""distance""}"	0.4407143932864804	5
+feature	LogisticRegression_Bal	"{""C"": 0.01}"	0.3868379055750942	5
+feature	LogisticRegression_Bal	"{""C"": 0.1}"	0.4273296827558208	5
+feature	LogisticRegression_Bal	"{""C"": 1.0}"	0.4276504862546995	5
+feature	LogisticRegression_Bal	"{""C"": 10.0}"	0.45992297099118495	5
+feature	LinearSVM_Bal	"{""C"": 0.001}"	0.41633336486727934	5
+feature	LinearSVM_Bal	"{""C"": 0.01}"	0.4335180789707658	5
+feature	LinearSVM_Bal	"{""C"": 0.1}"	0.4589827537615177	5
+feature	LinearSVM_Bal	"{""C"": 1.0}"	0.4393359589493695	5
+feature	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 1}"	0.43350247132026787	5
+feature	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.43077198581819875	5
+feature	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": 0.05, ""min_samples_leaf"": 1}"	0.4514366999179259	5
+feature	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": 0.05, ""min_samples_leaf"": 3}"	0.4824661264661265	5
+feature	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": ""sqrt"", ""min_samples_leaf"": 1}"	0.4387068224469234	5
+feature	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.4335592909914944	5
+feature	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": 0.05, ""min_samples_leaf"": 1}"	0.4503451590409754	5
+feature	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": 0.05, ""min_samples_leaf"": 3}"	0.4728633281023485	5
+feature	kNN	"{""n_neighbors"": 1, ""weights"": ""uniform""}"	0.4662580400318504	5
+feature	kNN	"{""n_neighbors"": 1, ""weights"": ""distance""}"	0.4662580400318504	5
+feature	kNN	"{""n_neighbors"": 3, ""weights"": ""uniform""}"	0.5091850554542315	5
+feature	kNN	"{""n_neighbors"": 3, ""weights"": ""distance""}"	0.5096142072773822	5
+feature	kNN	"{""n_neighbors"": 5, ""weights"": ""uniform""}"	0.4682591258867526	5
+feature	kNN	"{""n_neighbors"": 5, ""weights"": ""distance""}"	0.471976418122199	5
+feature	kNN	"{""n_neighbors"": 10, ""weights"": ""uniform""}"	0.40932221085087617	5
+feature	kNN	"{""n_neighbors"": 10, ""weights"": ""distance""}"	0.42526984995501704	5
+feature	kNN	"{""n_neighbors"": 20, ""weights"": ""uniform""}"	0.4325780330613383	5
+feature	kNN	"{""n_neighbors"": 20, ""weights"": ""distance""}"	0.45401950154005294	5
+sample_host	LogisticRegression_Bal	"{""C"": 0.01}"	0.6982723570884535	5
+sample_host	LogisticRegression_Bal	"{""C"": 0.1}"	0.7263149661904672	5
+sample_host	LogisticRegression_Bal	"{""C"": 1.0}"	0.7097731729417827	5
+sample_host	LogisticRegression_Bal	"{""C"": 10.0}"	0.7362627717141794	5
+sample_host	LinearSVM_Bal	"{""C"": 0.001}"	0.7472580530662569	5
+sample_host	LinearSVM_Bal	"{""C"": 0.01}"	0.7475195815118907	5
+sample_host	LinearSVM_Bal	"{""C"": 0.1}"	0.7636190643092344	5
+sample_host	LinearSVM_Bal	"{""C"": 1.0}"	0.7660568018817993	5
+sample_host	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 1}"	0.7240718856545623	5
+sample_host	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.7503425553776506	5
+sample_host	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": 0.05, ""min_samples_leaf"": 1}"	0.7252975485522941	5
+sample_host	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": 0.05, ""min_samples_leaf"": 3}"	0.7356964018879525	5
+sample_host	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": ""sqrt"", ""min_samples_leaf"": 1}"	0.7334212091602421	5
+sample_host	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.747020148596677	5
+sample_host	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": 0.05, ""min_samples_leaf"": 1}"	0.7262860550942293	5
+sample_host	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": 0.05, ""min_samples_leaf"": 3}"	0.7368642589104482	5
+sample_host	kNN	"{""n_neighbors"": 1, ""weights"": ""uniform""}"	0.7517340044006721	5
+sample_host	kNN	"{""n_neighbors"": 1, ""weights"": ""distance""}"	0.7517340044006721	5
+sample_host	kNN	"{""n_neighbors"": 3, ""weights"": ""uniform""}"	0.7180878198849998	5
+sample_host	kNN	"{""n_neighbors"": 3, ""weights"": ""distance""}"	0.7192311093903584	5
+sample_host	kNN	"{""n_neighbors"": 5, ""weights"": ""uniform""}"	0.7229168340912945	5
+sample_host	kNN	"{""n_neighbors"": 5, ""weights"": ""distance""}"	0.727291114952577	5
+sample_host	kNN	"{""n_neighbors"": 10, ""weights"": ""uniform""}"	0.7262656198046734	5
+sample_host	kNN	"{""n_neighbors"": 10, ""weights"": ""distance""}"	0.731008391783505	5
+sample_host	kNN	"{""n_neighbors"": 20, ""weights"": ""uniform""}"	0.6819746378235496	5
+sample_host	kNN	"{""n_neighbors"": 20, ""weights"": ""distance""}"	0.6854453898383864	5
+material	LogisticRegression_Bal	"{""C"": 0.01}"	0.46234606165502107	5
+material	LogisticRegression_Bal	"{""C"": 0.1}"	0.49673870856578634	5
+material	LogisticRegression_Bal	"{""C"": 1.0}"	0.4907944048675268	5
+material	LogisticRegression_Bal	"{""C"": 10.0}"	0.47353935321541546	5
+material	LinearSVM_Bal	"{""C"": 0.001}"	0.48527797876538764	5
+material	LinearSVM_Bal	"{""C"": 0.01}"	0.4959531643985285	5
+material	LinearSVM_Bal	"{""C"": 0.1}"	0.4677851752022014	5
+material	LinearSVM_Bal	"{""C"": 1.0}"	0.4422994219544183	5
+material	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 1}"	0.4297328364254791	5
+material	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.4515242837281416	5
+material	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": 0.05, ""min_samples_leaf"": 1}"	0.3919532874369339	5
+material	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": 0.05, ""min_samples_leaf"": 3}"	0.39976926451452127	5
+material	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": ""sqrt"", ""min_samples_leaf"": 1}"	0.4365244376743851	5
+material	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.44658183096416304	5
+material	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": 0.05, ""min_samples_leaf"": 1}"	0.39543634996856947	5
+material	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": 0.05, ""min_samples_leaf"": 3}"	0.4056011470369046	5
+material	kNN	"{""n_neighbors"": 1, ""weights"": ""uniform""}"	0.43580765543121397	5
+material	kNN	"{""n_neighbors"": 1, ""weights"": ""distance""}"	0.43580765543121397	5
+material	kNN	"{""n_neighbors"": 3, ""weights"": ""uniform""}"	0.4263866408356879	5
+material	kNN	"{""n_neighbors"": 3, ""weights"": ""distance""}"	0.42857010779332666	5
+material	kNN	"{""n_neighbors"": 5, ""weights"": ""uniform""}"	0.4229180637274495	5
+material	kNN	"{""n_neighbors"": 5, ""weights"": ""distance""}"	0.4206672805657141	5
+material	kNN	"{""n_neighbors"": 10, ""weights"": ""uniform""}"	0.40133977426813494	5
+material	kNN	"{""n_neighbors"": 10, ""weights"": ""distance""}"	0.40267366904043644	5
+material	kNN	"{""n_neighbors"": 20, ""weights"": ""uniform""}"	0.3614731596512192	5
+material	kNN	"{""n_neighbors"": 20, ""weights"": ""distance""}"	0.36150291563724074	5
