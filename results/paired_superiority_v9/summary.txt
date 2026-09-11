@@ -1,0 +1,75 @@
+Paired superiority over 25 held-out BioProjects (2000 resamples)
+
+delta = F1_eligible(A) - F1_eligible(B) on the same rows and the same
+resampled projects. Superiority is demonstrated only where the 95 % CI on
+delta excludes 0; 'sig' marks those.
+
+community_type   (n=653 scored)
+   A                   B                          F1 A   F1 B   delta      95 % CI on delta  P(d>0)   proj  sig
+   DIANA multi-task    MajorityClass             0.573  0.146  +0.427      [+0.187, +0.591]    1.00  11/25  YES
+   DIANA single-task   MajorityClass             0.568  0.146  +0.422      [+0.154, +0.574]    1.00  12/25  YES
+   DIANA multi-task    RandomForest              0.573  0.489  +0.084      [+0.049, +0.169]    1.00  10/25  YES
+   DIANA single-task   RandomForest              0.568  0.489  +0.079      [+0.035, +0.133]    1.00  10/25  YES
+   DIANA multi-task    kNN                       0.573  0.513  +0.061      [-0.018, +0.170]    0.94  11/25  no
+   DIANA single-task   kNN                       0.568  0.513  +0.056      [-0.054, +0.165]    0.87  11/25  no
+   DIANA multi-task    RandomForest_Bal          0.573  0.556  +0.018      [-0.011, +0.103]    0.92  10/25  no
+   DIANA single-task   RandomForest_Bal          0.568  0.556  +0.013      [-0.009, +0.063]    0.91  11/25  no
+   DIANA multi-task    LinearSVM_Bal             0.573  0.563  +0.011      [-0.021, +0.055]    0.70   9/25  no
+   DIANA single-task   LinearSVM_Bal             0.568  0.563  +0.006      [-0.055, +0.040]    0.46   6/25  no
+   DIANA multi-task    DIANA single-task         0.573  0.568  +0.005      [-0.028, +0.069]    0.72   9/25  no
+   DIANA multi-task    LogisticRegression_Bal    0.573  0.580  -0.007      [-0.035, +0.042]    0.40   8/25  no
+   DIANA single-task   LogisticRegression_Bal    0.568  0.580  -0.012      [-0.064, +0.026]    0.19   5/25  no
+
+feature   (n=263 scored)
+   A                   B                          F1 A   F1 B   delta      95 % CI on delta  P(d>0)   proj  sig
+   DIANA single-task   MajorityClass             0.545  0.070  +0.475      [+0.314, +0.771]    1.00    7/9  YES
+   DIANA multi-task    MajorityClass             0.437  0.070  +0.367      [+0.203, +0.665]    1.00    5/9  YES
+   DIANA single-task   kNN                       0.545  0.308  +0.237      [+0.117, +0.338]    1.00    6/9  YES
+   DIANA single-task   LogisticRegression_Bal    0.545  0.331  +0.214      [+0.050, +0.342]    1.00    5/9  YES
+   DIANA single-task   RandomForest_Bal          0.545  0.349  +0.196      [+0.014, +0.304]    0.99    5/9  YES
+   DIANA single-task   LinearSVM_Bal             0.545  0.358  +0.187      [+0.036, +0.295]    0.99    5/9  YES
+   DIANA multi-task    kNN                       0.437  0.308  +0.130      [+0.047, +0.220]    1.00    4/9  YES
+   DIANA multi-task    LogisticRegression_Bal    0.437  0.331  +0.106      [-0.002, +0.225]    0.95    2/9  no
+   DIANA multi-task    RandomForest_Bal          0.437  0.349  +0.088      [-0.019, +0.188]    0.94    3/9  no
+   DIANA multi-task    LinearSVM_Bal             0.437  0.358  +0.079      [-0.048, +0.221]    0.86    3/9  no
+   DIANA single-task   RandomForest              0.545  0.470  +0.075      [+0.022, +0.160]    0.99    5/9  YES
+   DIANA multi-task    RandomForest              0.437  0.470  -0.033      [-0.146, +0.112]    0.45    2/9  no
+   DIANA multi-task    DIANA single-task         0.437  0.545  -0.108      [-0.226, +0.020]    0.12    1/9  no
+
+sample_host   (n=652 scored)
+   A                   B                          F1 A   F1 B   delta      95 % CI on delta  P(d>0)   proj  sig
+   DIANA single-task   MajorityClass             0.551  0.153  +0.398      [+0.129, +0.521]    1.00   5/25  YES
+   DIANA single-task   RandomForest              0.551  0.257  +0.294      [+0.110, +0.378]    1.00   6/25  YES
+   DIANA single-task   RandomForest_Bal          0.551  0.498  +0.053      [-0.044, +0.183]    0.88   5/25  no
+   DIANA multi-task    MajorityClass             0.178  0.153  +0.025      [-0.004, +0.053]    0.87   1/25  no
+   DIANA single-task   LogisticRegression_Bal    0.551  0.542  +0.009      [-0.113, +0.178]    0.59   8/25  no
+   DIANA single-task   LinearSVM_Bal             0.551  0.580  -0.028      [-0.199, +0.113]    0.33   4/25  no
+   DIANA single-task   kNN                       0.551  0.580  -0.029      [-0.074, +0.070]    0.32   9/25  no
+   DIANA multi-task    RandomForest              0.178  0.257  -0.079      [-0.184, +0.041]    0.25   1/25  no
+   DIANA multi-task    RandomForest_Bal          0.178  0.498  -0.319      [-0.424, -0.061]    0.01   3/25  (B better)
+   DIANA multi-task    LogisticRegression_Bal    0.178  0.542  -0.363      [-0.501, -0.045]    0.01   3/25  (B better)
+   DIANA multi-task    DIANA single-task         0.178  0.551  -0.373      [-0.504, -0.085]    0.00   0/25  (B better)
+   DIANA multi-task    LinearSVM_Bal             0.178  0.580  -0.401      [-0.640, -0.057]    0.01   2/25  (B better)
+   DIANA multi-task    kNN                       0.178  0.580  -0.402      [-0.518, -0.105]    0.00   7/25  (B better)
+
+material   (n=822 scored)
+   A                   B                          F1 A   F1 B   delta      95 % CI on delta  P(d>0)   proj  sig
+   DIANA multi-task    MajorityClass             0.470  0.028  +0.442      [+0.295, +0.611]    1.00  13/31  YES
+   DIANA single-task   MajorityClass             0.458  0.028  +0.430      [+0.291, +0.600]    1.00  15/31  YES
+   DIANA multi-task    RandomForest              0.470  0.339  +0.131      [-0.002, +0.220]    0.97   7/31  no
+   DIANA multi-task    RandomForest_Bal          0.470  0.350  +0.120      [-0.008, +0.195]    0.96   9/31  no
+   DIANA single-task   RandomForest              0.458  0.339  +0.119      [-0.016, +0.227]    0.94   8/31  no
+   DIANA single-task   RandomForest_Bal          0.458  0.350  +0.108      [-0.024, +0.197]    0.93   8/31  no
+   DIANA multi-task    kNN                       0.470  0.396  +0.074      [+0.000, +0.127]    0.97  14/31  YES
+   DIANA single-task   kNN                       0.458  0.396  +0.062      [-0.014, +0.134]    0.94  13/31  no
+   DIANA multi-task    DIANA single-task         0.470  0.458  +0.012      [-0.049, +0.067]    0.58   8/31  no
+   DIANA multi-task    LogisticRegression_Bal    0.470  0.461  +0.009      [-0.066, +0.069]    0.53   7/31  no
+   DIANA single-task   LogisticRegression_Bal    0.458  0.461  -0.003      [-0.068, +0.053]    0.46   8/31  no
+   DIANA multi-task    LinearSVM_Bal             0.470  0.487  -0.017      [-0.075, +0.016]    0.12   6/31  no
+   DIANA single-task   LinearSVM_Bal             0.458  0.487  -0.029      [-0.094, +0.018]    0.11   6/31  no
+
+17 of 52 comparisons favour DIANA with the CI excluding 0; 5 favour the other model.
+
+Where the CI spans 0 the two models are not distinguished by this test. That
+is not evidence they perform the same, only that 34 projects cannot separate
+them.
