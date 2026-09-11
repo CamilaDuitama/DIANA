@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One figure: held-out f1_macro_eligible for every model, on all four tasks.
+"""One figure per metric: held-out performance for every model, on all four tasks.
 
 A dot-and-interval plot rather than bars, because the interval is the point. Each
 model's own 95 % CI spans roughly 0.35, so a bar chart of the point estimates would
@@ -9,10 +9,12 @@ not readable off this figure at all; that is the paired test (Table 4).
 Model order is fixed across tasks so the same row means the same model everywhere,
 and colour follows the model rather than its rank.
 
-    ./env/bin/python scripts/paper/plot_heldout_comparison.py
+    ./env/bin/python scripts/paper/plot_heldout_comparison.py --metric f1_macro_eligible
+    ./env/bin/python scripts/paper/plot_heldout_comparison.py --metric balanced_accuracy
 """
 from __future__ import annotations
 
+import argparse
 import json
 from pathlib import Path
 
@@ -41,27 +43,43 @@ BLUE, ORANGE, GREY = "#2a78d6", "#eb6834", "#8a8a8a"
 COLOUR = {"DIANA": BLUE}
 
 
-def collect() -> pd.DataFrame:
+# Each metric's CI columns and how it is described on the axis. balanced_accuracy is
+# mean per-class recall over the classes present in the scored rows, so its
+# denominator is NOT the eligible subset f1_macro_eligible uses; the two are not
+# comparable row to row and each figure says so.
+METRICS = {
+    "f1_macro_eligible": dict(
+        label="f1_macro_eligible",
+        note="macro-F1 over classes present in >= 2 BioProjects"),
+    "balanced_accuracy": dict(
+        label="balanced accuracy",
+        note="mean per-class recall, over all classes present in the scored rows"),
+}
+
+
+def collect(metric: str) -> pd.DataFrame:
     b = pd.read_csv(PROJECT_ROOT / "results/baseline_predictions_v9/summary.csv")
     b = b[b.split == "test"]
     rows = []
     for t in TASKS:
         for _, r in b[b.task == t].iterrows():
-            rows.append({"task": t, "model": r.model, "f1": r.f1_macro_eligible,
-                         "lo": r.f1_macro_eligible_ci_low,
-                         "hi": r.f1_macro_eligible_ci_high})
+            rows.append({"task": t, "model": r.model, "f1": r[metric],
+                         "lo": r[f"{metric}_ci_low"], "hi": r[f"{metric}_ci_high"]})
         p = PROJECT_ROOT / f"results/final_eval_v9/heldout_single_{t}/test_metrics.json"
         m = json.loads(p.read_text()).get(t)
         if isinstance(m, dict):
-            rows.append({"task": t, "model": "DIANA",
-                         "f1": m["f1_macro_eligible"],
-                         "lo": m["f1_macro_eligible_ci_low"],
-                         "hi": m["f1_macro_eligible_ci_high"]})
+            rows.append({"task": t, "model": "DIANA", "f1": m[metric],
+                         "lo": m[f"{metric}_ci_low"], "hi": m[f"{metric}_ci_high"]})
     return pd.DataFrame(rows)
 
 
 def main() -> int:
-    df = collect()
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--metric", choices=sorted(METRICS), default="f1_macro_eligible")
+    args = ap.parse_args()
+    spec = METRICS[args.metric]
+    df = collect(args.metric)
     missing = set(df.model) - set(ORDER)
     if missing:
         raise SystemExit(f"models not in the fixed order: {sorted(missing)}")
@@ -114,11 +132,12 @@ def main() -> int:
     ax.set_yticks(ticks)
     ax.set_yticklabels(labels, fontsize=9)
     ax.set_xlim(0, 1.0)
-    ax.set_xlabel("f1_macro_eligible on the 922 held-out runs\n"
-                  "(point estimate, bar = 95 % CI over 1,000 resamples of the 34 BioProjects,\n"
-                  "whole projects drawn with replacement)",
+    ax.set_xlabel(f"{spec['label']} on the 922 held-out runs\n"
+                  f"({spec['note']})\n"
+                  "point estimate, bar = 95 % CI over 1,000 resamples of the 34\n"
+                  "BioProjects, whole projects drawn with replacement",
                   fontsize=9.5)
-    ax.set_title("Held-out f1_macro_eligible by task and model", fontsize=12, pad=14)
+    ax.set_title(f"Held-out {spec['label']} by task and model", fontsize=12, pad=14)
     ax.xaxis.grid(True, color="#ededed", lw=0.8)
     ax.set_axisbelow(True)
     for side in ("top", "right", "left"):
@@ -132,7 +151,7 @@ def main() -> int:
                           markeredgecolor="white", label="tuned baseline")]
     ax.legend(handles=handles, loc="lower right", frameon=False, fontsize=9.5)
 
-    out = PROJECT_ROOT / "results/paper/heldout_model_comparison.png"
+    out = PROJECT_ROOT / f"results/paper/heldout_{args.metric}.png"
     out.parent.mkdir(parents=True, exist_ok=True)
     fig.tight_layout()
     fig.savefig(out, dpi=200, bbox_inches="tight")
