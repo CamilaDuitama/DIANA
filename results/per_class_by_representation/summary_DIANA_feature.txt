@@ -1,0 +1,20 @@
+Per-class metrics by training representation — DIANA_feature  (R3.13)
+
+Recall averaged over classes within each training-count bin.
+A model that only works on well-represented classes shows a steep
+gradient here even when its macro-F1 looks acceptable.
+
+   task representation  n_classes  mean_recall  mean_f1  heldout_runs
+feature            1-9          1     0.000000 0.000000            11
+feature          10-49          2     0.496599 0.561905           107
+feature         50-199          2     0.666667 0.568376            75
+feature           200+          1     0.900000 0.893617            70
+
+Worst-served eligible classes (lowest F1, >=1 held-out run):
+   task        class  n_train  n_heldout  precision   recall       f1
+feature rock shelter        2         11   0.000000 0.000000 0.000000
+feature    sea coast       52         12   0.666667 0.333333 0.444444
+feature         cave       34         98   0.761905 0.326531 0.457143
+feature  thermokarst       10          9   0.666667 0.666667 0.666667
+feature        ocean      179         63   0.529412 1.000000 0.692308
+feature         lake      215         70   0.887324 0.900000 0.893617

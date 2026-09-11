@@ -1,0 +1,16 @@
+model	task	class	n_train	n_heldout	eligible	precision	recall	f1	representation
+DIANA_material	material	birch pitch	0	79	True	0.0	0.0	0.0	1-9
+DIANA_material	material	bone	127	143	True	0.41228070175438597	0.32867132867132864	0.3657587548638132	50-199
+DIANA_material	material	dental calculus	1389	181	True	0.7404255319148936	0.9613259668508287	0.8365384615384616	200+
+DIANA_material	material	digestive tract contents	16	15	True	0.0	0.0	0.0	10-49
+DIANA_material	material	intestine	15	1	True	0.0	0.0	0.0	10-49
+DIANA_material	material	lake sediment	215	70	True	0.8461538461538461	0.7857142857142857	0.8148148148148148	200+
+DIANA_material	material	latrine	0	8	False	0.0	0.0	0.0	1-9
+DIANA_material	material	leaf	43	38	True	1.0	1.0	1.0	10-49
+DIANA_material	material	marine sediment	143	63	True	0.7692307692307693	0.9523809523809523	0.851063829787234	50-199
+DIANA_material	material	muscle tissue	4	2	True	0.0	0.0	0.0	1-9
+DIANA_material	material	palaeofaeces	61	14	True	0.1076923076923077	0.5	0.17721518987341772	50-199
+DIANA_material	material	permafrost	70	21	True	0.6666666666666666	0.47619047619047616	0.5555555555555556	50-199
+DIANA_material	material	sediment	105	109	True	0.6210526315789474	0.5412844036697247	0.5784313725490197	50-199
+DIANA_material	material	soil	2	20	True	0.0	0.0	0.0	1-9
+DIANA_material	material	tooth	399	145	True	0.4607329842931937	0.6068965517241379	0.5238095238095238	200+

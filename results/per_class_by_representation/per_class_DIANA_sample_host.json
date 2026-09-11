@@ -1,0 +1,79 @@
+[
+  {
+    "model": "DIANA_sample_host",
+    "task": "sample_host",
+    "class": "Ambrosia artemisiifolia",
+    "n_train": 11,
+    "n_heldout": 38,
+    "eligible": true,
+    "precision": 1.0,
+    "recall": 0.6052631578947368,
+    "f1": 0.7540983606557377
+  },
+  {
+    "model": "DIANA_sample_host",
+    "task": "sample_host",
+    "class": "Canis lupus",
+    "n_train": 12,
+    "n_heldout": 9,
+    "eligible": true,
+    "precision": 0.5,
+    "recall": 0.3333333333333333,
+    "f1": 0.4
+  },
+  {
+    "model": "DIANA_sample_host",
+    "task": "sample_host",
+    "class": "Homo sapiens",
+    "n_train": 1397,
+    "n_heldout": 555,
+    "eligible": true,
+    "precision": 0.9375,
+    "recall": 1.0,
+    "f1": 0.967741935483871
+  },
+  {
+    "model": "DIANA_sample_host",
+    "task": "sample_host",
+    "class": "Homo sapiens neanderthalensis",
+    "n_train": 16,
+    "n_heldout": 18,
+    "eligible": true,
+    "precision": 1.0,
+    "recall": 0.05555555555555555,
+    "f1": 0.10526315789473684
+  },
+  {
+    "model": "DIANA_sample_host",
+    "task": "sample_host",
+    "class": "Mammuthus primigenius",
+    "n_train": 16,
+    "n_heldout": 13,
+    "eligible": true,
+    "precision": 1.0,
+    "recall": 0.15384615384615385,
+    "f1": 0.26666666666666666
+  },
+  {
+    "model": "DIANA_sample_host",
+    "task": "sample_host",
+    "class": "Pan troglodytes",
+    "n_train": 0,
+    "n_heldout": 1,
+    "eligible": false,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+  },
+  {
+    "model": "DIANA_sample_host",
+    "task": "sample_host",
+    "class": "Pan troglodytes schweinfurthii",
+    "n_train": 11,
+    "n_heldout": 19,
+    "eligible": true,
+    "precision": 1.0,
+    "recall": 0.6842105263157895,
+    "f1": 0.8125
+  }
+]

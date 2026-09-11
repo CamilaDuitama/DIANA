@@ -1,0 +1,57 @@
+[
+  {
+    "model": "DIANA_community_type",
+    "task": "community_type",
+    "class": "gut",
+    "n_train": 88,
+    "n_heldout": 52,
+    "eligible": true,
+    "precision": 0.8823529411764706,
+    "recall": 0.28846153846153844,
+    "f1": 0.43478260869565216
+  },
+  {
+    "model": "DIANA_community_type",
+    "task": "community_type",
+    "class": "oral",
+    "n_train": 1701,
+    "n_heldout": 377,
+    "eligible": true,
+    "precision": 0.8044554455445545,
+    "recall": 0.8620689655172413,
+    "f1": 0.8322663252240717
+  },
+  {
+    "model": "DIANA_community_type",
+    "task": "community_type",
+    "class": "plant tissue",
+    "n_train": 43,
+    "n_heldout": 38,
+    "eligible": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  {
+    "model": "DIANA_community_type",
+    "task": "community_type",
+    "class": "skeletal tissue",
+    "n_train": 214,
+    "n_heldout": 178,
+    "eligible": true,
+    "precision": 0.5549738219895288,
+    "recall": 0.5955056179775281,
+    "f1": 0.5745257452574526
+  },
+  {
+    "model": "DIANA_community_type",
+    "task": "community_type",
+    "class": "soft tissue",
+    "n_train": 27,
+    "n_heldout": 8,
+    "eligible": true,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+  }
+]

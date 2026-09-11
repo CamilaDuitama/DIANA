@@ -1,0 +1,167 @@
+[
+  {
+    "model": "DIANA_material",
+    "task": "material",
+    "class": "birch pitch",
+    "n_train": 0,
+    "n_heldout": 79,
+    "eligible": true,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+  },
+  {
+    "model": "DIANA_material",
+    "task": "material",
+    "class": "bone",
+    "n_train": 127,
+    "n_heldout": 143,
+    "eligible": true,
+    "precision": 0.41228070175438597,
+    "recall": 0.32867132867132864,
+    "f1": 0.3657587548638132
+  },
+  {
+    "model": "DIANA_material",
+    "task": "material",
+    "class": "dental calculus",
+    "n_train": 1389,
+    "n_heldout": 181,
+    "eligible": true,
+    "precision": 0.7404255319148936,
+    "recall": 0.9613259668508287,
+    "f1": 0.8365384615384616
+  },
+  {
+    "model": "DIANA_material",
+    "task": "material",
+    "class": "digestive tract contents",
+    "n_train": 16,
+    "n_heldout": 15,
+    "eligible": true,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+  },
+  {
+    "model": "DIANA_material",
+    "task": "material",
+    "class": "intestine",
+    "n_train": 15,
+    "n_heldout": 1,
+    "eligible": true,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+  },
+  {
+    "model": "DIANA_material",
+    "task": "material",
+    "class": "lake sediment",
+    "n_train": 215,
+    "n_heldout": 70,
+    "eligible": true,
+    "precision": 0.8461538461538461,
+    "recall": 0.7857142857142857,
+    "f1": 0.8148148148148148
+  },
+  {
+    "model": "DIANA_material",
+    "task": "material",
+    "class": "latrine",
+    "n_train": 0,
+    "n_heldout": 8,
+    "eligible": false,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+  },
+  {
+    "model": "DIANA_material",
+    "task": "material",
+    "class": "leaf",
+    "n_train": 43,
+    "n_heldout": 38,
+    "eligible": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  {
+    "model": "DIANA_material",
+    "task": "material",
+    "class": "marine sediment",
+    "n_train": 143,
+    "n_heldout": 63,
+    "eligible": true,
+    "precision": 0.7692307692307693,
+    "recall": 0.9523809523809523,
+    "f1": 0.851063829787234
+  },
+  {
+    "model": "DIANA_material",
+    "task": "material",
+    "class": "muscle tissue",
+    "n_train": 4,
+    "n_heldout": 2,
+    "eligible": true,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+  },
+  {
+    "model": "DIANA_material",
+    "task": "material",
+    "class": "palaeofaeces",
+    "n_train": 61,
+    "n_heldout": 14,
+    "eligible": true,
+    "precision": 0.1076923076923077,
+    "recall": 0.5,
+    "f1": 0.17721518987341772
+  },
+  {
+    "model": "DIANA_material",
+    "task": "material",
+    "class": "permafrost",
+    "n_train": 70,
+    "n_heldout": 21,
+    "eligible": true,
+    "precision": 0.6666666666666666,
+    "recall": 0.47619047619047616,
+    "f1": 0.5555555555555556
+  },
+  {
+    "model": "DIANA_material",
+    "task": "material",
+    "class": "sediment",
+    "n_train": 105,
+    "n_heldout": 109,
+    "eligible": true,
+    "precision": 0.6210526315789474,
+    "recall": 0.5412844036697247,
+    "f1": 0.5784313725490197
+  },
+  {
+    "model": "DIANA_material",
+    "task": "material",
+    "class": "soil",
+    "n_train": 2,
+    "n_heldout": 20,
+    "eligible": true,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+  },
+  {
+    "model": "DIANA_material",
+    "task": "material",
+    "class": "tooth",
+    "n_train": 399,
+    "n_heldout": 145,
+    "eligible": true,
+    "precision": 0.4607329842931937,
+    "recall": 0.6068965517241379,
+    "f1": 0.5238095238095238
+  }
+]

@@ -1,0 +1,9 @@
+model	task	class	n_train	n_heldout	eligible	precision	recall	f1	representation
+DIANA_feature	feature	cave	34	98	True	0.7619047619047619	0.32653061224489793	0.45714285714285713	10-49
+DIANA_feature	feature	hydrothermal field	0	15	False	0.0	0.0	0.0	1-9
+DIANA_feature	feature	lake	215	70	True	0.8873239436619719	0.9	0.8936170212765957	200+
+DIANA_feature	feature	ocean	179	63	True	0.5294117647058824	1.0	0.6923076923076923	50-199
+DIANA_feature	feature	rock shelter	2	11	True	0.0	0.0	0.0	1-9
+DIANA_feature	feature	sea coast	52	12	True	0.6666666666666666	0.3333333333333333	0.4444444444444444	50-199
+DIANA_feature	feature	thermokarst	10	9	True	0.6666666666666666	0.6666666666666666	0.6666666666666666	10-49
+DIANA_feature	feature	wetland area	0	5	False	0.0	0.0	0.0	1-9

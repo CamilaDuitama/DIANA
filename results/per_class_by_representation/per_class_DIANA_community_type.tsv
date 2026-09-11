@@ -1,0 +1,6 @@
+model	task	class	n_train	n_heldout	eligible	precision	recall	f1	representation
+DIANA_community_type	community_type	gut	88	52	True	0.8823529411764706	0.28846153846153844	0.43478260869565216	50-199
+DIANA_community_type	community_type	oral	1701	377	True	0.8044554455445545	0.8620689655172413	0.8322663252240717	200+
+DIANA_community_type	community_type	plant tissue	43	38	True	1.0	1.0	1.0	10-49
+DIANA_community_type	community_type	skeletal tissue	214	178	True	0.5549738219895288	0.5955056179775281	0.5745257452574526	200+
+DIANA_community_type	community_type	soft tissue	27	8	True	0.0	0.0	0.0	10-49

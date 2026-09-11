@@ -1,0 +1,18 @@
+Per-class metrics by training representation — DIANA_sample_host  (R3.13)
+
+Recall averaged over classes within each training-count bin.
+A model that only works on well-represented classes shows a steep
+gradient here even when its macro-F1 looks acceptable.
+
+       task representation  n_classes  mean_recall  mean_f1  heldout_runs
+sample_host          10-49          5     0.366442 0.467706            97
+sample_host           200+          1     1.000000 0.967742           555
+
+Worst-served eligible classes (lowest F1, >=1 held-out run):
+       task                          class  n_train  n_heldout  precision   recall       f1
+sample_host  Homo sapiens neanderthalensis       16         18     1.0000 0.055556 0.105263
+sample_host          Mammuthus primigenius       16         13     1.0000 0.153846 0.266667
+sample_host                    Canis lupus       12          9     0.5000 0.333333 0.400000
+sample_host        Ambrosia artemisiifolia       11         38     1.0000 0.605263 0.754098
+sample_host Pan troglodytes schweinfurthii       11         19     1.0000 0.684211 0.812500
+sample_host                   Homo sapiens     1397        555     0.9375 1.000000 0.967742

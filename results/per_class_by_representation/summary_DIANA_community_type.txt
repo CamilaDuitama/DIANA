@@ -1,0 +1,18 @@
+Per-class metrics by training representation — DIANA_community_type  (R3.13)
+
+Recall averaged over classes within each training-count bin.
+A model that only works on well-represented classes shows a steep
+gradient here even when its macro-F1 looks acceptable.
+
+          task representation  n_classes  mean_recall  mean_f1  heldout_runs
+community_type          10-49          2     0.500000 0.500000            46
+community_type         50-199          1     0.288462 0.434783            52
+community_type           200+          2     0.728787 0.703396           555
+
+Worst-served eligible classes (lowest F1, >=1 held-out run):
+          task           class  n_train  n_heldout  precision   recall       f1
+community_type     soft tissue       27          8   0.000000 0.000000 0.000000
+community_type             gut       88         52   0.882353 0.288462 0.434783
+community_type skeletal tissue      214        178   0.554974 0.595506 0.574526
+community_type            oral     1701        377   0.804455 0.862069 0.832266
+community_type    plant tissue       43         38   1.000000 1.000000 1.000000

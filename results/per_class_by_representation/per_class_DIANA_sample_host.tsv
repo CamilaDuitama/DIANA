@@ -1,0 +1,8 @@
+model	task	class	n_train	n_heldout	eligible	precision	recall	f1	representation
+DIANA_sample_host	sample_host	Ambrosia artemisiifolia	11	38	True	1.0	0.6052631578947368	0.7540983606557377	10-49
+DIANA_sample_host	sample_host	Canis lupus	12	9	True	0.5	0.3333333333333333	0.4	10-49
+DIANA_sample_host	sample_host	Homo sapiens	1397	555	True	0.9375	1.0	0.967741935483871	200+
+DIANA_sample_host	sample_host	Homo sapiens neanderthalensis	16	18	True	1.0	0.05555555555555555	0.10526315789473684	10-49
+DIANA_sample_host	sample_host	Mammuthus primigenius	16	13	True	1.0	0.15384615384615385	0.26666666666666666	10-49
+DIANA_sample_host	sample_host	Pan troglodytes	0	1	False	0.0	0.0	0.0	1-9
+DIANA_sample_host	sample_host	Pan troglodytes schweinfurthii	11	19	True	1.0	0.6842105263157895	0.8125	10-49

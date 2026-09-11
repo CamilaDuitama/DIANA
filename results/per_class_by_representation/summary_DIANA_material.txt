@@ -1,0 +1,26 @@
+Per-class metrics by training representation — DIANA_material  (R3.13)
+
+Recall averaged over classes within each training-count bin.
+A model that only works on well-represented classes shows a steep
+gradient here even when its macro-F1 looks acceptable.
+
+    task representation  n_classes  mean_recall  mean_f1  heldout_runs
+material            1-9          3     0.000000 0.000000           101
+material          10-49          3     0.333333 0.333333            54
+material         50-199          5     0.559705 0.505605           350
+material           200+          3     0.784646 0.725054           396
+
+Worst-served eligible classes (lowest F1, >=1 held-out run):
+    task                    class  n_train  n_heldout  precision   recall       f1
+material              birch pitch        0         79   0.000000 0.000000 0.000000
+material digestive tract contents       16         15   0.000000 0.000000 0.000000
+material                intestine       15          1   0.000000 0.000000 0.000000
+material            muscle tissue        4          2   0.000000 0.000000 0.000000
+material                     soil        2         20   0.000000 0.000000 0.000000
+material             palaeofaeces       61         14   0.107692 0.500000 0.177215
+material                     bone      127        143   0.412281 0.328671 0.365759
+material                    tooth      399        145   0.460733 0.606897 0.523810
+material               permafrost       70         21   0.666667 0.476190 0.555556
+material                 sediment      105        109   0.621053 0.541284 0.578431
+material            lake sediment      215         70   0.846154 0.785714 0.814815
+material          dental calculus     1389        181   0.740426 0.961326 0.836538
