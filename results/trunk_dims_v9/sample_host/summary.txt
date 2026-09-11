@@ -1,0 +1,27 @@
+Shared-trunk dimensions — 384 of them
+
+eta2 = fraction of a dimension's variance explained by that task's
+class membership. rho = Spearman against a depth measure.
+
+Dimensions primarily separating each task:
+             n_dims  mean_eta2  max_eta2
+best_task                               
+sample_host     384   0.625998  0.945315
+
+CONFOUNDER CHECK: 20/384 dimensions (5.2 %) are better explained by sequencing depth than by any label.
+  median |rho| with depth : 0.329
+  median best eta2        : 0.684
+  >> Depth does not dominate the representation, which is consistent with the depth-only control (Table 7).
+
+Top 10 most class-discriminative dimensions:
+ dim   best_task  best_eta2  max_abs_rho_depth  depth_dominated
+ 303 sample_host   0.945315           0.088181            False
+ 351 sample_host   0.945000           0.440930            False
+ 322 sample_host   0.941595           0.204306            False
+ 330 sample_host   0.940326           0.048663            False
+  81 sample_host   0.939749           0.233466            False
+  84 sample_host   0.938700           0.291184            False
+  76 sample_host   0.935736           0.388705            False
+ 185 sample_host   0.934799           0.549703            False
+ 174 sample_host   0.933175           0.072391            False
+ 163 sample_host   0.933019           0.571703            False
