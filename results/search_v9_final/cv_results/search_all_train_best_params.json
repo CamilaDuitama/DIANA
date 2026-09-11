@@ -1,0 +1,25 @@
+{
+  "best_params": {
+    "n_layers": 2,
+    "hidden_dim_0": 64,
+    "hidden_dim_1": 320,
+    "dropout": 0.4376907605296248,
+    "learning_rate": 0.0007805989751287211,
+    "weight_decay": 1.691327480151218e-06,
+    "batch_size": 64,
+    "use_batch_norm": false,
+    "activation": "relu",
+    "logit_adjust_tau": 0.11632752386569334,
+    "task_weight_community_type": 1.9384224223738173,
+    "task_weight_feature": 1.773007832706813,
+    "task_weight_sample_host": 1.1131835537376957,
+    "task_weight_material": 0.6049723280530095,
+    "ls_community_type": 0.11000582382071557,
+    "ls_feature": 0.11357055298292144,
+    "ls_sample_host": 0.12254654722295227,
+    "ls_material": 0.016105696376600566
+  },
+  "n_train": 2716,
+  "n_inner_folds": 5,
+  "note": "single search over all of train; the nested-CV endpoint. Feed to 02_train_final_model.py via aggregate_cv_results.py."
+}

@@ -1,0 +1,56 @@
+{
+  "features_path": "data/matrices/matrix_v9_train/unitigs.frac.mat",
+  "metadata_path": "data/splits_v9/train_metadata.tsv",
+  "train_ids_path": "data/splits_v9/train_accessions.txt",
+  "output_dir": "results/search_v9_final_single_community_type/final_model",
+  "hyperparameters": {
+    "model_params": {
+      "hidden_dims": [
+        128,
+        320,
+        384,
+        64
+      ],
+      "dropout": 0.1327911346886859,
+      "activation": "gelu",
+      "use_batch_norm": false
+    },
+    "trainer_params": {
+      "learning_rate": 0.005281540154746062,
+      "weight_decay": 2.71118920398746e-06,
+      "task_weights": {
+        "community_type": 1.0
+      }
+    },
+    "batch_size": 128
+  },
+  "task_names": [
+    "community_type"
+  ],
+  "task_types": {
+    "community_type": "classification"
+  },
+  "task_weights": {
+    "community_type": 1.0
+  },
+  "label_smoothing_per_task": {
+    "community_type": 0.12404290975543691
+  },
+  "validation_split": 0.1,
+  "max_epochs": 200,
+  "early_stopping_patience": 20,
+  "random_seed": 42,
+  "class_imbalance": {
+    "method": "logit_adjustment",
+    "logit_adjust_tau": 0.6441734529984019,
+    "search_tau": false,
+    "class_weights": null,
+    "_comment": "tau is SEARCHED in [0.05, 0.8]. tau=1.0, the parameter-free default, over-corrects at this imbalance: dev fold 2 single-task `feature` scored 0.009 at tau=1.0 against 0.484 at tau=0.25.",
+    "_selected_by": "grouped Optuna search over the dev folds"
+  },
+  "_provenance": {
+    "source": "results/search_v9_final_single_community_type/cv_results/search_all_train_best_params.json",
+    "selection": "single Optuna search over all of train, dev folds as inner CV",
+    "why": "per-outer-fold hyperparameters would be selected on fold difficulty; fold 4 scored 0.453 against 0.154-0.238 because it had 98.8 % in-vocabulary coverage and a 75.3 % majority class"
+  }
+}
