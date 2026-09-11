@@ -24,9 +24,11 @@ import pandas as pd
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 TASKS = ["community_type", "feature", "sample_host", "material"]
 # Fixed model order, top to bottom within every task block.
-ORDER = ["DIANA single-task", "DIANA multi-task", "LinearSVM_Bal",
-         "LogisticRegression_Bal", "RandomForest_Bal", "RandomForest", "kNN",
-         "MajorityClass"]
+# DIANA is the single-task network: the shared trunk was tested and dropped, so the
+# multi-task arm is not a model this paper reports. Its numbers stay in PROJECT.md's
+# Read-first item 0, which is the evidence for dropping it.
+ORDER = ["DIANA", "LinearSVM_Bal", "LogisticRegression_Bal", "RandomForest_Bal",
+         "RandomForest", "kNN", "MajorityClass"]
 # Slots 1 and 2 of the validated reference palette, used in order; baselines take a
 # neutral ink so the two DIANA variants are the only hues on the figure.
 # Slots 1 and 2 of the validated categorical palette, used in order. Checked with
@@ -36,7 +38,7 @@ ORDER = ["DIANA single-task", "DIANA multi-task", "LinearSVM_Bal",
 # an identity to tell apart -- so it is exempt from the chroma floor and was checked
 # only for contrast against the surface, which it passes.
 BLUE, ORANGE, GREY = "#2a78d6", "#eb6834", "#8a8a8a"
-COLOUR = {"DIANA single-task": BLUE, "DIANA multi-task": ORANGE}
+COLOUR = {"DIANA": BLUE}
 
 
 def collect() -> pd.DataFrame:
@@ -48,15 +50,13 @@ def collect() -> pd.DataFrame:
             rows.append({"task": t, "model": r.model, "f1": r.f1_macro_eligible,
                          "lo": r.f1_macro_eligible_ci_low,
                          "hi": r.f1_macro_eligible_ci_high})
-        for label, sub in [("DIANA multi-task", "heldout_multitask"),
-                           ("DIANA single-task", f"heldout_single_{t}")]:
-            p = PROJECT_ROOT / f"results/final_eval_v9/{sub}/test_metrics.json"
-            m = json.loads(p.read_text()).get(t)
-            if isinstance(m, dict):
-                rows.append({"task": t, "model": label,
-                             "f1": m["f1_macro_eligible"],
-                             "lo": m["f1_macro_eligible_ci_low"],
-                             "hi": m["f1_macro_eligible_ci_high"]})
+        p = PROJECT_ROOT / f"results/final_eval_v9/heldout_single_{t}/test_metrics.json"
+        m = json.loads(p.read_text()).get(t)
+        if isinstance(m, dict):
+            rows.append({"task": t, "model": "DIANA",
+                         "f1": m["f1_macro_eligible"],
+                         "lo": m["f1_macro_eligible_ci_low"],
+                         "hi": m["f1_macro_eligible_ci_high"]})
     return pd.DataFrame(rows)
 
 
@@ -66,7 +66,7 @@ def main() -> int:
     if missing:
         raise SystemExit(f"models not in the fixed order: {sorted(missing)}")
 
-    fig, ax = plt.subplots(figsize=(8.2, 10.4))
+    fig, ax = plt.subplots(figsize=(8.2, 9.2))
     y, ticks, labels, boundaries = 0.0, [], [], []
     for ti, task in enumerate(TASKS):
         sub = df[df.task == task].set_index("model")
@@ -127,9 +127,7 @@ def main() -> int:
     ax.tick_params(axis="y", length=0)
 
     handles = [plt.Line2D([], [], color=BLUE, marker="o", ms=9, lw=2.0,
-                          markeredgecolor="white", label="DIANA single-task"),
-               plt.Line2D([], [], color=ORANGE, marker="o", ms=9, lw=2.0,
-                          markeredgecolor="white", label="DIANA multi-task"),
+                          markeredgecolor="white", label="DIANA (single-task)"),
                plt.Line2D([], [], color=GREY, marker="o", ms=7, lw=2.0, alpha=0.55,
                           markeredgecolor="white", label="tuned baseline")]
     ax.legend(handles=handles, loc="lower right", frameon=False, fontsize=9.5)
