@@ -1,0 +1,250 @@
+{
+  "material": {
+    "task_type": "classification",
+    "n_samples": 510,
+    "n_masked": 34,
+    "n_out_of_vocabulary": 0,
+    "n_unseen": 34,
+    "precision_macro": 0.20276772407919952,
+    "recall_macro": 0.1643485546711353,
+    "confusion_matrix": [
+      [
+        3,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        15
+      ],
+      [
+        1,
+        351,
+        0,
+        4,
+        4,
+        0,
+        0,
+        0,
+        8,
+        1,
+        3
+      ],
+      [
+        0,
+        11,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        18,
+        9,
+        0,
+        0,
+        8,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        7,
+        2,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        34,
+        19,
+        3,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 0.75,
+        "recall": 0.15,
+        "f1-score": 0.25,
+        "support": 20.0
+      },
+      "1": {
+        "precision": 0.9590163934426229,
+        "recall": 0.9435483870967742,
+        "f1-score": 0.9512195121951219,
+        "support": 372.0
+      },
+      "3": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 11.0
+      },
+      "4": {
+        "precision": 0.32142857142857145,
+        "recall": 0.5142857142857142,
+        "f1-score": 0.3956043956043956,
+        "support": 35.0
+      },
+      "5": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "6": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "7": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "10": {
+        "precision": 0.2,
+        "recall": 0.2,
+        "f1-score": 0.2,
+        "support": 10.0
+      },
+      "11": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 58.0
+      },
+      "12": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "14": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 4.0
+      },
+      "accuracy": 0.7333333333333333,
+      "macro avg": {
+        "precision": 0.20276772407919952,
+        "recall": 0.1643485546711353,
+        "f1-score": 0.1633476279817743,
+        "support": 510.0
+      },
+      "weighted avg": {
+        "precision": 0.7549099967855996,
+        "recall": 0.7333333333333333,
+        "f1-score": 0.7347055144759592,
+        "support": 510.0
+      }
+    },
+    "accuracy": 0.7333333333333333,
+    "balanced_accuracy": 0.2582620144832126,
+    "f1_macro_seen": 0.25668912968564533,
+    "f1_weighted": 0.7347055144759592,
+    "n_classes_seen": 7,
+    "f1_macro_eligible": 0.25668912968564533,
+    "n_classes_eligible": 7,
+    "f1_macro_eligible_ci_low": 0.1624452515814414,
+    "f1_macro_eligible_ci_high": 0.2935435977849023,
+    "balanced_accuracy_ci_low": 0.2474238814517813,
+    "balanced_accuracy_ci_high": 0.5270878789618741,
+    "ci_resampling_unit": "group",
+    "n_groups": 13
+  }
+}

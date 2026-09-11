@@ -177,6 +177,10 @@ results/multitask/**/*.pth
 # v9 final fits: 83-650 MB each, 1.5 GB total. A trailing comment on a pattern
 # line does NOT work -- git takes the '#' as part of the pattern.
 results/search_v9_*/final_model/*.pth
+# The 20 calibration refits are 164 MB to 650 MB each, ~6.5 GB together. Their
+# label encoders, configs and training histories are small and ARE tracked, which is
+# what a re-evaluation needs.
+results/calibration_v9/fit_*/best_model.pth
 
 # Results
 results/experiments/*
