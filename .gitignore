@@ -166,6 +166,9 @@ models/optimal_temperatures.json
 results/training/**/*.pth
 results/full_training/**/*.pth
 results/multitask/**/*.pth
+# v9 final fits: 83-650 MB each, 1.5 GB total. A trailing comment on a pattern
+# line does NOT work -- git takes the '#' as part of the pattern.
+results/search_v9_*/final_model/*.pth
 
 # Results
 results/experiments/*

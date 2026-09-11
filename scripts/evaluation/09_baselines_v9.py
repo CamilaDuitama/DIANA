@@ -144,7 +144,7 @@ def main() -> int:
     te = te.set_index("Run_accession").loc[kte].reset_index()
     logger.info("train %s  test %s", Xtr_all.shape, Xte_all.shape)
 
-    results, rows = {}, []
+    results, rows, pred_rows = {}, [], []
     for target in args.targets:
         models = build_models(args.seed, tuned_params(target))
         if args.models:
@@ -165,6 +165,9 @@ def main() -> int:
         # BioProject of each scored held-out row: the CI resampling unit.
         gte = te.loc[mte, GROUP_COL].astype(str).to_numpy()[in_vocab]
         gtr = tr.loc[mtr, GROUP_COL].astype(str).to_numpy()
+        # The accession of each scored row. Aggregate metrics cannot be paired against
+        # another model's, so a superiority test needs the per-run predictions kept.
+        ate = te.loc[mte, "Run_accession"].astype(str).to_numpy()[in_vocab]
         logger.info("%s: train %d, test %d (+%d out-of-vocabulary excluded), "
                     "%d eligible classes", target, len(ytr), len(yte), n_oov, len(eligible))
         results.setdefault(target, {"n_train": len(ytr), "n_test": len(yte),
@@ -192,6 +195,9 @@ def main() -> int:
             m_tr.update(bootstrap_ci(ytr, pred_tr, eligible, gtr,
                                      args.n_boot, args.seed))
 
+            pred_rows.append(pd.DataFrame({
+                "Run_accession": ate, "task": target, "model": name,
+                "y_true": yte, "y_pred": pred_te, GROUP_COL: gte}))
             results[target][name] = {"test": m, "train": m_tr}
             rows.append({"model": name, "split": "test", "task": target, **m})
             rows.append({"model": name, "split": "train", "task": target, **m_tr})
@@ -202,6 +208,11 @@ def main() -> int:
 
     json.dump(results, open(args.output / "metrics.json", "w"), indent=2)
     pd.DataFrame(rows).to_csv(args.output / "summary.csv", index=False)
+    if pred_rows:
+        pd.concat(pred_rows, ignore_index=True).to_csv(
+            args.output / "heldout_predictions.tsv", sep="\t", index=False)
+        logger.info("per-run held-out predictions -> %s",
+                    args.output / "heldout_predictions.tsv")
     logger.info("wrote %s", args.output)
     return 0
 
