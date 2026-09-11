@@ -144,7 +144,7 @@ def main() -> int:
     te = te.set_index("Run_accession").loc[kte].reset_index()
     logger.info("train %s  test %s", Xtr_all.shape, Xte_all.shape)
 
-    results, rows, pred_rows = {}, [], []
+    results, rows, pred_rows, prob_rows = {}, [], [], []
     for target in args.targets:
         models = build_models(args.seed, tuned_params(target))
         if args.models:
@@ -198,6 +198,27 @@ def main() -> int:
             pred_rows.append(pd.DataFrame({
                 "Run_accession": ate, "task": target, "model": name,
                 "y_true": yte, "y_pred": pred_te, GROUP_COL: gte}))
+
+            # P(stated label) per run, so the same anomaly detector DIANA is scored
+            # with can be scored on the baselines. Without it the paper claims a
+            # neural network makes a better detector and never checks a simpler one,
+            # which is R1.3 and R3.9 applied to the detector instead of the classifier.
+            # LinearSVC has no predict_proba, so it simply cannot be used this way;
+            # that is reported rather than patched with CalibratedClassifierCV, which
+            # would be a different model from the one in the classification tables.
+            if hasattr(model, "predict_proba"):
+                try:
+                    P = model.predict_proba(Xte)
+                    cls = [str(c) for c in model.classes_]
+                    prob_rows.append(pd.concat([
+                        pd.DataFrame({"Run_accession": ate, "task": target,
+                                      "model": name, "y_true": yte}),
+                        pd.DataFrame(P, columns=[f"p_{c}" for c in cls])], axis=1))
+                except Exception as exc:
+                    logger.warning("%s / %s predict_proba failed: %s", target, name, exc)
+            else:
+                logger.info("%s / %s has no predict_proba; excluded from the "
+                            "detector comparison", target, name)
             results[target][name] = {"test": m, "train": m_tr}
             rows.append({"model": name, "split": "test", "task": target, **m})
             rows.append({"model": name, "split": "train", "task": target, **m_tr})
@@ -213,6 +234,14 @@ def main() -> int:
             args.output / "heldout_predictions.tsv", sep="\t", index=False)
         logger.info("per-run held-out predictions -> %s",
                     args.output / "heldout_predictions.tsv")
+    if prob_rows:
+        # One file per task: the class columns differ between tasks, so a single
+        # concatenation would be mostly empty.
+        for target in sorted({d["task"].iloc[0] for d in prob_rows}):
+            part = [d for d in prob_rows if d["task"].iloc[0] == target]
+            out_p = args.output / f"heldout_probabilities_{target}.tsv"
+            pd.concat(part, ignore_index=True).to_csv(out_p, sep="\t", index=False)
+            logger.info("per-run held-out probabilities -> %s", out_p)
     logger.info("wrote %s", args.output)
     return 0
 
