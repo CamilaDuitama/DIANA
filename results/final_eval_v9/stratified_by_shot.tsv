@@ -1,0 +1,97 @@
+task	stratum	n_classes	n_runs	model	f1
+community_type	few-shot (<20)	0	0	LinearSVM (bal)	
+community_type	few-shot (<20)	0	0	LogReg (bal)	
+community_type	few-shot (<20)	0	0	majority	
+community_type	few-shot (<20)	0	0	RandForest	
+community_type	few-shot (<20)	0	0	RandForest (bal)	
+community_type	few-shot (<20)	0	0	k-NN	
+community_type	few-shot (<20)	0	0	DIANA single	
+community_type	few-shot (<20)	0	0	DIANA multi	
+community_type	medium-shot (20-100)	3	98	LinearSVM (bal)	0.5008552856654123
+community_type	medium-shot (20-100)	3	98	LogReg (bal)	0.5002249212775528
+community_type	medium-shot (20-100)	3	98	majority	0.0
+community_type	medium-shot (20-100)	3	98	RandForest	0.44973544973544977
+community_type	medium-shot (20-100)	3	98	RandForest (bal)	0.4528138528138528
+community_type	medium-shot (20-100)	3	98	k-NN	0.4747747747747748
+community_type	medium-shot (20-100)	3	98	DIANA single	0.47826086956521735
+community_type	medium-shot (20-100)	3	98	DIANA multi	0.4873417721518987
+community_type	many-shot (>100)	2	555	LinearSVM (bal)	0.6552876106194689
+community_type	many-shot (>100)	2	555	LogReg (bal)	0.7002122996849747
+community_type	many-shot (>100)	2	555	majority	0.36601941747572814
+community_type	many-shot (>100)	2	555	RandForest	0.5479183336344631
+community_type	many-shot (>100)	2	555	RandForest (bal)	0.7100372711067898
+community_type	many-shot (>100)	2	555	k-NN	0.5691529709228824
+community_type	many-shot (>100)	2	555	DIANA single	0.7033960352407622
+community_type	many-shot (>100)	2	555	DIANA multi	0.7023105169004802
+feature	few-shot (<20)	2	20	LinearSVM (bal)	0.06666666666666667
+feature	few-shot (<20)	2	20	LogReg (bal)	0.06666666666666667
+feature	few-shot (<20)	2	20	majority	0.0
+feature	few-shot (<20)	2	20	RandForest	0.4
+feature	few-shot (<20)	2	20	RandForest (bal)	0.32142857142857145
+feature	few-shot (<20)	2	20	k-NN	0.16666666666666666
+feature	few-shot (<20)	2	20	DIANA single	0.3333333333333333
+feature	few-shot (<20)	2	20	DIANA multi	0.2727272727272727
+feature	medium-shot (20-100)	2	110	LinearSVM (bal)	0.22660098522167488
+feature	medium-shot (20-100)	2	110	LogReg (bal)	0.125
+feature	medium-shot (20-100)	2	110	majority	0.0
+feature	medium-shot (20-100)	2	110	RandForest	0.2971602434077079
+feature	medium-shot (20-100)	2	110	RandForest (bal)	0.12173913043478261
+feature	medium-shot (20-100)	2	110	k-NN	0.1271186440677966
+feature	medium-shot (20-100)	2	110	DIANA single	0.4741000877963125
+feature	medium-shot (20-100)	2	110	DIANA multi	0.20967741935483872
+feature	many-shot (>100)	2	133	LinearSVM (bal)	0.7808880308880309
+feature	many-shot (>100)	2	133	LogReg (bal)	0.8025289778714436
+feature	many-shot (>100)	2	133	majority	0.21021021021021022
+feature	many-shot (>100)	2	133	RandForest	0.7133114422834048
+feature	many-shot (>100)	2	133	RandForest (bal)	0.6053240740740741
+feature	many-shot (>100)	2	133	k-NN	0.6294398789670941
+feature	many-shot (>100)	2	133	DIANA single	0.8276167947959787
+feature	many-shot (>100)	2	133	DIANA multi	0.8297946532351801
+sample_host	few-shot (<20)	5	97	LinearSVM (bal)	0.5047054882671321
+sample_host	few-shot (<20)	5	97	LogReg (bal)	0.4610310680436907
+sample_host	few-shot (<20)	5	97	majority	0.0
+sample_host	few-shot (<20)	5	97	RandForest	0.11794871794871795
+sample_host	few-shot (<20)	5	97	RandForest (bal)	0.40881689874017246
+sample_host	few-shot (<20)	5	97	k-NN	0.5111091686091687
+sample_host	few-shot (<20)	5	97	DIANA single	0.46770563704342816
+sample_host	few-shot (<20)	5	97	DIANA multi	0.025
+sample_host	medium-shot (20-100)	0	0	LinearSVM (bal)	
+sample_host	medium-shot (20-100)	0	0	LogReg (bal)	
+sample_host	medium-shot (20-100)	0	0	majority	
+sample_host	medium-shot (20-100)	0	0	RandForest	
+sample_host	medium-shot (20-100)	0	0	RandForest (bal)	
+sample_host	medium-shot (20-100)	0	0	k-NN	
+sample_host	medium-shot (20-100)	0	0	DIANA single	
+sample_host	medium-shot (20-100)	0	0	DIANA multi	
+sample_host	many-shot (>100)	1	555	LinearSVM (bal)	0.9545859305431879
+sample_host	many-shot (>100)	1	555	LogReg (bal)	0.946236559139785
+sample_host	many-shot (>100)	1	555	majority	0.9196354598177299
+sample_host	many-shot (>100)	1	555	RandForest	0.9532871972318339
+sample_host	many-shot (>100)	1	555	RandForest (bal)	0.9423247559893523
+sample_host	many-shot (>100)	1	555	k-NN	0.9254829806807727
+sample_host	many-shot (>100)	1	555	DIANA single	0.9685863874345549
+sample_host	many-shot (>100)	1	555	DIANA multi	0.9456427955133736
+material	few-shot (<20)	4	38	LinearSVM (bal)	0.0
+material	few-shot (<20)	4	38	LogReg (bal)	0.0
+material	few-shot (<20)	4	38	majority	0.0
+material	few-shot (<20)	4	38	RandForest	0.0
+material	few-shot (<20)	4	38	RandForest (bal)	0.0
+material	few-shot (<20)	4	38	k-NN	0.0
+material	few-shot (<20)	4	38	DIANA single	0.0
+material	few-shot (<20)	4	38	DIANA multi	0.0
+material	medium-shot (20-100)	3	73	LinearSVM (bal)	0.7518518518518519
+material	medium-shot (20-100)	3	73	LogReg (bal)	0.6524024024024024
+material	medium-shot (20-100)	3	73	majority	0.0
+material	medium-shot (20-100)	3	73	RandForest	0.7674037674037674
+material	medium-shot (20-100)	3	73	RandForest (bal)	0.7526132404181185
+material	medium-shot (20-100)	3	73	k-NN	0.7106357694592988
+material	medium-shot (20-100)	3	73	DIANA single	0.6245791245791246
+material	medium-shot (20-100)	3	73	DIANA multi	0.7754150702426564
+material	many-shot (>100)	6	711	LinearSVM (bal)	0.6788022602484262
+material	many-shot (>100)	6	711	LogReg (bal)	0.6736737976608849
+material	many-shot (>100)	6	711	majority	0.06015287470920572
+material	many-shot (>100)	6	711	RandForest	0.35157340153939726
+material	many-shot (>100)	6	711	RandForest (bal)	0.3829915883035544
+material	many-shot (>100)	6	711	k-NN	0.5032828491247353
+material	many-shot (>100)	6	711	DIANA single	0.6800197460456037
+material	many-shot (>100)	6	711	DIANA multi	0.6307697967211604
