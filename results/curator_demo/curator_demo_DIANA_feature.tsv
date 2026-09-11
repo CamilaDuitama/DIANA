@@ -1,0 +1,10 @@
+task	run	old_label	new_label	n_train_old	n_train_new	diana_pred	p_old	p_new	caught	flagged	against_prior
+feature	ERR6857195	lake	thermokarst	215	10	archeological site	0.06576165	0.15274493	False	False	True
+feature	ERR6862849	lake	thermokarst	215	10	thermokarst	0.0020845898	0.37686563	True	True	True
+feature	ERR6862852	lake	thermokarst	215	10	thermokarst	0.0029466674	0.38248166	True	True	True
+feature	ERR6862847	lake	thermokarst	215	10	thermokarst	0.0052510407	0.34979126	True	True	True
+feature	ERR6862848	alas	thermokarst	0	10	archeological site		0.16661608	False	False	False
+feature	ERR6862853	lake	thermokarst	215	10	thermokarst	0.0008868132	0.39471173	True	True	True
+feature	ERR6862854	alas	thermokarst	0	10	thermokarst		0.36518592	True	False	False
+feature	ERR6862850	alas	thermokarst	0	10	thermokarst		0.28098083	True	False	False
+feature	ERR6862851	lake	thermokarst	215	10	sea coast	0.0057922746	0.27548516	False	True	True

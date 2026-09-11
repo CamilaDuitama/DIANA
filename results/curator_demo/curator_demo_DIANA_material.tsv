@@ -1,0 +1,21 @@
+task	run	old_label	new_label	n_train_old	n_train_new	diana_pred	p_old	p_new	caught	flagged	against_prior
+material	ERR6857195	soil	permafrost	2	70	intestine	0.046497352	0.08630729	False	True	False
+material	ERR6862849	soil	permafrost	2	70	permafrost	0.035575736	0.6536968	True	True	False
+material	ERR6862852	soil	permafrost	2	70	permafrost	0.05813172	0.28613877	True	False	False
+material	ERR6862847	soil	permafrost	2	70	permafrost	0.040876046	0.52453333	True	True	False
+material	ERR6862848	soil	permafrost	2	70	intestine	0.053746752	0.12704271	False	False	False
+material	ERR6862853	soil	permafrost	2	70	permafrost	0.0348228	0.6326238	True	True	False
+material	ERR6862854	soil	permafrost	2	70	intestine	0.043911103	0.07330211	False	True	False
+material	ERR6862850	soil	permafrost	2	70	intestine	0.051030263	0.1030859	False	False	False
+material	ERR6862851	soil	permafrost	2	70	permafrost	0.037522614	0.58440137	True	True	False
+material	ERR10878152	rock shelter	sediment	0	105	sediment		0.21356514	True	False	False
+material	ERR10878153	rock shelter	sediment	0	105	sediment		0.41804168	True	False	False
+material	ERR10878154	rock shelter	sediment	0	105	marine sediment		0.07347815	False	False	False
+material	ERR10878155	rock shelter	sediment	0	105	sediment		0.5386006	True	False	False
+material	ERR10878156	rock shelter	sediment	0	105	palaeofaeces		0.04537324	False	False	False
+material	ERR10878157	rock shelter	sediment	0	105	palaeofaeces		0.0033425328	False	False	False
+material	ERR10878158	rock shelter	sediment	0	105	sediment		0.3023163	True	False	False
+material	ERR10878159	rock shelter	sediment	0	105	bone		0.009572209	False	False	False
+material	ERR10878160	rock shelter	sediment	0	105	marine sediment		0.024334261	False	False	False
+material	ERR10878162	rock shelter	sediment	0	105	marine sediment		0.07270234	False	False	False
+material	ERR10878163	rock shelter	sediment	0	105	bone		0.009380899	False	False	False

@@ -1,0 +1,26 @@
+Curator-corrected runs — DIANA_feature  (R3.6)
+
+Each run is shown with its PRE-correction label. P(old) is what the
+model gives the label that was on file; P(new) the corrected one.
+'caught' = the model's top prediction is the corrected label.
+'flagged' = 1 - P(old) > 0.95.
+
+feature  (9 runs)
+    old -> new                               n_train   caught  flagged   P(old)   P(new)
+    alas -> thermokarst                        0->10      2/3      0/3      n/a    0.271
+    lake -> thermokarst                      215->10      4/6      5/6    0.014    0.322
+
+Overall: 6/9 corrections caught, 5/9 flagged.
+Of those going AGAINST the training prior (corrected class rarer than the wrong one): 4/6 caught.
+
+P(old) is n/a for 3 of 9 corrections: the pre-correction
+label is not in the model's vocabulary at all, so no probability can be
+assigned to it and the flag score is undefined. Those runs cannot be
+scored by this detector, and their 0/n 'flagged' is an absence of a
+score, not model confidence. Only the corrections whose old label the
+model knows are scorable.
+
+This is a DEMONSTRATION, not a rate: a handful of runs from one or two
+correction events. The rate comes from planted mislabels
+(15_anomaly_detection_roc.py). Corrections toward a rarer class are the
+stronger evidence, since the prior pushes the other way.
