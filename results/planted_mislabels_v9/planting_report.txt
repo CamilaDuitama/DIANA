@@ -1,0 +1,9 @@
+Planted mislabels — split=test, rate=0.1, model=uniform, seed=42
+
+  community_type      65 of   653 eligible rows corrupted (10.0%), 0 from the empirical model
+  feature             26 of   263 eligible rows corrupted (9.9%), 0 from the empirical model
+  sample_host         65 of   652 eligible rows corrupted (10.0%), 0 from the empirical model
+  material            82 of   822 eligible rows corrupted (10.0%), 0 from the empirical model
+
+wrote planted_test_uniform_r0.1.tsv
+Ground truth is the `<target>_planted` boolean columns.

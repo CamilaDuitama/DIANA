@@ -1,0 +1,14 @@
+Label-anomaly detection — DIANA_feature  (R3.6)
+
+Planted mislabels: planted_test_mixed_r0.1.tsv
+Flag score = 1 - P(label on file). Ground truth = the planted flags.
+
+task                 n  planted    AUC     AP   TPR@1%   TPR@5%  TPR@10%
+feature            255       13  0.845  0.539    0.385    0.538    0.538
+
+TPR@x% is the fraction of planted mislabels caught while firing on x %
+of correctly-labelled runs. That false-flag rate is what limits use in
+curation, so quote the operating point, not the AUC.
+Corruption model is set by plant_mislabels.py; uniform relabelling is
+easier to catch than the empirical confusions and must not be reported
+on its own.

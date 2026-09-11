@@ -1,6 +1,14 @@
 # Scripts excluded from remote (local development / one-time operations only)
 scripts/populate_bioproject.py
-scripts/calibration/
+# scripts/calibration/ was excluded wholesale. Git cannot re-include a file whose
+# parent directory is excluded, and the v9 calibration work (C1, R3.14) belongs on
+# the remote, so the untracked local-only files are listed individually instead.
+scripts/calibration/legacy/
+scripts/calibration/03_build_validation_matrix.py
+scripts/calibration/04_cross_task_consistency.py
+scripts/calibration/05_build_validation_predictions_tsv.py
+scripts/calibration/run_07_extract_embeddings.sbatch
+scripts/calibration/run_07_test_from_matrix.sbatch
 scripts/data_prep/02_extract_and_split_matrices.py
 scripts/data_prep/03_analyze_unitigs.py
 scripts/evaluation/01_plot_data_distribution.py
