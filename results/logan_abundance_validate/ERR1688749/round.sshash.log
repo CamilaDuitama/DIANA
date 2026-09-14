@@ -1,0 +1,36 @@
+reading file '/pasteur/helix/scratch/cduitama/EDID/decOM-classify/data/matrices/matrix_v9_train/unitigs.fa'...
+m_buffer_size 29411764
+read 100000 sequences, 15827817 bases, 12827847 kmers
+sorting buffer...
+saving to file './sshash.tmp.run_1789391836541702151.minimizers.0.bin'...
+read 110202 sequences, 17498477 bases, 14192417 kmers
+num_kmers 14192417
+num_super_kmers 2126070
+num_pieces 110203 (+0.465895 [bits/kmer])
+=== step 1: 'parse_file' 2.28091 [sec] (160.713 [ns/kmer])
+=== step 2: 'build_minimizers' 0.12251 [sec] (8.63207 [ns/kmer])
+bits_per_offset = ceil(log2(17498508)) = 25
+m_buffer_size 20833333
+sorting buffer...
+saving to file './sshash.tmp.run_1789391838945199141.bucket_pairs.0.bin'...
+num_singletons 1728519/1909340 (90.5297%)
+=== step 3: 'build_index' 0.214696 [sec] (15.1275 [ns/kmer])
+max_num_super_kmers_in_bucket 39
+log2_max_num_super_kmers_in_bucket 6
+num_buckets_in_skew_index 0/1909340 (0%)
+=== step 4: 'build_skew_index' 0.005908 [sec] (0.416279 [ns/kmer])
+=== total_time 2.62402 [sec] (184.889 [ns/kmer])
+total index size: 12276508 [B] -- 12.2765 [MB]
+SPACE BREAKDOWN:
+  minimizers: 0.401723 [bits/kmer]
+  pieces: 0.0816177 [bits/kmer]
+  num_super_kmers_before_bucket: 0.225553 [bits/kmer]
+  offsets: 3.74511 [bits/kmer]
+  strings: 2.46591 [bits/kmer]
+  skew_index: 1.35284e-05 [bits/kmer]
+  weights: 0.000103717 [bits/kmer]
+    weight_interval_values: 1.80378e-05 [bits/kmer]
+    weight_interval_lengths: 6.76418e-05 [bits/kmer]
+    weight_dictionary: 1.80378e-05 [bits/kmer]
+  --------------
+  total: 6.92004 [bits/kmer]

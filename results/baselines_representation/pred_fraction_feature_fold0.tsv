@@ -1,0 +1,471 @@
+Run_accession	model	y_true	y_pred	converged
+ERR13950600	LogisticRegression_Bal	lake	sea coast	True
+ERR13950601	LogisticRegression_Bal	lake	sea coast	True
+ERR13950606	LogisticRegression_Bal	lake	lake	True
+ERR13950607	LogisticRegression_Bal	lake	lake	True
+ERR13950608	LogisticRegression_Bal	lake	lake	True
+ERR13950609	LogisticRegression_Bal	lake	thermokarst	True
+ERR13950611	LogisticRegression_Bal	lake	sea coast	True
+ERR13950612	LogisticRegression_Bal	lake	sea coast	True
+ERR13950613	LogisticRegression_Bal	lake	sea coast	True
+ERR13950614	LogisticRegression_Bal	lake	sea coast	True
+ERR13950615	LogisticRegression_Bal	lake	lake	True
+ERR13950620	LogisticRegression_Bal	lake	ocean	True
+ERR13950621	LogisticRegression_Bal	lake	swamp forest	True
+ERR13950622	LogisticRegression_Bal	lake	lake	True
+ERR13950623	LogisticRegression_Bal	lake	swamp forest	True
+ERR13950624	LogisticRegression_Bal	lake	swamp forest	True
+ERR13950625	LogisticRegression_Bal	lake	lake	True
+ERR13950627	LogisticRegression_Bal	lake	thermokarst	True
+ERR13950628	LogisticRegression_Bal	lake	lake	True
+ERR13950629	LogisticRegression_Bal	lake	lake	True
+ERR13950630	LogisticRegression_Bal	lake	swamp forest	True
+ERR13950631	LogisticRegression_Bal	lake	lake	True
+ERR13950632	LogisticRegression_Bal	lake	lake	True
+ERR13950633	LogisticRegression_Bal	lake	lake	True
+ERR13950634	LogisticRegression_Bal	lake	lake	True
+ERR13950635	LogisticRegression_Bal	lake	lake	True
+ERR13950637	LogisticRegression_Bal	lake	sea coast	True
+ERR13950638	LogisticRegression_Bal	lake	sea coast	True
+ERR13950639	LogisticRegression_Bal	lake	lake	True
+ERR13950640	LogisticRegression_Bal	lake	swamp forest	True
+ERR13950641	LogisticRegression_Bal	lake	swamp forest	True
+ERR13950642	LogisticRegression_Bal	lake	lake	True
+ERR13950643	LogisticRegression_Bal	lake	swamp forest	True
+ERR13950644	LogisticRegression_Bal	lake	swamp forest	True
+ERR13950646	LogisticRegression_Bal	lake	lake	True
+ERR13950647	LogisticRegression_Bal	lake	swamp forest	True
+ERR13950648	LogisticRegression_Bal	lake	swamp forest	True
+ERR13950649	LogisticRegression_Bal	lake	thermokarst	True
+ERR13950650	LogisticRegression_Bal	lake	lake	True
+ERR13950653	LogisticRegression_Bal	lake	sea coast	True
+ERR13950654	LogisticRegression_Bal	lake	thermokarst	True
+ERR13950655	LogisticRegression_Bal	lake	sea coast	True
+ERR13950658	LogisticRegression_Bal	lake	lake	True
+ERR13950659	LogisticRegression_Bal	lake	lake	True
+ERR13950660	LogisticRegression_Bal	lake	lake	True
+ERR13950661	LogisticRegression_Bal	lake	sea coast	True
+ERR13950662	LogisticRegression_Bal	lake	thermokarst	True
+ERR13950663	LogisticRegression_Bal	lake	thermokarst	True
+ERR13950664	LogisticRegression_Bal	lake	sea coast	True
+ERR13950665	LogisticRegression_Bal	lake	sea coast	True
+ERR13950666	LogisticRegression_Bal	lake	sea coast	True
+ERR13950667	LogisticRegression_Bal	lake	swamp forest	True
+ERR13950668	LogisticRegression_Bal	lake	lake	True
+ERR13950669	LogisticRegression_Bal	lake	lake	True
+ERR13950670	LogisticRegression_Bal	lake	midden	True
+ERR13950671	LogisticRegression_Bal	lake	lake	True
+ERR13950673	LogisticRegression_Bal	lake	thermokarst	True
+ERR13950674	LogisticRegression_Bal	lake	thermokarst	True
+ERR4334735	LogisticRegression_Bal	lake	lake	True
+ERR4334736	LogisticRegression_Bal	lake	lake	True
+ERR4426516	LogisticRegression_Bal	cave	shell	True
+ERR4426517	LogisticRegression_Bal	cave	ocean	True
+ERR4426518	LogisticRegression_Bal	cave	sea coast	True
+ERR4426519	LogisticRegression_Bal	cave	lake	True
+ERR4426520	LogisticRegression_Bal	cave	lake	True
+ERR4426521	LogisticRegression_Bal	cave	lake	True
+ERR4426522	LogisticRegression_Bal	cave	ocean	True
+ERR4426523	LogisticRegression_Bal	cave	archeological site	True
+ERR4426524	LogisticRegression_Bal	cave	sea coast	True
+ERR4426525	LogisticRegression_Bal	cave	ocean	True
+ERR4426526	LogisticRegression_Bal	cave	archeological site	True
+ERR4426527	LogisticRegression_Bal	cave	archeological site	True
+ERR4426529	LogisticRegression_Bal	cave	archeological site	True
+ERR4426530	LogisticRegression_Bal	cave	ocean	True
+ERR4426531	LogisticRegression_Bal	cave	lake	True
+ERR4426532	LogisticRegression_Bal	cave	lake	True
+ERR4426533	LogisticRegression_Bal	cave	ocean	True
+ERR4426534	LogisticRegression_Bal	cave	archeological site	True
+ERR4426535	LogisticRegression_Bal	cave	archeological site	True
+ERR4426536	LogisticRegression_Bal	cave	lake	True
+ERR4426537	LogisticRegression_Bal	cave	archeological site	True
+ERR4426538	LogisticRegression_Bal	cave	archeological site	True
+ERR4426539	LogisticRegression_Bal	cave	archeological site	True
+ERR4426540	LogisticRegression_Bal	cave	swamp forest	True
+ERR4426541	LogisticRegression_Bal	cave	shell	True
+ERR4426542	LogisticRegression_Bal	cave	ocean	True
+ERR4426543	LogisticRegression_Bal	cave	archeological site	True
+ERR4426545	LogisticRegression_Bal	cave	shell	True
+ERR4426546	LogisticRegression_Bal	cave	archeological site	True
+ERR4426547	LogisticRegression_Bal	cave	archeological site	True
+ERR4426548	LogisticRegression_Bal	cave	archeological site	True
+ERR4426549	LogisticRegression_Bal	cave	archeological site	True
+ERR4426550	LogisticRegression_Bal	cave	archeological site	True
+ERR4426552	LogisticRegression_Bal	cave	archeological site	True
+ERR13950600	LinearSVM_Bal	lake	swamp forest	True
+ERR13950601	LinearSVM_Bal	lake	sea coast	True
+ERR13950606	LinearSVM_Bal	lake	lake	True
+ERR13950607	LinearSVM_Bal	lake	lake	True
+ERR13950608	LinearSVM_Bal	lake	lake	True
+ERR13950609	LinearSVM_Bal	lake	lake	True
+ERR13950611	LinearSVM_Bal	lake	swamp forest	True
+ERR13950612	LinearSVM_Bal	lake	sea coast	True
+ERR13950613	LinearSVM_Bal	lake	sea coast	True
+ERR13950614	LinearSVM_Bal	lake	swamp forest	True
+ERR13950615	LinearSVM_Bal	lake	lake	True
+ERR13950620	LinearSVM_Bal	lake	swamp forest	True
+ERR13950621	LinearSVM_Bal	lake	swamp forest	True
+ERR13950622	LinearSVM_Bal	lake	swamp forest	True
+ERR13950623	LinearSVM_Bal	lake	swamp forest	True
+ERR13950624	LinearSVM_Bal	lake	lake	True
+ERR13950625	LinearSVM_Bal	lake	lake	True
+ERR13950627	LinearSVM_Bal	lake	lake	True
+ERR13950628	LinearSVM_Bal	lake	swamp forest	True
+ERR13950629	LinearSVM_Bal	lake	lake	True
+ERR13950630	LinearSVM_Bal	lake	swamp forest	True
+ERR13950631	LinearSVM_Bal	lake	lake	True
+ERR13950632	LinearSVM_Bal	lake	lake	True
+ERR13950633	LinearSVM_Bal	lake	lake	True
+ERR13950634	LinearSVM_Bal	lake	swamp forest	True
+ERR13950635	LinearSVM_Bal	lake	lake	True
+ERR13950637	LinearSVM_Bal	lake	lake	True
+ERR13950638	LinearSVM_Bal	lake	sea coast	True
+ERR13950639	LinearSVM_Bal	lake	swamp forest	True
+ERR13950640	LinearSVM_Bal	lake	swamp forest	True
+ERR13950641	LinearSVM_Bal	lake	swamp forest	True
+ERR13950642	LinearSVM_Bal	lake	lake	True
+ERR13950643	LinearSVM_Bal	lake	lake	True
+ERR13950644	LinearSVM_Bal	lake	lake	True
+ERR13950646	LinearSVM_Bal	lake	swamp forest	True
+ERR13950647	LinearSVM_Bal	lake	swamp forest	True
+ERR13950648	LinearSVM_Bal	lake	swamp forest	True
+ERR13950649	LinearSVM_Bal	lake	lake	True
+ERR13950650	LinearSVM_Bal	lake	lake	True
+ERR13950653	LinearSVM_Bal	lake	sea coast	True
+ERR13950654	LinearSVM_Bal	lake	shell	True
+ERR13950655	LinearSVM_Bal	lake	lake	True
+ERR13950658	LinearSVM_Bal	lake	lake	True
+ERR13950659	LinearSVM_Bal	lake	lake	True
+ERR13950660	LinearSVM_Bal	lake	swamp forest	True
+ERR13950661	LinearSVM_Bal	lake	swamp forest	True
+ERR13950662	LinearSVM_Bal	lake	thermokarst	True
+ERR13950663	LinearSVM_Bal	lake	thermokarst	True
+ERR13950664	LinearSVM_Bal	lake	shell	True
+ERR13950665	LinearSVM_Bal	lake	lake	True
+ERR13950666	LinearSVM_Bal	lake	sea coast	True
+ERR13950667	LinearSVM_Bal	lake	swamp forest	True
+ERR13950668	LinearSVM_Bal	lake	lake	True
+ERR13950669	LinearSVM_Bal	lake	lake	True
+ERR13950670	LinearSVM_Bal	lake	lake	True
+ERR13950671	LinearSVM_Bal	lake	swamp forest	True
+ERR13950673	LinearSVM_Bal	lake	shell	True
+ERR13950674	LinearSVM_Bal	lake	thermokarst	True
+ERR4334735	LinearSVM_Bal	lake	lake	True
+ERR4334736	LinearSVM_Bal	lake	lake	True
+ERR4426516	LinearSVM_Bal	cave	thermokarst	True
+ERR4426517	LinearSVM_Bal	cave	ocean	True
+ERR4426518	LinearSVM_Bal	cave	archeological site	True
+ERR4426519	LinearSVM_Bal	cave	archeological site	True
+ERR4426520	LinearSVM_Bal	cave	archeological site	True
+ERR4426521	LinearSVM_Bal	cave	lake	True
+ERR4426522	LinearSVM_Bal	cave	ocean	True
+ERR4426523	LinearSVM_Bal	cave	archeological site	True
+ERR4426524	LinearSVM_Bal	cave	archeological site	True
+ERR4426525	LinearSVM_Bal	cave	archeological site	True
+ERR4426526	LinearSVM_Bal	cave	archeological site	True
+ERR4426527	LinearSVM_Bal	cave	archeological site	True
+ERR4426529	LinearSVM_Bal	cave	archeological site	True
+ERR4426530	LinearSVM_Bal	cave	archeological site	True
+ERR4426531	LinearSVM_Bal	cave	ocean	True
+ERR4426532	LinearSVM_Bal	cave	lake	True
+ERR4426533	LinearSVM_Bal	cave	ocean	True
+ERR4426534	LinearSVM_Bal	cave	archeological site	True
+ERR4426535	LinearSVM_Bal	cave	thermokarst	True
+ERR4426536	LinearSVM_Bal	cave	archeological site	True
+ERR4426537	LinearSVM_Bal	cave	archeological site	True
+ERR4426538	LinearSVM_Bal	cave	archeological site	True
+ERR4426539	LinearSVM_Bal	cave	archeological site	True
+ERR4426540	LinearSVM_Bal	cave	archeological site	True
+ERR4426541	LinearSVM_Bal	cave	archeological site	True
+ERR4426542	LinearSVM_Bal	cave	ocean	True
+ERR4426543	LinearSVM_Bal	cave	thermokarst	True
+ERR4426545	LinearSVM_Bal	cave	archeological site	True
+ERR4426546	LinearSVM_Bal	cave	archeological site	True
+ERR4426547	LinearSVM_Bal	cave	archeological site	True
+ERR4426548	LinearSVM_Bal	cave	archeological site	True
+ERR4426549	LinearSVM_Bal	cave	archeological site	True
+ERR4426550	LinearSVM_Bal	cave	archeological site	True
+ERR4426552	LinearSVM_Bal	cave	archeological site	True
+ERR13950600	RandomForest	lake	lake	True
+ERR13950601	RandomForest	lake	lake	True
+ERR13950606	RandomForest	lake	lake	True
+ERR13950607	RandomForest	lake	lake	True
+ERR13950608	RandomForest	lake	lake	True
+ERR13950609	RandomForest	lake	lake	True
+ERR13950611	RandomForest	lake	lake	True
+ERR13950612	RandomForest	lake	lake	True
+ERR13950613	RandomForest	lake	lake	True
+ERR13950614	RandomForest	lake	lake	True
+ERR13950615	RandomForest	lake	lake	True
+ERR13950620	RandomForest	lake	lake	True
+ERR13950621	RandomForest	lake	lake	True
+ERR13950622	RandomForest	lake	lake	True
+ERR13950623	RandomForest	lake	lake	True
+ERR13950624	RandomForest	lake	lake	True
+ERR13950625	RandomForest	lake	lake	True
+ERR13950627	RandomForest	lake	lake	True
+ERR13950628	RandomForest	lake	lake	True
+ERR13950629	RandomForest	lake	lake	True
+ERR13950630	RandomForest	lake	lake	True
+ERR13950631	RandomForest	lake	lake	True
+ERR13950632	RandomForest	lake	lake	True
+ERR13950633	RandomForest	lake	lake	True
+ERR13950634	RandomForest	lake	lake	True
+ERR13950635	RandomForest	lake	lake	True
+ERR13950637	RandomForest	lake	lake	True
+ERR13950638	RandomForest	lake	lake	True
+ERR13950639	RandomForest	lake	lake	True
+ERR13950640	RandomForest	lake	lake	True
+ERR13950641	RandomForest	lake	lake	True
+ERR13950642	RandomForest	lake	lake	True
+ERR13950643	RandomForest	lake	lake	True
+ERR13950644	RandomForest	lake	lake	True
+ERR13950646	RandomForest	lake	lake	True
+ERR13950647	RandomForest	lake	lake	True
+ERR13950648	RandomForest	lake	lake	True
+ERR13950649	RandomForest	lake	lake	True
+ERR13950650	RandomForest	lake	lake	True
+ERR13950653	RandomForest	lake	lake	True
+ERR13950654	RandomForest	lake	lake	True
+ERR13950655	RandomForest	lake	lake	True
+ERR13950658	RandomForest	lake	lake	True
+ERR13950659	RandomForest	lake	lake	True
+ERR13950660	RandomForest	lake	lake	True
+ERR13950661	RandomForest	lake	lake	True
+ERR13950662	RandomForest	lake	lake	True
+ERR13950663	RandomForest	lake	lake	True
+ERR13950664	RandomForest	lake	lake	True
+ERR13950665	RandomForest	lake	lake	True
+ERR13950666	RandomForest	lake	lake	True
+ERR13950667	RandomForest	lake	lake	True
+ERR13950668	RandomForest	lake	lake	True
+ERR13950669	RandomForest	lake	lake	True
+ERR13950670	RandomForest	lake	lake	True
+ERR13950671	RandomForest	lake	lake	True
+ERR13950673	RandomForest	lake	lake	True
+ERR13950674	RandomForest	lake	lake	True
+ERR4334735	RandomForest	lake	lake	True
+ERR4334736	RandomForest	lake	lake	True
+ERR4426516	RandomForest	cave	ocean	True
+ERR4426517	RandomForest	cave	ocean	True
+ERR4426518	RandomForest	cave	lake	True
+ERR4426519	RandomForest	cave	ocean	True
+ERR4426520	RandomForest	cave	ocean	True
+ERR4426521	RandomForest	cave	lake	True
+ERR4426522	RandomForest	cave	ocean	True
+ERR4426523	RandomForest	cave	lake	True
+ERR4426524	RandomForest	cave	ocean	True
+ERR4426525	RandomForest	cave	ocean	True
+ERR4426526	RandomForest	cave	lake	True
+ERR4426527	RandomForest	cave	lake	True
+ERR4426529	RandomForest	cave	lake	True
+ERR4426530	RandomForest	cave	ocean	True
+ERR4426531	RandomForest	cave	ocean	True
+ERR4426532	RandomForest	cave	lake	True
+ERR4426533	RandomForest	cave	ocean	True
+ERR4426534	RandomForest	cave	lake	True
+ERR4426535	RandomForest	cave	ocean	True
+ERR4426536	RandomForest	cave	ocean	True
+ERR4426537	RandomForest	cave	lake	True
+ERR4426538	RandomForest	cave	lake	True
+ERR4426539	RandomForest	cave	ocean	True
+ERR4426540	RandomForest	cave	swamp forest	True
+ERR4426541	RandomForest	cave	lake	True
+ERR4426542	RandomForest	cave	ocean	True
+ERR4426543	RandomForest	cave	lake	True
+ERR4426545	RandomForest	cave	lake	True
+ERR4426546	RandomForest	cave	lake	True
+ERR4426547	RandomForest	cave	lake	True
+ERR4426548	RandomForest	cave	lake	True
+ERR4426549	RandomForest	cave	lake	True
+ERR4426550	RandomForest	cave	lake	True
+ERR4426552	RandomForest	cave	ocean	True
+ERR13950600	RandomForest_Bal	lake	lake	True
+ERR13950601	RandomForest_Bal	lake	lake	True
+ERR13950606	RandomForest_Bal	lake	lake	True
+ERR13950607	RandomForest_Bal	lake	lake	True
+ERR13950608	RandomForest_Bal	lake	lake	True
+ERR13950609	RandomForest_Bal	lake	lake	True
+ERR13950611	RandomForest_Bal	lake	lake	True
+ERR13950612	RandomForest_Bal	lake	lake	True
+ERR13950613	RandomForest_Bal	lake	lake	True
+ERR13950614	RandomForest_Bal	lake	lake	True
+ERR13950615	RandomForest_Bal	lake	lake	True
+ERR13950620	RandomForest_Bal	lake	lake	True
+ERR13950621	RandomForest_Bal	lake	lake	True
+ERR13950622	RandomForest_Bal	lake	lake	True
+ERR13950623	RandomForest_Bal	lake	lake	True
+ERR13950624	RandomForest_Bal	lake	lake	True
+ERR13950625	RandomForest_Bal	lake	lake	True
+ERR13950627	RandomForest_Bal	lake	lake	True
+ERR13950628	RandomForest_Bal	lake	lake	True
+ERR13950629	RandomForest_Bal	lake	lake	True
+ERR13950630	RandomForest_Bal	lake	lake	True
+ERR13950631	RandomForest_Bal	lake	lake	True
+ERR13950632	RandomForest_Bal	lake	lake	True
+ERR13950633	RandomForest_Bal	lake	lake	True
+ERR13950634	RandomForest_Bal	lake	lake	True
+ERR13950635	RandomForest_Bal	lake	lake	True
+ERR13950637	RandomForest_Bal	lake	lake	True
+ERR13950638	RandomForest_Bal	lake	lake	True
+ERR13950639	RandomForest_Bal	lake	lake	True
+ERR13950640	RandomForest_Bal	lake	lake	True
+ERR13950641	RandomForest_Bal	lake	lake	True
+ERR13950642	RandomForest_Bal	lake	lake	True
+ERR13950643	RandomForest_Bal	lake	lake	True
+ERR13950644	RandomForest_Bal	lake	lake	True
+ERR13950646	RandomForest_Bal	lake	lake	True
+ERR13950647	RandomForest_Bal	lake	lake	True
+ERR13950648	RandomForest_Bal	lake	lake	True
+ERR13950649	RandomForest_Bal	lake	lake	True
+ERR13950650	RandomForest_Bal	lake	lake	True
+ERR13950653	RandomForest_Bal	lake	lake	True
+ERR13950654	RandomForest_Bal	lake	lake	True
+ERR13950655	RandomForest_Bal	lake	lake	True
+ERR13950658	RandomForest_Bal	lake	lake	True
+ERR13950659	RandomForest_Bal	lake	lake	True
+ERR13950660	RandomForest_Bal	lake	lake	True
+ERR13950661	RandomForest_Bal	lake	lake	True
+ERR13950662	RandomForest_Bal	lake	lake	True
+ERR13950663	RandomForest_Bal	lake	lake	True
+ERR13950664	RandomForest_Bal	lake	lake	True
+ERR13950665	RandomForest_Bal	lake	lake	True
+ERR13950666	RandomForest_Bal	lake	lake	True
+ERR13950667	RandomForest_Bal	lake	lake	True
+ERR13950668	RandomForest_Bal	lake	lake	True
+ERR13950669	RandomForest_Bal	lake	lake	True
+ERR13950670	RandomForest_Bal	lake	lake	True
+ERR13950671	RandomForest_Bal	lake	lake	True
+ERR13950673	RandomForest_Bal	lake	lake	True
+ERR13950674	RandomForest_Bal	lake	lake	True
+ERR4334735	RandomForest_Bal	lake	lake	True
+ERR4334736	RandomForest_Bal	lake	lake	True
+ERR4426516	RandomForest_Bal	cave	ocean	True
+ERR4426517	RandomForest_Bal	cave	ocean	True
+ERR4426518	RandomForest_Bal	cave	lake	True
+ERR4426519	RandomForest_Bal	cave	ocean	True
+ERR4426520	RandomForest_Bal	cave	ocean	True
+ERR4426521	RandomForest_Bal	cave	lake	True
+ERR4426522	RandomForest_Bal	cave	ocean	True
+ERR4426523	RandomForest_Bal	cave	archeological site	True
+ERR4426524	RandomForest_Bal	cave	ocean	True
+ERR4426525	RandomForest_Bal	cave	ocean	True
+ERR4426526	RandomForest_Bal	cave	lake	True
+ERR4426527	RandomForest_Bal	cave	archeological site	True
+ERR4426529	RandomForest_Bal	cave	swamp forest	True
+ERR4426530	RandomForest_Bal	cave	ocean	True
+ERR4426531	RandomForest_Bal	cave	ocean	True
+ERR4426532	RandomForest_Bal	cave	swamp forest	True
+ERR4426533	RandomForest_Bal	cave	ocean	True
+ERR4426534	RandomForest_Bal	cave	archeological site	True
+ERR4426535	RandomForest_Bal	cave	ocean	True
+ERR4426536	RandomForest_Bal	cave	swamp forest	True
+ERR4426537	RandomForest_Bal	cave	lake	True
+ERR4426538	RandomForest_Bal	cave	lake	True
+ERR4426539	RandomForest_Bal	cave	archeological site	True
+ERR4426540	RandomForest_Bal	cave	swamp forest	True
+ERR4426541	RandomForest_Bal	cave	swamp forest	True
+ERR4426542	RandomForest_Bal	cave	ocean	True
+ERR4426543	RandomForest_Bal	cave	archeological site	True
+ERR4426545	RandomForest_Bal	cave	archeological site	True
+ERR4426546	RandomForest_Bal	cave	archeological site	True
+ERR4426547	RandomForest_Bal	cave	lake	True
+ERR4426548	RandomForest_Bal	cave	archeological site	True
+ERR4426549	RandomForest_Bal	cave	archeological site	True
+ERR4426550	RandomForest_Bal	cave	archeological site	True
+ERR4426552	RandomForest_Bal	cave	ocean	True
+ERR13950600	kNN	lake	lake	True
+ERR13950601	kNN	lake	lake	True
+ERR13950606	kNN	lake	lake	True
+ERR13950607	kNN	lake	midden	True
+ERR13950608	kNN	lake	lake	True
+ERR13950609	kNN	lake	lake	True
+ERR13950611	kNN	lake	lake	True
+ERR13950612	kNN	lake	lake	True
+ERR13950613	kNN	lake	lake	True
+ERR13950614	kNN	lake	lake	True
+ERR13950615	kNN	lake	lake	True
+ERR13950620	kNN	lake	ocean	True
+ERR13950621	kNN	lake	lake	True
+ERR13950622	kNN	lake	lake	True
+ERR13950623	kNN	lake	lake	True
+ERR13950624	kNN	lake	lake	True
+ERR13950625	kNN	lake	lake	True
+ERR13950627	kNN	lake	lake	True
+ERR13950628	kNN	lake	lake	True
+ERR13950629	kNN	lake	lake	True
+ERR13950630	kNN	lake	lake	True
+ERR13950631	kNN	lake	lake	True
+ERR13950632	kNN	lake	lake	True
+ERR13950633	kNN	lake	lake	True
+ERR13950634	kNN	lake	midden	True
+ERR13950635	kNN	lake	lake	True
+ERR13950637	kNN	lake	lake	True
+ERR13950638	kNN	lake	lake	True
+ERR13950639	kNN	lake	lake	True
+ERR13950640	kNN	lake	lake	True
+ERR13950641	kNN	lake	lake	True
+ERR13950642	kNN	lake	lake	True
+ERR13950643	kNN	lake	lake	True
+ERR13950644	kNN	lake	lake	True
+ERR13950646	kNN	lake	lake	True
+ERR13950647	kNN	lake	lake	True
+ERR13950648	kNN	lake	lake	True
+ERR13950649	kNN	lake	lake	True
+ERR13950650	kNN	lake	lake	True
+ERR13950653	kNN	lake	shell	True
+ERR13950654	kNN	lake	shell	True
+ERR13950655	kNN	lake	shell	True
+ERR13950658	kNN	lake	midden	True
+ERR13950659	kNN	lake	lake	True
+ERR13950660	kNN	lake	midden	True
+ERR13950661	kNN	lake	lake	True
+ERR13950662	kNN	lake	lake	True
+ERR13950663	kNN	lake	shell	True
+ERR13950664	kNN	lake	lake	True
+ERR13950665	kNN	lake	lake	True
+ERR13950666	kNN	lake	shell	True
+ERR13950667	kNN	lake	lake	True
+ERR13950668	kNN	lake	lake	True
+ERR13950669	kNN	lake	lake	True
+ERR13950670	kNN	lake	lake	True
+ERR13950671	kNN	lake	lake	True
+ERR13950673	kNN	lake	shell	True
+ERR13950674	kNN	lake	lake	True
+ERR4334735	kNN	lake	lake	True
+ERR4334736	kNN	lake	lake	True
+ERR4426516	kNN	cave	ocean	True
+ERR4426517	kNN	cave	ocean	True
+ERR4426518	kNN	cave	shell	True
+ERR4426519	kNN	cave	ocean	True
+ERR4426520	kNN	cave	lake	True
+ERR4426521	kNN	cave	lake	True
+ERR4426522	kNN	cave	ocean	True
+ERR4426523	kNN	cave	lake	True
+ERR4426524	kNN	cave	shell	True
+ERR4426525	kNN	cave	ocean	True
+ERR4426526	kNN	cave	lake	True
+ERR4426527	kNN	cave	ocean	True
+ERR4426529	kNN	cave	ocean	True
+ERR4426530	kNN	cave	ocean	True
+ERR4426531	kNN	cave	ocean	True
+ERR4426532	kNN	cave	lake	True
+ERR4426533	kNN	cave	ocean	True
+ERR4426534	kNN	cave	ocean	True
+ERR4426535	kNN	cave	ocean	True
+ERR4426536	kNN	cave	ocean	True
+ERR4426537	kNN	cave	shell	True
+ERR4426538	kNN	cave	ocean	True
+ERR4426539	kNN	cave	shell	True
+ERR4426540	kNN	cave	lake	True
+ERR4426541	kNN	cave	lake	True
+ERR4426542	kNN	cave	lake	True
+ERR4426543	kNN	cave	midden	True
+ERR4426545	kNN	cave	lake	True
+ERR4426546	kNN	cave	lake	True
+ERR4426547	kNN	cave	lake	True
+ERR4426548	kNN	cave	lake	True
+ERR4426549	kNN	cave	lake	True
+ERR4426550	kNN	cave	lake	True
+ERR4426552	kNN	cave	shell	True

@@ -1,0 +1,89 @@
+{
+  "community_type": {
+    "task_type": "classification",
+    "n_samples": 565,
+    "n_masked": 106,
+    "n_out_of_vocabulary": 0,
+    "n_unseen": 106,
+    "precision_macro": 0.31052131138338035,
+    "recall_macro": 0.5236876177024482,
+    "confusion_matrix": [
+      [
+        30,
+        1,
+        0,
+        1
+      ],
+      [
+        173,
+        349,
+        9,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 0.1477832512315271,
+        "recall": 0.9375,
+        "f1-score": 0.2553191489361702,
+        "support": 32.0
+      },
+      "1": {
+        "precision": 0.9943019943019943,
+        "recall": 0.6572504708097928,
+        "f1-score": 0.7913832199546486,
+        "support": 531.0
+      },
+      "3": {
+        "precision": 0.1,
+        "recall": 0.5,
+        "f1-score": 0.16666666666666666,
+        "support": 2.0
+      },
+      "4": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "accuracy": 0.672566371681416,
+      "macro avg": {
+        "precision": 0.31052131138338035,
+        "recall": 0.5236876177024482,
+        "f1-score": 0.3033422588893714,
+        "support": 565.0
+      },
+      "weighted avg": {
+        "precision": 0.9431918991394123,
+        "recall": 0.672566371681416,
+        "f1-score": 0.7588106830003701,
+        "support": 565.0
+      }
+    },
+    "accuracy": 0.672566371681416,
+    "balanced_accuracy": 0.6982501569365976,
+    "f1_macro_seen": 0.4044563451858285,
+    "f1_weighted": 0.7588106830003701,
+    "n_classes_seen": 3,
+    "f1_macro_eligible": 0.4044563451858285,
+    "n_classes_eligible": 3,
+    "f1_macro_eligible_ci_low": 0.24435302615382817,
+    "f1_macro_eligible_ci_high": 0.7529407709364604,
+    "balanced_accuracy_ci_low": 0.35686869753354716,
+    "balanced_accuracy_ci_high": 0.9645539906103286,
+    "ci_resampling_unit": "group",
+    "n_groups": 8
+  }
+}

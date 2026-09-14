@@ -1,0 +1,56 @@
+{
+  "features_path": "data/matrices/matrix_v9_train/unitigs.frac.kmer4.fold4.mat",
+  "metadata_path": "data/splits_v9/train_metadata.tsv",
+  "train_ids_path": "results/calibration_v9/ids/cal_train_fold4.txt",
+  "output_dir": "results/kmer_test_v9/fit_sample_host_fold4",
+  "hyperparameters": {
+    "model_params": {
+      "hidden_dims": [
+        192,
+        384
+      ],
+      "dropout": 0.33351039808716676,
+      "activation": "gelu",
+      "use_batch_norm": false
+    },
+    "trainer_params": {
+      "learning_rate": 0.001409937527535245,
+      "weight_decay": 8.141621181124507e-06,
+      "task_weights": {
+        "sample_host": 1.0
+      }
+    },
+    "batch_size": 256
+  },
+  "task_names": [
+    "sample_host"
+  ],
+  "task_types": {
+    "sample_host": "classification"
+  },
+  "task_weights": {
+    "sample_host": 1.0
+  },
+  "label_smoothing_per_task": {
+    "sample_host": 0.14267636397226288
+  },
+  "validation_split": 0.1,
+  "max_epochs": 200,
+  "early_stopping_patience": 20,
+  "random_seed": 42,
+  "class_imbalance": {
+    "method": "logit_adjustment",
+    "logit_adjust_tau": 0.08024974316556636,
+    "search_tau": false,
+    "class_weights": null,
+    "_comment": "tau is SEARCHED in [0.05, 0.8]. tau=1.0, the parameter-free default, over-corrects at this imbalance: dev fold 2 single-task `feature` scored 0.009 at tau=1.0 against 0.484 at tau=0.25.",
+    "_selected_by": "grouped Optuna search over the dev folds"
+  },
+  "_provenance": {
+    "source": "results/search_v9_final_single_sample_host/cv_results/search_all_train_best_params.json",
+    "selection": "single Optuna search over all of train, dev folds as inner CV",
+    "why": "per-outer-fold hyperparameters would be selected on fold difficulty; fold 4 scored 0.453 against 0.154-0.238 because it had 98.8 % in-vocabulary coverage and a 75.3 % majority class",
+    "representation": "data/matrices/matrix_v9_train/unitigs.frac.kmer4.fold4.mat"
+  },
+  "_comment": "S1 screening: the 110,202 fractions with 136 canonical 4-mer composition columns APPENDED (not substituted). Each unitig is described by its canonical 4-mer frequencies, counted with sklearn CountVectorizer; each sample gets the fraction-weighted average of the descriptions of the unitigs it contains. The appended columns are standardised using that fold's four TRAINING folds only. Same hyperparameters, folds and protocol as the calibration refits, which ARE the fraction-only baseline on exactly these folds. Score with 26_pooled_representation_test.py -- pooled out-of-fold predictions, eligibility applied once, paired bootstrap over BioProjects, never fold means. Read a null result as 'fraction-weighted AVERAGE composition adds nothing', not as 'sequence adds nothing': averaging over ~3,190 present unitigs yields a corpus-wide composition summary, so class-specific sequence signal is what S2 tests, not this. Held-out untouched."
+}

@@ -1,0 +1,145 @@
+task	stratum	n_classes	n_runs	model	f1_macro_eligible	n_planted	recall_at_5pct
+community_type	few-shot (<20)	0.0	0.0	DIANA multi			
+community_type	few-shot (<20)	0.0	0.0	DIANA single		0.0	
+community_type	few-shot (<20)	0.0	0.0	LinearSVM (bal)			
+community_type	few-shot (<20)	0.0	0.0	LogReg (bal)			
+community_type	few-shot (<20)			LogisticRegression_Bal		0.0	
+community_type	few-shot (<20)	0.0	0.0	RandForest			
+community_type	few-shot (<20)	0.0	0.0	RandForest (bal)			
+community_type	few-shot (<20)			RandomForest		0.0	
+community_type	few-shot (<20)			RandomForest_Bal		0.0	
+community_type	few-shot (<20)	0.0	0.0	k-NN			
+community_type	few-shot (<20)			kNN		0.0	
+community_type	few-shot (<20)	0.0	0.0	majority			
+community_type	many-shot (>100)	2.0	555.0	DIANA multi	0.7023105169004802		
+community_type	many-shot (>100)	2.0	555.0	DIANA single	0.7033960352407622	55.0	0.14545454545454545
+community_type	many-shot (>100)	2.0	555.0	LinearSVM (bal)	0.6552876106194689		
+community_type	many-shot (>100)	2.0	555.0	LogReg (bal)	0.7002122996849747		
+community_type	many-shot (>100)			LogisticRegression_Bal		55.0	0.34545454545454546
+community_type	many-shot (>100)	2.0	555.0	RandForest	0.5479183336344631		
+community_type	many-shot (>100)	2.0	555.0	RandForest (bal)	0.7100372711067898		
+community_type	many-shot (>100)			RandomForest		55.0	0.2909090909090909
+community_type	many-shot (>100)			RandomForest_Bal		55.0	0.3090909090909091
+community_type	many-shot (>100)	2.0	555.0	k-NN	0.5691529709228824		
+community_type	many-shot (>100)			kNN		55.0	0.0
+community_type	many-shot (>100)	2.0	555.0	majority	0.3660194174757281		
+community_type	medium-shot (20-100)	3.0	98.0	DIANA multi	0.4873417721518987		
+community_type	medium-shot (20-100)	3.0	98.0	DIANA single	0.4782608695652173	10.0	0.4
+community_type	medium-shot (20-100)	3.0	98.0	LinearSVM (bal)	0.5008552856654123		
+community_type	medium-shot (20-100)	3.0	98.0	LogReg (bal)	0.5002249212775528		
+community_type	medium-shot (20-100)			LogisticRegression_Bal		10.0	0.4
+community_type	medium-shot (20-100)	3.0	98.0	RandForest	0.4497354497354497		
+community_type	medium-shot (20-100)	3.0	98.0	RandForest (bal)	0.4528138528138528		
+community_type	medium-shot (20-100)			RandomForest		10.0	0.2
+community_type	medium-shot (20-100)			RandomForest_Bal		10.0	0.2
+community_type	medium-shot (20-100)	3.0	98.0	k-NN	0.4747747747747748		
+community_type	medium-shot (20-100)			kNN		10.0	0.0
+community_type	medium-shot (20-100)	3.0	98.0	majority	0.0		
+feature	few-shot (<20)	2.0	20.0	DIANA multi	0.2727272727272727		
+feature	few-shot (<20)	2.0	20.0	DIANA single	0.3333333333333333	4.0	0.0
+feature	few-shot (<20)	2.0	20.0	LinearSVM (bal)	0.0666666666666666		
+feature	few-shot (<20)	2.0	20.0	LogReg (bal)	0.0666666666666666		
+feature	few-shot (<20)			LogisticRegression_Bal		4.0	0.75
+feature	few-shot (<20)	2.0	20.0	RandForest	0.4		
+feature	few-shot (<20)	2.0	20.0	RandForest (bal)	0.3214285714285714		
+feature	few-shot (<20)			RandomForest		4.0	0.0
+feature	few-shot (<20)			RandomForest_Bal		4.0	0.0
+feature	few-shot (<20)	2.0	20.0	k-NN	0.1666666666666666		
+feature	few-shot (<20)			kNN		4.0	0.0
+feature	few-shot (<20)	2.0	20.0	majority	0.0		
+feature	many-shot (>100)	2.0	133.0	DIANA multi	0.8297946532351801		
+feature	many-shot (>100)	2.0	133.0	DIANA single	0.8276167947959787	5.0	1.0
+feature	many-shot (>100)	2.0	133.0	LinearSVM (bal)	0.7808880308880309		
+feature	many-shot (>100)	2.0	133.0	LogReg (bal)	0.8025289778714436		
+feature	many-shot (>100)			LogisticRegression_Bal		11.0	1.0
+feature	many-shot (>100)	2.0	133.0	RandForest	0.7133114422834048		
+feature	many-shot (>100)	2.0	133.0	RandForest (bal)	0.6053240740740741		
+feature	many-shot (>100)			RandomForest		11.0	0.2727272727272727
+feature	many-shot (>100)			RandomForest_Bal		11.0	0.18181818181818182
+feature	many-shot (>100)	2.0	133.0	k-NN	0.6294398789670941		
+feature	many-shot (>100)			kNN		11.0	0.0
+feature	many-shot (>100)	2.0	133.0	majority	0.2102102102102102		
+feature	medium-shot (20-100)	2.0	110.0	DIANA multi	0.2096774193548387		
+feature	medium-shot (20-100)	2.0	110.0	DIANA single	0.4741000877963125	4.0	0.5
+feature	medium-shot (20-100)	2.0	110.0	LinearSVM (bal)	0.2266009852216748		
+feature	medium-shot (20-100)	2.0	110.0	LogReg (bal)	0.125		
+feature	medium-shot (20-100)			LogisticRegression_Bal		11.0	0.2727272727272727
+feature	medium-shot (20-100)	2.0	110.0	RandForest	0.2971602434077079		
+feature	medium-shot (20-100)	2.0	110.0	RandForest (bal)	0.1217391304347826		
+feature	medium-shot (20-100)			RandomForest		11.0	0.09090909090909091
+feature	medium-shot (20-100)			RandomForest_Bal		11.0	0.2727272727272727
+feature	medium-shot (20-100)	2.0	110.0	k-NN	0.1271186440677966		
+feature	medium-shot (20-100)			kNN		11.0	0.0
+feature	medium-shot (20-100)	2.0	110.0	majority	0.0		
+material	few-shot (<20)	4.0	38.0	DIANA multi	0.0		
+material	few-shot (<20)	4.0	38.0	DIANA single	0.0	5.0	0.0
+material	few-shot (<20)	4.0	38.0	LinearSVM (bal)	0.0		
+material	few-shot (<20)	4.0	38.0	LogReg (bal)	0.0		
+material	few-shot (<20)			LogisticRegression_Bal		7.0	0.0
+material	few-shot (<20)	4.0	38.0	RandForest	0.0		
+material	few-shot (<20)	4.0	38.0	RandForest (bal)	0.0		
+material	few-shot (<20)			RandomForest		7.0	0.42857142857142855
+material	few-shot (<20)			RandomForest_Bal		7.0	0.14285714285714285
+material	few-shot (<20)	4.0	38.0	k-NN	0.0		
+material	few-shot (<20)			kNN		7.0	0.0
+material	few-shot (<20)	4.0	38.0	majority	0.0		
+material	many-shot (>100)	6.0	711.0	DIANA multi	0.6307697967211604		
+material	many-shot (>100)	6.0	711.0	DIANA single	0.6800197460456037	60.0	0.2833333333333333
+material	many-shot (>100)	6.0	711.0	LinearSVM (bal)	0.6788022602484262		
+material	many-shot (>100)	6.0	711.0	LogReg (bal)	0.6736737976608849		
+material	many-shot (>100)			LogisticRegression_Bal		65.0	0.2923076923076923
+material	many-shot (>100)	6.0	711.0	RandForest	0.3515734015393972		
+material	many-shot (>100)	6.0	711.0	RandForest (bal)	0.3829915883035544		
+material	many-shot (>100)			RandomForest		65.0	0.46153846153846156
+material	many-shot (>100)			RandomForest_Bal		65.0	0.47692307692307695
+material	many-shot (>100)	6.0	711.0	k-NN	0.5032828491247353		
+material	many-shot (>100)			kNN		65.0	0.0
+material	many-shot (>100)	6.0	711.0	majority	0.0601528747092057		
+material	medium-shot (20-100)	3.0	73.0	DIANA multi	0.7754150702426564		
+material	medium-shot (20-100)	3.0	73.0	DIANA single	0.6245791245791246	5.0	0.6
+material	medium-shot (20-100)	3.0	73.0	LinearSVM (bal)	0.7518518518518519		
+material	medium-shot (20-100)	3.0	73.0	LogReg (bal)	0.6524024024024024		
+material	medium-shot (20-100)			LogisticRegression_Bal		5.0	0.6
+material	medium-shot (20-100)	3.0	73.0	RandForest	0.7674037674037674		
+material	medium-shot (20-100)	3.0	73.0	RandForest (bal)	0.7526132404181185		
+material	medium-shot (20-100)			RandomForest		5.0	0.6
+material	medium-shot (20-100)			RandomForest_Bal		5.0	0.8
+material	medium-shot (20-100)	3.0	73.0	k-NN	0.7106357694592988		
+material	medium-shot (20-100)			kNN		5.0	0.0
+material	medium-shot (20-100)	3.0	73.0	majority	0.0		
+sample_host	few-shot (<20)	5.0	97.0	DIANA multi	0.025		
+sample_host	few-shot (<20)	5.0	97.0	DIANA single	0.4677056370434281	10.0	0.8
+sample_host	few-shot (<20)	5.0	97.0	LinearSVM (bal)	0.5047054882671321		
+sample_host	few-shot (<20)	5.0	97.0	LogReg (bal)	0.4610310680436907		
+sample_host	few-shot (<20)			LogisticRegression_Bal		16.0	0.8125
+sample_host	few-shot (<20)	5.0	97.0	RandForest	0.1179487179487179		
+sample_host	few-shot (<20)	5.0	97.0	RandForest (bal)	0.4088168987401724		
+sample_host	few-shot (<20)			RandomForest		16.0	0.75
+sample_host	few-shot (<20)			RandomForest_Bal		16.0	0.8125
+sample_host	few-shot (<20)	5.0	97.0	k-NN	0.5111091686091687		
+sample_host	few-shot (<20)			kNN		16.0	0.0
+sample_host	few-shot (<20)	5.0	97.0	majority	0.0		
+sample_host	many-shot (>100)	1.0	555.0	DIANA multi	0.9456427955133736		
+sample_host	many-shot (>100)	1.0	555.0	DIANA single	0.9685863874345548	34.0	1.0
+sample_host	many-shot (>100)	1.0	555.0	LinearSVM (bal)	0.954585930543188		
+sample_host	many-shot (>100)	1.0	555.0	LogReg (bal)	0.946236559139785		
+sample_host	many-shot (>100)			LogisticRegression_Bal		49.0	1.0
+sample_host	many-shot (>100)	1.0	555.0	RandForest	0.953287197231834		
+sample_host	many-shot (>100)	1.0	555.0	RandForest (bal)	0.9423247559893524		
+sample_host	many-shot (>100)			RandomForest		49.0	0.9795918367346939
+sample_host	many-shot (>100)			RandomForest_Bal		49.0	0.9795918367346939
+sample_host	many-shot (>100)	1.0	555.0	k-NN	0.9254829806807728		
+sample_host	many-shot (>100)			kNN		49.0	0.0
+sample_host	many-shot (>100)	1.0	555.0	majority	0.91963545981773		
+sample_host	medium-shot (20-100)	0.0	0.0	DIANA multi			
+sample_host	medium-shot (20-100)	0.0	0.0	DIANA single		0.0	
+sample_host	medium-shot (20-100)	0.0	0.0	LinearSVM (bal)			
+sample_host	medium-shot (20-100)	0.0	0.0	LogReg (bal)			
+sample_host	medium-shot (20-100)			LogisticRegression_Bal		0.0	
+sample_host	medium-shot (20-100)	0.0	0.0	RandForest			
+sample_host	medium-shot (20-100)	0.0	0.0	RandForest (bal)			
+sample_host	medium-shot (20-100)			RandomForest		0.0	
+sample_host	medium-shot (20-100)			RandomForest_Bal		0.0	
+sample_host	medium-shot (20-100)	0.0	0.0	k-NN			
+sample_host	medium-shot (20-100)			kNN		0.0	
+sample_host	medium-shot (20-100)	0.0	0.0	majority			

@@ -51,3 +51,5 @@ dependencies:
       - kaleido==0.2.1  # PNG export for plotly (stable version for HPC)
       - umap-learn>=0.5  # Non-linear dimensionality reduction
       - huggingface_hub>=0.20  # Model download from Hugging Face Hub
+      - transformers>=4.40  # DNA sequence models (S4); no cluster module provides it
+      - tokenizers>=0.19  # pulled by transformers; pinned so the DNA tokenizer is reproducible

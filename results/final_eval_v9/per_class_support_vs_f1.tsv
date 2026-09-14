@@ -1,0 +1,32 @@
+task	cls	n_train	n_train_proj	n_heldout	f1
+community_type	gut	88	8	52	0.43478260869565216
+community_type	oral	1701	28	377	0.8322663252240717
+community_type	plant tissue	43	2	38	1.0
+community_type	skeletal tissue	214	7	178	0.5745257452574526
+community_type	soft tissue	27	2	8	0.0
+feature	cave	34	1	98	0.45714285714285713
+feature	lake	215	10	70	0.8936170212765957
+feature	ocean	179	6	63	0.6923076923076923
+feature	rock shelter	2	1	11	0.0
+feature	sea coast	52	1	12	0.4444444444444444
+feature	thermokarst	10	1	9	0.6666666666666666
+sample_host	Ambrosia artemisiifolia	11	1	38	0.7540983606557377
+sample_host	Canis lupus	12	3	9	0.4
+sample_host	Homo sapiens	1397	31	555	0.967741935483871
+sample_host	Homo sapiens neanderthalensis	16	1	18	0.10526315789473684
+sample_host	Mammuthus primigenius	16	1	13	0.26666666666666666
+sample_host	Pan troglodytes schweinfurthii	11	1	19	0.8125
+material	birch pitch	0	0	79	0.0
+material	bone	127	4	143	0.3657587548638132
+material	dental calculus	1389	25	181	0.8365384615384616
+material	digestive tract contents	16	1	15	0.0
+material	intestine	15	2	1	0.0
+material	lake sediment	215	10	70	0.8148148148148148
+material	leaf	43	2	38	1.0
+material	marine sediment	143	4	63	0.851063829787234
+material	muscle tissue	4	1	2	0.0
+material	palaeofaeces	61	6	14	0.17721518987341772
+material	permafrost	70	3	21	0.5555555555555556
+material	sediment	105	7	109	0.5784313725490197
+material	soil	2	1	20	0.0
+material	tooth	399	8	145	0.5238095238095238

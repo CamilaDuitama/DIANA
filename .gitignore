@@ -182,6 +182,16 @@ results/search_v9_*/final_model/*.pth
 # what a re-evaluation needs.
 results/calibration_v9/fit_*/best_model.pth
 
+# Representation screens, 2026-09-14: 140 checkpoints, ~7 GB per directory.
+# The oof_*/ predictions and the comparison tables ARE wanted; the fits are not.
+results/abundance_test_v9/fit_*/*.pth
+results/pa_test_v9/fit_*/*.pth
+results/kmer_test_v9/fit_*/*.pth
+results/reduction_test_v9/fit_*/*.pth
+# belt and braces: no checkpoint anywhere under results/ is ever wanted
+results/**/best_model.pth
+results/**/checkpoint_*.pth
+
 # Results
 results/experiments/*
 results/figures/*

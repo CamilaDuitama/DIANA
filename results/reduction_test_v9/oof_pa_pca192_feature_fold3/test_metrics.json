@@ -1,0 +1,89 @@
+{
+  "feature": {
+    "task_type": "classification",
+    "n_samples": 98,
+    "n_masked": 407,
+    "n_out_of_vocabulary": 39,
+    "n_unseen": 446,
+    "precision_macro": 0.28397435897435896,
+    "recall_macro": 0.3407563025210084,
+    "confusion_matrix": [
+      [
+        23,
+        0,
+        12,
+        0
+      ],
+      [
+        0,
+        0,
+        29,
+        0
+      ],
+      [
+        7,
+        0,
+        24,
+        3
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "classification_report": {
+      "2": {
+        "precision": 0.7666666666666667,
+        "recall": 0.6571428571428571,
+        "f1-score": 0.7076923076923077,
+        "support": 35.0
+      },
+      "3": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 29.0
+      },
+      "4": {
+        "precision": 0.36923076923076925,
+        "recall": 0.7058823529411765,
+        "f1-score": 0.48484848484848486,
+        "support": 34.0
+      },
+      "6": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "accuracy": 0.47959183673469385,
+      "macro avg": {
+        "precision": 0.28397435897435896,
+        "recall": 0.3407563025210084,
+        "f1-score": 0.2981351981351982,
+        "support": 98.0
+      },
+      "weighted avg": {
+        "precision": 0.4019099947671377,
+        "recall": 0.47959183673469385,
+        "f1-score": 0.42095999238856385,
+        "support": 98.0
+      }
+    },
+    "accuracy": 0.47959183673469385,
+    "balanced_accuracy": 0.45434173669467787,
+    "f1_macro_seen": 0.39751359751359755,
+    "f1_weighted": 0.42095999238856385,
+    "n_classes_seen": 3,
+    "f1_macro_eligible": 0.39751359751359755,
+    "n_classes_eligible": 3,
+    "f1_macro_eligible_ci_low": 0.23140739289446188,
+    "f1_macro_eligible_ci_high": 0.4719405003380663,
+    "balanced_accuracy_ci_low": 0.3163265306122449,
+    "balanced_accuracy_ci_high": 0.8529411764705883,
+    "ci_resampling_unit": "group",
+    "n_groups": 5
+  }
+}

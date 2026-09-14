@@ -1,0 +1,55 @@
+{
+  "features_path": "data/matrices/matrix_v9_train/unitigs.abundance.log1p.mat",
+  "metadata_path": "data/splits_v9/train_metadata.tsv",
+  "train_ids_path": "results/calibration_v9/ids/cal_train_fold3.txt",
+  "output_dir": "results/abundance_test_v9/fit_sample_host_fold3",
+  "hyperparameters": {
+    "model_params": {
+      "hidden_dims": [
+        192,
+        384
+      ],
+      "dropout": 0.33351039808716676,
+      "activation": "gelu",
+      "use_batch_norm": false
+    },
+    "trainer_params": {
+      "learning_rate": 0.001409937527535245,
+      "weight_decay": 8.141621181124507e-06,
+      "task_weights": {
+        "sample_host": 1.0
+      }
+    },
+    "batch_size": 256
+  },
+  "task_names": [
+    "sample_host"
+  ],
+  "task_types": {
+    "sample_host": "classification"
+  },
+  "task_weights": {
+    "sample_host": 1.0
+  },
+  "label_smoothing_per_task": {
+    "sample_host": 0.14267636397226288
+  },
+  "validation_split": 0.1,
+  "max_epochs": 200,
+  "early_stopping_patience": 20,
+  "random_seed": 42,
+  "class_imbalance": {
+    "method": "logit_adjustment",
+    "logit_adjust_tau": 0.08024974316556636,
+    "search_tau": false,
+    "class_weights": null,
+    "_comment": "tau is SEARCHED in [0.05, 0.8]. tau=1.0, the parameter-free default, over-corrects at this imbalance: dev fold 2 single-task `feature` scored 0.009 at tau=1.0 against 0.484 at tau=0.25.",
+    "_selected_by": "grouped Optuna search over the dev folds"
+  },
+  "_provenance": {
+    "source": "results/search_v9_final_single_sample_host/cv_results/search_all_train_best_params.json",
+    "selection": "single Optuna search over all of train, dev folds as inner CV",
+    "why": "per-outer-fold hyperparameters would be selected on fold difficulty; fold 4 scored 0.453 against 0.154-0.238 because it had 98.8 % in-vocabulary coverage and a 75.3 % majority class"
+  },
+  "_comment": "Screening test: identical hyperparameters, dev folds and protocol to the calibration refits, with log1p(abundance) features instead of the k-mer completeness fraction. The calibration refits ARE the fraction baseline on exactly these folds, so the comparison is like-for-like. Hyperparameters were tuned for fraction and are NOT re-searched here, which handicaps abundance: a worse result is therefore uninformative, a comparable or better one is a strong signal. Held-out is not touched."
+}

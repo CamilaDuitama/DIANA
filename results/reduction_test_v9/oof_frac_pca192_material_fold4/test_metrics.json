@@ -1,0 +1,221 @@
+{
+  "material": {
+    "task_type": "classification",
+    "n_samples": 489,
+    "n_masked": 0,
+    "n_out_of_vocabulary": 0,
+    "n_unseen": 0,
+    "precision_macro": 0.46063667382787815,
+    "recall_macro": 0.37071589805184385,
+    "confusion_matrix": [
+      [
+        4,
+        0,
+        0,
+        1,
+        0,
+        9,
+        0,
+        0,
+        1,
+        28
+      ],
+      [
+        0,
+        177,
+        2,
+        0,
+        0,
+        1,
+        5,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        7,
+        0,
+        14,
+        0,
+        0,
+        19,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        16,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        18,
+        16,
+        0,
+        2,
+        0,
+        11,
+        3,
+        0,
+        0,
+        136
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 0.16,
+        "recall": 0.09302325581395349,
+        "f1-score": 0.11764705882352941,
+        "support": 43.0
+      },
+      "1": {
+        "precision": 0.917098445595855,
+        "recall": 0.9567567567567568,
+        "f1-score": 0.9365079365079365,
+        "support": 185.0
+      },
+      "3": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "4": {
+        "precision": 0.7,
+        "recall": 0.175,
+        "f1-score": 0.28,
+        "support": 40.0
+      },
+      "5": {
+        "precision": 1.0,
+        "recall": 0.9090909090909091,
+        "f1-score": 0.9523809523809523,
+        "support": 11.0
+      },
+      "6": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 5.0
+      },
+      "8": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "9": {
+        "precision": 1.0,
+        "recall": 0.8421052631578947,
+        "f1-score": 0.9142857142857143,
+        "support": 19.0
+      },
+      "11": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "14": {
+        "precision": 0.8292682926829268,
+        "recall": 0.7311827956989247,
+        "f1-score": 0.7771428571428571,
+        "support": 186.0
+      },
+      "accuracy": 0.7157464212678937,
+      "macro avg": {
+        "precision": 0.46063667382787815,
+        "recall": 0.37071589805184385,
+        "f1-score": 0.39779645191409896,
+        "support": 489.0
+      },
+      "weighted avg": {
+        "precision": 0.7950656745894837,
+        "recall": 0.7157464212678937,
+        "f1-score": 0.7401001682199806,
+        "support": 489.0
+      }
+    },
+    "accuracy": 0.7157464212678937,
+    "balanced_accuracy": 0.5295941400740627,
+    "f1_macro_seen": 0.56828064559157,
+    "f1_weighted": 0.7401001682199806,
+    "n_classes_seen": 7,
+    "f1_macro_eligible": 0.56828064559157,
+    "n_classes_eligible": 7,
+    "f1_macro_eligible_ci_low": 0.2556802827549552,
+    "f1_macro_eligible_ci_high": 0.5755567036901593,
+    "balanced_accuracy_ci_low": 0.3640820560341949,
+    "balanced_accuracy_ci_high": 0.7108589073339877,
+    "ci_resampling_unit": "group",
+    "n_groups": 13
+  }
+}

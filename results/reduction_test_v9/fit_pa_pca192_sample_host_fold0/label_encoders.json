@@ -1,0 +1,22 @@
+{
+  "sample_host": {
+    "classes": [
+      "Ambrosia artemisiifolia",
+      "Arabidopsis thaliana",
+      "Bison priscus",
+      "Canis lupus",
+      "Gorilla beringei",
+      "Gorilla beringei beringei",
+      "Gorilla beringei graueri",
+      "Gorilla gorilla gorilla",
+      "Homo sapiens",
+      "Lithobates pipiens",
+      "Mammuthus primigenius",
+      "Papio anubis",
+      "Papio hamadryas",
+      "Papio sp.",
+      "Rangifer tarandus",
+      "Ursus arctos"
+    ]
+  }
+}
