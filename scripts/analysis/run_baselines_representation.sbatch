@@ -3,7 +3,7 @@
 #SBATCH --partition=edid
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=24G
-#SBATCH --time=06:00:00
+
 #SBATCH --array=0-39%10
 #SBATCH --output=logs/baselines_rep/g8_%a_%j.out
 #SBATCH --error=logs/baselines_rep/g8_%a_%j.err

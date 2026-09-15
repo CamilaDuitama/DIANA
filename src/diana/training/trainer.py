@@ -1,5 +1,6 @@
 """Training loops for multi-task and single-task models."""
 
+import logging
 import torch
 
 from ..models.multitask_mlp import IGNORE_INDEX
@@ -12,6 +13,8 @@ from pathlib import Path
 import json
 import numpy as np
 from tqdm import tqdm
+
+logger = logging.getLogger(__name__)
 
 
 class MultiTaskTrainer:
@@ -28,7 +31,8 @@ class MultiTaskTrainer:
                  class_priors: Optional[Dict[str, torch.Tensor]] = None,
                  logit_adjust_tau: float = 0.0,
                  label_smoothing: Union[float, Dict[str, float]] = 0.0,
-                 regression_tasks: Optional[List[str]] = None):
+                 regression_tasks: Optional[List[str]] = None,
+                 encoder_learning_rate: Optional[float] = None):
         """
         Initialize trainer.
 
@@ -47,6 +51,14 @@ class MultiTaskTrainer:
             label_smoothing: Label smoothing factor for CrossEntropyLoss (0.0 = off)
             regression_tasks: Names of regression tasks (targets normalised to [0,1]).
                               NaN targets are masked out automatically.
+            encoder_learning_rate: Separate rate for an S4 sequence reader, if the model
+                has one. Without it the reader inherits `learning_rate`, which was searched
+                for an input layer of up to 56.4 M free weights and is the wrong scale for a
+                211 k-weight function shared across all 110,202 unitigs: on 2026-09-15 the
+                searched rates differed 230-fold between tasks, and the reader was starved at
+                `feature`'s 2.41e-05 (24 updates, weights unmoved) while `material`'s
+                5.57e-03 trained it into emitting one constant output for every sample.
+                Ignored when the model has no reader.
         """
         if isinstance(device, str):
             device = torch.device(device)
@@ -55,7 +67,22 @@ class MultiTaskTrainer:
         self.device = device
         self.task_names = task_names
         self.regression_tasks = set(regression_tasks or [])
-        self.optimizer = optim.Adam(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
+        # One parameter group unless a reader is present and has been given its own rate.
+        backbone = getattr(model, "backbone", None)
+        first = backbone[0] if backbone is not None and len(backbone) else None
+        reader = getattr(first, "reader", None)
+        if encoder_learning_rate is not None and reader is not None:
+            reader_ids = {id(q) for q in reader.parameters()}
+            rest = [q for q in model.parameters() if id(q) not in reader_ids]
+            self.optimizer = optim.Adam(
+                [{"params": rest, "lr": learning_rate},
+                 {"params": list(reader.parameters()), "lr": float(encoder_learning_rate)}],
+                lr=learning_rate, weight_decay=weight_decay)
+            logger.info("sequence reader on its own learning rate %.3g (rest at %.3g)",
+                        float(encoder_learning_rate), learning_rate)
+        else:
+            self.optimizer = optim.Adam(model.parameters(), lr=learning_rate,
+                                        weight_decay=weight_decay)
 
         if logit_adjust_tau and class_weights:
             raise ValueError(

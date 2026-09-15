@@ -46,9 +46,21 @@ ARMS = {"fraction": ("results/calibration_v9", ""),
         "frac_pca191nd": ("results/reduction_test_v9", "frac_pca191nd_"),
         "pa_pca191nd": ("results/reduction_test_v9", "pa_pca191nd_"),
         # S1: fractions with 136 canonical 4-mer composition columns appended
-        "frac_plus_kmer4": ("results/kmer_test_v9", "")}
+        "frac_plus_kmer4": ("results/kmer_test_v9", ""),
+        # S2: fractions with 6,733 cluster-sum columns appended
+        "frac_plus_clusters": ("results/clust_test_v9", ""),
+        # S4: the input layer's per-unitig weights computed from bases by one shared CNN
+        "seq_encoder": ("results/seqenc_test_v9", ""),
+        # S4 control: identical, with each unitig's bases permuted within itself, so base
+        # composition and length survive and only ORDER is destroyed. A gain that appears
+        # in both arms is capacity or regularisation, not sequence.
+        "seq_encoder_shuffled": ("results/seqenc_shuf_v9", "")}
 N_BOOT = 2000
 SEED = 42
+# Few-shot is what the S arms exist to fix (Table 2 reads 0.000 on `material` few-shot),
+# so a whole-task tie must not hide a regime-level effect. Support bands are the
+# ImageNet-LT / OLTR split points on TRAINING runs per class.
+REGIMES = [("few-shot", 0, 20), ("medium-shot", 20, 100), ("many-shot", 100, float("inf"))]
 # G7 asks a different question from the rest: not "beats the fraction" but "does the
 # library-size component carry usable signal". Each pair is (with depth, without depth).
 DEPTH_PAIRS = [("frac_pca192", "frac_pca191nd"), ("pa_pca192", "pa_pca191nd")]
@@ -90,10 +102,26 @@ def main() -> int:
     for task in TASKS:
         arms = {}
         for name, (base, prefix) in ARMS.items():
-            d = pooled(base, task, prefix)
+            # An arm that is absent or half-finished must be skipped, not tolerated. The
+            # scored set below is the INTERSECTION over arms, so an arm holding 3 of 5 folds
+            # would quietly shrink every other arm's run count and silently change numbers
+            # that are already in the manuscript. Crashing is no better: it would block the
+            # finished arms from being scored at all while a new arm is still running.
+            try:
+                d = pooled(base, task, prefix)
+            except FileNotFoundError:
+                logger.warning("%s: arm %r has no predictions, skipped", task, name)
+                continue
+            if d.fold.nunique() < 5:
+                logger.warning("%s: arm %r has %d of 5 folds, skipped as incomplete",
+                               task, name, d.fold.nunique())
+                continue
             d = d[d[f"{task}_true"].notna()]
             d["project"] = d.Run_accession.map(proj)
             arms[name] = d.set_index("Run_accession")
+
+        if "fraction" not in arms:
+            raise SystemExit(f"{task}: the fraction baseline is missing; nothing to compare against")
 
         common = set.intersection(*(set(d.index) for d in arms.values()))
         logger.info("%s: %d runs scored by all %d arms", task, len(common), len(arms))

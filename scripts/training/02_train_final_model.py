@@ -22,6 +22,7 @@ logger = logging.getLogger(__name__)
 
 from diana.data.loader import MatrixLoader
 from diana.models.multitask_mlp import IGNORE_INDEX, MultiTaskMLP
+from diana.models.unitig_encoder import attach_sequence_encoder
 from diana.training.trainer import MultiTaskTrainer
 
 def main():
@@ -245,6 +246,13 @@ def main():
         **hyperparams['model_params']
     )
 
+    # S4: replace the input layer's private per-unitig weights with weights computed from
+    # each unitig's bases. Absent the config block nothing happens, so every existing arm
+    # builds the identical model it built before. Must precede the trainer, whose optimiser
+    # captures model.parameters().
+    if config.get('sequence_encoder'):
+        attach_sequence_encoder(model, config['sequence_encoder'])
+
     # P1: Initialize trainer with clean nested params + class weights
     # label_smoothing can be a float (shared) or dict (per-task)
     label_smoothing = config.get(
@@ -280,6 +288,7 @@ def main():
         logit_adjust_tau=logit_tau,
         label_smoothing=label_smoothing,
         regression_tasks=regression_tasks,
+        encoder_learning_rate=(config.get('sequence_encoder') or {}).get('learning_rate'),
     )
 
     # Train with early stopping

@@ -1,0 +1,6 @@
+material_fold0_lr1e-5
+material_fold0_lr1e-4
+material_fold0_lr1e-3
+feature_fold0_lr1e-4
+feature_fold0_lr1e-3
+material_fold0_lr0

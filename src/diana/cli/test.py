@@ -41,6 +41,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 from diana.data.loader import MatrixLoader
+from diana.models.unitig_encoder import attach_sequence_encoder
 from diana.models.multitask_mlp import (
     IGNORE_INDEX,
     MultiTaskMLP,
@@ -478,7 +479,13 @@ def main():
         regression_tasks=regression_tasks,
         **config['hyperparameters']['model_params']
     )
-    
+
+    # S4: the same input-layer swap the training run made. It changes the state_dict key
+    # names, so it has to happen before load_state_dict, and the cards are rebuilt from
+    # the loaded reader on the first forward.
+    if config.get('sequence_encoder'):
+        attach_sequence_encoder(model, config['sequence_encoder'])
+
     # Load weights
     checkpoint = torch.load(args.model, map_location=args.device, weights_only=False)
     
