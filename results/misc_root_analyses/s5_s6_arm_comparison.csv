@@ -1,0 +1,17 @@
+arm,task,n_oof,f1_macro_eligible,train_acc_at_best_val,val_acc_at_best_val
+fraction_baseline,community_type,2073,0.4864,0.7463,0.7282
+fraction_baseline,feature,608,0.1478,0.1895,0.1865
+fraction_baseline,sample_host,2085,0.2549,0.7553,0.7466
+fraction_baseline,material,2639,0.2742,0.8935,0.8848
+S5_attn_pool,community_type,2073,0.3145,0.6423,0.6246
+S5_attn_pool,feature,608,0.1049,0.1123,0.126
+S5_attn_pool,sample_host,2085,0.1556,0.6889,0.6598
+S5_attn_pool,material,2639,0.1905,0.7494,0.7749
+S6_seqchan_real,community_type,2073,0.4156,0.7472,0.7265
+S6_seqchan_real,feature,608,0.1494,0.2216,0.2116
+S6_seqchan_real,sample_host,2085,0.2319,0.7571,0.752
+S6_seqchan_real,material,2639,0.2835,0.8747,0.8653
+S6_seqchan_shuffled,community_type,2073,0.4732,0.747,0.7289
+S6_seqchan_shuffled,feature,608,0.1607,0.2216,0.2115
+S6_seqchan_shuffled,sample_host,2085,0.2689,0.7563,0.7522
+S6_seqchan_shuffled,material,2639,0.3118,0.8828,0.8694

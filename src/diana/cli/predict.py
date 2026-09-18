@@ -31,6 +31,28 @@ def _resolve_script(name: str) -> str:
     return name  # will fail at runtime with a clear error
 
 
+def _looks_like_logan_unitigs(path: Path, probe_lines: int = 200) -> bool:
+    """Does this input look like Logan unitigs rather than raw reads?
+
+    Logan writes the per-unitig average k-mer coverage into the header as `ka:f:`. That
+    field is what makes abundance recoverable for assembled input: `back_to_sequences`
+    counts occurrences, and in an assembly every k-mer occurs exactly once, so counting
+    alone yields 1 everywhere and abundance collapses onto the completeness fraction.
+    """
+    import gzip
+    opener = gzip.open if path.suffix in (".gz", ".zst") else open
+    try:
+        with opener(path, "rt", errors="ignore") as fh:
+            for i, line in enumerate(fh):
+                if i >= probe_lines:
+                    break
+                if line.startswith(">") and "ka:f:" in line:
+                    return True
+    except OSError:
+        return False
+    return False
+
+
 def run_command_streaming(cmd: list, step_name: str) -> None:
     """
     Execute a command and stream output in real-time.
@@ -336,14 +358,54 @@ def predict_single_sample(
         else:
             kmer_input = str(sample_paths[0])
         
-        run_command_streaming([
-            _resolve_script("01_count_kmers.sh"),
-            str(reference_kmers),
-            kmer_input,
-            str(kmer_counts),
-            str(threads),
-            str(min_abundance)
-        ], "Step 1: Counting k-mers in sample")
+        # Logan unitig input needs a different route to abundance. back_to_sequences
+        # counts occurrences, and an assembly holds each k-mer exactly once, so counting
+        # gives 1 everywhere and the abundance output would be a copy of the fraction.
+        # Logan records real coverage in the `ka:f:` header, and
+        # `--output-kmer-positions` says which input sequence each reference k-mer was
+        # found in, so joining the two recovers the count. Validated against a known
+        # training column at 0.9 % mean relative error, below Logan's own stated 5 %
+        # accuracy on `ka:f:`.
+        logan_input = _looks_like_logan_unitigs(Path(sample_paths[0]))
+        if logan_input:
+            logger.warning(
+                "Input looks like LOGAN UNITIGS, not raw reads (`ka:f:` present in the "
+                "headers). Abundance is therefore reconstructed from the `ka:f:` coverage "
+                "field rather than counted directly, which is accurate to about 0.9 %% "
+                "against a directly counted reference but inherits Logan's own ~5 %% error "
+                "on `ka:f:` and its cap at 50,000. For exact abundance, pass raw FASTQ."
+            )
+            kmer_positions = sample_output_dir / f"{sample_id}_kmer_positions.txt"
+            run_command_streaming([
+                _resolve_script("01_count_kmers.sh"),
+                str(reference_kmers),
+                kmer_input,
+                str(kmer_positions),
+                str(threads),
+                "1",                      # an assembly holds each k-mer once
+                "--output-kmer-positions"
+            ], "Step 1a: Locating reference k-mers in the sample's unitigs")
+            run_command_streaming([
+                sys.executable,
+                _resolve_script("01b_logan_abundance_counts.py"),
+                str(kmer_positions),
+                kmer_input,
+                str(kmer_counts),
+                # stated rather than inherited from defaults: MUSET built the training
+                # matrix with -a 2, and of four candidate threshold conventions only
+                # sum-round-threshold reproduced a known training column exactly
+                "--min-abundance", "2",
+                "--rule", "round"
+            ], "Step 1b: Reconstructing Logan coverage into k-mer counts")
+        else:
+            run_command_streaming([
+                _resolve_script("01_count_kmers.sh"),
+                str(reference_kmers),
+                kmer_input,
+                str(kmer_counts),
+                str(threads),
+                str(min_abundance)
+            ], "Step 1: Counting k-mers in sample")
         
         # ====================================================================
         # Step 2: Aggregate k-mer counts to unitigs

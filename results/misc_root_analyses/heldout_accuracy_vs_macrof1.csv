@@ -1,0 +1,9 @@
+task,arm,n,accuracy,majority_share,acc_above_majority,bal_acc,chance,balacc_over_chance,f1_elig,n_classes
+community_type,single,653,0.741,0.577,0.164,0.549,0.2,2.75,0.568,5
+community_type,multi,653,0.749,0.577,0.172,0.554,0.2,2.77,0.573,5
+feature,single,263,0.639,0.373,0.266,0.538,0.167,3.23,0.545,6
+feature,multi,263,0.624,0.373,0.251,0.486,0.167,2.92,0.437,6
+sample_host,single,652,0.916,0.851,0.064,0.472,0.167,2.83,0.551,6
+sample_host,multi,652,0.842,0.851,-0.009,0.177,0.167,1.06,0.178,6
+material,single,822,0.655,0.22,0.434,0.473,0.077,6.15,0.458,13
+material,multi,822,0.637,0.22,0.417,0.501,0.077,6.52,0.47,13

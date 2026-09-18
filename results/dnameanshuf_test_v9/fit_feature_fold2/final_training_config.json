@@ -1,0 +1,59 @@
+{
+  "features_path": "data/matrices/matrix_v9_train/unitigs.frac.dnameanshuf.fold2.mat",
+  "metadata_path": "data/splits_v9/train_metadata.tsv",
+  "train_ids_path": "results/calibration_v9/ids/cal_train_fold2.txt",
+  "output_dir": "results/dnameanshuf_test_v9/fit_feature_fold2",
+  "hyperparameters": {
+    "model_params": {
+      "hidden_dims": [
+        256,
+        256,
+        256
+      ],
+      "dropout": 0.45265064401710714,
+      "activation": "leaky_relu",
+      "use_batch_norm": false
+    },
+    "trainer_params": {
+      "learning_rate": 2.4129143612784515e-05,
+      "weight_decay": 1.0679128117232798e-05,
+      "task_weights": {
+        "feature": 1.0
+      }
+    },
+    "batch_size": 256
+  },
+  "task_names": [
+    "feature"
+  ],
+  "task_types": {
+    "feature": "classification"
+  },
+  "task_weights": {
+    "feature": 1.0
+  },
+  "label_smoothing_per_task": {
+    "feature": 0.058853758719840325
+  },
+  "validation_split": 0.1,
+  "max_epochs": 200,
+  "early_stopping_patience": 20,
+  "random_seed": 42,
+  "class_imbalance": {
+    "method": "logit_adjustment",
+    "logit_adjust_tau": 0.16530336068908175,
+    "search_tau": false,
+    "class_weights": null,
+    "_comment": "tau is SEARCHED in [0.05, 0.8]. tau=1.0, the parameter-free default, over-corrects at this imbalance: dev fold 2 single-task `feature` scored 0.009 at tau=1.0 against 0.484 at tau=0.25.",
+    "_selected_by": "grouped Optuna search over the dev folds"
+  },
+  "_provenance": {
+    "source": "results/search_v9_final_single_feature/cv_results/search_all_train_best_params.json",
+    "selection": "single Optuna search over all of train, dev folds as inner CV",
+    "why": "per-outer-fold hyperparameters would be selected on fold difficulty; fold 4 scored 0.453 against 0.154-0.238 because it had 98.8 % in-vocabulary coverage and a 75.3 % majority class",
+    "representation": "data/matrices/matrix_v9_train/unitigs.frac.dnameanshuf.fold2.mat",
+    "hyperparameters_copied_from": "results/kmer_test_v9/configs/kmer_feature_fold2.json",
+    "appended": "768 DNABERT-2 mean columns; fractions unchanged"
+  },
+  "_comment": "S6 (mean): as the max arm but appending the fraction-weighted AVERAGE of the descriptions. This is the literal form of 'append a sequence embedding', and it is close to redundant by construction: a weighted sum of per-unitig embeddings is a linear function of the input, so only the division by the sample's total fraction escapes, the same and only escape S1 had. It carries about 5 effective dimensions against the max arm's 12. Run as the comparison for the max arm, with that caveat attached to any result. Held-out untouched. SCRAMBLED CONTROL: the descriptions were built from sequences whose bases were permuted within each unitig under seed 42, so composition, length, the fractions and the labels are untouched and only sequence ORDER is removed. This arm is what makes a clearing cell reportable: the pre-registered condition is that the cell must NOT clear here."
+}

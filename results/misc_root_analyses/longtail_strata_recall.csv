@@ -1,0 +1,33 @@
+task,model,many,many_n,medium,medium_n,few,few_n
+material,LinearSVM_Bal,0.714,711,0.77,73,0.0,38
+material,LogisticRegression_Bal,0.696,711,0.611,73,0.0,38
+material,MajorityClass,0.167,711,0.0,73,0.0,38
+material,RandomForest,0.48,711,0.698,73,0.0,38
+material,RandomForest_Bal,0.488,711,0.746,73,0.0,38
+material,kNN,0.549,711,0.698,73,0.0,38
+material,DIANA single,0.696,711,0.659,73,0.0,38
+material,DIANA multi,0.678,711,0.817,73,0.0,38
+feature,LinearSVM_Bal,0.986,133,0.134,110,0.056,20
+feature,LogisticRegression_Bal,1.0,133,0.071,110,0.056,20
+feature,MajorityClass,0.5,133,0.0,110,0.0,20
+feature,RandomForest,0.943,133,0.196,110,0.333,20
+feature,RandomForest_Bal,0.75,133,0.071,110,0.5,20
+feature,kNN,0.821,133,0.077,110,0.167,20
+feature,DIANA single,0.95,133,0.33,110,0.333,20
+feature,DIANA multi,0.993,133,0.133,110,0.333,20
+community_type,LinearSVM_Bal,0.668,555,0.462,98,,0
+community_type,LogisticRegression_Bal,0.725,555,0.462,98,,0
+community_type,MajorityClass,0.5,555,0.0,98,,0
+community_type,RandomForest,0.578,555,0.404,98,,0
+community_type,RandomForest_Bal,0.755,555,0.417,98,,0
+community_type,kNN,0.581,555,0.452,98,,0
+community_type,DIANA single,0.729,555,0.429,98,,0
+community_type,DIANA multi,0.712,555,0.449,98,,0
+sample_host,LinearSVM_Bal,0.966,555,,0,0.448,97
+sample_host,LogisticRegression_Bal,0.951,555,,0,0.393,97
+sample_host,MajorityClass,1.0,555,,0,0.0,97
+sample_host,RandomForest,0.993,555,,0,0.079,97
+sample_host,RandomForest_Bal,0.957,555,,0,0.316,97
+sample_host,kNN,0.906,555,,0,0.433,97
+sample_host,DIANA single,1.0,555,,0,0.366,97
+sample_host,DIANA multi,0.987,555,,0,0.015,97

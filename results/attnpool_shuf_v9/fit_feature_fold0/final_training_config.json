@@ -1,0 +1,67 @@
+{
+  "features_path": "data/matrices/matrix_v9_train/unitigs.frac.mat",
+  "metadata_path": "data/splits_v9/train_metadata.tsv",
+  "train_ids_path": "results/calibration_v9/ids/cal_train_fold0.txt",
+  "output_dir": "results/attnpool_shuf_v9/fit_feature_fold0",
+  "hyperparameters": {
+    "model_params": {
+      "hidden_dims": [
+        256,
+        256,
+        256
+      ],
+      "dropout": 0.45265064401710714,
+      "activation": "leaky_relu",
+      "use_batch_norm": false
+    },
+    "trainer_params": {
+      "learning_rate": 2.4129143612784515e-05,
+      "weight_decay": 1.0679128117232798e-05,
+      "task_weights": {
+        "feature": 1.0
+      }
+    },
+    "batch_size": 256
+  },
+  "task_names": [
+    "feature"
+  ],
+  "task_types": {
+    "feature": "classification"
+  },
+  "task_weights": {
+    "feature": 1.0
+  },
+  "label_smoothing_per_task": {
+    "feature": 0.058853758719840325
+  },
+  "validation_split": 0.1,
+  "max_epochs": 2000,
+  "early_stopping_patience": 20,
+  "random_seed": 42,
+  "class_imbalance": {
+    "method": "logit_adjustment",
+    "logit_adjust_tau": 0.16530336068908175,
+    "search_tau": false,
+    "class_weights": null,
+    "_comment": "tau is SEARCHED in [0.05, 0.8]. tau=1.0, the parameter-free default, over-corrects at this imbalance: dev fold 2 single-task `feature` scored 0.009 at tau=1.0 against 0.484 at tau=0.25.",
+    "_selected_by": "grouped Optuna search over the dev folds"
+  },
+  "_provenance": {
+    "source": "results/search_v9_final_single_feature/cv_results/search_all_train_best_params.json",
+    "selection": "single Optuna search over all of train, dev folds as inner CV",
+    "why": "per-outer-fold hyperparameters would be selected on fold difficulty; fold 4 scored 0.453 against 0.154-0.238 because it had 98.8 % in-vocabulary coverage and a 75.3 % majority class",
+    "representation": "data/matrices/matrix_v9_train/unitigs.frac.mat",
+    "hyperparameters_copied_from": "results/kmer_test_v9/configs/kmer_feature_fold0.json",
+    "card_length": "hidden_dims[0] = 256, read off the replaced layer rather than configured",
+    "description_table": "data/sequences_v9/unitig_dnabert2.shuffled.npy",
+    "pooled_width": "hidden_dims[0] = 256, read off the replaced layer rather than configured"
+  },
+  "_comment": "S5 control: identical to results/attnpool_test_v9 except the description table was built from sequences whose bases were permuted within each unitig under seed 42. Base composition, length, the feature matrix and the labels are untouched, so the only thing removed is sequence ORDER. Separates 'the model reads DNA' from 'attention pooling beats a weighted sum', which are two different claims and this arm holds the second fixed. Held-out untouched. RE-RUN with a 2000-epoch cap: at this task's searched learning rate of 2.41e-05 the 200-epoch fit was still improving at its final epoch (best epoch 200 of 200 in 4 of 5 folds, 197 in the fifth), so it was truncated mid-descent rather than converged and its number described an unfinished model. The criterion is mechanical and was applied to both arms: re-run any fit whose best epoch is its last. The other three tasks converged with 20 epochs of patience to spare and are untouched. Patience stays 20, so this still stops when it genuinely plateaus, and the checkpoint is still the best-validation one.",
+  "attention_pool": {
+    "table": "data/sequences_v9/unitig_dnabert2.shuffled.npy",
+    "n_heads": 4,
+    "value_dim": 128,
+    "key_dim": 128
+  }
+}

@@ -1,0 +1,1456 @@
+Run_accession	model	y_true	y_pred	converged
+ERR3761400	LogisticRegression_Bal	midden	sediment	True
+ERR3761401	LogisticRegression_Bal	midden	sediment	True
+ERR3761402	LogisticRegression_Bal	sediment	sediment	True
+ERR3761403	LogisticRegression_Bal	midden	sediment	True
+ERR3761404	LogisticRegression_Bal	sediment	sediment	True
+ERR3761405	LogisticRegression_Bal	midden	leaf	True
+ERR3761406	LogisticRegression_Bal	sediment	bone	True
+ERR3761407	LogisticRegression_Bal	palaeofaeces	palaeofaeces	True
+ERR3761408	LogisticRegression_Bal	palaeofaeces	palaeofaeces	True
+ERR3761409	LogisticRegression_Bal	palaeofaeces	palaeofaeces	True
+ERR3761410	LogisticRegression_Bal	palaeofaeces	palaeofaeces	True
+ERR3761411	LogisticRegression_Bal	palaeofaeces	palaeofaeces	True
+ERR3761412	LogisticRegression_Bal	palaeofaeces	palaeofaeces	True
+ERR3761413	LogisticRegression_Bal	palaeofaeces	palaeofaeces	True
+ERR6430820	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430821	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430822	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430823	LogisticRegression_Bal	marine sediment	lake sediment	True
+ERR6430825	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430828	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430830	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430831	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430832	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430833	LogisticRegression_Bal	marine sediment	lake sediment	True
+ERR6430834	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430836	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430838	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430839	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430840	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430841	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430842	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430843	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430845	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430846	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430847	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430848	LogisticRegression_Bal	marine sediment	lake sediment	True
+ERR6430849	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430850	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6430851	LogisticRegression_Bal	marine sediment	marine sediment	True
+ERR6589621	LogisticRegression_Bal	tooth	tooth	True
+ERR6589622	LogisticRegression_Bal	tooth	dental calculus	True
+ERR6589623	LogisticRegression_Bal	tooth	tooth	True
+ERR6589624	LogisticRegression_Bal	tooth	tooth	True
+ERR6589625	LogisticRegression_Bal	tooth	tooth	True
+ERR6589626	LogisticRegression_Bal	tooth	tooth	True
+ERR6589627	LogisticRegression_Bal	tooth	tooth	True
+ERR6589628	LogisticRegression_Bal	tooth	tooth	True
+ERR6589629	LogisticRegression_Bal	tooth	tooth	True
+ERR6589630	LogisticRegression_Bal	tooth	tooth	True
+ERR7919459	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919460	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919462	LogisticRegression_Bal	dental calculus	midden	True
+ERR7919463	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919464	LogisticRegression_Bal	dental calculus	tooth	True
+ERR7919465	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919466	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919467	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919468	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919469	LogisticRegression_Bal	dental calculus	leaf	True
+ERR7919470	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919471	LogisticRegression_Bal	dental calculus	tooth	True
+ERR7919472	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919473	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919474	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919475	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919476	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919477	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919478	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919479	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919480	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919481	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919482	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919483	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919484	LogisticRegression_Bal	dental calculus	leaf	True
+ERR7919485	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919486	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919487	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919488	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919489	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919490	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919491	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919492	LogisticRegression_Bal	dental calculus	leaf	True
+ERR7919493	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919494	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919495	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919496	LogisticRegression_Bal	dental calculus	tooth	True
+ERR7919497	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919498	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919499	LogisticRegression_Bal	dental calculus	tooth	True
+ERR7919500	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919501	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919502	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919503	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919504	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919505	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919506	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919507	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919508	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919509	LogisticRegression_Bal	dental calculus	tooth	True
+ERR7919510	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919511	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919512	LogisticRegression_Bal	dental calculus	tooth	True
+ERR7919513	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919514	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919515	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919516	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919517	LogisticRegression_Bal	dental calculus	tooth	True
+ERR7919518	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919519	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919520	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919521	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919522	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919523	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919524	LogisticRegression_Bal	dental calculus	leaf	True
+ERR7919525	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919526	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919527	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919528	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919529	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919530	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919531	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919532	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919533	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919534	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919535	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919536	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919537	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919538	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919539	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919540	LogisticRegression_Bal	dental calculus	tooth	True
+ERR7919541	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919542	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919543	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919544	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919545	LogisticRegression_Bal	dental calculus	tooth	True
+ERR7919546	LogisticRegression_Bal	dental calculus	tooth	True
+ERR7919547	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919548	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919641	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919642	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919643	LogisticRegression_Bal	dental calculus	tooth	True
+ERR7919644	LogisticRegression_Bal	dental calculus	tooth	True
+ERR7919645	LogisticRegression_Bal	dental calculus	dental calculus	True
+ERR7919646	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR13355784	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR13355785	LogisticRegression_Bal	dental calculus	tooth	True
+SRR13355786	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR13355787	LogisticRegression_Bal	dental calculus	tooth	True
+SRR13355789	LogisticRegression_Bal	dental calculus	tooth	True
+SRR13355790	LogisticRegression_Bal	dental calculus	tooth	True
+SRR13355791	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR13355792	LogisticRegression_Bal	dental calculus	tooth	True
+SRR13355794	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR13355796	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR13355797	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR13355798	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR13355799	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR13355800	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR13355801	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR13355802	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR13355803	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR13355804	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR13355805	LogisticRegression_Bal	dental calculus	tooth	True
+SRR13355806	LogisticRegression_Bal	dental calculus	tooth	True
+SRR13355807	LogisticRegression_Bal	dental calculus	tooth	True
+SRR13355808	LogisticRegression_Bal	dental calculus	tooth	True
+SRR13355809	LogisticRegression_Bal	dental calculus	tooth	True
+SRR13355810	LogisticRegression_Bal	dental calculus	tooth	True
+SRR13355811	LogisticRegression_Bal	dental calculus	tooth	True
+SRR13355812	LogisticRegression_Bal	dental calculus	tooth	True
+SRR13355813	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR20576738	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576739	LogisticRegression_Bal	marine sediment	lake sediment	True
+SRR20576742	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576743	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576744	LogisticRegression_Bal	marine sediment	tooth	True
+SRR20576745	LogisticRegression_Bal	marine sediment	lake sediment	True
+SRR20576746	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576747	LogisticRegression_Bal	marine sediment	tooth	True
+SRR20576748	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576749	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576750	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576751	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576752	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576754	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576755	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576756	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576757	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576758	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576759	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576760	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576761	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576762	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576763	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576764	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576765	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576766	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576767	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576768	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576769	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576770	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576771	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576772	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576773	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576774	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576775	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576776	LogisticRegression_Bal	marine sediment	tooth	True
+SRR20576779	LogisticRegression_Bal	marine sediment	tooth	True
+SRR20576780	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576781	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576782	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576783	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576784	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576785	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576786	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576787	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576794	LogisticRegression_Bal	marine sediment	tooth	True
+SRR20576795	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576796	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576797	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576798	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576799	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576800	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576802	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576803	LogisticRegression_Bal	marine sediment	tooth	True
+SRR20576805	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576807	LogisticRegression_Bal	marine sediment	sediment	True
+SRR20576808	LogisticRegression_Bal	marine sediment	sediment	True
+SRR20576809	LogisticRegression_Bal	marine sediment	lake sediment	True
+SRR20576811	LogisticRegression_Bal	marine sediment	lake sediment	True
+SRR20576812	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576813	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576814	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576815	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576816	LogisticRegression_Bal	marine sediment	marine sediment	True
+SRR20576817	LogisticRegression_Bal	marine sediment	tooth	True
+SRR21589119	LogisticRegression_Bal	soil	sediment	True
+SRR21589120	LogisticRegression_Bal	soil	sediment	True
+SRR23699551	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699552	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699553	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699554	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699555	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699556	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699557	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699558	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699559	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699560	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699561	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699562	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699563	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699564	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699565	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699566	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699567	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699568	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699569	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699570	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699571	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699572	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699573	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699574	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699575	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699576	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699577	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR23699578	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR25620676	LogisticRegression_Bal	permafrost	lake sediment	True
+SRR25620681	LogisticRegression_Bal	permafrost	leaf	True
+SRR25620753	LogisticRegression_Bal	permafrost	sediment	True
+SRR25620756	LogisticRegression_Bal	permafrost	sediment	True
+SRR25620780	LogisticRegression_Bal	permafrost	leaf	True
+SRR25620786	LogisticRegression_Bal	permafrost	leaf	True
+SRR25620790	LogisticRegression_Bal	permafrost	leaf	True
+SRR25620795	LogisticRegression_Bal	permafrost	leaf	True
+SRR5297130	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR5297131	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR5297132	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR5297133	LogisticRegression_Bal	dental calculus	dental calculus	True
+SRR5875718	LogisticRegression_Bal	intestine	permafrost	True
+SRR5875719	LogisticRegression_Bal	intestine	permafrost	True
+SRR5875720	LogisticRegression_Bal	intestine	tooth	True
+SRR5875721	LogisticRegression_Bal	intestine	permafrost	True
+SRR5875726	LogisticRegression_Bal	muscle tissue	tooth	True
+SRR5875727	LogisticRegression_Bal	muscle tissue	tooth	True
+SRR5875728	LogisticRegression_Bal	muscle tissue	shell	True
+SRR5875729	LogisticRegression_Bal	muscle tissue	permafrost	True
+SRR8731955	LogisticRegression_Bal	palaeofaeces	palaeofaeces	True
+SRR8731956	LogisticRegression_Bal	sediment	lake sediment	True
+SRR8731957	LogisticRegression_Bal	palaeofaeces	midden	True
+SRR8731958	LogisticRegression_Bal	palaeofaeces	dental calculus	True
+SRR8731959	LogisticRegression_Bal	sediment	lake sediment	True
+ERR3761400	LinearSVM_Bal	midden	sediment	False
+ERR3761401	LinearSVM_Bal	midden	lake sediment	False
+ERR3761402	LinearSVM_Bal	sediment	tooth	False
+ERR3761403	LinearSVM_Bal	midden	lake sediment	False
+ERR3761404	LinearSVM_Bal	sediment	sediment	False
+ERR3761405	LinearSVM_Bal	midden	leaf	False
+ERR3761406	LinearSVM_Bal	sediment	bone	False
+ERR3761407	LinearSVM_Bal	palaeofaeces	palaeofaeces	False
+ERR3761408	LinearSVM_Bal	palaeofaeces	palaeofaeces	False
+ERR3761409	LinearSVM_Bal	palaeofaeces	palaeofaeces	False
+ERR3761410	LinearSVM_Bal	palaeofaeces	palaeofaeces	False
+ERR3761411	LinearSVM_Bal	palaeofaeces	palaeofaeces	False
+ERR3761412	LinearSVM_Bal	palaeofaeces	palaeofaeces	False
+ERR3761413	LinearSVM_Bal	palaeofaeces	palaeofaeces	False
+ERR6430820	LinearSVM_Bal	marine sediment	marine sediment	False
+ERR6430821	LinearSVM_Bal	marine sediment	marine sediment	False
+ERR6430822	LinearSVM_Bal	marine sediment	marine sediment	False
+ERR6430823	LinearSVM_Bal	marine sediment	lake sediment	False
+ERR6430825	LinearSVM_Bal	marine sediment	marine sediment	False
+ERR6430828	LinearSVM_Bal	marine sediment	lake sediment	False
+ERR6430830	LinearSVM_Bal	marine sediment	marine sediment	False
+ERR6430831	LinearSVM_Bal	marine sediment	lake sediment	False
+ERR6430832	LinearSVM_Bal	marine sediment	lake sediment	False
+ERR6430833	LinearSVM_Bal	marine sediment	lake sediment	False
+ERR6430834	LinearSVM_Bal	marine sediment	marine sediment	False
+ERR6430836	LinearSVM_Bal	marine sediment	marine sediment	False
+ERR6430838	LinearSVM_Bal	marine sediment	lake sediment	False
+ERR6430839	LinearSVM_Bal	marine sediment	lake sediment	False
+ERR6430840	LinearSVM_Bal	marine sediment	lake sediment	False
+ERR6430841	LinearSVM_Bal	marine sediment	lake sediment	False
+ERR6430842	LinearSVM_Bal	marine sediment	lake sediment	False
+ERR6430843	LinearSVM_Bal	marine sediment	marine sediment	False
+ERR6430845	LinearSVM_Bal	marine sediment	lake sediment	False
+ERR6430846	LinearSVM_Bal	marine sediment	marine sediment	False
+ERR6430847	LinearSVM_Bal	marine sediment	lake sediment	False
+ERR6430848	LinearSVM_Bal	marine sediment	lake sediment	False
+ERR6430849	LinearSVM_Bal	marine sediment	marine sediment	False
+ERR6430850	LinearSVM_Bal	marine sediment	lake sediment	False
+ERR6430851	LinearSVM_Bal	marine sediment	lake sediment	False
+ERR6589621	LinearSVM_Bal	tooth	tooth	False
+ERR6589622	LinearSVM_Bal	tooth	tooth	False
+ERR6589623	LinearSVM_Bal	tooth	tooth	False
+ERR6589624	LinearSVM_Bal	tooth	tooth	False
+ERR6589625	LinearSVM_Bal	tooth	tooth	False
+ERR6589626	LinearSVM_Bal	tooth	tooth	False
+ERR6589627	LinearSVM_Bal	tooth	tooth	False
+ERR6589628	LinearSVM_Bal	tooth	tooth	False
+ERR6589629	LinearSVM_Bal	tooth	tooth	False
+ERR6589630	LinearSVM_Bal	tooth	tooth	False
+ERR7919459	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919460	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919462	LinearSVM_Bal	dental calculus	palaeofaeces	False
+ERR7919463	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919464	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919465	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919466	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919467	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919468	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919469	LinearSVM_Bal	dental calculus	leaf	False
+ERR7919470	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919471	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919472	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919473	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919474	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919475	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919476	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919477	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919478	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919479	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919480	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919481	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919482	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919483	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919484	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919485	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919486	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919487	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919488	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919489	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919490	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919491	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919492	LinearSVM_Bal	dental calculus	palaeofaeces	False
+ERR7919493	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919494	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919495	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919496	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919497	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919498	LinearSVM_Bal	dental calculus	palaeofaeces	False
+ERR7919499	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919500	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919501	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919502	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919503	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919504	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919505	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919506	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919507	LinearSVM_Bal	dental calculus	palaeofaeces	False
+ERR7919508	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919509	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919510	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919511	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919512	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919513	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919514	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919515	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919516	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919517	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919518	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919519	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919520	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919521	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919522	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919523	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919524	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919525	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919526	LinearSVM_Bal	dental calculus	palaeofaeces	False
+ERR7919527	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919528	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919529	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919530	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919531	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919532	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919533	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919534	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919535	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919536	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919537	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919538	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919539	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919540	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919541	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919542	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919543	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919544	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919545	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919546	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919547	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919548	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919641	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919642	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919643	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919644	LinearSVM_Bal	dental calculus	tooth	False
+ERR7919645	LinearSVM_Bal	dental calculus	dental calculus	False
+ERR7919646	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR13355784	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355785	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355786	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355787	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355789	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355790	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355791	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355792	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355794	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355796	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR13355797	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR13355798	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR13355799	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355800	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355801	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR13355802	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355803	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355804	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355805	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355806	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355807	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355808	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355809	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355810	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355811	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355812	LinearSVM_Bal	dental calculus	tooth	False
+SRR13355813	LinearSVM_Bal	dental calculus	tooth	False
+SRR20576738	LinearSVM_Bal	marine sediment	lake sediment	False
+SRR20576739	LinearSVM_Bal	marine sediment	lake sediment	False
+SRR20576742	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576743	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576744	LinearSVM_Bal	marine sediment	tooth	False
+SRR20576745	LinearSVM_Bal	marine sediment	lake sediment	False
+SRR20576746	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576747	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576748	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576749	LinearSVM_Bal	marine sediment	lake sediment	False
+SRR20576750	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576751	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576752	LinearSVM_Bal	marine sediment	lake sediment	False
+SRR20576754	LinearSVM_Bal	marine sediment	lake sediment	False
+SRR20576755	LinearSVM_Bal	marine sediment	lake sediment	False
+SRR20576756	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576757	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576758	LinearSVM_Bal	marine sediment	lake sediment	False
+SRR20576759	LinearSVM_Bal	marine sediment	lake sediment	False
+SRR20576760	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576761	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576762	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576763	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576764	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576765	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576766	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576767	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576768	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576769	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576770	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576771	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576772	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576773	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576774	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576775	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576776	LinearSVM_Bal	marine sediment	tooth	False
+SRR20576779	LinearSVM_Bal	marine sediment	lake sediment	False
+SRR20576780	LinearSVM_Bal	marine sediment	lake sediment	False
+SRR20576781	LinearSVM_Bal	marine sediment	lake sediment	False
+SRR20576782	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576783	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576784	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576785	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576786	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576787	LinearSVM_Bal	marine sediment	lake sediment	False
+SRR20576794	LinearSVM_Bal	marine sediment	tooth	False
+SRR20576795	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576796	LinearSVM_Bal	marine sediment	lake sediment	False
+SRR20576797	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576798	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576799	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576800	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576802	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576803	LinearSVM_Bal	marine sediment	tooth	False
+SRR20576805	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576807	LinearSVM_Bal	marine sediment	lake sediment	False
+SRR20576808	LinearSVM_Bal	marine sediment	lake sediment	False
+SRR20576809	LinearSVM_Bal	marine sediment	lake sediment	False
+SRR20576811	LinearSVM_Bal	marine sediment	shell	False
+SRR20576812	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576813	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576814	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576815	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576816	LinearSVM_Bal	marine sediment	marine sediment	False
+SRR20576817	LinearSVM_Bal	marine sediment	tooth	False
+SRR21589119	LinearSVM_Bal	soil	palaeofaeces	False
+SRR21589120	LinearSVM_Bal	soil	palaeofaeces	False
+SRR23699551	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699552	LinearSVM_Bal	dental calculus	tooth	False
+SRR23699553	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699554	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699555	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699556	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699557	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699558	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699559	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699560	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699561	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699562	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699563	LinearSVM_Bal	dental calculus	tooth	False
+SRR23699564	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699565	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699566	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699567	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699568	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699569	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699570	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699571	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699572	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699573	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699574	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699575	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699576	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699577	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR23699578	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR25620676	LinearSVM_Bal	permafrost	lake sediment	False
+SRR25620681	LinearSVM_Bal	permafrost	lake sediment	False
+SRR25620753	LinearSVM_Bal	permafrost	lake sediment	False
+SRR25620756	LinearSVM_Bal	permafrost	lake sediment	False
+SRR25620780	LinearSVM_Bal	permafrost	permafrost	False
+SRR25620786	LinearSVM_Bal	permafrost	lake sediment	False
+SRR25620790	LinearSVM_Bal	permafrost	leaf	False
+SRR25620795	LinearSVM_Bal	permafrost	leaf	False
+SRR5297130	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR5297131	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR5297132	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR5297133	LinearSVM_Bal	dental calculus	dental calculus	False
+SRR5875718	LinearSVM_Bal	intestine	permafrost	False
+SRR5875719	LinearSVM_Bal	intestine	permafrost	False
+SRR5875720	LinearSVM_Bal	intestine	lake sediment	False
+SRR5875721	LinearSVM_Bal	intestine	permafrost	False
+SRR5875726	LinearSVM_Bal	muscle tissue	lake sediment	False
+SRR5875727	LinearSVM_Bal	muscle tissue	permafrost	False
+SRR5875728	LinearSVM_Bal	muscle tissue	tooth	False
+SRR5875729	LinearSVM_Bal	muscle tissue	permafrost	False
+SRR8731955	LinearSVM_Bal	palaeofaeces	palaeofaeces	False
+SRR8731956	LinearSVM_Bal	sediment	lake sediment	False
+SRR8731957	LinearSVM_Bal	palaeofaeces	palaeofaeces	False
+SRR8731958	LinearSVM_Bal	palaeofaeces	palaeofaeces	False
+SRR8731959	LinearSVM_Bal	sediment	bone	False
+ERR3761400	RandomForest	midden	sediment	True
+ERR3761401	RandomForest	midden	lake sediment	True
+ERR3761402	RandomForest	sediment	lake sediment	True
+ERR3761403	RandomForest	midden	sediment	True
+ERR3761404	RandomForest	sediment	sediment	True
+ERR3761405	RandomForest	midden	tooth	True
+ERR3761406	RandomForest	sediment	tooth	True
+ERR3761407	RandomForest	palaeofaeces	palaeofaeces	True
+ERR3761408	RandomForest	palaeofaeces	palaeofaeces	True
+ERR3761409	RandomForest	palaeofaeces	palaeofaeces	True
+ERR3761410	RandomForest	palaeofaeces	palaeofaeces	True
+ERR3761411	RandomForest	palaeofaeces	palaeofaeces	True
+ERR3761412	RandomForest	palaeofaeces	palaeofaeces	True
+ERR3761413	RandomForest	palaeofaeces	palaeofaeces	True
+ERR6430820	RandomForest	marine sediment	lake sediment	True
+ERR6430821	RandomForest	marine sediment	lake sediment	True
+ERR6430822	RandomForest	marine sediment	lake sediment	True
+ERR6430823	RandomForest	marine sediment	lake sediment	True
+ERR6430825	RandomForest	marine sediment	lake sediment	True
+ERR6430828	RandomForest	marine sediment	lake sediment	True
+ERR6430830	RandomForest	marine sediment	lake sediment	True
+ERR6430831	RandomForest	marine sediment	lake sediment	True
+ERR6430832	RandomForest	marine sediment	lake sediment	True
+ERR6430833	RandomForest	marine sediment	lake sediment	True
+ERR6430834	RandomForest	marine sediment	lake sediment	True
+ERR6430836	RandomForest	marine sediment	lake sediment	True
+ERR6430838	RandomForest	marine sediment	lake sediment	True
+ERR6430839	RandomForest	marine sediment	lake sediment	True
+ERR6430840	RandomForest	marine sediment	lake sediment	True
+ERR6430841	RandomForest	marine sediment	lake sediment	True
+ERR6430842	RandomForest	marine sediment	lake sediment	True
+ERR6430843	RandomForest	marine sediment	lake sediment	True
+ERR6430845	RandomForest	marine sediment	lake sediment	True
+ERR6430846	RandomForest	marine sediment	lake sediment	True
+ERR6430847	RandomForest	marine sediment	lake sediment	True
+ERR6430848	RandomForest	marine sediment	lake sediment	True
+ERR6430849	RandomForest	marine sediment	lake sediment	True
+ERR6430850	RandomForest	marine sediment	lake sediment	True
+ERR6430851	RandomForest	marine sediment	lake sediment	True
+ERR6589621	RandomForest	tooth	tooth	True
+ERR6589622	RandomForest	tooth	dental calculus	True
+ERR6589623	RandomForest	tooth	tooth	True
+ERR6589624	RandomForest	tooth	tooth	True
+ERR6589625	RandomForest	tooth	tooth	True
+ERR6589626	RandomForest	tooth	tooth	True
+ERR6589627	RandomForest	tooth	dental calculus	True
+ERR6589628	RandomForest	tooth	tooth	True
+ERR6589629	RandomForest	tooth	dental calculus	True
+ERR6589630	RandomForest	tooth	tooth	True
+ERR7919459	RandomForest	dental calculus	dental calculus	True
+ERR7919460	RandomForest	dental calculus	dental calculus	True
+ERR7919462	RandomForest	dental calculus	dental calculus	True
+ERR7919463	RandomForest	dental calculus	dental calculus	True
+ERR7919464	RandomForest	dental calculus	tooth	True
+ERR7919465	RandomForest	dental calculus	dental calculus	True
+ERR7919466	RandomForest	dental calculus	dental calculus	True
+ERR7919467	RandomForest	dental calculus	dental calculus	True
+ERR7919468	RandomForest	dental calculus	dental calculus	True
+ERR7919469	RandomForest	dental calculus	dental calculus	True
+ERR7919470	RandomForest	dental calculus	dental calculus	True
+ERR7919471	RandomForest	dental calculus	tooth	True
+ERR7919472	RandomForest	dental calculus	dental calculus	True
+ERR7919473	RandomForest	dental calculus	dental calculus	True
+ERR7919474	RandomForest	dental calculus	dental calculus	True
+ERR7919475	RandomForest	dental calculus	dental calculus	True
+ERR7919476	RandomForest	dental calculus	dental calculus	True
+ERR7919477	RandomForest	dental calculus	dental calculus	True
+ERR7919478	RandomForest	dental calculus	dental calculus	True
+ERR7919479	RandomForest	dental calculus	dental calculus	True
+ERR7919480	RandomForest	dental calculus	dental calculus	True
+ERR7919481	RandomForest	dental calculus	dental calculus	True
+ERR7919482	RandomForest	dental calculus	dental calculus	True
+ERR7919483	RandomForest	dental calculus	dental calculus	True
+ERR7919484	RandomForest	dental calculus	dental calculus	True
+ERR7919485	RandomForest	dental calculus	dental calculus	True
+ERR7919486	RandomForest	dental calculus	dental calculus	True
+ERR7919487	RandomForest	dental calculus	dental calculus	True
+ERR7919488	RandomForest	dental calculus	dental calculus	True
+ERR7919489	RandomForest	dental calculus	dental calculus	True
+ERR7919490	RandomForest	dental calculus	dental calculus	True
+ERR7919491	RandomForest	dental calculus	dental calculus	True
+ERR7919492	RandomForest	dental calculus	dental calculus	True
+ERR7919493	RandomForest	dental calculus	dental calculus	True
+ERR7919494	RandomForest	dental calculus	dental calculus	True
+ERR7919495	RandomForest	dental calculus	dental calculus	True
+ERR7919496	RandomForest	dental calculus	tooth	True
+ERR7919497	RandomForest	dental calculus	dental calculus	True
+ERR7919498	RandomForest	dental calculus	dental calculus	True
+ERR7919499	RandomForest	dental calculus	tooth	True
+ERR7919500	RandomForest	dental calculus	dental calculus	True
+ERR7919501	RandomForest	dental calculus	dental calculus	True
+ERR7919502	RandomForest	dental calculus	dental calculus	True
+ERR7919503	RandomForest	dental calculus	dental calculus	True
+ERR7919504	RandomForest	dental calculus	dental calculus	True
+ERR7919505	RandomForest	dental calculus	dental calculus	True
+ERR7919506	RandomForest	dental calculus	dental calculus	True
+ERR7919507	RandomForest	dental calculus	dental calculus	True
+ERR7919508	RandomForest	dental calculus	dental calculus	True
+ERR7919509	RandomForest	dental calculus	tooth	True
+ERR7919510	RandomForest	dental calculus	dental calculus	True
+ERR7919511	RandomForest	dental calculus	dental calculus	True
+ERR7919512	RandomForest	dental calculus	tooth	True
+ERR7919513	RandomForest	dental calculus	dental calculus	True
+ERR7919514	RandomForest	dental calculus	dental calculus	True
+ERR7919515	RandomForest	dental calculus	dental calculus	True
+ERR7919516	RandomForest	dental calculus	dental calculus	True
+ERR7919517	RandomForest	dental calculus	tooth	True
+ERR7919518	RandomForest	dental calculus	dental calculus	True
+ERR7919519	RandomForest	dental calculus	dental calculus	True
+ERR7919520	RandomForest	dental calculus	dental calculus	True
+ERR7919521	RandomForest	dental calculus	dental calculus	True
+ERR7919522	RandomForest	dental calculus	dental calculus	True
+ERR7919523	RandomForest	dental calculus	dental calculus	True
+ERR7919524	RandomForest	dental calculus	dental calculus	True
+ERR7919525	RandomForest	dental calculus	dental calculus	True
+ERR7919526	RandomForest	dental calculus	dental calculus	True
+ERR7919527	RandomForest	dental calculus	dental calculus	True
+ERR7919528	RandomForest	dental calculus	dental calculus	True
+ERR7919529	RandomForest	dental calculus	dental calculus	True
+ERR7919530	RandomForest	dental calculus	dental calculus	True
+ERR7919531	RandomForest	dental calculus	dental calculus	True
+ERR7919532	RandomForest	dental calculus	dental calculus	True
+ERR7919533	RandomForest	dental calculus	dental calculus	True
+ERR7919534	RandomForest	dental calculus	dental calculus	True
+ERR7919535	RandomForest	dental calculus	dental calculus	True
+ERR7919536	RandomForest	dental calculus	dental calculus	True
+ERR7919537	RandomForest	dental calculus	dental calculus	True
+ERR7919538	RandomForest	dental calculus	dental calculus	True
+ERR7919539	RandomForest	dental calculus	dental calculus	True
+ERR7919540	RandomForest	dental calculus	tooth	True
+ERR7919541	RandomForest	dental calculus	dental calculus	True
+ERR7919542	RandomForest	dental calculus	dental calculus	True
+ERR7919543	RandomForest	dental calculus	dental calculus	True
+ERR7919544	RandomForest	dental calculus	dental calculus	True
+ERR7919545	RandomForest	dental calculus	tooth	True
+ERR7919546	RandomForest	dental calculus	tooth	True
+ERR7919547	RandomForest	dental calculus	dental calculus	True
+ERR7919548	RandomForest	dental calculus	dental calculus	True
+ERR7919641	RandomForest	dental calculus	dental calculus	True
+ERR7919642	RandomForest	dental calculus	dental calculus	True
+ERR7919643	RandomForest	dental calculus	tooth	True
+ERR7919644	RandomForest	dental calculus	tooth	True
+ERR7919645	RandomForest	dental calculus	dental calculus	True
+ERR7919646	RandomForest	dental calculus	dental calculus	True
+SRR13355784	RandomForest	dental calculus	dental calculus	True
+SRR13355785	RandomForest	dental calculus	dental calculus	True
+SRR13355786	RandomForest	dental calculus	dental calculus	True
+SRR13355787	RandomForest	dental calculus	dental calculus	True
+SRR13355789	RandomForest	dental calculus	dental calculus	True
+SRR13355790	RandomForest	dental calculus	dental calculus	True
+SRR13355791	RandomForest	dental calculus	dental calculus	True
+SRR13355792	RandomForest	dental calculus	dental calculus	True
+SRR13355794	RandomForest	dental calculus	dental calculus	True
+SRR13355796	RandomForest	dental calculus	dental calculus	True
+SRR13355797	RandomForest	dental calculus	dental calculus	True
+SRR13355798	RandomForest	dental calculus	dental calculus	True
+SRR13355799	RandomForest	dental calculus	dental calculus	True
+SRR13355800	RandomForest	dental calculus	dental calculus	True
+SRR13355801	RandomForest	dental calculus	dental calculus	True
+SRR13355802	RandomForest	dental calculus	dental calculus	True
+SRR13355803	RandomForest	dental calculus	dental calculus	True
+SRR13355804	RandomForest	dental calculus	dental calculus	True
+SRR13355805	RandomForest	dental calculus	dental calculus	True
+SRR13355806	RandomForest	dental calculus	dental calculus	True
+SRR13355807	RandomForest	dental calculus	dental calculus	True
+SRR13355808	RandomForest	dental calculus	dental calculus	True
+SRR13355809	RandomForest	dental calculus	dental calculus	True
+SRR13355810	RandomForest	dental calculus	dental calculus	True
+SRR13355811	RandomForest	dental calculus	dental calculus	True
+SRR13355812	RandomForest	dental calculus	dental calculus	True
+SRR13355813	RandomForest	dental calculus	dental calculus	True
+SRR20576738	RandomForest	marine sediment	tooth	True
+SRR20576739	RandomForest	marine sediment	tooth	True
+SRR20576742	RandomForest	marine sediment	marine sediment	True
+SRR20576743	RandomForest	marine sediment	marine sediment	True
+SRR20576744	RandomForest	marine sediment	tooth	True
+SRR20576745	RandomForest	marine sediment	lake sediment	True
+SRR20576746	RandomForest	marine sediment	marine sediment	True
+SRR20576747	RandomForest	marine sediment	tooth	True
+SRR20576748	RandomForest	marine sediment	marine sediment	True
+SRR20576749	RandomForest	marine sediment	lake sediment	True
+SRR20576750	RandomForest	marine sediment	marine sediment	True
+SRR20576751	RandomForest	marine sediment	lake sediment	True
+SRR20576752	RandomForest	marine sediment	lake sediment	True
+SRR20576754	RandomForest	marine sediment	lake sediment	True
+SRR20576755	RandomForest	marine sediment	lake sediment	True
+SRR20576756	RandomForest	marine sediment	lake sediment	True
+SRR20576757	RandomForest	marine sediment	lake sediment	True
+SRR20576758	RandomForest	marine sediment	lake sediment	True
+SRR20576759	RandomForest	marine sediment	lake sediment	True
+SRR20576760	RandomForest	marine sediment	lake sediment	True
+SRR20576761	RandomForest	marine sediment	lake sediment	True
+SRR20576762	RandomForest	marine sediment	lake sediment	True
+SRR20576763	RandomForest	marine sediment	marine sediment	True
+SRR20576764	RandomForest	marine sediment	lake sediment	True
+SRR20576765	RandomForest	marine sediment	lake sediment	True
+SRR20576766	RandomForest	marine sediment	lake sediment	True
+SRR20576767	RandomForest	marine sediment	marine sediment	True
+SRR20576768	RandomForest	marine sediment	marine sediment	True
+SRR20576769	RandomForest	marine sediment	marine sediment	True
+SRR20576770	RandomForest	marine sediment	lake sediment	True
+SRR20576771	RandomForest	marine sediment	lake sediment	True
+SRR20576772	RandomForest	marine sediment	lake sediment	True
+SRR20576773	RandomForest	marine sediment	marine sediment	True
+SRR20576774	RandomForest	marine sediment	marine sediment	True
+SRR20576775	RandomForest	marine sediment	marine sediment	True
+SRR20576776	RandomForest	marine sediment	tooth	True
+SRR20576779	RandomForest	marine sediment	tooth	True
+SRR20576780	RandomForest	marine sediment	dental calculus	True
+SRR20576781	RandomForest	marine sediment	lake sediment	True
+SRR20576782	RandomForest	marine sediment	tooth	True
+SRR20576783	RandomForest	marine sediment	marine sediment	True
+SRR20576784	RandomForest	marine sediment	marine sediment	True
+SRR20576785	RandomForest	marine sediment	marine sediment	True
+SRR20576786	RandomForest	marine sediment	marine sediment	True
+SRR20576787	RandomForest	marine sediment	lake sediment	True
+SRR20576794	RandomForest	marine sediment	tooth	True
+SRR20576795	RandomForest	marine sediment	marine sediment	True
+SRR20576796	RandomForest	marine sediment	dental calculus	True
+SRR20576797	RandomForest	marine sediment	lake sediment	True
+SRR20576798	RandomForest	marine sediment	marine sediment	True
+SRR20576799	RandomForest	marine sediment	lake sediment	True
+SRR20576800	RandomForest	marine sediment	lake sediment	True
+SRR20576802	RandomForest	marine sediment	marine sediment	True
+SRR20576803	RandomForest	marine sediment	tooth	True
+SRR20576805	RandomForest	marine sediment	marine sediment	True
+SRR20576807	RandomForest	marine sediment	dental calculus	True
+SRR20576808	RandomForest	marine sediment	dental calculus	True
+SRR20576809	RandomForest	marine sediment	marine sediment	True
+SRR20576811	RandomForest	marine sediment	marine sediment	True
+SRR20576812	RandomForest	marine sediment	marine sediment	True
+SRR20576813	RandomForest	marine sediment	lake sediment	True
+SRR20576814	RandomForest	marine sediment	marine sediment	True
+SRR20576815	RandomForest	marine sediment	lake sediment	True
+SRR20576816	RandomForest	marine sediment	marine sediment	True
+SRR20576817	RandomForest	marine sediment	tooth	True
+SRR21589119	RandomForest	soil	lake sediment	True
+SRR21589120	RandomForest	soil	lake sediment	True
+SRR23699551	RandomForest	dental calculus	dental calculus	True
+SRR23699552	RandomForest	dental calculus	dental calculus	True
+SRR23699553	RandomForest	dental calculus	dental calculus	True
+SRR23699554	RandomForest	dental calculus	dental calculus	True
+SRR23699555	RandomForest	dental calculus	dental calculus	True
+SRR23699556	RandomForest	dental calculus	dental calculus	True
+SRR23699557	RandomForest	dental calculus	dental calculus	True
+SRR23699558	RandomForest	dental calculus	dental calculus	True
+SRR23699559	RandomForest	dental calculus	dental calculus	True
+SRR23699560	RandomForest	dental calculus	dental calculus	True
+SRR23699561	RandomForest	dental calculus	dental calculus	True
+SRR23699562	RandomForest	dental calculus	dental calculus	True
+SRR23699563	RandomForest	dental calculus	dental calculus	True
+SRR23699564	RandomForest	dental calculus	dental calculus	True
+SRR23699565	RandomForest	dental calculus	dental calculus	True
+SRR23699566	RandomForest	dental calculus	dental calculus	True
+SRR23699567	RandomForest	dental calculus	dental calculus	True
+SRR23699568	RandomForest	dental calculus	dental calculus	True
+SRR23699569	RandomForest	dental calculus	dental calculus	True
+SRR23699570	RandomForest	dental calculus	dental calculus	True
+SRR23699571	RandomForest	dental calculus	dental calculus	True
+SRR23699572	RandomForest	dental calculus	dental calculus	True
+SRR23699573	RandomForest	dental calculus	dental calculus	True
+SRR23699574	RandomForest	dental calculus	dental calculus	True
+SRR23699575	RandomForest	dental calculus	dental calculus	True
+SRR23699576	RandomForest	dental calculus	dental calculus	True
+SRR23699577	RandomForest	dental calculus	dental calculus	True
+SRR23699578	RandomForest	dental calculus	dental calculus	True
+SRR25620676	RandomForest	permafrost	lake sediment	True
+SRR25620681	RandomForest	permafrost	lake sediment	True
+SRR25620753	RandomForest	permafrost	lake sediment	True
+SRR25620756	RandomForest	permafrost	lake sediment	True
+SRR25620780	RandomForest	permafrost	lake sediment	True
+SRR25620786	RandomForest	permafrost	leaf	True
+SRR25620790	RandomForest	permafrost	leaf	True
+SRR25620795	RandomForest	permafrost	leaf	True
+SRR5297130	RandomForest	dental calculus	dental calculus	True
+SRR5297131	RandomForest	dental calculus	dental calculus	True
+SRR5297132	RandomForest	dental calculus	dental calculus	True
+SRR5297133	RandomForest	dental calculus	dental calculus	True
+SRR5875718	RandomForest	intestine	tooth	True
+SRR5875719	RandomForest	intestine	lake sediment	True
+SRR5875720	RandomForest	intestine	tooth	True
+SRR5875721	RandomForest	intestine	tooth	True
+SRR5875726	RandomForest	muscle tissue	tooth	True
+SRR5875727	RandomForest	muscle tissue	tooth	True
+SRR5875728	RandomForest	muscle tissue	tooth	True
+SRR5875729	RandomForest	muscle tissue	dental calculus	True
+SRR8731955	RandomForest	palaeofaeces	lake sediment	True
+SRR8731956	RandomForest	sediment	tooth	True
+SRR8731957	RandomForest	palaeofaeces	permafrost	True
+SRR8731958	RandomForest	palaeofaeces	dental calculus	True
+SRR8731959	RandomForest	sediment	tooth	True
+ERR3761400	RandomForest_Bal	midden	sediment	True
+ERR3761401	RandomForest_Bal	midden	lake sediment	True
+ERR3761402	RandomForest_Bal	sediment	sediment	True
+ERR3761403	RandomForest_Bal	midden	sediment	True
+ERR3761404	RandomForest_Bal	sediment	sediment	True
+ERR3761405	RandomForest_Bal	midden	tooth	True
+ERR3761406	RandomForest_Bal	sediment	tooth	True
+ERR3761407	RandomForest_Bal	palaeofaeces	palaeofaeces	True
+ERR3761408	RandomForest_Bal	palaeofaeces	palaeofaeces	True
+ERR3761409	RandomForest_Bal	palaeofaeces	palaeofaeces	True
+ERR3761410	RandomForest_Bal	palaeofaeces	palaeofaeces	True
+ERR3761411	RandomForest_Bal	palaeofaeces	palaeofaeces	True
+ERR3761412	RandomForest_Bal	palaeofaeces	palaeofaeces	True
+ERR3761413	RandomForest_Bal	palaeofaeces	palaeofaeces	True
+ERR6430820	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430821	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430822	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430823	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430825	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430828	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430830	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430831	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430832	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430833	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430834	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430836	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430838	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430839	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430840	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430841	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430842	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430843	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430845	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430846	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430847	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430848	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430849	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430850	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6430851	RandomForest_Bal	marine sediment	lake sediment	True
+ERR6589621	RandomForest_Bal	tooth	tooth	True
+ERR6589622	RandomForest_Bal	tooth	dental calculus	True
+ERR6589623	RandomForest_Bal	tooth	tooth	True
+ERR6589624	RandomForest_Bal	tooth	tooth	True
+ERR6589625	RandomForest_Bal	tooth	tooth	True
+ERR6589626	RandomForest_Bal	tooth	tooth	True
+ERR6589627	RandomForest_Bal	tooth	dental calculus	True
+ERR6589628	RandomForest_Bal	tooth	tooth	True
+ERR6589629	RandomForest_Bal	tooth	dental calculus	True
+ERR6589630	RandomForest_Bal	tooth	tooth	True
+ERR7919459	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919460	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919462	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919463	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919464	RandomForest_Bal	dental calculus	marine sediment	True
+ERR7919465	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919466	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919467	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919468	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919469	RandomForest_Bal	dental calculus	leaf	True
+ERR7919470	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919471	RandomForest_Bal	dental calculus	marine sediment	True
+ERR7919472	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919473	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919474	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919475	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919476	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919477	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919478	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919479	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919480	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919481	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919482	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919483	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919484	RandomForest_Bal	dental calculus	leaf	True
+ERR7919485	RandomForest_Bal	dental calculus	tooth	True
+ERR7919486	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919487	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919488	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919489	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919490	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919491	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919492	RandomForest_Bal	dental calculus	leaf	True
+ERR7919493	RandomForest_Bal	dental calculus	tooth	True
+ERR7919494	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919495	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919496	RandomForest_Bal	dental calculus	marine sediment	True
+ERR7919497	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919498	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919499	RandomForest_Bal	dental calculus	marine sediment	True
+ERR7919500	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919501	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919502	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919503	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919504	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919505	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919506	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919507	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919508	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919509	RandomForest_Bal	dental calculus	marine sediment	True
+ERR7919510	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919511	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919512	RandomForest_Bal	dental calculus	marine sediment	True
+ERR7919513	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919514	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919515	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919516	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919517	RandomForest_Bal	dental calculus	marine sediment	True
+ERR7919518	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919519	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919520	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919521	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919522	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919523	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919524	RandomForest_Bal	dental calculus	leaf	True
+ERR7919525	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919526	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919527	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919528	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919529	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919530	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919531	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919532	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919533	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919534	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919535	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919536	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919537	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919538	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919539	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919540	RandomForest_Bal	dental calculus	marine sediment	True
+ERR7919541	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919542	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919543	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919544	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919545	RandomForest_Bal	dental calculus	marine sediment	True
+ERR7919546	RandomForest_Bal	dental calculus	marine sediment	True
+ERR7919547	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919548	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919641	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919642	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919643	RandomForest_Bal	dental calculus	marine sediment	True
+ERR7919644	RandomForest_Bal	dental calculus	marine sediment	True
+ERR7919645	RandomForest_Bal	dental calculus	dental calculus	True
+ERR7919646	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355784	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355785	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355786	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355787	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355789	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355790	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355791	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355792	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355794	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355796	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355797	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355798	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355799	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355800	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355801	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355802	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355803	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355804	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355805	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355806	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355807	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355808	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355809	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355810	RandomForest_Bal	dental calculus	tooth	True
+SRR13355811	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355812	RandomForest_Bal	dental calculus	dental calculus	True
+SRR13355813	RandomForest_Bal	dental calculus	dental calculus	True
+SRR20576738	RandomForest_Bal	marine sediment	sediment	True
+SRR20576739	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576742	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576743	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576744	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576745	RandomForest_Bal	marine sediment	sediment	True
+SRR20576746	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576747	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576748	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576749	RandomForest_Bal	marine sediment	sediment	True
+SRR20576750	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576751	RandomForest_Bal	marine sediment	sediment	True
+SRR20576752	RandomForest_Bal	marine sediment	lake sediment	True
+SRR20576754	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576755	RandomForest_Bal	marine sediment	lake sediment	True
+SRR20576756	RandomForest_Bal	marine sediment	sediment	True
+SRR20576757	RandomForest_Bal	marine sediment	sediment	True
+SRR20576758	RandomForest_Bal	marine sediment	lake sediment	True
+SRR20576759	RandomForest_Bal	marine sediment	sediment	True
+SRR20576760	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576761	RandomForest_Bal	marine sediment	sediment	True
+SRR20576762	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576763	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576764	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576765	RandomForest_Bal	marine sediment	sediment	True
+SRR20576766	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576767	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576768	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576769	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576770	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576771	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576772	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576773	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576774	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576775	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576776	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576779	RandomForest_Bal	marine sediment	sediment	True
+SRR20576780	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576781	RandomForest_Bal	marine sediment	sediment	True
+SRR20576782	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576783	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576784	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576785	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576786	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576787	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576794	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576795	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576796	RandomForest_Bal	marine sediment	sediment	True
+SRR20576797	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576798	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576799	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576800	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576802	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576803	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576805	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576807	RandomForest_Bal	marine sediment	sediment	True
+SRR20576808	RandomForest_Bal	marine sediment	sediment	True
+SRR20576809	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576811	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576812	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576813	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576814	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576815	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576816	RandomForest_Bal	marine sediment	marine sediment	True
+SRR20576817	RandomForest_Bal	marine sediment	marine sediment	True
+SRR21589119	RandomForest_Bal	soil	sediment	True
+SRR21589120	RandomForest_Bal	soil	lake sediment	True
+SRR23699551	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699552	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699553	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699554	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699555	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699556	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699557	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699558	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699559	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699560	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699561	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699562	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699563	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699564	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699565	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699566	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699567	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699568	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699569	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699570	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699571	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699572	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699573	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699574	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699575	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699576	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699577	RandomForest_Bal	dental calculus	dental calculus	True
+SRR23699578	RandomForest_Bal	dental calculus	dental calculus	True
+SRR25620676	RandomForest_Bal	permafrost	leaf	True
+SRR25620681	RandomForest_Bal	permafrost	leaf	True
+SRR25620753	RandomForest_Bal	permafrost	sediment	True
+SRR25620756	RandomForest_Bal	permafrost	lake sediment	True
+SRR25620780	RandomForest_Bal	permafrost	lake sediment	True
+SRR25620786	RandomForest_Bal	permafrost	leaf	True
+SRR25620790	RandomForest_Bal	permafrost	leaf	True
+SRR25620795	RandomForest_Bal	permafrost	leaf	True
+SRR5297130	RandomForest_Bal	dental calculus	dental calculus	True
+SRR5297131	RandomForest_Bal	dental calculus	dental calculus	True
+SRR5297132	RandomForest_Bal	dental calculus	dental calculus	True
+SRR5297133	RandomForest_Bal	dental calculus	dental calculus	True
+SRR5875718	RandomForest_Bal	intestine	shell	True
+SRR5875719	RandomForest_Bal	intestine	permafrost	True
+SRR5875720	RandomForest_Bal	intestine	tooth	True
+SRR5875721	RandomForest_Bal	intestine	sediment	True
+SRR5875726	RandomForest_Bal	muscle tissue	tooth	True
+SRR5875727	RandomForest_Bal	muscle tissue	tooth	True
+SRR5875728	RandomForest_Bal	muscle tissue	shell	True
+SRR5875729	RandomForest_Bal	muscle tissue	sediment	True
+SRR8731955	RandomForest_Bal	palaeofaeces	lake sediment	True
+SRR8731956	RandomForest_Bal	sediment	marine sediment	True
+SRR8731957	RandomForest_Bal	palaeofaeces	midden	True
+SRR8731958	RandomForest_Bal	palaeofaeces	bone	True
+SRR8731959	RandomForest_Bal	sediment	marine sediment	True
+ERR3761400	kNN	midden	tooth	True
+ERR3761401	kNN	midden	lake sediment	True
+ERR3761402	kNN	sediment	lake sediment	True
+ERR3761403	kNN	midden	tooth	True
+ERR3761404	kNN	sediment	lake sediment	True
+ERR3761405	kNN	midden	leaf	True
+ERR3761406	kNN	sediment	tooth	True
+ERR3761407	kNN	palaeofaeces	palaeofaeces	True
+ERR3761408	kNN	palaeofaeces	bone	True
+ERR3761409	kNN	palaeofaeces	palaeofaeces	True
+ERR3761410	kNN	palaeofaeces	palaeofaeces	True
+ERR3761411	kNN	palaeofaeces	bone	True
+ERR3761412	kNN	palaeofaeces	palaeofaeces	True
+ERR3761413	kNN	palaeofaeces	bone	True
+ERR6430820	kNN	marine sediment	lake sediment	True
+ERR6430821	kNN	marine sediment	lake sediment	True
+ERR6430822	kNN	marine sediment	leaf	True
+ERR6430823	kNN	marine sediment	lake sediment	True
+ERR6430825	kNN	marine sediment	marine sediment	True
+ERR6430828	kNN	marine sediment	lake sediment	True
+ERR6430830	kNN	marine sediment	marine sediment	True
+ERR6430831	kNN	marine sediment	lake sediment	True
+ERR6430832	kNN	marine sediment	lake sediment	True
+ERR6430833	kNN	marine sediment	lake sediment	True
+ERR6430834	kNN	marine sediment	leaf	True
+ERR6430836	kNN	marine sediment	lake sediment	True
+ERR6430838	kNN	marine sediment	lake sediment	True
+ERR6430839	kNN	marine sediment	lake sediment	True
+ERR6430840	kNN	marine sediment	lake sediment	True
+ERR6430841	kNN	marine sediment	lake sediment	True
+ERR6430842	kNN	marine sediment	lake sediment	True
+ERR6430843	kNN	marine sediment	lake sediment	True
+ERR6430845	kNN	marine sediment	lake sediment	True
+ERR6430846	kNN	marine sediment	lake sediment	True
+ERR6430847	kNN	marine sediment	lake sediment	True
+ERR6430848	kNN	marine sediment	lake sediment	True
+ERR6430849	kNN	marine sediment	marine sediment	True
+ERR6430850	kNN	marine sediment	lake sediment	True
+ERR6430851	kNN	marine sediment	sediment	True
+ERR6589621	kNN	tooth	bone	True
+ERR6589622	kNN	tooth	dental calculus	True
+ERR6589623	kNN	tooth	bone	True
+ERR6589624	kNN	tooth	bone	True
+ERR6589625	kNN	tooth	bone	True
+ERR6589626	kNN	tooth	dental calculus	True
+ERR6589627	kNN	tooth	dental calculus	True
+ERR6589628	kNN	tooth	tooth	True
+ERR6589629	kNN	tooth	tooth	True
+ERR6589630	kNN	tooth	tooth	True
+ERR7919459	kNN	dental calculus	leaf	True
+ERR7919460	kNN	dental calculus	dental calculus	True
+ERR7919462	kNN	dental calculus	midden	True
+ERR7919463	kNN	dental calculus	bone	True
+ERR7919464	kNN	dental calculus	lake sediment	True
+ERR7919465	kNN	dental calculus	shell	True
+ERR7919466	kNN	dental calculus	dental calculus	True
+ERR7919467	kNN	dental calculus	dental calculus	True
+ERR7919468	kNN	dental calculus	dental calculus	True
+ERR7919469	kNN	dental calculus	leaf	True
+ERR7919470	kNN	dental calculus	shell	True
+ERR7919471	kNN	dental calculus	lake sediment	True
+ERR7919472	kNN	dental calculus	dental calculus	True
+ERR7919473	kNN	dental calculus	dental calculus	True
+ERR7919474	kNN	dental calculus	dental calculus	True
+ERR7919475	kNN	dental calculus	dental calculus	True
+ERR7919476	kNN	dental calculus	dental calculus	True
+ERR7919477	kNN	dental calculus	dental calculus	True
+ERR7919478	kNN	dental calculus	tooth	True
+ERR7919479	kNN	dental calculus	dental calculus	True
+ERR7919480	kNN	dental calculus	dental calculus	True
+ERR7919481	kNN	dental calculus	leaf	True
+ERR7919482	kNN	dental calculus	leaf	True
+ERR7919483	kNN	dental calculus	tooth	True
+ERR7919484	kNN	dental calculus	leaf	True
+ERR7919485	kNN	dental calculus	tooth	True
+ERR7919486	kNN	dental calculus	leaf	True
+ERR7919487	kNN	dental calculus	dental calculus	True
+ERR7919488	kNN	dental calculus	dental calculus	True
+ERR7919489	kNN	dental calculus	dental calculus	True
+ERR7919490	kNN	dental calculus	dental calculus	True
+ERR7919491	kNN	dental calculus	dental calculus	True
+ERR7919492	kNN	dental calculus	leaf	True
+ERR7919493	kNN	dental calculus	tooth	True
+ERR7919494	kNN	dental calculus	dental calculus	True
+ERR7919495	kNN	dental calculus	dental calculus	True
+ERR7919496	kNN	dental calculus	lake sediment	True
+ERR7919497	kNN	dental calculus	dental calculus	True
+ERR7919498	kNN	dental calculus	permafrost	True
+ERR7919499	kNN	dental calculus	lake sediment	True
+ERR7919500	kNN	dental calculus	dental calculus	True
+ERR7919501	kNN	dental calculus	shell	True
+ERR7919502	kNN	dental calculus	dental calculus	True
+ERR7919503	kNN	dental calculus	dental calculus	True
+ERR7919504	kNN	dental calculus	tooth	True
+ERR7919505	kNN	dental calculus	dental calculus	True
+ERR7919506	kNN	dental calculus	dental calculus	True
+ERR7919507	kNN	dental calculus	midden	True
+ERR7919508	kNN	dental calculus	tooth	True
+ERR7919509	kNN	dental calculus	lake sediment	True
+ERR7919510	kNN	dental calculus	dental calculus	True
+ERR7919511	kNN	dental calculus	dental calculus	True
+ERR7919512	kNN	dental calculus	lake sediment	True
+ERR7919513	kNN	dental calculus	dental calculus	True
+ERR7919514	kNN	dental calculus	dental calculus	True
+ERR7919515	kNN	dental calculus	leaf	True
+ERR7919516	kNN	dental calculus	dental calculus	True
+ERR7919517	kNN	dental calculus	lake sediment	True
+ERR7919518	kNN	dental calculus	dental calculus	True
+ERR7919519	kNN	dental calculus	bone	True
+ERR7919520	kNN	dental calculus	dental calculus	True
+ERR7919521	kNN	dental calculus	dental calculus	True
+ERR7919522	kNN	dental calculus	dental calculus	True
+ERR7919523	kNN	dental calculus	bone	True
+ERR7919524	kNN	dental calculus	leaf	True
+ERR7919525	kNN	dental calculus	dental calculus	True
+ERR7919526	kNN	dental calculus	marine sediment	True
+ERR7919527	kNN	dental calculus	dental calculus	True
+ERR7919528	kNN	dental calculus	tooth	True
+ERR7919529	kNN	dental calculus	dental calculus	True
+ERR7919530	kNN	dental calculus	dental calculus	True
+ERR7919531	kNN	dental calculus	dental calculus	True
+ERR7919532	kNN	dental calculus	tooth	True
+ERR7919533	kNN	dental calculus	dental calculus	True
+ERR7919534	kNN	dental calculus	dental calculus	True
+ERR7919535	kNN	dental calculus	dental calculus	True
+ERR7919536	kNN	dental calculus	tooth	True
+ERR7919537	kNN	dental calculus	tooth	True
+ERR7919538	kNN	dental calculus	tooth	True
+ERR7919539	kNN	dental calculus	shell	True
+ERR7919540	kNN	dental calculus	lake sediment	True
+ERR7919541	kNN	dental calculus	dental calculus	True
+ERR7919542	kNN	dental calculus	dental calculus	True
+ERR7919543	kNN	dental calculus	dental calculus	True
+ERR7919544	kNN	dental calculus	dental calculus	True
+ERR7919545	kNN	dental calculus	lake sediment	True
+ERR7919546	kNN	dental calculus	lake sediment	True
+ERR7919547	kNN	dental calculus	dental calculus	True
+ERR7919548	kNN	dental calculus	dental calculus	True
+ERR7919641	kNN	dental calculus	dental calculus	True
+ERR7919642	kNN	dental calculus	dental calculus	True
+ERR7919643	kNN	dental calculus	lake sediment	True
+ERR7919644	kNN	dental calculus	lake sediment	True
+ERR7919645	kNN	dental calculus	dental calculus	True
+ERR7919646	kNN	dental calculus	dental calculus	True
+SRR13355784	kNN	dental calculus	dental calculus	True
+SRR13355785	kNN	dental calculus	tooth	True
+SRR13355786	kNN	dental calculus	lake sediment	True
+SRR13355787	kNN	dental calculus	tooth	True
+SRR13355789	kNN	dental calculus	tooth	True
+SRR13355790	kNN	dental calculus	lake sediment	True
+SRR13355791	kNN	dental calculus	dental calculus	True
+SRR13355792	kNN	dental calculus	lake sediment	True
+SRR13355794	kNN	dental calculus	lake sediment	True
+SRR13355796	kNN	dental calculus	dental calculus	True
+SRR13355797	kNN	dental calculus	dental calculus	True
+SRR13355798	kNN	dental calculus	dental calculus	True
+SRR13355799	kNN	dental calculus	dental calculus	True
+SRR13355800	kNN	dental calculus	dental calculus	True
+SRR13355801	kNN	dental calculus	dental calculus	True
+SRR13355802	kNN	dental calculus	lake sediment	True
+SRR13355803	kNN	dental calculus	lake sediment	True
+SRR13355804	kNN	dental calculus	lake sediment	True
+SRR13355805	kNN	dental calculus	lake sediment	True
+SRR13355806	kNN	dental calculus	tooth	True
+SRR13355807	kNN	dental calculus	tooth	True
+SRR13355808	kNN	dental calculus	lake sediment	True
+SRR13355809	kNN	dental calculus	lake sediment	True
+SRR13355810	kNN	dental calculus	lake sediment	True
+SRR13355811	kNN	dental calculus	tooth	True
+SRR13355812	kNN	dental calculus	dental calculus	True
+SRR13355813	kNN	dental calculus	dental calculus	True
+SRR20576738	kNN	marine sediment	lake sediment	True
+SRR20576739	kNN	marine sediment	lake sediment	True
+SRR20576742	kNN	marine sediment	shell	True
+SRR20576743	kNN	marine sediment	lake sediment	True
+SRR20576744	kNN	marine sediment	lake sediment	True
+SRR20576745	kNN	marine sediment	shell	True
+SRR20576746	kNN	marine sediment	shell	True
+SRR20576747	kNN	marine sediment	lake sediment	True
+SRR20576748	kNN	marine sediment	shell	True
+SRR20576749	kNN	marine sediment	shell	True
+SRR20576750	kNN	marine sediment	shell	True
+SRR20576751	kNN	marine sediment	marine sediment	True
+SRR20576752	kNN	marine sediment	shell	True
+SRR20576754	kNN	marine sediment	shell	True
+SRR20576755	kNN	marine sediment	marine sediment	True
+SRR20576756	kNN	marine sediment	shell	True
+SRR20576757	kNN	marine sediment	shell	True
+SRR20576758	kNN	marine sediment	shell	True
+SRR20576759	kNN	marine sediment	marine sediment	True
+SRR20576760	kNN	marine sediment	shell	True
+SRR20576761	kNN	marine sediment	shell	True
+SRR20576762	kNN	marine sediment	shell	True
+SRR20576763	kNN	marine sediment	shell	True
+SRR20576764	kNN	marine sediment	shell	True
+SRR20576765	kNN	marine sediment	marine sediment	True
+SRR20576766	kNN	marine sediment	marine sediment	True
+SRR20576767	kNN	marine sediment	shell	True
+SRR20576768	kNN	marine sediment	lake sediment	True
+SRR20576769	kNN	marine sediment	shell	True
+SRR20576770	kNN	marine sediment	marine sediment	True
+SRR20576771	kNN	marine sediment	marine sediment	True
+SRR20576772	kNN	marine sediment	marine sediment	True
+SRR20576773	kNN	marine sediment	marine sediment	True
+SRR20576774	kNN	marine sediment	marine sediment	True
+SRR20576775	kNN	marine sediment	shell	True
+SRR20576776	kNN	marine sediment	lake sediment	True
+SRR20576779	kNN	marine sediment	lake sediment	True
+SRR20576780	kNN	marine sediment	lake sediment	True
+SRR20576781	kNN	marine sediment	tooth	True
+SRR20576782	kNN	marine sediment	shell	True
+SRR20576783	kNN	marine sediment	lake sediment	True
+SRR20576784	kNN	marine sediment	lake sediment	True
+SRR20576785	kNN	marine sediment	shell	True
+SRR20576786	kNN	marine sediment	shell	True
+SRR20576787	kNN	marine sediment	marine sediment	True
+SRR20576794	kNN	marine sediment	lake sediment	True
+SRR20576795	kNN	marine sediment	shell	True
+SRR20576796	kNN	marine sediment	shell	True
+SRR20576797	kNN	marine sediment	shell	True
+SRR20576798	kNN	marine sediment	lake sediment	True
+SRR20576799	kNN	marine sediment	marine sediment	True
+SRR20576800	kNN	marine sediment	marine sediment	True
+SRR20576802	kNN	marine sediment	marine sediment	True
+SRR20576803	kNN	marine sediment	lake sediment	True
+SRR20576805	kNN	marine sediment	shell	True
+SRR20576807	kNN	marine sediment	lake sediment	True
+SRR20576808	kNN	marine sediment	sediment	True
+SRR20576809	kNN	marine sediment	lake sediment	True
+SRR20576811	kNN	marine sediment	lake sediment	True
+SRR20576812	kNN	marine sediment	shell	True
+SRR20576813	kNN	marine sediment	marine sediment	True
+SRR20576814	kNN	marine sediment	shell	True
+SRR20576815	kNN	marine sediment	shell	True
+SRR20576816	kNN	marine sediment	lake sediment	True
+SRR20576817	kNN	marine sediment	lake sediment	True
+SRR21589119	kNN	soil	sediment	True
+SRR21589120	kNN	soil	lake sediment	True
+SRR23699551	kNN	dental calculus	dental calculus	True
+SRR23699552	kNN	dental calculus	dental calculus	True
+SRR23699553	kNN	dental calculus	dental calculus	True
+SRR23699554	kNN	dental calculus	dental calculus	True
+SRR23699555	kNN	dental calculus	dental calculus	True
+SRR23699556	kNN	dental calculus	dental calculus	True
+SRR23699557	kNN	dental calculus	dental calculus	True
+SRR23699558	kNN	dental calculus	dental calculus	True
+SRR23699559	kNN	dental calculus	dental calculus	True
+SRR23699560	kNN	dental calculus	dental calculus	True
+SRR23699561	kNN	dental calculus	dental calculus	True
+SRR23699562	kNN	dental calculus	dental calculus	True
+SRR23699563	kNN	dental calculus	dental calculus	True
+SRR23699564	kNN	dental calculus	dental calculus	True
+SRR23699565	kNN	dental calculus	dental calculus	True
+SRR23699566	kNN	dental calculus	dental calculus	True
+SRR23699567	kNN	dental calculus	dental calculus	True
+SRR23699568	kNN	dental calculus	dental calculus	True
+SRR23699569	kNN	dental calculus	dental calculus	True
+SRR23699570	kNN	dental calculus	dental calculus	True
+SRR23699571	kNN	dental calculus	dental calculus	True
+SRR23699572	kNN	dental calculus	dental calculus	True
+SRR23699573	kNN	dental calculus	dental calculus	True
+SRR23699574	kNN	dental calculus	dental calculus	True
+SRR23699575	kNN	dental calculus	dental calculus	True
+SRR23699576	kNN	dental calculus	dental calculus	True
+SRR23699577	kNN	dental calculus	dental calculus	True
+SRR23699578	kNN	dental calculus	dental calculus	True
+SRR25620676	kNN	permafrost	leaf	True
+SRR25620681	kNN	permafrost	leaf	True
+SRR25620753	kNN	permafrost	lake sediment	True
+SRR25620756	kNN	permafrost	leaf	True
+SRR25620780	kNN	permafrost	leaf	True
+SRR25620786	kNN	permafrost	leaf	True
+SRR25620790	kNN	permafrost	leaf	True
+SRR25620795	kNN	permafrost	leaf	True
+SRR5297130	kNN	dental calculus	dental calculus	True
+SRR5297131	kNN	dental calculus	dental calculus	True
+SRR5297132	kNN	dental calculus	dental calculus	True
+SRR5297133	kNN	dental calculus	dental calculus	True
+SRR5875718	kNN	intestine	lake sediment	True
+SRR5875719	kNN	intestine	leaf	True
+SRR5875720	kNN	intestine	lake sediment	True
+SRR5875721	kNN	intestine	tooth	True
+SRR5875726	kNN	muscle tissue	lake sediment	True
+SRR5875727	kNN	muscle tissue	tooth	True
+SRR5875728	kNN	muscle tissue	shell	True
+SRR5875729	kNN	muscle tissue	tooth	True
+SRR8731955	kNN	palaeofaeces	leaf	True
+SRR8731956	kNN	sediment	lake sediment	True
+SRR8731957	kNN	palaeofaeces	midden	True
+SRR8731958	kNN	palaeofaeces	shell	True
+SRR8731959	kNN	sediment	lake sediment	True

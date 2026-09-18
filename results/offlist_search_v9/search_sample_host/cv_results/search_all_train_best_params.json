@@ -1,0 +1,20 @@
+{
+  "best_params": {
+    "n_layers": 3,
+    "hidden_dim_0": 128,
+    "hidden_dim_1": 448,
+    "hidden_dim_2": 256,
+    "dropout": 0.20910922852535124,
+    "learning_rate": 0.0007946988997954241,
+    "weight_decay": 1.403894443293482e-05,
+    "batch_size": 64,
+    "use_batch_norm": false,
+    "activation": "gelu",
+    "logit_adjust_tau": 0.37657158984852035,
+    "ls_sample_host": 0.07965411777059103,
+    "task_weight_sample_host": 1.0
+  },
+  "n_train": 2716,
+  "n_inner_folds": 5,
+  "note": "single search over all of train; the nested-CV endpoint. Feed to 02_train_final_model.py via aggregate_cv_results.py."
+}

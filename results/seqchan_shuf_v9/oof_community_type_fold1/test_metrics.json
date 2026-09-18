@@ -1,0 +1,89 @@
+{
+  "community_type": {
+    "task_type": "classification",
+    "n_samples": 190,
+    "n_masked": 109,
+    "n_out_of_vocabulary": 0,
+    "n_unseen": 109,
+    "precision_macro": 0.41985111662531016,
+    "recall_macro": 0.4582317073170732,
+    "confusion_matrix": [
+      [
+        9,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        153,
+        10,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        1,
+        12,
+        0
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 0.6923076923076923,
+        "recall": 0.9,
+        "f1-score": 0.782608695652174,
+        "support": 10.0
+      },
+      "1": {
+        "precision": 0.9870967741935484,
+        "recall": 0.9329268292682927,
+        "f1-score": 0.9592476489028213,
+        "support": 164.0
+      },
+      "3": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "4": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 16.0
+      },
+      "accuracy": 0.8526315789473684,
+      "macro avg": {
+        "precision": 0.41985111662531016,
+        "recall": 0.4582317073170732,
+        "f1-score": 0.4354640861387488,
+        "support": 190.0
+      },
+      "weighted avg": {
+        "precision": 0.888457620477994,
+        "recall": 0.8526315789473684,
+        "f1-score": 0.8691721125083393,
+        "support": 190.0
+      }
+    },
+    "accuracy": 0.8526315789473684,
+    "balanced_accuracy": 0.6109756097560975,
+    "f1_macro_seen": 0.5806187815183318,
+    "f1_weighted": 0.8691721125083393,
+    "n_classes_seen": 3,
+    "f1_macro_eligible": 0.5806187815183318,
+    "n_classes_eligible": 3,
+    "f1_macro_eligible_ci_low": 0.31787190209704197,
+    "f1_macro_eligible_ci_high": 0.6551334776334776,
+    "balanced_accuracy_ci_low": 0.461531007751938,
+    "balanced_accuracy_ci_high": 0.975,
+    "ci_resampling_unit": "group",
+    "n_groups": 8
+  }
+}

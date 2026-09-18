@@ -1,0 +1,12 @@
+{
+  "n_pairs": 6000,
+  "pairs_sharing_no_15mer": 6000,
+  "pairs_containment_gt_0.30": 0,
+  "cosine_mean": 0.8371,
+  "cosine_sd": 0.0702,
+  "cosine_min": 0.393,
+  "cosine_max": 0.975,
+  "mean_cosine_pairs_sharing_nothing": 0.8371,
+  "pc1_variance_share": 0.231,
+  "spearman_length_vs_pc1": -0.3163
+}

@@ -393,3 +393,7 @@ results/**/fold_*_training.log
 # S4 derived sequence arrays: 35 MB of base codes regenerated in one command from
 # data/matrices/matrix_v9_train/unitigs.fa by scripts/data_prep/17_unitig_sequence_tensor.py
 data/sequences_v9/
+
+# diana-predict wiring smoke test: regenerable intermediates (k-mer counts and
+# positions for one sample), kept on disk as evidence the Logan route runs.
+results/predict_wiring_test/

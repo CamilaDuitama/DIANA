@@ -1,0 +1,76 @@
+{
+  "features_path": "data/matrices/matrix_v9_train/unitigs.frac.mat",
+  "metadata_path": "data/splits_v9/train_metadata.tsv",
+  "train_ids_path": "results/calibration_v9/ids/cal_train_fold3.txt",
+  "output_dir": "results/seqenc_shuf_v9/fit_material_fold3",
+  "hyperparameters": {
+    "model_params": {
+      "hidden_dims": [
+        512,
+        384,
+        320,
+        64
+      ],
+      "dropout": 0.1320508639889595,
+      "activation": "relu",
+      "use_batch_norm": false
+    },
+    "trainer_params": {
+      "learning_rate": 0.005566277139530344,
+      "weight_decay": 9.247277089005245e-05,
+      "task_weights": {
+        "material": 1.0
+      }
+    },
+    "batch_size": 64
+  },
+  "task_names": [
+    "material"
+  ],
+  "task_types": {
+    "material": "classification"
+  },
+  "task_weights": {
+    "material": 1.0
+  },
+  "label_smoothing_per_task": {
+    "material": 0.10615753721289313
+  },
+  "validation_split": 0.1,
+  "max_epochs": 173,
+  "early_stopping_patience": 173,
+  "random_seed": 42,
+  "class_imbalance": {
+    "method": "logit_adjustment",
+    "logit_adjust_tau": 0.14176718887127365,
+    "search_tau": false,
+    "class_weights": null,
+    "_comment": "tau is SEARCHED in [0.05, 0.8]. tau=1.0, the parameter-free default, over-corrects at this imbalance: dev fold 2 single-task `feature` scored 0.009 at tau=1.0 against 0.484 at tau=0.25.",
+    "_selected_by": "grouped Optuna search over the dev folds"
+  },
+  "_provenance": {
+    "source": "results/search_v9_final_single_material/cv_results/search_all_train_best_params.json",
+    "selection": "single Optuna search over all of train, dev folds as inner CV",
+    "why": "per-outer-fold hyperparameters would be selected on fold difficulty; fold 4 scored 0.453 against 0.154-0.238 because it had 98.8 % in-vocabulary coverage and a 75.3 % majority class",
+    "representation": "data/matrices/matrix_v9_train/unitigs.frac.mat",
+    "hyperparameters_copied_from": "results/kmer_test_v9/configs/kmer_material_fold3.json",
+    "reader_learning_rate": "1e-04, chosen by the dev-fold sweep in results/seqenc_lrsweep_v9/ before this arm ran; the MLP keeps its searched rate",
+    "epoch_budget": "173 epochs at 29 steps each = about 5017 reader updates, patience equal to the budget",
+    "card_length": "hidden_dims[0] = 512, read off the replaced layer rather than configured"
+  },
+  "_comment": "S4 control: identical in every respect to results/seqenc_test_v9 except that each unitig's bases were permuted within that unitig under seed 42 before encoding. Base composition, length, the feature matrix and the labels are untouched, so the only thing removed is sequence ORDER. This arm exists to stop a capacity effect being reported as a sequence effect. Held-out untouched.",
+  "sequence_encoder": {
+    "bases": "data/sequences_v9/unitig_bases.shuffled.npy",
+    "offsets": "data/sequences_v9/unitig_offsets.npy",
+    "refresh_every": 1,
+    "learning_rate": 0.0001,
+    "max_padded_per_chunk": 1000000,
+    "embed_dim": 32,
+    "channels": [
+      96,
+      96
+    ],
+    "kernel": 9,
+    "reader_activation": "relu"
+  }
+}

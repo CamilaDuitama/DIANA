@@ -4,7 +4,7 @@
 set -e
 
 if [ "$#" -lt 4 ]; then
-    echo "Usage: $0 <reference_kmers_fasta> <sample_fastq_or_filelist> <output_counts> <threads> [min_abundance]"
+    echo "Usage: $0 <reference_kmers_fasta> <sample_fastq_or_filelist> <output_counts> <threads> [min_abundance] [--output-kmer-positions]"
     echo ""
     echo "  min_abundance defaults to 2, which is correct for RAW READS."
     echo "  Pass 1 for ASSEMBLED UNITIGS -- each k-mer occurs once, so 2 discards"
@@ -57,6 +57,21 @@ if ! command -v back_to_sequences >/dev/null 2>&1; then
     exit 2
 fi
 
+# Sixth argument, optional: --output-kmer-positions.
+#
+# For ASSEMBLED input, counting is the wrong question. back_to_sequences counts how many
+# times each reference k-mer occurs, and an assembly holds each k-mer exactly once, so the
+# answer is 1 everywhere and the downstream abundance becomes a copy of the completeness
+# fraction. Positions answer a different question -- WHICH input sequence each reference
+# k-mer was found in -- and that is what lets 01b_logan_abundance_counts.py weight the match
+# by that sample unitig's `ka:f:` coverage and recover a real count.
+EXTRA=""
+if [ "${6:-}" = "--output-kmer-positions" ]; then
+    EXTRA="--output-kmer-positions"
+    echo "[INFO] emitting k-mer POSITIONS, not counts: the caller will reconstruct"
+    echo "       coverage from the input's ka:f: headers (assembled input)"
+fi
+
 # Check if input is a file list based on extension
 if [[ "$SAMPLE_INPUT" == *.txt ]] || [[ "$SAMPLE_INPUT" == *.list ]]; then
     # File list: use seqkit --infile-list to read paths line-by-line.
@@ -66,7 +81,7 @@ if [[ "$SAMPLE_INPUT" == *.txt ]] || [[ "$SAMPLE_INPUT" == *.list ]]; then
         --in-kmers "$REFERENCE_KMERS" \
         --out-kmers "$OUTPUT_COUNTS" \
         --counted-kmer-threshold "$MIN_ABUNDANCE" \
-        --threads "$THREADS"
+        --threads "$THREADS" $EXTRA
 else
     # Single FASTQ file
     back_to_sequences \
@@ -74,7 +89,7 @@ else
         --in-sequences "$SAMPLE_INPUT" \
         --out-kmers "$OUTPUT_COUNTS" \
         --counted-kmer-threshold "$MIN_ABUNDANCE" \
-        --threads "$THREADS"
+        --threads "$THREADS" $EXTRA
 fi
 
 echo "✓ Done!"

@@ -1,0 +1,161 @@
+task,threshold,n_classes,coverage_of_heldout,model,f1
+material,0,13,1.0,LinearSVM_Bal,0.487
+material,0,13,1.0,LogisticRegression_Bal,0.461
+material,0,13,1.0,MajorityClass,0.028
+material,0,13,1.0,RandomForest,0.339
+material,0,13,1.0,RandomForest_Bal,0.35
+material,0,13,1.0,kNN,0.396
+material,0,13,1.0,DIANA single,0.458
+material,0,13,1.0,DIANA multi,0.47
+material,5,11,0.973,LinearSVM_Bal,0.575
+material,5,11,0.973,LogisticRegression_Bal,0.545
+material,5,11,0.973,MajorityClass,0.033
+material,5,11,0.973,RandomForest,0.401
+material,5,11,0.973,RandomForest_Bal,0.414
+material,5,11,0.973,kNN,0.468
+material,5,11,0.973,DIANA single,0.541
+material,5,11,0.973,DIANA multi,0.556
+material,10,11,0.973,LinearSVM_Bal,0.575
+material,10,11,0.973,LogisticRegression_Bal,0.545
+material,10,11,0.973,MajorityClass,0.033
+material,10,11,0.973,RandomForest,0.401
+material,10,11,0.973,RandomForest_Bal,0.414
+material,10,11,0.973,kNN,0.468
+material,10,11,0.973,DIANA single,0.541
+material,10,11,0.973,DIANA multi,0.556
+material,20,9,0.954,LinearSVM_Bal,0.703
+material,20,9,0.954,LogisticRegression_Bal,0.667
+material,20,9,0.954,MajorityClass,0.04
+material,20,9,0.954,RandomForest,0.49
+material,20,9,0.954,RandomForest_Bal,0.506
+material,20,9,0.954,kNN,0.572
+material,20,9,0.954,DIANA single,0.662
+material,20,9,0.954,DIANA multi,0.679
+material,50,8,0.908,LinearSVM_Bal,0.666
+material,50,8,0.908,LogisticRegression_Bal,0.625
+material,50,8,0.908,MajorityClass,0.045
+material,50,8,0.908,RandomForest,0.426
+material,50,8,0.908,RandomForest_Bal,0.444
+material,50,8,0.908,kNN,0.519
+material,50,8,0.908,DIANA single,0.619
+material,50,8,0.908,DIANA multi,0.645
+feature,0,6,1.0,LinearSVM_Bal,0.358
+feature,0,6,1.0,LogisticRegression_Bal,0.331
+feature,0,6,1.0,MajorityClass,0.07
+feature,0,6,1.0,RandomForest,0.47
+feature,0,6,1.0,RandomForest_Bal,0.349
+feature,0,6,1.0,kNN,0.308
+feature,0,6,1.0,DIANA single,0.545
+feature,0,6,1.0,DIANA multi,0.437
+feature,5,5,0.958,LinearSVM_Bal,0.43
+feature,5,5,0.958,LogisticRegression_Bal,0.398
+feature,5,5,0.958,MajorityClass,0.084
+feature,5,5,0.958,RandomForest,0.564
+feature,5,5,0.958,RandomForest_Bal,0.419
+feature,5,5,0.958,kNN,0.369
+feature,5,5,0.958,DIANA single,0.654
+feature,5,5,0.958,DIANA multi,0.525
+feature,10,5,0.958,LinearSVM_Bal,0.43
+feature,10,5,0.958,LogisticRegression_Bal,0.398
+feature,10,5,0.958,MajorityClass,0.084
+feature,10,5,0.958,RandomForest,0.564
+feature,10,5,0.958,RandomForest_Bal,0.419
+feature,10,5,0.958,kNN,0.369
+feature,10,5,0.958,DIANA single,0.654
+feature,10,5,0.958,DIANA multi,0.525
+feature,20,4,0.924,LinearSVM_Bal,0.504
+feature,20,4,0.924,LogisticRegression_Bal,0.464
+feature,20,4,0.924,MajorityClass,0.105
+feature,20,4,0.924,RandomForest,0.505
+feature,20,4,0.924,RandomForest_Bal,0.364
+feature,20,4,0.924,kNN,0.378
+feature,20,4,0.924,DIANA single,0.651
+feature,20,4,0.924,DIANA multi,0.52
+feature,50,3,0.551,LinearSVM_Bal,0.568
+feature,50,3,0.551,LogisticRegression_Bal,0.535
+feature,50,3,0.551,MajorityClass,0.14
+feature,50,3,0.551,RandomForest,0.593
+feature,50,3,0.551,RandomForest_Bal,0.404
+feature,50,3,0.551,kNN,0.42
+feature,50,3,0.551,DIANA single,0.709
+feature,50,3,0.551,DIANA multi,0.553
+community_type,0,5,1.0,LinearSVM_Bal,0.563
+community_type,0,5,1.0,LogisticRegression_Bal,0.58
+community_type,0,5,1.0,MajorityClass,0.146
+community_type,0,5,1.0,RandomForest,0.489
+community_type,0,5,1.0,RandomForest_Bal,0.556
+community_type,0,5,1.0,kNN,0.513
+community_type,0,5,1.0,DIANA single,0.568
+community_type,0,5,1.0,DIANA multi,0.573
+community_type,5,5,1.0,LinearSVM_Bal,0.563
+community_type,5,5,1.0,LogisticRegression_Bal,0.58
+community_type,5,5,1.0,MajorityClass,0.146
+community_type,5,5,1.0,RandomForest,0.489
+community_type,5,5,1.0,RandomForest_Bal,0.556
+community_type,5,5,1.0,kNN,0.513
+community_type,5,5,1.0,DIANA single,0.568
+community_type,5,5,1.0,DIANA multi,0.573
+community_type,10,5,1.0,LinearSVM_Bal,0.563
+community_type,10,5,1.0,LogisticRegression_Bal,0.58
+community_type,10,5,1.0,MajorityClass,0.146
+community_type,10,5,1.0,RandomForest,0.489
+community_type,10,5,1.0,RandomForest_Bal,0.556
+community_type,10,5,1.0,kNN,0.513
+community_type,10,5,1.0,DIANA single,0.568
+community_type,10,5,1.0,DIANA multi,0.573
+community_type,20,5,1.0,LinearSVM_Bal,0.563
+community_type,20,5,1.0,LogisticRegression_Bal,0.58
+community_type,20,5,1.0,MajorityClass,0.146
+community_type,20,5,1.0,RandomForest,0.489
+community_type,20,5,1.0,RandomForest_Bal,0.556
+community_type,20,5,1.0,kNN,0.513
+community_type,20,5,1.0,DIANA single,0.568
+community_type,20,5,1.0,DIANA multi,0.573
+community_type,50,3,0.93,LinearSVM_Bal,0.617
+community_type,50,3,0.93,LogisticRegression_Bal,0.642
+community_type,50,3,0.93,MajorityClass,0.244
+community_type,50,3,0.93,RandomForest,0.482
+community_type,50,3,0.93,RandomForest_Bal,0.597
+community_type,50,3,0.93,kNN,0.488
+community_type,50,3,0.93,DIANA single,0.614
+community_type,50,3,0.93,DIANA multi,0.635
+sample_host,0,6,1.0,LinearSVM_Bal,0.58
+sample_host,0,6,1.0,LogisticRegression_Bal,0.542
+sample_host,0,6,1.0,MajorityClass,0.153
+sample_host,0,6,1.0,RandomForest,0.257
+sample_host,0,6,1.0,RandomForest_Bal,0.498
+sample_host,0,6,1.0,kNN,0.58
+sample_host,0,6,1.0,DIANA single,0.551
+sample_host,0,6,1.0,DIANA multi,0.178
+sample_host,5,6,1.0,LinearSVM_Bal,0.58
+sample_host,5,6,1.0,LogisticRegression_Bal,0.542
+sample_host,5,6,1.0,MajorityClass,0.153
+sample_host,5,6,1.0,RandomForest,0.257
+sample_host,5,6,1.0,RandomForest_Bal,0.498
+sample_host,5,6,1.0,kNN,0.58
+sample_host,5,6,1.0,DIANA single,0.551
+sample_host,5,6,1.0,DIANA multi,0.178
+sample_host,10,6,1.0,LinearSVM_Bal,0.58
+sample_host,10,6,1.0,LogisticRegression_Bal,0.542
+sample_host,10,6,1.0,MajorityClass,0.153
+sample_host,10,6,1.0,RandomForest,0.257
+sample_host,10,6,1.0,RandomForest_Bal,0.498
+sample_host,10,6,1.0,kNN,0.58
+sample_host,10,6,1.0,DIANA single,0.551
+sample_host,10,6,1.0,DIANA multi,0.178
+sample_host,20,1,0.851,LinearSVM_Bal,0.955
+sample_host,20,1,0.851,LogisticRegression_Bal,0.946
+sample_host,20,1,0.851,MajorityClass,0.92
+sample_host,20,1,0.851,RandomForest,0.953
+sample_host,20,1,0.851,RandomForest_Bal,0.942
+sample_host,20,1,0.851,kNN,0.925
+sample_host,20,1,0.851,DIANA single,0.969
+sample_host,20,1,0.851,DIANA multi,0.946
+sample_host,50,1,0.851,LinearSVM_Bal,0.955
+sample_host,50,1,0.851,LogisticRegression_Bal,0.946
+sample_host,50,1,0.851,MajorityClass,0.92
+sample_host,50,1,0.851,RandomForest,0.953
+sample_host,50,1,0.851,RandomForest_Bal,0.942
+sample_host,50,1,0.851,kNN,0.925
+sample_host,50,1,0.851,DIANA single,0.969
+sample_host,50,1,0.851,DIANA multi,0.946

@@ -23,6 +23,8 @@ logger = logging.getLogger(__name__)
 from diana.data.loader import MatrixLoader
 from diana.models.multitask_mlp import IGNORE_INDEX, MultiTaskMLP
 from diana.models.unitig_encoder import attach_sequence_encoder
+from diana.models.unitig_attention import attach_attention_pool
+from diana.models.unitig_attention import attach_sequence_channel
 from diana.training.trainer import MultiTaskTrainer
 
 def main():
@@ -252,6 +254,20 @@ def main():
     # captures model.parameters().
     if config.get('sequence_encoder'):
         attach_sequence_encoder(model, config['sequence_encoder'])
+
+    # S5: pool the sample's unitigs by learned attention over a frozen description table
+    # instead of the fixed weighted sum every other arm uses. Mutually exclusive with the
+    # S4 encoder, since both replace backbone[0].
+    # S6: a sequence channel ADDED beside the existing input layer, which is kept. The
+    # branch starts at exactly zero, so an untrained model reproduces the current one.
+    if config.get('sequence_channel'):
+        attach_sequence_channel(model, config['sequence_channel'])
+
+    if config.get('attention_pool'):
+        if config.get('sequence_encoder'):
+            raise ValueError("sequence_encoder and attention_pool both replace backbone[0]; "
+                             "a config may declare only one")
+        attach_attention_pool(model, config['attention_pool'])
 
     # P1: Initialize trainer with clean nested params + class weights
     # label_smoothing can be a float (shared) or dict (per-task)

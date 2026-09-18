@@ -21,6 +21,7 @@ Bands are the ImageNet-LT / OLTR split points: few-shot < 20 training runs, medi
 """
 from __future__ import annotations
 
+import hashlib
 import logging
 from pathlib import Path
 
@@ -43,8 +44,37 @@ ARMS = {"fraction": ("results/calibration_v9", ""),
         # S4 control: identical, with each unitig's bases permuted within itself, so base
         # composition and length survive and only ORDER is destroyed. A gain that appears
         # in both arms is capacity or regularisation, not sequence.
-        "seq_encoder_shuffled": ("results/seqenc_shuf_v9", "")}
+        "seq_encoder_shuffled": ("results/seqenc_shuf_v9", ""),
+        # S5: attention pooling over frozen DNABERT-2 descriptions of each unitig
+        "attn_pool": ("results/attnpool_test_v9", ""),
+        # S5 control: the same, over descriptions of order-scrambled sequences
+        "attn_pool_shuffled": ("results/attnpool_shuf_v9", ""),
+        # S6: the fractions kept in full, with 768 DNABERT-2 summary columns appended.
+        # The only sequence wiring that does not replace the private per-unitig vectors.
+        "dna_max": ("results/dnamax_test_v9", ""),
+        "dna_mean": ("results/dnamean_test_v9", ""),
+        "dna_max_shuffled": ("results/dnamaxshuf_test_v9", ""),
+        "dna_mean_shuffled": ("results/dnameanshuf_test_v9", ""),
+        # S7: the fractions with 3,072 columns describing the sequence the k-mer
+        # filter deleted. Both arms have their OWN searched hyperparameters.
+        "offlist": ("results/offlist_test_v9", ""),
+        "offlist_shuffled": ("results/offlistshuf_test_v9", "")}
 REGIMES = [("few-shot", 0, 20), ("medium-shot", 20, 100), ("many-shot", 100, np.inf)]
+
+
+def arm_rng(task: str, arm: str) -> np.random.Generator:
+    """A generator that depends only on this task and arm, never on the arm list.
+
+    The first version created one generator in `main` and consumed it arm by arm, so
+    registering a new arm shifted the random stream for every arm scored after it. Point
+    estimates were unaffected, but on 2026-09-16 adding the two S5 arms moved 30 of 40
+    existing confidence bounds by up to 0.0095. No verdict flipped that time, which is
+    luck rather than design: a bound sitting near zero could have. Deriving the seed from
+    the task and arm names makes an arm's interval reproducible in isolation and immune to
+    what else is being scored alongside it.
+    """
+    digest = hashlib.sha256(f"{SEED}|{task}|{arm}".encode()).hexdigest()[:8]
+    return np.random.default_rng(int(digest, 16))
 N_BOOT = 2000
 SEED = 42
 
@@ -68,7 +98,6 @@ def main() -> int:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     meta = pd.read_csv(SPLITS / "train_metadata.tsv", sep="\t", low_memory=False)
     proj = meta.set_index("Run_accession")["archive_project"].to_dict()
-    rng = np.random.default_rng(SEED)
     rows = []
 
     for task in TASKS:
@@ -99,6 +128,7 @@ def main() -> int:
             for name in [a for a in arms if a != "fraction"]:
                 obs = f1_band(y, preds[name], band) - f1_band(y, preds["fraction"], band)
                 dd = []
+                rng = arm_rng(f"{task}|{nm}", name)
                 for _ in range(N_BOOT):
                     drawn = rng.choice(uniq, size=len(uniq), replace=True)
                     s = np.concatenate([idx_by[q] for q in drawn])

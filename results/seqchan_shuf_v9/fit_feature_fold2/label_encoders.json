@@ -1,0 +1,14 @@
+{
+  "feature": {
+    "classes": [
+      "archeological site",
+      "cave",
+      "lake",
+      "midden",
+      "ocean",
+      "rock shelter",
+      "swamp forest",
+      "thermokarst"
+    ]
+  }
+}

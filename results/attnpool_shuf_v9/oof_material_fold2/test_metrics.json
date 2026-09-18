@@ -1,0 +1,221 @@
+{
+  "material": {
+    "task_type": "classification",
+    "n_samples": 639,
+    "n_masked": 23,
+    "n_out_of_vocabulary": 51,
+    "n_unseen": 74,
+    "precision_macro": 0.25446467890864877,
+    "recall_macro": 0.2753296039227874,
+    "confusion_matrix": [
+      [
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        9,
+        0,
+        10,
+        40
+      ],
+      [
+        0,
+        142,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5
+      ],
+      [
+        0,
+        2,
+        49,
+        0,
+        0,
+        0,
+        11,
+        0,
+        2,
+        16
+      ],
+      [
+        0,
+        0,
+        31,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        16,
+        0,
+        15,
+        0,
+        5,
+        0,
+        7,
+        5
+      ],
+      [
+        0,
+        5,
+        1,
+        0,
+        0,
+        0,
+        4,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        38,
+        0,
+        0,
+        0,
+        4,
+        0,
+        5,
+        5
+      ],
+      [
+        0,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        2
+      ],
+      [
+        0,
+        79,
+        3,
+        0,
+        1,
+        0,
+        9,
+        0,
+        9,
+        96
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 64.0
+      },
+      "1": {
+        "precision": 0.6200873362445415,
+        "recall": 0.9659863945578231,
+        "f1-score": 0.7553191489361702,
+        "support": 147.0
+      },
+      "3": {
+        "precision": 0.33793103448275863,
+        "recall": 0.6125,
+        "f1-score": 0.43555555555555553,
+        "support": 80.0
+      },
+      "4": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 32.0
+      },
+      "5": {
+        "precision": 0.9375,
+        "recall": 0.3125,
+        "f1-score": 0.46875,
+        "support": 48.0
+      },
+      "6": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 11.0
+      },
+      "8": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "9": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 52.0
+      },
+      "10": {
+        "precision": 0.08108108108108109,
+        "recall": 0.375,
+        "f1-score": 0.13333333333333333,
+        "support": 8.0
+      },
+      "12": {
+        "precision": 0.5680473372781065,
+        "recall": 0.4873096446700508,
+        "f1-score": 0.5245901639344263,
+        "support": 197.0
+      },
+      "accuracy": 0.47730829420970267,
+      "macro avg": {
+        "precision": 0.25446467890864877,
+        "recall": 0.2753296039227874,
+        "f1-score": 0.23175482017594856,
+        "support": 639.0
+      },
+      "weighted avg": {
+        "precision": 0.43152002391080424,
+        "recall": 0.47730829420970267,
+        "f1-score": 0.4268971647884352,
+        "support": 639.0
+      }
+    },
+    "accuracy": 0.47730829420970267,
+    "balanced_accuracy": 0.30592178213643045,
+    "f1_macro_seen": 0.25750535575105393,
+    "f1_weighted": 0.4268971647884352,
+    "n_classes_seen": 9,
+    "f1_macro_eligible": 0.25750535575105393,
+    "n_classes_eligible": 9,
+    "f1_macro_eligible_ci_low": 0.13687676552862343,
+    "f1_macro_eligible_ci_high": 0.31050559433058367,
+    "balanced_accuracy_ci_low": 0.235989225444572,
+    "balanced_accuracy_ci_high": 0.4959517880097291,
+    "ci_resampling_unit": "group",
+    "n_groups": 15
+  }
+}

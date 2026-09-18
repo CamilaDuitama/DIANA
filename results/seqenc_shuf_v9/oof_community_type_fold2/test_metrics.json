@@ -1,0 +1,106 @@
+{
+  "community_type": {
+    "task_type": "classification",
+    "n_samples": 467,
+    "n_masked": 246,
+    "n_out_of_vocabulary": 0,
+    "n_unseen": 246,
+    "precision_macro": 0.35309444692423414,
+    "recall_macro": 0.30338740655074137,
+    "confusion_matrix": [
+      [
+        0,
+        12,
+        0,
+        4,
+        0
+      ],
+      [
+        23,
+        196,
+        7,
+        44,
+        14
+      ],
+      [
+        4,
+        0,
+        14,
+        8,
+        6
+      ],
+      [
+        26,
+        27,
+        3,
+        37,
+        31
+      ],
+      [
+        2,
+        0,
+        2,
+        6,
+        1
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 16.0
+      },
+      "1": {
+        "precision": 0.8340425531914893,
+        "recall": 0.6901408450704225,
+        "f1-score": 0.7552986512524085,
+        "support": 284.0
+      },
+      "2": {
+        "precision": 0.5384615384615384,
+        "recall": 0.4375,
+        "f1-score": 0.4827586206896552,
+        "support": 32.0
+      },
+      "3": {
+        "precision": 0.37373737373737376,
+        "recall": 0.29838709677419356,
+        "f1-score": 0.33183856502242154,
+        "support": 124.0
+      },
+      "4": {
+        "precision": 0.019230769230769232,
+        "recall": 0.09090909090909091,
+        "f1-score": 0.031746031746031744,
+        "support": 11.0
+      },
+      "accuracy": 0.5310492505353319,
+      "macro avg": {
+        "precision": 0.35309444692423414,
+        "recall": 0.30338740655074137,
+        "f1-score": 0.32032837374210343,
+        "support": 467.0
+      },
+      "weighted avg": {
+        "precision": 0.6437983450580835,
+        "recall": 0.5310492505353319,
+        "f1-score": 0.5812639855026543,
+        "support": 467.0
+      }
+    },
+    "accuracy": 0.5310492505353319,
+    "balanced_accuracy": 0.30338740655074137,
+    "f1_macro_seen": 0.32032837374210343,
+    "f1_weighted": 0.5812639855026543,
+    "n_classes_seen": 5,
+    "f1_macro_eligible": 0.32032837374210343,
+    "n_classes_eligible": 5,
+    "f1_macro_eligible_ci_low": 0.19024483722898816,
+    "f1_macro_eligible_ci_high": 0.3580779189600346,
+    "balanced_accuracy_ci_low": 0.24270574024377425,
+    "balanced_accuracy_ci_high": 0.5871776980329613,
+    "ci_resampling_unit": "group",
+    "n_groups": 8
+  }
+}

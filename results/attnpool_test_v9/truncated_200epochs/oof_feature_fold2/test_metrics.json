@@ -1,0 +1,89 @@
+{
+  "feature": {
+    "task_type": "classification",
+    "n_samples": 147,
+    "n_masked": 490,
+    "n_out_of_vocabulary": 76,
+    "n_unseen": 566,
+    "precision_macro": 0.281505956813105,
+    "recall_macro": 0.329375,
+    "confusion_matrix": [
+      [
+        0,
+        5,
+        0,
+        1
+      ],
+      [
+        0,
+        43,
+        0,
+        37
+      ],
+      [
+        0,
+        9,
+        0,
+        2
+      ],
+      [
+        0,
+        11,
+        0,
+        39
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 6.0
+      },
+      "2": {
+        "precision": 0.6323529411764706,
+        "recall": 0.5375,
+        "f1-score": 0.581081081081081,
+        "support": 80.0
+      },
+      "3": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 11.0
+      },
+      "4": {
+        "precision": 0.4936708860759494,
+        "recall": 0.78,
+        "f1-score": 0.6046511627906976,
+        "support": 50.0
+      },
+      "accuracy": 0.5578231292517006,
+      "macro avg": {
+        "precision": 0.281505956813105,
+        "recall": 0.329375,
+        "f1-score": 0.29643306096794464,
+        "support": 147.0
+      },
+      "weighted avg": {
+        "precision": 0.5120529224347967,
+        "recall": 0.5578231292517006,
+        "f1-score": 0.5218982627620502,
+        "support": 147.0
+      }
+    },
+    "accuracy": 0.5578231292517006,
+    "balanced_accuracy": 0.329375,
+    "f1_macro_seen": 0.29643306096794464,
+    "f1_weighted": 0.5218982627620502,
+    "n_classes_seen": 4,
+    "f1_macro_eligible": 0.29643306096794464,
+    "n_classes_eligible": 4,
+    "f1_macro_eligible_ci_low": 0.13854024144869215,
+    "f1_macro_eligible_ci_high": 0.3978697916666667,
+    "balanced_accuracy_ci_low": 0.17217242941692865,
+    "balanced_accuracy_ci_high": 0.7667187499999999,
+    "ci_resampling_unit": "group",
+    "n_groups": 7
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "features_path": "data/matrices/matrix_v9_train/unitigs.frac.off.fold1.mat",
+  "metadata_path": "data/splits_v9/train_metadata.tsv",
+  "train_ids_path": "results/calibration_v9/ids/cal_train_fold1.txt",
+  "output_dir": "results/offlist_test_v9/fit_feature_fold1",
+  "hyperparameters": {
+    "model_params": {
+      "hidden_dims": [
+        384,
+        128,
+        384,
+        256
+      ],
+      "dropout": 0.22433780578788015,
+      "activation": "leaky_relu",
+      "use_batch_norm": true
+    },
+    "trainer_params": {
+      "learning_rate": 0.00752826739968104,
+      "weight_decay": 0.00012484702782653682,
+      "task_weights": {
+        "feature": 1.0
+      }
+    },
+    "batch_size": 256
+  },
+  "task_names": [
+    "feature"
+  ],
+  "task_types": {
+    "feature": "classification"
+  },
+  "task_weights": {
+    "feature": 1.0
+  },
+  "label_smoothing_per_task": {
+    "feature": 0.017851492372799337
+  },
+  "validation_split": 0.1,
+  "max_epochs": 200,
+  "early_stopping_patience": 20,
+  "random_seed": 42,
+  "class_imbalance": {
+    "method": "logit_adjustment",
+    "logit_adjust_tau": 0.3283340696283945,
+    "search_tau": false,
+    "class_weights": null,
+    "_comment": "tau is SEARCHED in [0.05, 0.8]. tau=1.0, the parameter-free default, over-corrects at this imbalance: dev fold 2 single-task `feature` scored 0.009 at tau=1.0 against 0.484 at tau=0.25.",
+    "_selected_by": "grouped Optuna search over the dev folds"
+  },
+  "_provenance": {
+    "source": "results/offlist_search_v9/search_feature/cv_results/search_all_train_best_params.json",
+    "selection": "single Optuna search over all of train, dev folds as inner CV",
+    "why": "per-outer-fold hyperparameters would be selected on fold difficulty; fold 4 scored 0.453 against 0.154-0.238 because it had 98.8 % in-vocabulary coverage and a 75.3 % majority class"
+  },
+  "_comment": "S7f dev-fold screen, feature fold 1, real arm. 110,202 fractions plus 3,072 columns summarising the sequence the k-mer filter deleted. Hyperparameters from this arm's OWN Optuna search (100 trials, eligible_pooled objective), which is what S6 lacked. The appended block is standardised on this fold's four training folds only. Compare against results/calibration_v9, the fraction arm on identical folds and ids. Held-out untouched."
+}

@@ -1,0 +1,68 @@
+{
+  "features_path": "data/matrices/matrix_v9_train/unitigs.frac.mat",
+  "metadata_path": "data/splits_v9/train_metadata.tsv",
+  "train_ids_path": "results/calibration_v9/ids/cal_train_fold2.txt",
+  "output_dir": "results/seqchan_test_v9/fit_material_fold2",
+  "hyperparameters": {
+    "model_params": {
+      "hidden_dims": [
+        512,
+        384,
+        320,
+        64
+      ],
+      "dropout": 0.1320508639889595,
+      "activation": "relu",
+      "use_batch_norm": false
+    },
+    "trainer_params": {
+      "learning_rate": 0.005566277139530344,
+      "weight_decay": 9.247277089005245e-05,
+      "task_weights": {
+        "material": 1.0
+      }
+    },
+    "batch_size": 64
+  },
+  "task_names": [
+    "material"
+  ],
+  "task_types": {
+    "material": "classification"
+  },
+  "task_weights": {
+    "material": 1.0
+  },
+  "label_smoothing_per_task": {
+    "material": 0.10615753721289313
+  },
+  "validation_split": 0.1,
+  "max_epochs": 2000,
+  "early_stopping_patience": 20,
+  "random_seed": 42,
+  "class_imbalance": {
+    "method": "logit_adjustment",
+    "logit_adjust_tau": 0.14176718887127365,
+    "search_tau": false,
+    "class_weights": null,
+    "_comment": "tau is SEARCHED in [0.05, 0.8]. tau=1.0, the parameter-free default, over-corrects at this imbalance: dev fold 2 single-task `feature` scored 0.009 at tau=1.0 against 0.484 at tau=0.25.",
+    "_selected_by": "grouped Optuna search over the dev folds"
+  },
+  "_provenance": {
+    "source": "results/search_v9_final_single_material/cv_results/search_all_train_best_params.json",
+    "selection": "single Optuna search over all of train, dev folds as inner CV",
+    "why": "per-outer-fold hyperparameters would be selected on fold difficulty; fold 4 scored 0.453 against 0.154-0.238 because it had 98.8 % in-vocabulary coverage and a 75.3 % majority class",
+    "representation": "data/matrices/matrix_v9_train/unitigs.frac.mat",
+    "hyperparameters_copied_from": "results/kmer_test_v9/configs/kmer_material_fold2.json",
+    "card_length": "hidden_dims[0] = 512, read off the replaced layer rather than configured",
+    "description_table": "data/sequences_v9/unitig_dnabert2.npy",
+    "epoch_cap": "2000 with patience 20, because the dev-fold work showed `feature` still improving at 200 at its searched learning rate; every model is still judged at its best-validation checkpoint"
+  },
+  "_comment": "S6: a sequence channel ADDED to DIANA's input layer, which is kept intact. h = Linear(110202, H0)(fractions) + Linear(heads*value_dim, H0)(attention-pooled frozen DNABERT-2 descriptions), with the second term's output projection initialised to exactly zero so an untrained model reproduces the current model bit for bit. This is the design that S1, S4 and S5 all failed to test: each of those removed or rewrote what the existing layer does, and the train numbers show the cost, the published model fitting its own training data to 0.968 on community_type where S5 reached 0.293. Read a null here as weak: the model can drive an unhelpful channel to zero, so 'no change' is the expected outcome of both 'the DNA carries nothing reachable this way' and 'the DNA carries nothing'. Held-out untouched.",
+  "sequence_channel": {
+    "table": "data/sequences_v9/unitig_dnabert2.npy",
+    "n_heads": 4,
+    "value_dim": 128,
+    "key_dim": 128
+  }
+}

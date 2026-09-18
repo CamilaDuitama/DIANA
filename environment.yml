@@ -53,3 +53,5 @@ dependencies:
       - huggingface_hub>=0.20  # Model download from Hugging Face Hub
       - transformers>=4.40  # DNA sequence models (S4); no cluster module provides it
       - tokenizers>=0.19  # pulled by transformers; pinned so the DNA tokenizer is reproducible
+      - einops>=0.8  # required by DNABERT-2's remote modeling code (S5); no cluster module
+                     # provides it (module spider einops: nothing), so it goes here

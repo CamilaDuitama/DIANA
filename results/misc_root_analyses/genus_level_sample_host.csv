@@ -1,0 +1,11 @@
+model,method,f1,bal_acc,n_cls
+LinearSVM_Bal,argmax then merge,0.641,0.608,5
+LogisticRegression_Bal,argmax then merge,0.658,0.605,5
+MajorityClass,argmax then merge,0.187,0.2,5
+RandomForest,argmax then merge,0.312,0.278,5
+RandomForest_Bal,argmax then merge,0.6,0.506,5
+kNN,argmax then merge,0.668,0.614,5
+DIANA single,argmax then merge,0.638,0.548,5
+DIANA single,sum probs within genus,0.627,0.543,5
+DIANA multi,argmax then merge,0.217,0.213,5
+DIANA multi,sum probs within genus,0.217,0.212,5

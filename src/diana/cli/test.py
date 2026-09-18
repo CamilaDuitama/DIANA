@@ -42,6 +42,8 @@ logger = logging.getLogger(__name__)
 
 from diana.data.loader import MatrixLoader
 from diana.models.unitig_encoder import attach_sequence_encoder
+from diana.models.unitig_attention import attach_attention_pool
+from diana.models.unitig_attention import attach_sequence_channel
 from diana.models.multitask_mlp import (
     IGNORE_INDEX,
     MultiTaskMLP,
@@ -485,6 +487,15 @@ def main():
     # the loaded reader on the first forward.
     if config.get('sequence_encoder'):
         attach_sequence_encoder(model, config['sequence_encoder'])
+
+    # S5: the same attention-pool swap the training run made, before load_state_dict.
+    # S6: a sequence channel ADDED beside the existing input layer, which is kept. The
+    # branch starts at exactly zero, so an untrained model reproduces the current one.
+    if config.get('sequence_channel'):
+        attach_sequence_channel(model, config['sequence_channel'])
+
+    if config.get('attention_pool'):
+        attach_attention_pool(model, config['attention_pool'])
 
     # Load weights
     checkpoint = torch.load(args.model, map_location=args.device, weights_only=False)

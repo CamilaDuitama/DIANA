@@ -1,0 +1,221 @@
+{
+  "material": {
+    "task_type": "classification",
+    "n_samples": 639,
+    "n_masked": 23,
+    "n_out_of_vocabulary": 51,
+    "n_unseen": 74,
+    "precision_macro": 0.2930309853824304,
+    "recall_macro": 0.3163086605200456,
+    "confusion_matrix": [
+      [
+        4,
+        43,
+        1,
+        0,
+        0,
+        0,
+        4,
+        0,
+        6,
+        6
+      ],
+      [
+        0,
+        145,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      [
+        3,
+        3,
+        59,
+        0,
+        1,
+        0,
+        0,
+        0,
+        14,
+        0
+      ],
+      [
+        0,
+        4,
+        27,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        7,
+        0,
+        32,
+        0,
+        0,
+        0,
+        8,
+        0
+      ],
+      [
+        1,
+        5,
+        1,
+        0,
+        0,
+        0,
+        4,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        2,
+        39,
+        0,
+        4,
+        0,
+        0,
+        0,
+        6,
+        0
+      ],
+      [
+        1,
+        3,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      [
+        6,
+        115,
+        6,
+        0,
+        0,
+        0,
+        1,
+        0,
+        3,
+        66
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 0.25,
+        "recall": 0.0625,
+        "f1-score": 0.1,
+        "support": 64.0
+      },
+      "1": {
+        "precision": 0.4517133956386293,
+        "recall": 0.9863945578231292,
+        "f1-score": 0.6196581196581197,
+        "support": 147.0
+      },
+      "3": {
+        "precision": 0.42142857142857143,
+        "recall": 0.7375,
+        "f1-score": 0.5363636363636364,
+        "support": 80.0
+      },
+      "4": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 32.0
+      },
+      "5": {
+        "precision": 0.8421052631578947,
+        "recall": 0.6666666666666666,
+        "f1-score": 0.7441860465116279,
+        "support": 48.0
+      },
+      "6": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 11.0
+      },
+      "8": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "9": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 52.0
+      },
+      "10": {
+        "precision": 0.07317073170731707,
+        "recall": 0.375,
+        "f1-score": 0.12244897959183673,
+        "support": 8.0
+      },
+      "12": {
+        "precision": 0.8918918918918919,
+        "recall": 0.3350253807106599,
+        "f1-score": 0.4870848708487085,
+        "support": 197.0
+      },
+      "accuracy": 0.4835680751173709,
+      "macro avg": {
+        "precision": 0.2930309853824304,
+        "recall": 0.3163086605200456,
+        "f1-score": 0.2609741652973929,
+        "support": 639.0
+      },
+      "weighted avg": {
+        "precision": 0.5208533271691775,
+        "recall": 0.4835680751173709,
+        "f1-score": 0.42731623806779795,
+        "support": 639.0
+      }
+    },
+    "accuracy": 0.4835680751173709,
+    "balanced_accuracy": 0.351454067244495,
+    "f1_macro_seen": 0.28997129477488104,
+    "f1_weighted": 0.42731623806779795,
+    "n_classes_seen": 9,
+    "f1_macro_eligible": 0.28997129477488104,
+    "n_classes_eligible": 9,
+    "f1_macro_eligible_ci_low": 0.11599347766572629,
+    "f1_macro_eligible_ci_high": 0.3625105234098526,
+    "balanced_accuracy_ci_low": 0.23055655731164063,
+    "balanced_accuracy_ci_high": 0.5618070675249325,
+    "ci_resampling_unit": "group",
+    "n_groups": 15
+  }
+}

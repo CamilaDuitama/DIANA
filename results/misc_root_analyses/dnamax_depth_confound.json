@@ -1,0 +1,21 @@
+{
+  "present_per_sample": {
+    "min": 0,
+    "p5": 82,
+    "p25": 612,
+    "median": 3189,
+    "p75": 59122,
+    "p95": 100148,
+    "max": 108794,
+    "mean": 26618.0
+  },
+  "samples_zero_present": 5,
+  "samples_under_100": 164,
+  "n_samples_probed": 299,
+  "maxcol_depth_rho_median": 0.5363,
+  "maxcol_depth_rho_p90": 0.9173,
+  "maxcol_depth_rho_max": 0.9523,
+  "maxcol_cols_rho_gt_0.7": 328,
+  "maxcol_pc1_var_share": 0.5169,
+  "maxcol_pc1_rho_with_depth": 0.9004
+}

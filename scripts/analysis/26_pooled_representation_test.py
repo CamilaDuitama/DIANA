@@ -24,6 +24,7 @@ absolutes.
 """
 from __future__ import annotations
 
+import hashlib
 import logging
 from pathlib import Path
 
@@ -54,7 +55,21 @@ ARMS = {"fraction": ("results/calibration_v9", ""),
         # S4 control: identical, with each unitig's bases permuted within itself, so base
         # composition and length survive and only ORDER is destroyed. A gain that appears
         # in both arms is capacity or regularisation, not sequence.
-        "seq_encoder_shuffled": ("results/seqenc_shuf_v9", "")}
+        "seq_encoder_shuffled": ("results/seqenc_shuf_v9", ""),
+        # S5: attention pooling over frozen DNABERT-2 descriptions of each unitig
+        "attn_pool": ("results/attnpool_test_v9", ""),
+        # S5 control: the same, over descriptions of order-scrambled sequences
+        "attn_pool_shuffled": ("results/attnpool_shuf_v9", ""),
+        # S6: the fractions kept in full, with 768 DNABERT-2 summary columns appended.
+        # The only sequence wiring that does not replace the private per-unitig vectors.
+        "dna_max": ("results/dnamax_test_v9", ""),
+        "dna_mean": ("results/dnamean_test_v9", ""),
+        "dna_max_shuffled": ("results/dnamaxshuf_test_v9", ""),
+        "dna_mean_shuffled": ("results/dnameanshuf_test_v9", ""),
+        # S7: the fractions with 3,072 columns describing the sequence the k-mer
+        # filter deleted. Both arms have their OWN searched hyperparameters.
+        "offlist": ("results/offlist_test_v9", ""),
+        "offlist_shuffled": ("results/offlistshuf_test_v9", "")}
 N_BOOT = 2000
 SEED = 42
 # Few-shot is what the S arms exist to fix (Table 2 reads 0.000 on `material` few-shot),
@@ -65,6 +80,21 @@ REGIMES = [("few-shot", 0, 20), ("medium-shot", 20, 100), ("many-shot", 100, flo
 # library-size component carry usable signal". Each pair is (with depth, without depth).
 DEPTH_PAIRS = [("frac_pca192", "frac_pca191nd"), ("pa_pca192", "pa_pca191nd")]
 MIN_PROJECTS = 2          # the eligibility rule, applied once over pooled training data
+
+
+def arm_rng(task: str, arm: str) -> np.random.Generator:
+    """A generator that depends only on this task and arm, never on the arm list.
+
+    The first version created one generator in `main` and consumed it arm by arm, so
+    registering a new arm shifted the random stream for every arm scored after it. Point
+    estimates were unaffected, but on 2026-09-16 adding the two S5 arms moved 30 of 40
+    existing confidence bounds by up to 0.0095. No verdict flipped that time, which is
+    luck rather than design: a bound sitting near zero could have. Deriving the seed from
+    the task and arm names makes an arm's interval reproducible in isolation and immune to
+    what else is being scored alongside it.
+    """
+    digest = hashlib.sha256(f"{SEED}|{task}|{arm}".encode()).hexdigest()[:8]
+    return np.random.default_rng(int(digest, 16))
 
 
 def pooled(base: str, task: str, prefix: str = "") -> pd.DataFrame:
@@ -96,7 +126,6 @@ def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     meta = pd.read_csv(SPLITS / "train_metadata.tsv", sep="\t", low_memory=False)
     proj = meta.set_index("Run_accession")["archive_project"].to_dict()
-    rng = np.random.default_rng(SEED)
     rows, summary, depth_rows = [], [], []
 
     for task in TASKS:
@@ -145,6 +174,7 @@ def main() -> int:
         for name in [a for a in ARMS if a != "fraction"]:
             obs = f1_elig(y, preds[name], eligible) - f1_elig(y, preds["fraction"], eligible)
             deltas = []
+            rng = arm_rng(task, name)
             for _ in range(N_BOOT):
                 drawn = rng.choice(uniq, size=len(uniq), replace=True)
                 sel = np.concatenate([idx_by[p] for p in drawn])
@@ -166,6 +196,9 @@ def main() -> int:
         for a, b in DEPTH_PAIRS:
             obs = f1_elig(y, preds[a], eligible) - f1_elig(y, preds[b], eligible)
             dd = []
+            # Its own generator: without this the loop silently inherited whatever state the
+            # last arm's bootstrap left behind, so the depth result depended on the arm list.
+            rng = arm_rng(task, f"depth:{a}-{b}")
             for _ in range(N_BOOT):
                 drawn = rng.choice(uniq, size=len(uniq), replace=True)
                 sel = np.concatenate([idx_by[q] for q in drawn])

@@ -1,0 +1,33 @@
+task,model,n,bal_acc,f1_elig
+material,LinearSVM_Bal,822,0.507,0.487
+material,LogisticRegression_Bal,822,0.462,0.461
+material,MajorityClass,822,0.077,0.028
+material,RandomForest,822,0.383,0.339
+material,RandomForest_Bal,822,0.398,0.35
+material,kNN,822,0.415,0.396
+material,DIANA single-task,822,0.473,0.458
+material,DIANA multi-task,822,0.501,0.47
+feature,LinearSVM_Bal,263,0.392,0.358
+feature,LogisticRegression_Bal,263,0.376,0.331
+feature,MajorityClass,263,0.167,0.07
+feature,RandomForest,263,0.491,0.47
+feature,RandomForest_Bal,263,0.44,0.349
+feature,kNN,263,0.355,0.308
+feature,DIANA single-task,263,0.538,0.545
+feature,DIANA multi-task,263,0.486,0.437
+community_type,LinearSVM_Bal,653,0.544,0.563
+community_type,LogisticRegression_Bal,653,0.567,0.58
+community_type,MajorityClass,653,0.2,0.146
+community_type,RandomForest,653,0.474,0.489
+community_type,RandomForest_Bal,653,0.552,0.556
+community_type,kNN,653,0.504,0.513
+community_type,DIANA single-task,653,0.549,0.568
+community_type,DIANA multi-task,653,0.554,0.573
+sample_host,LinearSVM_Bal,652,0.534,0.58
+sample_host,LogisticRegression_Bal,652,0.486,0.542
+sample_host,MajorityClass,652,0.167,0.153
+sample_host,RandomForest,652,0.231,0.257
+sample_host,RandomForest_Bal,652,0.423,0.498
+sample_host,kNN,652,0.512,0.58
+sample_host,DIANA single-task,652,0.472,0.551
+sample_host,DIANA multi-task,652,0.177,0.178

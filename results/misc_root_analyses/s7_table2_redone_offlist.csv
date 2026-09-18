@@ -1,0 +1,15 @@
+task,stratum,n_classes,n_runs,DIANA single (old),DIANA multi (old),off-list real (new),off-list scrambled,new - old_single
+community_type,many-shot (>100),2,555,0.7381,0.728,0.5235,0.5549,-0.2146
+community_type,medium-shot (20-100),3,98,0.4826,0.4915,0.4726,0.4627,-0.01
+community_type,whole-task,5,653,0.5683,0.5733,0.48,0.4705,-0.0883
+feature,few-shot (<20),2,20,0.375,0.4,0.1333,0.4375,-0.2417
+feature,many-shot (>100),2,133,0.9474,0.9925,0.6716,0.3675,-0.2758
+feature,medium-shot (20-100),2,110,0.4943,0.2097,0.0297,0.3162,-0.4646
+feature,whole-task,6,263,0.545,0.4374,0.217,0.3233,-0.328
+material,few-shot (<20),4,38,0.0,0.0,0.0,0.1277,0.0
+material,many-shot (>100),6,711,0.7044,0.6511,0.5046,0.4415,-0.1998
+material,medium-shot (20-100),3,73,0.7706,0.8924,0.5088,0.8254,-0.2618
+material,whole-task,13,822,0.458,0.4701,0.3362,0.3693,-0.1218
+sample_host,few-shot (<20),5,97,0.4677,0.0286,0.4649,0.4539,-0.0028
+sample_host,many-shot (>100),1,555,1.0,0.9937,0.9872,0.8731,-0.0128
+sample_host,whole-task,6,652,0.5512,0.1784,0.5388,0.4765,-0.0124

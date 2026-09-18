@@ -1,0 +1,27 @@
+{
+  "sample_host": {
+    "classes": [
+      "Alouatta palliata",
+      "Ambrosia artemisiifolia",
+      "Arabidopsis thaliana",
+      "Bison priscus",
+      "Canis lupus",
+      "Conepatus chinga",
+      "Gerbilliscus boehmi",
+      "Gorilla beringei beringei",
+      "Gorilla beringei graueri",
+      "Gorilla gorilla gorilla",
+      "Homo sapiens",
+      "Homo sapiens neanderthalensis",
+      "Mammuthus primigenius",
+      "Pan troglodytes ellioti",
+      "Pan troglodytes schweinfurthii",
+      "Pan troglodytes verus",
+      "Papio anubis",
+      "Papio hamadryas",
+      "Papio sp.",
+      "Strigocuscus celebensis",
+      "Ursus arctos"
+    ]
+  }
+}

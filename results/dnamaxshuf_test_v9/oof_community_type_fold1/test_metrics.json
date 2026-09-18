@@ -1,0 +1,89 @@
+{
+  "community_type": {
+    "task_type": "classification",
+    "n_samples": 190,
+    "n_masked": 109,
+    "n_out_of_vocabulary": 0,
+    "n_unseen": 109,
+    "precision_macro": 0.40471625766871167,
+    "recall_macro": 0.4969512195121951,
+    "confusion_matrix": [
+      [
+        10,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        162,
+        2,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        6,
+        1,
+        9,
+        0
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 0.625,
+        "recall": 1.0,
+        "f1-score": 0.7692307692307693,
+        "support": 10.0
+      },
+      "1": {
+        "precision": 0.9938650306748467,
+        "recall": 0.9878048780487805,
+        "f1-score": 0.9908256880733946,
+        "support": 164.0
+      },
+      "3": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "4": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 16.0
+      },
+      "accuracy": 0.9052631578947369,
+      "macro avg": {
+        "precision": 0.40471625766871167,
+        "recall": 0.4969512195121951,
+        "f1-score": 0.440014114326041,
+        "support": 190.0
+      },
+      "weighted avg": {
+        "precision": 0.8907571843719728,
+        "recall": 0.9052631578947369,
+        "f1-score": 0.8957248449281283,
+        "support": 190.0
+      }
+    },
+    "accuracy": 0.9052631578947369,
+    "balanced_accuracy": 0.6626016260162602,
+    "f1_macro_seen": 0.5866854857680547,
+    "f1_weighted": 0.8957248449281283,
+    "n_classes_seen": 3,
+    "f1_macro_eligible": 0.5866854857680547,
+    "n_classes_eligible": 3,
+    "f1_macro_eligible_ci_low": 0.3295016396700785,
+    "f1_macro_eligible_ci_high": 0.6666666666666666,
+    "balanced_accuracy_ci_low": 0.49239471163614196,
+    "balanced_accuracy_ci_high": 1.0,
+    "ci_resampling_unit": "group",
+    "n_groups": 8
+  }
+}
