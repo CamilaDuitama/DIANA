@@ -337,6 +337,11 @@ def main():
         batch_size=hyperparams['batch_size'],
         patience=config.get('early_stopping_patience', config.get('patience', 20)),
         checkpoint_dir=Path(config['output_dir']),
+        # What early stopping tracks. Recorded in the config so the artefact says which
+        # rule produced it: stopping on loss and on macro-F1 pick different epochs, and
+        # on a BioProject-grouped validation set the loss rule saved near-untrained
+        # models (community_type at epoch 0, val_acc 0.5896 against 0.7689 at epoch 2).
+        monitor=config.get('early_stopping_monitor', 'val_loss'),
         verbose=True
     )
 

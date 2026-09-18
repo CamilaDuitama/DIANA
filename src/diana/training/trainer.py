@@ -156,6 +156,7 @@ class MultiTaskTrainer:
             batch_size: int = 32,
             patience: int = 20,
             checkpoint_dir: Optional[Path] = None,
+            monitor: str = "val_loss",
             verbose: bool = True) -> Dict:
         """
         Train model with validation-based early stopping.
@@ -173,6 +174,13 @@ class MultiTaskTrainer:
             max_epochs: Maximum number of training epochs
             batch_size: Batch size for training
             patience: Early stopping patience (epochs without improvement)
+            monitor: What early stopping tracks. "val_loss" (default, minimised) keeps
+                the historical behaviour. "val_macro_f1" maximises the mean macro-F1
+                over classification heads instead, which is what the headline metric
+                measures. The two disagree: with a BioProject-grouped validation set,
+                `community_type` had its lowest loss at epoch 0 (val_acc 0.5896) while
+                its best accuracy was at epoch 2 (0.7689), so stopping on loss saved a
+                near-untrained model (observed 2026-09-18)
             checkpoint_dir: Directory to save best model checkpoint
             verbose: Whether to print progress
             
@@ -215,11 +223,16 @@ class MultiTaskTrainer:
             val_loader = DataLoader(dataset, batch_size=batch_size, shuffle=False)
         
         # Training loop with validation-based early stopping
-        best_val_loss = float('inf')
+        if monitor not in ("val_loss", "val_macro_f1"):
+            raise ValueError(f"monitor must be val_loss or val_macro_f1, got {monitor!r}")
+        maximise = monitor == "val_macro_f1"
+        best_score = -float('inf') if maximise else float('inf')
         patience_counter = 0
         history = {
             'train_loss': [],
             'val_loss': [],
+            'val_macro_f1': [],
+            'monitor': monitor,
             'train_acc': {task: [] for task in self.task_names},
             'val_acc': {task: [] for task in self.task_names}
         }
@@ -253,8 +266,12 @@ class MultiTaskTrainer:
                               f"Val Acc={val_metrics['accuracy'][task]:.4f}")
                 
                 # Early stopping based on validation loss
-                if val_metrics['loss'] < best_val_loss:
-                    best_val_loss = val_metrics['loss']
+                history['val_macro_f1'].append(val_metrics.get('macro_f1_mean', 0.0))
+                score = (val_metrics.get('macro_f1_mean', 0.0) if maximise
+                         else val_metrics['loss'])
+                improved = score > best_score if maximise else score < best_score
+                if improved:
+                    best_score = score
                     patience_counter = 0
                     
                     # Save best model
@@ -263,18 +280,20 @@ class MultiTaskTrainer:
                             'epoch': epoch,
                             'model_state_dict': self.model.state_dict(),
                             'optimizer_state_dict': self.optimizer.state_dict(),
-                            'val_loss': best_val_loss,
+                            'val_loss': val_metrics['loss'],
+                            'val_macro_f1': val_metrics.get('macro_f1_mean', 0.0),
+                            'monitor': monitor,
                             'history': history
                         }
                         torch.save(checkpoint, best_model_path)
                         if verbose and (epoch + 1) % 10 == 0:
-                            print(f"  → Saved best model (val_loss: {best_val_loss:.4f})")
+                            print(f"  → Saved best model ({monitor}: {best_score:.4f})")
                 else:
                     patience_counter += 1
                     if patience_counter >= patience:
                         if verbose:
                             print(f"\nEarly stopping at epoch {epoch+1}")
-                            print(f"Best validation loss: {best_val_loss:.4f}")
+                            print(f"Best {monitor}: {best_score:.4f}")
                         break
             else:
                 # No validation set - just log training metrics
@@ -380,6 +399,10 @@ class MultiTaskTrainer:
         total_loss = 0
         task_correct = {target: 0 for target in self.task_names}
         task_total = {target: 0 for target in self.task_names}
+        # Kept so macro-F1 can be computed over the whole validation set rather than
+        # averaged per batch, which is not the same number.
+        seen_true = {target: [] for target in self.task_names}
+        seen_pred = {target: [] for target in self.task_names}
         
         with torch.no_grad():
             for batch in val_loader:
@@ -424,15 +447,34 @@ class MultiTaskTrainer:
                                 predicted[labelled] == batch_y[target][labelled]
                             ).sum().item()
                             task_total[target] += int(labelled.sum().item())
+                            seen_true[target].append(batch_y[target][labelled].cpu())
+                            seen_pred[target].append(predicted[labelled].cpu())
 
                 total_loss += sum(losses)
         
+        # Macro-F1 per classification task, over the classes actually present in the
+        # validation labels. This is the quantity early stopping should track when
+        # `monitor="val_macro_f1"`: the headline metric is macro-averaged, and under
+        # this much imbalance the loss can rise while macro-F1 still improves.
+        from sklearn.metrics import f1_score
+        macro_f1 = {}
+        for target in self.task_names:
+            if target in self.regression_tasks or not seen_true[target]:
+                continue
+            yt = torch.cat(seen_true[target]).numpy()
+            yp = torch.cat(seen_pred[target]).numpy()
+            macro_f1[target] = float(f1_score(yt, yp, average="macro", zero_division=0))
+
         metrics = {
             "loss": total_loss / len(val_loader) if len(val_loader) > 0 else 0,
             "accuracy": {
                 target: task_correct[target] / task_total[target] if task_total[target] > 0 else 0
                 for target in self.task_names
-            }
+            },
+            "macro_f1": macro_f1,
+            # One number for early stopping: the mean over classification heads, so a
+            # multi-task model is not stopped on whichever head happens to be easiest.
+            "macro_f1_mean": float(np.mean(list(macro_f1.values()))) if macro_f1 else 0.0,
         }
         
         return metrics

@@ -145,30 +145,50 @@ def test_refuses_when_a_task_can_never_be_supported():
                                  min_task_support=10)
 
 
-def test_class_confined_to_one_project_is_not_orphaned_into_validation():
-    """`Arabidopsis thaliana` lives in one BioProject, so grouping put all 32 of its
-    runs in validation and none in training. Its training prior was then 0 and
-    logit adjustment took log(0), making the validation loss NaN at every epoch."""
+def test_orphan_classes_are_avoided_when_a_clean_split_exists():
+    """A class confined to one project cannot sit on both sides. Where the search can
+    keep such a class in training it should, because a validation row whose class was
+    never trained cannot be predicted correctly."""
     groups = _groups(n_projects=40, per_project=20)
     idx = np.arange(len(groups))
     y = np.zeros(len(groups), dtype=np.int64)
     y[:20] = 7          # class 7 exists only in PRJ000
     y[20:40] = 3        # class 3 only in PRJ001
+    y[40:] = np.tile([0, 1, 2], len(groups) - 40)[: len(groups) - 40]
     train, val = grouped_validation_split(
         idx, groups, 0.1, task_labels={"host": y}, ignore_index=-100)
     tr_cls = set(np.unique(y[train])) - {-100}
     va_cls = set(np.unique(y[val])) - {-100}
-    assert va_cls <= tr_cls, f"classes only in validation: {va_cls - tr_cls}"
+    assert va_cls <= tr_cls, f"avoidable orphans chosen: {va_cls - tr_cls}"
 
 
-def test_reports_orphan_classes_when_unavoidable():
-    """Every project carries a unique class, so no grouped split can avoid orphans."""
+def test_orphan_classes_do_not_make_the_split_impossible():
+    """With one unique class per project no split is orphan-free. Rejecting those
+    made the four-task multi-task arm infeasible at every fraction from 0.10 to 0.40,
+    so they are preferred against rather than refused. The NaN they were first blamed
+    for came from an all-masked batch in the trainer, not from a zero prior."""
     groups = _groups(n_projects=40, per_project=20)
     idx = np.arange(len(groups))
     y = np.repeat(np.arange(40), 20).astype(np.int64)  # one class per project
-    with pytest.raises(ValueError, match="no training rows"):
-        grouped_validation_split(idx, groups, 0.1,
-                                 task_labels={"host": y}, ignore_index=-100)
+    train, val = grouped_validation_split(
+        idx, groups, 0.1, task_labels={"host": y}, ignore_index=-100,
+        min_val_classes=3)
+    assert len(val) > 0 and not set(groups[train]) & set(groups[val])
+
+
+def test_minimum_validation_classes_enforced():
+    """sample_host had 1 of 24 classes in validation at a 10 % fraction, so its
+    macro-F1 was 1.0000 at epoch 0 and the criterion could not rank epochs."""
+    sizes = [300] * 2 + [40] * 20 + [10] * 40
+    groups = np.concatenate([[f"PRJ{i:03d}"] * n for i, n in enumerate(sizes)])
+    idx = np.arange(len(groups))
+    # the two big projects are one label; the small ones carry the rest
+    y = np.zeros(len(groups), dtype=np.int64)
+    y[600:] = np.tile([1, 2, 3, 4], len(groups) - 600)[: len(groups) - 600]
+    _, val = grouped_validation_split(
+        idx, groups, 0.1, task_labels={"host": y}, ignore_index=-100,
+        min_val_classes=3)
+    assert len(set(np.unique(y[val])) - {-100}) >= 3
 
 
 def test_regression_target_not_treated_as_classes():

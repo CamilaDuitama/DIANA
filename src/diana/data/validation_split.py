@@ -22,12 +22,17 @@ Grouping alone is not enough, and two failures on the first attempt show why:
   and the fit finished without ever saving a checkpoint.
 * A class can end up only on the validation side. ``Arabidopsis thaliana`` lives in one
   BioProject, so grouping put all 32 of its runs in validation and none in training.
-  Its training prior is then 0, and ``logit_adjust_tau * log(0) = -inf`` enters the
-  logits, so the validation loss was **NaN** at every epoch while validation accuracy
-  still computed. ``NaN < inf`` is False, so no checkpoint was ever saved and the fit
-  stopped on patience with ``Best validation loss: inf``. A class confined to a single
-  project cannot sit on both sides of a grouped split, which is the same fact the
-  ``f1_macro_eligible`` denominator encodes, so such a class belongs in training.
+  This was first blamed for the NaN validation loss, wrongly: the priors are built from
+  the **full** training labels, so no class has a zero prior and ``log(0)`` never
+  occurs. The NaN came from ``CrossEntropyLoss`` over an all-masked batch (fixed in
+  ``training/trainer.py``). Such a class is therefore only preferred against here, not
+  rejected, because rejecting it made the four-task arm infeasible at every fraction
+  from 0.10 to 0.40.
+* The validation side can collapse onto one label. At a 10 % fraction ``sample_host``
+  had **1 of 24 classes**, so its macro-F1 was 1.0000 at epoch 0 and no criterion could
+  rank epochs; 14 of its 24 classes live in a single BioProject. Requiring a minimum
+  number of distinct validation classes fixes this at the same 10 % fraction, giving 4
+  classes over 309 runs, so no training data has to be sacrificed.
 
 So the split is chosen by a deterministic search over candidate grouped splits, scored
 on how close the validation fraction lands to the target, subject to hard floors on the
@@ -52,6 +57,14 @@ MIN_VAL_GROUPS = 3
 #: Fewest labelled validation rows a task needs to contribute a loss. A task under this
 #: is reported and the split is rejected, rather than training on an undefined criterion.
 MIN_TASK_SUPPORT = 10
+
+#: Fewest distinct classes a task needs on the validation side. With whole studies
+#: held out the validation set can collapse onto a single label: at a 10 % fraction
+#: `sample_host` had **1 of 24 classes**, so its macro-F1 was 1.0000 at epoch 0 and the
+#: criterion could not rank epochs at all. 14 of that task's 24 classes live in one
+#: BioProject, which is the same fact that removes 22 of 60 classes from the
+#: ``f1_macro_eligible`` denominator.
+MIN_VAL_CLASSES = 3
 
 #: Candidate grouped splits to score. Deterministic given ``random_state``.
 N_CANDIDATES = 300
@@ -99,6 +112,29 @@ def _orphan_classes(
     return orphans
 
 
+def _thin_classes(
+    labels: Mapping[str, np.ndarray],
+    val_rows: np.ndarray,
+    ignore_index: int,
+    minimum: int,
+) -> Dict[str, int]:
+    """Tasks whose validation side carries too few distinct classes.
+
+    The floor is capped at the number of classes the task has overall, so a genuinely
+    binary task is not rejected for having 2.
+    """
+    thin: Dict[str, int] = {}
+    for task, y in labels.items():
+        arr = np.asarray(y)
+        if arr.dtype.kind == "f":
+            continue
+        overall = len(set(np.unique(arr)) - {ignore_index})
+        present = len(set(np.unique(arr[val_rows])) - {ignore_index})
+        if present < min(minimum, overall):
+            thin[task] = present
+    return thin
+
+
 def grouped_validation_split(
     indices: Sequence[int],
     groups: Sequence,
@@ -109,6 +145,7 @@ def grouped_validation_split(
     ignore_index: int = -100,
     min_val_groups: int = MIN_VAL_GROUPS,
     min_task_support: int = MIN_TASK_SUPPORT,
+    min_val_classes: int = MIN_VAL_CLASSES,
     n_candidates: int = N_CANDIDATES,
 ) -> Tuple[np.ndarray, np.ndarray]:
     """Split ``indices`` into (train, val) with no BioProject on both sides.
@@ -127,6 +164,9 @@ def grouped_validation_split(
         ignore_index: Mask value for absent classification labels.
         min_val_groups: Hard floor on validation projects.
         min_task_support: Hard floor on labelled validation rows per task.
+        min_val_classes: Hard floor on distinct classes per classification task on the
+            validation side, capped at what the task actually has. Without it the
+            validation set can hold a single label and no criterion can rank epochs.
         n_candidates: Candidate splits to score.
 
     Returns:
@@ -167,7 +207,7 @@ def grouped_validation_split(
     best_score = None
     rejected_groups = 0
     rejected_support: Dict[str, int] = {}
-    rejected_orphan: Dict[str, set] = {}
+    rejected_thin: Dict[str, int] = {}
 
     for train_pos, val_pos in splitter.split(idx, groups=grp):
         val_groups = set(grp[val_pos])
@@ -184,14 +224,26 @@ def grouped_validation_split(
             # No class may appear in validation but not in training. Otherwise its
             # training prior is 0 and logit adjustment takes log(0), which makes the
             # validation loss NaN and silently prevents any checkpoint being saved.
+            # Classes present in validation but not in training are PREFERRED AGAINST,
+            # not rejected. Such a row simply cannot be predicted correctly, which
+            # lowers the score without breaking anything: the class priors are built
+            # from the full training labels, so none is ever zero and logit adjustment
+            # never takes log(0). Rejecting them outright made the four-task multi-task
+            # arm infeasible at every validation fraction from 0.10 to 0.40, because
+            # with four targets almost any held-out project carries some class that
+            # appears nowhere else.
             orphan = _orphan_classes(task_labels, train_pos, val_pos, ignore_index)
-            if orphan:
-                for t, cls in orphan.items():
-                    rejected_orphan.setdefault(t, set()).update(cls)
+            n_orphan = sum(len(c) for c in orphan.values())
+            thin = _thin_classes(task_labels, val_pos, ignore_index, min_val_classes)
+            if thin:
+                for t, n in thin.items():
+                    rejected_thin[t] = max(rejected_thin.get(t, 0), n)
                 continue
         # Primary objective: land on the requested size. Tie-break on class coverage,
         # which is a preference rather than a constraint.
         score = abs(len(val_pos) - target) / max(target, 1.0)
+        if task_labels is not None and n_orphan:
+            score += 0.05 * n_orphan
         if strat is not None:
             coverage = len(np.unique(strat[val_pos])) / max(len(np.unique(strat)), 1)
             score += 0.1 * (1.0 - coverage)
@@ -205,11 +257,11 @@ def grouped_validation_split(
         if rejected_support:
             worst = ", ".join(f"{t} (best {c} labelled)" for t, c in sorted(rejected_support.items()))
             detail.append(f"tasks never reached {min_task_support} labelled validation rows: {worst}")
-        if rejected_orphan:
-            names = ", ".join(f"{t} (classes {sorted(c)[:4]})" for t, c in sorted(rejected_orphan.items()))
+        if rejected_thin:
+            names = ", ".join(f"{t} (best {n} classes)" for t, n in sorted(rejected_thin.items()))
             detail.append(
-                "classes kept landing in validation with no training rows, which makes "
-                f"the loss NaN under logit adjustment: {names}"
+                f"validation side never carried {min_val_classes} distinct classes, so no "
+                f"criterion could rank epochs: {names}"
             )
         raise ValueError(
             f"no grouped validation split among {n_candidates} candidates met the floors; "
@@ -238,5 +290,16 @@ def grouped_validation_split(
         counts = _support_counts(task_labels, val_pos, ignore_index)
         logger.info("  labelled validation rows per task: %s",
                     ", ".join(f"{t}={c}" for t, c in sorted(counts.items())))
-        logger.info("  every validation class has training rows: yes")
+        orphan = _orphan_classes(task_labels, train_pos, val_pos, ignore_index)
+        n_orph = sum(len(c) for c in orphan.values())
+        if n_orph:
+            logger.info("  %d validation class(es) have no training rows and cannot be "
+                        "predicted: %s", n_orph,
+                        ", ".join(f"{t}={sorted(c)}" for t, c in sorted(orphan.items())))
+        else:
+            logger.info("  every validation class has training rows: yes")
+        classes = {t: len(set(np.unique(np.asarray(y)[val_pos])) - {ignore_index})
+                   for t, y in task_labels.items() if np.asarray(y).dtype.kind != "f"}
+        logger.info("  distinct validation classes per task: %s",
+                    ", ".join(f"{t}={c}" for t, c in sorted(classes.items())))
     return train_idx, val_idx
