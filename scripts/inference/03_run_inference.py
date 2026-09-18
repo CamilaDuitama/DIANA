@@ -46,18 +46,23 @@ logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 logger = logging.getLogger(__name__)
 
 
-def load_unitig_fractions(fraction_file: Path) -> np.ndarray:
+def load_unitig_fractions(fraction_file: Path, expected_dim: int | None = None) -> np.ndarray:
     """
     Load unitig fractions from text file.
     
-    Each line contains one fraction value (0.0-1.0).
-    Must have exactly 107,480 lines (matching training matrix).
+    Each line contains one fraction value (0.0-1.0), one per unitig of the MUSET
+    matrix the model was trained on.
+    
+    `expected_dim` is read off the loaded model rather than hardcoded. It used to be
+    the literal 107480, which is the v7 matrix, so every v9 model (110,202 unitigs)
+    was rejected here and `diana-predict` could not run one at all.
     
     Args:
         fraction_file: Path to unitig fraction file from shell pipeline.
+        expected_dim: Input width the model expects; no check when None.
         
     Returns:
-        NumPy array of shape (107480,) with fraction values.
+        NumPy array of shape (expected_dim,) with fraction values.
     """
     logger.info(f"Loading unitig fractions from {fraction_file}")
     
@@ -81,15 +86,26 @@ def load_unitig_fractions(fraction_file: Path) -> np.ndarray:
     logger.info(f"  Mean fraction: {np.mean(features):.4f}")
     logger.info(f"  Max fraction: {np.max(features):.4f}")
     
-    # Validate dimensions
-    expected_dim = 107480
-    if len(features) != expected_dim:
+    # Validate dimensions against the model, not a hardcoded matrix version
+    if expected_dim is not None and len(features) != expected_dim:
         raise ValueError(
             f"Expected {expected_dim} unitig fractions, got {len(features)}. "
             f"Make sure you're using the same MUSET output as training."
         )
     
     return features
+
+
+def model_input_dim(predictor) -> int | None:
+    """Input width of the checkpoint's first linear layer, or None if unreadable."""
+    import torch.nn as nn
+    model = getattr(predictor, "model", None)
+    if model is None:
+        return None
+    for module in model.modules():
+        if isinstance(module, nn.Linear):
+            return module.in_features
+    return None
 
 
 def load_class_names(label_encoders_path: Path) -> dict:
@@ -299,7 +315,7 @@ def main():
     predictor = Predictor(args.model, device=device)
     
     # Load features
-    features = load_unitig_fractions(args.input)
+    features = load_unitig_fractions(args.input, expected_dim=model_input_dim(predictor))
     
     # Load class names from label encoders if provided
     class_names = None

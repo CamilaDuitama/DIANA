@@ -39,6 +39,10 @@ setup(
     scripts=[
         "scripts/inference/00_extract_reference_kmers.sh",
         "scripts/inference/01_count_kmers.sh",
+        # Logan/assembled input only: rebuilds real abundance from the `ka:f:`
+        # coverage field. Must be installed alongside 01, because diana-predict
+        # resolves step scripts through PATH.
+        "scripts/inference/01b_logan_abundance_counts.py",
         "scripts/inference/02_aggregate_to_unitigs.sh",
         "scripts/inference/03_run_inference.py",
         "scripts/inference/04_plot_results.py",

@@ -371,8 +371,8 @@ def predict_single_sample(
             logger.warning(
                 "Input looks like LOGAN UNITIGS, not raw reads (`ka:f:` present in the "
                 "headers). Abundance is therefore reconstructed from the `ka:f:` coverage "
-                "field rather than counted directly, which is accurate to about 0.9 %% "
-                "against a directly counted reference but inherits Logan's own ~5 %% error "
+                "field rather than counted directly, which is accurate to about 0.9 % "
+                "against a directly counted reference but inherits Logan's own ~5 % error "
                 "on `ka:f:` and its cap at 50,000. For exact abundance, pass raw FASTQ."
             )
             kmer_positions = sample_output_dir / f"{sample_id}_kmer_positions.txt"
@@ -423,6 +423,7 @@ def predict_single_sample(
         # Step 3: Run model inference
         # ====================================================================
         run_command_streaming([
+            sys.executable,
             _resolve_script("03_run_inference.py"),
             "--model", str(model_path),
             "--input", str(unitig_fraction),
@@ -437,6 +438,7 @@ def predict_single_sample(
         if generate_plots:
             label_encoders_dir = model_path.parent
             run_command_streaming([
+                sys.executable,
                 _resolve_script("04_plot_results.py"),
                 "--predictions", str(predictions_json),
                 "--output_dir", str(plots_dir),
