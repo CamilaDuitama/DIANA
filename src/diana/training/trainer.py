@@ -330,12 +330,29 @@ class MultiTaskTrainer:
                             task_correct[target] += float((1.0 - torch.abs(pred[valid] - tgt[valid]).mean()).clamp(0, 1).item() * valid.sum().item())
                             task_total[target] += valid.sum().item()
                 else:
-                    loss = self.criteria[target](
-                        self._adjust(target, outputs[target]), batch_y[target])
-                    losses[target] = loss
-                    _, predicted = torch.max(outputs[target], 1)
-                    task_correct[target] += (predicted == batch_y[target]).sum().item()
-                    task_total[target] += batch_y[target].size(0)
+                    # CrossEntropyLoss(ignore_index=...) with reduction='mean' returns
+                    # NaN when every row in the batch is masked, because it averages
+                    # over zero valid elements. The regression branch above already
+                    # guards this; classification did not, and one NaN poisons the
+                    # epoch loss. Latent while masked rows were spread evenly by a
+                    # random split, reachable once the split is grouped by BioProject
+                    # and whole studies are masked together.
+                    labelled = batch_y[target] != IGNORE_INDEX
+                    if labelled.sum() == 0:
+                        losses[target] = outputs[target].sum() * 0.0
+                    else:
+                        losses[target] = self.criteria[target](
+                            self._adjust(target, outputs[target]), batch_y[target])
+                    with torch.no_grad():
+                        # Masked rows must not sit in the denominator: a prediction can
+                        # never equal IGNORE_INDEX, so counting them scored every
+                        # unlabelled run as wrong and understated accuracy.
+                        if labelled.sum() > 0:
+                            _, predicted = torch.max(outputs[target], 1)
+                            task_correct[target] += (
+                                predicted[labelled] == batch_y[target][labelled]
+                            ).sum().item()
+                            task_total[target] += int(labelled.sum().item())
             
             # Combined loss
             total = sum(self.task_weights[t] * losses[t] for t in self.task_names)
@@ -391,12 +408,22 @@ class MultiTaskTrainer:
                             task_correct[target] += float((1.0 - torch.abs(pred[valid] - tgt[valid]).mean()).clamp(0, 1).item() * valid.sum().item())
                             task_total[target] += valid.sum().item()
                     else:
-                        loss = self.criteria[target](
-                        self._adjust(target, outputs[target]), batch_y[target])
-                        losses.append(self.task_weights[target] * loss.item())
-                        _, predicted = torch.max(outputs[target], 1)
-                        task_correct[target] += (predicted == batch_y[target]).sum().item()
-                        task_total[target] += batch_y[target].size(0)
+                        # See _train_epoch_from_loader: an all-masked batch makes
+                        # CrossEntropyLoss return NaN, and because NaN < inf is False
+                        # the checkpoint was then never saved and the fit ended with
+                        # "Best validation loss: inf".
+                        labelled = batch_y[target] != IGNORE_INDEX
+                        if labelled.sum() == 0:
+                            losses.append(0.0)
+                        else:
+                            loss = self.criteria[target](
+                                self._adjust(target, outputs[target]), batch_y[target])
+                            losses.append(self.task_weights[target] * loss.item())
+                            _, predicted = torch.max(outputs[target], 1)
+                            task_correct[target] += (
+                                predicted[labelled] == batch_y[target][labelled]
+                            ).sum().item()
+                            task_total[target] += int(labelled.sum().item())
 
                 total_loss += sum(losses)
         

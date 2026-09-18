@@ -114,7 +114,8 @@ import polars as pl
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset, Subset
-from sklearn.model_selection import StratifiedGroupKFold, train_test_split
+from sklearn.model_selection import StratifiedGroupKFold
+from diana.data.validation_split import grouped_validation_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import (
     accuracy_score, f1_score, balanced_accuracy_score,
@@ -1023,10 +1024,18 @@ def train_outer_fold(
         device
     )
 
-    sub_train_idx, sub_val_idx = train_test_split(
+    # Grouped by BioProject like every other split in this script. This one was a
+    # plain random split until 2026-09-18, so a study could sit on both sides of the
+    # early-stopping criterion even though the outer and inner CV folds were grouped.
+    sub_train_idx, sub_val_idx = grouped_validation_split(
         train_idx,
-        test_size=0.1,
-        random_state=42
+        groups[train_idx],
+        validation_split=0.1,
+        random_state=42,
+        # Guard the same failure as in 02: a sparsely labelled task must keep some
+        # validation support, or early stopping runs on an undefined criterion.
+        task_labels={t: labels_dict[t][train_idx] for t in labels_dict},
+        ignore_index=IGNORE_INDEX,
     )
     
     logger.info(f"Final training split: {len(sub_train_idx)} train, {len(sub_val_idx)} validation, {len(test_idx)} test")

@@ -543,7 +543,22 @@ class MultiTaskTrainingPipeline:
         # If using SLURM, submit job instead of training locally
         if self.use_slurm:
             return self._train_final_slurm(hyperparams)
-        
+
+        # The local path below does not run. It calls MatrixLoader(features, metadata)
+        # and loader.load_data(), but MatrixLoader takes only matrix_path and has no
+        # load_data, so `diana-train --mode train` without --use-slurm died with a
+        # TypeError on the next line (verified 2026-09-18). It also never had the
+        # label masking, regression normalisation or BioProject-grouped validation
+        # split that scripts/training/02_train_final_model.py applies, so making it
+        # run would mean duplicating that script rather than reviving this code.
+        # Failing here states that, instead of failing obscurely three lines later.
+        raise NotImplementedError(
+            "diana-train --mode train has no working local trainer. Use "
+            "--use-slurm, or run scripts/training/02_train_final_model.py "
+            "<config.json> directly (see scripts/training/run_final_fits_v9.sbatch). "
+            "The local code path below is retained but unreachable."
+        )
+
         # Load training data
         logger.info(f"Loading training data from {self.features_path}")
         loader = MatrixLoader(self.features_path, self.metadata_path)

@@ -9,7 +9,6 @@ import json
 import numpy as np
 import pandas as pd
 from pathlib import Path
-from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 import logging
 
@@ -21,6 +20,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 from diana.data.loader import MatrixLoader
+from diana.data.validation_split import GROUP_COL, grouped_validation_split
 from diana.models.multitask_mlp import IGNORE_INDEX, MultiTaskMLP
 from diana.models.unitig_encoder import attach_sequence_encoder
 from diana.models.unitig_attention import attach_attention_pool
@@ -224,11 +224,30 @@ def main():
             strat = sk.to_numpy()
         else:
             logger.warning("stratification not possible for this split; proceeding unstratified")
-    train_idx, val_idx = train_test_split(
+    # Grouped by BioProject, not random. Runs from one study share protocol, lab and
+    # sometimes the specimen, so a random split puts near-duplicates on both sides and
+    # early stopping then selects an epoch for recognising the study rather than for
+    # generalising to a new one. The outer v9 splits are grouped and asserted in code;
+    # this one was not until 2026-09-18, so every final model before that date was
+    # early-stopped on a contaminated criterion.
+    if GROUP_COL not in metadata.columns:
+        raise ValueError(
+            f"{GROUP_COL} missing from metadata ({config['metadata_path']}); it is "
+            "required to group the early-stopping split by BioProject"
+        )
+    groups = metadata[GROUP_COL].to_numpy()
+    train_idx, val_idx = grouped_validation_split(
         indices,
-        test_size=validation_split,
-        random_state=random_seed,
+        groups,
+        validation_split=validation_split,
         stratify=strat,
+        random_state=random_seed,
+        # Without this a sparsely labelled task can end up with no validation rows at
+        # all. On 2026-09-18 `feature` (561 of 2,716 runs labelled) got 0, the
+        # multi-task net had no criterion for that head, and the fit finished without
+        # ever writing a checkpoint.
+        task_labels=y_full,
+        ignore_index=IGNORE_INDEX,
     )
 
     X_train, X_val = X_full[train_idx], X_full[val_idx]
