@@ -1,0 +1,15 @@
+{
+  "K": 1984422,
+  "median_positives_per_column": 24.0,
+  "median_columns_per_sample": 15924.5,
+  "top_project_share": {
+    "10": 0.21052631578947367,
+    "25": 0.2857142857142857,
+    "50": 0.5,
+    "75": 0.7567567567567568,
+    "90": 0.8953488372093024
+  },
+  "share_of_columns_with_top_project_share_>=0.8": 0.2124835342482597,
+  "share_of_columns_with_top_project_share_>=0.5": 0.5000811319366546,
+  "median_projects_per_column": 5.0
+}

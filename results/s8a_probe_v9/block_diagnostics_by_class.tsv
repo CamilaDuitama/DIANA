@@ -1,0 +1,56 @@
+task	class	train_runs	train_projects	enriched_hashes	enriched_in_>=2_class_projects	median_top_project_share
+community_type	soft tissue	27	2	297	2	0.6842105263157895
+community_type	plant tissue	43	2	806	40	0.8333333333333334
+community_type	gut	88	8	39987	39699	0.6875
+community_type	skeletal tissue	214	7	253	191	0.7777777777777778
+community_type	oral	1701	28	0	0	
+feature	rock shelter	2	1	0	0	
+feature	thermokarst	10	1	2	0	0.5147058823529411
+feature	archeological site	17	3	0	0	
+feature	shell	24	1	3	0	0.9
+feature	swamp forest	29	1	319	0	0.9473684210526315
+feature	cave	34	1	6540	0	0.9285714285714286
+feature	midden	46	4	20	4	0.6228070175438596
+feature	sea coast	52	1	23606	0	0.9285714285714286
+feature	ocean	179	6	21219	21088	0.5652173913043478
+feature	lake	215	10	0	0	
+material	soil	2	1	0	0	
+material	muscle tissue	4	1	0	0	
+material	unknown	11	1	0	0	
+material	intestine	15	2	3	3	0.7142857142857143
+material	midden	15	2	0	0	
+material	digestive tract contents	16	1	0	0	
+material	shell	24	1	2	0	0.9142857142857144
+material	leaf	43	2	291	2	0.9375
+material	palaeofaeces	61	6	38912	38844	0.6956521739130435
+material	permafrost	70	3	19913	7307	0.9333333333333333
+material	sediment	105	7	5605	2470	0.9333333333333333
+material	bone	127	4	0	0	
+material	marine sediment	143	4	20933	20685	0.5675675675675675
+material	lake sediment	215	10	205539	196330	0.7857142857142857
+material	tooth	399	8	28282	27037	0.7142857142857143
+material	dental calculus	1389	25	0	0	
+sample_host	Papio sp.	1	1	0	0	
+sample_host	Conepatus chinga	4	1	0	0	
+sample_host	Gerbilliscus boehmi	4	1	0	0	
+sample_host	Papio anubis	4	1	0	0	
+sample_host	Strigocuscus celebensis	4	1	0	0	
+sample_host	Papio hamadryas	5	1	0	0	
+sample_host	Alouatta palliata	6	1	0	0	
+sample_host	Pan troglodytes ellioti	8	1	0	0	
+sample_host	Pan troglodytes verus	9	1	0	0	
+sample_host	Ambrosia artemisiifolia	11	1	2	0	0.6512605042016807
+sample_host	Lithobates pipiens	11	1	163	0	0.6190476190476191
+sample_host	Pan troglodytes schweinfurthii	11	1	0	0	
+sample_host	Canis lupus	12	3	13	0	0.6428571428571429
+sample_host	Bison priscus	16	1	52	0	0.5273088381330685
+sample_host	Homo sapiens neanderthalensis	16	1	10	0	0.6125
+sample_host	Mammuthus primigenius	16	1	296	0	0.6858552631578947
+sample_host	Gorilla beringei	20	1	0	0	
+sample_host	Gorilla beringei beringei	23	2	37	37	0.7647058823529411
+sample_host	Rangifer tarandus	24	1	54	0	0.9333333333333333
+sample_host	Arabidopsis thaliana	32	1	782	0	0.8421052631578947
+sample_host	Gorilla gorilla gorilla	45	2	88	86	0.9333333333333333
+sample_host	Gorilla beringei graueri	67	2	334	327	0.8125
+sample_host	Ursus arctos	339	2	139424	86535	0.9166666666666666
+sample_host	Homo sapiens	1397	31	0	0	

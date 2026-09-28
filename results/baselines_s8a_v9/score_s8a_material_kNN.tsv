@@ -1,0 +1,11 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+s8a	material	kNN	"{""n_neighbors"": 1, ""weights"": ""uniform""}"	0.22903308937088562	5
+s8a	material	kNN	"{""n_neighbors"": 1, ""weights"": ""distance""}"	0.22903308937088562	5
+s8a	material	kNN	"{""n_neighbors"": 3, ""weights"": ""uniform""}"	0.23260078630770212	5
+s8a	material	kNN	"{""n_neighbors"": 3, ""weights"": ""distance""}"	0.23267093502835645	5
+s8a	material	kNN	"{""n_neighbors"": 5, ""weights"": ""uniform""}"	0.22252330250100277	5
+s8a	material	kNN	"{""n_neighbors"": 5, ""weights"": ""distance""}"	0.22548239811037774	5
+s8a	material	kNN	"{""n_neighbors"": 10, ""weights"": ""uniform""}"	0.2073596961098901	5
+s8a	material	kNN	"{""n_neighbors"": 10, ""weights"": ""distance""}"	0.21277084094042018	5
+s8a	material	kNN	"{""n_neighbors"": 20, ""weights"": ""uniform""}"	0.18447218320772926	5
+s8a	material	kNN	"{""n_neighbors"": 20, ""weights"": ""distance""}"	0.19040799522814927	5

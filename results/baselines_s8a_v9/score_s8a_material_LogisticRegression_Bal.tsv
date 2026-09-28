@@ -1,0 +1,5 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+s8a	material	LogisticRegression_Bal	"{""C"": 0.01}"	0.3986920657103873	5
+s8a	material	LogisticRegression_Bal	"{""C"": 0.1}"	0.40206763222712905	5
+s8a	material	LogisticRegression_Bal	"{""C"": 1.0}"	0.4313027497900018	5
+s8a	material	LogisticRegression_Bal	"{""C"": 10.0}"	0.40494517294280213	5

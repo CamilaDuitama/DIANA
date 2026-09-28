@@ -1,0 +1,11 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+fraction	sample_host	kNN	"{""n_neighbors"": 1, ""weights"": ""uniform""}"	0.7517340044006721	5
+fraction	sample_host	kNN	"{""n_neighbors"": 1, ""weights"": ""distance""}"	0.7517340044006721	5
+fraction	sample_host	kNN	"{""n_neighbors"": 3, ""weights"": ""uniform""}"	0.7180878198849998	5
+fraction	sample_host	kNN	"{""n_neighbors"": 3, ""weights"": ""distance""}"	0.7192311093903584	5
+fraction	sample_host	kNN	"{""n_neighbors"": 5, ""weights"": ""uniform""}"	0.7229168340912945	5
+fraction	sample_host	kNN	"{""n_neighbors"": 5, ""weights"": ""distance""}"	0.727291114952577	5
+fraction	sample_host	kNN	"{""n_neighbors"": 10, ""weights"": ""uniform""}"	0.7262656198046734	5
+fraction	sample_host	kNN	"{""n_neighbors"": 10, ""weights"": ""distance""}"	0.731008391783505	5
+fraction	sample_host	kNN	"{""n_neighbors"": 20, ""weights"": ""uniform""}"	0.6819746378235496	5
+fraction	sample_host	kNN	"{""n_neighbors"": 20, ""weights"": ""distance""}"	0.6854453898383864	5

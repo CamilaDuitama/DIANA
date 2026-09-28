@@ -1,0 +1,5 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+s8a	feature	LogisticRegression_Bal	"{""C"": 0.01}"	0.3347369631001144	5
+s8a	feature	LogisticRegression_Bal	"{""C"": 0.1}"	0.3416406477166719	5
+s8a	feature	LogisticRegression_Bal	"{""C"": 1.0}"	0.31939417579926993	5
+s8a	feature	LogisticRegression_Bal	"{""C"": 10.0}"	0.46040045942575	5
