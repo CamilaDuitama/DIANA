@@ -109,7 +109,13 @@ class MatrixLoader:
             - sample_ids_df: Optional pandas DataFrame with 'Run_accession' column
         """
         logger.info(f"Loading matrix from {self.matrix_path}")
-        
+
+        # S8a (2026-09-28): a matrix with ~2 M appended 0/1 columns is ~15 GB as text
+        # and minutes to parse, so wide arms are stored as .npz with the sample ids
+        # inside. Text .mat files take the path below unchanged.
+        if self.matrix_path.suffix == ".npz":
+            return self._load_npz(return_pandas)
+
         # Load with polars (fast!)
         df = pl.read_csv(
             self.matrix_path,
@@ -141,6 +147,27 @@ class MatrixLoader:
         
         return features, sample_ids, sample_ids_df
     
+    def _load_npz(self, return_pandas: bool = False) -> Tuple[np.ndarray, np.ndarray, Optional[pd.DataFrame]]:
+        """Binary matrix: `frac` (samples x unitigs, float32) followed by an optional
+        `block` (samples x extra columns, uint8 or float16), with `feature_ids` and
+        `sample_ids` stored alongside so no kmtricks.fof lookup is needed. Written by
+        scripts/data_prep/28_append_offlist_hash_columns.py.
+        """
+        with np.load(self.matrix_path, allow_pickle=False) as z:
+            frac = z["frac"].astype(np.float32, copy=False)
+            parts = [frac]
+            if "block" in z.files:
+                parts.append(z["block"].astype(np.float32))
+            features = np.concatenate(parts, axis=1) if len(parts) > 1 else frac
+            sample_ids = z["sample_ids"].astype(str)
+            n_feat = int(z["feature_ids"].shape[0])
+        if n_feat != features.shape[1] or len(sample_ids) != features.shape[0]:
+            raise ValueError(f"{self.matrix_path}: {features.shape} does not match "
+                             f"{n_feat} feature ids and {len(sample_ids)} sample ids")
+        logger.info(f"Loaded {features.shape[0]} samples × {features.shape[1]} features from npz")
+        sample_ids_df = pd.DataFrame({'Run_accession': sample_ids}) if return_pandas else None
+        return features, sample_ids, sample_ids_df
+
     def _get_sample_ids(self, expected_count: int) -> np.ndarray:
         """
         Extract sample IDs from kmtricks.fof file or generate placeholder IDs.

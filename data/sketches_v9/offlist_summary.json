@@ -1,0 +1,16 @@
+{
+  "n_training_runs": 2716,
+  "n_vocab_hashes": 14160,
+  "n_offlist_entries": 512781150,
+  "n_distinct_offlist_hashes": 309825754,
+  "median_hashes_per_run": 60957.0,
+  "median_offlist_per_run": 57295.0,
+  "kept_by_floor": {
+    "samples>=14,projects>=2": 1984422,
+    "samples>=28,projects>=2": 846962,
+    "samples>=14,projects>=1": 2286925,
+    "samples>=20,projects>=2": 1287675,
+    "samples>=272,projects>=2": 7251
+  },
+  "K": 1984422
+}

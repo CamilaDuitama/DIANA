@@ -1,0 +1,13 @@
+task	arm	regime	n_runs	f1_macro_eligible
+community_type	block	all	2073	0.34659463787728534
+community_type	fractions	all	2073	0.18917906327481912
+community_type	both	all	2073	0.39742939305992664
+feature	block	all	608	0.23480548182575783
+feature	fractions	all	608	0.13034804843764347
+feature	both	all	608	0.16701600149693369
+sample_host	block	all	2085	0.29269617755007593
+sample_host	fractions	all	2085	0.146769049560569
+sample_host	both	all	2085	0.32891053053066277
+material	block	all	2639	0.3129391140081665
+material	fractions	all	2639	0.1357779315688508
+material	both	all	2639	0.2487267626635403

@@ -1,0 +1,609 @@
+Run_accession	y_true	pred_block	pred_fractions	pred_both
+ERR10114878	archeological site	cave	midden	midden
+ERR10114879	archeological site	cave	thermokarst	thermokarst
+ERR10114880	archeological site	midden	thermokarst	thermokarst
+ERR10114881	archeological site	midden	thermokarst	thermokarst
+ERR10114882	archeological site	thermokarst	thermokarst	thermokarst
+ERR10114883	archeological site	cave	thermokarst	thermokarst
+ERR10493277	sea coast	lake	thermokarst	thermokarst
+ERR10493281	sea coast	lake	thermokarst	thermokarst
+ERR10493283	sea coast	lake	thermokarst	thermokarst
+ERR10493285	sea coast	lake	midden	archeological site
+ERR10493287	sea coast	lake	thermokarst	thermokarst
+ERR10493289	sea coast	lake	thermokarst	thermokarst
+ERR10493291	sea coast	lake	swamp forest	swamp forest
+ERR10493292	sea coast	lake	swamp forest	thermokarst
+ERR10493294	sea coast	lake	thermokarst	thermokarst
+ERR10493297	sea coast	lake	swamp forest	thermokarst
+ERR10493299	sea coast	lake	swamp forest	thermokarst
+ERR10493301	sea coast	lake	swamp forest	thermokarst
+ERR10493303	sea coast	lake	thermokarst	thermokarst
+ERR10493304	sea coast	lake	thermokarst	thermokarst
+ERR10493306	sea coast	lake	thermokarst	thermokarst
+ERR10493308	sea coast	lake	thermokarst	thermokarst
+ERR10493310	sea coast	lake	thermokarst	thermokarst
+ERR10493311	sea coast	lake	midden	archeological site
+ERR10493312	sea coast	lake	thermokarst	thermokarst
+ERR10493314	sea coast	lake	thermokarst	thermokarst
+ERR10493316	sea coast	lake	thermokarst	thermokarst
+ERR10493318	sea coast	lake	thermokarst	thermokarst
+ERR10493320	sea coast	lake	midden	thermokarst
+ERR10493322	sea coast	ocean	midden	ocean
+ERR10493324	sea coast	lake	midden	midden
+ERR10493326	sea coast	lake	thermokarst	thermokarst
+ERR10493328	sea coast	lake	thermokarst	thermokarst
+ERR10493330	sea coast	lake	thermokarst	thermokarst
+ERR10493332	sea coast	lake	rock shelter	lake
+ERR10493333	sea coast	lake	thermokarst	thermokarst
+ERR10493334	sea coast	lake	rock shelter	lake
+ERR10493335	sea coast	ocean	rock shelter	ocean
+ERR10493336	sea coast	lake	rock shelter	thermokarst
+ERR10493337	sea coast	lake	thermokarst	thermokarst
+ERR10493338	sea coast	midden	rock shelter	ocean
+ERR10493339	sea coast	midden	rock shelter	midden
+ERR10493340	sea coast	midden	rock shelter	lake
+ERR10493341	sea coast	lake	thermokarst	thermokarst
+ERR10493343	sea coast	lake	thermokarst	thermokarst
+ERR10493344	sea coast	midden	thermokarst	thermokarst
+ERR10493345	sea coast	midden	thermokarst	thermokarst
+ERR10493346	sea coast	lake	rock shelter	lake
+ERR10493347	sea coast	ocean	rock shelter	lake
+ERR10493348	sea coast	lake	rock shelter	lake
+ERR10493349	sea coast	ocean	rock shelter	lake
+ERR10493357	sea coast	thermokarst	rock shelter	ocean
+ERR10493358	sea coast	ocean	ocean	ocean
+ERR10493359	sea coast	thermokarst	rock shelter	ocean
+ERR10493360	sea coast	lake	midden	thermokarst
+ERR10493361	sea coast	lake	midden	swamp forest
+ERR10493362	sea coast	lake	midden	archeological site
+ERR10493363	sea coast	lake	midden	rock shelter
+ERR12814413	lake	lake	archeological site	lake
+ERR12814414	lake	lake	archeological site	lake
+ERR12814415	lake	lake	lake	lake
+ERR12814416	lake	lake	archeological site	lake
+ERR12814417	lake	lake	archeological site	thermokarst
+ERR12814418	lake	lake	thermokarst	lake
+ERR12814419	lake	lake	thermokarst	thermokarst
+ERR12814422	lake	lake	archeological site	thermokarst
+ERR12814423	lake	lake	archeological site	archeological site
+ERR12814424	lake	lake	thermokarst	thermokarst
+ERR12814425	lake	lake	lake	lake
+ERR12814427	lake	lake	thermokarst	lake
+ERR12814428	lake	lake	midden	thermokarst
+ERR12814429	lake	lake	lake	lake
+ERR12814430	lake	lake	thermokarst	lake
+ERR12814431	lake	lake	lake	lake
+ERR12814432	lake	lake	lake	lake
+ERR12814433	lake	ocean	rock shelter	ocean
+ERR12814434	lake	lake	lake	lake
+ERR12814435	lake	lake	lake	lake
+ERR12814436	lake	lake	lake	lake
+ERR12814437	lake	lake	lake	lake
+ERR12814438	lake	lake	lake	lake
+ERR12814439	lake	lake	lake	lake
+ERR12814440	lake	lake	lake	lake
+ERR12814442	lake	lake	lake	lake
+ERR12814443	lake	lake	lake	lake
+ERR12814444	lake	lake	lake	lake
+ERR12814445	lake	lake	lake	lake
+ERR12814446	lake	lake	lake	lake
+ERR12814447	lake	lake	lake	lake
+ERR12814448	lake	lake	lake	lake
+ERR12814449	lake	lake	lake	lake
+ERR12814450	lake	lake	lake	lake
+ERR12814452	lake	lake	lake	lake
+ERR12814453	lake	lake	lake	lake
+ERR12814454	lake	lake	lake	lake
+ERR12814455	lake	lake	lake	lake
+ERR12814456	lake	lake	lake	lake
+ERR12814457	lake	lake	lake	lake
+ERR12814458	lake	lake	lake	lake
+ERR12814460	lake	lake	lake	lake
+ERR12814461	lake	lake	lake	lake
+ERR12814462	lake	lake	lake	lake
+ERR12814463	lake	lake	lake	lake
+ERR12814464	lake	lake	lake	lake
+ERR12814465	lake	lake	lake	lake
+ERR12814467	lake	lake	lake	lake
+ERR12814468	lake	lake	lake	lake
+ERR12814469	lake	lake	lake	lake
+ERR12814470	lake	lake	swamp forest	lake
+ERR12814471	lake	lake	lake	lake
+ERR12814472	lake	lake	lake	lake
+ERR12814473	lake	lake	lake	lake
+ERR12814474	lake	lake	swamp forest	lake
+ERR12814475	lake	lake	lake	lake
+ERR12814476	lake	lake	lake	lake
+ERR13950600	lake	thermokarst	swamp forest	thermokarst
+ERR13950601	lake	lake	rock shelter	ocean
+ERR13950606	lake	lake	lake	lake
+ERR13950607	lake	lake	lake	lake
+ERR13950608	lake	lake	lake	lake
+ERR13950609	lake	thermokarst	lake	lake
+ERR13950611	lake	lake	swamp forest	ocean
+ERR13950612	lake	thermokarst	lake	lake
+ERR13950613	lake	lake	rock shelter	lake
+ERR13950614	lake	thermokarst	swamp forest	lake
+ERR13950615	lake	thermokarst	lake	lake
+ERR13950620	lake	lake	ocean	ocean
+ERR13950621	lake	thermokarst	swamp forest	thermokarst
+ERR13950622	lake	thermokarst	lake	lake
+ERR13950623	lake	thermokarst	swamp forest	lake
+ERR13950624	lake	lake	midden	lake
+ERR13950625	lake	lake	lake	lake
+ERR13950627	lake	thermokarst	lake	ocean
+ERR13950628	lake	thermokarst	lake	ocean
+ERR13950629	lake	lake	lake	lake
+ERR13950630	lake	lake	lake	lake
+ERR13950631	lake	lake	lake	lake
+ERR13950632	lake	lake	lake	lake
+ERR13950633	lake	lake	lake	lake
+ERR13950634	lake	lake	swamp forest	lake
+ERR13950635	lake	lake	lake	lake
+ERR13950637	lake	thermokarst	lake	lake
+ERR13950638	lake	lake	rock shelter	lake
+ERR13950639	lake	thermokarst	swamp forest	thermokarst
+ERR13950640	lake	thermokarst	swamp forest	thermokarst
+ERR13950641	lake	thermokarst	swamp forest	lake
+ERR13950642	lake	thermokarst	swamp forest	thermokarst
+ERR13950643	lake	thermokarst	lake	lake
+ERR13950644	lake	thermokarst	swamp forest	lake
+ERR13950646	lake	thermokarst	lake	lake
+ERR13950647	lake	thermokarst	swamp forest	lake
+ERR13950648	lake	thermokarst	swamp forest	lake
+ERR13950649	lake	lake	sea coast	lake
+ERR13950650	lake	lake	lake	lake
+ERR13950653	lake	thermokarst	rock shelter	ocean
+ERR13950654	lake	thermokarst	lake	ocean
+ERR13950655	lake	lake	rock shelter	ocean
+ERR13950658	lake	lake	lake	lake
+ERR13950659	lake	thermokarst	lake	ocean
+ERR13950660	lake	thermokarst	swamp forest	ocean
+ERR13950661	lake	thermokarst	swamp forest	thermokarst
+ERR13950662	lake	thermokarst	thermokarst	thermokarst
+ERR13950663	lake	thermokarst	thermokarst	thermokarst
+ERR13950664	lake	thermokarst	shell	thermokarst
+ERR13950665	lake	thermokarst	rock shelter	lake
+ERR13950666	lake	thermokarst	ocean	ocean
+ERR13950667	lake	lake	swamp forest	lake
+ERR13950668	lake	thermokarst	lake	ocean
+ERR13950669	lake	thermokarst	lake	thermokarst
+ERR13950670	lake	lake	shell	lake
+ERR13950671	lake	thermokarst	swamp forest	lake
+ERR13950673	lake	thermokarst	swamp forest	thermokarst
+ERR13950674	lake	thermokarst	thermokarst	thermokarst
+ERR1560012	lake	lake	lake	lake
+ERR1560013	lake	lake	lake	lake
+ERR1560014	lake	lake	lake	lake
+ERR1560015	lake	lake	lake	lake
+ERR1560016	lake	lake	lake	lake
+ERR1560017	lake	lake	lake	lake
+ERR1560018	lake	rock shelter	shell	archeological site
+ERR1560019	lake	lake	lake	archeological site
+ERR1560020	lake	lake	shell	lake
+ERR1560021	lake	lake	shell	archeological site
+ERR1560022	lake	lake	archeological site	archeological site
+ERR1560023	lake	lake	shell	lake
+ERR1560024	lake	rock shelter	archeological site	rock shelter
+ERR1560025	lake	rock shelter	shell	rock shelter
+ERR1560093	lake	lake	lake	lake
+ERR1560094	lake	lake	lake	lake
+ERR1560095	lake	lake	lake	lake
+ERR1560096	lake	rock shelter	shell	lake
+ERR1560097	lake	rock shelter	shell	lake
+ERR1560098	lake	sea coast	shell	lake
+ERR1560099	lake	rock shelter	shell	lake
+ERR1560100	lake	cave	shell	sea coast
+ERR1560101	lake	rock shelter	shell	lake
+ERR1560102	lake	rock shelter	shell	sea coast
+ERR1560103	lake	archeological site	shell	lake
+ERR1560104	lake	archeological site	shell	lake
+ERR1560105	lake	lake	shell	lake
+ERR1560106	lake	lake	archeological site	lake
+ERR1560107	lake	lake	lake	lake
+ERR1560108	lake	lake	lake	lake
+ERR1560109	lake	lake	shell	lake
+ERR1560110	lake	lake	shell	lake
+ERR1688747	midden	midden	shell	sea coast
+ERR1688749	midden	midden	archeological site	sea coast
+ERR1688750	midden	midden	ocean	sea coast
+ERR1688752	midden	midden	sea coast	sea coast
+ERR1688754	midden	midden	sea coast	sea coast
+ERR1688756	midden	midden	shell	sea coast
+ERR1688758	midden	midden	sea coast	sea coast
+ERR1688760	midden	midden	sea coast	sea coast
+ERR1688761	midden	midden	shell	sea coast
+ERR1688762	midden	midden	shell	sea coast
+ERR1688764	midden	midden	sea coast	sea coast
+ERR1688765	midden	sea coast	sea coast	sea coast
+ERR1688768	midden	midden	ocean	ocean
+ERR1688769	midden	midden	archeological site	sea coast
+ERR1688771	midden	midden	archeological site	sea coast
+ERR1688772	midden	midden	cave	sea coast
+ERR1688775	midden	midden	ocean	sea coast
+ERR1688778	midden	midden	archeological site	sea coast
+ERR1688780	midden	midden	sea coast	sea coast
+ERR1688782	midden	midden	ocean	ocean
+ERR1688785	midden	midden	ocean	sea coast
+ERR1688788	midden	midden	shell	sea coast
+ERR1688789	midden	midden	ocean	sea coast
+ERR1688797	midden	midden	sea coast	sea coast
+ERR1688799	midden	midden	sea coast	sea coast
+ERR1688803	midden	midden	sea coast	sea coast
+ERR1688804	midden	midden	sea coast	sea coast
+ERR1688808	midden	midden	archeological site	sea coast
+ERR1688810	midden	midden	shell	sea coast
+ERR1894879	shell	rock shelter	rock shelter	ocean
+ERR1894880	shell	rock shelter	rock shelter	ocean
+ERR1894881	shell	swamp forest	rock shelter	rock shelter
+ERR1894882	shell	swamp forest	rock shelter	ocean
+ERR1894900	shell	swamp forest	rock shelter	ocean
+ERR1894901	shell	swamp forest	rock shelter	lake
+ERR1894902	shell	swamp forest	rock shelter	ocean
+ERR1894903	shell	swamp forest	rock shelter	ocean
+ERR1894904	shell	swamp forest	cave	archeological site
+ERR1894905	shell	swamp forest	thermokarst	thermokarst
+ERR1894906	shell	swamp forest	lake	archeological site
+ERR1894907	shell	swamp forest	rock shelter	ocean
+ERR1894908	shell	ocean	rock shelter	ocean
+ERR1894909	shell	rock shelter	rock shelter	ocean
+ERR1894910	shell	ocean	rock shelter	ocean
+ERR1894911	shell	ocean	rock shelter	ocean
+ERR1894912	shell	swamp forest	rock shelter	ocean
+ERR1894913	shell	swamp forest	rock shelter	ocean
+ERR1894914	shell	swamp forest	rock shelter	ocean
+ERR1894915	shell	swamp forest	rock shelter	ocean
+ERR1894916	shell	swamp forest	thermokarst	ocean
+ERR1894917	shell	swamp forest	thermokarst	ocean
+ERR1894918	shell	swamp forest	rock shelter	archeological site
+ERR1894919	shell	swamp forest	rock shelter	ocean
+ERR3458787	ocean	rock shelter	shell	midden
+ERR3458788	ocean	cave	archeological site	midden
+ERR3458789	ocean	midden	shell	midden
+ERR3458790	ocean	midden	shell	midden
+ERR3458791	ocean	lake	ocean	sea coast
+ERR3458792	ocean	sea coast	ocean	sea coast
+ERR3459717	ocean	rock shelter	midden	midden
+ERR3459718	ocean	rock shelter	archeological site	midden
+ERR3459719	ocean	sea coast	midden	midden
+ERR3459720	ocean	sea coast	midden	midden
+ERR3459721	ocean	rock shelter	archeological site	midden
+ERR3459722	ocean	rock shelter	midden	midden
+ERR3459723	ocean	sea coast	midden	midden
+ERR3459724	ocean	sea coast	midden	midden
+ERR3459725	ocean	sea coast	ocean	ocean
+ERR3459726	ocean	ocean	ocean	ocean
+ERR3459727	ocean	sea coast	ocean	midden
+ERR3459728	ocean	sea coast	ocean	midden
+ERR3459729	ocean	sea coast	ocean	ocean
+ERR3459730	ocean	lake	archeological site	ocean
+ERR3459731	ocean	ocean	archeological site	midden
+ERR3459732	ocean	midden	midden	midden
+ERR3459733	ocean	lake	ocean	ocean
+ERR3459734	ocean	rock shelter	archeological site	ocean
+ERR3459735	ocean	sea coast	midden	midden
+ERR3459736	ocean	sea coast	lake	midden
+ERR3459737	ocean	midden	midden	midden
+ERR3459738	ocean	rock shelter	midden	midden
+ERR3459739	ocean	archeological site	midden	midden
+ERR3459740	ocean	rock shelter	midden	lake
+ERR3459741	ocean	lake	ocean	ocean
+ERR3459742	ocean	rock shelter	ocean	ocean
+ERR3459743	ocean	sea coast	ocean	ocean
+ERR3459744	ocean	rock shelter	ocean	lake
+ERR3761400	midden	archeological site	cave	thermokarst
+ERR3761401	midden	archeological site	cave	archeological site
+ERR3761402	archeological site	thermokarst	thermokarst	sea coast
+ERR3761403	midden	lake	shell	lake
+ERR3761404	archeological site	cave	cave	cave
+ERR3761405	midden	swamp forest	ocean	ocean
+ERR3761406	archeological site	swamp forest	shell	ocean
+ERR3772645	lake	lake	lake	lake
+ERR3804374	lake	lake	lake	lake
+ERR3804375	lake	lake	lake	lake
+ERR4334735	lake	lake	lake	lake
+ERR4334736	lake	lake	lake	lake
+ERR4426516	cave	midden	shell	ocean
+ERR4426517	cave	archeological site	shell	ocean
+ERR4426518	cave	archeological site	archeological site	archeological site
+ERR4426519	cave	rock shelter	shell	rock shelter
+ERR4426520	cave	rock shelter	archeological site	archeological site
+ERR4426521	cave	rock shelter	shell	thermokarst
+ERR4426522	cave	rock shelter	shell	rock shelter
+ERR4426523	cave	archeological site	archeological site	thermokarst
+ERR4426524	cave	rock shelter	archeological site	thermokarst
+ERR4426525	cave	archeological site	rock shelter	archeological site
+ERR4426526	cave	archeological site	archeological site	archeological site
+ERR4426527	cave	archeological site	archeological site	archeological site
+ERR4426529	cave	archeological site	archeological site	archeological site
+ERR4426530	cave	archeological site	archeological site	archeological site
+ERR4426531	cave	archeological site	rock shelter	archeological site
+ERR4426532	cave	rock shelter	shell	archeological site
+ERR4426533	cave	rock shelter	shell	rock shelter
+ERR4426534	cave	archeological site	archeological site	archeological site
+ERR4426535	cave	thermokarst	thermokarst	archeological site
+ERR4426536	cave	rock shelter	archeological site	archeological site
+ERR4426537	cave	archeological site	archeological site	archeological site
+ERR4426538	cave	thermokarst	archeological site	thermokarst
+ERR4426539	cave	thermokarst	archeological site	archeological site
+ERR4426540	cave	archeological site	archeological site	archeological site
+ERR4426541	cave	rock shelter	archeological site	archeological site
+ERR4426542	cave	rock shelter	shell	rock shelter
+ERR4426543	cave	thermokarst	thermokarst	thermokarst
+ERR4426545	cave	archeological site	archeological site	archeological site
+ERR4426546	cave	rock shelter	archeological site	archeological site
+ERR4426547	cave	archeological site	archeological site	archeological site
+ERR4426548	cave	archeological site	archeological site	archeological site
+ERR4426549	cave	archeological site	archeological site	archeological site
+ERR4426550	cave	archeological site	archeological site	archeological site
+ERR4426552	cave	archeological site	archeological site	archeological site
+ERR567364	ocean	rock shelter	midden	midden
+ERR567366	ocean	rock shelter	midden	rock shelter
+ERR6430820	ocean	thermokarst	ocean	lake
+ERR6430821	ocean	thermokarst	shell	lake
+ERR6430822	ocean	thermokarst	ocean	ocean
+ERR6430823	ocean	lake	archeological site	ocean
+ERR6430825	ocean	lake	ocean	lake
+ERR6430828	ocean	lake	ocean	lake
+ERR6430830	ocean	lake	ocean	lake
+ERR6430831	ocean	lake	ocean	lake
+ERR6430832	ocean	thermokarst	sea coast	lake
+ERR6430833	ocean	lake	ocean	lake
+ERR6430834	ocean	lake	ocean	lake
+ERR6430836	ocean	lake	ocean	lake
+ERR6430838	ocean	lake	ocean	lake
+ERR6430839	ocean	ocean	shell	ocean
+ERR6430840	ocean	thermokarst	ocean	lake
+ERR6430841	ocean	lake	ocean	lake
+ERR6430842	ocean	lake	ocean	lake
+ERR6430843	ocean	thermokarst	ocean	lake
+ERR6430845	ocean	lake	ocean	lake
+ERR6430846	ocean	lake	ocean	lake
+ERR6430847	ocean	thermokarst	ocean	lake
+ERR6430848	ocean	lake	ocean	lake
+ERR6430849	ocean	lake	archeological site	lake
+ERR6430850	ocean	thermokarst	ocean	lake
+ERR6430851	ocean	lake	ocean	lake
+ERR9465622	lake	lake	swamp forest	lake
+ERR9465623	lake	lake	lake	lake
+ERR9465624	lake	lake	swamp forest	lake
+ERR9465625	lake	lake	lake	lake
+ERR9465626	lake	lake	swamp forest	lake
+ERR9465627	lake	lake	lake	lake
+ERR9465628	lake	lake	swamp forest	lake
+ERR9465629	lake	lake	lake	lake
+ERR9465630	lake	lake	rock shelter	lake
+ERR9465631	lake	lake	rock shelter	lake
+ERR9465632	lake	lake	rock shelter	ocean
+ERR9690357	thermokarst	lake	cave	archeological site
+ERR9690358	thermokarst	lake	cave	lake
+ERR9690359	thermokarst	lake	cave	lake
+ERR9690360	thermokarst	lake	cave	lake
+ERR9690361	thermokarst	lake	sea coast	lake
+ERR9690362	thermokarst	lake	midden	lake
+ERR9690363	thermokarst	lake	midden	lake
+ERR9690364	thermokarst	lake	midden	archeological site
+ERR9690365	thermokarst	lake	midden	lake
+ERR9690366	thermokarst	lake	midden	lake
+SRR10156707	swamp forest	sea coast	lake	lake
+SRR10156708	swamp forest	sea coast	lake	lake
+SRR10156709	swamp forest	sea coast	lake	sea coast
+SRR10156710	swamp forest	midden	ocean	ocean
+SRR10156713	swamp forest	sea coast	lake	lake
+SRR10156724	swamp forest	sea coast	lake	lake
+SRR10156735	swamp forest	lake	ocean	lake
+SRR10156737	swamp forest	lake	ocean	lake
+SRR10156738	swamp forest	sea coast	ocean	lake
+SRR10156739	swamp forest	sea coast	ocean	lake
+SRR10156740	swamp forest	sea coast	shell	lake
+SRR10156741	swamp forest	sea coast	lake	lake
+SRR10156742	swamp forest	sea coast	ocean	lake
+SRR10156743	swamp forest	sea coast	lake	lake
+SRR10156744	swamp forest	sea coast	shell	lake
+SRR10156745	swamp forest	sea coast	lake	lake
+SRR10156746	swamp forest	sea coast	lake	sea coast
+SRR10156747	swamp forest	lake	lake	sea coast
+SRR10156748	swamp forest	sea coast	ocean	lake
+SRR10156749	swamp forest	sea coast	lake	lake
+SRR10156750	swamp forest	sea coast	lake	lake
+SRR10156751	swamp forest	sea coast	lake	lake
+SRR10156752	swamp forest	sea coast	lake	lake
+SRR10156753	swamp forest	sea coast	sea coast	lake
+SRR10156754	swamp forest	sea coast	ocean	lake
+SRR10156755	swamp forest	lake	sea coast	lake
+SRR10156756	swamp forest	sea coast	lake	lake
+SRR10156757	swamp forest	sea coast	lake	sea coast
+SRR10156758	swamp forest	sea coast	shell	lake
+SRR16071515	ocean	ocean	midden	ocean
+SRR16071516	ocean	ocean	thermokarst	midden
+SRR16071517	ocean	ocean	ocean	ocean
+SRR16071520	ocean	ocean	shell	ocean
+SRR16071521	ocean	ocean	ocean	ocean
+SRR20576738	ocean	ocean	lake	lake
+SRR20576739	ocean	ocean	shell	lake
+SRR20576742	ocean	ocean	shell	ocean
+SRR20576743	ocean	ocean	shell	ocean
+SRR20576744	ocean	lake	shell	lake
+SRR20576745	ocean	ocean	cave	ocean
+SRR20576746	ocean	ocean	shell	ocean
+SRR20576747	ocean	shell	shell	lake
+SRR20576748	ocean	ocean	thermokarst	ocean
+SRR20576749	ocean	ocean	thermokarst	ocean
+SRR20576750	ocean	ocean	shell	lake
+SRR20576751	ocean	ocean	shell	ocean
+SRR20576752	ocean	ocean	shell	ocean
+SRR20576754	ocean	ocean	shell	ocean
+SRR20576755	ocean	ocean	shell	ocean
+SRR20576756	ocean	ocean	shell	ocean
+SRR20576757	ocean	ocean	shell	ocean
+SRR20576758	ocean	ocean	archeological site	ocean
+SRR20576759	ocean	ocean	shell	ocean
+SRR20576760	ocean	ocean	shell	ocean
+SRR20576761	ocean	ocean	shell	ocean
+SRR20576762	ocean	ocean	shell	ocean
+SRR20576763	ocean	ocean	shell	ocean
+SRR20576764	ocean	ocean	shell	ocean
+SRR20576765	ocean	ocean	shell	ocean
+SRR20576766	ocean	ocean	shell	ocean
+SRR20576767	ocean	ocean	shell	ocean
+SRR20576768	ocean	ocean	shell	ocean
+SRR20576769	ocean	ocean	shell	ocean
+SRR20576770	ocean	ocean	shell	ocean
+SRR20576771	ocean	ocean	cave	ocean
+SRR20576772	ocean	ocean	shell	ocean
+SRR20576773	ocean	ocean	swamp forest	ocean
+SRR20576774	ocean	lake	swamp forest	ocean
+SRR20576775	ocean	ocean	shell	ocean
+SRR20576776	ocean	ocean	shell	ocean
+SRR20576779	ocean	lake	shell	lake
+SRR20576780	ocean	ocean	lake	archeological site
+SRR20576781	ocean	ocean	lake	ocean
+SRR20576782	ocean	ocean	archeological site	archeological site
+SRR20576783	ocean	ocean	shell	lake
+SRR20576784	ocean	ocean	shell	lake
+SRR20576785	ocean	ocean	shell	ocean
+SRR20576786	ocean	ocean	shell	ocean
+SRR20576787	ocean	ocean	shell	ocean
+SRR20576794	ocean	ocean	shell	ocean
+SRR20576795	ocean	ocean	shell	ocean
+SRR20576796	ocean	ocean	archeological site	archeological site
+SRR20576797	ocean	ocean	cave	ocean
+SRR20576798	ocean	ocean	shell	lake
+SRR20576799	ocean	ocean	shell	ocean
+SRR20576800	ocean	ocean	shell	ocean
+SRR20576802	ocean	ocean	ocean	archeological site
+SRR20576803	ocean	shell	shell	lake
+SRR20576805	ocean	ocean	shell	ocean
+SRR20576807	ocean	ocean	lake	lake
+SRR20576808	ocean	ocean	lake	lake
+SRR20576809	ocean	ocean	shell	ocean
+SRR20576811	ocean	ocean	shell	ocean
+SRR20576812	ocean	ocean	shell	ocean
+SRR20576813	ocean	ocean	shell	ocean
+SRR20576814	ocean	ocean	shell	ocean
+SRR20576815	ocean	ocean	shell	ocean
+SRR20576816	ocean	lake	shell	ocean
+SRR20576817	ocean	lake	shell	lake
+SRR21589119	midden	midden	midden	midden
+SRR21589120	midden	midden	sea coast	midden
+SRR24222601	lake	ocean	swamp forest	ocean
+SRR24222602	lake	ocean	swamp forest	ocean
+SRR24222603	lake	ocean	shell	ocean
+SRR24222604	lake	ocean	shell	ocean
+SRR24222605	lake	ocean	swamp forest	ocean
+SRR24222606	lake	ocean	swamp forest	cave
+SRR24222607	lake	ocean	swamp forest	sea coast
+SRR24222608	lake	ocean	ocean	ocean
+SRR24222609	lake	ocean	swamp forest	ocean
+SRR24222610	lake	ocean	swamp forest	ocean
+SRR24222612	lake	ocean	swamp forest	ocean
+SRR24222613	lake	ocean	swamp forest	ocean
+SRR24222614	lake	ocean	shell	ocean
+SRR24222615	lake	ocean	swamp forest	ocean
+SRR24222616	lake	ocean	swamp forest	thermokarst
+SRR24222617	lake	ocean	swamp forest	ocean
+SRR24222618	lake	ocean	ocean	ocean
+SRR24222619	lake	ocean	ocean	ocean
+SRR24222620	lake	ocean	rock shelter	lake
+SRR24222621	lake	ocean	shell	ocean
+SRR24222623	lake	ocean	swamp forest	ocean
+SRR24222624	lake	ocean	swamp forest	ocean
+SRR24222625	lake	ocean	lake	ocean
+SRR24222626	lake	ocean	swamp forest	ocean
+SRR24222627	lake	ocean	swamp forest	ocean
+SRR24222628	lake	ocean	shell	sea coast
+SRR24222629	lake	ocean	swamp forest	ocean
+SRR24222630	lake	ocean	swamp forest	ocean
+SRR24222631	lake	ocean	shell	archeological site
+SRR24222632	lake	ocean	shell	ocean
+SRR25620676	archeological site	midden	sea coast	thermokarst
+SRR25620681	archeological site	midden	cave	lake
+SRR25620753	archeological site	midden	cave	ocean
+SRR25620756	archeological site	midden	thermokarst	lake
+SRR25620780	archeological site	shell	thermokarst	ocean
+SRR25620786	archeological site	midden	thermokarst	ocean
+SRR25620790	archeological site	midden	lake	ocean
+SRR25620795	archeological site	midden	lake	ocean
+SRR32023812	ocean	ocean	rock shelter	ocean
+SRR32023817	ocean	ocean	rock shelter	ocean
+SRR32023818	ocean	archeological site	rock shelter	archeological site
+SRR32023819	ocean	ocean	rock shelter	ocean
+SRR32023820	ocean	ocean	rock shelter	ocean
+SRR32023821	ocean	ocean	rock shelter	archeological site
+SRR32023822	ocean	ocean	rock shelter	ocean
+SRR32023823	ocean	ocean	rock shelter	ocean
+SRR32023824	ocean	ocean	rock shelter	ocean
+SRR32023825	ocean	ocean	rock shelter	ocean
+SRR32023826	ocean	ocean	rock shelter	ocean
+SRR32023827	ocean	ocean	rock shelter	ocean
+SRR32023828	ocean	ocean	rock shelter	ocean
+SRR32023829	ocean	ocean	archeological site	archeological site
+SRR32023830	ocean	ocean	rock shelter	ocean
+SRR32023831	ocean	ocean	rock shelter	ocean
+SRR32023832	ocean	ocean	rock shelter	ocean
+SRR32023833	ocean	ocean	rock shelter	ocean
+SRR32023835	ocean	ocean	rock shelter	ocean
+SRR32023836	ocean	ocean	rock shelter	ocean
+SRR32023837	ocean	ocean	rock shelter	ocean
+SRR32023838	ocean	archeological site	rock shelter	archeological site
+SRR32023839	ocean	ocean	rock shelter	ocean
+SRR32023840	ocean	ocean	rock shelter	ocean
+SRR32023841	ocean	ocean	rock shelter	ocean
+SRR32023842	ocean	ocean	rock shelter	ocean
+SRR32023845	ocean	ocean	rock shelter	ocean
+SRR32023846	ocean	ocean	rock shelter	ocean
+SRR32023847	ocean	ocean	rock shelter	archeological site
+SRR32023848	ocean	ocean	rock shelter	ocean
+SRR32023849	ocean	ocean	rock shelter	archeological site
+SRR32023851	ocean	ocean	ocean	ocean
+SRR32023854	ocean	ocean	rock shelter	ocean
+SRR32023855	ocean	ocean	rock shelter	archeological site
+SRR32023858	ocean	ocean	rock shelter	archeological site
+SRR32023859	ocean	ocean	rock shelter	ocean
+SRR32023860	ocean	ocean	rock shelter	ocean
+SRR32023861	ocean	ocean	rock shelter	ocean
+SRR32023864	ocean	archeological site	rock shelter	archeological site
+SRR32023865	ocean	archeological site	rock shelter	archeological site
+SRR32023867	ocean	ocean	rock shelter	ocean
+SRR32023868	ocean	ocean	rock shelter	ocean
+SRR32023870	ocean	archeological site	rock shelter	archeological site
+SRR32023871	ocean	archeological site	rock shelter	archeological site
+SRR32023872	ocean	ocean	rock shelter	archeological site
+SRR32023873	ocean	ocean	rock shelter	ocean
+SRR32023874	ocean	ocean	rock shelter	archeological site
+SRR32023875	ocean	archeological site	rock shelter	archeological site
+SRR5332455	lake	lake	shell	lake
+SRR5332456	lake	rock shelter	shell	rock shelter
+SRR5332457	lake	lake	shell	lake
+SRR5332458	lake	lake	shell	lake
+SRR5332459	lake	lake	shell	lake
+SRR5332461	lake	rock shelter	shell	lake
+SRR5332462	lake	lake	shell	lake
+SRR5332463	lake	rock shelter	shell	rock shelter
+SRR5332464	lake	lake	shell	lake
+SRR5332466	lake	lake	shell	lake
+SRR7774469	midden	swamp forest	midden	midden
+SRR7774470	midden	archeological site	midden	midden
+SRR7774471	midden	swamp forest	midden	midden
+SRR7774472	midden	thermokarst	thermokarst	thermokarst
+SRR7774473	midden	thermokarst	thermokarst	thermokarst
+SRR7774474	midden	archeological site	midden	swamp forest
+SRR7774475	midden	archeological site	thermokarst	thermokarst
+SRR7774476	midden	ocean	midden	thermokarst
+SRR7774477	midden	ocean	thermokarst	thermokarst
+SRR7774478	midden	archeological site	midden	archeological site
+SRR7774479	midden	archeological site	midden	midden
+SRR8652706	lake	lake	archeological site	archeological site
+SRR8652707	lake	lake	swamp forest	ocean
+SRR8652708	lake	lake	ocean	ocean
+SRR8652709	lake	lake	swamp forest	lake
+SRR8652710	lake	lake	ocean	ocean
+SRR8652711	lake	lake	lake	lake
+SRR8652712	lake	lake	swamp forest	lake
+SRR8652713	lake	midden	lake	lake
+SRR8652714	lake	midden	swamp forest	swamp forest
+SRR8652715	lake	lake	lake	lake
+SRR8652716	lake	thermokarst	cave	thermokarst
+SRR8652717	lake	thermokarst	cave	thermokarst
+SRR8731956	rock shelter	cave	shell	shell
+SRR8731959	rock shelter	cave	shell	ocean

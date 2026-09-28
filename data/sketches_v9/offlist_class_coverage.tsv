@@ -1,0 +1,39 @@
+task	class	train_runs	kept_in_half	kept_in_all
+community_type	soft tissue	27	3063	169
+community_type	plant tissue	43	723	9
+community_type	gut	88	145	0
+community_type	skeletal tissue	214	385	0
+community_type	oral	1701	23	0
+feature	rock shelter	2	3978	633
+feature	thermokarst	10	60683	5048
+feature	archeological site	17	284	3
+feature	cave	34	3686	0
+feature	midden	46	16	0
+feature	sea coast	52	8757	0
+feature	ocean	179	25	0
+feature	lake	215	4491	0
+material	birch pitch	0	0	0
+material	soil	2	13374	1299
+material	muscle tissue	4	21350	2174
+material	intestine	15	12258	667
+material	midden	15	2241	4
+material	digestive tract contents	16	42090	16
+material	leaf	43	723	9
+material	palaeofaeces	61	2183	0
+material	permafrost	70	2316	0
+material	sediment	105	13	0
+material	bone	127	353	0
+material	marine sediment	143	206	0
+material	lake sediment	215	4491	0
+material	tooth	399	305	0
+material	dental calculus	1389	49	0
+sample_host	Ambrosia artemisiifolia	11	199	21
+sample_host	Pan troglodytes schweinfurthii	11	25585	190
+sample_host	Canis lupus	12	15371	0
+sample_host	Homo sapiens neanderthalensis	16	3884	4
+sample_host	Mammuthus primigenius	16	9130	532
+sample_host	Gorilla beringei beringei	23	6530	0
+sample_host	Gorilla gorilla gorilla	45	28	0
+sample_host	Gorilla beringei graueri	67	590	1
+sample_host	Ursus arctos	339	388	0
+sample_host	Homo sapiens	1397	31	0

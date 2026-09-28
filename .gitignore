@@ -397,3 +397,6 @@ data/sequences_v9/
 # diana-predict wiring smoke test: regenerable intermediates (k-mer counts and
 # positions for one sample), kept on disk as evidence the Logan route runs.
 results/predict_wiring_test/
+
+# S8.1 off-list shared-hash list: 2 M rows, 44 MB, regenerated in 6 min from the (ignored) sketches by 27_offlist_hashes_v9.sbatch
+data/sketches_v9/offlist_shared_hashes.tsv

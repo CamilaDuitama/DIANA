@@ -1,0 +1,2074 @@
+Run_accession	y_true	pred_block	pred_fractions	pred_both
+ERR11413657	oral	gut	soft tissue	gut
+ERR11413658	oral	oral	gut	plant tissue
+ERR11413659	oral	oral	plant tissue	oral
+ERR11413660	oral	oral	plant tissue	oral
+ERR11413661	oral	oral	plant tissue	oral
+ERR11413662	oral	oral	plant tissue	oral
+ERR11413663	oral	oral	oral	oral
+ERR11413664	oral	gut	soft tissue	gut
+ERR11413665	oral	oral	plant tissue	oral
+ERR11413666	oral	oral	plant tissue	oral
+ERR11413667	oral	oral	plant tissue	oral
+ERR11413668	oral	oral	plant tissue	oral
+ERR11413669	oral	oral	plant tissue	oral
+ERR11413670	oral	oral	plant tissue	oral
+ERR11413671	oral	oral	oral	oral
+ERR11413672	oral	oral	plant tissue	oral
+ERR11413673	oral	oral	skeletal tissue	oral
+ERR11413674	oral	oral	plant tissue	oral
+ERR11413675	oral	oral	plant tissue	oral
+ERR11413676	oral	oral	plant tissue	oral
+ERR11413677	oral	oral	plant tissue	oral
+ERR11413678	oral	gut	soft tissue	gut
+ERR11413679	oral	oral	oral	oral
+ERR11413680	oral	oral	gut	oral
+ERR11413681	oral	oral	skeletal tissue	oral
+ERR11413682	oral	oral	gut	oral
+ERR11413683	oral	oral	skeletal tissue	oral
+ERR11413684	oral	gut	soft tissue	skeletal tissue
+ERR11413685	oral	oral	skeletal tissue	oral
+ERR11413686	oral	oral	plant tissue	oral
+ERR11413687	oral	oral	plant tissue	oral
+ERR11413688	oral	oral	skeletal tissue	oral
+ERR11413689	oral	oral	plant tissue	oral
+ERR11413690	oral	oral	skeletal tissue	oral
+ERR11413691	oral	oral	skeletal tissue	oral
+ERR11413692	oral	oral	skeletal tissue	oral
+ERR11413693	oral	oral	skeletal tissue	oral
+ERR11413694	oral	oral	skeletal tissue	oral
+ERR11413695	oral	oral	plant tissue	oral
+ERR11413696	oral	oral	skeletal tissue	oral
+ERR11413697	oral	oral	soft tissue	skeletal tissue
+ERR11413698	oral	oral	soft tissue	gut
+ERR11413699	oral	oral	skeletal tissue	skeletal tissue
+ERR11413700	oral	oral	soft tissue	gut
+ERR11413701	oral	oral	soft tissue	gut
+ERR11413702	oral	oral	soft tissue	gut
+ERR11413703	oral	oral	soft tissue	gut
+ERR11413704	oral	oral	skeletal tissue	oral
+ERR11413705	oral	oral	soft tissue	gut
+ERR11413706	oral	oral	plant tissue	oral
+ERR11413707	oral	oral	soft tissue	gut
+ERR11413708	oral	oral	soft tissue	gut
+ERR11413709	oral	oral	soft tissue	gut
+ERR11413710	oral	oral	plant tissue	oral
+ERR11413711	oral	oral	skeletal tissue	oral
+ERR11413712	oral	oral	plant tissue	oral
+ERR11413713	oral	oral	oral	oral
+ERR11413714	oral	oral	oral	oral
+ERR11413715	oral	oral	gut	oral
+ERR11413716	oral	oral	skeletal tissue	oral
+ERR11413717	oral	oral	oral	oral
+ERR11413718	oral	oral	oral	oral
+ERR11413719	oral	oral	skeletal tissue	oral
+ERR11413720	oral	oral	skeletal tissue	oral
+ERR11413721	oral	oral	plant tissue	oral
+ERR11413722	oral	oral	skeletal tissue	oral
+ERR11413723	oral	oral	oral	oral
+ERR11413724	oral	oral	plant tissue	oral
+ERR11413725	oral	oral	skeletal tissue	oral
+ERR11413726	oral	oral	soft tissue	oral
+ERR11413727	oral	oral	oral	oral
+ERR11413728	oral	oral	skeletal tissue	oral
+ERR11413729	oral	oral	skeletal tissue	oral
+ERR11413731	oral	oral	skeletal tissue	oral
+ERR11413732	oral	oral	plant tissue	oral
+ERR11413733	oral	oral	skeletal tissue	oral
+ERR11413734	oral	oral	skeletal tissue	oral
+ERR11413735	oral	oral	skeletal tissue	oral
+ERR11413736	oral	gut	soft tissue	gut
+ERR11413737	oral	oral	skeletal tissue	oral
+ERR11413738	oral	gut	soft tissue	plant tissue
+ERR11413739	oral	oral	oral	oral
+ERR11413740	oral	gut	soft tissue	gut
+ERR11413741	oral	oral	soft tissue	oral
+ERR11413742	oral	gut	soft tissue	gut
+ERR11413743	oral	gut	soft tissue	gut
+ERR11413744	oral	gut	soft tissue	gut
+ERR11413745	oral	oral	oral	oral
+ERR11413746	oral	oral	soft tissue	oral
+ERR11413747	oral	oral	soft tissue	plant tissue
+ERR11413748	oral	oral	soft tissue	gut
+ERR11413749	oral	oral	soft tissue	oral
+ERR11413750	oral	gut	soft tissue	gut
+ERR11413751	oral	oral	skeletal tissue	oral
+ERR11413752	oral	oral	skeletal tissue	oral
+ERR11413753	oral	oral	oral	oral
+ERR11413754	oral	oral	skeletal tissue	oral
+ERR11413755	oral	oral	skeletal tissue	oral
+ERR11413756	oral	oral	oral	oral
+ERR11413757	oral	oral	skeletal tissue	oral
+ERR11413758	oral	oral	oral	oral
+ERR11413759	oral	oral	plant tissue	oral
+ERR11656729	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656730	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656731	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656732	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656733	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656734	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656735	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656736	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656737	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656738	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656739	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656740	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656741	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656742	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656743	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656744	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656745	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656746	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656747	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11656748	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR11660399	oral	oral	oral	oral
+ERR11660400	oral	oral	oral	oral
+ERR11660401	oral	oral	skeletal tissue	oral
+ERR11660402	oral	oral	oral	oral
+ERR11660403	oral	oral	oral	oral
+ERR11660404	oral	oral	skeletal tissue	oral
+ERR11660405	oral	oral	oral	oral
+ERR11660406	oral	oral	oral	oral
+ERR11660407	oral	oral	skeletal tissue	oral
+ERR11660408	oral	oral	oral	oral
+ERR11660409	oral	oral	oral	oral
+ERR11660410	oral	oral	skeletal tissue	oral
+ERR11660411	oral	oral	oral	oral
+ERR11660412	oral	oral	oral	oral
+ERR11660413	oral	oral	skeletal tissue	oral
+ERR11660414	oral	oral	oral	oral
+ERR11660415	oral	oral	oral	oral
+ERR11660416	oral	oral	skeletal tissue	oral
+ERR11660417	oral	oral	oral	oral
+ERR11660418	oral	oral	oral	oral
+ERR11660419	oral	oral	skeletal tissue	oral
+ERR11660420	oral	oral	oral	oral
+ERR11660421	oral	oral	oral	oral
+ERR11660422	oral	oral	skeletal tissue	oral
+ERR11660423	oral	oral	oral	oral
+ERR11660424	oral	oral	oral	oral
+ERR11660425	oral	oral	skeletal tissue	oral
+ERR11660426	oral	oral	oral	oral
+ERR11660427	oral	oral	oral	oral
+ERR11660428	oral	oral	skeletal tissue	oral
+ERR11660429	oral	oral	skeletal tissue	gut
+ERR11660430	oral	oral	skeletal tissue	oral
+ERR11660431	oral	oral	skeletal tissue	oral
+ERR11660432	oral	oral	skeletal tissue	gut
+ERR11660433	oral	oral	skeletal tissue	gut
+ERR11660434	oral	oral	skeletal tissue	oral
+ERR11660435	oral	oral	skeletal tissue	gut
+ERR11660436	oral	oral	skeletal tissue	oral
+ERR11660437	oral	oral	skeletal tissue	gut
+ERR11660438	oral	skeletal tissue	skeletal tissue	oral
+ERR11660439	oral	oral	skeletal tissue	oral
+ERR11660440	oral	skeletal tissue	skeletal tissue	oral
+ERR11660441	oral	skeletal tissue	skeletal tissue	oral
+ERR11660442	oral	oral	skeletal tissue	oral
+ERR11660443	oral	oral	skeletal tissue	oral
+ERR11660444	oral	oral	skeletal tissue	oral
+ERR11660445	oral	skeletal tissue	skeletal tissue	oral
+ERR11660446	oral	gut	skeletal tissue	oral
+ERR11660447	oral	skeletal tissue	skeletal tissue	oral
+ERR11660448	oral	oral	skeletal tissue	oral
+ERR11660449	oral	oral	skeletal tissue	oral
+ERR11660450	oral	oral	skeletal tissue	oral
+ERR11660451	oral	oral	skeletal tissue	gut
+ERR11660452	oral	oral	skeletal tissue	oral
+ERR11660453	oral	oral	skeletal tissue	oral
+ERR11660454	oral	oral	skeletal tissue	oral
+ERR11660455	oral	oral	skeletal tissue	gut
+ERR11660456	oral	oral	oral	oral
+ERR11660457	oral	oral	oral	oral
+ERR11660458	oral	oral	oral	oral
+ERR11660459	oral	oral	soft tissue	oral
+ERR11660460	oral	oral	skeletal tissue	oral
+ERR11660461	oral	oral	oral	oral
+ERR11660462	oral	oral	soft tissue	oral
+ERR11660463	oral	oral	oral	oral
+ERR11660464	oral	oral	oral	oral
+ERR11660465	oral	oral	oral	oral
+ERR11660466	oral	oral	oral	oral
+ERR12115113	oral	oral	gut	oral
+ERR12115114	oral	oral	gut	oral
+ERR12115115	oral	oral	skeletal tissue	oral
+ERR12115116	oral	oral	skeletal tissue	oral
+ERR14057409	gut	oral	skeletal tissue	gut
+ERR14057410	gut	oral	skeletal tissue	gut
+ERR14057411	gut	oral	plant tissue	plant tissue
+ERR14057412	gut	oral	gut	plant tissue
+ERR14057413	gut	oral	skeletal tissue	oral
+ERR14057414	gut	oral	skeletal tissue	oral
+ERR14057415	gut	oral	gut	oral
+ERR14057416	gut	oral	gut	oral
+ERR14100444	gut	oral	skeletal tissue	gut
+ERR14100445	gut	oral	skeletal tissue	gut
+ERR14100446	gut	oral	plant tissue	plant tissue
+ERR14100447	gut	oral	gut	plant tissue
+ERR14100448	gut	oral	skeletal tissue	oral
+ERR14100449	gut	oral	skeletal tissue	oral
+ERR14100450	gut	oral	gut	oral
+ERR14100451	gut	oral	gut	oral
+ERR1777519	skeletal tissue	skeletal tissue	soft tissue	gut
+ERR1777520	skeletal tissue	oral	soft tissue	gut
+ERR1777521	skeletal tissue	skeletal tissue	soft tissue	gut
+ERR1777522	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR1777523	skeletal tissue	oral	soft tissue	gut
+ERR1777524	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777525	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777526	skeletal tissue	skeletal tissue	soft tissue	gut
+ERR1777527	skeletal tissue	skeletal tissue	skeletal tissue	skeletal tissue
+ERR1777528	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777529	skeletal tissue	skeletal tissue	soft tissue	gut
+ERR1777530	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777531	skeletal tissue	oral	soft tissue	oral
+ERR1777532	skeletal tissue	oral	soft tissue	oral
+ERR1777533	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777534	skeletal tissue	skeletal tissue	soft tissue	gut
+ERR1777535	skeletal tissue	skeletal tissue	soft tissue	gut
+ERR1777536	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777537	skeletal tissue	oral	soft tissue	gut
+ERR1777538	skeletal tissue	oral	soft tissue	gut
+ERR1777539	skeletal tissue	oral	soft tissue	oral
+ERR1777540	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR1777541	skeletal tissue	oral	soft tissue	gut
+ERR1777542	skeletal tissue	skeletal tissue	soft tissue	gut
+ERR1777543	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777544	skeletal tissue	oral	soft tissue	gut
+ERR1777545	skeletal tissue	oral	soft tissue	oral
+ERR1777546	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR1777547	skeletal tissue	gut	soft tissue	gut
+ERR1777548	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777549	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777550	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777551	skeletal tissue	skeletal tissue	soft tissue	gut
+ERR1777552	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777553	skeletal tissue	skeletal tissue	skeletal tissue	skeletal tissue
+ERR1777554	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777555	skeletal tissue	skeletal tissue	soft tissue	skeletal tissue
+ERR1777556	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777557	skeletal tissue	skeletal tissue	soft tissue	gut
+ERR1777558	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777559	skeletal tissue	skeletal tissue	soft tissue	gut
+ERR1777560	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777561	skeletal tissue	skeletal tissue	soft tissue	gut
+ERR1777562	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777563	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777564	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777565	skeletal tissue	skeletal tissue	skeletal tissue	skeletal tissue
+ERR1777566	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777567	skeletal tissue	skeletal tissue	soft tissue	gut
+ERR1777568	skeletal tissue	skeletal tissue	soft tissue	oral
+ERR1777569	skeletal tissue	oral	skeletal tissue	oral
+ERR2269773	plant tissue	soft tissue	plant tissue	plant tissue
+ERR2269775	plant tissue	gut	plant tissue	plant tissue
+ERR2269776	plant tissue	soft tissue	plant tissue	plant tissue
+ERR2269777	plant tissue	soft tissue	gut	plant tissue
+ERR2269778	plant tissue	soft tissue	gut	plant tissue
+ERR2269779	plant tissue	soft tissue	plant tissue	plant tissue
+ERR2269780	plant tissue	soft tissue	plant tissue	plant tissue
+ERR2269781	plant tissue	soft tissue	plant tissue	plant tissue
+ERR2269782	plant tissue	soft tissue	gut	plant tissue
+ERR2269783	plant tissue	soft tissue	gut	plant tissue
+ERR2269784	plant tissue	soft tissue	gut	plant tissue
+ERR2269785	plant tissue	plant tissue	gut	plant tissue
+ERR2269786	plant tissue	soft tissue	gut	plant tissue
+ERR2269787	plant tissue	soft tissue	gut	plant tissue
+ERR2269788	plant tissue	soft tissue	plant tissue	plant tissue
+ERR2269789	plant tissue	plant tissue	plant tissue	plant tissue
+ERR2269790	plant tissue	soft tissue	gut	oral
+ERR2269791	plant tissue	plant tissue	plant tissue	plant tissue
+ERR2269792	plant tissue	soft tissue	plant tissue	plant tissue
+ERR2269793	plant tissue	plant tissue	plant tissue	plant tissue
+ERR2269794	plant tissue	soft tissue	plant tissue	gut
+ERR2269795	plant tissue	plant tissue	plant tissue	plant tissue
+ERR2269796	plant tissue	soft tissue	plant tissue	oral
+ERR2269797	plant tissue	plant tissue	plant tissue	plant tissue
+ERR2269798	plant tissue	soft tissue	plant tissue	oral
+ERR2269799	plant tissue	soft tissue	plant tissue	oral
+ERR2269800	plant tissue	soft tissue	plant tissue	gut
+ERR2269801	plant tissue	soft tissue	plant tissue	plant tissue
+ERR2269802	plant tissue	soft tissue	gut	plant tissue
+ERR2269803	plant tissue	soft tissue	plant tissue	gut
+ERR2269804	plant tissue	plant tissue	skeletal tissue	plant tissue
+ERR2269805	plant tissue	plant tissue	plant tissue	plant tissue
+ERR3579671	oral	oral	gut	oral
+ERR3579672	oral	oral	gut	oral
+ERR3579673	oral	oral	gut	oral
+ERR3579674	oral	oral	skeletal tissue	oral
+ERR3579675	oral	oral	gut	oral
+ERR3579676	oral	oral	gut	oral
+ERR3579677	oral	oral	oral	oral
+ERR3579678	oral	oral	oral	oral
+ERR3579680	oral	oral	soft tissue	oral
+ERR3579681	oral	oral	gut	oral
+ERR3579682	oral	oral	skeletal tissue	oral
+ERR3579683	oral	oral	gut	oral
+ERR3579685	oral	oral	gut	oral
+ERR3579687	oral	oral	gut	oral
+ERR3579688	oral	oral	oral	oral
+ERR3579699	oral	oral	soft tissue	oral
+ERR3579700	oral	oral	gut	oral
+ERR3579701	oral	oral	gut	oral
+ERR3579702	oral	oral	gut	oral
+ERR3579703	oral	oral	plant tissue	oral
+ERR3579704	oral	oral	gut	oral
+ERR3579705	oral	oral	plant tissue	oral
+ERR3579706	oral	oral	plant tissue	oral
+ERR3579707	oral	oral	oral	oral
+ERR3579708	oral	oral	gut	oral
+ERR3579709	oral	oral	gut	oral
+ERR3579710	oral	oral	oral	oral
+ERR3579711	oral	oral	gut	oral
+ERR3579712	oral	oral	plant tissue	oral
+ERR3579713	oral	oral	soft tissue	oral
+ERR3579714	oral	oral	plant tissue	oral
+ERR3579715	oral	oral	gut	oral
+ERR3579716	oral	oral	gut	oral
+ERR3579719	oral	skeletal tissue	skeletal tissue	oral
+ERR3579720	oral	skeletal tissue	gut	skeletal tissue
+ERR3579721	oral	oral	gut	oral
+ERR3579722	oral	oral	plant tissue	oral
+ERR3579723	oral	oral	soft tissue	oral
+ERR3579726	oral	oral	gut	oral
+ERR3579727	oral	oral	gut	oral
+ERR3579728	oral	oral	oral	oral
+ERR3579729	oral	oral	oral	oral
+ERR3579730	oral	oral	oral	oral
+ERR3579731	oral	oral	gut	oral
+ERR3579732	oral	oral	soft tissue	oral
+ERR3579733	oral	oral	gut	oral
+ERR3579734	oral	oral	skeletal tissue	oral
+ERR3579735	oral	oral	skeletal tissue	oral
+ERR3579738	oral	oral	oral	oral
+ERR3579740	oral	oral	oral	oral
+ERR3579741	oral	oral	oral	oral
+ERR3579742	oral	oral	oral	oral
+ERR3579743	oral	oral	oral	oral
+ERR3579744	oral	oral	oral	oral
+ERR3579745	oral	oral	plant tissue	oral
+ERR3579746	oral	oral	gut	oral
+ERR3579747	oral	oral	gut	oral
+ERR3579748	oral	oral	skeletal tissue	oral
+ERR3579749	oral	oral	gut	oral
+ERR3579750	oral	oral	gut	oral
+ERR3579751	oral	oral	gut	oral
+ERR3579752	oral	oral	gut	oral
+ERR3579753	oral	oral	gut	oral
+ERR3579754	oral	skeletal tissue	skeletal tissue	skeletal tissue
+ERR3579755	oral	oral	oral	oral
+ERR3579756	oral	oral	oral	oral
+ERR3579757	oral	oral	gut	oral
+ERR3579758	oral	oral	oral	oral
+ERR3579759	oral	oral	gut	oral
+ERR3579760	oral	oral	plant tissue	oral
+ERR3579761	oral	oral	plant tissue	oral
+ERR3579762	oral	oral	plant tissue	oral
+ERR3579763	oral	oral	plant tissue	oral
+ERR3579764	oral	oral	gut	oral
+ERR3579765	oral	oral	gut	oral
+ERR3579766	oral	oral	gut	oral
+ERR3579767	oral	oral	gut	oral
+ERR3579768	oral	oral	gut	oral
+ERR3579774	oral	oral	oral	oral
+ERR3579775	oral	oral	oral	oral
+ERR3579776	oral	oral	gut	oral
+ERR3579777	oral	oral	gut	oral
+ERR3579779	oral	oral	gut	oral
+ERR3579781	oral	oral	plant tissue	oral
+ERR3579782	oral	oral	plant tissue	oral
+ERR3579783	oral	oral	plant tissue	oral
+ERR3579784	oral	oral	skeletal tissue	oral
+ERR3579785	oral	oral	gut	oral
+ERR3579786	oral	oral	gut	oral
+ERR3579787	oral	oral	plant tissue	oral
+ERR3579788	oral	oral	oral	oral
+ERR3579789	oral	oral	soft tissue	oral
+ERR3579790	oral	oral	oral	oral
+ERR3579791	oral	oral	skeletal tissue	oral
+ERR3579792	oral	skeletal tissue	gut	oral
+ERR3579793	oral	oral	gut	oral
+ERR3579796	oral	oral	plant tissue	oral
+ERR3579797	oral	oral	gut	oral
+ERR3579798	oral	oral	gut	oral
+ERR3579799	oral	oral	gut	oral
+ERR3579800	oral	oral	gut	oral
+ERR3579801	oral	oral	oral	oral
+ERR3579802	oral	oral	oral	oral
+ERR3579803	oral	oral	oral	oral
+ERR3579804	oral	oral	oral	oral
+ERR3579805	oral	oral	plant tissue	oral
+ERR3579806	oral	oral	gut	oral
+ERR3579807	oral	skeletal tissue	skeletal tissue	skeletal tissue
+ERR3579809	oral	oral	oral	oral
+ERR3579810	oral	oral	oral	oral
+ERR3579811	oral	skeletal tissue	gut	oral
+ERR3579812	oral	oral	skeletal tissue	oral
+ERR3579813	oral	oral	oral	oral
+ERR3579814	oral	oral	soft tissue	oral
+ERR3579815	oral	oral	gut	oral
+ERR3579816	oral	oral	gut	skeletal tissue
+ERR3579817	oral	oral	oral	oral
+ERR3579818	oral	oral	gut	oral
+ERR3579827	oral	oral	skeletal tissue	oral
+ERR3579828	oral	oral	gut	oral
+ERR3579829	oral	oral	gut	oral
+ERR3579830	oral	skeletal tissue	skeletal tissue	oral
+ERR3609652	oral	soft tissue	soft tissue	skeletal tissue
+ERR3609653	oral	soft tissue	soft tissue	skeletal tissue
+ERR3609654	oral	soft tissue	soft tissue	skeletal tissue
+ERR3609655	oral	soft tissue	soft tissue	skeletal tissue
+ERR3609656	oral	soft tissue	soft tissue	skeletal tissue
+ERR3609657	oral	skeletal tissue	soft tissue	gut
+ERR3609658	oral	skeletal tissue	soft tissue	gut
+ERR3609659	oral	skeletal tissue	soft tissue	gut
+ERR3609660	oral	oral	oral	oral
+ERR3609661	oral	oral	gut	oral
+ERR3678173	oral	oral	soft tissue	oral
+ERR3678174	oral	oral	gut	oral
+ERR3678175	oral	oral	gut	oral
+ERR3678176	oral	oral	plant tissue	soft tissue
+ERR3678177	oral	oral	plant tissue	oral
+ERR3678179	oral	oral	plant tissue	oral
+ERR3678180	oral	oral	gut	oral
+ERR3678181	oral	oral	skeletal tissue	oral
+ERR3678182	oral	oral	gut	oral
+ERR3678184	oral	oral	gut	oral
+ERR3678186	oral	oral	gut	oral
+ERR3678187	oral	oral	oral	oral
+ERR3678595	gut	gut	gut	gut
+ERR3678596	gut	gut	gut	gut
+ERR3678598	gut	gut	gut	gut
+ERR3678599	gut	gut	gut	gut
+ERR3678600	gut	gut	gut	gut
+ERR3678602	gut	gut	gut	gut
+ERR3678603	gut	gut	gut	gut
+ERR3678604	gut	gut	gut	gut
+ERR3678605	gut	gut	gut	gut
+ERR3678606	gut	gut	gut	gut
+ERR3678607	gut	gut	gut	gut
+ERR3678609	gut	gut	gut	gut
+ERR3678610	gut	gut	gut	oral
+ERR3678611	gut	gut	gut	gut
+ERR3678612	gut	gut	gut	gut
+ERR3678613	gut	gut	gut	gut
+ERR3678614	gut	gut	gut	gut
+ERR3678615	gut	gut	gut	gut
+ERR3678616	gut	gut	gut	gut
+ERR3678617	gut	gut	gut	gut
+ERR3678618	gut	gut	gut	gut
+ERR3678619	gut	gut	gut	gut
+ERR3678620	gut	gut	gut	gut
+ERR3678622	gut	gut	gut	gut
+ERR3678623	gut	gut	gut	gut
+ERR3678625	gut	gut	gut	gut
+ERR3678626	gut	gut	gut	gut
+ERR3678627	gut	gut	gut	gut
+ERR3678628	gut	gut	gut	gut
+ERR3678629	gut	gut	gut	gut
+ERR3678727	oral	oral	gut	oral
+ERR3728226	oral	oral	oral	oral
+ERR3728227	oral	oral	oral	oral
+ERR3728228	oral	oral	oral	oral
+ERR3728238	oral	oral	skeletal tissue	oral
+ERR3728239	oral	oral	skeletal tissue	oral
+ERR3728240	oral	oral	skeletal tissue	oral
+ERR3728241	oral	oral	skeletal tissue	oral
+ERR3728245	oral	oral	oral	oral
+ERR3728246	oral	oral	oral	oral
+ERR3728247	oral	oral	oral	oral
+ERR3728248	oral	oral	oral	oral
+ERR3728249	oral	oral	oral	oral
+ERR3728250	oral	oral	oral	oral
+ERR3728251	oral	oral	oral	oral
+ERR3728252	oral	oral	oral	oral
+ERR3728254	oral	oral	soft tissue	oral
+ERR3728255	oral	oral	soft tissue	oral
+ERR3728256	oral	oral	soft tissue	oral
+ERR3728257	oral	oral	soft tissue	oral
+ERR3761407	gut	gut	gut	oral
+ERR3761408	gut	gut	gut	gut
+ERR3761409	gut	gut	gut	gut
+ERR3761410	gut	gut	gut	gut
+ERR3761411	gut	gut	gut	gut
+ERR3761412	gut	gut	gut	gut
+ERR3761413	gut	gut	gut	oral
+ERR3906046	oral	oral	plant tissue	oral
+ERR4172756	oral	oral	gut	oral
+ERR4172758	oral	oral	gut	oral
+ERR4172761	oral	oral	gut	oral
+ERR4172763	oral	oral	gut	oral
+ERR4172766	oral	oral	gut	oral
+ERR4172783	oral	oral	gut	oral
+ERR4172788	oral	oral	gut	oral
+ERR4172789	oral	oral	soft tissue	oral
+ERR4172797	oral	oral	soft tissue	oral
+ERR4172799	oral	oral	oral	oral
+ERR4172800	oral	oral	oral	oral
+ERR4172802	oral	oral	soft tissue	oral
+ERR4172804	oral	oral	soft tissue	oral
+ERR4172806	oral	oral	oral	oral
+ERR4172808	oral	oral	soft tissue	oral
+ERR4172809	oral	oral	soft tissue	oral
+ERR4172811	oral	oral	soft tissue	oral
+ERR4172813	oral	oral	soft tissue	oral
+ERR4172814	oral	oral	oral	oral
+ERR4172817	oral	oral	soft tissue	gut
+ERR4172819	oral	oral	soft tissue	gut
+ERR4172823	oral	oral	soft tissue	gut
+ERR4172827	oral	oral	soft tissue	gut
+ERR4172829	oral	gut	soft tissue	gut
+ERR4172830	oral	gut	soft tissue	gut
+ERR4172832	oral	gut	gut	gut
+ERR4172834	oral	gut	gut	gut
+ERR4172835	oral	plant tissue	plant tissue	plant tissue
+ERR4172836	oral	plant tissue	plant tissue	plant tissue
+ERR4172838	oral	plant tissue	plant tissue	plant tissue
+ERR4172839	oral	plant tissue	plant tissue	plant tissue
+ERR4172841	oral	oral	soft tissue	oral
+ERR4172843	oral	oral	soft tissue	oral
+ERR4172850	oral	oral	gut	oral
+ERR4172854	oral	oral	gut	oral
+ERR4172855	oral	oral	plant tissue	plant tissue
+ERR4172857	oral	oral	plant tissue	plant tissue
+ERR4172860	oral	oral	plant tissue	plant tissue
+ERR4172872	oral	oral	plant tissue	plant tissue
+ERR4172883	skeletal tissue	oral	soft tissue	oral
+ERR4172889	skeletal tissue	oral	soft tissue	oral
+ERR4172953	skeletal tissue	oral	soft tissue	oral
+ERR4172977	skeletal tissue	oral	soft tissue	oral
+ERR4172978	oral	oral	soft tissue	oral
+ERR4172979	oral	oral	soft tissue	oral
+ERR4172981	oral	oral	soft tissue	oral
+ERR4172982	oral	oral	soft tissue	oral
+ERR4172991	oral	oral	gut	oral
+ERR4173008	oral	oral	gut	oral
+ERR4173033	oral	oral	gut	oral
+ERR4173039	oral	oral	oral	oral
+ERR4173041	oral	oral	soft tissue	oral
+ERR4173043	oral	oral	oral	oral
+ERR4173045	oral	oral	oral	oral
+ERR4173049	oral	oral	soft tissue	oral
+ERR4173051	oral	oral	soft tissue	oral
+ERR4173057	oral	oral	soft tissue	oral
+ERR4173060	oral	oral	soft tissue	oral
+ERR4173061	oral	oral	soft tissue	oral
+ERR4173063	oral	oral	soft tissue	oral
+ERR4173066	oral	oral	soft tissue	oral
+ERR4173068	oral	oral	soft tissue	oral
+ERR4173070	oral	oral	gut	oral
+ERR4173072	oral	oral	gut	oral
+ERR4173073	oral	oral	gut	oral
+ERR4173075	oral	oral	gut	oral
+ERR4173082	oral	oral	gut	oral
+ERR4373119	oral	oral	gut	oral
+ERR4373134	oral	oral	skeletal tissue	oral
+ERR4373146	oral	oral	skeletal tissue	oral
+ERR4373153	oral	oral	gut	oral
+ERR4373159	oral	oral	gut	oral
+ERR4373979	oral	oral	soft tissue	oral
+ERR4373995	skeletal tissue	oral	skeletal tissue	gut
+ERR4373996	oral	oral	gut	oral
+ERR4373997	skeletal tissue	oral	gut	oral
+ERR4373998	skeletal tissue	oral	skeletal tissue	gut
+ERR4373999	oral	oral	gut	oral
+ERR4374000	skeletal tissue	oral	skeletal tissue	gut
+ERR4374001	skeletal tissue	oral	gut	oral
+ERR4374002	skeletal tissue	oral	gut	oral
+ERR4374003	skeletal tissue	oral	skeletal tissue	gut
+ERR4374004	skeletal tissue	oral	gut	oral
+ERR4374005	skeletal tissue	plant tissue	skeletal tissue	gut
+ERR4374006	oral	oral	gut	oral
+ERR4374007	oral	gut	gut	gut
+ERR4374008	skeletal tissue	gut	gut	gut
+ERR4374009	oral	gut	gut	oral
+ERR4374010	oral	oral	gut	oral
+ERR4374011	soft tissue	gut	gut	gut
+ERR4374012	oral	gut	gut	gut
+ERR4374013	oral	gut	gut	oral
+ERR4374014	oral	oral	gut	oral
+ERR4374015	skeletal tissue	gut	gut	gut
+ERR4374016	skeletal tissue	oral	gut	oral
+ERR4374017	soft tissue	gut	skeletal tissue	gut
+ERR4374018	oral	gut	gut	oral
+ERR4374019	skeletal tissue	gut	gut	gut
+ERR4374020	skeletal tissue	oral	gut	oral
+ERR4374021	soft tissue	gut	gut	gut
+ERR4374022	oral	gut	gut	oral
+ERR4374023	oral	oral	gut	oral
+ERR4374024	oral	gut	gut	gut
+ERR4374025	skeletal tissue	plant tissue	gut	oral
+ERR4374026	skeletal tissue	oral	gut	oral
+ERR4374027	oral	gut	gut	oral
+ERR4374028	oral	oral	gut	oral
+ERR4374029	skeletal tissue	oral	gut	oral
+ERR4374030	skeletal tissue	gut	gut	gut
+ERR4374031	oral	gut	gut	gut
+ERR4374032	skeletal tissue	oral	gut	oral
+ERR4374033	skeletal tissue	oral	gut	oral
+ERR4374034	skeletal tissue	oral	gut	oral
+ERR4374035	soft tissue	oral	gut	oral
+ERR4374036	skeletal tissue	gut	gut	gut
+ERR4374037	skeletal tissue	oral	gut	oral
+ERR4374038	skeletal tissue	oral	gut	oral
+ERR4374039	skeletal tissue	oral	gut	gut
+ERR4374040	skeletal tissue	gut	gut	oral
+ERR4374041	skeletal tissue	gut	gut	gut
+ERR4374042	oral	gut	gut	oral
+ERR4374043	skeletal tissue	oral	gut	oral
+ERR4374044	oral	gut	gut	oral
+ERR4374045	oral	gut	gut	gut
+ERR4374046	soft tissue	gut	gut	gut
+ERR4374047	skeletal tissue	oral	gut	oral
+ERR4374048	oral	gut	gut	gut
+ERR4374049	oral	gut	gut	gut
+ERR4374050	oral	gut	gut	oral
+ERR4374051	oral	gut	gut	gut
+ERR4374052	skeletal tissue	oral	gut	oral
+ERR4374053	oral	oral	skeletal tissue	oral
+ERR4374055	skeletal tissue	oral	gut	oral
+ERR4374588	skeletal tissue	oral	gut	oral
+ERR4374589	oral	oral	gut	oral
+ERR4374838	oral	oral	gut	oral
+ERR4374839	skeletal tissue	oral	gut	oral
+ERR4374851	skeletal tissue	gut	gut	gut
+ERR4374857	soft tissue	oral	gut	oral
+ERR4374858	oral	gut	gut	gut
+ERR4374859	skeletal tissue	oral	gut	oral
+ERR4374860	oral	gut	gut	oral
+ERR4374861	skeletal tissue	oral	gut	oral
+ERR4374862	skeletal tissue	oral	gut	oral
+ERR4374863	oral	gut	gut	oral
+ERR4374864	oral	oral	gut	gut
+ERR4374865	oral	gut	gut	oral
+ERR4374866	oral	oral	gut	oral
+ERR4374867	oral	gut	gut	gut
+ERR4374868	oral	oral	gut	oral
+ERR4374869	oral	gut	gut	gut
+ERR4374870	oral	gut	gut	gut
+ERR4374871	oral	gut	gut	gut
+ERR4374872	oral	gut	gut	oral
+ERR4374873	oral	gut	gut	oral
+ERR4374874	oral	gut	gut	gut
+ERR4374875	oral	gut	gut	oral
+ERR4374912	skeletal tissue	oral	gut	oral
+ERR4374913	skeletal tissue	oral	gut	oral
+ERR4374914	oral	gut	gut	gut
+ERR4374915	skeletal tissue	gut	gut	oral
+ERR4374916	skeletal tissue	gut	gut	gut
+ERR4374917	oral	oral	gut	oral
+ERR4374918	skeletal tissue	oral	gut	oral
+ERR4374919	oral	oral	gut	oral
+ERR4374920	oral	gut	gut	gut
+ERR4374921	oral	oral	gut	oral
+ERR4374922	oral	gut	gut	oral
+ERR4374923	skeletal tissue	gut	gut	oral
+ERR4374924	oral	gut	gut	gut
+ERR4374925	oral	gut	gut	oral
+ERR4374926	oral	gut	gut	gut
+ERR4374927	skeletal tissue	gut	gut	oral
+ERR4374928	skeletal tissue	gut	gut	gut
+ERR4374929	oral	gut	gut	gut
+ERR4374948	skeletal tissue	gut	gut	gut
+ERR4374962	oral	gut	gut	gut
+ERR4374963	oral	gut	gut	oral
+ERR4375010	skeletal tissue	plant tissue	gut	gut
+ERR4375011	oral	gut	gut	gut
+ERR4375017	oral	gut	gut	gut
+ERR4375025	skeletal tissue	oral	gut	oral
+ERR4375032	oral	gut	gut	gut
+ERR4375036	skeletal tissue	gut	gut	oral
+ERR4375039	oral	oral	skeletal tissue	oral
+ERR4375040	skeletal tissue	oral	gut	oral
+ERR4375042	oral	oral	skeletal tissue	oral
+ERR4375045	oral	gut	gut	gut
+ERR4375046	skeletal tissue	gut	gut	gut
+ERR4375047	skeletal tissue	plant tissue	gut	gut
+ERR4375048	oral	gut	gut	gut
+ERR4375049	oral	gut	gut	gut
+ERR4375050	skeletal tissue	oral	gut	oral
+ERR4375132	oral	gut	gut	gut
+ERR4375133	oral	gut	gut	gut
+ERR4375134	skeletal tissue	gut	gut	gut
+ERR4375135	skeletal tissue	oral	gut	oral
+ERR4375136	skeletal tissue	oral	gut	oral
+ERR4375137	oral	gut	gut	oral
+ERR4375141	oral	gut	gut	gut
+ERR4375142	oral	gut	gut	oral
+ERR4375143	oral	gut	gut	oral
+ERR4375144	skeletal tissue	gut	gut	gut
+ERR4383828	skeletal tissue	gut	gut	gut
+ERR4383829	skeletal tissue	gut	gut	gut
+ERR4384927	skeletal tissue	soft tissue	gut	gut
+ERR4385800	skeletal tissue	soft tissue	gut	gut
+ERR4385809	skeletal tissue	soft tissue	gut	gut
+ERR4386464	oral	oral	soft tissue	oral
+ERR4386569	skeletal tissue	gut	gut	gut
+ERR4386594	soft tissue	soft tissue	gut	gut
+ERR4388102	soft tissue	gut	gut	gut
+ERR4388107	soft tissue	gut	gut	gut
+ERR4388231	soft tissue	gut	gut	gut
+ERR4388236	soft tissue	gut	gut	gut
+ERR4391165	oral	soft tissue	gut	oral
+ERR4391166	oral	soft tissue	gut	oral
+ERR4408185	oral	oral	gut	oral
+ERR4408187	skeletal tissue	gut	gut	oral
+ERR4408188	oral	gut	gut	gut
+ERR4413529	oral	oral	soft tissue	oral
+ERR4596443	oral	oral	oral	oral
+ERR4596813	oral	oral	oral	oral
+ERR4596815	oral	oral	plant tissue	oral
+ERR4596816	oral	oral	skeletal tissue	oral
+ERR4596817	oral	oral	gut	oral
+ERR4596818	oral	oral	oral	oral
+ERR4596819	oral	oral	soft tissue	oral
+ERR4596820	oral	oral	oral	oral
+ERR4596822	oral	oral	gut	oral
+ERR4596823	oral	oral	gut	oral
+ERR4596824	oral	oral	skeletal tissue	oral
+ERR4596825	oral	oral	soft tissue	oral
+ERR4596826	oral	oral	oral	oral
+ERR4596828	oral	oral	oral	oral
+ERR5670952	oral	oral	skeletal tissue	oral
+ERR5670953	oral	oral	skeletal tissue	oral
+ERR5670954	oral	oral	skeletal tissue	oral
+ERR5670955	oral	oral	gut	oral
+ERR5670956	oral	oral	oral	oral
+ERR5670957	oral	oral	gut	oral
+ERR5670958	oral	oral	gut	oral
+ERR5670959	oral	oral	skeletal tissue	oral
+ERR5670960	oral	oral	oral	oral
+ERR5670961	oral	oral	oral	oral
+ERR5670962	oral	oral	gut	oral
+ERR5670963	oral	oral	gut	oral
+ERR5670964	oral	oral	gut	oral
+ERR5670965	oral	oral	oral	oral
+ERR5670966	oral	oral	oral	oral
+ERR5670967	oral	oral	skeletal tissue	oral
+ERR5670968	oral	oral	soft tissue	oral
+ERR5670969	oral	oral	skeletal tissue	oral
+ERR5670970	oral	oral	skeletal tissue	oral
+ERR5670971	oral	oral	gut	oral
+ERR5729614	oral	oral	oral	oral
+ERR5729615	oral	oral	soft tissue	oral
+ERR5729616	oral	oral	oral	oral
+ERR5729617	oral	oral	oral	oral
+ERR5729618	oral	oral	soft tissue	oral
+ERR5729619	oral	oral	oral	oral
+ERR5729620	oral	oral	soft tissue	oral
+ERR5729621	oral	oral	soft tissue	oral
+ERR5729622	oral	oral	soft tissue	oral
+ERR5729623	oral	oral	gut	oral
+ERR5729624	oral	oral	oral	oral
+ERR5729625	oral	oral	oral	oral
+ERR5729626	oral	oral	soft tissue	oral
+ERR5729627	oral	oral	oral	oral
+ERR5729628	oral	oral	soft tissue	oral
+ERR5729629	oral	oral	soft tissue	oral
+ERR5729630	oral	oral	oral	oral
+ERR5729631	oral	oral	soft tissue	oral
+ERR5729632	oral	oral	soft tissue	oral
+ERR5729633	oral	oral	soft tissue	oral
+ERR5729634	oral	oral	soft tissue	oral
+ERR5729635	oral	oral	skeletal tissue	oral
+ERR5729636	oral	oral	oral	oral
+ERR5729637	oral	oral	soft tissue	oral
+ERR5729638	oral	oral	oral	oral
+ERR5729639	oral	oral	soft tissue	oral
+ERR5729640	oral	oral	oral	oral
+ERR5729641	oral	oral	oral	oral
+ERR5729642	oral	oral	soft tissue	oral
+ERR5729643	oral	oral	oral	oral
+ERR5729644	oral	oral	soft tissue	oral
+ERR5729645	oral	oral	oral	oral
+ERR5729646	oral	oral	oral	oral
+ERR5729647	oral	oral	soft tissue	oral
+ERR5729648	oral	oral	soft tissue	oral
+ERR5729649	oral	oral	gut	oral
+ERR5729650	oral	oral	soft tissue	oral
+ERR5729651	oral	oral	oral	oral
+ERR5729652	oral	oral	oral	oral
+ERR5729653	oral	oral	oral	oral
+ERR5729654	oral	oral	oral	oral
+ERR5729655	oral	oral	oral	oral
+ERR5729656	oral	oral	oral	oral
+ERR5729657	oral	oral	oral	oral
+ERR5766165	gut	soft tissue	soft tissue	gut
+ERR5766166	gut	soft tissue	gut	gut
+ERR5766167	gut	soft tissue	gut	gut
+ERR5766168	gut	soft tissue	soft tissue	gut
+ERR5766169	gut	soft tissue	gut	gut
+ERR5766170	gut	gut	gut	gut
+ERR5766171	gut	soft tissue	gut	gut
+ERR5766172	gut	soft tissue	gut	gut
+ERR5766173	gut	soft tissue	gut	gut
+ERR5766174	gut	oral	soft tissue	gut
+ERR5766175	gut	soft tissue	soft tissue	gut
+ERR5766176	gut	gut	gut	gut
+ERR5766177	gut	soft tissue	gut	gut
+ERR5766178	gut	soft tissue	gut	gut
+ERR5766179	gut	gut	gut	gut
+ERR5766180	gut	soft tissue	soft tissue	gut
+ERR5766181	gut	gut	soft tissue	gut
+ERR5766182	gut	soft tissue	gut	gut
+ERR5766183	gut	soft tissue	gut	gut
+ERR5863536	gut	oral	gut	oral
+ERR6093854	oral	gut	skeletal tissue	oral
+ERR6093855	oral	gut	gut	oral
+ERR6093856	oral	gut	gut	oral
+ERR6093857	oral	gut	skeletal tissue	oral
+ERR6093858	oral	gut	gut	oral
+ERR6093859	oral	gut	gut	oral
+ERR6093860	oral	gut	gut	oral
+ERR6093861	oral	gut	gut	oral
+ERR6093862	oral	oral	oral	oral
+ERR6093863	oral	oral	oral	oral
+ERR6093864	oral	oral	oral	oral
+ERR6093865	oral	oral	oral	oral
+ERR6093866	oral	gut	gut	oral
+ERR6093867	oral	gut	gut	oral
+ERR6093868	oral	gut	gut	oral
+ERR6093869	oral	gut	gut	oral
+ERR6093870	oral	gut	gut	oral
+ERR6093871	oral	gut	gut	oral
+ERR6093872	oral	gut	gut	oral
+ERR6093874	oral	gut	gut	oral
+ERR6093875	oral	gut	gut	gut
+ERR6093876	oral	gut	gut	gut
+ERR6093877	oral	gut	gut	gut
+ERR6093878	oral	gut	gut	gut
+ERR6093879	oral	gut	gut	gut
+ERR6093880	oral	gut	gut	gut
+ERR6093881	oral	gut	gut	gut
+ERR6093882	oral	gut	gut	gut
+ERR6093883	oral	gut	gut	oral
+ERR6093885	oral	gut	gut	oral
+ERR6093886	oral	gut	gut	oral
+ERR6093887	oral	gut	gut	oral
+ERR6093888	oral	oral	gut	oral
+ERR6093889	oral	oral	gut	oral
+ERR6093890	oral	oral	gut	oral
+ERR6093891	oral	oral	gut	oral
+ERR6093893	oral	soft tissue	gut	oral
+ERR6093894	oral	soft tissue	gut	oral
+ERR6093896	oral	soft tissue	gut	oral
+ERR6093897	oral	gut	gut	oral
+ERR6093899	oral	gut	gut	oral
+ERR6093900	oral	gut	gut	oral
+ERR6093901	oral	gut	gut	oral
+ERR6093902	oral	gut	gut	oral
+ERR6093903	oral	oral	gut	oral
+ERR6093904	oral	oral	gut	oral
+ERR6093905	oral	oral	gut	oral
+ERR6093906	oral	oral	gut	oral
+ERR6093907	oral	gut	gut	gut
+ERR6093908	oral	gut	gut	gut
+ERR6093909	oral	gut	gut	gut
+ERR6093910	oral	gut	gut	gut
+ERR6093912	oral	oral	gut	oral
+ERR6093913	oral	oral	gut	oral
+ERR6093914	oral	oral	gut	oral
+ERR6093916	oral	oral	gut	oral
+ERR6093917	oral	gut	gut	gut
+ERR6093919	oral	gut	gut	gut
+ERR6093920	oral	gut	gut	gut
+ERR6093921	oral	gut	gut	gut
+ERR6093922	oral	oral	gut	oral
+ERR6093923	oral	oral	gut	oral
+ERR6093924	oral	oral	gut	oral
+ERR6093926	oral	oral	gut	oral
+ERR6093927	oral	oral	gut	oral
+ERR6093928	oral	oral	gut	oral
+ERR6093929	oral	oral	gut	oral
+ERR6093930	oral	oral	gut	oral
+ERR6093931	oral	gut	gut	oral
+ERR6093932	oral	gut	gut	oral
+ERR6093934	oral	gut	gut	oral
+ERR6093935	oral	oral	gut	oral
+ERR6093936	oral	gut	gut	oral
+ERR6093937	oral	gut	gut	oral
+ERR6093938	oral	gut	gut	oral
+ERR6093939	oral	gut	gut	oral
+ERR6093941	oral	gut	gut	gut
+ERR6093942	oral	gut	gut	gut
+ERR6093943	oral	gut	gut	gut
+ERR6093945	oral	gut	gut	gut
+ERR6093946	oral	gut	gut	gut
+ERR6093947	oral	gut	gut	gut
+ERR6093948	oral	gut	gut	gut
+ERR6093949	oral	gut	gut	gut
+ERR6093950	oral	gut	gut	oral
+ERR6093951	oral	gut	gut	oral
+ERR6093952	oral	gut	gut	oral
+ERR6093953	oral	gut	gut	oral
+ERR6093954	oral	gut	gut	oral
+ERR6093955	oral	gut	gut	oral
+ERR6093956	oral	gut	gut	oral
+ERR6093957	oral	gut	gut	oral
+ERR6093958	oral	gut	gut	gut
+ERR6093959	oral	gut	gut	gut
+ERR6093960	oral	gut	gut	gut
+ERR6093961	oral	gut	gut	gut
+ERR6093963	oral	gut	gut	oral
+ERR6093964	oral	gut	gut	oral
+ERR6093965	oral	gut	gut	oral
+ERR6093966	oral	gut	gut	oral
+ERR6093967	oral	gut	gut	oral
+ERR6093968	oral	gut	gut	oral
+ERR6093969	oral	gut	gut	oral
+ERR6093970	oral	gut	gut	oral
+ERR6093972	oral	oral	gut	oral
+ERR6096533	oral	oral	gut	oral
+ERR6096535	oral	oral	gut	oral
+ERR6096536	oral	oral	gut	oral
+ERR6096537	oral	gut	gut	oral
+ERR6096538	oral	gut	gut	oral
+ERR6096539	oral	gut	gut	oral
+ERR6096540	oral	gut	gut	oral
+ERR6096541	oral	gut	gut	oral
+ERR6096542	oral	gut	gut	oral
+ERR6096543	oral	gut	gut	oral
+ERR6096544	oral	gut	gut	oral
+ERR6096545	oral	gut	gut	gut
+ERR6096547	oral	gut	gut	gut
+ERR6096548	oral	gut	gut	gut
+ERR6096549	oral	gut	gut	gut
+ERR6096550	oral	gut	gut	oral
+ERR6096551	oral	gut	gut	oral
+ERR6096552	oral	gut	gut	oral
+ERR6096554	oral	gut	gut	oral
+ERR6096555	oral	oral	gut	oral
+ERR6096557	oral	oral	gut	oral
+ERR6096570	oral	oral	gut	oral
+ERR6096574	oral	oral	gut	oral
+ERR6096575	oral	gut	gut	oral
+ERR6096576	oral	gut	gut	oral
+ERR6096579	oral	gut	gut	oral
+ERR6096580	oral	gut	gut	oral
+ERR6096581	oral	gut	gut	oral
+ERR6096582	oral	gut	gut	oral
+ERR6096739	oral	gut	gut	oral
+ERR6096740	oral	gut	gut	oral
+ERR6096741	oral	gut	gut	oral
+ERR6096742	oral	gut	gut	oral
+ERR6096743	oral	gut	gut	oral
+ERR6096744	oral	gut	gut	oral
+ERR6096745	oral	gut	gut	oral
+ERR6096746	oral	gut	gut	oral
+ERR6096747	oral	gut	gut	oral
+ERR6096748	oral	gut	gut	oral
+ERR6096749	oral	oral	oral	oral
+ERR6096752	oral	oral	oral	oral
+ERR6096755	oral	oral	oral	oral
+ERR6096759	oral	oral	oral	oral
+ERR6096760	oral	gut	gut	oral
+ERR6096762	oral	gut	gut	oral
+ERR6096764	oral	gut	gut	oral
+ERR6096766	oral	gut	gut	oral
+ERR6096776	oral	gut	gut	oral
+ERR6096784	oral	gut	gut	oral
+ERR6096796	oral	gut	gut	oral
+ERR6096814	oral	gut	gut	oral
+ERR6096818	oral	gut	gut	oral
+ERR6096822	oral	gut	gut	oral
+ERR6096826	oral	gut	gut	oral
+ERR6096829	oral	gut	gut	oral
+ERR6096835	oral	gut	gut	oral
+ERR6096842	oral	gut	gut	oral
+ERR6096847	oral	gut	gut	oral
+ERR6096853	oral	gut	gut	oral
+ERR6096886	oral	gut	gut	oral
+ERR6096922	oral	gut	gut	oral
+ERR6096923	oral	gut	gut	oral
+ERR6096924	oral	gut	gut	oral
+ERR6096925	oral	gut	gut	oral
+ERR6096926	oral	gut	gut	oral
+ERR6096927	oral	gut	gut	oral
+ERR6096928	oral	gut	gut	oral
+ERR6096929	oral	gut	plant tissue	oral
+ERR6096930	oral	gut	plant tissue	oral
+ERR6096931	oral	gut	plant tissue	oral
+ERR6096932	oral	gut	plant tissue	oral
+ERR6096933	oral	oral	soft tissue	oral
+ERR6096934	oral	oral	gut	oral
+ERR6096935	oral	oral	soft tissue	oral
+ERR6096937	oral	oral	gut	oral
+ERR6096955	oral	gut	gut	gut
+ERR6097155	oral	gut	gut	gut
+ERR6097156	oral	gut	gut	gut
+ERR6097514	oral	gut	gut	gut
+ERR6097549	oral	gut	gut	gut
+ERR6097552	oral	gut	gut	gut
+ERR6097573	oral	gut	gut	gut
+ERR6097575	oral	gut	gut	gut
+ERR6097576	oral	oral	gut	oral
+ERR6097577	oral	oral	oral	oral
+ERR6097579	oral	oral	gut	oral
+ERR6097580	oral	oral	gut	oral
+ERR6097581	oral	gut	gut	oral
+ERR6097583	oral	gut	gut	oral
+ERR6097619	oral	gut	gut	oral
+ERR6097621	oral	gut	gut	oral
+ERR6097622	oral	gut	gut	gut
+ERR6097623	oral	gut	gut	gut
+ERR6097625	oral	gut	gut	gut
+ERR6097626	oral	gut	gut	gut
+ERR6097627	oral	gut	gut	oral
+ERR6097628	oral	gut	gut	oral
+ERR6097629	oral	gut	gut	oral
+ERR6097630	oral	gut	gut	oral
+ERR6097759	oral	gut	gut	gut
+ERR6098066	oral	gut	gut	gut
+ERR6098349	oral	gut	gut	gut
+ERR6098517	oral	gut	gut	gut
+ERR6098519	oral	gut	gut	gut
+ERR6098520	oral	gut	gut	gut
+ERR6098552	oral	gut	gut	gut
+ERR6098553	oral	gut	gut	gut
+ERR6098554	oral	gut	gut	oral
+ERR6098555	oral	gut	gut	oral
+ERR6098556	oral	gut	gut	oral
+ERR6098557	oral	gut	gut	oral
+ERR6098559	oral	gut	gut	gut
+ERR6098560	oral	gut	gut	gut
+ERR6098730	oral	gut	gut	gut
+ERR6098929	oral	gut	gut	gut
+ERR6098930	oral	gut	gut	gut
+ERR6098932	oral	gut	gut	gut
+ERR6098934	oral	gut	gut	gut
+ERR6098936	oral	gut	gut	gut
+ERR6098937	oral	gut	gut	oral
+ERR6098938	oral	gut	gut	oral
+ERR6098939	oral	gut	gut	oral
+ERR6098940	oral	gut	gut	oral
+ERR6098982	oral	gut	gut	oral
+ERR6098983	oral	gut	gut	oral
+ERR6098984	oral	gut	gut	oral
+ERR6098985	oral	gut	gut	oral
+ERR6098990	oral	oral	skeletal tissue	oral
+ERR6099166	oral	oral	skeletal tissue	oral
+ERR6099349	oral	oral	skeletal tissue	oral
+ERR6099809	oral	oral	skeletal tissue	oral
+ERR6099810	oral	gut	plant tissue	oral
+ERR6099811	oral	gut	gut	oral
+ERR6099812	oral	gut	plant tissue	oral
+ERR6099813	oral	gut	plant tissue	oral
+ERR6099814	oral	gut	gut	gut
+ERR6099815	oral	gut	gut	gut
+ERR6099816	oral	gut	gut	gut
+ERR6099817	oral	gut	gut	gut
+ERR6099818	oral	gut	gut	gut
+ERR6099824	oral	gut	gut	gut
+ERR6099825	oral	gut	gut	gut
+ERR6099826	oral	gut	gut	gut
+ERR6101230	oral	gut	gut	gut
+ERR6108965	oral	gut	gut	gut
+ERR6108966	oral	gut	gut	gut
+ERR6108967	oral	gut	gut	gut
+ERR6108968	oral	gut	gut	gut
+ERR6108969	oral	gut	gut	gut
+ERR6108970	oral	gut	gut	gut
+ERR6108971	oral	gut	gut	gut
+ERR6108972	oral	gut	gut	gut
+ERR6108973	oral	gut	gut	gut
+ERR6108974	oral	gut	gut	gut
+ERR6108975	oral	gut	gut	gut
+ERR6108976	oral	gut	gut	gut
+ERR6108977	oral	gut	gut	gut
+ERR6108978	oral	gut	gut	gut
+ERR6108979	oral	gut	gut	gut
+ERR6108980	oral	gut	gut	gut
+ERR6108981	oral	gut	gut	gut
+ERR6108982	oral	gut	gut	gut
+ERR6108983	oral	gut	gut	gut
+ERR6108984	oral	gut	gut	gut
+ERR6108985	oral	gut	gut	gut
+ERR6108986	oral	gut	gut	gut
+ERR6108987	oral	gut	gut	gut
+ERR6108988	oral	oral	gut	oral
+ERR6108989	oral	oral	gut	oral
+ERR6108990	oral	oral	gut	oral
+ERR6108991	oral	oral	gut	oral
+ERR6108992	oral	gut	gut	oral
+ERR6108993	oral	gut	gut	oral
+ERR6108994	oral	gut	gut	oral
+ERR6108995	oral	gut	gut	oral
+ERR6108996	oral	gut	gut	gut
+ERR6108997	oral	gut	gut	gut
+ERR6108998	oral	gut	gut	gut
+ERR6109000	oral	gut	gut	gut
+ERR6109001	oral	gut	gut	oral
+ERR6109002	oral	gut	gut	oral
+ERR6109003	oral	gut	gut	oral
+ERR6109004	oral	gut	gut	oral
+ERR6109005	oral	gut	gut	oral
+ERR6109010	oral	gut	gut	oral
+ERR6109011	oral	gut	gut	oral
+ERR6109012	oral	gut	gut	oral
+ERR6109013	oral	oral	plant tissue	oral
+ERR6109014	oral	oral	plant tissue	oral
+ERR6109015	oral	oral	plant tissue	oral
+ERR6109016	oral	oral	plant tissue	oral
+ERR6109017	oral	gut	gut	gut
+ERR6109019	oral	gut	gut	gut
+ERR6109020	oral	gut	gut	gut
+ERR6109021	oral	gut	gut	gut
+ERR6109022	oral	gut	plant tissue	oral
+ERR6109023	oral	gut	plant tissue	oral
+ERR6109024	oral	gut	plant tissue	oral
+ERR6109025	oral	gut	plant tissue	oral
+ERR6109027	oral	gut	gut	gut
+ERR6109028	oral	gut	gut	gut
+ERR6109049	oral	gut	gut	gut
+ERR6109050	oral	gut	gut	gut
+ERR6109051	oral	oral	plant tissue	oral
+ERR6109053	oral	oral	plant tissue	oral
+ERR6109054	oral	oral	plant tissue	oral
+ERR6109055	oral	oral	plant tissue	oral
+ERR6109056	oral	oral	gut	oral
+ERR6109057	oral	oral	gut	oral
+ERR6109058	oral	oral	gut	oral
+ERR6109059	oral	oral	gut	oral
+ERR6178850	oral	oral	oral	oral
+ERR6178851	oral	oral	skeletal tissue	oral
+ERR6178852	oral	oral	oral	oral
+ERR6178853	oral	oral	soft tissue	oral
+ERR6178854	oral	oral	skeletal tissue	oral
+ERR6178855	oral	oral	oral	oral
+ERR6178856	oral	oral	oral	oral
+ERR6178857	oral	oral	oral	oral
+ERR6178858	oral	oral	skeletal tissue	oral
+ERR6178859	oral	oral	skeletal tissue	oral
+ERR6178860	oral	oral	soft tissue	oral
+ERR6178861	oral	oral	soft tissue	oral
+ERR6178862	oral	oral	gut	oral
+ERR6178863	oral	oral	soft tissue	oral
+ERR6178864	oral	oral	soft tissue	oral
+ERR6178865	oral	oral	soft tissue	oral
+ERR6178866	oral	oral	oral	oral
+ERR6178867	oral	oral	oral	oral
+ERR6178868	oral	oral	oral	oral
+ERR6178869	oral	oral	soft tissue	oral
+ERR6178870	oral	oral	oral	oral
+ERR6178871	oral	oral	soft tissue	oral
+ERR6178872	oral	oral	oral	oral
+ERR6178873	oral	oral	soft tissue	oral
+ERR6178874	oral	oral	skeletal tissue	oral
+ERR6178875	oral	oral	gut	oral
+ERR6178876	oral	oral	oral	oral
+ERR6178877	oral	oral	oral	oral
+ERR6178878	oral	oral	gut	oral
+ERR6178879	oral	oral	oral	oral
+ERR6178880	oral	oral	oral	oral
+ERR6178881	oral	oral	oral	oral
+ERR6178882	oral	oral	skeletal tissue	oral
+ERR6178883	oral	oral	skeletal tissue	oral
+ERR6178884	oral	oral	soft tissue	oral
+ERR6178885	oral	oral	soft tissue	oral
+ERR6178886	oral	oral	gut	oral
+ERR6178887	oral	oral	soft tissue	oral
+ERR6178888	oral	oral	oral	oral
+ERR6178889	oral	oral	soft tissue	oral
+ERR6178890	oral	oral	oral	oral
+ERR6178891	oral	oral	gut	oral
+ERR6178892	oral	oral	gut	oral
+ERR6178893	oral	oral	gut	oral
+ERR6178894	oral	oral	gut	oral
+ERR6178895	oral	oral	gut	oral
+ERR6178897	oral	oral	oral	oral
+ERR6178898	oral	oral	gut	oral
+ERR6178899	oral	oral	oral	oral
+ERR6178900	oral	oral	oral	oral
+ERR6178901	oral	oral	gut	oral
+ERR6178902	oral	oral	gut	oral
+ERR6178903	oral	oral	skeletal tissue	oral
+ERR6178904	oral	oral	oral	oral
+ERR6178905	oral	oral	oral	oral
+ERR6178906	oral	oral	oral	oral
+ERR6178907	oral	oral	gut	oral
+ERR6178908	oral	oral	gut	oral
+ERR6178909	oral	oral	gut	oral
+ERR6178910	oral	oral	oral	oral
+ERR6178911	oral	oral	oral	oral
+ERR6178912	oral	oral	skeletal tissue	oral
+ERR6178913	oral	oral	skeletal tissue	oral
+ERR6178914	oral	oral	gut	oral
+ERR6178915	oral	oral	oral	oral
+ERR6178916	oral	oral	skeletal tissue	oral
+ERR6178917	oral	oral	oral	oral
+ERR6178918	oral	oral	gut	oral
+ERR6178919	oral	oral	gut	oral
+ERR6178920	oral	oral	oral	oral
+ERR6178921	oral	oral	skeletal tissue	oral
+ERR6178923	oral	oral	oral	oral
+ERR6178924	oral	oral	soft tissue	oral
+ERR6178925	oral	oral	oral	oral
+ERR6178926	oral	oral	gut	oral
+ERR6178927	oral	oral	soft tissue	oral
+ERR6178928	oral	oral	oral	oral
+ERR6178929	oral	oral	oral	oral
+ERR6178930	oral	oral	gut	oral
+ERR6178931	oral	oral	oral	oral
+ERR6178932	oral	oral	gut	oral
+ERR6178933	oral	oral	oral	oral
+ERR6178934	oral	oral	oral	oral
+ERR6178935	oral	oral	soft tissue	oral
+ERR6178936	oral	oral	gut	oral
+ERR6178937	oral	oral	soft tissue	oral
+ERR6178938	oral	oral	gut	oral
+ERR6178939	oral	oral	gut	oral
+ERR6178940	oral	oral	oral	oral
+ERR6178941	oral	oral	gut	oral
+ERR6178942	oral	oral	gut	oral
+ERR6178943	oral	oral	oral	oral
+ERR6178944	oral	oral	soft tissue	oral
+ERR6178945	oral	oral	oral	oral
+ERR6178946	oral	oral	soft tissue	oral
+ERR6178947	oral	oral	soft tissue	oral
+ERR6178948	oral	oral	gut	oral
+ERR6178949	oral	oral	skeletal tissue	oral
+ERR6178950	oral	oral	oral	oral
+ERR6178951	oral	oral	gut	oral
+ERR6178952	oral	oral	soft tissue	oral
+ERR6178953	oral	oral	oral	oral
+ERR6178954	oral	oral	soft tissue	oral
+ERR6178955	oral	oral	oral	oral
+ERR6178956	oral	oral	oral	oral
+ERR6178957	oral	oral	soft tissue	oral
+ERR6178958	oral	oral	skeletal tissue	oral
+ERR6178959	oral	oral	skeletal tissue	oral
+ERR6178960	oral	oral	oral	oral
+ERR6178961	oral	oral	oral	oral
+ERR6178962	oral	oral	oral	oral
+ERR6178963	oral	oral	skeletal tissue	oral
+ERR6178964	oral	oral	skeletal tissue	oral
+ERR6178965	oral	oral	oral	oral
+ERR6178966	oral	oral	skeletal tissue	oral
+ERR6178967	oral	oral	skeletal tissue	oral
+ERR6178968	oral	oral	skeletal tissue	oral
+ERR6178969	oral	oral	oral	oral
+ERR6178970	oral	oral	oral	oral
+ERR6178971	oral	oral	oral	oral
+ERR6178972	oral	oral	skeletal tissue	oral
+ERR6178973	oral	oral	oral	oral
+ERR6178974	oral	oral	skeletal tissue	oral
+ERR6178975	oral	oral	skeletal tissue	oral
+ERR6178976	oral	oral	soft tissue	oral
+ERR6178977	oral	oral	skeletal tissue	oral
+ERR6178978	oral	oral	skeletal tissue	oral
+ERR6178979	oral	oral	skeletal tissue	oral
+ERR6178980	oral	oral	skeletal tissue	oral
+ERR6178981	oral	oral	skeletal tissue	oral
+ERR6178982	oral	oral	skeletal tissue	oral
+ERR6178983	oral	oral	soft tissue	oral
+ERR6178984	oral	oral	oral	oral
+ERR6178985	oral	oral	skeletal tissue	oral
+ERR6178986	oral	oral	soft tissue	oral
+ERR6178987	oral	oral	skeletal tissue	oral
+ERR6178988	oral	oral	oral	oral
+ERR6589621	oral	oral	oral	oral
+ERR6589622	oral	oral	skeletal tissue	oral
+ERR6589623	oral	skeletal tissue	gut	skeletal tissue
+ERR6589624	oral	skeletal tissue	gut	skeletal tissue
+ERR6589625	oral	skeletal tissue	gut	skeletal tissue
+ERR6589626	oral	skeletal tissue	gut	oral
+ERR6589627	oral	oral	skeletal tissue	oral
+ERR6589628	oral	oral	oral	oral
+ERR6589629	oral	oral	skeletal tissue	oral
+ERR6589630	oral	oral	skeletal tissue	oral
+ERR7919459	oral	oral	plant tissue	oral
+ERR7919460	oral	oral	plant tissue	oral
+ERR7919462	oral	oral	gut	oral
+ERR7919463	oral	oral	oral	oral
+ERR7919464	oral	oral	oral	oral
+ERR7919465	oral	oral	oral	oral
+ERR7919466	oral	oral	oral	oral
+ERR7919467	oral	oral	plant tissue	oral
+ERR7919468	oral	oral	oral	oral
+ERR7919469	oral	gut	plant tissue	oral
+ERR7919470	oral	oral	oral	oral
+ERR7919471	oral	oral	oral	oral
+ERR7919472	oral	oral	oral	oral
+ERR7919473	oral	oral	plant tissue	oral
+ERR7919474	oral	oral	plant tissue	oral
+ERR7919475	oral	oral	plant tissue	oral
+ERR7919476	oral	oral	plant tissue	oral
+ERR7919477	oral	oral	plant tissue	oral
+ERR7919478	oral	oral	oral	oral
+ERR7919479	oral	oral	gut	oral
+ERR7919480	oral	oral	plant tissue	oral
+ERR7919481	oral	oral	plant tissue	oral
+ERR7919482	oral	oral	plant tissue	oral
+ERR7919483	oral	oral	oral	oral
+ERR7919484	oral	gut	plant tissue	oral
+ERR7919485	oral	oral	oral	oral
+ERR7919486	oral	oral	plant tissue	oral
+ERR7919487	oral	oral	plant tissue	oral
+ERR7919488	oral	oral	oral	oral
+ERR7919489	oral	oral	oral	oral
+ERR7919490	oral	oral	plant tissue	oral
+ERR7919491	oral	oral	plant tissue	oral
+ERR7919492	oral	gut	plant tissue	oral
+ERR7919493	oral	oral	oral	oral
+ERR7919494	oral	oral	plant tissue	oral
+ERR7919495	oral	oral	oral	oral
+ERR7919496	oral	oral	oral	oral
+ERR7919497	oral	oral	oral	oral
+ERR7919498	oral	oral	gut	oral
+ERR7919499	oral	gut	oral	oral
+ERR7919500	oral	oral	gut	oral
+ERR7919501	oral	oral	oral	oral
+ERR7919502	oral	oral	oral	oral
+ERR7919503	oral	oral	plant tissue	oral
+ERR7919504	oral	oral	gut	oral
+ERR7919505	oral	oral	oral	oral
+ERR7919506	oral	oral	oral	oral
+ERR7919507	oral	oral	gut	oral
+ERR7919508	oral	oral	oral	oral
+ERR7919509	oral	oral	oral	oral
+ERR7919510	oral	oral	oral	oral
+ERR7919511	oral	oral	oral	oral
+ERR7919512	oral	oral	oral	oral
+ERR7919513	oral	oral	oral	oral
+ERR7919514	oral	oral	oral	oral
+ERR7919515	oral	oral	plant tissue	oral
+ERR7919516	oral	oral	plant tissue	oral
+ERR7919517	oral	gut	oral	oral
+ERR7919518	oral	oral	gut	oral
+ERR7919519	oral	oral	oral	oral
+ERR7919520	oral	oral	plant tissue	oral
+ERR7919521	oral	oral	gut	oral
+ERR7919522	oral	oral	plant tissue	oral
+ERR7919523	oral	oral	oral	oral
+ERR7919524	oral	gut	plant tissue	oral
+ERR7919525	oral	oral	oral	oral
+ERR7919526	oral	oral	gut	oral
+ERR7919527	oral	oral	oral	oral
+ERR7919528	oral	oral	oral	oral
+ERR7919529	oral	oral	oral	oral
+ERR7919530	oral	oral	oral	oral
+ERR7919531	oral	oral	oral	oral
+ERR7919532	oral	oral	gut	oral
+ERR7919533	oral	oral	plant tissue	oral
+ERR7919534	oral	oral	plant tissue	oral
+ERR7919535	oral	oral	oral	oral
+ERR7919536	oral	oral	oral	oral
+ERR7919537	oral	oral	oral	oral
+ERR7919538	oral	oral	oral	oral
+ERR7919539	oral	oral	oral	oral
+ERR7919540	oral	oral	oral	oral
+ERR7919541	oral	oral	plant tissue	oral
+ERR7919542	oral	oral	oral	oral
+ERR7919543	oral	oral	oral	oral
+ERR7919544	oral	oral	oral	oral
+ERR7919545	oral	oral	oral	oral
+ERR7919546	oral	plant tissue	oral	oral
+ERR7919547	oral	oral	oral	oral
+ERR7919548	oral	oral	soft tissue	oral
+ERR7919641	oral	oral	oral	oral
+ERR7919642	oral	oral	oral	oral
+ERR7919643	oral	oral	oral	oral
+ERR7919644	oral	gut	oral	oral
+ERR7919645	oral	oral	skeletal tissue	oral
+ERR7919646	oral	oral	soft tissue	oral
+ERR8050978	oral	oral	soft tissue	oral
+ERR9612721	oral	oral	gut	oral
+ERR9612722	oral	oral	plant tissue	oral
+ERR9612723	oral	oral	skeletal tissue	oral
+ERR9612724	oral	oral	oral	oral
+ERR9612725	oral	oral	skeletal tissue	oral
+ERR9612726	oral	oral	skeletal tissue	oral
+ERR9612727	oral	oral	skeletal tissue	oral
+ERR9612728	oral	oral	skeletal tissue	oral
+ERR9612729	oral	oral	plant tissue	oral
+ERR9612730	oral	oral	plant tissue	oral
+ERR9612731	oral	oral	plant tissue	oral
+ERR9612732	oral	oral	plant tissue	oral
+ERR9612733	oral	oral	plant tissue	oral
+ERR9612734	oral	oral	plant tissue	oral
+ERR9612735	oral	oral	skeletal tissue	oral
+ERR9612736	oral	oral	skeletal tissue	oral
+ERR9612737	oral	oral	oral	oral
+ERR9612738	oral	oral	oral	oral
+ERR9612739	oral	oral	plant tissue	oral
+ERR9612740	oral	oral	gut	oral
+ERR9612741	oral	oral	soft tissue	oral
+ERR9612742	oral	oral	skeletal tissue	oral
+ERR9612743	oral	oral	skeletal tissue	oral
+ERR9612744	oral	oral	gut	oral
+ERR9612745	oral	oral	skeletal tissue	oral
+ERR9612746	oral	oral	plant tissue	oral
+ERR9612747	oral	oral	plant tissue	oral
+ERR9612748	oral	oral	plant tissue	oral
+ERR9612749	oral	oral	skeletal tissue	oral
+ERR9612750	oral	oral	skeletal tissue	oral
+ERR9612751	oral	oral	skeletal tissue	oral
+ERR9612752	oral	oral	skeletal tissue	oral
+ERR9612753	oral	oral	plant tissue	oral
+ERR9612754	oral	oral	plant tissue	oral
+ERR9612755	oral	oral	skeletal tissue	oral
+ERR9612756	oral	oral	skeletal tissue	oral
+ERR9612757	oral	oral	oral	oral
+ERR9612758	oral	oral	oral	oral
+ERR9612759	oral	oral	skeletal tissue	oral
+ERR9612760	oral	oral	skeletal tissue	oral
+ERR9612761	oral	oral	skeletal tissue	oral
+ERR9612762	oral	oral	skeletal tissue	oral
+ERR9612763	oral	oral	skeletal tissue	oral
+ERR9612764	oral	oral	skeletal tissue	oral
+ERR9612765	oral	oral	plant tissue	oral
+ERR9612766	oral	oral	plant tissue	oral
+ERR9612767	oral	oral	oral	oral
+ERR9612768	oral	oral	oral	oral
+ERR9612769	oral	oral	skeletal tissue	oral
+ERR9612770	oral	oral	skeletal tissue	oral
+ERR9612771	oral	oral	plant tissue	oral
+ERR9612772	oral	oral	plant tissue	oral
+ERR9612773	oral	oral	skeletal tissue	oral
+ERR9612774	oral	oral	skeletal tissue	oral
+ERR9612775	oral	oral	skeletal tissue	oral
+ERR9612776	oral	oral	skeletal tissue	oral
+ERR9612777	oral	oral	skeletal tissue	oral
+ERR9612778	oral	oral	skeletal tissue	oral
+ERR9612779	oral	oral	oral	oral
+ERR9612780	oral	oral	oral	oral
+ERR9612781	oral	oral	skeletal tissue	oral
+ERR9612782	oral	oral	skeletal tissue	oral
+ERR9612783	oral	oral	plant tissue	oral
+ERR9612784	oral	oral	plant tissue	oral
+ERR9612785	oral	oral	skeletal tissue	oral
+ERR9612786	oral	oral	skeletal tissue	oral
+ERR9612787	oral	oral	skeletal tissue	oral
+ERR9612788	oral	oral	skeletal tissue	oral
+ERR9612789	oral	oral	skeletal tissue	oral
+ERR9612790	oral	oral	skeletal tissue	oral
+ERR9612791	oral	oral	skeletal tissue	oral
+ERR9612792	oral	oral	skeletal tissue	oral
+ERR9612793	oral	oral	skeletal tissue	oral
+ERR9612794	oral	oral	skeletal tissue	oral
+ERR9612795	oral	oral	oral	oral
+ERR9612796	oral	oral	oral	oral
+ERR9612797	oral	oral	skeletal tissue	oral
+ERR9612798	oral	oral	skeletal tissue	oral
+ERR9612799	oral	oral	gut	oral
+ERR9612800	oral	oral	skeletal tissue	oral
+ERR9612801	oral	oral	oral	oral
+ERR9612802	oral	oral	oral	oral
+ERR9612803	oral	oral	oral	oral
+ERR9612804	oral	oral	oral	oral
+ERR9612805	oral	oral	oral	oral
+ERR9612806	oral	oral	oral	oral
+ERR9612807	oral	oral	oral	oral
+ERR9612808	oral	oral	oral	oral
+ERR9612809	oral	oral	plant tissue	oral
+ERR9612810	oral	oral	plant tissue	oral
+ERR9612811	oral	oral	skeletal tissue	oral
+ERR9612812	oral	oral	skeletal tissue	oral
+ERR9612813	oral	oral	plant tissue	oral
+ERR9612814	oral	oral	gut	oral
+ERR9612815	oral	oral	skeletal tissue	oral
+ERR9612816	oral	oral	skeletal tissue	oral
+ERR9612817	oral	oral	plant tissue	oral
+ERR9612818	oral	oral	oral	oral
+ERR9612819	oral	oral	oral	oral
+ERR9612820	oral	oral	plant tissue	oral
+ERR9612821	oral	oral	plant tissue	oral
+ERR9612822	oral	oral	plant tissue	oral
+ERR9612823	oral	oral	gut	oral
+ERR9612824	oral	oral	gut	oral
+ERR9612825	oral	oral	skeletal tissue	oral
+ERR9612826	oral	oral	skeletal tissue	oral
+ERR9612827	oral	oral	skeletal tissue	oral
+ERR9612828	oral	oral	skeletal tissue	oral
+ERR9612829	oral	oral	skeletal tissue	oral
+ERR9612830	oral	oral	skeletal tissue	oral
+ERR9612831	oral	oral	oral	oral
+ERR9612832	oral	oral	oral	oral
+ERR9612833	oral	oral	skeletal tissue	oral
+ERR9612834	oral	oral	skeletal tissue	oral
+ERR9612835	oral	oral	skeletal tissue	oral
+ERR9612836	oral	oral	skeletal tissue	oral
+ERR9612837	oral	oral	skeletal tissue	oral
+ERR9612838	oral	oral	skeletal tissue	oral
+ERR9612839	oral	oral	gut	oral
+ERR9612840	oral	oral	gut	oral
+ERR9612841	oral	oral	soft tissue	oral
+ERR9612842	oral	oral	soft tissue	oral
+ERR9612843	oral	oral	gut	oral
+ERR9612844	oral	oral	gut	oral
+ERR9612845	oral	oral	skeletal tissue	oral
+ERR9612846	oral	oral	skeletal tissue	oral
+ERR9612847	oral	oral	plant tissue	oral
+ERR9612848	oral	oral	plant tissue	oral
+ERR9612849	oral	oral	skeletal tissue	oral
+ERR9612850	oral	oral	plant tissue	oral
+ERR9612851	oral	oral	skeletal tissue	oral
+ERR9612852	oral	oral	gut	oral
+ERR9612853	oral	oral	skeletal tissue	oral
+ERR9612854	oral	oral	skeletal tissue	oral
+ERR9612855	oral	oral	skeletal tissue	oral
+ERR9612856	oral	oral	skeletal tissue	oral
+ERR9612857	oral	oral	skeletal tissue	oral
+ERR9612858	oral	oral	skeletal tissue	oral
+ERR9612859	oral	oral	skeletal tissue	oral
+ERR9612860	oral	oral	skeletal tissue	oral
+ERR9612861	oral	oral	skeletal tissue	oral
+ERR9612862	oral	oral	skeletal tissue	oral
+ERR9612863	oral	oral	skeletal tissue	oral
+ERR9612864	oral	oral	gut	oral
+ERR9612865	oral	oral	skeletal tissue	oral
+ERR9612866	oral	oral	skeletal tissue	oral
+ERR9612867	oral	oral	skeletal tissue	oral
+ERR9612868	oral	oral	skeletal tissue	oral
+ERR9612869	oral	oral	oral	oral
+ERR9612870	oral	oral	oral	oral
+ERR9612871	oral	oral	plant tissue	oral
+ERR9612872	oral	oral	plant tissue	oral
+ERR9612873	oral	oral	skeletal tissue	oral
+ERR9612874	oral	oral	skeletal tissue	oral
+ERR9612875	oral	oral	plant tissue	oral
+ERR9612876	oral	oral	oral	oral
+ERR9612877	oral	oral	skeletal tissue	oral
+ERR9612878	oral	oral	skeletal tissue	oral
+ERR9612879	oral	oral	skeletal tissue	oral
+ERR9612880	oral	oral	skeletal tissue	oral
+ERR9612881	oral	oral	plant tissue	oral
+ERR9612882	oral	oral	plant tissue	oral
+ERR9612883	oral	oral	skeletal tissue	oral
+ERR9612884	oral	oral	skeletal tissue	oral
+ERR9612885	oral	oral	skeletal tissue	oral
+ERR9612886	oral	oral	skeletal tissue	oral
+ERR9612887	oral	oral	skeletal tissue	oral
+ERR9612888	oral	oral	skeletal tissue	oral
+ERR9612889	oral	oral	skeletal tissue	oral
+ERR9612890	oral	oral	skeletal tissue	oral
+ERR9612891	oral	oral	skeletal tissue	oral
+ERR9612892	oral	oral	skeletal tissue	oral
+ERR9612893	oral	oral	plant tissue	oral
+ERR9612894	oral	oral	plant tissue	oral
+ERR9612895	oral	oral	gut	oral
+ERR9612896	oral	oral	gut	oral
+ERR9612897	oral	oral	skeletal tissue	oral
+ERR9612898	oral	oral	skeletal tissue	oral
+SRR1047998	gut	oral	gut	oral
+SRR12136712	oral	oral	gut	oral
+SRR12136713	oral	oral	gut	oral
+SRR12462930	oral	oral	plant tissue	oral
+SRR12462931	oral	oral	plant tissue	oral
+SRR12462932	oral	oral	skeletal tissue	oral
+SRR12462933	oral	oral	skeletal tissue	oral
+SRR12462934	oral	oral	plant tissue	oral
+SRR12462935	oral	oral	plant tissue	oral
+SRR12462936	oral	oral	plant tissue	oral
+SRR12462937	oral	oral	oral	oral
+SRR12462938	oral	oral	skeletal tissue	oral
+SRR12462939	oral	oral	skeletal tissue	oral
+SRR12462940	oral	oral	skeletal tissue	oral
+SRR12462941	oral	oral	skeletal tissue	oral
+SRR12462942	oral	oral	skeletal tissue	oral
+SRR12462943	oral	oral	skeletal tissue	oral
+SRR12462944	oral	oral	skeletal tissue	oral
+SRR12462945	oral	oral	oral	oral
+SRR12462946	oral	oral	plant tissue	oral
+SRR12462947	oral	oral	oral	oral
+SRR13355784	oral	oral	oral	oral
+SRR13355785	oral	oral	oral	oral
+SRR13355786	oral	oral	plant tissue	oral
+SRR13355787	oral	oral	gut	oral
+SRR13355789	oral	oral	skeletal tissue	oral
+SRR13355790	oral	oral	oral	oral
+SRR13355791	oral	oral	skeletal tissue	oral
+SRR13355792	oral	oral	skeletal tissue	oral
+SRR13355794	oral	oral	oral	oral
+SRR13355796	oral	oral	soft tissue	oral
+SRR13355797	oral	oral	skeletal tissue	oral
+SRR13355798	oral	oral	skeletal tissue	oral
+SRR13355799	oral	oral	soft tissue	oral
+SRR13355800	oral	oral	soft tissue	oral
+SRR13355801	oral	oral	oral	oral
+SRR13355802	oral	oral	oral	oral
+SRR13355803	oral	oral	oral	oral
+SRR13355804	oral	oral	oral	oral
+SRR13355805	oral	oral	oral	oral
+SRR13355806	oral	oral	skeletal tissue	oral
+SRR13355807	oral	oral	skeletal tissue	oral
+SRR13355808	oral	oral	oral	oral
+SRR13355809	oral	oral	oral	oral
+SRR13355810	oral	oral	oral	oral
+SRR13355811	oral	oral	skeletal tissue	oral
+SRR13355812	oral	oral	gut	oral
+SRR13355813	oral	oral	oral	oral
+SRR17604731	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR17604732	oral	oral	oral	oral
+SRR17604735	oral	oral	skeletal tissue	oral
+SRR17604736	oral	oral	oral	oral
+SRR17604737	oral	oral	plant tissue	oral
+SRR17604738	oral	oral	oral	oral
+SRR17604739	oral	oral	plant tissue	oral
+SRR17604740	oral	oral	oral	oral
+SRR17604741	oral	oral	skeletal tissue	oral
+SRR17604742	oral	oral	oral	oral
+SRR17604743	oral	oral	oral	oral
+SRR17604744	oral	oral	plant tissue	oral
+SRR17604745	oral	oral	plant tissue	oral
+SRR17604746	oral	oral	soft tissue	oral
+SRR17604747	oral	oral	plant tissue	oral
+SRR17604748	oral	oral	oral	oral
+SRR17604749	oral	oral	plant tissue	oral
+SRR17604750	oral	oral	plant tissue	oral
+SRR17604751	oral	oral	oral	oral
+SRR17604752	oral	oral	oral	oral
+SRR17604753	oral	oral	plant tissue	oral
+SRR17604754	oral	skeletal tissue	plant tissue	skeletal tissue
+SRR17604755	oral	oral	skeletal tissue	oral
+SRR17604756	oral	oral	oral	oral
+SRR17604757	oral	oral	plant tissue	oral
+SRR17604758	oral	oral	plant tissue	oral
+SRR17604759	oral	oral	plant tissue	oral
+SRR17604760	oral	oral	oral	oral
+SRR17604761	oral	oral	plant tissue	oral
+SRR17604762	oral	oral	plant tissue	oral
+SRR17604763	oral	oral	plant tissue	oral
+SRR17604764	oral	oral	plant tissue	oral
+SRR17604765	oral	oral	gut	oral
+SRR17604766	oral	oral	gut	oral
+SRR17604767	oral	oral	gut	oral
+SRR17604768	oral	oral	skeletal tissue	oral
+SRR17604769	oral	oral	gut	oral
+SRR17604770	oral	oral	gut	oral
+SRR17604771	oral	oral	gut	oral
+SRR17604772	oral	oral	oral	oral
+SRR17604773	oral	oral	gut	oral
+SRR17604774	oral	oral	gut	oral
+SRR17604775	oral	oral	oral	oral
+SRR17604776	oral	oral	oral	oral
+SRR17604777	oral	oral	soft tissue	oral
+SRR17604778	oral	oral	gut	oral
+SRR17604779	oral	oral	gut	oral
+SRR17604780	oral	oral	gut	oral
+SRR17604781	oral	oral	gut	oral
+SRR17604782	oral	oral	plant tissue	oral
+SRR17604783	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR17604784	oral	oral	plant tissue	oral
+SRR17604785	oral	oral	oral	oral
+SRR17604786	oral	oral	oral	oral
+SRR17604787	oral	oral	oral	oral
+SRR17604788	oral	oral	oral	oral
+SRR17604789	oral	oral	oral	oral
+SRR17604790	oral	oral	oral	oral
+SRR17604791	oral	oral	plant tissue	oral
+SRR17604792	oral	oral	oral	oral
+SRR17604793	oral	oral	plant tissue	oral
+SRR17604794	oral	oral	gut	oral
+SRR17604795	oral	oral	oral	oral
+SRR17604796	oral	oral	soft tissue	oral
+SRR17604797	oral	oral	oral	oral
+SRR17604798	oral	oral	oral	oral
+SRR17604799	oral	oral	oral	oral
+SRR17604800	oral	oral	skeletal tissue	oral
+SRR17604801	oral	oral	skeletal tissue	oral
+SRR17604802	oral	oral	plant tissue	oral
+SRR17604803	oral	oral	gut	oral
+SRR17604804	oral	oral	skeletal tissue	oral
+SRR17604805	oral	oral	plant tissue	oral
+SRR17604806	oral	oral	gut	oral
+SRR17604807	oral	oral	plant tissue	oral
+SRR17604808	oral	oral	oral	oral
+SRR19160147	gut	oral	soft tissue	skeletal tissue
+SRR19160150	gut	soft tissue	soft tissue	skeletal tissue
+SRR19160161	gut	soft tissue	soft tissue	skeletal tissue
+SRR19160174	gut	soft tissue	soft tissue	skeletal tissue
+SRR19160175	gut	skeletal tissue	plant tissue	skeletal tissue
+SRR19160180	gut	soft tissue	soft tissue	skeletal tissue
+SRR19160184	gut	oral	soft tissue	skeletal tissue
+SRR19160194	gut	oral	soft tissue	oral
+SRR19160206	gut	soft tissue	soft tissue	skeletal tissue
+SRR19160231	gut	oral	soft tissue	skeletal tissue
+SRR19160251	gut	skeletal tissue	plant tissue	skeletal tissue
+SRR2229974	oral	skeletal tissue	gut	oral
+SRR2229975	skeletal tissue	skeletal tissue	gut	skeletal tissue
+SRR2229976	oral	skeletal tissue	gut	oral
+SRR2229977	skeletal tissue	skeletal tissue	gut	skeletal tissue
+SRR23699551	oral	oral	skeletal tissue	oral
+SRR23699552	oral	oral	skeletal tissue	oral
+SRR23699553	oral	oral	skeletal tissue	oral
+SRR23699554	oral	oral	soft tissue	oral
+SRR23699555	oral	oral	skeletal tissue	oral
+SRR23699556	oral	oral	skeletal tissue	oral
+SRR23699557	oral	oral	skeletal tissue	oral
+SRR23699558	oral	oral	skeletal tissue	oral
+SRR23699559	oral	oral	soft tissue	oral
+SRR23699560	oral	oral	soft tissue	oral
+SRR23699561	oral	oral	soft tissue	oral
+SRR23699562	oral	oral	skeletal tissue	oral
+SRR23699563	oral	oral	skeletal tissue	oral
+SRR23699564	oral	oral	soft tissue	oral
+SRR23699565	oral	oral	skeletal tissue	oral
+SRR23699566	oral	oral	soft tissue	oral
+SRR23699567	oral	oral	soft tissue	oral
+SRR23699568	oral	oral	soft tissue	oral
+SRR23699569	oral	oral	soft tissue	oral
+SRR23699570	oral	oral	skeletal tissue	oral
+SRR23699571	oral	oral	soft tissue	oral
+SRR23699572	oral	oral	soft tissue	oral
+SRR23699573	oral	oral	skeletal tissue	oral
+SRR23699574	oral	oral	soft tissue	oral
+SRR23699575	oral	oral	soft tissue	oral
+SRR23699576	oral	oral	soft tissue	oral
+SRR23699577	oral	oral	soft tissue	oral
+SRR23699578	oral	oral	soft tissue	oral
+SRR30066258	oral	oral	oral	oral
+SRR30066259	oral	oral	oral	oral
+SRR30066260	oral	oral	oral	oral
+SRR30066261	oral	oral	oral	oral
+SRR30066262	oral	oral	oral	oral
+SRR30066263	oral	oral	plant tissue	oral
+SRR30066264	oral	oral	oral	oral
+SRR30066265	oral	oral	skeletal tissue	oral
+SRR30066269	oral	oral	oral	oral
+SRR30066270	oral	oral	oral	oral
+SRR30066271	oral	oral	oral	oral
+SRR30066272	oral	oral	oral	oral
+SRR4047197	plant tissue	oral	plant tissue	plant tissue
+SRR4047199	plant tissue	oral	plant tissue	plant tissue
+SRR4047201	plant tissue	oral	plant tissue	plant tissue
+SRR4047203	plant tissue	oral	plant tissue	plant tissue
+SRR4047207	plant tissue	plant tissue	plant tissue	plant tissue
+SRR4047214	plant tissue	plant tissue	plant tissue	plant tissue
+SRR4047219	plant tissue	plant tissue	soft tissue	gut
+SRR4047221	plant tissue	oral	soft tissue	gut
+SRR4047223	plant tissue	plant tissue	soft tissue	gut
+SRR4047225	plant tissue	oral	soft tissue	gut
+SRR4047228	plant tissue	plant tissue	plant tissue	plant tissue
+SRR5047040	oral	oral	soft tissue	gut
+SRR5047041	oral	oral	soft tissue	skeletal tissue
+SRR5047042	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047043	oral	oral	soft tissue	gut
+SRR5047044	oral	skeletal tissue	soft tissue	gut
+SRR5047045	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047046	oral	oral	soft tissue	oral
+SRR5047047	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047048	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047049	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047050	oral	oral	soft tissue	gut
+SRR5047051	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047052	oral	skeletal tissue	soft tissue	gut
+SRR5047053	oral	oral	soft tissue	skeletal tissue
+SRR5047054	oral	oral	soft tissue	skeletal tissue
+SRR5047055	oral	oral	soft tissue	gut
+SRR5047056	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047057	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047058	oral	oral	skeletal tissue	skeletal tissue
+SRR5047059	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047060	oral	skeletal tissue	soft tissue	gut
+SRR5047061	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047062	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047063	oral	oral	skeletal tissue	oral
+SRR5047064	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047065	oral	oral	skeletal tissue	skeletal tissue
+SRR5047066	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047067	oral	oral	soft tissue	oral
+SRR5047068	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047069	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047070	oral	oral	soft tissue	skeletal tissue
+SRR5047071	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047072	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047073	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047074	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047075	oral	oral	soft tissue	gut
+SRR5047076	oral	oral	soft tissue	oral
+SRR5047077	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047078	oral	oral	soft tissue	gut
+SRR5047079	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047080	oral	oral	soft tissue	gut
+SRR5047081	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047082	oral	oral	soft tissue	gut
+SRR5047083	oral	oral	soft tissue	gut
+SRR5047084	oral	oral	soft tissue	gut
+SRR5047085	oral	oral	soft tissue	gut
+SRR5047086	oral	skeletal tissue	soft tissue	gut
+SRR5047087	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047088	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047089	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047090	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047091	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047092	oral	skeletal tissue	soft tissue	gut
+SRR5047093	oral	skeletal tissue	soft tissue	gut
+SRR5047094	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047095	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047096	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047097	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047098	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047099	oral	skeletal tissue	soft tissue	gut
+SRR5047100	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047101	oral	oral	soft tissue	gut
+SRR5047102	oral	oral	soft tissue	gut
+SRR5047103	oral	skeletal tissue	soft tissue	gut
+SRR5047104	oral	oral	soft tissue	oral
+SRR5047105	oral	oral	soft tissue	oral
+SRR5047106	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047107	oral	skeletal tissue	soft tissue	oral
+SRR5047108	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047109	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047110	oral	oral	soft tissue	oral
+SRR5047111	oral	oral	soft tissue	oral
+SRR5047112	oral	oral	soft tissue	gut
+SRR5047113	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047114	oral	oral	soft tissue	gut
+SRR5047115	oral	oral	soft tissue	skeletal tissue
+SRR5047116	oral	oral	skeletal tissue	skeletal tissue
+SRR5047117	oral	oral	soft tissue	gut
+SRR5047118	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047119	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047120	oral	gut	soft tissue	gut
+SRR5047121	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047122	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047123	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047124	oral	oral	soft tissue	oral
+SRR5047125	oral	oral	skeletal tissue	oral
+SRR5047126	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047127	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047128	oral	oral	soft tissue	oral
+SRR5047129	oral	oral	soft tissue	oral
+SRR5047130	oral	skeletal tissue	soft tissue	gut
+SRR5047131	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047132	oral	oral	soft tissue	gut
+SRR5047133	oral	oral	soft tissue	gut
+SRR5047134	oral	oral	soft tissue	skeletal tissue
+SRR5047135	oral	oral	soft tissue	skeletal tissue
+SRR5047136	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047137	oral	oral	soft tissue	skeletal tissue
+SRR5047138	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047139	oral	skeletal tissue	soft tissue	gut
+SRR5047140	oral	oral	soft tissue	skeletal tissue
+SRR5047141	oral	oral	soft tissue	skeletal tissue
+SRR5047142	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047143	oral	oral	soft tissue	gut
+SRR5047144	oral	oral	skeletal tissue	oral
+SRR5047145	oral	oral	soft tissue	gut
+SRR5047146	oral	oral	skeletal tissue	skeletal tissue
+SRR5047147	oral	skeletal tissue	soft tissue	gut
+SRR5047148	oral	skeletal tissue	soft tissue	oral
+SRR5047149	oral	oral	soft tissue	gut
+SRR5047150	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047151	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047152	oral	oral	skeletal tissue	skeletal tissue
+SRR5047153	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047154	oral	oral	skeletal tissue	oral
+SRR5047155	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047156	oral	oral	soft tissue	gut
+SRR5047157	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047158	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047159	oral	oral	soft tissue	oral
+SRR5047160	oral	oral	soft tissue	skeletal tissue
+SRR5047161	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047162	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047163	oral	oral	soft tissue	skeletal tissue
+SRR5047164	oral	oral	soft tissue	gut
+SRR5047165	oral	oral	soft tissue	skeletal tissue
+SRR5047166	oral	oral	soft tissue	gut
+SRR5047167	oral	oral	soft tissue	oral
+SRR5047168	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047169	oral	oral	soft tissue	gut
+SRR5047170	oral	oral	skeletal tissue	skeletal tissue
+SRR5047171	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047172	oral	oral	skeletal tissue	skeletal tissue
+SRR5047173	oral	oral	soft tissue	gut
+SRR5047174	oral	skeletal tissue	soft tissue	gut
+SRR5047175	oral	skeletal tissue	soft tissue	gut
+SRR5047176	oral	skeletal tissue	soft tissue	gut
+SRR5047177	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047178	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047179	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047180	oral	oral	skeletal tissue	skeletal tissue
+SRR5047181	oral	oral	soft tissue	oral
+SRR5047182	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047183	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047184	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047185	oral	oral	skeletal tissue	skeletal tissue
+SRR5047186	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047187	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047188	oral	oral	skeletal tissue	oral
+SRR5047189	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047190	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047191	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047192	oral	oral	soft tissue	gut
+SRR5047193	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047194	oral	oral	skeletal tissue	oral
+SRR5047195	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047196	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047197	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047198	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047199	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047200	oral	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5047201	oral	oral	soft tissue	oral
+SRR5047202	oral	skeletal tissue	soft tissue	skeletal tissue
+SRR5047203	oral	oral	soft tissue	gut
+SRR5047204	oral	oral	soft tissue	oral
+SRR5297130	oral	oral	skeletal tissue	oral
+SRR5297131	oral	oral	skeletal tissue	oral
+SRR5297132	oral	oral	skeletal tissue	oral
+SRR5297133	oral	oral	skeletal tissue	oral
+SRR5875714	soft tissue	skeletal tissue	gut	oral
+SRR5875715	soft tissue	skeletal tissue	gut	skeletal tissue
+SRR5875718	soft tissue	skeletal tissue	gut	oral
+SRR5875719	soft tissue	skeletal tissue	gut	skeletal tissue
+SRR5875720	soft tissue	skeletal tissue	soft tissue	oral
+SRR5875721	soft tissue	skeletal tissue	gut	oral
+SRR5875722	soft tissue	oral	gut	oral
+SRR5875723	soft tissue	skeletal tissue	gut	skeletal tissue
+SRR5875724	soft tissue	skeletal tissue	oral	oral
+SRR5875725	soft tissue	skeletal tissue	gut	skeletal tissue
+SRR5875726	soft tissue	skeletal tissue	gut	oral
+SRR5875727	soft tissue	skeletal tissue	gut	skeletal tissue
+SRR5875728	soft tissue	skeletal tissue	soft tissue	oral
+SRR5875729	soft tissue	skeletal tissue	skeletal tissue	skeletal tissue
+SRR5875730	soft tissue	oral	gut	oral
+SRR5875731	soft tissue	skeletal tissue	gut	skeletal tissue
+SRR6877282	oral	oral	soft tissue	oral
+SRR6877283	skeletal tissue	oral	skeletal tissue	oral
+SRR6877284	oral	oral	soft tissue	oral
+SRR6877285	skeletal tissue	soft tissue	skeletal tissue	oral
+SRR6877286	oral	oral	soft tissue	oral
+SRR6877287	skeletal tissue	soft tissue	skeletal tissue	oral
+SRR6877288	oral	oral	oral	oral
+SRR6877289	skeletal tissue	soft tissue	skeletal tissue	oral
+SRR6877290	oral	oral	soft tissue	oral
+SRR6877291	skeletal tissue	oral	oral	oral
+SRR6877292	oral	oral	oral	oral
+SRR6877293	skeletal tissue	oral	skeletal tissue	oral
+SRR6877294	oral	oral	skeletal tissue	oral
+SRR6877295	skeletal tissue	oral	skeletal tissue	oral
+SRR6877296	oral	oral	soft tissue	oral
+SRR6877297	skeletal tissue	oral	skeletal tissue	oral
+SRR6877298	skeletal tissue	soft tissue	skeletal tissue	oral
+SRR6877299	skeletal tissue	oral	skeletal tissue	oral
+SRR6877300	oral	oral	oral	oral
+SRR6877301	skeletal tissue	oral	skeletal tissue	oral
+SRR6877302	skeletal tissue	oral	skeletal tissue	oral
+SRR6877303	oral	oral	oral	oral
+SRR6877304	oral	oral	oral	oral
+SRR6877305	oral	oral	soft tissue	oral
+SRR6877306	skeletal tissue	soft tissue	skeletal tissue	oral
+SRR6877307	skeletal tissue	oral	skeletal tissue	oral
+SRR6877308	oral	oral	skeletal tissue	oral
+SRR6877309	skeletal tissue	oral	skeletal tissue	oral
+SRR6877310	oral	oral	oral	oral
+SRR6877311	skeletal tissue	oral	oral	oral
+SRR6877312	oral	oral	oral	oral
+SRR6877313	oral	oral	oral	oral
+SRR6877314	skeletal tissue	oral	soft tissue	oral
+SRR6877315	skeletal tissue	oral	skeletal tissue	oral
+SRR6877316	oral	oral	oral	oral
+SRR6877317	skeletal tissue	oral	skeletal tissue	oral
+SRR6877318	oral	oral	oral	oral
+SRR6877319	skeletal tissue	oral	skeletal tissue	oral
+SRR6877320	oral	oral	skeletal tissue	oral
+SRR6877321	skeletal tissue	skeletal tissue	skeletal tissue	oral
+SRR6877322	oral	oral	oral	oral
+SRR6877323	oral	oral	oral	oral
+SRR6877324	oral	oral	soft tissue	oral
+SRR6877325	skeletal tissue	skeletal tissue	skeletal tissue	skeletal tissue
+SRR6877326	oral	oral	oral	oral
+SRR6877327	skeletal tissue	oral	skeletal tissue	oral
+SRR6877328	oral	oral	oral	oral
+SRR6877329	skeletal tissue	oral	skeletal tissue	oral
+SRR6877330	oral	oral	oral	oral
+SRR6877331	skeletal tissue	oral	skeletal tissue	oral
+SRR6877332	oral	oral	oral	oral
+SRR6877333	skeletal tissue	oral	skeletal tissue	oral
+SRR6877334	oral	oral	oral	oral
+SRR6877335	skeletal tissue	oral	skeletal tissue	oral
+SRR6877336	oral	oral	skeletal tissue	oral
+SRR6877337	skeletal tissue	skeletal tissue	skeletal tissue	oral
+SRR6877338	oral	oral	oral	oral
+SRR6877339	oral	oral	oral	oral
+SRR6877340	oral	oral	oral	oral
+SRR6877341	skeletal tissue	oral	skeletal tissue	oral
+SRR6877342	oral	oral	oral	oral
+SRR6877343	skeletal tissue	oral	skeletal tissue	oral
+SRR6877344	oral	oral	soft tissue	oral
+SRR6877345	skeletal tissue	skeletal tissue	skeletal tissue	oral
+SRR6877346	oral	oral	oral	oral
+SRR6877347	skeletal tissue	oral	skeletal tissue	oral
+SRR6877348	oral	oral	soft tissue	oral
+SRR6877349	skeletal tissue	oral	skeletal tissue	oral
+SRR6877350	oral	oral	oral	oral
+SRR6877351	skeletal tissue	skeletal tissue	skeletal tissue	oral
+SRR6877352	oral	oral	soft tissue	oral
+SRR6877353	skeletal tissue	oral	skeletal tissue	oral
+SRR6877354	oral	oral	oral	oral
+SRR6877355	skeletal tissue	oral	skeletal tissue	oral
+SRR6877356	oral	oral	oral	oral
+SRR6877357	skeletal tissue	oral	skeletal tissue	oral
+SRR6877358	oral	oral	soft tissue	oral
+SRR6877359	skeletal tissue	oral	skeletal tissue	oral
+SRR6877360	skeletal tissue	oral	skeletal tissue	oral
+SRR6877361	oral	oral	oral	oral
+SRR6877362	skeletal tissue	oral	skeletal tissue	skeletal tissue
+SRR6877363	oral	oral	skeletal tissue	oral
+SRR6877364	skeletal tissue	oral	skeletal tissue	oral
+SRR6877365	oral	oral	oral	oral
+SRR6877366	skeletal tissue	oral	soft tissue	oral
+SRR6877367	oral	oral	oral	oral
+SRR6877368	skeletal tissue	oral	skeletal tissue	oral
+SRR6877369	oral	oral	gut	oral
+SRR6877370	oral	oral	soft tissue	oral
+SRR6877371	skeletal tissue	oral	skeletal tissue	oral
+SRR6877372	oral	oral	soft tissue	oral
+SRR6877373	skeletal tissue	oral	skeletal tissue	oral
+SRR6877374	oral	oral	soft tissue	oral
+SRR6877375	skeletal tissue	oral	skeletal tissue	oral
+SRR6877376	oral	oral	oral	oral
+SRR6877377	skeletal tissue	oral	skeletal tissue	oral
+SRR6877378	oral	oral	gut	oral
+SRR6877379	skeletal tissue	skeletal tissue	skeletal tissue	oral
+SRR6877380	skeletal tissue	oral	skeletal tissue	oral
+SRR6877381	skeletal tissue	oral	skeletal tissue	oral
+SRR6877382	oral	oral	soft tissue	oral
+SRR6877383	skeletal tissue	oral	skeletal tissue	oral
+SRR6877384	oral	oral	oral	oral
+SRR6877385	skeletal tissue	oral	skeletal tissue	oral
+SRR6877386	oral	oral	skeletal tissue	oral
+SRR6877387	skeletal tissue	skeletal tissue	skeletal tissue	oral
+SRR6877388	oral	oral	gut	oral
+SRR6877389	skeletal tissue	oral	skeletal tissue	oral
+SRR6877390	oral	oral	skeletal tissue	oral
+SRR6877391	skeletal tissue	oral	skeletal tissue	oral
+SRR6877392	oral	oral	oral	oral
+SRR6877393	oral	oral	oral	oral
+SRR6877394	skeletal tissue	skeletal tissue	skeletal tissue	skeletal tissue
+SRR6877395	oral	oral	skeletal tissue	oral
+SRR6877396	skeletal tissue	skeletal tissue	skeletal tissue	oral
+SRR6877397	oral	oral	skeletal tissue	oral
+SRR6877398	skeletal tissue	oral	skeletal tissue	oral
+SRR6877399	oral	oral	oral	oral
+SRR6877400	skeletal tissue	oral	skeletal tissue	oral
+SRR6877401	oral	oral	soft tissue	oral
+SRR6877402	skeletal tissue	oral	skeletal tissue	oral
+SRR6877403	oral	oral	soft tissue	oral
+SRR866660	skeletal tissue	oral	soft tissue	oral
+SRR866662	skeletal tissue	gut	soft tissue	gut
+SRR866663	skeletal tissue	gut	soft tissue	oral
+SRR866665	skeletal tissue	gut	skeletal tissue	oral
+SRR866666	skeletal tissue	gut	soft tissue	gut
+SRR867031	skeletal tissue	oral	soft tissue	gut
+SRR867032	skeletal tissue	oral	soft tissue	gut
+SRR867033	skeletal tissue	oral	soft tissue	gut
+SRR867034	skeletal tissue	oral	soft tissue	gut
+SRR867036	skeletal tissue	gut	soft tissue	gut
+SRR867037	skeletal tissue	gut	soft tissue	gut
+SRR867038	skeletal tissue	oral	soft tissue	gut
+SRR867039	skeletal tissue	oral	soft tissue	gut
+SRR8731955	gut	skeletal tissue	gut	skeletal tissue
+SRR8731957	gut	oral	gut	oral
+SRR8731958	gut	skeletal tissue	gut	oral
+SRR957738	oral	oral	gut	oral
+SRR957739	oral	oral	skeletal tissue	oral
+SRR957740	oral	oral	gut	oral
+SRR957741	oral	oral	gut	oral
+SRR957742	oral	oral	skeletal tissue	oral
+SRR957743	oral	oral	oral	oral
+SRR957744	oral	oral	oral	oral
+SRR957745	oral	oral	oral	oral
+SRR957746	oral	oral	skeletal tissue	oral
