@@ -61,8 +61,19 @@ def read_table(path: Path) -> pd.DataFrame:
     return df
 
 
-def prob_of_label(pred: pd.DataFrame, task: str, labels: pd.Series) -> np.ndarray:
-    """P(stated label) per row, from diana-test's <task>_prob_<i> columns."""
+def prob_of_label(pred: pd.DataFrame, task: str, labels: pd.Series,
+                  classes: list | None = None) -> np.ndarray:
+    """P(stated label) per row, from diana-test's <task>_prob_<i> columns.
+
+    `classes` is the model's encoder class list (label_encoders.json), so every
+    training class maps to its probability column. Without it the mapping is
+    recovered from the (true label, index) pairs in the predictions file, which only
+    covers classes that occur as a TRUE label on held-out: a planted label pointing
+    to any other training class then gets NaN and the row is dropped. Planting moves
+    labels toward rare classes, so that dropped planted rows preferentially (feature:
+    13 of 26 planted rows kept, 2026-09-11) while the baselines, scored from named
+    `p_<class>` columns, kept all 26. Pass `classes` for a like-for-like comparison.
+    """
     prob_cols = sorted((c for c in pred.columns if c.startswith(f"{task}_prob_")),
                        key=lambda c: int(c.rsplit("_", 1)[1]))
     if not prob_cols:
@@ -70,15 +81,21 @@ def prob_of_label(pred: pd.DataFrame, task: str, labels: pd.Series) -> np.ndarra
             f"no {task}_prob_* columns in the predictions file. The detector needs "
             "P(stated label); re-run diana-test, which writes them.")
     P = pred[prob_cols].to_numpy()
-    # column index i corresponds to encoder class i; recover the class order from
-    # the (label, index) pairs diana-test also writes
-    idx_col = f"{task}_true_idx"
-    if idx_col in pred.columns:
-        name_by_idx = (pred[[idx_col, f"{task}_true"]].dropna()
-                       .drop_duplicates().set_index(idx_col)[f"{task}_true"].to_dict())
-        idx_by_name = {v: int(k) for k, v in name_by_idx.items()}
+    if classes is not None:
+        if len(classes) != P.shape[1]:
+            raise SystemExit(f"{task}: encoder has {len(classes)} classes but the "
+                             f"predictions file has {P.shape[1]} probability columns")
+        idx_by_name = {c: i for i, c in enumerate(classes)}
     else:
-        raise SystemExit(f"{idx_col} missing; cannot map class names to probability columns")
+        # column index i corresponds to encoder class i; recover the class order from
+        # the (label, index) pairs diana-test also writes
+        idx_col = f"{task}_true_idx"
+        if idx_col in pred.columns:
+            name_by_idx = (pred[[idx_col, f"{task}_true"]].dropna()
+                           .drop_duplicates().set_index(idx_col)[f"{task}_true"].to_dict())
+            idx_by_name = {v: int(k) for k, v in name_by_idx.items()}
+        else:
+            raise SystemExit(f"{idx_col} missing; cannot map class names to probability columns")
     out = np.full(len(pred), np.nan)
     for i, lab in enumerate(labels.to_numpy()):
         j = idx_by_name.get(lab)
@@ -95,12 +112,17 @@ def main() -> int:
     ap.add_argument("--planted", type=Path, required=True,
                     help="plant_mislabels.py output, with <task>_planted flags")
     ap.add_argument("--label", default="DIANA")
+    ap.add_argument("--encoders", type=Path, default=None,
+                    help="the model's label_encoders.json, so every training class maps "
+                         "to its probability column (see prob_of_label); required for a "
+                         "like-for-like comparison with the baselines")
     ap.add_argument("--output", type=Path,
                     default=PROJECT_ROOT / "results/anomaly_detection")
     args = ap.parse_args()
 
     pred = read_table(args.predictions)
     plant = read_table(args.planted)
+    encoders = json.load(open(args.encoders)) if args.encoders else {}
     if "Run_accession" not in pred.columns or "Run_accession" not in plant.columns:
         raise SystemExit("both files need a Run_accession column")
 
@@ -121,7 +143,10 @@ def main() -> int:
         m = m[stated.notna() & m[flag_col].notna()]
         if m.empty:
             continue
-        p_stated = prob_of_label(m, task, m[task])
+        classes = encoders.get(task, {}).get("classes") if encoders else None
+        if encoders and classes is None:
+            raise SystemExit(f"{task} missing from {args.encoders}")
+        p_stated = prob_of_label(m, task, m[task], classes)
         ok = ~np.isnan(p_stated)
         y = m.loc[ok, flag_col].astype(int).to_numpy()
         score = 1.0 - p_stated[ok]

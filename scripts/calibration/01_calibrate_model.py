@@ -86,8 +86,8 @@ import numpy as np
 import pandas as pd
 import torch
 import torch.nn.functional as F
-from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
+from diana.data.validation_split import GROUP_COL, grouped_validation_split
 from sklearn.metrics import accuracy_score
 from scipy.optimize import minimize
 import matplotlib.pyplot as plt
@@ -175,21 +175,29 @@ def prepare_labels(
 def create_validation_split(
     features: np.ndarray,
     labels_dict: Dict[str, np.ndarray],
+    groups: np.ndarray,
     val_size: float = 0.1,
     random_state: int = 42
 ) -> Tuple[np.ndarray, np.ndarray, Dict[str, np.ndarray], Dict[str, np.ndarray]]:
     """
-    Create 90/10 train/val split using same strategy as training.
-    Stratified by sample_type to match training procedure.
+    Split into calibration-fit and calibration-validation sides with no BioProject on
+    both sides.
+
+    Until 2026-09-25 this was a random ``train_test_split`` stratified on
+    ``sample_type`` (a target v9 dropped), so the temperature was fitted on runs whose
+    studies it was then evaluated on, the same defect the early-stopping split had
+    (X2). Grouping is delegated to the one implementation every other split uses.
     """
-    # Stratification must match the main training pipeline (currently sample_type)
-    # If you change stratification in scripts/training/01_train_multitask_single_fold.py,
-    # you MUST update it here too to ensure consistency
-    train_idx, val_idx = train_test_split(
+    # Out-of-vocabulary rows carry OOV_INDEX; the split only knows IGNORE_INDEX, so
+    # they are masked for the support floors and otherwise left untouched.
+    masked = {t: np.where(v == OOV_INDEX, IGNORE_INDEX, v) for t, v in labels_dict.items()}
+    train_idx, val_idx = grouped_validation_split(
         np.arange(len(features)),
-        test_size=val_size,
+        groups,
+        validation_split=val_size,
         random_state=random_state,
-        stratify=labels_dict["sample_type"]
+        task_labels=masked,
+        ignore_index=IGNORE_INDEX,
     )
     
     X_train = features[train_idx]
@@ -527,11 +535,14 @@ def main():
     labels_dict, encoders, num_classes = prepare_labels(
         metadata, encoders_path=Path(args.model).parent / 'label_encoders.json')
     
-    # Create validation split (same as training)
-    logger.info(f"Creating {args.val_size*100:.0f}% validation split...")
+    # Create validation split, grouped by BioProject like every other split
+    logger.info(f"Creating {args.val_size*100:.0f}% validation split, grouped by {GROUP_COL}...")
+    if GROUP_COL not in metadata.columns:
+        raise ValueError(f"{GROUP_COL} missing from {args.metadata}; required to group the split")
     X_train, X_val, y_train, y_val = create_validation_split(
         features,
         labels_dict,
+        groups=metadata[GROUP_COL].to_numpy(),
         val_size=args.val_size,
         random_state=args.random_state
     )

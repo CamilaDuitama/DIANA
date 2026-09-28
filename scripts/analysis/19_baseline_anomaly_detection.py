@@ -53,6 +53,10 @@ def main() -> int:
                     default=PROJECT_ROOT / "results/planted_mislabels_v9/planted_test_mixed_r0.1.tsv")
     ap.add_argument("--output", type=Path,
                     default=PROJECT_ROOT / "results/anomaly_detection_baselines")
+    ap.add_argument("--diana-dir", type=Path,
+                    default=PROJECT_ROOT / "results/anomaly_detection",
+                    help="where 15_anomaly_detection_roc.py wrote roc_DIANA_<task>.tsv; "
+                         "the rescored runs (with --encoders) live in their own directory")
     args = ap.parse_args()
 
     plant = pd.read_csv(args.planted, sep="\t")
@@ -83,7 +87,7 @@ def main() -> int:
 
     # DIANA, scored the same way, for the comparison
     for task in TASKS:
-        f = PROJECT_ROOT / f"results/anomaly_detection/roc_DIANA_{task}.tsv"
+        f = args.diana_dir / f"roc_DIANA_{task}.tsv"
         if f.exists():
             d = pd.read_csv(f, sep="\t").iloc[0]
             rows.append({"task": task, "model": "DIANA",

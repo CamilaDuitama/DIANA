@@ -191,71 +191,89 @@ def main():
         class_weights[task_name] = torch.FloatTensor(weights).to(device)
         logger.info(f"{task_name} - Classes: {len(unique)}, Weights (present): {dict(zip(unique.astype(int), weights[unique]))}")
 
-    # Split into sub-train and validation for early stopping
-    validation_split = config.get('validation_split', 0.1)
-    logger.info(f'Creating validation split: {validation_split * 100:.0f}% for validation')
-
-    # Stratify by first two classification tasks (or first one, or none for pure regression)
-    classification_tasks = [t for t in task_names if t not in regression_tasks]
-    stratify_key = None
-    if len(classification_tasks) >= 2:
-        t1, t2 = classification_tasks[0], classification_tasks[1]
-        stratify_key = np.array([
-            f"{metadata.iloc[i][t1]}_{metadata.iloc[i][t2]}"
-            for i in range(len(metadata))
-        ])
-        logger.info(f'Stratifying by {t1} + {t2}')
-    elif len(classification_tasks) == 1:
-        stratify_key = y_full[classification_tasks[0]]
-        logger.info(f'Stratifying by {classification_tasks[0]}')
+    # X1 (2026-09-25): a fixed epoch budget chosen on the grouped dev folds
+    # (04_epoch_budget_dev_folds.py, 37_epoch_budget_select.py) replaces the inner
+    # early-stopping split. With one head that split had no usable criterion once it
+    # was grouped: `feature` had 19 labelled validation runs and `sample_host` 4 classes
+    # (results/final_fixed_v9/). Under a budget the model trains on all rows and the
+    # weights after the last epoch are the model. Configs without the key keep the
+    # grouped early-stopping path below unchanged.
+    epoch_budget = config.get('epoch_budget')
+    if epoch_budget:
+        epoch_budget = int(epoch_budget)
+        if epoch_budget < 1:
+            raise ValueError(f"epoch_budget must be a positive integer, got {epoch_budget}")
+        logger.info(f'Fixed epoch budget: {epoch_budget} epochs on all {len(X_full)} runs, '
+                    'no validation split, no early stopping')
+        X_train, X_val = X_full, None
+        y_train = {task: y_full[task] for task in task_names}
+        y_val = None
     else:
-        logger.info('No classification tasks — no stratification')
+        # Split into sub-train and validation for early stopping
+        validation_split = config.get('validation_split', 0.1)
+        logger.info(f'Creating validation split: {validation_split * 100:.0f}% for validation')
 
-    indices = np.arange(len(X_full))
-    # stratify_key was computed and logged but never passed, so the log asserted the
-    # opposite of what happened. Stratify where it is usable: every class needs at
-    # least 2 members, and masked rows (IGNORE_INDEX) must not form a stratum.
-    strat = None
-    if stratify_key is not None:
-        sk = pd.Series(stratify_key).astype(str)
-        vc = sk.value_counts()
-        sk = sk.where(sk.map(vc) >= 2, "__rare__")
-        if sk.nunique() > 1 and sk.value_counts().min() >= 2:
-            strat = sk.to_numpy()
+        # Stratify by first two classification tasks (or first one, or none for pure regression)
+        classification_tasks = [t for t in task_names if t not in regression_tasks]
+        stratify_key = None
+        if len(classification_tasks) >= 2:
+            t1, t2 = classification_tasks[0], classification_tasks[1]
+            stratify_key = np.array([
+                f"{metadata.iloc[i][t1]}_{metadata.iloc[i][t2]}"
+                for i in range(len(metadata))
+            ])
+            logger.info(f'Stratifying by {t1} + {t2}')
+        elif len(classification_tasks) == 1:
+            stratify_key = y_full[classification_tasks[0]]
+            logger.info(f'Stratifying by {classification_tasks[0]}')
         else:
-            logger.warning("stratification not possible for this split; proceeding unstratified")
-    # Grouped by BioProject, not random. Runs from one study share protocol, lab and
-    # sometimes the specimen, so a random split puts near-duplicates on both sides and
-    # early stopping then selects an epoch for recognising the study rather than for
-    # generalising to a new one. The outer v9 splits are grouped and asserted in code;
-    # this one was not until 2026-09-18, so every final model before that date was
-    # early-stopped on a contaminated criterion.
-    if GROUP_COL not in metadata.columns:
-        raise ValueError(
-            f"{GROUP_COL} missing from metadata ({config['metadata_path']}); it is "
-            "required to group the early-stopping split by BioProject"
+            logger.info('No classification tasks — no stratification')
+
+        indices = np.arange(len(X_full))
+        # stratify_key was computed and logged but never passed, so the log asserted the
+        # opposite of what happened. Stratify where it is usable: every class needs at
+        # least 2 members, and masked rows (IGNORE_INDEX) must not form a stratum.
+        strat = None
+        if stratify_key is not None:
+            sk = pd.Series(stratify_key).astype(str)
+            vc = sk.value_counts()
+            sk = sk.where(sk.map(vc) >= 2, "__rare__")
+            if sk.nunique() > 1 and sk.value_counts().min() >= 2:
+                strat = sk.to_numpy()
+            else:
+                logger.warning("stratification not possible for this split; proceeding unstratified")
+        # Grouped by BioProject, not random. Runs from one study share protocol, lab and
+        # sometimes the specimen, so a random split puts near-duplicates on both sides and
+        # early stopping then selects an epoch for recognising the study rather than for
+        # generalising to a new one. The outer v9 splits are grouped and asserted in code;
+        # this one was not until 2026-09-18, so every final model before that date was
+        # early-stopped on a contaminated criterion.
+        if GROUP_COL not in metadata.columns:
+            raise ValueError(
+                f"{GROUP_COL} missing from metadata ({config['metadata_path']}); it is "
+                "required to group the early-stopping split by BioProject"
+            )
+        groups = metadata[GROUP_COL].to_numpy()
+        train_idx, val_idx = grouped_validation_split(
+            indices,
+            groups,
+            validation_split=validation_split,
+            stratify=strat,
+            random_state=random_seed,
+            # Without this a sparsely labelled task can end up with no validation rows at
+            # all. On 2026-09-18 `feature` (561 of 2,716 runs labelled) got 0, the
+            # multi-task net had no criterion for that head, and the fit finished without
+            # ever writing a checkpoint.
+            task_labels=y_full,
+            ignore_index=IGNORE_INDEX,
         )
-    groups = metadata[GROUP_COL].to_numpy()
-    train_idx, val_idx = grouped_validation_split(
-        indices,
-        groups,
-        validation_split=validation_split,
-        stratify=strat,
-        random_state=random_seed,
-        # Without this a sparsely labelled task can end up with no validation rows at
-        # all. On 2026-09-18 `feature` (561 of 2,716 runs labelled) got 0, the
-        # multi-task net had no criterion for that head, and the fit finished without
-        # ever writing a checkpoint.
-        task_labels=y_full,
-        ignore_index=IGNORE_INDEX,
-    )
 
-    X_train, X_val = X_full[train_idx], X_full[val_idx]
-    y_train = {task: y_full[task][train_idx] for task in task_names}
-    y_val   = {task: y_full[task][val_idx]   for task in task_names}
+        X_train, X_val = X_full[train_idx], X_full[val_idx]
+        y_train = {task: y_full[task][train_idx] for task in task_names}
+        y_val   = {task: y_full[task][val_idx]   for task in task_names}
 
-    logger.info(f'Sub-train samples: {len(X_train)}')
-    logger.info(f'Validation samples: {len(X_val)}')
+        logger.info(f'Sub-train samples: {len(X_train)}')
+        logger.info(f'Validation samples: {len(X_val)}')
 
     # P1: Initialize model with clean nested params (use unpacking)
     logger.info(f'Using device: {device}')
@@ -326,14 +344,15 @@ def main():
         encoder_learning_rate=(config.get('sequence_encoder') or {}).get('learning_rate'),
     )
 
-    # Train with early stopping
-    logger.info('Starting training with validation-based early stopping...')
+    # Train with early stopping, or for the fixed budget
+    logger.info('Starting training with validation-based early stopping...'
+                if not epoch_budget else f'Starting training for {epoch_budget} epochs...')
     history = trainer.fit(
         X_train=X_train,
         y_train=y_train,
         X_val=X_val,
         y_val=y_val,
-        max_epochs=config.get('max_epochs', 200),
+        max_epochs=epoch_budget or config.get('max_epochs', 200),
         batch_size=hyperparams['batch_size'],
         patience=config.get('early_stopping_patience', config.get('patience', 20)),
         checkpoint_dir=Path(config['output_dir']),
@@ -345,9 +364,20 @@ def main():
         verbose=True
     )
 
-    # The best model is already saved by trainer.fit() to checkpoint_dir/best_model.pth
-    # and loaded back into the trainer. Just verify it exists.
     model_path = Path(config['output_dir']) / 'best_model.pth'
+    if epoch_budget:
+        # No validation set, so fit() saved nothing: the weights after the last epoch are
+        # the model. Same checkpoint layout as fit() writes, so diana-test loads it.
+        torch.save({
+            'epoch': epoch_budget - 1,
+            'model_state_dict': model.state_dict(),
+            'optimizer_state_dict': trainer.optimizer.state_dict(),
+            'monitor': 'epoch_budget',
+            'history': history,
+        }, model_path)
+
+    # Otherwise the best model is already saved by trainer.fit() to
+    # checkpoint_dir/best_model.pth and loaded back into the trainer. Verify it exists.
     if model_path.exists():
         logger.info(f'Final model saved to: {model_path}')
     else:

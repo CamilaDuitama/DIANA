@@ -282,14 +282,17 @@ def extract_diana_features(
         threads: Number of CPU threads (default: 4)
         output_dir: Output directory (default: temporary)
         return_both: If True, returns (abundance, fraction)
-                    If False, returns only abundance (default)
-    
+                    If False, returns only the fraction (default), which is the
+                    representation every DIANA model is trained on. Until
+                    2026-09-25 the default returned abundance, so the documented
+                    example handed back an array no model consumes (G0).
+
     Returns:
-        If return_both=False: np.ndarray of shape (n_unitigs,) - abundance
+        If return_both=False: np.ndarray of shape (n_unitigs,) - fraction
         If return_both=True: tuple of (abundance, fraction) arrays
-    
+
     Example:
-        >>> # Get abundance features only
+        >>> # Get the model input (fraction) only
         >>> features = extract_diana_features('sample.fastq', 'muset_output/')
         >>> 
         >>> # Get both abundance and fraction
@@ -313,5 +316,4 @@ def extract_diana_features(
     
     if return_both:
         return result['abundance'], result['fraction']
-    else:
-        return result['abundance']
+    return result['fraction']

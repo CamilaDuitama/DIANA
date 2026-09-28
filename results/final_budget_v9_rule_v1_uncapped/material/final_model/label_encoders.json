@@ -1,0 +1,22 @@
+{
+  "material": {
+    "classes": [
+      "bone",
+      "dental calculus",
+      "digestive tract contents",
+      "intestine",
+      "lake sediment",
+      "leaf",
+      "marine sediment",
+      "midden",
+      "muscle tissue",
+      "palaeofaeces",
+      "permafrost",
+      "sediment",
+      "shell",
+      "soil",
+      "tooth",
+      "unknown"
+    ]
+  }
+}

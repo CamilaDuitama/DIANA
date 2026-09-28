@@ -1,0 +1,2717 @@
+Run_accession	fold	sample_host_pred	sample_host_true
+ERR13950600	0	Arabidopsis thaliana	
+ERR13950601	0	Arabidopsis thaliana	
+ERR13950606	0	Homo sapiens	
+ERR13950607	0	Homo sapiens	
+ERR13950608	0	Homo sapiens	
+ERR13950609	0	Homo sapiens	
+ERR13950611	0	Arabidopsis thaliana	
+ERR13950612	0	Homo sapiens	
+ERR13950613	0	Arabidopsis thaliana	
+ERR13950614	0	Homo sapiens	
+ERR13950615	0	Homo sapiens	
+ERR13950620	0	Homo sapiens	
+ERR13950621	0	Homo sapiens	
+ERR13950622	0	Homo sapiens	
+ERR13950623	0	Homo sapiens	
+ERR13950624	0	Homo sapiens	
+ERR13950625	0	Homo sapiens	
+ERR13950627	0	Homo sapiens	
+ERR13950628	0	Homo sapiens	
+ERR13950629	0	Homo sapiens	
+ERR13950630	0	Homo sapiens	
+ERR13950631	0	Homo sapiens	
+ERR13950632	0	Homo sapiens	
+ERR13950633	0	Homo sapiens	
+ERR13950634	0	Homo sapiens	
+ERR13950635	0	Homo sapiens	
+ERR13950637	0	Arabidopsis thaliana	
+ERR13950638	0	Arabidopsis thaliana	
+ERR13950639	0	Homo sapiens	
+ERR13950640	0	Homo sapiens	
+ERR13950641	0	Homo sapiens	
+ERR13950642	0	Homo sapiens	
+ERR13950643	0	Homo sapiens	
+ERR13950644	0	Homo sapiens	
+ERR13950646	0	Homo sapiens	
+ERR13950647	0	Homo sapiens	
+ERR13950648	0	Homo sapiens	
+ERR13950649	0	Homo sapiens	
+ERR13950650	0	Homo sapiens	
+ERR13950653	0	Homo sapiens	
+ERR13950654	0	Homo sapiens	
+ERR13950655	0	Homo sapiens	
+ERR13950658	0	Homo sapiens	
+ERR13950659	0	Homo sapiens	
+ERR13950660	0	Arabidopsis thaliana	
+ERR13950661	0	Homo sapiens	
+ERR13950662	0	Homo sapiens	
+ERR13950663	0	Homo sapiens	
+ERR13950664	0	Homo sapiens	
+ERR13950665	0	Arabidopsis thaliana	
+ERR13950666	0	Homo sapiens	
+ERR13950667	0	Homo sapiens	
+ERR13950668	0	Homo sapiens	
+ERR13950669	0	Homo sapiens	
+ERR13950670	0	Arabidopsis thaliana	
+ERR13950671	0	Homo sapiens	
+ERR13950673	0	Homo sapiens	
+ERR13950674	0	Homo sapiens	
+ERR3579671	0	Homo sapiens	Pan troglodytes verus
+ERR3579672	0	Homo sapiens	Pan troglodytes verus
+ERR3579673	0	Homo sapiens	Homo sapiens neanderthalensis
+ERR3579674	0	Homo sapiens	Homo sapiens neanderthalensis
+ERR3579675	0	Homo sapiens	Pan troglodytes schweinfurthii
+ERR3579676	0	Gorilla beringei graueri	Gorilla beringei graueri
+ERR3579677	0	Homo sapiens	Homo sapiens
+ERR3579678	0	Homo sapiens	Homo sapiens
+ERR3579680	0	Gorilla beringei beringei	Gorilla beringei beringei
+ERR3579681	0	Gorilla beringei graueri	Gorilla gorilla gorilla
+ERR3579682	0	Gorilla beringei	Gorilla beringei beringei
+ERR3579683	0	Gorilla beringei graueri	Gorilla beringei beringei
+ERR3579685	0	Gorilla beringei graueri	Gorilla beringei beringei
+ERR3579687	0	Gorilla beringei graueri	Gorilla beringei beringei
+ERR3579688	0	Homo sapiens	Homo sapiens neanderthalensis
+ERR3579699	0	Homo sapiens	Gorilla gorilla gorilla
+ERR3579700	0	Homo sapiens	Pan troglodytes ellioti
+ERR3579701	0	Homo sapiens	Pan troglodytes ellioti
+ERR3579702	0	Homo sapiens	Pan troglodytes ellioti
+ERR3579703	0	Homo sapiens	Pan troglodytes ellioti
+ERR3579704	0	Homo sapiens	Homo sapiens neanderthalensis
+ERR3579705	0	Gorilla beringei graueri	Gorilla beringei graueri
+ERR3579706	0	Gorilla beringei graueri	Gorilla beringei graueri
+ERR3579707	0	Homo sapiens	Homo sapiens
+ERR3579708	0	Homo sapiens	Pan troglodytes verus
+ERR3579709	0	Homo sapiens	Pan troglodytes verus
+ERR3579710	0	Homo sapiens	Pan troglodytes verus
+ERR3579711	0	Homo sapiens	Pan troglodytes verus
+ERR3579712	0	Homo sapiens	Pan troglodytes verus
+ERR3579713	0	Homo sapiens	Gorilla gorilla gorilla
+ERR3579714	0	Homo sapiens	Gorilla gorilla gorilla
+ERR3579715	0	Homo sapiens	Pan troglodytes ellioti
+ERR3579716	0	Homo sapiens	Pan troglodytes ellioti
+ERR3579719	0	Homo sapiens	Homo sapiens
+ERR3579720	0	Homo sapiens	Homo sapiens
+ERR3579721	0	Homo sapiens	Gorilla gorilla gorilla
+ERR3579722	0	Homo sapiens	Gorilla gorilla gorilla
+ERR3579723	0	Homo sapiens	Gorilla gorilla gorilla
+ERR3579726	0	Homo sapiens	Pan troglodytes ellioti
+ERR3579727	0	Homo sapiens	Pan troglodytes ellioti
+ERR3579728	0	Homo sapiens	Homo sapiens
+ERR3579729	0	Homo sapiens	Homo sapiens
+ERR3579730	0	Homo sapiens	Homo sapiens
+ERR3579731	0	Homo sapiens	Homo sapiens
+ERR3579732	0	Homo sapiens	Homo sapiens
+ERR3579733	0	Homo sapiens	Homo sapiens
+ERR3579734	0	Homo sapiens	Homo sapiens
+ERR3579735	0	Homo sapiens	Homo sapiens
+ERR3579738	0	Homo sapiens	Homo sapiens
+ERR3579740	0	Homo sapiens	Homo sapiens
+ERR3579741	0	Homo sapiens	Homo sapiens
+ERR3579742	0	Homo sapiens	Homo sapiens
+ERR3579743	0	Gorilla beringei graueri	Gorilla beringei graueri
+ERR3579744	0	Gorilla beringei graueri	Gorilla beringei graueri
+ERR3579745	0	Homo sapiens	Homo sapiens neanderthalensis
+ERR3579746	0	Homo sapiens	Homo sapiens neanderthalensis
+ERR3579747	0	Homo sapiens	Homo sapiens neanderthalensis
+ERR3579748	0	Homo sapiens	Homo sapiens neanderthalensis
+ERR3579749	0	Homo sapiens	Gorilla gorilla gorilla
+ERR3579750	0	Gorilla beringei graueri	Gorilla gorilla gorilla
+ERR3579751	0	Homo sapiens	Gorilla gorilla gorilla
+ERR3579752	0	Homo sapiens	Homo sapiens neanderthalensis
+ERR3579753	0	Homo sapiens	Homo sapiens neanderthalensis
+ERR3579754	0	Homo sapiens	Homo sapiens neanderthalensis
+ERR3579755	0	Gorilla beringei graueri	Gorilla beringei graueri
+ERR3579756	0	Gorilla beringei graueri	Gorilla beringei graueri
+ERR3579757	0	Gorilla beringei graueri	Gorilla beringei graueri
+ERR3579758	0	Gorilla beringei graueri	Gorilla beringei graueri
+ERR3579759	0	Homo sapiens	Pan troglodytes schweinfurthii
+ERR3579760	0	Homo sapiens	Pan troglodytes schweinfurthii
+ERR3579761	0	Homo sapiens	Pan troglodytes schweinfurthii
+ERR3579762	0	Homo sapiens	Pan troglodytes schweinfurthii
+ERR3579763	0	Homo sapiens	Pan troglodytes schweinfurthii
+ERR3579764	0	Homo sapiens	Pan troglodytes schweinfurthii
+ERR3579765	0	Homo sapiens	Pan troglodytes schweinfurthii
+ERR3579766	0	Homo sapiens	Pan troglodytes schweinfurthii
+ERR3579767	0	Homo sapiens	Pan troglodytes schweinfurthii
+ERR3579768	0	Homo sapiens	Pan troglodytes schweinfurthii
+ERR3579774	0	Homo sapiens	Homo sapiens
+ERR3579775	0	Homo sapiens	Homo sapiens
+ERR3579776	0	Gorilla beringei	Gorilla beringei beringei
+ERR3579777	0	Gorilla beringei graueri	Gorilla beringei beringei
+ERR3579779	0	Gorilla beringei	Gorilla beringei beringei
+ERR3579781	0	Gorilla beringei	Gorilla beringei beringei
+ERR3579782	0	Homo sapiens	Gorilla beringei beringei
+ERR3579783	0	Homo sapiens	Gorilla beringei beringei
+ERR3579784	0	Homo sapiens	Homo sapiens
+ERR3579785	0	Homo sapiens	Homo sapiens
+ERR3579786	0	Homo sapiens	Homo sapiens
+ERR3579787	0	Homo sapiens	Homo sapiens
+ERR3579788	0	Homo sapiens	Homo sapiens
+ERR3579789	0	Homo sapiens	Homo sapiens
+ERR3579790	0	Homo sapiens	Homo sapiens
+ERR3579791	0	Homo sapiens	Homo sapiens
+ERR3579792	0	Homo sapiens	Alouatta palliata
+ERR3579793	0	Homo sapiens	Alouatta palliata
+ERR3579796	0	Homo sapiens	Alouatta palliata
+ERR3579797	0	Homo sapiens	Alouatta palliata
+ERR3579798	0	Homo sapiens	Alouatta palliata
+ERR3579799	0	Homo sapiens	Alouatta palliata
+ERR3579800	0	Homo sapiens	Homo sapiens
+ERR3579801	0	Homo sapiens	Homo sapiens
+ERR3579802	0	Homo sapiens	Homo sapiens
+ERR3579803	0	Homo sapiens	Homo sapiens
+ERR3579804	0	Homo sapiens	Homo sapiens
+ERR3579805	0	Homo sapiens	Homo sapiens
+ERR3579806	0	Homo sapiens	Homo sapiens
+ERR3579807	0	Homo sapiens	Homo sapiens neanderthalensis
+ERR3579809	0	Homo sapiens	Homo sapiens
+ERR3579810	0	Homo sapiens	Homo sapiens
+ERR3579811	0	Homo sapiens	Homo sapiens
+ERR3579812	0	Homo sapiens	Homo sapiens
+ERR3579813	0	Homo sapiens	Homo sapiens
+ERR3579814	0	Homo sapiens	Homo sapiens
+ERR3579815	0	Homo sapiens	Homo sapiens
+ERR3579816	0	Homo sapiens	Homo sapiens
+ERR3579817	0	Homo sapiens	Homo sapiens
+ERR3579818	0	Homo sapiens	Homo sapiens
+ERR3579827	0	Homo sapiens	Homo sapiens neanderthalensis
+ERR3579828	0	Gorilla beringei graueri	Gorilla beringei graueri
+ERR3579829	0	Gorilla beringei graueri	Gorilla beringei graueri
+ERR3579830	0	Homo sapiens	Homo sapiens neanderthalensis
+ERR3678173	0	Homo sapiens	Pan troglodytes verus
+ERR3678174	0	Homo sapiens	Pan troglodytes verus
+ERR3678175	0	Gorilla beringei graueri	Gorilla beringei graueri
+ERR3678176	0	Homo sapiens	Homo sapiens
+ERR3678177	0	Homo sapiens	Homo sapiens
+ERR3678179	0	Homo sapiens	Gorilla beringei beringei
+ERR3678180	0	Gorilla beringei graueri	Gorilla gorilla gorilla
+ERR3678181	0	Gorilla beringei graueri	Gorilla beringei beringei
+ERR3678182	0	Gorilla beringei graueri	Gorilla beringei beringei
+ERR3678184	0	Gorilla beringei graueri	Gorilla beringei beringei
+ERR3678186	0	Homo sapiens	Gorilla beringei beringei
+ERR3678187	0	Homo sapiens	Homo sapiens neanderthalensis
+ERR3678595	0	Homo sapiens	Homo sapiens
+ERR3678596	0	Homo sapiens	Homo sapiens
+ERR3678598	0	Homo sapiens	Homo sapiens
+ERR3678599	0	Homo sapiens	Homo sapiens
+ERR3678600	0	Homo sapiens	Canis lupus
+ERR3678602	0	Homo sapiens	Homo sapiens
+ERR3678603	0	Homo sapiens	Homo sapiens
+ERR3678604	0	Homo sapiens	Homo sapiens
+ERR3678605	0	Homo sapiens	Homo sapiens
+ERR3678606	0	Homo sapiens	Homo sapiens
+ERR3678607	0	Homo sapiens	Homo sapiens
+ERR3678609	0	Homo sapiens	Homo sapiens
+ERR3678610	0	Gorilla gorilla gorilla	Canis lupus
+ERR3678611	0	Homo sapiens	Homo sapiens
+ERR3678612	0	Homo sapiens	Canis lupus
+ERR3678613	0	Homo sapiens	Homo sapiens
+ERR3678614	0	Homo sapiens	Canis lupus
+ERR3678615	0	Homo sapiens	Homo sapiens
+ERR3678616	0	Homo sapiens	Homo sapiens
+ERR3678617	0	Homo sapiens	Homo sapiens
+ERR3678618	0	Homo sapiens	Canis lupus
+ERR3678619	0	Homo sapiens	Homo sapiens
+ERR3678620	0	Homo sapiens	Canis lupus
+ERR3678622	0	Homo sapiens	Homo sapiens
+ERR3678623	0	Homo sapiens	Canis lupus
+ERR3678625	0	Homo sapiens	Homo sapiens
+ERR3678626	0	Homo sapiens	Canis lupus
+ERR3678627	0	Homo sapiens	Homo sapiens
+ERR3678628	0	Homo sapiens	Canis lupus
+ERR3678629	0	Homo sapiens	Canis lupus
+ERR3678727	0	Homo sapiens	Homo sapiens neanderthalensis
+ERR3906046	0	Homo sapiens	Gorilla beringei beringei
+ERR4334735	0	Homo sapiens	
+ERR4334736	0	Homo sapiens	
+ERR4426516	0	Homo sapiens	
+ERR4426517	0	Homo sapiens	
+ERR4426518	0	Homo sapiens	
+ERR4426519	0	Homo sapiens	
+ERR4426520	0	Homo sapiens	
+ERR4426521	0	Homo sapiens	
+ERR4426522	0	Homo sapiens	
+ERR4426523	0	Homo sapiens	
+ERR4426524	0	Homo sapiens	
+ERR4426525	0	Homo sapiens	
+ERR4426526	0	Homo sapiens	
+ERR4426527	0	Homo sapiens	
+ERR4426529	0	Homo sapiens	
+ERR4426530	0	Homo sapiens	
+ERR4426531	0	Homo sapiens	
+ERR4426532	0	Homo sapiens	
+ERR4426533	0	Homo sapiens	
+ERR4426534	0	Homo sapiens	
+ERR4426535	0	Homo sapiens	
+ERR4426536	0	Homo sapiens	
+ERR4426537	0	Homo sapiens	
+ERR4426538	0	Homo sapiens	
+ERR4426539	0	Homo sapiens	
+ERR4426540	0	Homo sapiens	
+ERR4426541	0	Homo sapiens	
+ERR4426542	0	Homo sapiens	
+ERR4426543	0	Homo sapiens	
+ERR4426545	0	Homo sapiens	
+ERR4426546	0	Homo sapiens	
+ERR4426547	0	Homo sapiens	
+ERR4426548	0	Homo sapiens	
+ERR4426549	0	Homo sapiens	
+ERR4426550	0	Homo sapiens	
+ERR4426552	0	Homo sapiens	
+ERR5863536	0	Homo sapiens	Canis lupus
+ERR6093854	0	Ursus arctos	Ursus arctos
+ERR6093855	0	Ursus arctos	Ursus arctos
+ERR6093856	0	Ursus arctos	Ursus arctos
+ERR6093857	0	Ursus arctos	Ursus arctos
+ERR6093858	0	Homo sapiens	Ursus arctos
+ERR6093859	0	Homo sapiens	Ursus arctos
+ERR6093860	0	Homo sapiens	Ursus arctos
+ERR6093861	0	Homo sapiens	Ursus arctos
+ERR6093862	0	Ursus arctos	Ursus arctos
+ERR6093863	0	Ursus arctos	Ursus arctos
+ERR6093864	0	Ursus arctos	Ursus arctos
+ERR6093865	0	Ursus arctos	Ursus arctos
+ERR6093866	0	Ursus arctos	Ursus arctos
+ERR6093867	0	Ursus arctos	Ursus arctos
+ERR6093868	0	Ursus arctos	Ursus arctos
+ERR6093869	0	Ursus arctos	Ursus arctos
+ERR6093870	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6093871	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6093872	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6093874	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6093875	0	Bison priscus	Ursus arctos
+ERR6093876	0	Bison priscus	Ursus arctos
+ERR6093877	0	Bison priscus	Ursus arctos
+ERR6093878	0	Bison priscus	Ursus arctos
+ERR6093879	0	Bison priscus	Ursus arctos
+ERR6093880	0	Bison priscus	Ursus arctos
+ERR6093881	0	Bison priscus	Ursus arctos
+ERR6093882	0	Bison priscus	Ursus arctos
+ERR6093883	0	Bison priscus	Ursus arctos
+ERR6093885	0	Bison priscus	Ursus arctos
+ERR6093886	0	Bison priscus	Ursus arctos
+ERR6093887	0	Bison priscus	Ursus arctos
+ERR6093888	0	Bison priscus	Ursus arctos
+ERR6093889	0	Bison priscus	Ursus arctos
+ERR6093890	0	Bison priscus	Ursus arctos
+ERR6093891	0	Bison priscus	Ursus arctos
+ERR6093893	0	Ursus arctos	Ursus arctos
+ERR6093894	0	Ursus arctos	Ursus arctos
+ERR6093896	0	Ursus arctos	Ursus arctos
+ERR6093897	0	Ursus arctos	Ursus arctos
+ERR6093899	0	Bison priscus	Ursus arctos
+ERR6093900	0	Bison priscus	Ursus arctos
+ERR6093901	0	Bison priscus	Ursus arctos
+ERR6093902	0	Bison priscus	Ursus arctos
+ERR6093903	0	Ursus arctos	Ursus arctos
+ERR6093904	0	Ursus arctos	Ursus arctos
+ERR6093905	0	Ursus arctos	Ursus arctos
+ERR6093906	0	Ursus arctos	Ursus arctos
+ERR6093907	0	Bison priscus	Ursus arctos
+ERR6093908	0	Bison priscus	Ursus arctos
+ERR6093909	0	Bison priscus	Ursus arctos
+ERR6093910	0	Bison priscus	Ursus arctos
+ERR6093912	0	Ursus arctos	Ursus arctos
+ERR6093913	0	Ursus arctos	Ursus arctos
+ERR6093914	0	Ursus arctos	Ursus arctos
+ERR6093916	0	Ursus arctos	Ursus arctos
+ERR6093917	0	Bison priscus	Ursus arctos
+ERR6093919	0	Bison priscus	Ursus arctos
+ERR6093920	0	Bison priscus	Ursus arctos
+ERR6093921	0	Bison priscus	Ursus arctos
+ERR6093922	0	Homo sapiens	Ursus arctos
+ERR6093923	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6093924	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6093926	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6093927	0	Ursus arctos	Ursus arctos
+ERR6093928	0	Ursus arctos	Ursus arctos
+ERR6093929	0	Ursus arctos	Ursus arctos
+ERR6093930	0	Ursus arctos	Ursus arctos
+ERR6093931	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6093932	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6093934	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6093935	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6093936	0	Bison priscus	Ursus arctos
+ERR6093937	0	Bison priscus	Ursus arctos
+ERR6093938	0	Bison priscus	Ursus arctos
+ERR6093939	0	Bison priscus	Ursus arctos
+ERR6093941	0	Bison priscus	Ursus arctos
+ERR6093942	0	Bison priscus	Ursus arctos
+ERR6093943	0	Bison priscus	Ursus arctos
+ERR6093945	0	Bison priscus	Ursus arctos
+ERR6093946	0	Ursus arctos	Ursus arctos
+ERR6093947	0	Ursus arctos	Ursus arctos
+ERR6093948	0	Ursus arctos	Ursus arctos
+ERR6093949	0	Ursus arctos	Ursus arctos
+ERR6093950	0	Bison priscus	Ursus arctos
+ERR6093951	0	Bison priscus	Ursus arctos
+ERR6093952	0	Bison priscus	Ursus arctos
+ERR6093953	0	Bison priscus	Ursus arctos
+ERR6093954	0	Homo sapiens	Ursus arctos
+ERR6093955	0	Homo sapiens	Ursus arctos
+ERR6093956	0	Homo sapiens	Ursus arctos
+ERR6093957	0	Homo sapiens	Ursus arctos
+ERR6093958	0	Bison priscus	Ursus arctos
+ERR6093959	0	Bison priscus	Ursus arctos
+ERR6093960	0	Bison priscus	Ursus arctos
+ERR6093961	0	Bison priscus	Ursus arctos
+ERR6093963	0	Bison priscus	Ursus arctos
+ERR6093964	0	Bison priscus	Ursus arctos
+ERR6093965	0	Bison priscus	Ursus arctos
+ERR6093966	0	Bison priscus	Ursus arctos
+ERR6093967	0	Ursus arctos	Ursus arctos
+ERR6093968	0	Ursus arctos	Ursus arctos
+ERR6093969	0	Bison priscus	Ursus arctos
+ERR6093970	0	Bison priscus	Ursus arctos
+ERR6093972	0	Bison priscus	Ursus arctos
+ERR6096533	0	Bison priscus	Ursus arctos
+ERR6096535	0	Bison priscus	Ursus arctos
+ERR6096536	0	Bison priscus	Ursus arctos
+ERR6096537	0	Homo sapiens	Ursus arctos
+ERR6096538	0	Homo sapiens	Ursus arctos
+ERR6096539	0	Homo sapiens	Ursus arctos
+ERR6096540	0	Homo sapiens	Ursus arctos
+ERR6096541	0	Homo sapiens	Ursus arctos
+ERR6096542	0	Homo sapiens	Ursus arctos
+ERR6096543	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6096544	0	Homo sapiens	Ursus arctos
+ERR6096545	0	Bison priscus	Ursus arctos
+ERR6096547	0	Bison priscus	Ursus arctos
+ERR6096548	0	Bison priscus	Ursus arctos
+ERR6096549	0	Bison priscus	Ursus arctos
+ERR6096550	0	Ursus arctos	Ursus arctos
+ERR6096551	0	Ursus arctos	Ursus arctos
+ERR6096552	0	Ursus arctos	Ursus arctos
+ERR6096554	0	Ursus arctos	Ursus arctos
+ERR6096555	0	Ursus arctos	Ursus arctos
+ERR6096557	0	Ursus arctos	Ursus arctos
+ERR6096570	0	Ursus arctos	Ursus arctos
+ERR6096574	0	Ursus arctos	Ursus arctos
+ERR6096575	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6096576	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6096579	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6096580	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6096581	0	Bison priscus	Ursus arctos
+ERR6096582	0	Bison priscus	Ursus arctos
+ERR6096739	0	Bison priscus	Ursus arctos
+ERR6096740	0	Bison priscus	Ursus arctos
+ERR6096741	0	Ursus arctos	Ursus arctos
+ERR6096742	0	Ursus arctos	Ursus arctos
+ERR6096743	0	Ursus arctos	Ursus arctos
+ERR6096744	0	Ursus arctos	Ursus arctos
+ERR6096745	0	Ursus arctos	Ursus arctos
+ERR6096746	0	Ursus arctos	Ursus arctos
+ERR6096747	0	Ursus arctos	Ursus arctos
+ERR6096748	0	Ursus arctos	Ursus arctos
+ERR6096749	0	Ursus arctos	Ursus arctos
+ERR6096752	0	Ursus arctos	Ursus arctos
+ERR6096755	0	Ursus arctos	Ursus arctos
+ERR6096759	0	Ursus arctos	Ursus arctos
+ERR6096760	0	Homo sapiens	Ursus arctos
+ERR6096762	0	Homo sapiens	Ursus arctos
+ERR6096764	0	Homo sapiens	Ursus arctos
+ERR6096766	0	Homo sapiens	Ursus arctos
+ERR6096776	0	Ursus arctos	Ursus arctos
+ERR6096784	0	Bison priscus	Ursus arctos
+ERR6096796	0	Ursus arctos	Ursus arctos
+ERR6096814	0	Bison priscus	Ursus arctos
+ERR6096818	0	Ursus arctos	Ursus arctos
+ERR6096822	0	Ursus arctos	Ursus arctos
+ERR6096826	0	Ursus arctos	Ursus arctos
+ERR6096829	0	Ursus arctos	Ursus arctos
+ERR6096835	0	Ursus arctos	Ursus arctos
+ERR6096842	0	Ursus arctos	Ursus arctos
+ERR6096847	0	Ursus arctos	Ursus arctos
+ERR6096853	0	Ursus arctos	Ursus arctos
+ERR6096886	0	Bison priscus	Ursus arctos
+ERR6096922	0	Bison priscus	Ursus arctos
+ERR6096923	0	Bison priscus	Ursus arctos
+ERR6096924	0	Bison priscus	Ursus arctos
+ERR6096925	0	Bison priscus	Ursus arctos
+ERR6096926	0	Bison priscus	Ursus arctos
+ERR6096927	0	Bison priscus	Ursus arctos
+ERR6096928	0	Bison priscus	Ursus arctos
+ERR6096929	0	Ursus arctos	Ursus arctos
+ERR6096930	0	Ursus arctos	Ursus arctos
+ERR6096931	0	Ursus arctos	Ursus arctos
+ERR6096932	0	Ursus arctos	Ursus arctos
+ERR6096933	0	Ursus arctos	Ursus arctos
+ERR6096934	0	Ursus arctos	Ursus arctos
+ERR6096935	0	Ursus arctos	Ursus arctos
+ERR6096937	0	Ursus arctos	Ursus arctos
+ERR6096955	0	Bison priscus	Ursus arctos
+ERR6097155	0	Bison priscus	Ursus arctos
+ERR6097156	0	Bison priscus	Ursus arctos
+ERR6097514	0	Bison priscus	Ursus arctos
+ERR6097549	0	Bison priscus	Ursus arctos
+ERR6097552	0	Bison priscus	Ursus arctos
+ERR6097573	0	Bison priscus	Ursus arctos
+ERR6097575	0	Bison priscus	Ursus arctos
+ERR6097576	0	Ursus arctos	Ursus arctos
+ERR6097577	0	Ursus arctos	Ursus arctos
+ERR6097579	0	Ursus arctos	Ursus arctos
+ERR6097580	0	Ursus arctos	Ursus arctos
+ERR6097581	0	Bison priscus	Ursus arctos
+ERR6097583	0	Bison priscus	Ursus arctos
+ERR6097619	0	Bison priscus	Ursus arctos
+ERR6097621	0	Bison priscus	Ursus arctos
+ERR6097622	0	Bison priscus	Ursus arctos
+ERR6097623	0	Bison priscus	Ursus arctos
+ERR6097625	0	Bison priscus	Ursus arctos
+ERR6097626	0	Bison priscus	Ursus arctos
+ERR6097627	0	Homo sapiens	Ursus arctos
+ERR6097628	0	Homo sapiens	Ursus arctos
+ERR6097629	0	Homo sapiens	Ursus arctos
+ERR6097630	0	Homo sapiens	Ursus arctos
+ERR6097759	0	Bison priscus	Ursus arctos
+ERR6098066	0	Bison priscus	Ursus arctos
+ERR6098349	0	Bison priscus	Ursus arctos
+ERR6098517	0	Bison priscus	Ursus arctos
+ERR6098519	0	Bison priscus	Ursus arctos
+ERR6098520	0	Bison priscus	Ursus arctos
+ERR6098552	0	Bison priscus	Ursus arctos
+ERR6098553	0	Bison priscus	Ursus arctos
+ERR6098554	0	Ursus arctos	Ursus arctos
+ERR6098555	0	Ursus arctos	Ursus arctos
+ERR6098556	0	Ursus arctos	Ursus arctos
+ERR6098557	0	Ursus arctos	Ursus arctos
+ERR6098559	0	Bison priscus	Ursus arctos
+ERR6098560	0	Bison priscus	Ursus arctos
+ERR6098730	0	Bison priscus	Ursus arctos
+ERR6098929	0	Bison priscus	Ursus arctos
+ERR6098930	0	Bison priscus	Ursus arctos
+ERR6098932	0	Bison priscus	Ursus arctos
+ERR6098934	0	Bison priscus	Ursus arctos
+ERR6098936	0	Bison priscus	Ursus arctos
+ERR6098937	0	Homo sapiens	Ursus arctos
+ERR6098938	0	Homo sapiens	Ursus arctos
+ERR6098939	0	Homo sapiens	Ursus arctos
+ERR6098940	0	Homo sapiens	Ursus arctos
+ERR6098982	0	Ursus arctos	Ursus arctos
+ERR6098983	0	Ursus arctos	Ursus arctos
+ERR6098984	0	Ursus arctos	Ursus arctos
+ERR6098985	0	Ursus arctos	Ursus arctos
+ERR6098990	0	Ursus arctos	Ursus arctos
+ERR6099166	0	Ursus arctos	Ursus arctos
+ERR6099349	0	Ursus arctos	Ursus arctos
+ERR6099809	0	Ursus arctos	Ursus arctos
+ERR6099810	0	Ursus arctos	Ursus arctos
+ERR6099811	0	Ursus arctos	Ursus arctos
+ERR6099812	0	Ursus arctos	Ursus arctos
+ERR6099813	0	Ursus arctos	Ursus arctos
+ERR6099814	0	Bison priscus	Ursus arctos
+ERR6099815	0	Bison priscus	Ursus arctos
+ERR6099816	0	Bison priscus	Ursus arctos
+ERR6099817	0	Bison priscus	Ursus arctos
+ERR6099818	0	Bison priscus	Ursus arctos
+ERR6099824	0	Bison priscus	Ursus arctos
+ERR6099825	0	Bison priscus	Ursus arctos
+ERR6099826	0	Bison priscus	Ursus arctos
+ERR6101230	0	Bison priscus	Ursus arctos
+ERR6108965	0	Bison priscus	Ursus arctos
+ERR6108966	0	Bison priscus	Ursus arctos
+ERR6108967	0	Bison priscus	Ursus arctos
+ERR6108968	0	Bison priscus	Ursus arctos
+ERR6108969	0	Bison priscus	Ursus arctos
+ERR6108970	0	Bison priscus	Ursus arctos
+ERR6108971	0	Bison priscus	Ursus arctos
+ERR6108972	0	Bison priscus	Ursus arctos
+ERR6108973	0	Bison priscus	Ursus arctos
+ERR6108974	0	Bison priscus	Ursus arctos
+ERR6108975	0	Bison priscus	Ursus arctos
+ERR6108976	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6108977	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6108978	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6108979	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6108980	0	Bison priscus	Ursus arctos
+ERR6108981	0	Bison priscus	Ursus arctos
+ERR6108982	0	Bison priscus	Ursus arctos
+ERR6108983	0	Bison priscus	Ursus arctos
+ERR6108984	0	Bison priscus	Ursus arctos
+ERR6108985	0	Bison priscus	Ursus arctos
+ERR6108986	0	Bison priscus	Ursus arctos
+ERR6108987	0	Bison priscus	Ursus arctos
+ERR6108988	0	Ursus arctos	Ursus arctos
+ERR6108989	0	Ursus arctos	Ursus arctos
+ERR6108990	0	Ursus arctos	Ursus arctos
+ERR6108991	0	Ursus arctos	Ursus arctos
+ERR6108992	0	Bison priscus	Ursus arctos
+ERR6108993	0	Bison priscus	Ursus arctos
+ERR6108994	0	Bison priscus	Ursus arctos
+ERR6108995	0	Ursus arctos	Ursus arctos
+ERR6108996	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6108997	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6108998	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6109000	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6109001	0	Bison priscus	Ursus arctos
+ERR6109002	0	Bison priscus	Ursus arctos
+ERR6109003	0	Bison priscus	Ursus arctos
+ERR6109004	0	Bison priscus	Ursus arctos
+ERR6109005	0	Bison priscus	Ursus arctos
+ERR6109010	0	Bison priscus	Ursus arctos
+ERR6109011	0	Bison priscus	Ursus arctos
+ERR6109012	0	Bison priscus	Ursus arctos
+ERR6109013	0	Ursus arctos	Ursus arctos
+ERR6109014	0	Ursus arctos	Ursus arctos
+ERR6109015	0	Ursus arctos	Ursus arctos
+ERR6109016	0	Ursus arctos	Ursus arctos
+ERR6109017	0	Bison priscus	Ursus arctos
+ERR6109019	0	Bison priscus	Ursus arctos
+ERR6109020	0	Bison priscus	Ursus arctos
+ERR6109021	0	Bison priscus	Ursus arctos
+ERR6109022	0	Ursus arctos	Ursus arctos
+ERR6109023	0	Ursus arctos	Ursus arctos
+ERR6109024	0	Ursus arctos	Ursus arctos
+ERR6109025	0	Ursus arctos	Ursus arctos
+ERR6109027	0	Bison priscus	Ursus arctos
+ERR6109028	0	Bison priscus	Ursus arctos
+ERR6109049	0	Bison priscus	Ursus arctos
+ERR6109050	0	Bison priscus	Ursus arctos
+ERR6109051	0	Ursus arctos	Ursus arctos
+ERR6109053	0	Ursus arctos	Ursus arctos
+ERR6109054	0	Ursus arctos	Ursus arctos
+ERR6109055	0	Ursus arctos	Ursus arctos
+ERR6109056	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6109057	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6109058	0	Gorilla gorilla gorilla	Ursus arctos
+ERR6109059	0	Gorilla gorilla gorilla	Ursus arctos
+ERR8050978	0	Homo sapiens	Homo sapiens
+SRR1047998	0	Homo sapiens	Homo sapiens
+SRR17604731	0	Homo sapiens	Homo sapiens
+SRR17604732	0	Homo sapiens	Homo sapiens
+SRR17604735	0	Homo sapiens	Homo sapiens
+SRR17604736	0	Homo sapiens	Homo sapiens
+SRR17604737	0	Homo sapiens	Homo sapiens
+SRR17604738	0	Homo sapiens	Homo sapiens
+SRR17604739	0	Homo sapiens	Homo sapiens
+SRR17604740	0	Homo sapiens	Homo sapiens
+SRR17604741	0	Homo sapiens	Homo sapiens
+SRR17604742	0	Homo sapiens	Homo sapiens
+SRR17604743	0	Homo sapiens	Homo sapiens
+SRR17604744	0	Homo sapiens	Homo sapiens
+SRR17604745	0	Homo sapiens	Homo sapiens
+SRR17604746	0	Homo sapiens	Homo sapiens
+SRR17604747	0	Homo sapiens	Homo sapiens
+SRR17604748	0	Homo sapiens	Homo sapiens
+SRR17604749	0	Homo sapiens	Homo sapiens
+SRR17604750	0	Homo sapiens	Homo sapiens
+SRR17604751	0	Homo sapiens	Homo sapiens
+SRR17604752	0	Homo sapiens	Homo sapiens
+SRR17604753	0	Homo sapiens	Homo sapiens
+SRR17604754	0	Homo sapiens	Homo sapiens
+SRR17604755	0	Homo sapiens	Homo sapiens
+SRR17604756	0	Homo sapiens	Homo sapiens
+SRR17604757	0	Homo sapiens	Homo sapiens
+SRR17604758	0	Homo sapiens	Homo sapiens
+SRR17604759	0	Homo sapiens	Homo sapiens
+SRR17604760	0	Homo sapiens	Homo sapiens
+SRR17604761	0	Homo sapiens	Homo sapiens
+SRR17604762	0	Homo sapiens	Homo sapiens
+SRR17604763	0	Homo sapiens	Homo sapiens
+SRR17604764	0	Homo sapiens	Homo sapiens
+SRR17604765	0	Homo sapiens	Homo sapiens
+SRR17604766	0	Homo sapiens	Homo sapiens
+SRR17604767	0	Homo sapiens	Homo sapiens
+SRR17604768	0	Homo sapiens	Homo sapiens
+SRR17604769	0	Homo sapiens	Homo sapiens
+SRR17604770	0	Homo sapiens	Homo sapiens
+SRR17604771	0	Homo sapiens	Homo sapiens
+SRR17604772	0	Homo sapiens	Homo sapiens
+SRR17604773	0	Homo sapiens	Homo sapiens
+SRR17604774	0	Homo sapiens	Homo sapiens
+SRR17604775	0	Homo sapiens	Homo sapiens
+SRR17604776	0	Homo sapiens	Homo sapiens
+SRR17604777	0	Homo sapiens	Homo sapiens
+SRR17604778	0	Homo sapiens	Homo sapiens
+SRR17604779	0	Homo sapiens	Homo sapiens
+SRR17604780	0	Homo sapiens	Homo sapiens
+SRR17604781	0	Homo sapiens	Homo sapiens
+SRR17604782	0	Homo sapiens	Homo sapiens
+SRR17604783	0	Homo sapiens	Homo sapiens
+SRR17604784	0	Homo sapiens	Homo sapiens
+SRR17604785	0	Homo sapiens	Homo sapiens
+SRR17604786	0	Homo sapiens	Homo sapiens
+SRR17604787	0	Homo sapiens	Homo sapiens
+SRR17604788	0	Homo sapiens	Homo sapiens
+SRR17604789	0	Homo sapiens	Homo sapiens
+SRR17604790	0	Homo sapiens	Homo sapiens
+SRR17604791	0	Homo sapiens	Homo sapiens
+SRR17604792	0	Homo sapiens	Homo sapiens
+SRR17604793	0	Homo sapiens	Homo sapiens
+SRR17604794	0	Homo sapiens	Homo sapiens
+SRR17604795	0	Homo sapiens	Homo sapiens
+SRR17604796	0	Homo sapiens	Homo sapiens
+SRR17604797	0	Homo sapiens	Homo sapiens
+SRR17604798	0	Homo sapiens	Homo sapiens
+SRR17604799	0	Homo sapiens	Homo sapiens
+SRR17604800	0	Homo sapiens	Homo sapiens
+SRR17604801	0	Homo sapiens	Homo sapiens
+SRR17604802	0	Homo sapiens	Homo sapiens
+SRR17604803	0	Homo sapiens	Homo sapiens
+SRR17604804	0	Homo sapiens	Homo sapiens
+SRR17604805	0	Homo sapiens	Homo sapiens
+SRR17604806	0	Homo sapiens	Homo sapiens
+SRR17604807	0	Homo sapiens	Homo sapiens
+SRR17604808	0	Homo sapiens	Homo sapiens
+SRR2229974	0	Gorilla gorilla gorilla	Homo sapiens
+SRR2229975	0	Homo sapiens	Homo sapiens
+SRR2229976	0	Gorilla gorilla gorilla	Homo sapiens
+SRR2229977	0	Homo sapiens	Homo sapiens
+SRR6933819	0	Homo sapiens	Strigocuscus celebensis
+SRR6933820	0	Homo sapiens	Strigocuscus celebensis
+SRR6933821	0	Homo sapiens	Strigocuscus celebensis
+SRR6933822	0	Homo sapiens	Strigocuscus celebensis
+SRR6933823	0	Homo sapiens	Conepatus chinga
+SRR6933824	0	Homo sapiens	Conepatus chinga
+SRR6933825	0	Rangifer tarandus	Conepatus chinga
+SRR6933826	0	Homo sapiens	Conepatus chinga
+SRR6974014	0	Homo sapiens	Gerbilliscus boehmi
+SRR6974015	0	Homo sapiens	Gerbilliscus boehmi
+SRR6974016	0	Homo sapiens	Gerbilliscus boehmi
+SRR6974017	0	Homo sapiens	Gerbilliscus boehmi
+ERR3761400	1	Homo sapiens	
+ERR3761401	1	Homo sapiens	
+ERR3761402	1	Homo sapiens	
+ERR3761403	1	Homo sapiens	
+ERR3761404	1	Homo sapiens	
+ERR3761405	1	Homo sapiens	
+ERR3761406	1	Homo sapiens	
+ERR3761407	1	Canis lupus	Canis lupus
+ERR3761408	1	Homo sapiens	Homo sapiens
+ERR3761409	1	Homo sapiens	Homo sapiens
+ERR3761410	1	Canis lupus	Homo sapiens
+ERR3761411	1	Homo sapiens	Homo sapiens
+ERR3761412	1	Canis lupus	Homo sapiens
+ERR3761413	1	Homo sapiens	Homo sapiens
+ERR6430820	1	Homo sapiens	
+ERR6430821	1	Homo sapiens	
+ERR6430822	1	Arabidopsis thaliana	
+ERR6430823	1	Arabidopsis thaliana	
+ERR6430825	1	Homo sapiens	
+ERR6430828	1	Homo sapiens	
+ERR6430830	1	Homo sapiens	
+ERR6430831	1	Homo sapiens	
+ERR6430832	1	Homo sapiens	
+ERR6430833	1	Arabidopsis thaliana	
+ERR6430834	1	Homo sapiens	
+ERR6430836	1	Homo sapiens	
+ERR6430838	1	Homo sapiens	
+ERR6430839	1	Homo sapiens	
+ERR6430840	1	Homo sapiens	
+ERR6430841	1	Bison priscus	
+ERR6430842	1	Homo sapiens	
+ERR6430843	1	Homo sapiens	
+ERR6430845	1	Homo sapiens	
+ERR6430846	1	Homo sapiens	
+ERR6430847	1	Homo sapiens	
+ERR6430848	1	Homo sapiens	
+ERR6430849	1	Homo sapiens	
+ERR6430850	1	Homo sapiens	
+ERR6430851	1	Homo sapiens	
+ERR6589621	1	Homo sapiens	Homo sapiens
+ERR6589622	1	Homo sapiens	Homo sapiens
+ERR6589623	1	Homo sapiens	Homo sapiens
+ERR6589624	1	Homo sapiens	Homo sapiens
+ERR6589625	1	Homo sapiens	Homo sapiens
+ERR6589626	1	Homo sapiens	Homo sapiens
+ERR6589627	1	Homo sapiens	Homo sapiens
+ERR6589628	1	Homo sapiens	Homo sapiens
+ERR6589629	1	Homo sapiens	Homo sapiens
+ERR6589630	1	Homo sapiens	Homo sapiens
+ERR7919459	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919460	1	Gorilla beringei beringei	Gorilla gorilla gorilla
+ERR7919462	1	Homo sapiens	Gorilla gorilla gorilla
+ERR7919463	1	Homo sapiens	Gorilla beringei graueri
+ERR7919464	1	Homo sapiens	Gorilla gorilla gorilla
+ERR7919465	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919466	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919467	1	Gorilla beringei beringei	Gorilla gorilla gorilla
+ERR7919468	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919469	1	Homo sapiens	Gorilla beringei graueri
+ERR7919470	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919471	1	Homo sapiens	Gorilla gorilla gorilla
+ERR7919472	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919473	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919474	1	Gorilla beringei graueri	Gorilla gorilla gorilla
+ERR7919475	1	Gorilla beringei graueri	Gorilla gorilla gorilla
+ERR7919476	1	Gorilla beringei graueri	Gorilla gorilla gorilla
+ERR7919477	1	Gorilla beringei beringei	Gorilla gorilla gorilla
+ERR7919478	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919479	1	Gorilla beringei beringei	Gorilla beringei beringei
+ERR7919480	1	Gorilla beringei graueri	Gorilla gorilla gorilla
+ERR7919481	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919482	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919483	1	Mammuthus primigenius	Gorilla gorilla gorilla
+ERR7919484	1	Homo sapiens	Gorilla beringei graueri
+ERR7919485	1	Homo sapiens	Gorilla beringei graueri
+ERR7919486	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919487	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919488	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919489	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919490	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919491	1	Gorilla beringei beringei	Gorilla gorilla gorilla
+ERR7919492	1	Homo sapiens neanderthalensis	Gorilla beringei graueri
+ERR7919493	1	Homo sapiens	Gorilla beringei graueri
+ERR7919494	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919495	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919496	1	Homo sapiens	Gorilla gorilla gorilla
+ERR7919497	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919498	1	Mammuthus primigenius	Gorilla gorilla gorilla
+ERR7919499	1	Homo sapiens	Gorilla gorilla gorilla
+ERR7919500	1	Gorilla beringei beringei	Gorilla beringei beringei
+ERR7919501	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919502	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919503	1	Gorilla beringei graueri	Gorilla gorilla gorilla
+ERR7919504	1	Homo sapiens	Gorilla beringei graueri
+ERR7919505	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919506	1	Gorilla gorilla gorilla	Gorilla beringei graueri
+ERR7919507	1	Homo sapiens	Gorilla gorilla gorilla
+ERR7919508	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919509	1	Homo sapiens	Gorilla gorilla gorilla
+ERR7919510	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919511	1	Gorilla beringei graueri	Gorilla gorilla gorilla
+ERR7919512	1	Homo sapiens	Gorilla gorilla gorilla
+ERR7919513	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919514	1	Gorilla gorilla gorilla	Gorilla beringei graueri
+ERR7919515	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919516	1	Gorilla beringei graueri	Gorilla gorilla gorilla
+ERR7919517	1	Homo sapiens	Gorilla gorilla gorilla
+ERR7919518	1	Gorilla beringei beringei	Gorilla beringei beringei
+ERR7919519	1	Mammuthus primigenius	Gorilla gorilla gorilla
+ERR7919520	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919521	1	Gorilla beringei beringei	Gorilla beringei beringei
+ERR7919522	1	Gorilla beringei graueri	Gorilla gorilla gorilla
+ERR7919523	1	Mammuthus primigenius	Gorilla gorilla gorilla
+ERR7919524	1	Homo sapiens	Gorilla beringei graueri
+ERR7919525	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919526	1	Homo sapiens	Gorilla gorilla gorilla
+ERR7919527	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919528	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919529	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919530	1	Gorilla gorilla gorilla	Gorilla beringei graueri
+ERR7919531	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919532	1	Mammuthus primigenius	Gorilla beringei graueri
+ERR7919533	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919534	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919535	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919536	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919537	1	Mammuthus primigenius	Gorilla gorilla gorilla
+ERR7919538	1	Homo sapiens	Gorilla beringei graueri
+ERR7919539	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919540	1	Homo sapiens	Gorilla gorilla gorilla
+ERR7919541	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919542	1	Gorilla gorilla gorilla	Gorilla beringei graueri
+ERR7919543	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919544	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919545	1	Homo sapiens	Gorilla gorilla gorilla
+ERR7919546	1	Homo sapiens	Gorilla beringei beringei
+ERR7919547	1	Homo sapiens	Gorilla gorilla gorilla
+ERR7919548	1	Ursus arctos	Gorilla gorilla gorilla
+ERR7919641	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919642	1	Gorilla beringei graueri	Gorilla beringei graueri
+ERR7919643	1	Homo sapiens	Gorilla gorilla gorilla
+ERR7919644	1	Homo sapiens	Gorilla beringei beringei
+ERR7919645	1	Homo sapiens	Gorilla gorilla gorilla
+ERR7919646	1	Ursus arctos	Gorilla gorilla gorilla
+SRR13355784	1	Homo sapiens	Homo sapiens
+SRR13355785	1	Homo sapiens	Homo sapiens
+SRR13355786	1	Homo sapiens	Homo sapiens
+SRR13355787	1	Homo sapiens	Homo sapiens
+SRR13355789	1	Homo sapiens	Homo sapiens
+SRR13355790	1	Homo sapiens	Homo sapiens
+SRR13355791	1	Homo sapiens	Homo sapiens
+SRR13355792	1	Homo sapiens	Homo sapiens
+SRR13355794	1	Homo sapiens	Homo sapiens
+SRR13355796	1	Homo sapiens	Homo sapiens
+SRR13355797	1	Homo sapiens	Homo sapiens
+SRR13355798	1	Homo sapiens	Homo sapiens
+SRR13355799	1	Homo sapiens	Homo sapiens
+SRR13355800	1	Homo sapiens	Homo sapiens
+SRR13355801	1	Homo sapiens	Homo sapiens
+SRR13355802	1	Homo sapiens	Homo sapiens
+SRR13355803	1	Homo sapiens	Homo sapiens
+SRR13355804	1	Homo sapiens	Homo sapiens
+SRR13355805	1	Homo sapiens	Homo sapiens
+SRR13355806	1	Homo sapiens	Homo sapiens
+SRR13355807	1	Homo sapiens	Homo sapiens
+SRR13355808	1	Homo sapiens	Homo sapiens
+SRR13355809	1	Homo sapiens	Homo sapiens
+SRR13355810	1	Homo sapiens	Homo sapiens
+SRR13355811	1	Homo sapiens	Homo sapiens
+SRR13355812	1	Homo sapiens	Homo sapiens
+SRR13355813	1	Homo sapiens	Homo sapiens
+SRR20576738	1	Homo sapiens	
+SRR20576739	1	Homo sapiens	
+SRR20576742	1	Homo sapiens	
+SRR20576743	1	Homo sapiens	
+SRR20576744	1	Homo sapiens	
+SRR20576745	1	Homo sapiens	
+SRR20576746	1	Homo sapiens	
+SRR20576747	1	Homo sapiens	
+SRR20576748	1	Homo sapiens	
+SRR20576749	1	Homo sapiens	
+SRR20576750	1	Homo sapiens	
+SRR20576751	1	Homo sapiens	
+SRR20576752	1	Homo sapiens	
+SRR20576754	1	Homo sapiens	
+SRR20576755	1	Homo sapiens	
+SRR20576756	1	Homo sapiens	
+SRR20576757	1	Homo sapiens	
+SRR20576758	1	Homo sapiens	
+SRR20576759	1	Homo sapiens	
+SRR20576760	1	Homo sapiens	
+SRR20576761	1	Homo sapiens	
+SRR20576762	1	Homo sapiens	
+SRR20576763	1	Homo sapiens	
+SRR20576764	1	Homo sapiens	
+SRR20576765	1	Homo sapiens	
+SRR20576766	1	Homo sapiens	
+SRR20576767	1	Homo sapiens	
+SRR20576768	1	Homo sapiens	
+SRR20576769	1	Homo sapiens	
+SRR20576770	1	Homo sapiens	
+SRR20576771	1	Homo sapiens	
+SRR20576772	1	Homo sapiens	
+SRR20576773	1	Homo sapiens	
+SRR20576774	1	Homo sapiens	
+SRR20576775	1	Bison priscus	
+SRR20576776	1	Homo sapiens	
+SRR20576779	1	Homo sapiens	
+SRR20576780	1	Homo sapiens	
+SRR20576781	1	Homo sapiens	
+SRR20576782	1	Homo sapiens	
+SRR20576783	1	Homo sapiens	
+SRR20576784	1	Homo sapiens	
+SRR20576785	1	Homo sapiens	
+SRR20576786	1	Homo sapiens	
+SRR20576787	1	Homo sapiens	
+SRR20576794	1	Homo sapiens	
+SRR20576795	1	Homo sapiens	
+SRR20576796	1	Homo sapiens	
+SRR20576797	1	Homo sapiens	
+SRR20576798	1	Homo sapiens	
+SRR20576799	1	Homo sapiens	
+SRR20576800	1	Homo sapiens	
+SRR20576802	1	Homo sapiens	
+SRR20576803	1	Homo sapiens	
+SRR20576805	1	Homo sapiens	
+SRR20576807	1	Homo sapiens	
+SRR20576808	1	Homo sapiens	
+SRR20576809	1	Homo sapiens	
+SRR20576811	1	Homo sapiens	
+SRR20576812	1	Homo sapiens	
+SRR20576813	1	Homo sapiens	
+SRR20576814	1	Homo sapiens	
+SRR20576815	1	Homo sapiens	
+SRR20576816	1	Homo sapiens	
+SRR20576817	1	Homo sapiens	
+SRR21589119	1	Homo sapiens	
+SRR21589120	1	Homo sapiens	
+SRR23699551	1	Homo sapiens	Homo sapiens
+SRR23699552	1	Homo sapiens	Homo sapiens
+SRR23699553	1	Homo sapiens	Homo sapiens
+SRR23699554	1	Homo sapiens	Homo sapiens
+SRR23699555	1	Homo sapiens	Homo sapiens
+SRR23699556	1	Homo sapiens	Homo sapiens
+SRR23699557	1	Homo sapiens	Homo sapiens
+SRR23699558	1	Homo sapiens	Homo sapiens
+SRR23699559	1	Homo sapiens	Homo sapiens
+SRR23699560	1	Homo sapiens	Homo sapiens
+SRR23699561	1	Homo sapiens	Homo sapiens
+SRR23699562	1	Homo sapiens	Homo sapiens
+SRR23699563	1	Homo sapiens	Homo sapiens
+SRR23699564	1	Homo sapiens	Homo sapiens
+SRR23699565	1	Homo sapiens	Homo sapiens
+SRR23699566	1	Homo sapiens	Homo sapiens
+SRR23699567	1	Homo sapiens	Homo sapiens
+SRR23699568	1	Homo sapiens	Homo sapiens
+SRR23699569	1	Homo sapiens	Homo sapiens
+SRR23699570	1	Homo sapiens	Homo sapiens
+SRR23699571	1	Homo sapiens	Homo sapiens
+SRR23699572	1	Homo sapiens	Homo sapiens
+SRR23699573	1	Homo sapiens	Homo sapiens
+SRR23699574	1	Homo sapiens	Homo sapiens
+SRR23699575	1	Homo sapiens	Homo sapiens
+SRR23699576	1	Homo sapiens	Homo sapiens
+SRR23699577	1	Homo sapiens	Homo sapiens
+SRR23699578	1	Homo sapiens	Homo sapiens
+SRR25620676	1	Arabidopsis thaliana	
+SRR25620681	1	Arabidopsis thaliana	
+SRR25620753	1	Homo sapiens	
+SRR25620756	1	Bison priscus	
+SRR25620780	1	Arabidopsis thaliana	
+SRR25620786	1	Ambrosia artemisiifolia	
+SRR25620790	1	Arabidopsis thaliana	
+SRR25620795	1	Arabidopsis thaliana	
+SRR5297130	1	Homo sapiens	Homo sapiens
+SRR5297131	1	Homo sapiens	Homo sapiens
+SRR5297132	1	Homo sapiens	Homo sapiens
+SRR5297133	1	Homo sapiens	Homo sapiens
+SRR5875714	1	Mammuthus primigenius	Mammuthus primigenius
+SRR5875715	1	Mammuthus primigenius	Mammuthus primigenius
+SRR5875718	1	Lithobates pipiens	Mammuthus primigenius
+SRR5875719	1	Mammuthus primigenius	Mammuthus primigenius
+SRR5875720	1	Mammuthus primigenius	Mammuthus primigenius
+SRR5875721	1	Mammuthus primigenius	Mammuthus primigenius
+SRR5875722	1	Lithobates pipiens	Mammuthus primigenius
+SRR5875723	1	Mammuthus primigenius	Mammuthus primigenius
+SRR5875724	1	Homo sapiens	Mammuthus primigenius
+SRR5875725	1	Homo sapiens	Mammuthus primigenius
+SRR5875726	1	Mammuthus primigenius	Mammuthus primigenius
+SRR5875727	1	Homo sapiens	Mammuthus primigenius
+SRR5875728	1	Rangifer tarandus	Mammuthus primigenius
+SRR5875729	1	Rangifer tarandus	Mammuthus primigenius
+SRR5875730	1	Mammuthus primigenius	Mammuthus primigenius
+SRR5875731	1	Mammuthus primigenius	Mammuthus primigenius
+SRR8731955	1	Mammuthus primigenius	Homo sapiens
+SRR8731956	1	Homo sapiens	
+SRR8731957	1	Canis lupus	Homo sapiens
+SRR8731958	1	Mammuthus primigenius	Homo sapiens
+SRR8731959	1	Homo sapiens	
+ERR10114844	2	Homo sapiens neanderthalensis	
+ERR10114845	2	Homo sapiens neanderthalensis	
+ERR10114846	2	Homo sapiens neanderthalensis	
+ERR10114847	2	Homo sapiens	
+ERR10114848	2	Homo sapiens	
+ERR10114849	2	Homo sapiens	
+ERR10114850	2	Homo sapiens	
+ERR10114851	2	Homo sapiens	
+ERR10114852	2	Homo sapiens	
+ERR10114853	2	Homo sapiens	
+ERR10114854	2	Homo sapiens	
+ERR10114855	2	Homo sapiens	
+ERR10114856	2	Homo sapiens	
+ERR10114857	2	Homo sapiens	
+ERR10114858	2	Homo sapiens	
+ERR10114859	2	Homo sapiens	
+ERR10114860	2	Homo sapiens	
+ERR10114861	2	Homo sapiens	
+ERR10114862	2	Homo sapiens	
+ERR10114863	2	Homo sapiens	
+ERR10114864	2	Homo sapiens neanderthalensis	
+ERR10114865	2	Homo sapiens	
+ERR10114866	2	Homo sapiens	
+ERR10114878	2	Canis lupus	
+ERR10114879	2	Homo sapiens	
+ERR10114880	2	Homo sapiens	
+ERR10114881	2	Canis lupus	
+ERR10114882	2	Homo sapiens	
+ERR10114883	2	Canis lupus	
+ERR10493277	2	Homo sapiens	
+ERR10493281	2	Bison priscus	
+ERR10493283	2	Mammuthus primigenius	
+ERR10493285	2	Mammuthus primigenius	
+ERR10493287	2	Mammuthus primigenius	
+ERR10493289	2	Mammuthus primigenius	
+ERR10493291	2	Mammuthus primigenius	
+ERR10493292	2	Mammuthus primigenius	
+ERR10493294	2	Mammuthus primigenius	
+ERR10493297	2	Mammuthus primigenius	
+ERR10493299	2	Mammuthus primigenius	
+ERR10493301	2	Homo sapiens	
+ERR10493303	2	Mammuthus primigenius	
+ERR10493304	2	Bison priscus	
+ERR10493306	2	Mammuthus primigenius	
+ERR10493308	2	Bison priscus	
+ERR10493310	2	Mammuthus primigenius	
+ERR10493311	2	Mammuthus primigenius	
+ERR10493312	2	Mammuthus primigenius	
+ERR10493314	2	Homo sapiens	
+ERR10493316	2	Homo sapiens	
+ERR10493318	2	Homo sapiens	
+ERR10493320	2	Mammuthus primigenius	
+ERR10493322	2	Ambrosia artemisiifolia	
+ERR10493324	2	Ambrosia artemisiifolia	
+ERR10493326	2	Mammuthus primigenius	
+ERR10493328	2	Homo sapiens	
+ERR10493330	2	Bison priscus	
+ERR10493332	2	Homo sapiens	
+ERR10493333	2	Homo sapiens	
+ERR10493334	2	Homo sapiens	
+ERR10493335	2	Homo sapiens	
+ERR10493336	2	Homo sapiens	
+ERR10493337	2	Homo sapiens	
+ERR10493338	2	Homo sapiens	
+ERR10493339	2	Homo sapiens	
+ERR10493340	2	Homo sapiens	
+ERR10493341	2	Mammuthus primigenius	
+ERR10493343	2	Mammuthus primigenius	
+ERR10493344	2	Mammuthus primigenius	
+ERR10493345	2	Mammuthus primigenius	
+ERR10493346	2	Homo sapiens	
+ERR10493347	2	Homo sapiens	
+ERR10493348	2	Gorilla beringei beringei	
+ERR10493349	2	Gorilla beringei beringei	
+ERR10493357	2	Pan troglodytes verus	
+ERR10493358	2	Homo sapiens	
+ERR10493359	2	Homo sapiens	
+ERR10493360	2	Mammuthus primigenius	
+ERR10493361	2	Mammuthus primigenius	
+ERR10493362	2	Mammuthus primigenius	
+ERR10493363	2	Mammuthus primigenius	
+ERR11660399	2	Homo sapiens	Homo sapiens
+ERR11660400	2	Homo sapiens	Homo sapiens
+ERR11660401	2	Homo sapiens	Homo sapiens
+ERR11660402	2	Homo sapiens	Homo sapiens
+ERR11660403	2	Homo sapiens	Homo sapiens
+ERR11660404	2	Homo sapiens	Homo sapiens
+ERR11660405	2	Homo sapiens	Homo sapiens
+ERR11660406	2	Homo sapiens	Homo sapiens
+ERR11660407	2	Homo sapiens	Homo sapiens
+ERR11660408	2	Homo sapiens	Homo sapiens
+ERR11660409	2	Homo sapiens	Homo sapiens
+ERR11660410	2	Homo sapiens	Homo sapiens
+ERR11660411	2	Homo sapiens	Homo sapiens
+ERR11660412	2	Homo sapiens	Homo sapiens
+ERR11660413	2	Homo sapiens	Homo sapiens
+ERR11660414	2	Homo sapiens	Homo sapiens
+ERR11660415	2	Homo sapiens	Homo sapiens
+ERR11660416	2	Homo sapiens	Homo sapiens
+ERR11660417	2	Homo sapiens	Homo sapiens
+ERR11660418	2	Homo sapiens	Homo sapiens
+ERR11660419	2	Homo sapiens	Homo sapiens
+ERR11660420	2	Homo sapiens	Homo sapiens
+ERR11660421	2	Homo sapiens	Homo sapiens
+ERR11660422	2	Homo sapiens	Homo sapiens
+ERR11660423	2	Homo sapiens	Homo sapiens
+ERR11660424	2	Homo sapiens	Homo sapiens
+ERR11660425	2	Homo sapiens	Homo sapiens
+ERR11660426	2	Homo sapiens	Homo sapiens
+ERR11660427	2	Homo sapiens	Homo sapiens
+ERR11660428	2	Homo sapiens	Homo sapiens
+ERR11660429	2	Homo sapiens	Homo sapiens
+ERR11660430	2	Homo sapiens	Homo sapiens
+ERR11660431	2	Homo sapiens	Homo sapiens
+ERR11660432	2	Homo sapiens	Homo sapiens
+ERR11660433	2	Homo sapiens	Homo sapiens
+ERR11660434	2	Homo sapiens	Homo sapiens
+ERR11660435	2	Homo sapiens	Homo sapiens
+ERR11660436	2	Homo sapiens	Homo sapiens
+ERR11660437	2	Homo sapiens	Homo sapiens
+ERR11660438	2	Homo sapiens	Homo sapiens
+ERR11660439	2	Homo sapiens	Homo sapiens
+ERR11660440	2	Homo sapiens	Homo sapiens
+ERR11660441	2	Homo sapiens	Homo sapiens
+ERR11660442	2	Homo sapiens	Homo sapiens
+ERR11660443	2	Homo sapiens	Homo sapiens
+ERR11660444	2	Homo sapiens	Homo sapiens
+ERR11660445	2	Homo sapiens	Homo sapiens
+ERR11660446	2	Homo sapiens	Homo sapiens
+ERR11660447	2	Homo sapiens	Homo sapiens
+ERR11660448	2	Homo sapiens	Homo sapiens
+ERR11660449	2	Homo sapiens	Homo sapiens
+ERR11660450	2	Homo sapiens	Homo sapiens
+ERR11660451	2	Homo sapiens	Homo sapiens
+ERR11660452	2	Homo sapiens	Homo sapiens
+ERR11660453	2	Homo sapiens	Homo sapiens
+ERR11660454	2	Homo sapiens	Homo sapiens
+ERR11660455	2	Homo sapiens	Homo sapiens
+ERR11660456	2	Homo sapiens	Homo sapiens
+ERR11660457	2	Homo sapiens	Homo sapiens
+ERR11660458	2	Gorilla beringei graueri	Homo sapiens
+ERR11660459	2	Gorilla beringei graueri	Homo sapiens
+ERR11660460	2	Homo sapiens	Homo sapiens
+ERR11660461	2	Homo sapiens	Homo sapiens
+ERR11660462	2	Homo sapiens	Homo sapiens
+ERR11660463	2	Homo sapiens	Homo sapiens
+ERR11660464	2	Homo sapiens	Homo sapiens
+ERR11660465	2	Homo sapiens	Homo sapiens
+ERR11660466	2	Homo sapiens	Homo sapiens
+ERR12814413	2	Homo sapiens	
+ERR12814414	2	Homo sapiens	
+ERR12814415	2	Lithobates pipiens	
+ERR12814416	2	Homo sapiens	
+ERR12814417	2	Homo sapiens	
+ERR12814418	2	Homo sapiens	
+ERR12814419	2	Homo sapiens	
+ERR12814422	2	Homo sapiens	
+ERR12814423	2	Bison priscus	
+ERR12814424	2	Homo sapiens	
+ERR12814425	2	Homo sapiens	
+ERR12814427	2	Mammuthus primigenius	
+ERR12814428	2	Homo sapiens	
+ERR12814429	2	Mammuthus primigenius	
+ERR12814430	2	Homo sapiens	
+ERR12814431	2	Mammuthus primigenius	
+ERR12814432	2	Mammuthus primigenius	
+ERR12814433	2	Homo sapiens	
+ERR12814434	2	Homo sapiens	
+ERR12814435	2	Mammuthus primigenius	
+ERR12814436	2	Mammuthus primigenius	
+ERR12814437	2	Mammuthus primigenius	
+ERR12814438	2	Mammuthus primigenius	
+ERR12814439	2	Mammuthus primigenius	
+ERR12814440	2	Mammuthus primigenius	
+ERR12814442	2	Mammuthus primigenius	
+ERR12814443	2	Mammuthus primigenius	
+ERR12814444	2	Mammuthus primigenius	
+ERR12814445	2	Mammuthus primigenius	
+ERR12814446	2	Mammuthus primigenius	
+ERR12814447	2	Mammuthus primigenius	
+ERR12814448	2	Mammuthus primigenius	
+ERR12814449	2	Homo sapiens	
+ERR12814450	2	Mammuthus primigenius	
+ERR12814452	2	Homo sapiens	
+ERR12814453	2	Homo sapiens	
+ERR12814454	2	Homo sapiens	
+ERR12814455	2	Homo sapiens	
+ERR12814456	2	Mammuthus primigenius	
+ERR12814457	2	Mammuthus primigenius	
+ERR12814458	2	Bison priscus	
+ERR12814460	2	Mammuthus primigenius	
+ERR12814461	2	Mammuthus primigenius	
+ERR12814462	2	Homo sapiens	
+ERR12814463	2	Mammuthus primigenius	
+ERR12814464	2	Mammuthus primigenius	
+ERR12814465	2	Homo sapiens	
+ERR12814467	2	Homo sapiens	
+ERR12814468	2	Homo sapiens	
+ERR12814469	2	Homo sapiens	
+ERR12814470	2	Mammuthus primigenius	
+ERR12814471	2	Homo sapiens	
+ERR12814472	2	Homo sapiens	
+ERR12814473	2	Homo sapiens	
+ERR12814474	2	Homo sapiens	
+ERR12814475	2	Homo sapiens	
+ERR12814476	2	Homo sapiens	
+ERR14057409	2	Homo sapiens	Bison priscus
+ERR14057410	2	Homo sapiens	Bison priscus
+ERR14057411	2	Homo sapiens	Bison priscus
+ERR14057412	2	Homo sapiens	Bison priscus
+ERR14057413	2	Ursus arctos	Bison priscus
+ERR14057414	2	Ursus arctos	Bison priscus
+ERR14057415	2	Ursus arctos	Bison priscus
+ERR14057416	2	Ursus arctos	Bison priscus
+ERR14100444	2	Homo sapiens	Bison priscus
+ERR14100445	2	Homo sapiens	Bison priscus
+ERR14100446	2	Homo sapiens	Bison priscus
+ERR14100447	2	Homo sapiens	Bison priscus
+ERR14100448	2	Ursus arctos	Bison priscus
+ERR14100449	2	Ursus arctos	Bison priscus
+ERR14100450	2	Ursus arctos	Bison priscus
+ERR14100451	2	Ursus arctos	Bison priscus
+ERR1894879	2	Gorilla beringei beringei	
+ERR1894880	2	Gorilla beringei beringei	
+ERR1894881	2	Strigocuscus celebensis	
+ERR1894882	2	Strigocuscus celebensis	
+ERR1894900	2	Homo sapiens	
+ERR1894901	2	Homo sapiens	
+ERR1894902	2	Homo sapiens	
+ERR1894903	2	Homo sapiens	
+ERR1894904	2	Homo sapiens	
+ERR1894905	2	Homo sapiens	
+ERR1894906	2	Homo sapiens	
+ERR1894907	2	Homo sapiens	
+ERR1894908	2	Strigocuscus celebensis	
+ERR1894909	2	Strigocuscus celebensis	
+ERR1894910	2	Pan troglodytes verus	
+ERR1894911	2	Strigocuscus celebensis	
+ERR1894912	2	Homo sapiens	
+ERR1894913	2	Homo sapiens	
+ERR1894914	2	Homo sapiens	
+ERR1894915	2	Homo sapiens	
+ERR1894916	2	Homo sapiens	
+ERR1894917	2	Homo sapiens	
+ERR1894918	2	Strigocuscus celebensis	
+ERR1894919	2	Strigocuscus celebensis	
+ERR2269773	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269775	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269776	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269777	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269778	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269779	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269780	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269781	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269782	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269783	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269784	2	Mammuthus primigenius	Arabidopsis thaliana
+ERR2269785	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269786	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269787	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269788	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269789	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269790	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269791	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269792	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269793	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269794	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269795	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269796	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269797	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269798	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269799	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269800	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269801	2	Lithobates pipiens	Arabidopsis thaliana
+ERR2269802	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269803	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269804	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR2269805	2	Ambrosia artemisiifolia	Arabidopsis thaliana
+ERR3728226	2	Homo sapiens	Homo sapiens
+ERR3728227	2	Homo sapiens	Homo sapiens
+ERR3728228	2	Homo sapiens	Homo sapiens
+ERR3728238	2	Homo sapiens	Homo sapiens
+ERR3728239	2	Homo sapiens	Homo sapiens
+ERR3728240	2	Homo sapiens	Homo sapiens
+ERR3728241	2	Homo sapiens	Homo sapiens
+ERR3728245	2	Homo sapiens	Homo sapiens
+ERR3728246	2	Homo sapiens	Homo sapiens
+ERR3728247	2	Homo sapiens	Homo sapiens
+ERR3728248	2	Homo sapiens	Homo sapiens
+ERR3728249	2	Homo sapiens	Homo sapiens
+ERR3728250	2	Homo sapiens	Homo sapiens
+ERR3728251	2	Homo sapiens	Homo sapiens
+ERR3728252	2	Homo sapiens	Homo sapiens
+ERR3728254	2	Homo sapiens	Homo sapiens
+ERR3728255	2	Homo sapiens	Homo sapiens
+ERR3728256	2	Homo sapiens	Homo sapiens
+ERR3728257	2	Homo sapiens	Homo sapiens
+ERR4373119	2	Homo sapiens	Homo sapiens
+ERR4373134	2	Homo sapiens	Homo sapiens
+ERR4373146	2	Homo sapiens	Homo sapiens
+ERR4373153	2	Homo sapiens	Homo sapiens
+ERR4373159	2	Homo sapiens	Homo sapiens
+ERR4373979	2	Homo sapiens	Homo sapiens
+ERR4373995	2	Homo sapiens	Homo sapiens
+ERR4373996	2	Homo sapiens	Homo sapiens
+ERR4373997	2	Homo sapiens	Homo sapiens
+ERR4373998	2	Gorilla gorilla gorilla	Homo sapiens
+ERR4373999	2	Homo sapiens	Homo sapiens
+ERR4374000	2	Homo sapiens	Homo sapiens
+ERR4374001	2	Homo sapiens	Homo sapiens
+ERR4374002	2	Homo sapiens	Homo sapiens
+ERR4374003	2	Gorilla gorilla gorilla	Homo sapiens
+ERR4374004	2	Homo sapiens	Homo sapiens
+ERR4374005	2	Homo sapiens	Homo sapiens
+ERR4374006	2	Homo sapiens	Homo sapiens
+ERR4374007	2	Homo sapiens	Homo sapiens
+ERR4374008	2	Homo sapiens	Homo sapiens
+ERR4374009	2	Homo sapiens	Homo sapiens
+ERR4374010	2	Homo sapiens	Homo sapiens
+ERR4374011	2	Homo sapiens	Homo sapiens
+ERR4374012	2	Homo sapiens	Homo sapiens
+ERR4374013	2	Homo sapiens	Homo sapiens
+ERR4374014	2	Homo sapiens	Homo sapiens
+ERR4374015	2	Homo sapiens	Homo sapiens
+ERR4374016	2	Homo sapiens	Homo sapiens
+ERR4374017	2	Homo sapiens	Homo sapiens
+ERR4374018	2	Homo sapiens	Homo sapiens
+ERR4374019	2	Homo sapiens	Homo sapiens
+ERR4374020	2	Homo sapiens	Homo sapiens
+ERR4374021	2	Homo sapiens	Homo sapiens
+ERR4374022	2	Homo sapiens	Homo sapiens
+ERR4374023	2	Homo sapiens	Homo sapiens
+ERR4374024	2	Homo sapiens	Homo sapiens
+ERR4374025	2	Homo sapiens	Homo sapiens
+ERR4374026	2	Homo sapiens	Homo sapiens
+ERR4374027	2	Homo sapiens	Homo sapiens
+ERR4374028	2	Homo sapiens	Homo sapiens
+ERR4374029	2	Gorilla beringei graueri	Homo sapiens
+ERR4374030	2	Homo sapiens	Homo sapiens
+ERR4374031	2	Homo sapiens	Homo sapiens
+ERR4374032	2	Homo sapiens	Homo sapiens
+ERR4374033	2	Homo sapiens	Homo sapiens
+ERR4374034	2	Homo sapiens	Homo sapiens
+ERR4374035	2	Homo sapiens	Homo sapiens
+ERR4374036	2	Homo sapiens	Homo sapiens
+ERR4374037	2	Homo sapiens	Homo sapiens
+ERR4374038	2	Homo sapiens	Homo sapiens
+ERR4374039	2	Homo sapiens	Homo sapiens
+ERR4374040	2	Homo sapiens	Homo sapiens
+ERR4374041	2	Homo sapiens	Homo sapiens
+ERR4374042	2	Homo sapiens	Homo sapiens
+ERR4374043	2	Homo sapiens	Homo sapiens
+ERR4374044	2	Homo sapiens	Homo sapiens
+ERR4374045	2	Homo sapiens	Homo sapiens
+ERR4374046	2	Homo sapiens	Homo sapiens
+ERR4374047	2	Homo sapiens	Homo sapiens
+ERR4374048	2	Homo sapiens	Homo sapiens
+ERR4374049	2	Homo sapiens	Homo sapiens
+ERR4374050	2	Homo sapiens	Homo sapiens
+ERR4374051	2	Homo sapiens	Homo sapiens
+ERR4374052	2	Homo sapiens	Homo sapiens
+ERR4374053	2	Homo sapiens	Homo sapiens
+ERR4374055	2	Homo sapiens	Homo sapiens
+ERR4374588	2	Homo sapiens	Homo sapiens
+ERR4374589	2	Homo sapiens	Homo sapiens
+ERR4374838	2	Homo sapiens	Homo sapiens
+ERR4374839	2	Homo sapiens	Homo sapiens
+ERR4374851	2	Homo sapiens	Homo sapiens
+ERR4374857	2	Homo sapiens	Homo sapiens
+ERR4374858	2	Homo sapiens	Homo sapiens
+ERR4374859	2	Homo sapiens	Homo sapiens
+ERR4374860	2	Homo sapiens	Homo sapiens
+ERR4374861	2	Homo sapiens	Homo sapiens
+ERR4374862	2	Homo sapiens	Homo sapiens
+ERR4374863	2	Homo sapiens	Homo sapiens
+ERR4374864	2	Homo sapiens	Homo sapiens
+ERR4374865	2	Homo sapiens	Homo sapiens
+ERR4374866	2	Homo sapiens	Homo sapiens
+ERR4374867	2	Homo sapiens	Homo sapiens
+ERR4374868	2	Homo sapiens	Homo sapiens
+ERR4374869	2	Homo sapiens	Homo sapiens
+ERR4374870	2	Homo sapiens	Homo sapiens
+ERR4374871	2	Homo sapiens	Homo sapiens
+ERR4374872	2	Homo sapiens	Homo sapiens
+ERR4374873	2	Homo sapiens	Homo sapiens
+ERR4374874	2	Homo sapiens	Homo sapiens
+ERR4374875	2	Homo sapiens	Homo sapiens
+ERR4374912	2	Homo sapiens	Homo sapiens
+ERR4374913	2	Homo sapiens	Homo sapiens
+ERR4374914	2	Homo sapiens	Homo sapiens
+ERR4374915	2	Homo sapiens	Homo sapiens
+ERR4374916	2	Homo sapiens	Homo sapiens
+ERR4374917	2	Homo sapiens	Homo sapiens
+ERR4374918	2	Homo sapiens	Homo sapiens
+ERR4374919	2	Homo sapiens	Homo sapiens
+ERR4374920	2	Homo sapiens	Homo sapiens
+ERR4374921	2	Homo sapiens	Homo sapiens
+ERR4374922	2	Homo sapiens	Homo sapiens
+ERR4374923	2	Homo sapiens	Homo sapiens
+ERR4374924	2	Homo sapiens	Homo sapiens
+ERR4374925	2	Homo sapiens	Homo sapiens
+ERR4374926	2	Homo sapiens	Homo sapiens
+ERR4374927	2	Homo sapiens	Homo sapiens
+ERR4374928	2	Homo sapiens	Homo sapiens
+ERR4374929	2	Homo sapiens	Homo sapiens
+ERR4374948	2	Homo sapiens	Homo sapiens
+ERR4374962	2	Homo sapiens	Homo sapiens
+ERR4374963	2	Homo sapiens	Homo sapiens
+ERR4375010	2	Homo sapiens	Homo sapiens
+ERR4375011	2	Homo sapiens	Homo sapiens
+ERR4375017	2	Homo sapiens	Homo sapiens
+ERR4375025	2	Homo sapiens	Homo sapiens
+ERR4375032	2	Homo sapiens	Homo sapiens
+ERR4375036	2	Homo sapiens	Homo sapiens
+ERR4375039	2	Homo sapiens	Homo sapiens
+ERR4375040	2	Homo sapiens	Homo sapiens
+ERR4375042	2	Homo sapiens	Homo sapiens
+ERR4375045	2	Homo sapiens	Homo sapiens
+ERR4375046	2	Homo sapiens	Homo sapiens
+ERR4375047	2	Homo sapiens	Homo sapiens
+ERR4375048	2	Homo sapiens	Homo sapiens
+ERR4375049	2	Homo sapiens	Homo sapiens
+ERR4375050	2	Homo sapiens	Homo sapiens
+ERR4375132	2	Homo sapiens	Homo sapiens
+ERR4375133	2	Homo sapiens	Homo sapiens
+ERR4375134	2	Homo sapiens	Homo sapiens
+ERR4375135	2	Homo sapiens	Homo sapiens
+ERR4375136	2	Homo sapiens	Homo sapiens
+ERR4375137	2	Homo sapiens	Homo sapiens
+ERR4375141	2	Homo sapiens	Homo sapiens
+ERR4375142	2	Homo sapiens	Homo sapiens
+ERR4375143	2	Homo sapiens	Homo sapiens
+ERR4375144	2	Homo sapiens	Homo sapiens
+ERR4383828	2	Homo sapiens	Homo sapiens
+ERR4383829	2	Homo sapiens	Homo sapiens
+ERR4384927	2	Homo sapiens	Homo sapiens
+ERR4385800	2	Homo sapiens	Homo sapiens
+ERR4385809	2	Homo sapiens	Homo sapiens
+ERR4386464	2	Homo sapiens	Homo sapiens
+ERR4386569	2	Homo sapiens	Homo sapiens
+ERR4386594	2	Homo sapiens	Homo sapiens
+ERR4388102	2	Homo sapiens	Homo sapiens
+ERR4388107	2	Homo sapiens	Homo sapiens
+ERR4388231	2	Homo sapiens	Homo sapiens
+ERR4388236	2	Homo sapiens	Homo sapiens
+ERR4391165	2	Homo sapiens	Homo sapiens
+ERR4391166	2	Homo sapiens	Homo sapiens
+ERR4408185	2	Homo sapiens	Homo sapiens
+ERR4408187	2	Homo sapiens	Homo sapiens
+ERR4408188	2	Homo sapiens	Homo sapiens
+ERR4413529	2	Homo sapiens	Homo sapiens
+ERR567364	2	Homo sapiens	
+ERR567366	2	Homo sapiens	
+ERR5729614	2	Homo sapiens	Homo sapiens
+ERR5729615	2	Homo sapiens	Homo sapiens
+ERR5729616	2	Homo sapiens	Homo sapiens
+ERR5729617	2	Homo sapiens	Homo sapiens
+ERR5729618	2	Homo sapiens	Homo sapiens
+ERR5729619	2	Homo sapiens	Homo sapiens
+ERR5729620	2	Homo sapiens	Homo sapiens
+ERR5729621	2	Homo sapiens	Homo sapiens
+ERR5729622	2	Homo sapiens	Homo sapiens
+ERR5729623	2	Homo sapiens	Homo sapiens
+ERR5729624	2	Homo sapiens	Homo sapiens
+ERR5729625	2	Homo sapiens	Homo sapiens
+ERR5729626	2	Homo sapiens	Homo sapiens
+ERR5729627	2	Homo sapiens	Homo sapiens
+ERR5729628	2	Homo sapiens	Homo sapiens
+ERR5729629	2	Homo sapiens	Homo sapiens
+ERR5729630	2	Homo sapiens	Homo sapiens
+ERR5729631	2	Homo sapiens	Homo sapiens
+ERR5729632	2	Homo sapiens	Homo sapiens
+ERR5729633	2	Homo sapiens	Homo sapiens
+ERR5729634	2	Homo sapiens	Homo sapiens
+ERR5729635	2	Homo sapiens	Homo sapiens
+ERR5729636	2	Homo sapiens	Homo sapiens
+ERR5729637	2	Homo sapiens	Homo sapiens
+ERR5729638	2	Homo sapiens	Homo sapiens
+ERR5729639	2	Homo sapiens	Homo sapiens
+ERR5729640	2	Homo sapiens	Homo sapiens
+ERR5729641	2	Homo sapiens	Homo sapiens
+ERR5729642	2	Homo sapiens	Homo sapiens
+ERR5729643	2	Homo sapiens	Homo sapiens
+ERR5729644	2	Homo sapiens	Homo sapiens
+ERR5729645	2	Homo sapiens	Homo sapiens
+ERR5729646	2	Homo sapiens	Homo sapiens
+ERR5729647	2	Homo sapiens	Homo sapiens
+ERR5729648	2	Homo sapiens	Homo sapiens
+ERR5729649	2	Homo sapiens	Homo sapiens
+ERR5729650	2	Homo sapiens	Homo sapiens
+ERR5729651	2	Homo sapiens	Homo sapiens
+ERR5729652	2	Homo sapiens	Homo sapiens
+ERR5729653	2	Homo sapiens	Homo sapiens
+ERR5729654	2	Homo sapiens	Homo sapiens
+ERR5729655	2	Homo sapiens	Homo sapiens
+ERR5729656	2	Homo sapiens	Homo sapiens
+ERR5729657	2	Homo sapiens	Homo sapiens
+ERR9465622	2	Homo sapiens	
+ERR9465623	2	Homo sapiens	
+ERR9465624	2	Homo sapiens	
+ERR9465625	2	Homo sapiens	
+ERR9465626	2	Homo sapiens	
+ERR9465627	2	Homo sapiens	
+ERR9465628	2	Homo sapiens	
+ERR9465629	2	Homo sapiens	
+ERR9465630	2	Homo sapiens	
+ERR9465631	2	Homo sapiens	
+ERR9465632	2	Gorilla gorilla gorilla	
+SRR30066258	2	Homo sapiens	Homo sapiens
+SRR30066259	2	Homo sapiens	Homo sapiens
+SRR30066260	2	Homo sapiens	Homo sapiens
+SRR30066261	2	Homo sapiens	Homo sapiens
+SRR30066262	2	Homo sapiens	Homo sapiens
+SRR30066263	2	Homo sapiens	Homo sapiens
+SRR30066264	2	Homo sapiens	Homo sapiens
+SRR30066265	2	Homo sapiens	Homo sapiens
+SRR30066269	2	Homo sapiens	Homo sapiens
+SRR30066270	2	Homo sapiens	Homo sapiens
+SRR30066271	2	Homo sapiens	Homo sapiens
+SRR30066272	2	Homo sapiens	Homo sapiens
+SRR32023812	2	Gorilla gorilla gorilla	
+SRR32023817	2	Homo sapiens	
+SRR32023818	2	Homo sapiens	
+SRR32023819	2	Homo sapiens	
+SRR32023820	2	Homo sapiens	
+SRR32023821	2	Homo sapiens	
+SRR32023822	2	Homo sapiens	
+SRR32023823	2	Homo sapiens	
+SRR32023824	2	Homo sapiens	
+SRR32023825	2	Homo sapiens	
+SRR32023826	2	Homo sapiens	
+SRR32023827	2	Homo sapiens	
+SRR32023828	2	Homo sapiens	
+SRR32023829	2	Homo sapiens	
+SRR32023830	2	Homo sapiens	
+SRR32023831	2	Homo sapiens	
+SRR32023832	2	Homo sapiens	
+SRR32023833	2	Homo sapiens	
+SRR32023835	2	Homo sapiens	
+SRR32023836	2	Homo sapiens	
+SRR32023837	2	Gorilla gorilla gorilla	
+SRR32023838	2	Homo sapiens	
+SRR32023839	2	Homo sapiens	
+SRR32023840	2	Homo sapiens	
+SRR32023841	2	Homo sapiens	
+SRR32023842	2	Pan troglodytes verus	
+SRR32023845	2	Homo sapiens	
+SRR32023846	2	Homo sapiens	
+SRR32023847	2	Homo sapiens	
+SRR32023848	2	Homo sapiens	
+SRR32023849	2	Homo sapiens	
+SRR32023851	2	Homo sapiens	
+SRR32023854	2	Homo sapiens	
+SRR32023855	2	Homo sapiens	
+SRR32023858	2	Homo sapiens	
+SRR32023859	2	Homo sapiens	
+SRR32023860	2	Homo sapiens	
+SRR32023861	2	Homo sapiens	
+SRR32023864	2	Homo sapiens	
+SRR32023865	2	Homo sapiens	
+SRR32023867	2	Homo sapiens	
+SRR32023868	2	Gorilla beringei beringei	
+SRR32023870	2	Homo sapiens	
+SRR32023871	2	Homo sapiens	
+SRR32023872	2	Homo sapiens	
+SRR32023873	2	Homo sapiens	
+SRR32023874	2	Homo sapiens	
+SRR32023875	2	Homo sapiens	
+SRR6877282	2	Homo sapiens	Homo sapiens
+SRR6877283	2	Homo sapiens	Homo sapiens
+SRR6877284	2	Homo sapiens	Homo sapiens
+SRR6877285	2	Homo sapiens	Homo sapiens
+SRR6877286	2	Homo sapiens	Homo sapiens
+SRR6877287	2	Homo sapiens	Homo sapiens
+SRR6877288	2	Homo sapiens	Homo sapiens
+SRR6877289	2	Homo sapiens	Homo sapiens
+SRR6877290	2	Homo sapiens	Homo sapiens
+SRR6877291	2	Homo sapiens	Homo sapiens
+SRR6877292	2	Homo sapiens	Homo sapiens
+SRR6877293	2	Homo sapiens	Homo sapiens
+SRR6877294	2	Homo sapiens	Homo sapiens
+SRR6877295	2	Homo sapiens	Homo sapiens
+SRR6877296	2	Homo sapiens	Homo sapiens
+SRR6877297	2	Homo sapiens	Homo sapiens
+SRR6877298	2	Homo sapiens	Homo sapiens
+SRR6877299	2	Homo sapiens	Homo sapiens
+SRR6877300	2	Homo sapiens	Homo sapiens
+SRR6877301	2	Homo sapiens	Homo sapiens
+SRR6877302	2	Homo sapiens	Homo sapiens
+SRR6877303	2	Homo sapiens	Homo sapiens
+SRR6877304	2	Homo sapiens	Homo sapiens
+SRR6877305	2	Homo sapiens	Homo sapiens
+SRR6877306	2	Homo sapiens	Homo sapiens
+SRR6877307	2	Homo sapiens	Homo sapiens
+SRR6877308	2	Homo sapiens	Homo sapiens
+SRR6877309	2	Homo sapiens	Homo sapiens
+SRR6877310	2	Homo sapiens	Homo sapiens
+SRR6877311	2	Homo sapiens	Homo sapiens
+SRR6877312	2	Homo sapiens	Homo sapiens
+SRR6877313	2	Homo sapiens	Homo sapiens
+SRR6877314	2	Homo sapiens	Homo sapiens
+SRR6877315	2	Homo sapiens	Homo sapiens
+SRR6877316	2	Homo sapiens	Homo sapiens
+SRR6877317	2	Homo sapiens	Homo sapiens
+SRR6877318	2	Homo sapiens	Homo sapiens
+SRR6877319	2	Homo sapiens	Homo sapiens
+SRR6877320	2	Homo sapiens	Homo sapiens
+SRR6877321	2	Homo sapiens	Homo sapiens
+SRR6877322	2	Homo sapiens	Homo sapiens
+SRR6877323	2	Homo sapiens	Homo sapiens
+SRR6877324	2	Homo sapiens	Homo sapiens
+SRR6877325	2	Homo sapiens	Homo sapiens
+SRR6877326	2	Homo sapiens	Homo sapiens
+SRR6877327	2	Homo sapiens	Homo sapiens
+SRR6877328	2	Homo sapiens	Homo sapiens
+SRR6877329	2	Homo sapiens	Homo sapiens
+SRR6877330	2	Homo sapiens	Homo sapiens
+SRR6877331	2	Homo sapiens	Homo sapiens
+SRR6877332	2	Homo sapiens	Homo sapiens
+SRR6877333	2	Homo sapiens	Homo sapiens
+SRR6877334	2	Homo sapiens	Homo sapiens
+SRR6877335	2	Homo sapiens	Homo sapiens
+SRR6877336	2	Homo sapiens	Homo sapiens
+SRR6877337	2	Homo sapiens	Homo sapiens
+SRR6877338	2	Homo sapiens	Homo sapiens
+SRR6877339	2	Homo sapiens	Homo sapiens
+SRR6877340	2	Homo sapiens	Homo sapiens
+SRR6877341	2	Homo sapiens	Homo sapiens
+SRR6877342	2	Homo sapiens	Homo sapiens
+SRR6877343	2	Homo sapiens	Homo sapiens
+SRR6877344	2	Homo sapiens	Homo sapiens
+SRR6877345	2	Homo sapiens	Homo sapiens
+SRR6877346	2	Homo sapiens	Homo sapiens
+SRR6877347	2	Homo sapiens	Homo sapiens
+SRR6877348	2	Homo sapiens	Homo sapiens
+SRR6877349	2	Homo sapiens	Homo sapiens
+SRR6877350	2	Homo sapiens	Homo sapiens
+SRR6877351	2	Homo sapiens	Homo sapiens
+SRR6877352	2	Homo sapiens	Homo sapiens
+SRR6877353	2	Homo sapiens	Homo sapiens
+SRR6877354	2	Homo sapiens	Homo sapiens
+SRR6877355	2	Homo sapiens	Homo sapiens
+SRR6877356	2	Homo sapiens	Homo sapiens
+SRR6877357	2	Homo sapiens	Homo sapiens
+SRR6877358	2	Homo sapiens	Homo sapiens
+SRR6877359	2	Homo sapiens	Homo sapiens
+SRR6877360	2	Homo sapiens	Homo sapiens
+SRR6877361	2	Homo sapiens	Homo sapiens
+SRR6877362	2	Homo sapiens	Homo sapiens
+SRR6877363	2	Homo sapiens	Homo sapiens
+SRR6877364	2	Homo sapiens	Homo sapiens
+SRR6877365	2	Homo sapiens	Homo sapiens
+SRR6877366	2	Homo sapiens	Homo sapiens
+SRR6877367	2	Homo sapiens	Homo sapiens
+SRR6877368	2	Homo sapiens	Homo sapiens
+SRR6877369	2	Homo sapiens	Homo sapiens
+SRR6877370	2	Homo sapiens	Homo sapiens
+SRR6877371	2	Homo sapiens	Homo sapiens
+SRR6877372	2	Homo sapiens	Homo sapiens
+SRR6877373	2	Homo sapiens	Homo sapiens
+SRR6877374	2	Homo sapiens	Homo sapiens
+SRR6877375	2	Homo sapiens	Homo sapiens
+SRR6877376	2	Homo sapiens	Homo sapiens
+SRR6877377	2	Homo sapiens	Homo sapiens
+SRR6877378	2	Homo sapiens	Homo sapiens
+SRR6877379	2	Homo sapiens	Homo sapiens
+SRR6877380	2	Homo sapiens	Homo sapiens
+SRR6877381	2	Homo sapiens	Homo sapiens
+SRR6877382	2	Homo sapiens	Homo sapiens
+SRR6877383	2	Homo sapiens	Homo sapiens
+SRR6877384	2	Homo sapiens	Homo sapiens
+SRR6877385	2	Homo sapiens	Homo sapiens
+SRR6877386	2	Homo sapiens	Homo sapiens
+SRR6877387	2	Homo sapiens	Homo sapiens
+SRR6877388	2	Homo sapiens	Homo sapiens
+SRR6877389	2	Homo sapiens	Homo sapiens
+SRR6877390	2	Homo sapiens	Homo sapiens
+SRR6877391	2	Homo sapiens	Homo sapiens
+SRR6877392	2	Homo sapiens	Homo sapiens
+SRR6877393	2	Homo sapiens	Homo sapiens
+SRR6877394	2	Homo sapiens	Homo sapiens
+SRR6877395	2	Homo sapiens	Homo sapiens
+SRR6877396	2	Homo sapiens	Homo sapiens
+SRR6877397	2	Homo sapiens	Homo sapiens
+SRR6877398	2	Homo sapiens	Homo sapiens
+SRR6877399	2	Homo sapiens	Homo sapiens
+SRR6877400	2	Homo sapiens	Homo sapiens
+SRR6877401	2	Homo sapiens	Homo sapiens
+SRR6877402	2	Homo sapiens	Homo sapiens
+SRR6877403	2	Homo sapiens	Homo sapiens
+SRR7774469	2	Homo sapiens	
+SRR7774470	2	Lithobates pipiens	
+SRR7774471	2	Mammuthus primigenius	
+SRR7774472	2	Pan troglodytes verus	
+SRR7774473	2	Pan troglodytes verus	
+SRR7774474	2	Mammuthus primigenius	
+SRR7774475	2	Homo sapiens	
+SRR7774476	2	Mammuthus primigenius	
+SRR7774477	2	Homo sapiens	
+SRR7774478	2	Homo sapiens	
+SRR7774479	2	Mammuthus primigenius	
+SRR8652706	2	Homo sapiens	
+SRR8652707	2	Homo sapiens	
+SRR8652708	2	Homo sapiens	
+SRR8652709	2	Homo sapiens	
+SRR8652710	2	Homo sapiens	
+SRR8652711	2	Homo sapiens	
+SRR8652712	2	Homo sapiens	
+SRR8652713	2	Homo sapiens	
+SRR8652714	2	Homo sapiens	
+SRR8652715	2	Homo sapiens	
+SRR8652716	2	Homo sapiens	
+SRR8652717	2	Homo sapiens	
+ERR11413657	3	Homo sapiens	Homo sapiens
+ERR11413658	3	Homo sapiens	Homo sapiens
+ERR11413659	3	Homo sapiens	Homo sapiens
+ERR11413660	3	Homo sapiens	Homo sapiens
+ERR11413661	3	Homo sapiens	Homo sapiens
+ERR11413662	3	Homo sapiens	Homo sapiens
+ERR11413663	3	Homo sapiens	Homo sapiens
+ERR11413664	3	Homo sapiens	Homo sapiens
+ERR11413665	3	Homo sapiens	Homo sapiens
+ERR11413666	3	Homo sapiens	Homo sapiens
+ERR11413667	3	Homo sapiens	Homo sapiens
+ERR11413668	3	Homo sapiens	Homo sapiens
+ERR11413669	3	Homo sapiens	Homo sapiens
+ERR11413670	3	Homo sapiens	Homo sapiens
+ERR11413671	3	Homo sapiens	Homo sapiens
+ERR11413672	3	Homo sapiens	Homo sapiens
+ERR11413673	3	Homo sapiens	Homo sapiens
+ERR11413674	3	Homo sapiens	Homo sapiens
+ERR11413675	3	Homo sapiens	Homo sapiens
+ERR11413676	3	Homo sapiens	Homo sapiens
+ERR11413677	3	Homo sapiens	Homo sapiens
+ERR11413678	3	Homo sapiens	Homo sapiens
+ERR11413679	3	Homo sapiens	Homo sapiens
+ERR11413680	3	Homo sapiens	Homo sapiens
+ERR11413681	3	Homo sapiens	Homo sapiens
+ERR11413682	3	Homo sapiens	Homo sapiens
+ERR11413683	3	Homo sapiens	Homo sapiens
+ERR11413684	3	Homo sapiens	Homo sapiens
+ERR11413685	3	Homo sapiens	Homo sapiens
+ERR11413686	3	Homo sapiens	Homo sapiens
+ERR11413687	3	Homo sapiens	Homo sapiens
+ERR11413688	3	Homo sapiens	Homo sapiens
+ERR11413689	3	Homo sapiens	Homo sapiens
+ERR11413690	3	Homo sapiens	Homo sapiens
+ERR11413691	3	Homo sapiens	Homo sapiens
+ERR11413692	3	Homo sapiens	Homo sapiens
+ERR11413693	3	Homo sapiens	Homo sapiens
+ERR11413694	3	Homo sapiens	Homo sapiens
+ERR11413695	3	Homo sapiens	Homo sapiens
+ERR11413696	3	Homo sapiens	Homo sapiens
+ERR11413697	3	Homo sapiens	Homo sapiens
+ERR11413698	3	Homo sapiens	Homo sapiens
+ERR11413699	3	Homo sapiens	Homo sapiens
+ERR11413700	3	Homo sapiens	Homo sapiens
+ERR11413701	3	Homo sapiens	Homo sapiens
+ERR11413702	3	Homo sapiens	Homo sapiens
+ERR11413703	3	Homo sapiens	Homo sapiens
+ERR11413704	3	Homo sapiens	Homo sapiens
+ERR11413705	3	Homo sapiens	Homo sapiens
+ERR11413706	3	Homo sapiens	Homo sapiens
+ERR11413707	3	Homo sapiens	Homo sapiens
+ERR11413708	3	Homo sapiens	Homo sapiens
+ERR11413709	3	Homo sapiens	Homo sapiens
+ERR11413710	3	Homo sapiens	Homo sapiens
+ERR11413711	3	Homo sapiens	Homo sapiens
+ERR11413712	3	Homo sapiens	Homo sapiens
+ERR11413713	3	Homo sapiens	Homo sapiens
+ERR11413714	3	Homo sapiens	Homo sapiens
+ERR11413715	3	Homo sapiens	Homo sapiens
+ERR11413716	3	Homo sapiens	Homo sapiens
+ERR11413717	3	Homo sapiens	Homo sapiens
+ERR11413718	3	Homo sapiens	Homo sapiens
+ERR11413719	3	Homo sapiens	Homo sapiens
+ERR11413720	3	Homo sapiens	Homo sapiens
+ERR11413721	3	Homo sapiens	Homo sapiens
+ERR11413722	3	Homo sapiens	Homo sapiens
+ERR11413723	3	Homo sapiens	Homo sapiens
+ERR11413724	3	Homo sapiens	Homo sapiens
+ERR11413725	3	Homo sapiens	Homo sapiens
+ERR11413726	3	Homo sapiens	Homo sapiens
+ERR11413727	3	Homo sapiens	Homo sapiens
+ERR11413728	3	Homo sapiens	Homo sapiens
+ERR11413729	3	Homo sapiens	Homo sapiens
+ERR11413731	3	Homo sapiens	Homo sapiens
+ERR11413732	3	Homo sapiens	Homo sapiens
+ERR11413733	3	Homo sapiens	Homo sapiens
+ERR11413734	3	Homo sapiens	Homo sapiens
+ERR11413735	3	Homo sapiens	Homo sapiens
+ERR11413736	3	Homo sapiens	Homo sapiens
+ERR11413737	3	Homo sapiens	Homo sapiens
+ERR11413738	3	Homo sapiens	Homo sapiens
+ERR11413739	3	Homo sapiens	Homo sapiens
+ERR11413740	3	Homo sapiens	Homo sapiens
+ERR11413741	3	Homo sapiens	Homo sapiens
+ERR11413742	3	Homo sapiens	Homo sapiens
+ERR11413743	3	Homo sapiens	Homo sapiens
+ERR11413744	3	Homo sapiens	Homo sapiens
+ERR11413745	3	Homo sapiens	Homo sapiens
+ERR11413746	3	Homo sapiens	Homo sapiens
+ERR11413747	3	Homo sapiens	Homo sapiens
+ERR11413748	3	Homo sapiens	Homo sapiens
+ERR11413749	3	Homo sapiens	Homo sapiens
+ERR11413750	3	Homo sapiens	Homo sapiens
+ERR11413751	3	Homo sapiens	Homo sapiens
+ERR11413752	3	Homo sapiens	Homo sapiens
+ERR11413753	3	Homo sapiens	Homo sapiens
+ERR11413754	3	Homo sapiens	Homo sapiens
+ERR11413755	3	Homo sapiens	Homo sapiens
+ERR11413756	3	Homo sapiens	Homo sapiens
+ERR11413757	3	Homo sapiens	Homo sapiens
+ERR11413758	3	Homo sapiens	Homo sapiens
+ERR11413759	3	Homo sapiens	Homo sapiens
+ERR11656729	3	Homo sapiens	Homo sapiens
+ERR11656730	3	Homo sapiens	Homo sapiens
+ERR11656731	3	Homo sapiens	Homo sapiens
+ERR11656732	3	Homo sapiens	Homo sapiens
+ERR11656733	3	Homo sapiens	Homo sapiens
+ERR11656734	3	Homo sapiens	Homo sapiens
+ERR11656735	3	Homo sapiens	Homo sapiens
+ERR11656736	3	Homo sapiens	Homo sapiens
+ERR11656737	3	Homo sapiens	Homo sapiens
+ERR11656738	3	Homo sapiens	Homo sapiens
+ERR11656739	3	Homo sapiens	Homo sapiens
+ERR11656740	3	Homo sapiens	Homo sapiens
+ERR11656741	3	Homo sapiens	Homo sapiens
+ERR11656742	3	Homo sapiens	Homo sapiens
+ERR11656743	3	Homo sapiens	Homo sapiens
+ERR11656744	3	Homo sapiens	Homo sapiens
+ERR11656745	3	Homo sapiens	Homo sapiens
+ERR11656746	3	Homo sapiens	Homo sapiens
+ERR11656747	3	Homo sapiens	Homo sapiens
+ERR11656748	3	Homo sapiens	Homo sapiens
+ERR1560012	3	Homo sapiens	
+ERR1560013	3	Homo sapiens	
+ERR1560014	3	Homo sapiens	
+ERR1560015	3	Homo sapiens	
+ERR1560016	3	Arabidopsis thaliana	
+ERR1560017	3	Arabidopsis thaliana	
+ERR1560018	3	Homo sapiens	
+ERR1560019	3	Arabidopsis thaliana	
+ERR1560020	3	Arabidopsis thaliana	
+ERR1560021	3	Arabidopsis thaliana	
+ERR1560022	3	Arabidopsis thaliana	
+ERR1560023	3	Arabidopsis thaliana	
+ERR1560024	3	Homo sapiens	
+ERR1560025	3	Homo sapiens	
+ERR1560093	3	Arabidopsis thaliana	
+ERR1560094	3	Arabidopsis thaliana	
+ERR1560095	3	Ambrosia artemisiifolia	
+ERR1560096	3	Homo sapiens	
+ERR1560097	3	Homo sapiens	
+ERR1560098	3	Arabidopsis thaliana	
+ERR1560099	3	Homo sapiens	
+ERR1560100	3	Arabidopsis thaliana	
+ERR1560101	3	Homo sapiens	
+ERR1560102	3	Ambrosia artemisiifolia	
+ERR1560103	3	Arabidopsis thaliana	
+ERR1560104	3	Ambrosia artemisiifolia	
+ERR1560105	3	Arabidopsis thaliana	
+ERR1560106	3	Arabidopsis thaliana	
+ERR1560107	3	Arabidopsis thaliana	
+ERR1560108	3	Arabidopsis thaliana	
+ERR1560109	3	Arabidopsis thaliana	
+ERR1560110	3	Arabidopsis thaliana	
+ERR1688747	3	Homo sapiens	
+ERR1688749	3	Homo sapiens	
+ERR1688750	3	Homo sapiens	
+ERR1688752	3	Arabidopsis thaliana	
+ERR1688754	3	Homo sapiens	
+ERR1688756	3	Homo sapiens	
+ERR1688758	3	Arabidopsis thaliana	
+ERR1688760	3	Homo sapiens	
+ERR1688761	3	Homo sapiens	
+ERR1688762	3	Homo sapiens	
+ERR1688764	3	Homo sapiens	
+ERR1688765	3	Homo sapiens	
+ERR1688768	3	Homo sapiens	
+ERR1688769	3	Arabidopsis thaliana	
+ERR1688771	3	Homo sapiens	
+ERR1688772	3	Homo sapiens	
+ERR1688775	3	Homo sapiens	
+ERR1688778	3	Homo sapiens	
+ERR1688780	3	Homo sapiens	
+ERR1688782	3	Homo sapiens	
+ERR1688785	3	Homo sapiens	
+ERR1688788	3	Homo sapiens	
+ERR1688789	3	Homo sapiens	
+ERR1688797	3	Arabidopsis thaliana	
+ERR1688799	3	Arabidopsis thaliana	
+ERR1688803	3	Arabidopsis thaliana	
+ERR1688804	3	Arabidopsis thaliana	
+ERR1688808	3	Homo sapiens	
+ERR1688810	3	Homo sapiens	
+ERR3458787	3	Homo sapiens	
+ERR3458788	3	Homo sapiens	
+ERR3458789	3	Homo sapiens	
+ERR3458790	3	Homo sapiens	
+ERR3458791	3	Homo sapiens	
+ERR3458792	3	Homo sapiens	
+ERR3459717	3	Homo sapiens	
+ERR3459718	3	Homo sapiens	
+ERR3459719	3	Homo sapiens	
+ERR3459720	3	Homo sapiens	
+ERR3459721	3	Homo sapiens	
+ERR3459722	3	Homo sapiens	
+ERR3459723	3	Homo sapiens	
+ERR3459724	3	Homo sapiens	
+ERR3459725	3	Homo sapiens	
+ERR3459726	3	Homo sapiens	
+ERR3459727	3	Arabidopsis thaliana	
+ERR3459728	3	Arabidopsis thaliana	
+ERR3459729	3	Homo sapiens	
+ERR3459730	3	Homo sapiens	
+ERR3459731	3	Homo sapiens	
+ERR3459732	3	Homo sapiens	
+ERR3459733	3	Homo sapiens	
+ERR3459734	3	Homo sapiens	
+ERR3459735	3	Homo sapiens	
+ERR3459736	3	Homo sapiens	
+ERR3459737	3	Homo sapiens	
+ERR3459738	3	Homo sapiens	
+ERR3459739	3	Homo sapiens	
+ERR3459740	3	Homo sapiens	
+ERR3459741	3	Homo sapiens	
+ERR3459742	3	Homo sapiens	
+ERR3459743	3	Homo sapiens	
+ERR3459744	3	Homo sapiens	
+ERR3772645	3	Homo sapiens	
+ERR3804374	3	Homo sapiens	
+ERR3804375	3	Homo sapiens	
+ERR4172756	3	Gorilla beringei beringei	Gorilla beringei
+ERR4172758	3	Gorilla beringei beringei	Gorilla beringei
+ERR4172761	3	Gorilla beringei beringei	Gorilla beringei
+ERR4172763	3	Rangifer tarandus	Gorilla beringei
+ERR4172766	3	Gorilla beringei beringei	Gorilla beringei
+ERR4172783	3	Gorilla beringei beringei	Gorilla beringei
+ERR4172788	3	Gorilla beringei beringei	Gorilla beringei
+ERR4172789	3	Gorilla beringei graueri	Gorilla beringei
+ERR4172797	3	Gorilla beringei graueri	Gorilla beringei
+ERR4172799	3	Gorilla beringei graueri	Gorilla beringei
+ERR4172800	3	Gorilla beringei graueri	Gorilla beringei
+ERR4172802	3	Gorilla beringei graueri	Gorilla beringei
+ERR4172804	3	Gorilla beringei beringei	Gorilla beringei
+ERR4172806	3	Gorilla beringei graueri	Gorilla beringei
+ERR4172808	3	Gorilla beringei graueri	Gorilla beringei
+ERR4172809	3	Gorilla beringei graueri	Gorilla beringei
+ERR4172811	3	Gorilla beringei graueri	Gorilla beringei
+ERR4172813	3	Gorilla beringei graueri	Gorilla beringei
+ERR4172814	3	Gorilla beringei graueri	Gorilla beringei
+ERR4172817	3	Gorilla beringei	Rangifer tarandus
+ERR4172819	3	Rangifer tarandus	Rangifer tarandus
+ERR4172823	3	Homo sapiens	Rangifer tarandus
+ERR4172827	3	Homo sapiens	Rangifer tarandus
+ERR4172829	3	Ursus arctos	Rangifer tarandus
+ERR4172830	3	Rangifer tarandus	Rangifer tarandus
+ERR4172832	3	Rangifer tarandus	Rangifer tarandus
+ERR4172834	3	Rangifer tarandus	Rangifer tarandus
+ERR4172835	3	Homo sapiens	Rangifer tarandus
+ERR4172836	3	Homo sapiens	Rangifer tarandus
+ERR4172838	3	Homo sapiens	Rangifer tarandus
+ERR4172839	3	Homo sapiens	Rangifer tarandus
+ERR4172841	3	Gorilla beringei graueri	Rangifer tarandus
+ERR4172843	3	Gorilla beringei graueri	Rangifer tarandus
+ERR4172850	3	Gorilla beringei	Rangifer tarandus
+ERR4172854	3	Gorilla beringei graueri	Rangifer tarandus
+ERR4172855	3	Ursus arctos	Rangifer tarandus
+ERR4172857	3	Ursus arctos	Rangifer tarandus
+ERR4172860	3	Gorilla beringei graueri	Rangifer tarandus
+ERR4172872	3	Gorilla beringei graueri	Rangifer tarandus
+ERR4172883	3	Mammuthus primigenius	Rangifer tarandus
+ERR4172889	3	Mammuthus primigenius	Rangifer tarandus
+ERR4172953	3	Mammuthus primigenius	Rangifer tarandus
+ERR4172977	3	Mammuthus primigenius	Rangifer tarandus
+ERR4172978	3	Ursus arctos	Ursus arctos
+ERR4172979	3	Ursus arctos	Ursus arctos
+ERR4172981	3	Ursus arctos	Ursus arctos
+ERR4172982	3	Ursus arctos	Ursus arctos
+ERR4172991	3	Ursus arctos	Ursus arctos
+ERR4173008	3	Ursus arctos	Ursus arctos
+ERR4173033	3	Ursus arctos	Ursus arctos
+ERR4173039	3	Ursus arctos	Ursus arctos
+ERR4173041	3	Ursus arctos	Ursus arctos
+ERR4173043	3	Ursus arctos	Ursus arctos
+ERR4173045	3	Ursus arctos	Ursus arctos
+ERR4173049	3	Ursus arctos	Ursus arctos
+ERR4173051	3	Ursus arctos	Ursus arctos
+ERR4173057	3	Ursus arctos	Ursus arctos
+ERR4173060	3	Ursus arctos	Ursus arctos
+ERR4173061	3	Ursus arctos	Ursus arctos
+ERR4173063	3	Ursus arctos	Ursus arctos
+ERR4173066	3	Ursus arctos	Ursus arctos
+ERR4173068	3	Ursus arctos	Ursus arctos
+ERR4173070	3	Ursus arctos	Ursus arctos
+ERR4173072	3	Ursus arctos	Ursus arctos
+ERR4173073	3	Ursus arctos	Ursus arctos
+ERR4173075	3	Ursus arctos	Ursus arctos
+ERR4173082	3	Gorilla beringei beringei	Gorilla beringei
+ERR9612721	3	Homo sapiens	Homo sapiens
+ERR9612722	3	Homo sapiens	Homo sapiens
+ERR9612723	3	Homo sapiens	Homo sapiens
+ERR9612724	3	Homo sapiens	Homo sapiens
+ERR9612725	3	Homo sapiens	Homo sapiens
+ERR9612726	3	Homo sapiens	Homo sapiens
+ERR9612727	3	Homo sapiens	Homo sapiens
+ERR9612728	3	Homo sapiens	Homo sapiens
+ERR9612729	3	Homo sapiens	Homo sapiens
+ERR9612730	3	Homo sapiens	Homo sapiens
+ERR9612731	3	Homo sapiens	Homo sapiens
+ERR9612732	3	Homo sapiens	Homo sapiens
+ERR9612733	3	Homo sapiens	Homo sapiens
+ERR9612734	3	Homo sapiens	Homo sapiens
+ERR9612735	3	Homo sapiens	Homo sapiens
+ERR9612736	3	Homo sapiens	Homo sapiens
+ERR9612737	3	Homo sapiens	Homo sapiens
+ERR9612738	3	Homo sapiens	Homo sapiens
+ERR9612739	3	Homo sapiens	Homo sapiens
+ERR9612740	3	Homo sapiens	Homo sapiens
+ERR9612741	3	Homo sapiens	Homo sapiens
+ERR9612742	3	Homo sapiens	Homo sapiens
+ERR9612743	3	Homo sapiens	Homo sapiens
+ERR9612744	3	Homo sapiens	Homo sapiens
+ERR9612745	3	Homo sapiens	Homo sapiens
+ERR9612746	3	Homo sapiens	Homo sapiens
+ERR9612747	3	Homo sapiens	Homo sapiens
+ERR9612748	3	Homo sapiens	Homo sapiens
+ERR9612749	3	Homo sapiens	Homo sapiens
+ERR9612750	3	Homo sapiens	Homo sapiens
+ERR9612751	3	Homo sapiens	Homo sapiens
+ERR9612752	3	Homo sapiens	Homo sapiens
+ERR9612753	3	Homo sapiens	Homo sapiens
+ERR9612754	3	Homo sapiens	Homo sapiens
+ERR9612755	3	Homo sapiens	Homo sapiens
+ERR9612756	3	Homo sapiens	Homo sapiens
+ERR9612757	3	Homo sapiens	Homo sapiens
+ERR9612758	3	Homo sapiens	Homo sapiens
+ERR9612759	3	Homo sapiens	Homo sapiens
+ERR9612760	3	Homo sapiens	Homo sapiens
+ERR9612761	3	Homo sapiens	Homo sapiens
+ERR9612762	3	Homo sapiens	Homo sapiens
+ERR9612763	3	Homo sapiens	Homo sapiens
+ERR9612764	3	Homo sapiens	Homo sapiens
+ERR9612765	3	Homo sapiens	Homo sapiens
+ERR9612766	3	Homo sapiens	Homo sapiens
+ERR9612767	3	Homo sapiens	Homo sapiens
+ERR9612768	3	Homo sapiens	Homo sapiens
+ERR9612769	3	Homo sapiens	Homo sapiens
+ERR9612770	3	Homo sapiens	Homo sapiens
+ERR9612771	3	Homo sapiens	Homo sapiens
+ERR9612772	3	Homo sapiens	Homo sapiens
+ERR9612773	3	Homo sapiens	Homo sapiens
+ERR9612774	3	Homo sapiens	Homo sapiens
+ERR9612775	3	Homo sapiens	Homo sapiens
+ERR9612776	3	Homo sapiens	Homo sapiens
+ERR9612777	3	Homo sapiens	Homo sapiens
+ERR9612778	3	Homo sapiens	Homo sapiens
+ERR9612779	3	Homo sapiens	Homo sapiens
+ERR9612780	3	Homo sapiens	Homo sapiens
+ERR9612781	3	Homo sapiens	Homo sapiens
+ERR9612782	3	Homo sapiens	Homo sapiens
+ERR9612783	3	Homo sapiens	Homo sapiens
+ERR9612784	3	Homo sapiens	Homo sapiens
+ERR9612785	3	Homo sapiens	Homo sapiens
+ERR9612786	3	Homo sapiens	Homo sapiens
+ERR9612787	3	Homo sapiens	Homo sapiens
+ERR9612788	3	Homo sapiens	Homo sapiens
+ERR9612789	3	Homo sapiens	Homo sapiens
+ERR9612790	3	Homo sapiens	Homo sapiens
+ERR9612791	3	Homo sapiens	Homo sapiens
+ERR9612792	3	Homo sapiens	Homo sapiens
+ERR9612793	3	Homo sapiens	Homo sapiens
+ERR9612794	3	Homo sapiens	Homo sapiens
+ERR9612795	3	Homo sapiens	Homo sapiens
+ERR9612796	3	Homo sapiens	Homo sapiens
+ERR9612797	3	Homo sapiens	Homo sapiens
+ERR9612798	3	Homo sapiens	Homo sapiens
+ERR9612799	3	Homo sapiens	Homo sapiens
+ERR9612800	3	Homo sapiens	Homo sapiens
+ERR9612801	3	Homo sapiens	Homo sapiens
+ERR9612802	3	Homo sapiens	Homo sapiens
+ERR9612803	3	Homo sapiens	Homo sapiens
+ERR9612804	3	Homo sapiens	Homo sapiens
+ERR9612805	3	Homo sapiens	Homo sapiens
+ERR9612806	3	Homo sapiens	Homo sapiens
+ERR9612807	3	Homo sapiens	Homo sapiens
+ERR9612808	3	Homo sapiens	Homo sapiens
+ERR9612809	3	Homo sapiens	Homo sapiens
+ERR9612810	3	Homo sapiens	Homo sapiens
+ERR9612811	3	Homo sapiens	Homo sapiens
+ERR9612812	3	Homo sapiens	Homo sapiens
+ERR9612813	3	Homo sapiens	Homo sapiens
+ERR9612814	3	Homo sapiens	Homo sapiens
+ERR9612815	3	Homo sapiens	Homo sapiens
+ERR9612816	3	Homo sapiens	Homo sapiens
+ERR9612817	3	Homo sapiens	Homo sapiens
+ERR9612818	3	Homo sapiens	Homo sapiens
+ERR9612819	3	Homo sapiens	Homo sapiens
+ERR9612820	3	Homo sapiens	Homo sapiens
+ERR9612821	3	Homo sapiens	Homo sapiens
+ERR9612822	3	Homo sapiens	Homo sapiens
+ERR9612823	3	Homo sapiens	Homo sapiens
+ERR9612824	3	Homo sapiens	Homo sapiens
+ERR9612825	3	Homo sapiens	Homo sapiens
+ERR9612826	3	Homo sapiens	Homo sapiens
+ERR9612827	3	Homo sapiens	Homo sapiens
+ERR9612828	3	Homo sapiens	Homo sapiens
+ERR9612829	3	Homo sapiens	Homo sapiens
+ERR9612830	3	Homo sapiens	Homo sapiens
+ERR9612831	3	Homo sapiens	Homo sapiens
+ERR9612832	3	Homo sapiens	Homo sapiens
+ERR9612833	3	Homo sapiens	Homo sapiens
+ERR9612834	3	Homo sapiens	Homo sapiens
+ERR9612835	3	Homo sapiens	Homo sapiens
+ERR9612836	3	Homo sapiens	Homo sapiens
+ERR9612837	3	Homo sapiens	Homo sapiens
+ERR9612838	3	Homo sapiens	Homo sapiens
+ERR9612839	3	Homo sapiens	Homo sapiens
+ERR9612840	3	Homo sapiens	Homo sapiens
+ERR9612841	3	Homo sapiens	Homo sapiens
+ERR9612842	3	Homo sapiens	Homo sapiens
+ERR9612843	3	Homo sapiens	Homo sapiens
+ERR9612844	3	Homo sapiens	Homo sapiens
+ERR9612845	3	Homo sapiens	Homo sapiens
+ERR9612846	3	Homo sapiens	Homo sapiens
+ERR9612847	3	Homo sapiens	Homo sapiens
+ERR9612848	3	Homo sapiens	Homo sapiens
+ERR9612849	3	Homo sapiens	Homo sapiens
+ERR9612850	3	Homo sapiens	Homo sapiens
+ERR9612851	3	Homo sapiens	Homo sapiens
+ERR9612852	3	Homo sapiens	Homo sapiens
+ERR9612853	3	Homo sapiens	Homo sapiens
+ERR9612854	3	Homo sapiens	Homo sapiens
+ERR9612855	3	Homo sapiens	Homo sapiens
+ERR9612856	3	Homo sapiens	Homo sapiens
+ERR9612857	3	Homo sapiens	Homo sapiens
+ERR9612858	3	Homo sapiens	Homo sapiens
+ERR9612859	3	Homo sapiens	Homo sapiens
+ERR9612860	3	Homo sapiens	Homo sapiens
+ERR9612861	3	Homo sapiens	Homo sapiens
+ERR9612862	3	Homo sapiens	Homo sapiens
+ERR9612863	3	Homo sapiens	Homo sapiens
+ERR9612864	3	Homo sapiens	Homo sapiens
+ERR9612865	3	Homo sapiens	Homo sapiens
+ERR9612866	3	Homo sapiens	Homo sapiens
+ERR9612867	3	Homo sapiens	Homo sapiens
+ERR9612868	3	Homo sapiens	Homo sapiens
+ERR9612869	3	Homo sapiens	Homo sapiens
+ERR9612870	3	Homo sapiens	Homo sapiens
+ERR9612871	3	Homo sapiens	Homo sapiens
+ERR9612872	3	Homo sapiens	Homo sapiens
+ERR9612873	3	Homo sapiens	Homo sapiens
+ERR9612874	3	Homo sapiens	Homo sapiens
+ERR9612875	3	Homo sapiens	Homo sapiens
+ERR9612876	3	Homo sapiens	Homo sapiens
+ERR9612877	3	Homo sapiens	Homo sapiens
+ERR9612878	3	Homo sapiens	Homo sapiens
+ERR9612879	3	Homo sapiens	Homo sapiens
+ERR9612880	3	Homo sapiens	Homo sapiens
+ERR9612881	3	Homo sapiens	Homo sapiens
+ERR9612882	3	Homo sapiens	Homo sapiens
+ERR9612883	3	Homo sapiens	Homo sapiens
+ERR9612884	3	Homo sapiens	Homo sapiens
+ERR9612885	3	Homo sapiens	Homo sapiens
+ERR9612886	3	Homo sapiens	Homo sapiens
+ERR9612887	3	Homo sapiens	Homo sapiens
+ERR9612888	3	Homo sapiens	Homo sapiens
+ERR9612889	3	Homo sapiens	Homo sapiens
+ERR9612890	3	Homo sapiens	Homo sapiens
+ERR9612891	3	Homo sapiens	Homo sapiens
+ERR9612892	3	Homo sapiens	Homo sapiens
+ERR9612893	3	Homo sapiens	Homo sapiens
+ERR9612894	3	Homo sapiens	Homo sapiens
+ERR9612895	3	Homo sapiens	Homo sapiens
+ERR9612896	3	Homo sapiens	Homo sapiens
+ERR9612897	3	Homo sapiens	Homo sapiens
+ERR9612898	3	Homo sapiens	Homo sapiens
+ERR9690357	3	Homo sapiens	
+ERR9690358	3	Homo sapiens	
+ERR9690359	3	Homo sapiens	
+ERR9690360	3	Arabidopsis thaliana	
+ERR9690361	3	Homo sapiens	
+ERR9690362	3	Homo sapiens	
+ERR9690363	3	Lithobates pipiens	
+ERR9690364	3	Homo sapiens	
+ERR9690365	3	Homo sapiens	
+ERR9690366	3	Homo sapiens	
+SRR10156707	3	Homo sapiens	
+SRR10156708	3	Homo sapiens	
+SRR10156709	3	Homo sapiens	
+SRR10156710	3	Homo sapiens	
+SRR10156713	3	Homo sapiens	
+SRR10156724	3	Homo sapiens	
+SRR10156735	3	Homo sapiens	
+SRR10156737	3	Homo sapiens	
+SRR10156738	3	Homo sapiens	
+SRR10156739	3	Homo sapiens	
+SRR10156740	3	Homo sapiens	
+SRR10156741	3	Homo sapiens	
+SRR10156742	3	Homo sapiens	
+SRR10156743	3	Homo sapiens	
+SRR10156744	3	Homo sapiens	
+SRR10156745	3	Homo sapiens	
+SRR10156746	3	Homo sapiens	
+SRR10156747	3	Homo sapiens	
+SRR10156748	3	Homo sapiens	
+SRR10156749	3	Homo sapiens	
+SRR10156750	3	Homo sapiens	
+SRR10156751	3	Homo sapiens	
+SRR10156752	3	Homo sapiens	
+SRR10156753	3	Homo sapiens	
+SRR10156754	3	Homo sapiens	
+SRR10156755	3	Homo sapiens	
+SRR10156756	3	Homo sapiens	
+SRR10156757	3	Homo sapiens	
+SRR10156758	3	Homo sapiens	
+SRR12136712	3	Homo sapiens	Homo sapiens
+SRR12136713	3	Homo sapiens	Homo sapiens
+SRR12462930	3	Homo sapiens	Homo sapiens
+SRR12462931	3	Homo sapiens	Homo sapiens
+SRR12462932	3	Homo sapiens	Homo sapiens
+SRR12462933	3	Homo sapiens	Homo sapiens
+SRR12462934	3	Homo sapiens	Homo sapiens
+SRR12462935	3	Homo sapiens	Homo sapiens
+SRR12462936	3	Homo sapiens	Homo sapiens
+SRR12462937	3	Homo sapiens	Homo sapiens
+SRR12462938	3	Homo sapiens	Homo sapiens
+SRR12462939	3	Homo sapiens	Homo sapiens
+SRR12462940	3	Homo sapiens	Homo sapiens
+SRR12462941	3	Homo sapiens	Homo sapiens
+SRR12462942	3	Homo sapiens	Homo sapiens
+SRR12462943	3	Homo sapiens	Homo sapiens
+SRR12462944	3	Homo sapiens	Homo sapiens
+SRR12462945	3	Homo sapiens	Homo sapiens
+SRR12462946	3	Homo sapiens	Homo sapiens
+SRR12462947	3	Homo sapiens	Homo sapiens
+SRR19160147	3	Lithobates pipiens	Lithobates pipiens
+SRR19160150	3	Homo sapiens	Lithobates pipiens
+SRR19160161	3	Homo sapiens	Lithobates pipiens
+SRR19160174	3	Homo sapiens	Lithobates pipiens
+SRR19160175	3	Homo sapiens	Lithobates pipiens
+SRR19160180	3	Homo sapiens	Lithobates pipiens
+SRR19160184	3	Homo sapiens	Lithobates pipiens
+SRR19160194	3	Homo sapiens	Lithobates pipiens
+SRR19160206	3	Lithobates pipiens	Lithobates pipiens
+SRR19160231	3	Homo sapiens	Lithobates pipiens
+SRR19160251	3	Lithobates pipiens	Lithobates pipiens
+SRR957738	3	Homo sapiens	Homo sapiens
+SRR957739	3	Homo sapiens	Homo sapiens
+SRR957740	3	Homo sapiens	Homo sapiens
+SRR957741	3	Homo sapiens	Homo sapiens
+SRR957742	3	Homo sapiens	Homo sapiens
+SRR957743	3	Homo sapiens	Homo sapiens
+SRR957744	3	Homo sapiens	Homo sapiens
+SRR957745	3	Homo sapiens	Homo sapiens
+SRR957746	3	Homo sapiens	Homo sapiens
+ERR12115113	4	Homo sapiens	Homo sapiens
+ERR12115114	4	Homo sapiens	Homo sapiens
+ERR12115115	4	Homo sapiens	Homo sapiens
+ERR12115116	4	Homo sapiens	Homo sapiens
+ERR1777519	4	Homo sapiens	Homo sapiens
+ERR1777520	4	Homo sapiens	Homo sapiens
+ERR1777521	4	Homo sapiens	Homo sapiens
+ERR1777522	4	Homo sapiens	Homo sapiens
+ERR1777523	4	Homo sapiens	Homo sapiens
+ERR1777524	4	Homo sapiens	Homo sapiens
+ERR1777525	4	Homo sapiens	Homo sapiens
+ERR1777526	4	Homo sapiens	Homo sapiens
+ERR1777527	4	Homo sapiens	Homo sapiens
+ERR1777528	4	Homo sapiens	Homo sapiens
+ERR1777529	4	Homo sapiens	Homo sapiens
+ERR1777530	4	Homo sapiens	Homo sapiens
+ERR1777531	4	Homo sapiens	Homo sapiens
+ERR1777532	4	Homo sapiens	Homo sapiens
+ERR1777533	4	Homo sapiens	Homo sapiens
+ERR1777534	4	Homo sapiens	Homo sapiens
+ERR1777535	4	Homo sapiens	Homo sapiens
+ERR1777536	4	Homo sapiens	Homo sapiens
+ERR1777537	4	Homo sapiens	Homo sapiens
+ERR1777538	4	Homo sapiens	Homo sapiens
+ERR1777539	4	Homo sapiens	Homo sapiens
+ERR1777540	4	Homo sapiens	Homo sapiens
+ERR1777541	4	Homo sapiens	Homo sapiens
+ERR1777542	4	Homo sapiens	Homo sapiens
+ERR1777543	4	Homo sapiens	Homo sapiens
+ERR1777544	4	Homo sapiens	Homo sapiens
+ERR1777545	4	Homo sapiens	Homo sapiens
+ERR1777546	4	Homo sapiens	Homo sapiens
+ERR1777547	4	Homo sapiens	Homo sapiens
+ERR1777548	4	Homo sapiens	Homo sapiens
+ERR1777549	4	Homo sapiens	Homo sapiens
+ERR1777550	4	Homo sapiens	Homo sapiens
+ERR1777551	4	Homo sapiens	Homo sapiens
+ERR1777552	4	Homo sapiens	Homo sapiens
+ERR1777553	4	Homo sapiens	Homo sapiens
+ERR1777554	4	Homo sapiens	Homo sapiens
+ERR1777555	4	Homo sapiens	Homo sapiens
+ERR1777556	4	Homo sapiens	Homo sapiens
+ERR1777557	4	Homo sapiens	Homo sapiens
+ERR1777558	4	Homo sapiens	Homo sapiens
+ERR1777559	4	Homo sapiens	Homo sapiens
+ERR1777560	4	Homo sapiens	Homo sapiens
+ERR1777561	4	Homo sapiens	Homo sapiens
+ERR1777562	4	Homo sapiens	Homo sapiens
+ERR1777563	4	Homo sapiens	Homo sapiens
+ERR1777564	4	Homo sapiens	Homo sapiens
+ERR1777565	4	Homo sapiens	Homo sapiens
+ERR1777566	4	Homo sapiens	Homo sapiens
+ERR1777567	4	Homo sapiens	Homo sapiens
+ERR1777568	4	Homo sapiens	Homo sapiens
+ERR1777569	4	Homo sapiens	Homo sapiens
+ERR3609652	4	Homo sapiens	Papio hamadryas
+ERR3609653	4	Homo sapiens	Papio anubis
+ERR3609654	4	Homo sapiens	Papio anubis
+ERR3609655	4	Homo sapiens	Papio hamadryas
+ERR3609656	4	Homo sapiens	Papio hamadryas
+ERR3609657	4	Homo sapiens	Papio anubis
+ERR3609658	4	Homo sapiens	Papio anubis
+ERR3609659	4	Homo sapiens	Papio sp.
+ERR3609660	4	Homo sapiens	Papio hamadryas
+ERR3609661	4	Homo sapiens	Papio hamadryas
+ERR4596443	4	Homo sapiens	Homo sapiens
+ERR4596813	4	Homo sapiens	Homo sapiens
+ERR4596815	4	Homo sapiens	Homo sapiens
+ERR4596816	4	Homo sapiens	Homo sapiens
+ERR4596817	4	Homo sapiens	Homo sapiens
+ERR4596818	4	Homo sapiens	Homo sapiens
+ERR4596819	4	Homo sapiens	Homo sapiens
+ERR4596820	4	Homo sapiens	Homo sapiens
+ERR4596822	4	Homo sapiens	Homo sapiens
+ERR4596823	4	Homo sapiens	Homo sapiens
+ERR4596824	4	Homo sapiens	Homo sapiens
+ERR4596825	4	Homo sapiens	Homo sapiens
+ERR4596826	4	Homo sapiens	Homo sapiens
+ERR4596828	4	Homo sapiens	Homo sapiens
+ERR5670952	4	Homo sapiens	Homo sapiens
+ERR5670953	4	Homo sapiens	Homo sapiens
+ERR5670954	4	Homo sapiens	Homo sapiens
+ERR5670955	4	Homo sapiens	Homo sapiens
+ERR5670956	4	Homo sapiens	Homo sapiens
+ERR5670957	4	Homo sapiens	Homo sapiens
+ERR5670958	4	Homo sapiens	Homo sapiens
+ERR5670959	4	Homo sapiens	Homo sapiens
+ERR5670960	4	Homo sapiens	Homo sapiens
+ERR5670961	4	Homo sapiens	Homo sapiens
+ERR5670962	4	Homo sapiens	Homo sapiens
+ERR5670963	4	Homo sapiens	Homo sapiens
+ERR5670964	4	Homo sapiens	Homo sapiens
+ERR5670965	4	Homo sapiens	Homo sapiens
+ERR5670966	4	Homo sapiens	Homo sapiens
+ERR5670967	4	Homo sapiens	Homo sapiens
+ERR5670968	4	Homo sapiens	Homo sapiens
+ERR5670969	4	Homo sapiens	Homo sapiens
+ERR5670970	4	Homo sapiens	Homo sapiens
+ERR5670971	4	Homo sapiens	Homo sapiens
+ERR5766165	4	Homo sapiens	Homo sapiens
+ERR5766166	4	Homo sapiens	Homo sapiens
+ERR5766167	4	Homo sapiens	Homo sapiens
+ERR5766168	4	Homo sapiens	Homo sapiens
+ERR5766169	4	Homo sapiens	Homo sapiens
+ERR5766170	4	Homo sapiens	Homo sapiens
+ERR5766171	4	Homo sapiens	Homo sapiens
+ERR5766172	4	Homo sapiens	Homo sapiens
+ERR5766173	4	Homo sapiens	Homo sapiens
+ERR5766174	4	Homo sapiens	Homo sapiens
+ERR5766175	4	Homo sapiens	Homo sapiens
+ERR5766176	4	Homo sapiens	Homo sapiens
+ERR5766177	4	Homo sapiens	Homo sapiens
+ERR5766178	4	Homo sapiens	Homo sapiens
+ERR5766179	4	Homo sapiens	Homo sapiens
+ERR5766180	4	Homo sapiens	Homo sapiens
+ERR5766181	4	Homo sapiens	Homo sapiens
+ERR5766182	4	Homo sapiens	Homo sapiens
+ERR5766183	4	Homo sapiens	Homo sapiens
+ERR6178850	4	Homo sapiens	Homo sapiens
+ERR6178851	4	Homo sapiens	Homo sapiens
+ERR6178852	4	Homo sapiens	Homo sapiens
+ERR6178853	4	Homo sapiens	Homo sapiens
+ERR6178854	4	Homo sapiens	Homo sapiens
+ERR6178855	4	Homo sapiens	Homo sapiens
+ERR6178856	4	Homo sapiens	Homo sapiens
+ERR6178857	4	Homo sapiens	Homo sapiens
+ERR6178858	4	Homo sapiens	Homo sapiens
+ERR6178859	4	Homo sapiens	Homo sapiens
+ERR6178860	4	Homo sapiens	Homo sapiens
+ERR6178861	4	Homo sapiens	Homo sapiens
+ERR6178862	4	Homo sapiens	Homo sapiens
+ERR6178863	4	Homo sapiens	Homo sapiens
+ERR6178864	4	Homo sapiens	Homo sapiens
+ERR6178865	4	Homo sapiens	Homo sapiens
+ERR6178866	4	Homo sapiens	Homo sapiens
+ERR6178867	4	Homo sapiens	Homo sapiens
+ERR6178868	4	Homo sapiens	Homo sapiens
+ERR6178869	4	Homo sapiens	Homo sapiens
+ERR6178870	4	Homo sapiens	Homo sapiens
+ERR6178871	4	Homo sapiens	Homo sapiens
+ERR6178872	4	Homo sapiens	Homo sapiens
+ERR6178873	4	Homo sapiens	Homo sapiens
+ERR6178874	4	Homo sapiens	Homo sapiens
+ERR6178875	4	Homo sapiens	Homo sapiens
+ERR6178876	4	Homo sapiens	Homo sapiens
+ERR6178877	4	Homo sapiens	Homo sapiens
+ERR6178878	4	Homo sapiens	Homo sapiens
+ERR6178879	4	Homo sapiens	Homo sapiens
+ERR6178880	4	Homo sapiens	Homo sapiens
+ERR6178881	4	Homo sapiens	Homo sapiens
+ERR6178882	4	Homo sapiens	Homo sapiens
+ERR6178883	4	Homo sapiens	Homo sapiens
+ERR6178884	4	Homo sapiens	Homo sapiens
+ERR6178885	4	Homo sapiens	Homo sapiens
+ERR6178886	4	Homo sapiens	Homo sapiens
+ERR6178887	4	Homo sapiens	Homo sapiens
+ERR6178888	4	Homo sapiens	Homo sapiens
+ERR6178889	4	Homo sapiens	Homo sapiens
+ERR6178890	4	Homo sapiens	Homo sapiens
+ERR6178891	4	Homo sapiens	Homo sapiens
+ERR6178892	4	Homo sapiens	Homo sapiens
+ERR6178893	4	Homo sapiens	Homo sapiens
+ERR6178894	4	Homo sapiens	Homo sapiens
+ERR6178895	4	Homo sapiens	Homo sapiens
+ERR6178897	4	Homo sapiens	Homo sapiens
+ERR6178898	4	Homo sapiens	Homo sapiens
+ERR6178899	4	Homo sapiens	Homo sapiens
+ERR6178900	4	Homo sapiens	Homo sapiens
+ERR6178901	4	Homo sapiens	Homo sapiens
+ERR6178902	4	Homo sapiens	Homo sapiens
+ERR6178903	4	Homo sapiens	Homo sapiens
+ERR6178904	4	Homo sapiens	Homo sapiens
+ERR6178905	4	Homo sapiens	Homo sapiens
+ERR6178906	4	Homo sapiens	Homo sapiens
+ERR6178907	4	Homo sapiens	Homo sapiens
+ERR6178908	4	Homo sapiens	Homo sapiens
+ERR6178909	4	Homo sapiens	Homo sapiens
+ERR6178910	4	Homo sapiens	Homo sapiens
+ERR6178911	4	Homo sapiens	Homo sapiens
+ERR6178912	4	Homo sapiens	Homo sapiens
+ERR6178913	4	Homo sapiens	Homo sapiens
+ERR6178914	4	Homo sapiens	Homo sapiens
+ERR6178915	4	Homo sapiens	Homo sapiens
+ERR6178916	4	Homo sapiens	Homo sapiens
+ERR6178917	4	Homo sapiens	Homo sapiens
+ERR6178918	4	Homo sapiens	Homo sapiens
+ERR6178919	4	Homo sapiens	Homo sapiens
+ERR6178920	4	Homo sapiens	Homo sapiens
+ERR6178921	4	Homo sapiens	Homo sapiens
+ERR6178923	4	Homo sapiens	Homo sapiens
+ERR6178924	4	Homo sapiens	Homo sapiens
+ERR6178925	4	Homo sapiens	Homo sapiens
+ERR6178926	4	Homo sapiens	Homo sapiens
+ERR6178927	4	Homo sapiens	Homo sapiens
+ERR6178928	4	Homo sapiens	Homo sapiens
+ERR6178929	4	Homo sapiens	Homo sapiens
+ERR6178930	4	Homo sapiens	Homo sapiens
+ERR6178931	4	Homo sapiens	Homo sapiens
+ERR6178932	4	Homo sapiens	Homo sapiens
+ERR6178933	4	Homo sapiens	Homo sapiens
+ERR6178934	4	Homo sapiens	Homo sapiens
+ERR6178935	4	Homo sapiens	Homo sapiens
+ERR6178936	4	Homo sapiens	Homo sapiens
+ERR6178937	4	Homo sapiens	Homo sapiens
+ERR6178938	4	Homo sapiens	Homo sapiens
+ERR6178939	4	Homo sapiens	Homo sapiens
+ERR6178940	4	Homo sapiens	Homo sapiens
+ERR6178941	4	Homo sapiens	Homo sapiens
+ERR6178942	4	Homo sapiens	Homo sapiens
+ERR6178943	4	Homo sapiens	Homo sapiens
+ERR6178944	4	Homo sapiens	Homo sapiens
+ERR6178945	4	Homo sapiens	Homo sapiens
+ERR6178946	4	Homo sapiens	Homo sapiens
+ERR6178947	4	Homo sapiens	Homo sapiens
+ERR6178948	4	Homo sapiens	Homo sapiens
+ERR6178949	4	Homo sapiens	Homo sapiens
+ERR6178950	4	Homo sapiens	Homo sapiens
+ERR6178951	4	Homo sapiens	Homo sapiens
+ERR6178952	4	Homo sapiens	Homo sapiens
+ERR6178953	4	Homo sapiens	Homo sapiens
+ERR6178954	4	Homo sapiens	Homo sapiens
+ERR6178955	4	Homo sapiens	Homo sapiens
+ERR6178956	4	Homo sapiens	Homo sapiens
+ERR6178957	4	Homo sapiens	Homo sapiens
+ERR6178958	4	Homo sapiens	Homo sapiens
+ERR6178959	4	Homo sapiens	Homo sapiens
+ERR6178960	4	Homo sapiens	Homo sapiens
+ERR6178961	4	Homo sapiens	Homo sapiens
+ERR6178962	4	Homo sapiens	Homo sapiens
+ERR6178963	4	Homo sapiens	Homo sapiens
+ERR6178964	4	Homo sapiens	Homo sapiens
+ERR6178965	4	Homo sapiens	Homo sapiens
+ERR6178966	4	Homo sapiens	Homo sapiens
+ERR6178967	4	Homo sapiens	Homo sapiens
+ERR6178968	4	Homo sapiens	Homo sapiens
+ERR6178969	4	Homo sapiens	Homo sapiens
+ERR6178970	4	Homo sapiens	Homo sapiens
+ERR6178971	4	Homo sapiens	Homo sapiens
+ERR6178972	4	Homo sapiens	Homo sapiens
+ERR6178973	4	Homo sapiens	Homo sapiens
+ERR6178974	4	Homo sapiens	Homo sapiens
+ERR6178975	4	Homo sapiens	Homo sapiens
+ERR6178976	4	Homo sapiens	Homo sapiens
+ERR6178977	4	Homo sapiens	Homo sapiens
+ERR6178978	4	Homo sapiens	Homo sapiens
+ERR6178979	4	Homo sapiens	Homo sapiens
+ERR6178980	4	Homo sapiens	Homo sapiens
+ERR6178981	4	Homo sapiens	Homo sapiens
+ERR6178982	4	Homo sapiens	Homo sapiens
+ERR6178983	4	Homo sapiens	Homo sapiens
+ERR6178984	4	Homo sapiens	Homo sapiens
+ERR6178985	4	Homo sapiens	Homo sapiens
+ERR6178986	4	Homo sapiens	Homo sapiens
+ERR6178987	4	Homo sapiens	Homo sapiens
+ERR6178988	4	Homo sapiens	Homo sapiens
+SRR16071515	4	Homo sapiens	
+SRR16071516	4	Homo sapiens	
+SRR16071517	4	Homo sapiens	
+SRR16071520	4	Homo sapiens	
+SRR16071521	4	Homo sapiens	
+SRR24222601	4	Arabidopsis thaliana	
+SRR24222602	4	Homo sapiens	
+SRR24222603	4	Homo sapiens	
+SRR24222604	4	Arabidopsis thaliana	
+SRR24222605	4	Arabidopsis thaliana	
+SRR24222606	4	Homo sapiens	
+SRR24222607	4	Homo sapiens	
+SRR24222608	4	Homo sapiens	
+SRR24222609	4	Homo sapiens	
+SRR24222610	4	Homo sapiens	
+SRR24222612	4	Homo sapiens	
+SRR24222613	4	Homo sapiens	
+SRR24222614	4	Bison priscus	
+SRR24222615	4	Homo sapiens	
+SRR24222616	4	Homo sapiens	
+SRR24222617	4	Homo sapiens	
+SRR24222618	4	Homo sapiens	
+SRR24222619	4	Homo sapiens	
+SRR24222620	4	Homo sapiens	
+SRR24222621	4	Homo sapiens	
+SRR24222623	4	Homo sapiens	
+SRR24222624	4	Arabidopsis thaliana	
+SRR24222625	4	Arabidopsis thaliana	
+SRR24222626	4	Arabidopsis thaliana	
+SRR24222627	4	Arabidopsis thaliana	
+SRR24222628	4	Arabidopsis thaliana	
+SRR24222629	4	Arabidopsis thaliana	
+SRR24222630	4	Arabidopsis thaliana	
+SRR24222631	4	Arabidopsis thaliana	
+SRR24222632	4	Homo sapiens	
+SRR4047197	4	Arabidopsis thaliana	Ambrosia artemisiifolia
+SRR4047199	4	Arabidopsis thaliana	Ambrosia artemisiifolia
+SRR4047201	4	Arabidopsis thaliana	Ambrosia artemisiifolia
+SRR4047203	4	Arabidopsis thaliana	Ambrosia artemisiifolia
+SRR4047207	4	Arabidopsis thaliana	Ambrosia artemisiifolia
+SRR4047214	4	Arabidopsis thaliana	Ambrosia artemisiifolia
+SRR4047219	4	Arabidopsis thaliana	Ambrosia artemisiifolia
+SRR4047221	4	Arabidopsis thaliana	Ambrosia artemisiifolia
+SRR4047223	4	Arabidopsis thaliana	Ambrosia artemisiifolia
+SRR4047225	4	Arabidopsis thaliana	Ambrosia artemisiifolia
+SRR4047228	4	Arabidopsis thaliana	Ambrosia artemisiifolia
+SRR5047040	4	Homo sapiens	Homo sapiens
+SRR5047041	4	Homo sapiens	Homo sapiens
+SRR5047042	4	Homo sapiens	Homo sapiens
+SRR5047043	4	Homo sapiens	Homo sapiens
+SRR5047044	4	Homo sapiens	Homo sapiens
+SRR5047045	4	Homo sapiens	Homo sapiens
+SRR5047046	4	Homo sapiens	Homo sapiens
+SRR5047047	4	Homo sapiens	Homo sapiens
+SRR5047048	4	Homo sapiens	Homo sapiens
+SRR5047049	4	Homo sapiens	Homo sapiens
+SRR5047050	4	Homo sapiens	Homo sapiens
+SRR5047051	4	Homo sapiens	Homo sapiens
+SRR5047052	4	Homo sapiens	Homo sapiens
+SRR5047053	4	Homo sapiens	Homo sapiens
+SRR5047054	4	Homo sapiens	Homo sapiens
+SRR5047055	4	Gorilla gorilla gorilla	Homo sapiens
+SRR5047056	4	Homo sapiens	Homo sapiens
+SRR5047057	4	Homo sapiens	Homo sapiens
+SRR5047058	4	Homo sapiens	Homo sapiens
+SRR5047059	4	Homo sapiens	Homo sapiens
+SRR5047060	4	Homo sapiens	Homo sapiens
+SRR5047061	4	Homo sapiens	Homo sapiens
+SRR5047062	4	Homo sapiens	Homo sapiens
+SRR5047063	4	Homo sapiens	Homo sapiens
+SRR5047064	4	Homo sapiens	Homo sapiens
+SRR5047065	4	Homo sapiens	Homo sapiens
+SRR5047066	4	Homo sapiens	Homo sapiens
+SRR5047067	4	Homo sapiens	Homo sapiens
+SRR5047068	4	Homo sapiens	Homo sapiens
+SRR5047069	4	Homo sapiens	Homo sapiens
+SRR5047070	4	Homo sapiens	Homo sapiens
+SRR5047071	4	Homo sapiens	Homo sapiens
+SRR5047072	4	Homo sapiens	Homo sapiens
+SRR5047073	4	Homo sapiens	Homo sapiens
+SRR5047074	4	Homo sapiens	Homo sapiens
+SRR5047075	4	Homo sapiens	Homo sapiens
+SRR5047076	4	Homo sapiens	Homo sapiens
+SRR5047077	4	Homo sapiens	Homo sapiens
+SRR5047078	4	Homo sapiens	Homo sapiens
+SRR5047079	4	Homo sapiens	Homo sapiens
+SRR5047080	4	Homo sapiens	Homo sapiens
+SRR5047081	4	Homo sapiens	Homo sapiens
+SRR5047082	4	Homo sapiens	Homo sapiens
+SRR5047083	4	Homo sapiens	Homo sapiens
+SRR5047084	4	Homo sapiens	Homo sapiens
+SRR5047085	4	Homo sapiens	Homo sapiens
+SRR5047086	4	Homo sapiens	Homo sapiens
+SRR5047087	4	Homo sapiens	Homo sapiens
+SRR5047088	4	Homo sapiens	Homo sapiens
+SRR5047089	4	Homo sapiens	Homo sapiens
+SRR5047090	4	Homo sapiens	Homo sapiens
+SRR5047091	4	Homo sapiens	Homo sapiens
+SRR5047092	4	Homo sapiens	Homo sapiens
+SRR5047093	4	Homo sapiens	Homo sapiens
+SRR5047094	4	Homo sapiens	Homo sapiens
+SRR5047095	4	Homo sapiens	Homo sapiens
+SRR5047096	4	Homo sapiens	Homo sapiens
+SRR5047097	4	Homo sapiens	Homo sapiens
+SRR5047098	4	Homo sapiens	Homo sapiens
+SRR5047099	4	Homo sapiens	Homo sapiens
+SRR5047100	4	Homo sapiens	Homo sapiens
+SRR5047101	4	Homo sapiens	Homo sapiens
+SRR5047102	4	Homo sapiens	Homo sapiens
+SRR5047103	4	Gorilla gorilla gorilla	Homo sapiens
+SRR5047104	4	Homo sapiens	Homo sapiens
+SRR5047105	4	Homo sapiens	Homo sapiens
+SRR5047106	4	Homo sapiens	Homo sapiens
+SRR5047107	4	Homo sapiens	Homo sapiens
+SRR5047108	4	Homo sapiens	Homo sapiens
+SRR5047109	4	Homo sapiens	Homo sapiens
+SRR5047110	4	Homo sapiens	Homo sapiens
+SRR5047111	4	Homo sapiens	Homo sapiens
+SRR5047112	4	Gorilla gorilla gorilla	Homo sapiens
+SRR5047113	4	Homo sapiens	Homo sapiens
+SRR5047114	4	Homo sapiens	Homo sapiens
+SRR5047115	4	Homo sapiens	Homo sapiens
+SRR5047116	4	Homo sapiens	Homo sapiens
+SRR5047117	4	Homo sapiens	Homo sapiens
+SRR5047118	4	Homo sapiens	Homo sapiens
+SRR5047119	4	Homo sapiens	Homo sapiens
+SRR5047120	4	Homo sapiens	Homo sapiens
+SRR5047121	4	Homo sapiens	Homo sapiens
+SRR5047122	4	Homo sapiens	Homo sapiens
+SRR5047123	4	Homo sapiens	Homo sapiens
+SRR5047124	4	Homo sapiens	Homo sapiens
+SRR5047125	4	Homo sapiens	Homo sapiens
+SRR5047126	4	Homo sapiens	Homo sapiens
+SRR5047127	4	Homo sapiens	Homo sapiens
+SRR5047128	4	Homo sapiens	Homo sapiens
+SRR5047129	4	Homo sapiens	Homo sapiens
+SRR5047130	4	Homo sapiens	Homo sapiens
+SRR5047131	4	Homo sapiens	Homo sapiens
+SRR5047132	4	Homo sapiens	Homo sapiens
+SRR5047133	4	Homo sapiens	Homo sapiens
+SRR5047134	4	Homo sapiens	Homo sapiens
+SRR5047135	4	Homo sapiens	Homo sapiens
+SRR5047136	4	Homo sapiens	Homo sapiens
+SRR5047137	4	Homo sapiens	Homo sapiens
+SRR5047138	4	Homo sapiens	Homo sapiens
+SRR5047139	4	Homo sapiens	Homo sapiens
+SRR5047140	4	Homo sapiens	Homo sapiens
+SRR5047141	4	Homo sapiens	Homo sapiens
+SRR5047142	4	Homo sapiens	Homo sapiens
+SRR5047143	4	Homo sapiens	Homo sapiens
+SRR5047144	4	Homo sapiens	Homo sapiens
+SRR5047145	4	Homo sapiens	Homo sapiens
+SRR5047146	4	Homo sapiens	Homo sapiens
+SRR5047147	4	Homo sapiens	Homo sapiens
+SRR5047148	4	Homo sapiens	Homo sapiens
+SRR5047149	4	Homo sapiens	Homo sapiens
+SRR5047150	4	Homo sapiens	Homo sapiens
+SRR5047151	4	Homo sapiens	Homo sapiens
+SRR5047152	4	Homo sapiens	Homo sapiens
+SRR5047153	4	Homo sapiens	Homo sapiens
+SRR5047154	4	Homo sapiens	Homo sapiens
+SRR5047155	4	Homo sapiens	Homo sapiens
+SRR5047156	4	Homo sapiens	Homo sapiens
+SRR5047157	4	Homo sapiens	Homo sapiens
+SRR5047158	4	Homo sapiens	Homo sapiens
+SRR5047159	4	Homo sapiens	Homo sapiens
+SRR5047160	4	Homo sapiens	Homo sapiens
+SRR5047161	4	Homo sapiens	Homo sapiens
+SRR5047162	4	Homo sapiens	Homo sapiens
+SRR5047163	4	Homo sapiens	Homo sapiens
+SRR5047164	4	Homo sapiens	Homo sapiens
+SRR5047165	4	Homo sapiens	Homo sapiens
+SRR5047166	4	Homo sapiens	Homo sapiens
+SRR5047167	4	Homo sapiens	Homo sapiens
+SRR5047168	4	Homo sapiens	Homo sapiens
+SRR5047169	4	Homo sapiens	Homo sapiens
+SRR5047170	4	Homo sapiens	Homo sapiens
+SRR5047171	4	Homo sapiens	Homo sapiens
+SRR5047172	4	Homo sapiens	Homo sapiens
+SRR5047173	4	Homo sapiens	Homo sapiens
+SRR5047174	4	Homo sapiens	Homo sapiens
+SRR5047175	4	Homo sapiens	Homo sapiens
+SRR5047176	4	Homo sapiens	Homo sapiens
+SRR5047177	4	Homo sapiens	Homo sapiens
+SRR5047178	4	Homo sapiens	Homo sapiens
+SRR5047179	4	Homo sapiens	Homo sapiens
+SRR5047180	4	Homo sapiens	Homo sapiens
+SRR5047181	4	Homo sapiens	Homo sapiens
+SRR5047182	4	Homo sapiens	Homo sapiens
+SRR5047183	4	Homo sapiens	Homo sapiens
+SRR5047184	4	Homo sapiens	Homo sapiens
+SRR5047185	4	Homo sapiens	Homo sapiens
+SRR5047186	4	Homo sapiens	Homo sapiens
+SRR5047187	4	Homo sapiens	Homo sapiens
+SRR5047188	4	Homo sapiens	Homo sapiens
+SRR5047189	4	Homo sapiens	Homo sapiens
+SRR5047190	4	Homo sapiens	Homo sapiens
+SRR5047191	4	Homo sapiens	Homo sapiens
+SRR5047192	4	Gorilla gorilla gorilla	Homo sapiens
+SRR5047193	4	Homo sapiens	Homo sapiens
+SRR5047194	4	Homo sapiens	Homo sapiens
+SRR5047195	4	Homo sapiens	Homo sapiens
+SRR5047196	4	Homo sapiens	Homo sapiens
+SRR5047197	4	Homo sapiens	Homo sapiens
+SRR5047198	4	Homo sapiens	Homo sapiens
+SRR5047199	4	Homo sapiens	Homo sapiens
+SRR5047200	4	Homo sapiens	Homo sapiens
+SRR5047201	4	Homo sapiens	Homo sapiens
+SRR5047202	4	Homo sapiens	Homo sapiens
+SRR5047203	4	Homo sapiens	Homo sapiens
+SRR5047204	4	Homo sapiens	Homo sapiens
+SRR5332455	4	Homo sapiens	
+SRR5332456	4	Homo sapiens	
+SRR5332457	4	Homo sapiens	
+SRR5332458	4	Homo sapiens	
+SRR5332459	4	Homo sapiens	
+SRR5332461	4	Homo sapiens	
+SRR5332462	4	Homo sapiens	
+SRR5332463	4	Homo sapiens	
+SRR5332464	4	Homo sapiens	
+SRR5332466	4	Homo sapiens	
+SRR866660	4	Homo sapiens	Homo sapiens
+SRR866662	4	Homo sapiens	Homo sapiens
+SRR866663	4	Homo sapiens	Homo sapiens
+SRR866665	4	Homo sapiens	Homo sapiens
+SRR866666	4	Homo sapiens	Homo sapiens
+SRR867031	4	Homo sapiens	Homo sapiens
+SRR867032	4	Homo sapiens	Homo sapiens
+SRR867033	4	Homo sapiens	Homo sapiens
+SRR867034	4	Homo sapiens	Homo sapiens
+SRR867036	4	Homo sapiens	Homo sapiens
+SRR867037	4	Homo sapiens	Homo sapiens
+SRR867038	4	Homo sapiens	Homo sapiens
+SRR867039	4	Homo sapiens	Homo sapiens

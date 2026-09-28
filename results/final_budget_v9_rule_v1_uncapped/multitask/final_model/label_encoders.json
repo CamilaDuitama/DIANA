@@ -1,0 +1,73 @@
+{
+  "community_type": {
+    "classes": [
+      "gut",
+      "oral",
+      "plant tissue",
+      "skeletal tissue",
+      "soft tissue"
+    ]
+  },
+  "feature": {
+    "classes": [
+      "archeological site",
+      "cave",
+      "lake",
+      "midden",
+      "ocean",
+      "rock shelter",
+      "sea coast",
+      "shell",
+      "swamp forest",
+      "thermokarst"
+    ]
+  },
+  "sample_host": {
+    "classes": [
+      "Alouatta palliata",
+      "Ambrosia artemisiifolia",
+      "Arabidopsis thaliana",
+      "Bison priscus",
+      "Canis lupus",
+      "Conepatus chinga",
+      "Gerbilliscus boehmi",
+      "Gorilla beringei",
+      "Gorilla beringei beringei",
+      "Gorilla beringei graueri",
+      "Gorilla gorilla gorilla",
+      "Homo sapiens",
+      "Homo sapiens neanderthalensis",
+      "Lithobates pipiens",
+      "Mammuthus primigenius",
+      "Pan troglodytes ellioti",
+      "Pan troglodytes schweinfurthii",
+      "Pan troglodytes verus",
+      "Papio anubis",
+      "Papio hamadryas",
+      "Papio sp.",
+      "Rangifer tarandus",
+      "Strigocuscus celebensis",
+      "Ursus arctos"
+    ]
+  },
+  "material": {
+    "classes": [
+      "bone",
+      "dental calculus",
+      "digestive tract contents",
+      "intestine",
+      "lake sediment",
+      "leaf",
+      "marine sediment",
+      "midden",
+      "muscle tissue",
+      "palaeofaeces",
+      "permafrost",
+      "sediment",
+      "shell",
+      "soil",
+      "tooth",
+      "unknown"
+    ]
+  }
+}

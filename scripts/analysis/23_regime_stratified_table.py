@@ -21,13 +21,23 @@ detection half; k-NN has one but its tuned n_neighbors=1 makes every probability
 """
 from __future__ import annotations
 
+import argparse
+import json
 import logging
+import sys
+from importlib import import_module
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
 logger = logging.getLogger(__name__)
+
+# The classification half's reproducible producer (the rule reverse-engineered on
+# 2026-09-16), so another arm's DIANA rows can be built instead of read from the
+# writer-less stratified_by_shot.tsv.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+_regime = import_module("30_heldout_regime_table")
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 EVAL = PROJECT_ROOT / "results/final_eval_v9"
@@ -63,13 +73,26 @@ def regime_of(n: float) -> str | None:
     return None
 
 
-def p_stated_diana(task: str, stated: pd.Series, pred: pd.DataFrame) -> np.ndarray:
+def p_stated_diana(task: str, stated: pd.Series, pred: pd.DataFrame,
+                   classes: list | None = None) -> np.ndarray:
+    """P(stated label) from diana-test's probability columns.
+
+    With `classes` (the model's label_encoders.json) every training class maps to its
+    column. Without it the map is recovered from the true labels seen on held-out, which
+    silently drops any planted row whose stated label is a class with no true held-out
+    run; see 15_anomaly_detection_roc.py for the counts that cost.
+    """
     cols = sorted((c for c in pred.columns if c.startswith(f"{task}_prob_")),
                   key=lambda c: int(c.rsplit("_", 1)[1]))
     P = pred[cols].to_numpy()
-    name_by_idx = (pred[[f"{task}_true_idx", f"{task}_true"]].dropna().drop_duplicates()
-                   .set_index(f"{task}_true_idx")[f"{task}_true"].to_dict())
-    idx = {v: int(k) for k, v in name_by_idx.items()}
+    if classes is not None:
+        if len(classes) != P.shape[1]:
+            raise SystemExit(f"{task}: {len(classes)} encoder classes, {P.shape[1]} probability columns")
+        idx = {c: i for i, c in enumerate(classes)}
+    else:
+        name_by_idx = (pred[[f"{task}_true_idx", f"{task}_true"]].dropna().drop_duplicates()
+                       .set_index(f"{task}_true_idx")[f"{task}_true"].to_dict())
+        idx = {v: int(k) for k, v in name_by_idx.items()}
     out = np.full(len(pred), np.nan)
     for i, lab in enumerate(stated.to_numpy()):
         j = idx.get(lab)
@@ -102,6 +125,16 @@ def detection_by_regime(task: str, p_stated: np.ndarray, planted: np.ndarray,
 
 def main() -> int:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
+    # X4 (2026-09-25): the same table for another set of final models, without touching
+    # the read-1 outputs. With --encoders-pattern the detection rows are like-for-like
+    # with the baselines; without it the historical (row-dropping) mapping is kept.
+    ap = argparse.ArgumentParser(description="Table 2, classification and detection by regime")
+    ap.add_argument("--eval-dir", type=Path, default=EVAL)
+    ap.add_argument("--single-pattern", default="heldout_single_{task}")
+    ap.add_argument("--encoders-pattern", default=None,
+                    help="label_encoders.json of the single-task model, with {task}")
+    ap.add_argument("--out", type=Path, default=OUT)
+    a = ap.parse_args()
     sup = support()
     sup["regime"] = sup.n_train.map(regime_of)
     plant = pd.read_csv(PLANTED, sep="\t")
@@ -115,13 +148,16 @@ def main() -> int:
         keep = plant[["Run_accession", task, f"{task}_planted"]]
 
         # DIANA: the single-task net, which is what §2 reports
-        dp = pd.read_csv(EVAL / f"heldout_single_{task}/test_predictions.tsv", sep="\t")
+        dp = pd.read_csv(a.eval_dir / a.single_pattern.format(task=task) / "test_predictions.tsv",
+                         sep="\t")
+        classes = (json.load(open(a.encoders_pattern.format(task=task)))[task]["classes"]
+                   if a.encoders_pattern else None)
         m = dp.merge(keep, on="Run_accession").merge(truth, on="Run_accession")
         m = m[m[task].notna() & m[f"{task}_planted"].notna() & m.true_label.notna()]
         if m.empty:
             continue
         tr = m.true_label.map(reg_by_class).to_numpy()
-        for r in detection_by_regime(task, p_stated_diana(task, m[task], m),
+        for r in detection_by_regime(task, p_stated_diana(task, m[task], m, classes),
                                      m[f"{task}_planted"].to_numpy(), tr):
             det.append({**r, "model": "DIANA single"})
 
@@ -145,12 +181,18 @@ def main() -> int:
 
     d = pd.DataFrame(det)
     clf = pd.read_csv(EVAL / "stratified_by_shot.tsv", sep="\t")
+    if a.eval_dir != EVAL or a.single_pattern != "heldout_single_{task}":
+        # Another arm: its DIANA rows come from the reproducible rule, the baseline rows
+        # (same baselines, same held-out runs) are unchanged.
+        arm = _regime.arm_table(a.eval_dir, _regime.training_support(), a.single_pattern)
+        arm["model"] = "DIANA single"
+        clf = pd.concat([clf[clf.model != "DIANA single"], arm[clf.columns]], ignore_index=True)
     clf = clf.rename(columns={"f1": "f1_macro_eligible"})
     out = clf.merge(d[["task", "stratum", "model", "n_planted", "recall_at_5pct"]],
                     on=["task", "stratum", "model"], how="outer")
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    out.to_csv(OUT, sep="\t", index=False)
-    logger.info("wrote %s (%d rows)", OUT, len(out))
+    a.out.parent.mkdir(parents=True, exist_ok=True)
+    out.to_csv(a.out, sep="\t", index=False)
+    logger.info("wrote %s (%d rows)", a.out, len(out))
 
     for task in TASKS:
         print(f"\n=== {task} ===")

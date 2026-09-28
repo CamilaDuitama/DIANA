@@ -23,6 +23,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.metrics import roc_curve
+import argparse
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 TASKS = ["community_type", "feature", "sample_host", "material"]
@@ -49,10 +50,14 @@ def logreg_curve(task: str):
 
 
 def main() -> int:
+    ap = argparse.ArgumentParser(description="Figure 2: detector operating curve")
+    ap.add_argument("--diana-dir", type=Path, default=PROJECT_ROOT / "results/anomaly_detection",
+                    help="where 15_anomaly_detection_roc.py wrote curves_DIANA_<task>.json")
+    ap.add_argument("--out", type=Path, default=PROJECT_ROOT / "results/paper/detector_operating_curve.png")
+    args = ap.parse_args()
     fig, ax = plt.subplots(figsize=(6.8, 5.4))
     for task in TASKS:
-        c = json.loads((PROJECT_ROOT /
-            f"results/anomaly_detection/curves_DIANA_{task}.json").read_text())[task]
+        c = json.loads((args.diana_dir / f"curves_DIANA_{task}.json").read_text())[task]
         ax.plot(c["fpr"], c["tpr"], color=COLOUR[task], lw=2.2, zorder=3,
                 label=f"{task} — DIANA")
         f2, t2 = logreg_curve(task)
@@ -80,7 +85,8 @@ def main() -> int:
                            label="logistic regression (dashed)")]
     ax.legend(handles=handles, loc="lower right", frameon=False, fontsize=8.5)
 
-    out = PROJECT_ROOT / "results/paper/detector_operating_curve.png"
+    out = args.out
+    out.parent.mkdir(parents=True, exist_ok=True)
     fig.tight_layout()
     fig.savefig(out, dpi=200, bbox_inches="tight")
     fig.savefig(out.with_suffix(".pdf"), bbox_inches="tight")

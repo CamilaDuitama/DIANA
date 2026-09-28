@@ -77,17 +77,24 @@ def main() -> int:
     ap.add_argument("--n-boot", type=int, default=2000)
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--output", type=Path, default=PROJECT_ROOT / "results/paired_superiority_v9")
+    # X4 (2026-09-25): the same test on another set of final models, without touching
+    # the read-1 outputs. The budget arms are written as heldout_<task>, read 1 as
+    # heldout_single_<task>.
+    ap.add_argument("--eval-dir", type=Path, default=PROJECT_ROOT / "results/final_eval_v9",
+                    help="directory holding heldout_multitask/ and the single-task outputs")
+    ap.add_argument("--single-pattern", default="heldout_single_{t}",
+                    help="subdirectory name of the single-task output for task {t}")
     args = ap.parse_args()
 
     base = pd.read_csv(args.baselines, sep="\t")
     elig_tbl = pd.read_csv(SPLITS / "class_eligibility.tsv", sep="\t")
     diana = {
         "DIANA multi-task": pd.read_csv(
-            PROJECT_ROOT / "results/final_eval_v9/heldout_multitask/test_predictions.tsv", sep="\t"),
+            args.eval_dir / "heldout_multitask/test_predictions.tsv", sep="\t"),
     }
     for t in TASKS:
         diana[f"DIANA single-task:{t}"] = pd.read_csv(
-            PROJECT_ROOT / f"results/final_eval_v9/heldout_single_{t}/test_predictions.tsv", sep="\t")
+            args.eval_dir / args.single_pattern.format(t=t) / "test_predictions.tsv", sep="\t")
 
     rows = []
     for task in TASKS:

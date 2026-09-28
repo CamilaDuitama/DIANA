@@ -19,6 +19,7 @@ That bias is left in deliberately: it makes every DIANA win conservative.
 """
 from __future__ import annotations
 
+import argparse
 import logging
 import sys
 from pathlib import Path
@@ -55,6 +56,13 @@ def regime_of(n: float) -> str | None:
 
 def main() -> int:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
+    # X4 (2026-09-25): the same test on another set of final models without touching
+    # the read-1 outputs. The budget arms are written as heldout_<task>.
+    ap = argparse.ArgumentParser(description="per-regime paired test, DIANA vs best baseline")
+    ap.add_argument("--eval-dir", type=Path, default=EVAL)
+    ap.add_argument("--single-pattern", default="heldout_single_{task}")
+    ap.add_argument("--out", type=Path, default=OUT)
+    a = ap.parse_args()
     train = pd.read_csv(SPLITS / "train_metadata.tsv", sep="\t", low_memory=False)
     elig = pd.read_csv(SPLITS / "class_eligibility.tsv", sep="\t")
     meta = pd.read_csv(SPLITS / "test_metadata.tsv", sep="\t", low_memory=False)
@@ -68,7 +76,8 @@ def main() -> int:
         by_class = {str(c): regime_of(n) for c, n in train[task].value_counts().items()
                     if regime_of(n)}
 
-        d = pd.read_csv(EVAL / f"heldout_single_{task}/test_predictions.tsv", sep="\t")
+        d = pd.read_csv(a.eval_dir / a.single_pattern.format(task=task) / "test_predictions.tsv",
+                        sep="\t")
         d = d[["Run_accession", f"{task}_pred", f"{task}_true"]].rename(
             columns={f"{task}_pred": "diana", f"{task}_true": "y"})
         d = d.merge(meta[["Run_accession", "archive_project"]], on="Run_accession")
@@ -120,8 +129,9 @@ def main() -> int:
                                     ("DIANA" if r["delta"] > 0 else "baseline")})
 
     res = pd.DataFrame(rows)
-    res.to_csv(OUT, sep="\t", index=False)
-    logger.info("wrote %s", OUT)
+    a.out.parent.mkdir(parents=True, exist_ok=True)
+    res.to_csv(a.out, sep="\t", index=False)
+    logger.info("wrote %s", a.out)
     pd.set_option("display.width", 200)
     print(res.round(3).to_string(index=False))
     print("\nverdicts:", res.verdict.value_counts().to_dict())

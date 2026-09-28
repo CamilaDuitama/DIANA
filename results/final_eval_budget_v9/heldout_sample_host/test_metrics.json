@@ -1,0 +1,221 @@
+{
+  "sample_host": {
+    "task_type": "classification",
+    "n_samples": 652,
+    "n_masked": 269,
+    "n_out_of_vocabulary": 1,
+    "n_unseen": 270,
+    "precision_macro": 0.42012621916236376,
+    "recall_macro": 0.2783371630740052,
+    "confusion_matrix": [
+      [
+        25,
+        13,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        3,
+        0,
+        6,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        543,
+        0,
+        0,
+        7,
+        4,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        18,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        0,
+        9,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        5,
+        0,
+        0,
+        14,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "classification_report": {
+      "1": {
+        "precision": 1.0,
+        "recall": 0.6578947368421053,
+        "f1-score": 0.7936507936507936,
+        "support": 38.0
+      },
+      "2": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "4": {
+        "precision": 0.6,
+        "recall": 0.3333333333333333,
+        "f1-score": 0.42857142857142855,
+        "support": 9.0
+      },
+      "10": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "11": {
+        "precision": 0.9345955249569707,
+        "recall": 0.9783783783783784,
+        "f1-score": 0.9559859154929577,
+        "support": 555.0
+      },
+      "12": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 18.0
+      },
+      "14": {
+        "precision": 1.0,
+        "recall": 0.07692307692307693,
+        "f1-score": 0.14285714285714285,
+        "support": 13.0
+      },
+      "16": {
+        "precision": 0.6666666666666666,
+        "recall": 0.7368421052631579,
+        "f1-score": 0.7,
+        "support": 19.0
+      },
+      "17": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "23": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "accuracy": 0.8987730061349694,
+      "macro avg": {
+        "precision": 0.42012621916236376,
+        "recall": 0.2783371630740052,
+        "f1-score": 0.30210652805723226,
+        "support": 652.0
+      },
+      "weighted avg": {
+        "precision": 0.9014834095364805,
+        "recall": 0.8987730061349694,
+        "f1-score": 0.8891797530239377,
+        "support": 652.0
+      }
+    },
+    "accuracy": 0.8987730061349694,
+    "balanced_accuracy": 0.46389527179000867,
+    "f1_macro_seen": 0.5035108800953871,
+    "f1_weighted": 0.8891797530239377,
+    "n_classes_seen": 6,
+    "f1_macro_eligible": 0.5035108800953871,
+    "n_classes_eligible": 6,
+    "f1_macro_eligible_ci_low": 0.1847722970312079,
+    "f1_macro_eligible_ci_high": 0.5201992956841898,
+    "balanced_accuracy_ci_low": 0.34680957934569334,
+    "balanced_accuracy_ci_high": 0.6820533170153902,
+    "ci_resampling_unit": "group",
+    "n_groups": 25
+  }
+}

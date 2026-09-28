@@ -311,6 +311,15 @@ class MultiTaskTrainer:
         
         return history
     
+    def train_one_epoch(self, train_loader: DataLoader) -> Dict[str, float]:
+        """One optimisation pass over ``train_loader``; returns loss and per-task accuracy.
+
+        Public entry point for callers that own the epoch loop, such as the fixed-budget
+        dev-fold fits (``scripts/training/04_epoch_budget_dev_folds.py``), so they do
+        not reach into ``_train_epoch_from_loader``. ``fit`` is unchanged.
+        """
+        return self._train_epoch_from_loader(train_loader)
+
     def _train_epoch_from_loader(self, train_loader: DataLoader) -> Dict[str, float]:
         """Train for one epoch using a DataLoader."""
         self.model.train()

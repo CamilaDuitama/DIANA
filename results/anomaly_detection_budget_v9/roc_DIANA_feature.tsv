@@ -1,0 +1,2 @@
+model	task	n_scored	n_planted	roc_auc	average_precision	tpr_at_fpr1	threshold_at_fpr1	tpr_at_fpr5	threshold_at_fpr5	tpr_at_fpr10	threshold_at_fpr10
+DIANA_feature	feature	263	26	0.868062317429406	0.5724584135700066	0.34615384615384615	0.99512219	0.46153846153846156	0.93466388	0.5	0.92596128

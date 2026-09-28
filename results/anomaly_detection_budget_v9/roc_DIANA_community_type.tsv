@@ -1,0 +1,2 @@
+model	task	n_scored	n_planted	roc_auc	average_precision	tpr_at_fpr1	threshold_at_fpr1	tpr_at_fpr5	threshold_at_fpr5	tpr_at_fpr10	threshold_at_fpr10
+DIANA_community_type	community_type	653	65	0.7657509157509158	0.2960251355613876	0.07692307692307693	0.990538205	0.2	0.958687298	0.4461538461538462	0.92369751

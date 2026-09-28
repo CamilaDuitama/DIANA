@@ -61,6 +61,10 @@ def main() -> int:
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--output", type=Path,
                     default=PROJECT_ROOT / "results/final_eval_v9/mcc.tsv")
+    # X4 (2026-09-25): the same table for another set of final models, without
+    # touching the read-1 outputs. The budget arms are written as heldout_<task>.
+    ap.add_argument("--eval-dir", type=Path, default=PROJECT_ROOT / "results/final_eval_v9")
+    ap.add_argument("--single-pattern", default="heldout_single_{task}")
     args = ap.parse_args()
 
     base = pd.read_csv(PROJECT_ROOT / "results/baseline_predictions_v9/heldout_predictions.tsv",
@@ -75,9 +79,9 @@ def main() -> int:
 
         preds = {m: g.set_index("Run_accession").y_pred.astype(str).reindex(order).to_numpy()
                  for m, g in bt.groupby("model")}
-        for label, sub in [("DIANA", f"heldout_single_{task}"),
+        for label, sub in [("DIANA", args.single_pattern.format(task=task)),
                            ("DIANA multi-task", "heldout_multitask")]:
-            f = PROJECT_ROOT / f"results/final_eval_v9/{sub}/test_predictions.tsv"
+            f = args.eval_dir / sub / "test_predictions.tsv"
             d = pd.read_csv(f, sep="\t")
             preds[label] = d.set_index("Run_accession")[f"{task}_pred"].astype(str) \
                             .reindex(order).to_numpy()

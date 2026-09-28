@@ -45,12 +45,16 @@ def training_support() -> dict[str, pd.Series]:
     return {t: meta[t].dropna().astype(str).value_counts() for t in TASKS}
 
 
-def arm_table(arm: Path, support: dict[str, pd.Series]) -> pd.DataFrame:
+def arm_table(arm: Path, support: dict[str, pd.Series],
+              single_pattern: str | None = None) -> pd.DataFrame:
     rows = []
     for task in TASKS:
-        base = arm / f"heldout_{task}"
-        if not base.exists():
-            base = arm / f"heldout_single_{task}"
+        if single_pattern:
+            base = arm / single_pattern.format(task=task)
+        else:
+            base = arm / f"heldout_{task}"
+            if not base.exists():
+                base = arm / f"heldout_single_{task}"
         mp, pp = base / "test_metrics.json", base / "test_predictions.tsv"
         if not (mp.exists() and pp.exists()):
             logger.warning("%s: no held-out output under %s", task, arm)

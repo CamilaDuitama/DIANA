@@ -20,22 +20,27 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pandas as pd
+import argparse
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 TASKS = ["community_type", "feature", "sample_host", "material"]
 # Slots 1 and 2 of the validated categorical palette, in order.
 BLUE, ORANGE, GREY = "#2a78d6", "#eb6834", "#8a8a8a"
 
-# Detection deltas come from the paired AUC bootstrap in the same run as the table;
-# sign is flipped to DIANA - baseline so both columns read the same way.
-DETECTION = {"community_type": (-0.036, -0.071, +0.021),
-             "feature":        (-0.079, -0.245, +0.028),
-             "sample_host":    (-0.019, -0.069, +0.010),
-             "material":       (+0.007, -0.048, +0.069)}
-
-
 def main() -> int:
-    pdl = pd.read_csv(PROJECT_ROOT / "results/paired_superiority_v9/paired_deltas.tsv", sep="\t")
+    # Until 2026-09-25 the detection intervals were literals with no producer; they now
+    # come from 39_detector_paired_test.py, the same paired bootstrap the
+    # classification half uses.
+    ap = argparse.ArgumentParser(description="Figure 1: paired deltas against zero")
+    ap.add_argument("--paired", type=Path,
+                    default=PROJECT_ROOT / "results/paired_superiority_v9/paired_deltas.tsv",
+                    help="18_paired_superiority.py output")
+    ap.add_argument("--detection", type=Path, required=True,
+                    help="39_detector_paired_test.py output")
+    ap.add_argument("--out", type=Path, default=PROJECT_ROOT / "results/paper/paired_deltas.png")
+    args = ap.parse_args()
+    pdl = pd.read_csv(args.paired, sep="\t")
+    det = pd.read_csv(args.detection, sep="\t").set_index("task")
     b = pd.read_csv(PROJECT_ROOT / "results/baseline_predictions_v9/summary.csv")
     b = b[(b.split == "test") & (b.model != "MajorityClass")]
 
@@ -45,8 +50,7 @@ def main() -> int:
         r = pdl[(pdl.task == t) & (pdl.model_a == "DIANA single-task")
                 & (pdl.model_b == best)].iloc[0]
         rows.append((t, "classification", r.delta, r.ci_low, r.ci_high))
-        d, lo, hi = DETECTION[t]
-        rows.append((t, "detection", d, lo, hi))
+        rows.append((t, "detection", det.loc[t, "delta"], det.loc[t, "ci_low"], det.loc[t, "ci_high"]))
 
     fig, ax = plt.subplots(figsize=(7.6, 5.0))
     ax.axvline(0, color="#4a4a4a", lw=1.2, zorder=1)
@@ -92,7 +96,8 @@ def main() -> int:
                           markeredgecolor="white", label="detection (ROC-AUC)")]
     ax.legend(handles=handles, loc="upper left", frameon=False, fontsize=9)
 
-    out = PROJECT_ROOT / "results/paper/paired_deltas.png"
+    out = args.out
+    out.parent.mkdir(parents=True, exist_ok=True)
     fig.tight_layout()
     fig.savefig(out, dpi=200, bbox_inches="tight")
     fig.savefig(out.with_suffix(".pdf"), bbox_inches="tight")

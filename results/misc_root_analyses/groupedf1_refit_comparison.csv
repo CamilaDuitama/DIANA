@@ -1,0 +1,9 @@
+task,arm,train_f1,train_classes,heldout_f1,heldout_classes,heldout_n,old_heldout_f1,delta_vs_old
+community_type,single,0.8387,5,0.5359,5,653,0.5683,-0.0324
+community_type,multi,0.9577,5,0.5577,5,653,0.5733,-0.0156
+feature,single,0.1392,2,0.08,2,263,0.545,-0.465
+feature,multi,0.7789,9,0.4597,9,263,0.4374,0.0223
+sample_host,single,0.1777,3,0.1571,3,652,0.5512,-0.3941
+sample_host,multi,0.6219,13,0.242,6,652,0.1784,0.0635
+material,single,0.5424,10,0.4158,9,822,0.458,-0.0422
+material,multi,0.7241,14,0.4534,11,822,0.4701,-0.0167
