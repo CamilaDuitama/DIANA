@@ -1,0 +1,6 @@
+arm	budget	selected_epochs	peaked	rule
+multitask	39	35,39,51,97,38	True	inner early stopping, per-fold selected epoch
+community_type	18	38,16,16,22,18	True	inner early stopping, per-fold selected epoch
+feature	21	60,12,21,68,12	True	inner early stopping, per-fold selected epoch
+sample_host	43	49,22,49,32,43	True	inner early stopping, per-fold selected epoch
+material	60	60,34,58,65,79	True	inner early stopping, per-fold selected epoch

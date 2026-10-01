@@ -1,0 +1,609 @@
+Run_accession	fold	feature_pred	feature_true
+ERR13950600	0	lake	lake
+ERR13950601	0	sea coast	lake
+ERR13950606	0	lake	lake
+ERR13950607	0	sea coast	lake
+ERR13950608	0	lake	lake
+ERR13950609	0	lake	lake
+ERR13950611	0	lake	lake
+ERR13950612	0	lake	lake
+ERR13950613	0	sea coast	lake
+ERR13950614	0	lake	lake
+ERR13950615	0	lake	lake
+ERR13950620	0	lake	lake
+ERR13950621	0	lake	lake
+ERR13950622	0	lake	lake
+ERR13950623	0	lake	lake
+ERR13950624	0	lake	lake
+ERR13950625	0	lake	lake
+ERR13950627	0	lake	lake
+ERR13950628	0	lake	lake
+ERR13950629	0	lake	lake
+ERR13950630	0	lake	lake
+ERR13950631	0	lake	lake
+ERR13950632	0	lake	lake
+ERR13950633	0	lake	lake
+ERR13950634	0	lake	lake
+ERR13950635	0	lake	lake
+ERR13950637	0	sea coast	lake
+ERR13950638	0	sea coast	lake
+ERR13950639	0	lake	lake
+ERR13950640	0	lake	lake
+ERR13950641	0	lake	lake
+ERR13950642	0	lake	lake
+ERR13950643	0	lake	lake
+ERR13950644	0	lake	lake
+ERR13950646	0	lake	lake
+ERR13950647	0	swamp forest	lake
+ERR13950648	0	lake	lake
+ERR13950649	0	lake	lake
+ERR13950650	0	lake	lake
+ERR13950653	0	sea coast	lake
+ERR13950654	0	lake	lake
+ERR13950655	0	sea coast	lake
+ERR13950658	0	lake	lake
+ERR13950659	0	lake	lake
+ERR13950660	0	lake	lake
+ERR13950661	0	sea coast	lake
+ERR13950662	0	lake	lake
+ERR13950663	0	sea coast	lake
+ERR13950664	0	lake	lake
+ERR13950665	0	lake	lake
+ERR13950666	0	lake	lake
+ERR13950667	0	lake	lake
+ERR13950668	0	lake	lake
+ERR13950669	0	lake	lake
+ERR13950670	0	archeological site	lake
+ERR13950671	0	swamp forest	lake
+ERR13950673	0	sea coast	lake
+ERR13950674	0	lake	lake
+ERR4334735	0	lake	lake
+ERR4334736	0	lake	lake
+ERR4426516	0	ocean	cave
+ERR4426517	0	ocean	cave
+ERR4426518	0	sea coast	cave
+ERR4426519	0	midden	cave
+ERR4426520	0	lake	cave
+ERR4426521	0	lake	cave
+ERR4426522	0	ocean	cave
+ERR4426523	0	archeological site	cave
+ERR4426524	0	sea coast	cave
+ERR4426525	0	ocean	cave
+ERR4426526	0	archeological site	cave
+ERR4426527	0	archeological site	cave
+ERR4426529	0	archeological site	cave
+ERR4426530	0	swamp forest	cave
+ERR4426531	0	lake	cave
+ERR4426532	0	lake	cave
+ERR4426533	0	swamp forest	cave
+ERR4426534	0	thermokarst	cave
+ERR4426535	0	thermokarst	cave
+ERR4426536	0	lake	cave
+ERR4426537	0	archeological site	cave
+ERR4426538	0	thermokarst	cave
+ERR4426539	0	thermokarst	cave
+ERR4426540	0	lake	cave
+ERR4426541	0	lake	cave
+ERR4426542	0	ocean	cave
+ERR4426543	0	thermokarst	cave
+ERR4426545	0	archeological site	cave
+ERR4426546	0	archeological site	cave
+ERR4426547	0	archeological site	cave
+ERR4426548	0	archeological site	cave
+ERR4426549	0	archeological site	cave
+ERR4426550	0	archeological site	cave
+ERR4426552	0	ocean	cave
+ERR3761400	1	cave	midden
+ERR3761401	1	cave	midden
+ERR3761402	1	cave	archeological site
+ERR3761403	1	swamp forest	midden
+ERR3761404	1	cave	archeological site
+ERR3761405	1	lake	midden
+ERR3761406	1	sea coast	archeological site
+ERR6430820	1	ocean	ocean
+ERR6430821	1	ocean	ocean
+ERR6430822	1	lake	ocean
+ERR6430823	1	ocean	ocean
+ERR6430825	1	ocean	ocean
+ERR6430828	1	ocean	ocean
+ERR6430830	1	ocean	ocean
+ERR6430831	1	ocean	ocean
+ERR6430832	1	ocean	ocean
+ERR6430833	1	lake	ocean
+ERR6430834	1	ocean	ocean
+ERR6430836	1	ocean	ocean
+ERR6430838	1	ocean	ocean
+ERR6430839	1	lake	ocean
+ERR6430840	1	ocean	ocean
+ERR6430841	1	ocean	ocean
+ERR6430842	1	ocean	ocean
+ERR6430843	1	ocean	ocean
+ERR6430845	1	ocean	ocean
+ERR6430846	1	ocean	ocean
+ERR6430847	1	ocean	ocean
+ERR6430848	1	ocean	ocean
+ERR6430849	1	ocean	ocean
+ERR6430850	1	ocean	ocean
+ERR6430851	1	ocean	ocean
+SRR20576738	1	lake	ocean
+SRR20576739	1	ocean	ocean
+SRR20576742	1	ocean	ocean
+SRR20576743	1	ocean	ocean
+SRR20576744	1	ocean	ocean
+SRR20576745	1	cave	ocean
+SRR20576746	1	ocean	ocean
+SRR20576747	1	ocean	ocean
+SRR20576748	1	ocean	ocean
+SRR20576749	1	cave	ocean
+SRR20576750	1	ocean	ocean
+SRR20576751	1	lake	ocean
+SRR20576752	1	ocean	ocean
+SRR20576754	1	lake	ocean
+SRR20576755	1	ocean	ocean
+SRR20576756	1	ocean	ocean
+SRR20576757	1	ocean	ocean
+SRR20576758	1	lake	ocean
+SRR20576759	1	ocean	ocean
+SRR20576760	1	ocean	ocean
+SRR20576761	1	ocean	ocean
+SRR20576762	1	ocean	ocean
+SRR20576763	1	ocean	ocean
+SRR20576764	1	ocean	ocean
+SRR20576765	1	ocean	ocean
+SRR20576766	1	ocean	ocean
+SRR20576767	1	ocean	ocean
+SRR20576768	1	ocean	ocean
+SRR20576769	1	ocean	ocean
+SRR20576770	1	ocean	ocean
+SRR20576771	1	ocean	ocean
+SRR20576772	1	ocean	ocean
+SRR20576773	1	ocean	ocean
+SRR20576774	1	ocean	ocean
+SRR20576775	1	ocean	ocean
+SRR20576776	1	ocean	ocean
+SRR20576779	1	cave	ocean
+SRR20576780	1	cave	ocean
+SRR20576781	1	cave	ocean
+SRR20576782	1	lake	ocean
+SRR20576783	1	shell	ocean
+SRR20576784	1	ocean	ocean
+SRR20576785	1	ocean	ocean
+SRR20576786	1	ocean	ocean
+SRR20576787	1	ocean	ocean
+SRR20576794	1	ocean	ocean
+SRR20576795	1	ocean	ocean
+SRR20576796	1	ocean	ocean
+SRR20576797	1	ocean	ocean
+SRR20576798	1	ocean	ocean
+SRR20576799	1	ocean	ocean
+SRR20576800	1	ocean	ocean
+SRR20576802	1	ocean	ocean
+SRR20576803	1	ocean	ocean
+SRR20576805	1	ocean	ocean
+SRR20576807	1	lake	ocean
+SRR20576808	1	lake	ocean
+SRR20576809	1	lake	ocean
+SRR20576811	1	shell	ocean
+SRR20576812	1	ocean	ocean
+SRR20576813	1	ocean	ocean
+SRR20576814	1	ocean	ocean
+SRR20576815	1	ocean	ocean
+SRR20576816	1	ocean	ocean
+SRR20576817	1	ocean	ocean
+SRR21589119	1	cave	midden
+SRR21589120	1	midden	midden
+SRR25620676	1	lake	archeological site
+SRR25620681	1	lake	archeological site
+SRR25620753	1	swamp forest	archeological site
+SRR25620756	1	lake	archeological site
+SRR25620780	1	sea coast	archeological site
+SRR25620786	1	lake	archeological site
+SRR25620790	1	lake	archeological site
+SRR25620795	1	lake	archeological site
+SRR8731956	1	lake	rock shelter
+SRR8731959	1	ocean	rock shelter
+ERR10114878	2	cave	archeological site
+ERR10114879	2	cave	archeological site
+ERR10114880	2	cave	archeological site
+ERR10114881	2	midden	archeological site
+ERR10114882	2	cave	archeological site
+ERR10114883	2	cave	archeological site
+ERR10493277	2	thermokarst	sea coast
+ERR10493281	2	thermokarst	sea coast
+ERR10493283	2	thermokarst	sea coast
+ERR10493285	2	lake	sea coast
+ERR10493287	2	lake	sea coast
+ERR10493289	2	lake	sea coast
+ERR10493291	2	lake	sea coast
+ERR10493292	2	lake	sea coast
+ERR10493294	2	thermokarst	sea coast
+ERR10493297	2	lake	sea coast
+ERR10493299	2	lake	sea coast
+ERR10493301	2	lake	sea coast
+ERR10493303	2	thermokarst	sea coast
+ERR10493304	2	lake	sea coast
+ERR10493306	2	thermokarst	sea coast
+ERR10493308	2	ocean	sea coast
+ERR10493310	2	ocean	sea coast
+ERR10493311	2	ocean	sea coast
+ERR10493312	2	ocean	sea coast
+ERR10493314	2	thermokarst	sea coast
+ERR10493316	2	thermokarst	sea coast
+ERR10493318	2	thermokarst	sea coast
+ERR10493320	2	midden	sea coast
+ERR10493322	2	archeological site	sea coast
+ERR10493324	2	archeological site	sea coast
+ERR10493326	2	thermokarst	sea coast
+ERR10493328	2	thermokarst	sea coast
+ERR10493330	2	ocean	sea coast
+ERR10493332	2	ocean	sea coast
+ERR10493333	2	ocean	sea coast
+ERR10493334	2	ocean	sea coast
+ERR10493335	2	ocean	sea coast
+ERR10493336	2	ocean	sea coast
+ERR10493337	2	ocean	sea coast
+ERR10493338	2	ocean	sea coast
+ERR10493339	2	ocean	sea coast
+ERR10493340	2	ocean	sea coast
+ERR10493341	2	thermokarst	sea coast
+ERR10493343	2	archeological site	sea coast
+ERR10493344	2	ocean	sea coast
+ERR10493345	2	ocean	sea coast
+ERR10493346	2	ocean	sea coast
+ERR10493347	2	ocean	sea coast
+ERR10493348	2	ocean	sea coast
+ERR10493349	2	ocean	sea coast
+ERR10493357	2	ocean	sea coast
+ERR10493358	2	ocean	sea coast
+ERR10493359	2	ocean	sea coast
+ERR10493360	2	ocean	sea coast
+ERR10493361	2	lake	sea coast
+ERR10493362	2	lake	sea coast
+ERR10493363	2	lake	sea coast
+ERR12814413	2	lake	lake
+ERR12814414	2	lake	lake
+ERR12814415	2	lake	lake
+ERR12814416	2	ocean	lake
+ERR12814417	2	lake	lake
+ERR12814418	2	lake	lake
+ERR12814419	2	ocean	lake
+ERR12814422	2	lake	lake
+ERR12814423	2	ocean	lake
+ERR12814424	2	ocean	lake
+ERR12814425	2	lake	lake
+ERR12814427	2	lake	lake
+ERR12814428	2	lake	lake
+ERR12814429	2	lake	lake
+ERR12814430	2	lake	lake
+ERR12814431	2	lake	lake
+ERR12814432	2	lake	lake
+ERR12814433	2	ocean	lake
+ERR12814434	2	lake	lake
+ERR12814435	2	lake	lake
+ERR12814436	2	lake	lake
+ERR12814437	2	lake	lake
+ERR12814438	2	lake	lake
+ERR12814439	2	lake	lake
+ERR12814440	2	lake	lake
+ERR12814442	2	lake	lake
+ERR12814443	2	lake	lake
+ERR12814444	2	lake	lake
+ERR12814445	2	lake	lake
+ERR12814446	2	lake	lake
+ERR12814447	2	lake	lake
+ERR12814448	2	lake	lake
+ERR12814449	2	lake	lake
+ERR12814450	2	lake	lake
+ERR12814452	2	lake	lake
+ERR12814453	2	lake	lake
+ERR12814454	2	lake	lake
+ERR12814455	2	lake	lake
+ERR12814456	2	lake	lake
+ERR12814457	2	lake	lake
+ERR12814458	2	lake	lake
+ERR12814460	2	lake	lake
+ERR12814461	2	lake	lake
+ERR12814462	2	lake	lake
+ERR12814463	2	lake	lake
+ERR12814464	2	lake	lake
+ERR12814465	2	lake	lake
+ERR12814467	2	lake	lake
+ERR12814468	2	swamp forest	lake
+ERR12814469	2	lake	lake
+ERR12814470	2	lake	lake
+ERR12814471	2	lake	lake
+ERR12814472	2	lake	lake
+ERR12814473	2	lake	lake
+ERR12814474	2	lake	lake
+ERR12814475	2	lake	lake
+ERR12814476	2	lake	lake
+ERR1894879	2	lake	shell
+ERR1894880	2	lake	shell
+ERR1894881	2	rock shelter	shell
+ERR1894882	2	rock shelter	shell
+ERR1894900	2	lake	shell
+ERR1894901	2	lake	shell
+ERR1894902	2	lake	shell
+ERR1894903	2	lake	shell
+ERR1894904	2	midden	shell
+ERR1894905	2	lake	shell
+ERR1894906	2	midden	shell
+ERR1894907	2	lake	shell
+ERR1894908	2	lake	shell
+ERR1894909	2	lake	shell
+ERR1894910	2	lake	shell
+ERR1894911	2	lake	shell
+ERR1894912	2	lake	shell
+ERR1894913	2	lake	shell
+ERR1894914	2	ocean	shell
+ERR1894915	2	ocean	shell
+ERR1894916	2	ocean	shell
+ERR1894917	2	lake	shell
+ERR1894918	2	lake	shell
+ERR1894919	2	lake	shell
+ERR567364	2	ocean	ocean
+ERR567366	2	ocean	ocean
+ERR9465622	2	lake	lake
+ERR9465623	2	lake	lake
+ERR9465624	2	lake	lake
+ERR9465625	2	lake	lake
+ERR9465626	2	swamp forest	lake
+ERR9465627	2	lake	lake
+ERR9465628	2	swamp forest	lake
+ERR9465629	2	swamp forest	lake
+ERR9465630	2	swamp forest	lake
+ERR9465631	2	swamp forest	lake
+ERR9465632	2	ocean	lake
+SRR32023812	2	ocean	ocean
+SRR32023817	2	ocean	ocean
+SRR32023818	2	ocean	ocean
+SRR32023819	2	ocean	ocean
+SRR32023820	2	ocean	ocean
+SRR32023821	2	ocean	ocean
+SRR32023822	2	ocean	ocean
+SRR32023823	2	ocean	ocean
+SRR32023824	2	ocean	ocean
+SRR32023825	2	ocean	ocean
+SRR32023826	2	ocean	ocean
+SRR32023827	2	ocean	ocean
+SRR32023828	2	ocean	ocean
+SRR32023829	2	ocean	ocean
+SRR32023830	2	ocean	ocean
+SRR32023831	2	ocean	ocean
+SRR32023832	2	ocean	ocean
+SRR32023833	2	ocean	ocean
+SRR32023835	2	ocean	ocean
+SRR32023836	2	ocean	ocean
+SRR32023837	2	ocean	ocean
+SRR32023838	2	ocean	ocean
+SRR32023839	2	ocean	ocean
+SRR32023840	2	ocean	ocean
+SRR32023841	2	ocean	ocean
+SRR32023842	2	ocean	ocean
+SRR32023845	2	ocean	ocean
+SRR32023846	2	ocean	ocean
+SRR32023847	2	ocean	ocean
+SRR32023848	2	ocean	ocean
+SRR32023849	2	ocean	ocean
+SRR32023851	2	ocean	ocean
+SRR32023854	2	ocean	ocean
+SRR32023855	2	ocean	ocean
+SRR32023858	2	ocean	ocean
+SRR32023859	2	ocean	ocean
+SRR32023860	2	ocean	ocean
+SRR32023861	2	ocean	ocean
+SRR32023864	2	ocean	ocean
+SRR32023865	2	ocean	ocean
+SRR32023867	2	ocean	ocean
+SRR32023868	2	ocean	ocean
+SRR32023870	2	ocean	ocean
+SRR32023871	2	ocean	ocean
+SRR32023872	2	ocean	ocean
+SRR32023873	2	ocean	ocean
+SRR32023874	2	ocean	ocean
+SRR32023875	2	ocean	ocean
+SRR7774469	2	ocean	midden
+SRR7774470	2	ocean	midden
+SRR7774471	2	thermokarst	midden
+SRR7774472	2	thermokarst	midden
+SRR7774473	2	thermokarst	midden
+SRR7774474	2	thermokarst	midden
+SRR7774475	2	ocean	midden
+SRR7774476	2	thermokarst	midden
+SRR7774477	2	thermokarst	midden
+SRR7774478	2	ocean	midden
+SRR7774479	2	thermokarst	midden
+SRR8652706	2	ocean	lake
+SRR8652707	2	ocean	lake
+SRR8652708	2	ocean	lake
+SRR8652709	2	swamp forest	lake
+SRR8652710	2	ocean	lake
+SRR8652711	2	ocean	lake
+SRR8652712	2	swamp forest	lake
+SRR8652713	2	swamp forest	lake
+SRR8652714	2	swamp forest	lake
+SRR8652715	2	lake	lake
+SRR8652716	2	cave	lake
+SRR8652717	2	lake	lake
+ERR1560012	3	lake	lake
+ERR1560013	3	lake	lake
+ERR1560014	3	lake	lake
+ERR1560015	3	lake	lake
+ERR1560016	3	lake	lake
+ERR1560017	3	lake	lake
+ERR1560018	3	lake	lake
+ERR1560019	3	lake	lake
+ERR1560020	3	lake	lake
+ERR1560021	3	lake	lake
+ERR1560022	3	lake	lake
+ERR1560023	3	archeological site	lake
+ERR1560024	3	lake	lake
+ERR1560025	3	lake	lake
+ERR1560093	3	lake	lake
+ERR1560094	3	lake	lake
+ERR1560095	3	lake	lake
+ERR1560096	3	lake	lake
+ERR1560097	3	lake	lake
+ERR1560098	3	lake	lake
+ERR1560099	3	shell	lake
+ERR1560100	3	lake	lake
+ERR1560101	3	lake	lake
+ERR1560102	3	archeological site	lake
+ERR1560103	3	archeological site	lake
+ERR1560104	3	archeological site	lake
+ERR1560105	3	lake	lake
+ERR1560106	3	lake	lake
+ERR1560107	3	lake	lake
+ERR1560108	3	lake	lake
+ERR1560109	3	lake	lake
+ERR1560110	3	archeological site	lake
+ERR1688747	3	lake	midden
+ERR1688749	3	lake	midden
+ERR1688750	3	lake	midden
+ERR1688752	3	lake	midden
+ERR1688754	3	lake	midden
+ERR1688756	3	lake	midden
+ERR1688758	3	lake	midden
+ERR1688760	3	lake	midden
+ERR1688761	3	lake	midden
+ERR1688762	3	lake	midden
+ERR1688764	3	lake	midden
+ERR1688765	3	lake	midden
+ERR1688768	3	ocean	midden
+ERR1688769	3	lake	midden
+ERR1688771	3	ocean	midden
+ERR1688772	3	ocean	midden
+ERR1688775	3	ocean	midden
+ERR1688778	3	ocean	midden
+ERR1688780	3	lake	midden
+ERR1688782	3	ocean	midden
+ERR1688785	3	ocean	midden
+ERR1688788	3	ocean	midden
+ERR1688789	3	ocean	midden
+ERR1688797	3	lake	midden
+ERR1688799	3	lake	midden
+ERR1688803	3	lake	midden
+ERR1688804	3	lake	midden
+ERR1688808	3	lake	midden
+ERR1688810	3	ocean	midden
+ERR3458787	3	lake	ocean
+ERR3458788	3	lake	ocean
+ERR3458789	3	lake	ocean
+ERR3458790	3	lake	ocean
+ERR3458791	3	ocean	ocean
+ERR3458792	3	ocean	ocean
+ERR3459717	3	lake	ocean
+ERR3459718	3	lake	ocean
+ERR3459719	3	midden	ocean
+ERR3459720	3	archeological site	ocean
+ERR3459721	3	lake	ocean
+ERR3459722	3	lake	ocean
+ERR3459723	3	midden	ocean
+ERR3459724	3	lake	ocean
+ERR3459725	3	lake	ocean
+ERR3459726	3	ocean	ocean
+ERR3459727	3	lake	ocean
+ERR3459728	3	lake	ocean
+ERR3459729	3	ocean	ocean
+ERR3459730	3	lake	ocean
+ERR3459731	3	lake	ocean
+ERR3459732	3	archeological site	ocean
+ERR3459733	3	ocean	ocean
+ERR3459734	3	lake	ocean
+ERR3459735	3	lake	ocean
+ERR3459736	3	lake	ocean
+ERR3459737	3	lake	ocean
+ERR3459738	3	lake	ocean
+ERR3459739	3	ocean	ocean
+ERR3459740	3	ocean	ocean
+ERR3459741	3	ocean	ocean
+ERR3459742	3	ocean	ocean
+ERR3459743	3	ocean	ocean
+ERR3459744	3	lake	ocean
+ERR3772645	3	lake	lake
+ERR3804374	3	lake	lake
+ERR3804375	3	lake	lake
+ERR9690357	3	midden	thermokarst
+ERR9690358	3	cave	thermokarst
+ERR9690359	3	archeological site	thermokarst
+ERR9690360	3	archeological site	thermokarst
+ERR9690361	3	cave	thermokarst
+ERR9690362	3	midden	thermokarst
+ERR9690363	3	cave	thermokarst
+ERR9690364	3	midden	thermokarst
+ERR9690365	3	midden	thermokarst
+ERR9690366	3	midden	thermokarst
+SRR10156707	3	lake	swamp forest
+SRR10156708	3	lake	swamp forest
+SRR10156709	3	lake	swamp forest
+SRR10156710	3	ocean	swamp forest
+SRR10156713	3	lake	swamp forest
+SRR10156724	3	lake	swamp forest
+SRR10156735	3	lake	swamp forest
+SRR10156737	3	ocean	swamp forest
+SRR10156738	3	ocean	swamp forest
+SRR10156739	3	lake	swamp forest
+SRR10156740	3	lake	swamp forest
+SRR10156741	3	lake	swamp forest
+SRR10156742	3	ocean	swamp forest
+SRR10156743	3	lake	swamp forest
+SRR10156744	3	lake	swamp forest
+SRR10156745	3	lake	swamp forest
+SRR10156746	3	lake	swamp forest
+SRR10156747	3	lake	swamp forest
+SRR10156748	3	lake	swamp forest
+SRR10156749	3	lake	swamp forest
+SRR10156750	3	lake	swamp forest
+SRR10156751	3	lake	swamp forest
+SRR10156752	3	lake	swamp forest
+SRR10156753	3	lake	swamp forest
+SRR10156754	3	lake	swamp forest
+SRR10156755	3	lake	swamp forest
+SRR10156756	3	lake	swamp forest
+SRR10156757	3	lake	swamp forest
+SRR10156758	3	lake	swamp forest
+SRR16071515	4	lake	ocean
+SRR16071516	4	lake	ocean
+SRR16071517	4	ocean	ocean
+SRR16071520	4	ocean	ocean
+SRR16071521	4	ocean	ocean
+SRR24222601	4	ocean	lake
+SRR24222602	4	ocean	lake
+SRR24222603	4	ocean	lake
+SRR24222604	4	ocean	lake
+SRR24222605	4	ocean	lake
+SRR24222606	4	ocean	lake
+SRR24222607	4	ocean	lake
+SRR24222608	4	ocean	lake
+SRR24222609	4	ocean	lake
+SRR24222610	4	ocean	lake
+SRR24222612	4	ocean	lake
+SRR24222613	4	ocean	lake
+SRR24222614	4	ocean	lake
+SRR24222615	4	ocean	lake
+SRR24222616	4	ocean	lake
+SRR24222617	4	ocean	lake
+SRR24222618	4	ocean	lake
+SRR24222619	4	ocean	lake
+SRR24222620	4	ocean	lake
+SRR24222621	4	ocean	lake
+SRR24222623	4	ocean	lake
+SRR24222624	4	lake	lake
+SRR24222625	4	ocean	lake
+SRR24222626	4	ocean	lake
+SRR24222627	4	ocean	lake
+SRR24222628	4	ocean	lake
+SRR24222629	4	ocean	lake
+SRR24222630	4	ocean	lake
+SRR24222631	4	lake	lake
+SRR24222632	4	ocean	lake
+SRR5332455	4	lake	lake
+SRR5332456	4	lake	lake
+SRR5332457	4	lake	lake
+SRR5332458	4	lake	lake
+SRR5332459	4	lake	lake
+SRR5332461	4	lake	lake
+SRR5332462	4	lake	lake
+SRR5332463	4	lake	lake
+SRR5332464	4	shell	lake
+SRR5332466	4	lake	lake

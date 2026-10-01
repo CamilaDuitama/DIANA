@@ -1,0 +1,5 @@
+arm	budget	peaked	rule
+community_type	0	True	tuned logistic regression, no epoch budget (results/devfold_probs_v9)
+feature	0	True	tuned logistic regression, no epoch budget
+sample_host	0	True	tuned logistic regression, no epoch budget
+material	0	True	tuned logistic regression, no epoch budget

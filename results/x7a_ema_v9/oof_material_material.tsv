@@ -1,0 +1,2717 @@
+Run_accession	fold	material_pred	material_true
+ERR13950600	0	lake sediment	lake sediment
+ERR13950601	0	lake sediment	lake sediment
+ERR13950606	0	lake sediment	lake sediment
+ERR13950607	0	lake sediment	lake sediment
+ERR13950608	0	lake sediment	lake sediment
+ERR13950609	0	permafrost	lake sediment
+ERR13950611	0	lake sediment	lake sediment
+ERR13950612	0	lake sediment	lake sediment
+ERR13950613	0	lake sediment	lake sediment
+ERR13950614	0	lake sediment	lake sediment
+ERR13950615	0	lake sediment	lake sediment
+ERR13950620	0	lake sediment	lake sediment
+ERR13950621	0	lake sediment	lake sediment
+ERR13950622	0	lake sediment	lake sediment
+ERR13950623	0	lake sediment	lake sediment
+ERR13950624	0	lake sediment	lake sediment
+ERR13950625	0	lake sediment	lake sediment
+ERR13950627	0	lake sediment	lake sediment
+ERR13950628	0	lake sediment	lake sediment
+ERR13950629	0	lake sediment	lake sediment
+ERR13950630	0	lake sediment	lake sediment
+ERR13950631	0	lake sediment	lake sediment
+ERR13950632	0	lake sediment	lake sediment
+ERR13950633	0	lake sediment	lake sediment
+ERR13950634	0	lake sediment	lake sediment
+ERR13950635	0	lake sediment	lake sediment
+ERR13950637	0	lake sediment	lake sediment
+ERR13950638	0	permafrost	lake sediment
+ERR13950639	0	lake sediment	lake sediment
+ERR13950640	0	lake sediment	lake sediment
+ERR13950641	0	lake sediment	lake sediment
+ERR13950642	0	lake sediment	lake sediment
+ERR13950643	0	lake sediment	lake sediment
+ERR13950644	0	lake sediment	lake sediment
+ERR13950646	0	lake sediment	lake sediment
+ERR13950647	0	lake sediment	lake sediment
+ERR13950648	0	lake sediment	lake sediment
+ERR13950649	0	permafrost	lake sediment
+ERR13950650	0	lake sediment	lake sediment
+ERR13950653	0	lake sediment	lake sediment
+ERR13950654	0	lake sediment	lake sediment
+ERR13950655	0	lake sediment	lake sediment
+ERR13950658	0	lake sediment	lake sediment
+ERR13950659	0	lake sediment	lake sediment
+ERR13950660	0	lake sediment	lake sediment
+ERR13950661	0	lake sediment	lake sediment
+ERR13950662	0	permafrost	lake sediment
+ERR13950663	0	lake sediment	lake sediment
+ERR13950664	0	lake sediment	lake sediment
+ERR13950665	0	lake sediment	lake sediment
+ERR13950666	0	lake sediment	lake sediment
+ERR13950667	0	lake sediment	lake sediment
+ERR13950668	0	lake sediment	lake sediment
+ERR13950669	0	lake sediment	lake sediment
+ERR13950670	0	lake sediment	lake sediment
+ERR13950671	0	lake sediment	lake sediment
+ERR13950673	0	lake sediment	lake sediment
+ERR13950674	0	lake sediment	lake sediment
+ERR3579671	0	dental calculus	dental calculus
+ERR3579672	0	dental calculus	dental calculus
+ERR3579673	0	dental calculus	dental calculus
+ERR3579674	0	dental calculus	dental calculus
+ERR3579675	0	dental calculus	dental calculus
+ERR3579676	0	dental calculus	dental calculus
+ERR3579677	0	dental calculus	dental calculus
+ERR3579678	0	dental calculus	dental calculus
+ERR3579680	0	dental calculus	dental calculus
+ERR3579681	0	dental calculus	dental calculus
+ERR3579682	0	dental calculus	dental calculus
+ERR3579683	0	dental calculus	dental calculus
+ERR3579685	0	dental calculus	dental calculus
+ERR3579687	0	dental calculus	dental calculus
+ERR3579688	0	dental calculus	dental calculus
+ERR3579699	0	dental calculus	dental calculus
+ERR3579700	0	dental calculus	dental calculus
+ERR3579701	0	dental calculus	dental calculus
+ERR3579702	0	dental calculus	dental calculus
+ERR3579703	0	dental calculus	dental calculus
+ERR3579704	0	bone	dental calculus
+ERR3579705	0	dental calculus	dental calculus
+ERR3579706	0	dental calculus	dental calculus
+ERR3579707	0	dental calculus	dental calculus
+ERR3579708	0	dental calculus	dental calculus
+ERR3579709	0	dental calculus	dental calculus
+ERR3579710	0	dental calculus	dental calculus
+ERR3579711	0	dental calculus	dental calculus
+ERR3579712	0	dental calculus	dental calculus
+ERR3579713	0	dental calculus	dental calculus
+ERR3579714	0	dental calculus	dental calculus
+ERR3579715	0	dental calculus	dental calculus
+ERR3579716	0	dental calculus	dental calculus
+ERR3579719	0	dental calculus	dental calculus
+ERR3579720	0	permafrost	dental calculus
+ERR3579721	0	dental calculus	dental calculus
+ERR3579722	0	dental calculus	dental calculus
+ERR3579723	0	dental calculus	dental calculus
+ERR3579726	0	dental calculus	dental calculus
+ERR3579727	0	dental calculus	dental calculus
+ERR3579728	0	dental calculus	dental calculus
+ERR3579729	0	dental calculus	dental calculus
+ERR3579730	0	dental calculus	dental calculus
+ERR3579731	0	dental calculus	dental calculus
+ERR3579732	0	dental calculus	dental calculus
+ERR3579733	0	dental calculus	dental calculus
+ERR3579734	0	dental calculus	dental calculus
+ERR3579735	0	dental calculus	dental calculus
+ERR3579738	0	dental calculus	dental calculus
+ERR3579740	0	dental calculus	dental calculus
+ERR3579741	0	dental calculus	dental calculus
+ERR3579742	0	dental calculus	dental calculus
+ERR3579743	0	dental calculus	dental calculus
+ERR3579744	0	dental calculus	dental calculus
+ERR3579745	0	dental calculus	dental calculus
+ERR3579746	0	dental calculus	dental calculus
+ERR3579747	0	dental calculus	dental calculus
+ERR3579748	0	dental calculus	dental calculus
+ERR3579749	0	dental calculus	dental calculus
+ERR3579750	0	dental calculus	dental calculus
+ERR3579751	0	dental calculus	dental calculus
+ERR3579752	0	dental calculus	dental calculus
+ERR3579753	0	dental calculus	dental calculus
+ERR3579754	0	tooth	dental calculus
+ERR3579755	0	dental calculus	dental calculus
+ERR3579756	0	dental calculus	dental calculus
+ERR3579757	0	dental calculus	dental calculus
+ERR3579758	0	dental calculus	dental calculus
+ERR3579759	0	dental calculus	dental calculus
+ERR3579760	0	dental calculus	dental calculus
+ERR3579761	0	dental calculus	dental calculus
+ERR3579762	0	dental calculus	dental calculus
+ERR3579763	0	dental calculus	dental calculus
+ERR3579764	0	dental calculus	dental calculus
+ERR3579765	0	dental calculus	dental calculus
+ERR3579766	0	dental calculus	dental calculus
+ERR3579767	0	dental calculus	dental calculus
+ERR3579768	0	dental calculus	dental calculus
+ERR3579774	0	dental calculus	dental calculus
+ERR3579775	0	dental calculus	dental calculus
+ERR3579776	0	dental calculus	dental calculus
+ERR3579777	0	dental calculus	dental calculus
+ERR3579779	0	dental calculus	dental calculus
+ERR3579781	0	dental calculus	dental calculus
+ERR3579782	0	dental calculus	dental calculus
+ERR3579783	0	dental calculus	dental calculus
+ERR3579784	0	dental calculus	dental calculus
+ERR3579785	0	dental calculus	dental calculus
+ERR3579786	0	dental calculus	dental calculus
+ERR3579787	0	dental calculus	dental calculus
+ERR3579788	0	dental calculus	dental calculus
+ERR3579789	0	dental calculus	dental calculus
+ERR3579790	0	dental calculus	dental calculus
+ERR3579791	0	dental calculus	dental calculus
+ERR3579792	0	dental calculus	dental calculus
+ERR3579793	0	dental calculus	dental calculus
+ERR3579796	0	dental calculus	dental calculus
+ERR3579797	0	dental calculus	dental calculus
+ERR3579798	0	dental calculus	dental calculus
+ERR3579799	0	dental calculus	dental calculus
+ERR3579800	0	dental calculus	dental calculus
+ERR3579801	0	dental calculus	dental calculus
+ERR3579802	0	dental calculus	dental calculus
+ERR3579803	0	dental calculus	dental calculus
+ERR3579804	0	dental calculus	dental calculus
+ERR3579805	0	dental calculus	dental calculus
+ERR3579806	0	dental calculus	dental calculus
+ERR3579807	0	tooth	dental calculus
+ERR3579809	0	dental calculus	dental calculus
+ERR3579810	0	dental calculus	dental calculus
+ERR3579811	0	tooth	dental calculus
+ERR3579812	0	dental calculus	dental calculus
+ERR3579813	0	dental calculus	dental calculus
+ERR3579814	0	dental calculus	dental calculus
+ERR3579815	0	dental calculus	dental calculus
+ERR3579816	0	dental calculus	dental calculus
+ERR3579817	0	dental calculus	dental calculus
+ERR3579818	0	dental calculus	dental calculus
+ERR3579827	0	dental calculus	dental calculus
+ERR3579828	0	dental calculus	dental calculus
+ERR3579829	0	dental calculus	dental calculus
+ERR3579830	0	tooth	dental calculus
+ERR3678173	0	dental calculus	dental calculus
+ERR3678174	0	dental calculus	dental calculus
+ERR3678175	0	dental calculus	dental calculus
+ERR3678176	0	dental calculus	dental calculus
+ERR3678177	0	dental calculus	dental calculus
+ERR3678179	0	dental calculus	dental calculus
+ERR3678180	0	dental calculus	dental calculus
+ERR3678181	0	dental calculus	dental calculus
+ERR3678182	0	dental calculus	dental calculus
+ERR3678184	0	dental calculus	dental calculus
+ERR3678186	0	dental calculus	dental calculus
+ERR3678187	0	dental calculus	dental calculus
+ERR3678595	0	palaeofaeces	palaeofaeces
+ERR3678596	0	palaeofaeces	palaeofaeces
+ERR3678598	0	palaeofaeces	palaeofaeces
+ERR3678599	0	palaeofaeces	palaeofaeces
+ERR3678600	0	palaeofaeces	palaeofaeces
+ERR3678602	0	palaeofaeces	palaeofaeces
+ERR3678603	0	palaeofaeces	palaeofaeces
+ERR3678604	0	palaeofaeces	palaeofaeces
+ERR3678605	0	palaeofaeces	palaeofaeces
+ERR3678606	0	palaeofaeces	palaeofaeces
+ERR3678607	0	palaeofaeces	palaeofaeces
+ERR3678609	0	palaeofaeces	palaeofaeces
+ERR3678610	0	marine sediment	palaeofaeces
+ERR3678611	0	palaeofaeces	palaeofaeces
+ERR3678612	0	palaeofaeces	palaeofaeces
+ERR3678613	0	palaeofaeces	palaeofaeces
+ERR3678614	0	palaeofaeces	palaeofaeces
+ERR3678615	0	palaeofaeces	palaeofaeces
+ERR3678616	0	palaeofaeces	palaeofaeces
+ERR3678617	0	palaeofaeces	palaeofaeces
+ERR3678618	0	palaeofaeces	palaeofaeces
+ERR3678619	0	palaeofaeces	palaeofaeces
+ERR3678620	0	palaeofaeces	palaeofaeces
+ERR3678622	0	palaeofaeces	palaeofaeces
+ERR3678623	0	palaeofaeces	palaeofaeces
+ERR3678625	0	palaeofaeces	palaeofaeces
+ERR3678626	0	palaeofaeces	palaeofaeces
+ERR3678627	0	palaeofaeces	palaeofaeces
+ERR3678628	0	palaeofaeces	palaeofaeces
+ERR3678629	0	palaeofaeces	palaeofaeces
+ERR3678727	0	dental calculus	dental calculus
+ERR3906046	0	dental calculus	dental calculus
+ERR4334735	0	lake sediment	lake sediment
+ERR4334736	0	lake sediment	lake sediment
+ERR4426516	0	marine sediment	sediment
+ERR4426517	0	bone	sediment
+ERR4426518	0	sediment	sediment
+ERR4426519	0	bone	sediment
+ERR4426520	0	dental calculus	sediment
+ERR4426521	0	sediment	sediment
+ERR4426522	0	bone	sediment
+ERR4426523	0	permafrost	sediment
+ERR4426524	0	bone	sediment
+ERR4426525	0	bone	sediment
+ERR4426526	0	lake sediment	sediment
+ERR4426527	0	permafrost	sediment
+ERR4426529	0	sediment	sediment
+ERR4426530	0	lake sediment	sediment
+ERR4426531	0	lake sediment	sediment
+ERR4426532	0	sediment	sediment
+ERR4426533	0	sediment	sediment
+ERR4426534	0	sediment	sediment
+ERR4426535	0	permafrost	sediment
+ERR4426536	0	sediment	sediment
+ERR4426537	0	permafrost	sediment
+ERR4426538	0	permafrost	sediment
+ERR4426539	0	permafrost	sediment
+ERR4426540	0	sediment	sediment
+ERR4426541	0	sediment	sediment
+ERR4426542	0	sediment	sediment
+ERR4426543	0	permafrost	sediment
+ERR4426545	0	sediment	sediment
+ERR4426546	0	sediment	sediment
+ERR4426547	0	permafrost	sediment
+ERR4426548	0	permafrost	sediment
+ERR4426549	0	permafrost	sediment
+ERR4426550	0	permafrost	sediment
+ERR4426552	0	dental calculus	sediment
+ERR5863536	0	sediment	palaeofaeces
+ERR6093854	0	dental calculus	dental calculus
+ERR6093855	0	dental calculus	dental calculus
+ERR6093856	0	dental calculus	dental calculus
+ERR6093857	0	dental calculus	dental calculus
+ERR6093858	0	dental calculus	dental calculus
+ERR6093859	0	dental calculus	dental calculus
+ERR6093860	0	dental calculus	dental calculus
+ERR6093861	0	dental calculus	dental calculus
+ERR6093862	0	dental calculus	dental calculus
+ERR6093863	0	dental calculus	dental calculus
+ERR6093864	0	dental calculus	dental calculus
+ERR6093865	0	dental calculus	dental calculus
+ERR6093866	0	dental calculus	dental calculus
+ERR6093867	0	dental calculus	dental calculus
+ERR6093868	0	dental calculus	dental calculus
+ERR6093869	0	dental calculus	dental calculus
+ERR6093870	0	dental calculus	dental calculus
+ERR6093871	0	dental calculus	dental calculus
+ERR6093872	0	dental calculus	dental calculus
+ERR6093874	0	dental calculus	dental calculus
+ERR6093875	0	dental calculus	dental calculus
+ERR6093876	0	dental calculus	dental calculus
+ERR6093877	0	dental calculus	dental calculus
+ERR6093878	0	dental calculus	dental calculus
+ERR6093879	0	dental calculus	dental calculus
+ERR6093880	0	dental calculus	dental calculus
+ERR6093881	0	dental calculus	dental calculus
+ERR6093882	0	dental calculus	dental calculus
+ERR6093883	0	dental calculus	dental calculus
+ERR6093885	0	dental calculus	dental calculus
+ERR6093886	0	dental calculus	dental calculus
+ERR6093887	0	dental calculus	dental calculus
+ERR6093888	0	dental calculus	dental calculus
+ERR6093889	0	dental calculus	dental calculus
+ERR6093890	0	dental calculus	dental calculus
+ERR6093891	0	dental calculus	dental calculus
+ERR6093893	0	midden	dental calculus
+ERR6093894	0	midden	dental calculus
+ERR6093896	0	midden	dental calculus
+ERR6093897	0	midden	dental calculus
+ERR6093899	0	dental calculus	dental calculus
+ERR6093900	0	dental calculus	dental calculus
+ERR6093901	0	dental calculus	dental calculus
+ERR6093902	0	dental calculus	dental calculus
+ERR6093903	0	dental calculus	dental calculus
+ERR6093904	0	dental calculus	dental calculus
+ERR6093905	0	dental calculus	dental calculus
+ERR6093906	0	dental calculus	dental calculus
+ERR6093907	0	dental calculus	dental calculus
+ERR6093908	0	dental calculus	dental calculus
+ERR6093909	0	dental calculus	dental calculus
+ERR6093910	0	dental calculus	dental calculus
+ERR6093912	0	dental calculus	dental calculus
+ERR6093913	0	dental calculus	dental calculus
+ERR6093914	0	dental calculus	dental calculus
+ERR6093916	0	dental calculus	dental calculus
+ERR6093917	0	dental calculus	dental calculus
+ERR6093919	0	dental calculus	dental calculus
+ERR6093920	0	dental calculus	dental calculus
+ERR6093921	0	dental calculus	dental calculus
+ERR6093922	0	dental calculus	dental calculus
+ERR6093923	0	dental calculus	dental calculus
+ERR6093924	0	dental calculus	dental calculus
+ERR6093926	0	dental calculus	dental calculus
+ERR6093927	0	dental calculus	dental calculus
+ERR6093928	0	dental calculus	dental calculus
+ERR6093929	0	dental calculus	dental calculus
+ERR6093930	0	dental calculus	dental calculus
+ERR6093931	0	dental calculus	dental calculus
+ERR6093932	0	dental calculus	dental calculus
+ERR6093934	0	dental calculus	dental calculus
+ERR6093935	0	dental calculus	dental calculus
+ERR6093936	0	dental calculus	dental calculus
+ERR6093937	0	dental calculus	dental calculus
+ERR6093938	0	dental calculus	dental calculus
+ERR6093939	0	dental calculus	dental calculus
+ERR6093941	0	dental calculus	dental calculus
+ERR6093942	0	dental calculus	dental calculus
+ERR6093943	0	dental calculus	dental calculus
+ERR6093945	0	dental calculus	dental calculus
+ERR6093946	0	dental calculus	dental calculus
+ERR6093947	0	dental calculus	dental calculus
+ERR6093948	0	dental calculus	dental calculus
+ERR6093949	0	dental calculus	dental calculus
+ERR6093950	0	dental calculus	dental calculus
+ERR6093951	0	dental calculus	dental calculus
+ERR6093952	0	dental calculus	dental calculus
+ERR6093953	0	dental calculus	dental calculus
+ERR6093954	0	dental calculus	dental calculus
+ERR6093955	0	dental calculus	dental calculus
+ERR6093956	0	dental calculus	dental calculus
+ERR6093957	0	dental calculus	dental calculus
+ERR6093958	0	dental calculus	dental calculus
+ERR6093959	0	dental calculus	dental calculus
+ERR6093960	0	dental calculus	dental calculus
+ERR6093961	0	dental calculus	dental calculus
+ERR6093963	0	dental calculus	dental calculus
+ERR6093964	0	dental calculus	dental calculus
+ERR6093965	0	dental calculus	dental calculus
+ERR6093966	0	dental calculus	dental calculus
+ERR6093967	0	dental calculus	dental calculus
+ERR6093968	0	dental calculus	dental calculus
+ERR6093969	0	dental calculus	dental calculus
+ERR6093970	0	dental calculus	dental calculus
+ERR6093972	0	dental calculus	dental calculus
+ERR6096533	0	dental calculus	dental calculus
+ERR6096535	0	dental calculus	dental calculus
+ERR6096536	0	dental calculus	dental calculus
+ERR6096537	0	dental calculus	dental calculus
+ERR6096538	0	marine sediment	dental calculus
+ERR6096539	0	dental calculus	dental calculus
+ERR6096540	0	dental calculus	dental calculus
+ERR6096541	0	dental calculus	dental calculus
+ERR6096542	0	dental calculus	dental calculus
+ERR6096543	0	dental calculus	dental calculus
+ERR6096544	0	dental calculus	dental calculus
+ERR6096545	0	dental calculus	dental calculus
+ERR6096547	0	dental calculus	dental calculus
+ERR6096548	0	dental calculus	dental calculus
+ERR6096549	0	dental calculus	dental calculus
+ERR6096550	0	dental calculus	dental calculus
+ERR6096551	0	dental calculus	dental calculus
+ERR6096552	0	dental calculus	dental calculus
+ERR6096554	0	dental calculus	dental calculus
+ERR6096555	0	dental calculus	dental calculus
+ERR6096557	0	dental calculus	dental calculus
+ERR6096570	0	dental calculus	dental calculus
+ERR6096574	0	dental calculus	dental calculus
+ERR6096575	0	dental calculus	dental calculus
+ERR6096576	0	dental calculus	dental calculus
+ERR6096579	0	dental calculus	dental calculus
+ERR6096580	0	dental calculus	dental calculus
+ERR6096581	0	dental calculus	dental calculus
+ERR6096582	0	dental calculus	dental calculus
+ERR6096739	0	dental calculus	dental calculus
+ERR6096740	0	dental calculus	dental calculus
+ERR6096741	0	dental calculus	dental calculus
+ERR6096742	0	dental calculus	dental calculus
+ERR6096743	0	dental calculus	dental calculus
+ERR6096744	0	dental calculus	dental calculus
+ERR6096745	0	dental calculus	dental calculus
+ERR6096746	0	dental calculus	dental calculus
+ERR6096747	0	dental calculus	dental calculus
+ERR6096748	0	dental calculus	dental calculus
+ERR6096749	0	dental calculus	dental calculus
+ERR6096752	0	dental calculus	dental calculus
+ERR6096755	0	dental calculus	dental calculus
+ERR6096759	0	dental calculus	dental calculus
+ERR6096760	0	dental calculus	dental calculus
+ERR6096762	0	dental calculus	dental calculus
+ERR6096764	0	dental calculus	dental calculus
+ERR6096766	0	dental calculus	dental calculus
+ERR6096776	0	dental calculus	dental calculus
+ERR6096784	0	dental calculus	dental calculus
+ERR6096796	0	dental calculus	dental calculus
+ERR6096814	0	dental calculus	dental calculus
+ERR6096818	0	dental calculus	dental calculus
+ERR6096822	0	dental calculus	dental calculus
+ERR6096826	0	dental calculus	dental calculus
+ERR6096829	0	dental calculus	dental calculus
+ERR6096835	0	dental calculus	dental calculus
+ERR6096842	0	dental calculus	dental calculus
+ERR6096847	0	dental calculus	dental calculus
+ERR6096853	0	dental calculus	dental calculus
+ERR6096886	0	dental calculus	dental calculus
+ERR6096922	0	dental calculus	dental calculus
+ERR6096923	0	dental calculus	dental calculus
+ERR6096924	0	dental calculus	dental calculus
+ERR6096925	0	dental calculus	dental calculus
+ERR6096926	0	dental calculus	dental calculus
+ERR6096927	0	dental calculus	dental calculus
+ERR6096928	0	dental calculus	dental calculus
+ERR6096929	0	dental calculus	dental calculus
+ERR6096930	0	dental calculus	dental calculus
+ERR6096931	0	dental calculus	dental calculus
+ERR6096932	0	dental calculus	dental calculus
+ERR6096933	0	dental calculus	dental calculus
+ERR6096934	0	dental calculus	dental calculus
+ERR6096935	0	dental calculus	dental calculus
+ERR6096937	0	dental calculus	dental calculus
+ERR6096955	0	dental calculus	dental calculus
+ERR6097155	0	dental calculus	dental calculus
+ERR6097156	0	dental calculus	dental calculus
+ERR6097514	0	dental calculus	dental calculus
+ERR6097549	0	dental calculus	dental calculus
+ERR6097552	0	dental calculus	dental calculus
+ERR6097573	0	dental calculus	dental calculus
+ERR6097575	0	dental calculus	dental calculus
+ERR6097576	0	dental calculus	dental calculus
+ERR6097577	0	dental calculus	dental calculus
+ERR6097579	0	dental calculus	dental calculus
+ERR6097580	0	dental calculus	dental calculus
+ERR6097581	0	dental calculus	dental calculus
+ERR6097583	0	dental calculus	dental calculus
+ERR6097619	0	dental calculus	dental calculus
+ERR6097621	0	dental calculus	dental calculus
+ERR6097622	0	dental calculus	dental calculus
+ERR6097623	0	dental calculus	dental calculus
+ERR6097625	0	dental calculus	dental calculus
+ERR6097626	0	dental calculus	dental calculus
+ERR6097627	0	dental calculus	dental calculus
+ERR6097628	0	dental calculus	dental calculus
+ERR6097629	0	dental calculus	dental calculus
+ERR6097630	0	dental calculus	dental calculus
+ERR6097759	0	dental calculus	dental calculus
+ERR6098066	0	dental calculus	dental calculus
+ERR6098349	0	dental calculus	dental calculus
+ERR6098517	0	dental calculus	dental calculus
+ERR6098519	0	dental calculus	dental calculus
+ERR6098520	0	dental calculus	dental calculus
+ERR6098552	0	dental calculus	dental calculus
+ERR6098553	0	dental calculus	dental calculus
+ERR6098554	0	dental calculus	dental calculus
+ERR6098555	0	dental calculus	dental calculus
+ERR6098556	0	dental calculus	dental calculus
+ERR6098557	0	dental calculus	dental calculus
+ERR6098559	0	dental calculus	dental calculus
+ERR6098560	0	dental calculus	dental calculus
+ERR6098730	0	dental calculus	dental calculus
+ERR6098929	0	dental calculus	dental calculus
+ERR6098930	0	dental calculus	dental calculus
+ERR6098932	0	dental calculus	dental calculus
+ERR6098934	0	dental calculus	dental calculus
+ERR6098936	0	dental calculus	dental calculus
+ERR6098937	0	dental calculus	dental calculus
+ERR6098938	0	dental calculus	dental calculus
+ERR6098939	0	dental calculus	dental calculus
+ERR6098940	0	dental calculus	dental calculus
+ERR6098982	0	dental calculus	dental calculus
+ERR6098983	0	dental calculus	dental calculus
+ERR6098984	0	dental calculus	dental calculus
+ERR6098985	0	dental calculus	dental calculus
+ERR6098990	0	dental calculus	dental calculus
+ERR6099166	0	dental calculus	dental calculus
+ERR6099349	0	dental calculus	dental calculus
+ERR6099809	0	dental calculus	dental calculus
+ERR6099810	0	dental calculus	dental calculus
+ERR6099811	0	dental calculus	dental calculus
+ERR6099812	0	dental calculus	dental calculus
+ERR6099813	0	dental calculus	dental calculus
+ERR6099814	0	dental calculus	dental calculus
+ERR6099815	0	dental calculus	dental calculus
+ERR6099816	0	dental calculus	dental calculus
+ERR6099817	0	dental calculus	dental calculus
+ERR6099818	0	dental calculus	dental calculus
+ERR6099824	0	dental calculus	dental calculus
+ERR6099825	0	dental calculus	dental calculus
+ERR6099826	0	dental calculus	dental calculus
+ERR6101230	0	dental calculus	dental calculus
+ERR6108965	0	dental calculus	dental calculus
+ERR6108966	0	dental calculus	dental calculus
+ERR6108967	0	dental calculus	dental calculus
+ERR6108968	0	dental calculus	dental calculus
+ERR6108969	0	dental calculus	dental calculus
+ERR6108970	0	dental calculus	dental calculus
+ERR6108971	0	dental calculus	dental calculus
+ERR6108972	0	dental calculus	dental calculus
+ERR6108973	0	dental calculus	dental calculus
+ERR6108974	0	dental calculus	dental calculus
+ERR6108975	0	dental calculus	dental calculus
+ERR6108976	0	dental calculus	dental calculus
+ERR6108977	0	dental calculus	dental calculus
+ERR6108978	0	dental calculus	dental calculus
+ERR6108979	0	dental calculus	dental calculus
+ERR6108980	0	dental calculus	dental calculus
+ERR6108981	0	dental calculus	dental calculus
+ERR6108982	0	dental calculus	dental calculus
+ERR6108983	0	dental calculus	dental calculus
+ERR6108984	0	dental calculus	dental calculus
+ERR6108985	0	dental calculus	dental calculus
+ERR6108986	0	dental calculus	dental calculus
+ERR6108987	0	dental calculus	dental calculus
+ERR6108988	0	dental calculus	dental calculus
+ERR6108989	0	dental calculus	dental calculus
+ERR6108990	0	dental calculus	dental calculus
+ERR6108991	0	dental calculus	dental calculus
+ERR6108992	0	dental calculus	dental calculus
+ERR6108993	0	dental calculus	dental calculus
+ERR6108994	0	dental calculus	dental calculus
+ERR6108995	0	dental calculus	dental calculus
+ERR6108996	0	dental calculus	dental calculus
+ERR6108997	0	dental calculus	dental calculus
+ERR6108998	0	dental calculus	dental calculus
+ERR6109000	0	dental calculus	dental calculus
+ERR6109001	0	dental calculus	dental calculus
+ERR6109002	0	dental calculus	dental calculus
+ERR6109003	0	dental calculus	dental calculus
+ERR6109004	0	dental calculus	dental calculus
+ERR6109005	0	dental calculus	dental calculus
+ERR6109010	0	dental calculus	dental calculus
+ERR6109011	0	dental calculus	dental calculus
+ERR6109012	0	dental calculus	dental calculus
+ERR6109013	0	dental calculus	dental calculus
+ERR6109014	0	dental calculus	dental calculus
+ERR6109015	0	dental calculus	dental calculus
+ERR6109016	0	dental calculus	dental calculus
+ERR6109017	0	dental calculus	dental calculus
+ERR6109019	0	dental calculus	dental calculus
+ERR6109020	0	dental calculus	dental calculus
+ERR6109021	0	dental calculus	dental calculus
+ERR6109022	0	dental calculus	dental calculus
+ERR6109023	0	dental calculus	dental calculus
+ERR6109024	0	dental calculus	dental calculus
+ERR6109025	0	dental calculus	dental calculus
+ERR6109027	0	dental calculus	dental calculus
+ERR6109028	0	dental calculus	dental calculus
+ERR6109049	0	dental calculus	dental calculus
+ERR6109050	0	dental calculus	dental calculus
+ERR6109051	0	dental calculus	dental calculus
+ERR6109053	0	dental calculus	dental calculus
+ERR6109054	0	dental calculus	dental calculus
+ERR6109055	0	dental calculus	dental calculus
+ERR6109056	0	dental calculus	dental calculus
+ERR6109057	0	dental calculus	dental calculus
+ERR6109058	0	dental calculus	dental calculus
+ERR6109059	0	dental calculus	dental calculus
+ERR8050978	0	dental calculus	dental calculus
+SRR1047998	0	dental calculus	palaeofaeces
+SRR17604731	0	dental calculus	dental calculus
+SRR17604732	0	dental calculus	dental calculus
+SRR17604735	0	dental calculus	dental calculus
+SRR17604736	0	dental calculus	dental calculus
+SRR17604737	0	dental calculus	dental calculus
+SRR17604738	0	dental calculus	dental calculus
+SRR17604739	0	dental calculus	dental calculus
+SRR17604740	0	dental calculus	dental calculus
+SRR17604741	0	dental calculus	dental calculus
+SRR17604742	0	dental calculus	dental calculus
+SRR17604743	0	dental calculus	dental calculus
+SRR17604744	0	dental calculus	dental calculus
+SRR17604745	0	dental calculus	dental calculus
+SRR17604746	0	dental calculus	dental calculus
+SRR17604747	0	dental calculus	dental calculus
+SRR17604748	0	dental calculus	dental calculus
+SRR17604749	0	dental calculus	dental calculus
+SRR17604750	0	dental calculus	dental calculus
+SRR17604751	0	dental calculus	dental calculus
+SRR17604752	0	dental calculus	dental calculus
+SRR17604753	0	dental calculus	dental calculus
+SRR17604754	0	permafrost	dental calculus
+SRR17604755	0	dental calculus	dental calculus
+SRR17604756	0	dental calculus	dental calculus
+SRR17604757	0	dental calculus	dental calculus
+SRR17604758	0	dental calculus	dental calculus
+SRR17604759	0	dental calculus	dental calculus
+SRR17604760	0	dental calculus	dental calculus
+SRR17604761	0	dental calculus	dental calculus
+SRR17604762	0	dental calculus	dental calculus
+SRR17604763	0	dental calculus	dental calculus
+SRR17604764	0	dental calculus	dental calculus
+SRR17604765	0	dental calculus	dental calculus
+SRR17604766	0	dental calculus	dental calculus
+SRR17604767	0	dental calculus	dental calculus
+SRR17604768	0	dental calculus	dental calculus
+SRR17604769	0	dental calculus	dental calculus
+SRR17604770	0	dental calculus	dental calculus
+SRR17604771	0	dental calculus	dental calculus
+SRR17604772	0	dental calculus	dental calculus
+SRR17604773	0	dental calculus	dental calculus
+SRR17604774	0	dental calculus	dental calculus
+SRR17604775	0	dental calculus	dental calculus
+SRR17604776	0	dental calculus	dental calculus
+SRR17604777	0	dental calculus	dental calculus
+SRR17604778	0	dental calculus	dental calculus
+SRR17604779	0	dental calculus	dental calculus
+SRR17604780	0	dental calculus	dental calculus
+SRR17604781	0	dental calculus	dental calculus
+SRR17604782	0	dental calculus	dental calculus
+SRR17604783	0	tooth	dental calculus
+SRR17604784	0	dental calculus	dental calculus
+SRR17604785	0	dental calculus	dental calculus
+SRR17604786	0	dental calculus	dental calculus
+SRR17604787	0	dental calculus	dental calculus
+SRR17604788	0	dental calculus	dental calculus
+SRR17604789	0	dental calculus	dental calculus
+SRR17604790	0	dental calculus	dental calculus
+SRR17604791	0	dental calculus	dental calculus
+SRR17604792	0	dental calculus	dental calculus
+SRR17604793	0	dental calculus	dental calculus
+SRR17604794	0	dental calculus	dental calculus
+SRR17604795	0	dental calculus	dental calculus
+SRR17604796	0	dental calculus	dental calculus
+SRR17604797	0	dental calculus	dental calculus
+SRR17604798	0	dental calculus	dental calculus
+SRR17604799	0	dental calculus	dental calculus
+SRR17604800	0	dental calculus	dental calculus
+SRR17604801	0	dental calculus	dental calculus
+SRR17604802	0	permafrost	dental calculus
+SRR17604803	0	dental calculus	dental calculus
+SRR17604804	0	dental calculus	dental calculus
+SRR17604805	0	dental calculus	dental calculus
+SRR17604806	0	dental calculus	dental calculus
+SRR17604807	0	dental calculus	dental calculus
+SRR17604808	0	dental calculus	dental calculus
+SRR2229974	0	marine sediment	dental calculus
+SRR2229975	0	tooth	tooth
+SRR2229976	0	marine sediment	dental calculus
+SRR2229977	0	bone	tooth
+SRR6933819	0	shell	
+SRR6933820	0	shell	
+SRR6933821	0	shell	
+SRR6933822	0	shell	
+SRR6933823	0	marine sediment	
+SRR6933824	0	shell	
+SRR6933825	0	dental calculus	
+SRR6933826	0	dental calculus	
+SRR6974014	0	shell	
+SRR6974015	0	shell	
+SRR6974016	0	shell	
+SRR6974017	0	shell	
+ERR3761400	1	sediment	midden
+ERR3761401	1	sediment	midden
+ERR3761402	1	sediment	sediment
+ERR3761403	1	sediment	midden
+ERR3761404	1	sediment	sediment
+ERR3761405	1	lake sediment	midden
+ERR3761406	1	soil	sediment
+ERR3761407	1	palaeofaeces	palaeofaeces
+ERR3761408	1	palaeofaeces	palaeofaeces
+ERR3761409	1	palaeofaeces	palaeofaeces
+ERR3761410	1	palaeofaeces	palaeofaeces
+ERR3761411	1	palaeofaeces	palaeofaeces
+ERR3761412	1	palaeofaeces	palaeofaeces
+ERR3761413	1	palaeofaeces	palaeofaeces
+ERR6430820	1	lake sediment	marine sediment
+ERR6430821	1	lake sediment	marine sediment
+ERR6430822	1	lake sediment	marine sediment
+ERR6430823	1	lake sediment	marine sediment
+ERR6430825	1	marine sediment	marine sediment
+ERR6430828	1	lake sediment	marine sediment
+ERR6430830	1	lake sediment	marine sediment
+ERR6430831	1	lake sediment	marine sediment
+ERR6430832	1	lake sediment	marine sediment
+ERR6430833	1	lake sediment	marine sediment
+ERR6430834	1	lake sediment	marine sediment
+ERR6430836	1	lake sediment	marine sediment
+ERR6430838	1	lake sediment	marine sediment
+ERR6430839	1	lake sediment	marine sediment
+ERR6430840	1	lake sediment	marine sediment
+ERR6430841	1	lake sediment	marine sediment
+ERR6430842	1	lake sediment	marine sediment
+ERR6430843	1	lake sediment	marine sediment
+ERR6430845	1	lake sediment	marine sediment
+ERR6430846	1	lake sediment	marine sediment
+ERR6430847	1	lake sediment	marine sediment
+ERR6430848	1	lake sediment	marine sediment
+ERR6430849	1	lake sediment	marine sediment
+ERR6430850	1	lake sediment	marine sediment
+ERR6430851	1	lake sediment	marine sediment
+ERR6589621	1	dental calculus	tooth
+ERR6589622	1	dental calculus	tooth
+ERR6589623	1	tooth	tooth
+ERR6589624	1	tooth	tooth
+ERR6589625	1	tooth	tooth
+ERR6589626	1	tooth	tooth
+ERR6589627	1	dental calculus	tooth
+ERR6589628	1	dental calculus	tooth
+ERR6589629	1	dental calculus	tooth
+ERR6589630	1	dental calculus	tooth
+ERR7919459	1	dental calculus	dental calculus
+ERR7919460	1	dental calculus	dental calculus
+ERR7919462	1	dental calculus	dental calculus
+ERR7919463	1	tooth	dental calculus
+ERR7919464	1	soil	dental calculus
+ERR7919465	1	dental calculus	dental calculus
+ERR7919466	1	dental calculus	dental calculus
+ERR7919467	1	dental calculus	dental calculus
+ERR7919468	1	dental calculus	dental calculus
+ERR7919469	1	muscle tissue	dental calculus
+ERR7919470	1	dental calculus	dental calculus
+ERR7919471	1	soil	dental calculus
+ERR7919472	1	dental calculus	dental calculus
+ERR7919473	1	dental calculus	dental calculus
+ERR7919474	1	dental calculus	dental calculus
+ERR7919475	1	dental calculus	dental calculus
+ERR7919476	1	dental calculus	dental calculus
+ERR7919477	1	dental calculus	dental calculus
+ERR7919478	1	dental calculus	dental calculus
+ERR7919479	1	dental calculus	dental calculus
+ERR7919480	1	dental calculus	dental calculus
+ERR7919481	1	dental calculus	dental calculus
+ERR7919482	1	dental calculus	dental calculus
+ERR7919483	1	dental calculus	dental calculus
+ERR7919484	1	muscle tissue	dental calculus
+ERR7919485	1	tooth	dental calculus
+ERR7919486	1	dental calculus	dental calculus
+ERR7919487	1	dental calculus	dental calculus
+ERR7919488	1	dental calculus	dental calculus
+ERR7919489	1	dental calculus	dental calculus
+ERR7919490	1	dental calculus	dental calculus
+ERR7919491	1	dental calculus	dental calculus
+ERR7919492	1	muscle tissue	dental calculus
+ERR7919493	1	tooth	dental calculus
+ERR7919494	1	dental calculus	dental calculus
+ERR7919495	1	dental calculus	dental calculus
+ERR7919496	1	soil	dental calculus
+ERR7919497	1	dental calculus	dental calculus
+ERR7919498	1	dental calculus	dental calculus
+ERR7919499	1	soil	dental calculus
+ERR7919500	1	dental calculus	dental calculus
+ERR7919501	1	dental calculus	dental calculus
+ERR7919502	1	dental calculus	dental calculus
+ERR7919503	1	dental calculus	dental calculus
+ERR7919504	1	dental calculus	dental calculus
+ERR7919505	1	dental calculus	dental calculus
+ERR7919506	1	dental calculus	dental calculus
+ERR7919507	1	dental calculus	dental calculus
+ERR7919508	1	dental calculus	dental calculus
+ERR7919509	1	soil	dental calculus
+ERR7919510	1	dental calculus	dental calculus
+ERR7919511	1	dental calculus	dental calculus
+ERR7919512	1	sediment	dental calculus
+ERR7919513	1	dental calculus	dental calculus
+ERR7919514	1	dental calculus	dental calculus
+ERR7919515	1	dental calculus	dental calculus
+ERR7919516	1	dental calculus	dental calculus
+ERR7919517	1	soil	dental calculus
+ERR7919518	1	dental calculus	dental calculus
+ERR7919519	1	dental calculus	dental calculus
+ERR7919520	1	dental calculus	dental calculus
+ERR7919521	1	dental calculus	dental calculus
+ERR7919522	1	dental calculus	dental calculus
+ERR7919523	1	dental calculus	dental calculus
+ERR7919524	1	muscle tissue	dental calculus
+ERR7919525	1	dental calculus	dental calculus
+ERR7919526	1	dental calculus	dental calculus
+ERR7919527	1	dental calculus	dental calculus
+ERR7919528	1	dental calculus	dental calculus
+ERR7919529	1	dental calculus	dental calculus
+ERR7919530	1	dental calculus	dental calculus
+ERR7919531	1	dental calculus	dental calculus
+ERR7919532	1	dental calculus	dental calculus
+ERR7919533	1	dental calculus	dental calculus
+ERR7919534	1	dental calculus	dental calculus
+ERR7919535	1	dental calculus	dental calculus
+ERR7919536	1	dental calculus	dental calculus
+ERR7919537	1	dental calculus	dental calculus
+ERR7919538	1	tooth	dental calculus
+ERR7919539	1	dental calculus	dental calculus
+ERR7919540	1	soil	dental calculus
+ERR7919541	1	dental calculus	dental calculus
+ERR7919542	1	dental calculus	dental calculus
+ERR7919543	1	dental calculus	dental calculus
+ERR7919544	1	dental calculus	dental calculus
+ERR7919545	1	soil	dental calculus
+ERR7919546	1	soil	dental calculus
+ERR7919547	1	dental calculus	dental calculus
+ERR7919548	1	dental calculus	dental calculus
+ERR7919641	1	dental calculus	dental calculus
+ERR7919642	1	dental calculus	dental calculus
+ERR7919643	1	muscle tissue	dental calculus
+ERR7919644	1	sediment	dental calculus
+ERR7919645	1	dental calculus	dental calculus
+ERR7919646	1	dental calculus	dental calculus
+SRR13355784	1	dental calculus	dental calculus
+SRR13355785	1	dental calculus	dental calculus
+SRR13355786	1	dental calculus	dental calculus
+SRR13355787	1	dental calculus	dental calculus
+SRR13355789	1	dental calculus	dental calculus
+SRR13355790	1	dental calculus	dental calculus
+SRR13355791	1	dental calculus	dental calculus
+SRR13355792	1	dental calculus	dental calculus
+SRR13355794	1	dental calculus	dental calculus
+SRR13355796	1	dental calculus	dental calculus
+SRR13355797	1	dental calculus	dental calculus
+SRR13355798	1	dental calculus	dental calculus
+SRR13355799	1	dental calculus	dental calculus
+SRR13355800	1	dental calculus	dental calculus
+SRR13355801	1	dental calculus	dental calculus
+SRR13355802	1	dental calculus	dental calculus
+SRR13355803	1	dental calculus	dental calculus
+SRR13355804	1	dental calculus	dental calculus
+SRR13355805	1	dental calculus	dental calculus
+SRR13355806	1	dental calculus	dental calculus
+SRR13355807	1	dental calculus	dental calculus
+SRR13355808	1	dental calculus	dental calculus
+SRR13355809	1	dental calculus	dental calculus
+SRR13355810	1	dental calculus	dental calculus
+SRR13355811	1	dental calculus	dental calculus
+SRR13355812	1	dental calculus	dental calculus
+SRR13355813	1	dental calculus	dental calculus
+SRR20576738	1	lake sediment	marine sediment
+SRR20576739	1	sediment	marine sediment
+SRR20576742	1	marine sediment	marine sediment
+SRR20576743	1	lake sediment	marine sediment
+SRR20576744	1	soil	marine sediment
+SRR20576745	1	lake sediment	marine sediment
+SRR20576746	1	muscle tissue	marine sediment
+SRR20576747	1	soil	marine sediment
+SRR20576748	1	muscle tissue	marine sediment
+SRR20576749	1	lake sediment	marine sediment
+SRR20576750	1	marine sediment	marine sediment
+SRR20576751	1	lake sediment	marine sediment
+SRR20576752	1	lake sediment	marine sediment
+SRR20576754	1	lake sediment	marine sediment
+SRR20576755	1	muscle tissue	marine sediment
+SRR20576756	1	sediment	marine sediment
+SRR20576757	1	muscle tissue	marine sediment
+SRR20576758	1	lake sediment	marine sediment
+SRR20576759	1	lake sediment	marine sediment
+SRR20576760	1	lake sediment	marine sediment
+SRR20576761	1	muscle tissue	marine sediment
+SRR20576762	1	marine sediment	marine sediment
+SRR20576763	1	marine sediment	marine sediment
+SRR20576764	1	marine sediment	marine sediment
+SRR20576765	1	lake sediment	marine sediment
+SRR20576766	1	muscle tissue	marine sediment
+SRR20576767	1	marine sediment	marine sediment
+SRR20576768	1	sediment	marine sediment
+SRR20576769	1	marine sediment	marine sediment
+SRR20576770	1	lake sediment	marine sediment
+SRR20576771	1	marine sediment	marine sediment
+SRR20576772	1	marine sediment	marine sediment
+SRR20576773	1	marine sediment	marine sediment
+SRR20576774	1	marine sediment	marine sediment
+SRR20576775	1	marine sediment	marine sediment
+SRR20576776	1	tooth	marine sediment
+SRR20576779	1	lake sediment	marine sediment
+SRR20576780	1	soil	marine sediment
+SRR20576781	1	sediment	marine sediment
+SRR20576782	1	soil	marine sediment
+SRR20576783	1	muscle tissue	marine sediment
+SRR20576784	1	lake sediment	marine sediment
+SRR20576785	1	sediment	marine sediment
+SRR20576786	1	marine sediment	marine sediment
+SRR20576787	1	marine sediment	marine sediment
+SRR20576794	1	soil	marine sediment
+SRR20576795	1	sediment	marine sediment
+SRR20576796	1	muscle tissue	marine sediment
+SRR20576797	1	lake sediment	marine sediment
+SRR20576798	1	marine sediment	marine sediment
+SRR20576799	1	lake sediment	marine sediment
+SRR20576800	1	lake sediment	marine sediment
+SRR20576802	1	marine sediment	marine sediment
+SRR20576803	1	soil	marine sediment
+SRR20576805	1	marine sediment	marine sediment
+SRR20576807	1	lake sediment	marine sediment
+SRR20576808	1	lake sediment	marine sediment
+SRR20576809	1	sediment	marine sediment
+SRR20576811	1	muscle tissue	marine sediment
+SRR20576812	1	muscle tissue	marine sediment
+SRR20576813	1	lake sediment	marine sediment
+SRR20576814	1	marine sediment	marine sediment
+SRR20576815	1	muscle tissue	marine sediment
+SRR20576816	1	marine sediment	marine sediment
+SRR20576817	1	muscle tissue	marine sediment
+SRR21589119	1	sediment	soil
+SRR21589120	1	sediment	soil
+SRR23699551	1	dental calculus	dental calculus
+SRR23699552	1	dental calculus	dental calculus
+SRR23699553	1	dental calculus	dental calculus
+SRR23699554	1	dental calculus	dental calculus
+SRR23699555	1	dental calculus	dental calculus
+SRR23699556	1	dental calculus	dental calculus
+SRR23699557	1	dental calculus	dental calculus
+SRR23699558	1	dental calculus	dental calculus
+SRR23699559	1	dental calculus	dental calculus
+SRR23699560	1	dental calculus	dental calculus
+SRR23699561	1	dental calculus	dental calculus
+SRR23699562	1	dental calculus	dental calculus
+SRR23699563	1	dental calculus	dental calculus
+SRR23699564	1	dental calculus	dental calculus
+SRR23699565	1	dental calculus	dental calculus
+SRR23699566	1	dental calculus	dental calculus
+SRR23699567	1	dental calculus	dental calculus
+SRR23699568	1	dental calculus	dental calculus
+SRR23699569	1	dental calculus	dental calculus
+SRR23699570	1	dental calculus	dental calculus
+SRR23699571	1	dental calculus	dental calculus
+SRR23699572	1	dental calculus	dental calculus
+SRR23699573	1	dental calculus	dental calculus
+SRR23699574	1	dental calculus	dental calculus
+SRR23699575	1	dental calculus	dental calculus
+SRR23699576	1	dental calculus	dental calculus
+SRR23699577	1	dental calculus	dental calculus
+SRR23699578	1	dental calculus	dental calculus
+SRR25620676	1	lake sediment	permafrost
+SRR25620681	1	lake sediment	permafrost
+SRR25620753	1	muscle tissue	permafrost
+SRR25620756	1	lake sediment	permafrost
+SRR25620780	1	permafrost	permafrost
+SRR25620786	1	lake sediment	permafrost
+SRR25620790	1	muscle tissue	permafrost
+SRR25620795	1	leaf	permafrost
+SRR5297130	1	dental calculus	dental calculus
+SRR5297131	1	dental calculus	dental calculus
+SRR5297132	1	dental calculus	dental calculus
+SRR5297133	1	dental calculus	dental calculus
+SRR5875714	1	dental calculus	
+SRR5875715	1	sediment	
+SRR5875718	1	dental calculus	intestine
+SRR5875719	1	permafrost	intestine
+SRR5875720	1	soil	intestine
+SRR5875721	1	muscle tissue	intestine
+SRR5875722	1	dental calculus	
+SRR5875723	1	permafrost	
+SRR5875724	1	sediment	
+SRR5875725	1	muscle tissue	
+SRR5875726	1	muscle tissue	muscle tissue
+SRR5875727	1	soil	muscle tissue
+SRR5875728	1	soil	muscle tissue
+SRR5875729	1	muscle tissue	muscle tissue
+SRR5875730	1	soil	
+SRR5875731	1	permafrost	
+SRR8731955	1	soil	palaeofaeces
+SRR8731956	1	lake sediment	sediment
+SRR8731957	1	soil	palaeofaeces
+SRR8731958	1	dental calculus	palaeofaeces
+SRR8731959	1	muscle tissue	sediment
+ERR10114844	2	dental calculus	
+ERR10114845	2	dental calculus	
+ERR10114846	2	dental calculus	
+ERR10114847	2	bone	
+ERR10114848	2	dental calculus	
+ERR10114849	2	dental calculus	
+ERR10114850	2	dental calculus	
+ERR10114851	2	dental calculus	
+ERR10114852	2	dental calculus	
+ERR10114853	2	dental calculus	
+ERR10114854	2	dental calculus	
+ERR10114855	2	dental calculus	
+ERR10114856	2	bone	
+ERR10114857	2	dental calculus	
+ERR10114858	2	dental calculus	
+ERR10114859	2	dental calculus	
+ERR10114860	2	dental calculus	
+ERR10114861	2	bone	
+ERR10114862	2	bone	
+ERR10114863	2	tooth	
+ERR10114864	2	dental calculus	
+ERR10114865	2	dental calculus	
+ERR10114866	2	tooth	
+ERR10114878	2	unknown	sediment
+ERR10114879	2	sediment	sediment
+ERR10114880	2	sediment	sediment
+ERR10114881	2	digestive tract contents	sediment
+ERR10114882	2	sediment	sediment
+ERR10114883	2	digestive tract contents	sediment
+ERR10493277	2	lake sediment	permafrost
+ERR10493281	2	unknown	permafrost
+ERR10493283	2	lake sediment	permafrost
+ERR10493285	2	lake sediment	permafrost
+ERR10493287	2	lake sediment	permafrost
+ERR10493289	2	lake sediment	permafrost
+ERR10493291	2	lake sediment	permafrost
+ERR10493292	2	lake sediment	permafrost
+ERR10493294	2	lake sediment	permafrost
+ERR10493297	2	lake sediment	permafrost
+ERR10493299	2	lake sediment	permafrost
+ERR10493301	2	lake sediment	permafrost
+ERR10493303	2	lake sediment	permafrost
+ERR10493304	2	lake sediment	permafrost
+ERR10493306	2	lake sediment	permafrost
+ERR10493308	2	unknown	permafrost
+ERR10493310	2	lake sediment	permafrost
+ERR10493311	2	lake sediment	permafrost
+ERR10493312	2	lake sediment	permafrost
+ERR10493314	2	lake sediment	permafrost
+ERR10493316	2	lake sediment	permafrost
+ERR10493318	2	lake sediment	permafrost
+ERR10493320	2	lake sediment	permafrost
+ERR10493322	2	lake sediment	permafrost
+ERR10493324	2	unknown	permafrost
+ERR10493326	2	lake sediment	permafrost
+ERR10493328	2	lake sediment	permafrost
+ERR10493330	2	lake sediment	permafrost
+ERR10493332	2	unknown	permafrost
+ERR10493333	2	unknown	permafrost
+ERR10493334	2	unknown	permafrost
+ERR10493335	2	sediment	permafrost
+ERR10493336	2	marine sediment	permafrost
+ERR10493337	2	unknown	permafrost
+ERR10493338	2	unknown	permafrost
+ERR10493339	2	sediment	permafrost
+ERR10493340	2	unknown	permafrost
+ERR10493341	2	lake sediment	permafrost
+ERR10493343	2	unknown	permafrost
+ERR10493344	2	unknown	permafrost
+ERR10493345	2	unknown	permafrost
+ERR10493346	2	unknown	permafrost
+ERR10493347	2	unknown	permafrost
+ERR10493348	2	marine sediment	permafrost
+ERR10493349	2	marine sediment	permafrost
+ERR10493357	2	marine sediment	permafrost
+ERR10493358	2	bone	permafrost
+ERR10493359	2	marine sediment	permafrost
+ERR10493360	2	lake sediment	permafrost
+ERR10493361	2	lake sediment	permafrost
+ERR10493362	2	lake sediment	permafrost
+ERR10493363	2	lake sediment	permafrost
+ERR11660399	2	dental calculus	tooth
+ERR11660400	2	dental calculus	tooth
+ERR11660401	2	dental calculus	tooth
+ERR11660402	2	dental calculus	tooth
+ERR11660403	2	dental calculus	tooth
+ERR11660404	2	dental calculus	tooth
+ERR11660405	2	dental calculus	tooth
+ERR11660406	2	dental calculus	tooth
+ERR11660407	2	dental calculus	tooth
+ERR11660408	2	dental calculus	tooth
+ERR11660409	2	dental calculus	tooth
+ERR11660410	2	dental calculus	tooth
+ERR11660411	2	dental calculus	tooth
+ERR11660412	2	dental calculus	tooth
+ERR11660413	2	dental calculus	tooth
+ERR11660414	2	dental calculus	tooth
+ERR11660415	2	dental calculus	tooth
+ERR11660416	2	dental calculus	tooth
+ERR11660417	2	dental calculus	tooth
+ERR11660418	2	dental calculus	tooth
+ERR11660419	2	dental calculus	tooth
+ERR11660420	2	dental calculus	tooth
+ERR11660421	2	dental calculus	tooth
+ERR11660422	2	dental calculus	tooth
+ERR11660423	2	dental calculus	tooth
+ERR11660424	2	dental calculus	tooth
+ERR11660425	2	dental calculus	tooth
+ERR11660426	2	dental calculus	tooth
+ERR11660427	2	dental calculus	tooth
+ERR11660428	2	dental calculus	tooth
+ERR11660429	2	dental calculus	tooth
+ERR11660430	2	bone	tooth
+ERR11660431	2	tooth	tooth
+ERR11660432	2	digestive tract contents	tooth
+ERR11660433	2	bone	tooth
+ERR11660434	2	tooth	tooth
+ERR11660435	2	bone	tooth
+ERR11660436	2	tooth	tooth
+ERR11660437	2	lake sediment	tooth
+ERR11660438	2	tooth	tooth
+ERR11660439	2	tooth	tooth
+ERR11660440	2	tooth	tooth
+ERR11660441	2	tooth	tooth
+ERR11660442	2	tooth	tooth
+ERR11660443	2	tooth	tooth
+ERR11660444	2	tooth	tooth
+ERR11660445	2	tooth	tooth
+ERR11660446	2	tooth	tooth
+ERR11660447	2	tooth	tooth
+ERR11660448	2	tooth	tooth
+ERR11660449	2	tooth	tooth
+ERR11660450	2	tooth	tooth
+ERR11660451	2	lake sediment	tooth
+ERR11660452	2	dental calculus	tooth
+ERR11660453	2	bone	tooth
+ERR11660454	2	dental calculus	tooth
+ERR11660455	2	digestive tract contents	tooth
+ERR11660456	2	dental calculus	tooth
+ERR11660457	2	dental calculus	tooth
+ERR11660458	2	dental calculus	tooth
+ERR11660459	2	dental calculus	tooth
+ERR11660460	2	dental calculus	tooth
+ERR11660461	2	dental calculus	tooth
+ERR11660462	2	dental calculus	tooth
+ERR11660463	2	dental calculus	tooth
+ERR11660464	2	dental calculus	tooth
+ERR11660465	2	dental calculus	tooth
+ERR11660466	2	dental calculus	tooth
+ERR12814413	2	unknown	lake sediment
+ERR12814414	2	lake sediment	lake sediment
+ERR12814415	2	lake sediment	lake sediment
+ERR12814416	2	lake sediment	lake sediment
+ERR12814417	2	lake sediment	lake sediment
+ERR12814418	2	lake sediment	lake sediment
+ERR12814419	2	lake sediment	lake sediment
+ERR12814422	2	lake sediment	lake sediment
+ERR12814423	2	lake sediment	lake sediment
+ERR12814424	2	lake sediment	lake sediment
+ERR12814425	2	lake sediment	lake sediment
+ERR12814427	2	lake sediment	lake sediment
+ERR12814428	2	lake sediment	lake sediment
+ERR12814429	2	lake sediment	lake sediment
+ERR12814430	2	lake sediment	lake sediment
+ERR12814431	2	lake sediment	lake sediment
+ERR12814432	2	lake sediment	lake sediment
+ERR12814433	2	digestive tract contents	lake sediment
+ERR12814434	2	lake sediment	lake sediment
+ERR12814435	2	lake sediment	lake sediment
+ERR12814436	2	lake sediment	lake sediment
+ERR12814437	2	lake sediment	lake sediment
+ERR12814438	2	lake sediment	lake sediment
+ERR12814439	2	lake sediment	lake sediment
+ERR12814440	2	lake sediment	lake sediment
+ERR12814442	2	lake sediment	lake sediment
+ERR12814443	2	lake sediment	lake sediment
+ERR12814444	2	lake sediment	lake sediment
+ERR12814445	2	lake sediment	lake sediment
+ERR12814446	2	lake sediment	lake sediment
+ERR12814447	2	lake sediment	lake sediment
+ERR12814448	2	lake sediment	lake sediment
+ERR12814449	2	lake sediment	lake sediment
+ERR12814450	2	lake sediment	lake sediment
+ERR12814452	2	lake sediment	lake sediment
+ERR12814453	2	lake sediment	lake sediment
+ERR12814454	2	lake sediment	lake sediment
+ERR12814455	2	lake sediment	lake sediment
+ERR12814456	2	lake sediment	lake sediment
+ERR12814457	2	lake sediment	lake sediment
+ERR12814458	2	lake sediment	lake sediment
+ERR12814460	2	lake sediment	lake sediment
+ERR12814461	2	lake sediment	lake sediment
+ERR12814462	2	lake sediment	lake sediment
+ERR12814463	2	lake sediment	lake sediment
+ERR12814464	2	lake sediment	lake sediment
+ERR12814465	2	lake sediment	lake sediment
+ERR12814467	2	lake sediment	lake sediment
+ERR12814468	2	unknown	lake sediment
+ERR12814469	2	lake sediment	lake sediment
+ERR12814470	2	lake sediment	lake sediment
+ERR12814471	2	lake sediment	lake sediment
+ERR12814472	2	lake sediment	lake sediment
+ERR12814473	2	lake sediment	lake sediment
+ERR12814474	2	lake sediment	lake sediment
+ERR12814475	2	lake sediment	lake sediment
+ERR12814476	2	lake sediment	lake sediment
+ERR14057409	2	dental calculus	digestive tract contents
+ERR14057410	2	unknown	digestive tract contents
+ERR14057411	2	dental calculus	digestive tract contents
+ERR14057412	2	dental calculus	digestive tract contents
+ERR14057413	2	dental calculus	digestive tract contents
+ERR14057414	2	dental calculus	digestive tract contents
+ERR14057415	2	dental calculus	digestive tract contents
+ERR14057416	2	dental calculus	digestive tract contents
+ERR14100444	2	dental calculus	digestive tract contents
+ERR14100445	2	unknown	digestive tract contents
+ERR14100446	2	dental calculus	digestive tract contents
+ERR14100447	2	dental calculus	digestive tract contents
+ERR14100448	2	dental calculus	digestive tract contents
+ERR14100449	2	dental calculus	digestive tract contents
+ERR14100450	2	dental calculus	digestive tract contents
+ERR14100451	2	dental calculus	digestive tract contents
+ERR1894879	2	marine sediment	shell
+ERR1894880	2	lake sediment	shell
+ERR1894881	2	dental calculus	shell
+ERR1894882	2	dental calculus	shell
+ERR1894900	2	lake sediment	shell
+ERR1894901	2	sediment	shell
+ERR1894902	2	sediment	shell
+ERR1894903	2	marine sediment	shell
+ERR1894904	2	sediment	shell
+ERR1894905	2	sediment	shell
+ERR1894906	2	sediment	shell
+ERR1894907	2	marine sediment	shell
+ERR1894908	2	lake sediment	shell
+ERR1894909	2	lake sediment	shell
+ERR1894910	2	lake sediment	shell
+ERR1894911	2	marine sediment	shell
+ERR1894912	2	lake sediment	shell
+ERR1894913	2	lake sediment	shell
+ERR1894914	2	digestive tract contents	shell
+ERR1894915	2	digestive tract contents	shell
+ERR1894916	2	marine sediment	shell
+ERR1894917	2	marine sediment	shell
+ERR1894918	2	marine sediment	shell
+ERR1894919	2	marine sediment	shell
+ERR2269773	2	digestive tract contents	leaf
+ERR2269775	2	dental calculus	leaf
+ERR2269776	2	digestive tract contents	leaf
+ERR2269777	2	digestive tract contents	leaf
+ERR2269778	2	lake sediment	leaf
+ERR2269779	2	digestive tract contents	leaf
+ERR2269780	2	lake sediment	leaf
+ERR2269781	2	digestive tract contents	leaf
+ERR2269782	2	unknown	leaf
+ERR2269783	2	digestive tract contents	leaf
+ERR2269784	2	digestive tract contents	leaf
+ERR2269785	2	digestive tract contents	leaf
+ERR2269786	2	digestive tract contents	leaf
+ERR2269787	2	lake sediment	leaf
+ERR2269788	2	digestive tract contents	leaf
+ERR2269789	2	digestive tract contents	leaf
+ERR2269790	2	dental calculus	leaf
+ERR2269791	2	digestive tract contents	leaf
+ERR2269792	2	lake sediment	leaf
+ERR2269793	2	digestive tract contents	leaf
+ERR2269794	2	lake sediment	leaf
+ERR2269795	2	digestive tract contents	leaf
+ERR2269796	2	unknown	leaf
+ERR2269797	2	digestive tract contents	leaf
+ERR2269798	2	unknown	leaf
+ERR2269799	2	lake sediment	leaf
+ERR2269800	2	unknown	leaf
+ERR2269801	2	lake sediment	leaf
+ERR2269802	2	lake sediment	leaf
+ERR2269803	2	lake sediment	leaf
+ERR2269804	2	digestive tract contents	leaf
+ERR2269805	2	digestive tract contents	leaf
+ERR3728226	2	dental calculus	dental calculus
+ERR3728227	2	dental calculus	dental calculus
+ERR3728228	2	dental calculus	dental calculus
+ERR3728238	2	dental calculus	dental calculus
+ERR3728239	2	dental calculus	dental calculus
+ERR3728240	2	dental calculus	dental calculus
+ERR3728241	2	dental calculus	dental calculus
+ERR3728245	2	dental calculus	dental calculus
+ERR3728246	2	dental calculus	dental calculus
+ERR3728247	2	dental calculus	dental calculus
+ERR3728248	2	dental calculus	dental calculus
+ERR3728249	2	dental calculus	dental calculus
+ERR3728250	2	dental calculus	dental calculus
+ERR3728251	2	dental calculus	dental calculus
+ERR3728252	2	dental calculus	dental calculus
+ERR3728254	2	dental calculus	dental calculus
+ERR3728255	2	dental calculus	dental calculus
+ERR3728256	2	dental calculus	dental calculus
+ERR3728257	2	dental calculus	dental calculus
+ERR4373119	2	digestive tract contents	dental calculus
+ERR4373134	2	dental calculus	dental calculus
+ERR4373146	2	dental calculus	dental calculus
+ERR4373153	2	digestive tract contents	dental calculus
+ERR4373159	2	dental calculus	dental calculus
+ERR4373979	2	dental calculus	dental calculus
+ERR4373995	2	digestive tract contents	bone
+ERR4373996	2	digestive tract contents	tooth
+ERR4373997	2	tooth	bone
+ERR4373998	2	unknown	bone
+ERR4373999	2	digestive tract contents	tooth
+ERR4374000	2	digestive tract contents	bone
+ERR4374001	2	tooth	bone
+ERR4374002	2	digestive tract contents	bone
+ERR4374003	2	unknown	bone
+ERR4374004	2	digestive tract contents	bone
+ERR4374005	2	bone	bone
+ERR4374006	2	digestive tract contents	tooth
+ERR4374007	2	digestive tract contents	tooth
+ERR4374008	2	digestive tract contents	bone
+ERR4374009	2	dental calculus	tooth
+ERR4374010	2	dental calculus	tooth
+ERR4374011	2	digestive tract contents	unknown
+ERR4374012	2	bone	tooth
+ERR4374013	2	tooth	tooth
+ERR4374014	2	digestive tract contents	tooth
+ERR4374015	2	tooth	bone
+ERR4374016	2	digestive tract contents	bone
+ERR4374017	2	bone	unknown
+ERR4374018	2	digestive tract contents	tooth
+ERR4374019	2	digestive tract contents	bone
+ERR4374020	2	digestive tract contents	bone
+ERR4374021	2	digestive tract contents	unknown
+ERR4374022	2	digestive tract contents	tooth
+ERR4374023	2	dental calculus	tooth
+ERR4374024	2	digestive tract contents	tooth
+ERR4374025	2	digestive tract contents	bone
+ERR4374026	2	digestive tract contents	bone
+ERR4374027	2	digestive tract contents	tooth
+ERR4374028	2	digestive tract contents	tooth
+ERR4374029	2	digestive tract contents	bone
+ERR4374030	2	digestive tract contents	bone
+ERR4374031	2	digestive tract contents	tooth
+ERR4374032	2	digestive tract contents	bone
+ERR4374033	2	digestive tract contents	bone
+ERR4374034	2	digestive tract contents	bone
+ERR4374035	2	digestive tract contents	unknown
+ERR4374036	2	digestive tract contents	bone
+ERR4374037	2	digestive tract contents	bone
+ERR4374038	2	digestive tract contents	bone
+ERR4374039	2	digestive tract contents	bone
+ERR4374040	2	digestive tract contents	bone
+ERR4374041	2	digestive tract contents	bone
+ERR4374042	2	digestive tract contents	tooth
+ERR4374043	2	digestive tract contents	bone
+ERR4374044	2	digestive tract contents	tooth
+ERR4374045	2	digestive tract contents	tooth
+ERR4374046	2	digestive tract contents	unknown
+ERR4374047	2	digestive tract contents	bone
+ERR4374048	2	digestive tract contents	tooth
+ERR4374049	2	digestive tract contents	tooth
+ERR4374050	2	digestive tract contents	tooth
+ERR4374051	2	digestive tract contents	tooth
+ERR4374052	2	bone	bone
+ERR4374053	2	dental calculus	tooth
+ERR4374055	2	digestive tract contents	bone
+ERR4374588	2	digestive tract contents	bone
+ERR4374589	2	digestive tract contents	tooth
+ERR4374838	2	dental calculus	tooth
+ERR4374839	2	digestive tract contents	bone
+ERR4374851	2	digestive tract contents	bone
+ERR4374857	2	digestive tract contents	unknown
+ERR4374858	2	dental calculus	tooth
+ERR4374859	2	digestive tract contents	bone
+ERR4374860	2	digestive tract contents	tooth
+ERR4374861	2	digestive tract contents	bone
+ERR4374862	2	digestive tract contents	bone
+ERR4374863	2	digestive tract contents	tooth
+ERR4374864	2	digestive tract contents	tooth
+ERR4374865	2	digestive tract contents	tooth
+ERR4374866	2	digestive tract contents	tooth
+ERR4374867	2	digestive tract contents	tooth
+ERR4374868	2	digestive tract contents	tooth
+ERR4374869	2	digestive tract contents	tooth
+ERR4374870	2	digestive tract contents	tooth
+ERR4374871	2	digestive tract contents	tooth
+ERR4374872	2	digestive tract contents	tooth
+ERR4374873	2	digestive tract contents	tooth
+ERR4374874	2	digestive tract contents	tooth
+ERR4374875	2	digestive tract contents	tooth
+ERR4374912	2	digestive tract contents	bone
+ERR4374913	2	digestive tract contents	bone
+ERR4374914	2	digestive tract contents	tooth
+ERR4374915	2	tooth	bone
+ERR4374916	2	digestive tract contents	bone
+ERR4374917	2	digestive tract contents	tooth
+ERR4374918	2	digestive tract contents	bone
+ERR4374919	2	dental calculus	tooth
+ERR4374920	2	digestive tract contents	tooth
+ERR4374921	2	digestive tract contents	tooth
+ERR4374922	2	dental calculus	tooth
+ERR4374923	2	digestive tract contents	bone
+ERR4374924	2	digestive tract contents	tooth
+ERR4374925	2	digestive tract contents	tooth
+ERR4374926	2	digestive tract contents	tooth
+ERR4374927	2	digestive tract contents	bone
+ERR4374928	2	digestive tract contents	bone
+ERR4374929	2	bone	tooth
+ERR4374948	2	digestive tract contents	bone
+ERR4374962	2	bone	tooth
+ERR4374963	2	tooth	tooth
+ERR4375010	2	digestive tract contents	bone
+ERR4375011	2	digestive tract contents	tooth
+ERR4375017	2	digestive tract contents	tooth
+ERR4375025	2	digestive tract contents	bone
+ERR4375032	2	digestive tract contents	tooth
+ERR4375036	2	tooth	bone
+ERR4375039	2	bone	tooth
+ERR4375040	2	digestive tract contents	bone
+ERR4375042	2	dental calculus	tooth
+ERR4375045	2	digestive tract contents	tooth
+ERR4375046	2	digestive tract contents	bone
+ERR4375047	2	bone	bone
+ERR4375048	2	digestive tract contents	tooth
+ERR4375049	2	dental calculus	tooth
+ERR4375050	2	digestive tract contents	bone
+ERR4375132	2	tooth	tooth
+ERR4375133	2	digestive tract contents	tooth
+ERR4375134	2	digestive tract contents	bone
+ERR4375135	2	digestive tract contents	bone
+ERR4375136	2	digestive tract contents	bone
+ERR4375137	2	digestive tract contents	tooth
+ERR4375141	2	digestive tract contents	tooth
+ERR4375142	2	digestive tract contents	tooth
+ERR4375143	2	digestive tract contents	tooth
+ERR4375144	2	digestive tract contents	bone
+ERR4383828	2	digestive tract contents	bone
+ERR4383829	2	digestive tract contents	bone
+ERR4384927	2	digestive tract contents	bone
+ERR4385800	2	digestive tract contents	bone
+ERR4385809	2	digestive tract contents	bone
+ERR4386464	2	dental calculus	dental calculus
+ERR4386569	2	digestive tract contents	bone
+ERR4386594	2	digestive tract contents	unknown
+ERR4388102	2	digestive tract contents	unknown
+ERR4388107	2	digestive tract contents	unknown
+ERR4388231	2	digestive tract contents	unknown
+ERR4388236	2	digestive tract contents	unknown
+ERR4391165	2	dental calculus	dental calculus
+ERR4391166	2	dental calculus	dental calculus
+ERR4408185	2	digestive tract contents	tooth
+ERR4408187	2	digestive tract contents	bone
+ERR4408188	2	tooth	tooth
+ERR4413529	2	dental calculus	dental calculus
+ERR567364	2	unknown	sediment
+ERR567366	2	marine sediment	sediment
+ERR5729614	2	dental calculus	dental calculus
+ERR5729615	2	dental calculus	dental calculus
+ERR5729616	2	dental calculus	dental calculus
+ERR5729617	2	dental calculus	dental calculus
+ERR5729618	2	dental calculus	dental calculus
+ERR5729619	2	dental calculus	dental calculus
+ERR5729620	2	dental calculus	dental calculus
+ERR5729621	2	dental calculus	dental calculus
+ERR5729622	2	dental calculus	dental calculus
+ERR5729623	2	dental calculus	dental calculus
+ERR5729624	2	dental calculus	dental calculus
+ERR5729625	2	dental calculus	dental calculus
+ERR5729626	2	dental calculus	dental calculus
+ERR5729627	2	dental calculus	dental calculus
+ERR5729628	2	dental calculus	dental calculus
+ERR5729629	2	dental calculus	dental calculus
+ERR5729630	2	dental calculus	dental calculus
+ERR5729631	2	dental calculus	dental calculus
+ERR5729632	2	dental calculus	dental calculus
+ERR5729633	2	dental calculus	dental calculus
+ERR5729634	2	dental calculus	dental calculus
+ERR5729635	2	bone	dental calculus
+ERR5729636	2	dental calculus	dental calculus
+ERR5729637	2	dental calculus	dental calculus
+ERR5729638	2	dental calculus	dental calculus
+ERR5729639	2	dental calculus	dental calculus
+ERR5729640	2	dental calculus	dental calculus
+ERR5729641	2	dental calculus	dental calculus
+ERR5729642	2	dental calculus	dental calculus
+ERR5729643	2	dental calculus	dental calculus
+ERR5729644	2	dental calculus	dental calculus
+ERR5729645	2	dental calculus	dental calculus
+ERR5729646	2	dental calculus	dental calculus
+ERR5729647	2	dental calculus	dental calculus
+ERR5729648	2	dental calculus	dental calculus
+ERR5729649	2	dental calculus	dental calculus
+ERR5729650	2	dental calculus	dental calculus
+ERR5729651	2	dental calculus	dental calculus
+ERR5729652	2	dental calculus	dental calculus
+ERR5729653	2	dental calculus	dental calculus
+ERR5729654	2	dental calculus	dental calculus
+ERR5729655	2	dental calculus	dental calculus
+ERR5729656	2	dental calculus	dental calculus
+ERR5729657	2	dental calculus	dental calculus
+ERR9465622	2	lake sediment	lake sediment
+ERR9465623	2	lake sediment	lake sediment
+ERR9465624	2	lake sediment	lake sediment
+ERR9465625	2	lake sediment	lake sediment
+ERR9465626	2	lake sediment	lake sediment
+ERR9465627	2	lake sediment	lake sediment
+ERR9465628	2	lake sediment	lake sediment
+ERR9465629	2	lake sediment	lake sediment
+ERR9465630	2	sediment	lake sediment
+ERR9465631	2	sediment	lake sediment
+ERR9465632	2	marine sediment	lake sediment
+SRR30066258	2	dental calculus	dental calculus
+SRR30066259	2	dental calculus	dental calculus
+SRR30066260	2	dental calculus	dental calculus
+SRR30066261	2	dental calculus	dental calculus
+SRR30066262	2	dental calculus	dental calculus
+SRR30066263	2	dental calculus	dental calculus
+SRR30066264	2	dental calculus	dental calculus
+SRR30066265	2	dental calculus	dental calculus
+SRR30066269	2	dental calculus	dental calculus
+SRR30066270	2	dental calculus	dental calculus
+SRR30066271	2	dental calculus	dental calculus
+SRR30066272	2	dental calculus	dental calculus
+SRR32023812	2	marine sediment	marine sediment
+SRR32023817	2	marine sediment	marine sediment
+SRR32023818	2	lake sediment	marine sediment
+SRR32023819	2	marine sediment	marine sediment
+SRR32023820	2	lake sediment	marine sediment
+SRR32023821	2	marine sediment	marine sediment
+SRR32023822	2	marine sediment	marine sediment
+SRR32023823	2	marine sediment	marine sediment
+SRR32023824	2	marine sediment	marine sediment
+SRR32023825	2	lake sediment	marine sediment
+SRR32023826	2	lake sediment	marine sediment
+SRR32023827	2	marine sediment	marine sediment
+SRR32023828	2	unknown	marine sediment
+SRR32023829	2	lake sediment	marine sediment
+SRR32023830	2	marine sediment	marine sediment
+SRR32023831	2	marine sediment	marine sediment
+SRR32023832	2	marine sediment	marine sediment
+SRR32023833	2	marine sediment	marine sediment
+SRR32023835	2	lake sediment	marine sediment
+SRR32023836	2	marine sediment	marine sediment
+SRR32023837	2	lake sediment	marine sediment
+SRR32023838	2	marine sediment	marine sediment
+SRR32023839	2	marine sediment	marine sediment
+SRR32023840	2	lake sediment	marine sediment
+SRR32023841	2	marine sediment	marine sediment
+SRR32023842	2	unknown	marine sediment
+SRR32023845	2	marine sediment	marine sediment
+SRR32023846	2	marine sediment	marine sediment
+SRR32023847	2	marine sediment	marine sediment
+SRR32023848	2	marine sediment	marine sediment
+SRR32023849	2	marine sediment	marine sediment
+SRR32023851	2	marine sediment	marine sediment
+SRR32023854	2	marine sediment	marine sediment
+SRR32023855	2	marine sediment	marine sediment
+SRR32023858	2	marine sediment	marine sediment
+SRR32023859	2	marine sediment	marine sediment
+SRR32023860	2	marine sediment	marine sediment
+SRR32023861	2	marine sediment	marine sediment
+SRR32023864	2	marine sediment	marine sediment
+SRR32023865	2	marine sediment	marine sediment
+SRR32023867	2	marine sediment	marine sediment
+SRR32023868	2	marine sediment	marine sediment
+SRR32023870	2	marine sediment	marine sediment
+SRR32023871	2	marine sediment	marine sediment
+SRR32023872	2	marine sediment	marine sediment
+SRR32023873	2	lake sediment	marine sediment
+SRR32023874	2	marine sediment	marine sediment
+SRR32023875	2	marine sediment	marine sediment
+SRR6877282	2	dental calculus	dental calculus
+SRR6877283	2	dental calculus	tooth
+SRR6877284	2	dental calculus	dental calculus
+SRR6877285	2	tooth	tooth
+SRR6877286	2	dental calculus	dental calculus
+SRR6877287	2	tooth	tooth
+SRR6877288	2	dental calculus	dental calculus
+SRR6877289	2	tooth	tooth
+SRR6877290	2	dental calculus	dental calculus
+SRR6877291	2	dental calculus	tooth
+SRR6877292	2	dental calculus	dental calculus
+SRR6877293	2	tooth	tooth
+SRR6877294	2	dental calculus	dental calculus
+SRR6877295	2	dental calculus	tooth
+SRR6877296	2	dental calculus	dental calculus
+SRR6877297	2	tooth	tooth
+SRR6877298	2	dental calculus	tooth
+SRR6877299	2	dental calculus	tooth
+SRR6877300	2	dental calculus	dental calculus
+SRR6877301	2	dental calculus	tooth
+SRR6877302	2	tooth	tooth
+SRR6877303	2	dental calculus	dental calculus
+SRR6877304	2	dental calculus	dental calculus
+SRR6877305	2	dental calculus	dental calculus
+SRR6877306	2	tooth	tooth
+SRR6877307	2	tooth	tooth
+SRR6877308	2	dental calculus	dental calculus
+SRR6877309	2	tooth	tooth
+SRR6877310	2	dental calculus	dental calculus
+SRR6877311	2	dental calculus	tooth
+SRR6877312	2	dental calculus	dental calculus
+SRR6877313	2	dental calculus	dental calculus
+SRR6877314	2	dental calculus	tooth
+SRR6877315	2	tooth	tooth
+SRR6877316	2	dental calculus	dental calculus
+SRR6877317	2	tooth	tooth
+SRR6877318	2	dental calculus	dental calculus
+SRR6877319	2	tooth	tooth
+SRR6877320	2	dental calculus	dental calculus
+SRR6877321	2	tooth	tooth
+SRR6877322	2	dental calculus	dental calculus
+SRR6877323	2	dental calculus	dental calculus
+SRR6877324	2	dental calculus	dental calculus
+SRR6877325	2	tooth	tooth
+SRR6877326	2	dental calculus	dental calculus
+SRR6877327	2	tooth	tooth
+SRR6877328	2	dental calculus	dental calculus
+SRR6877329	2	tooth	tooth
+SRR6877330	2	dental calculus	dental calculus
+SRR6877331	2	dental calculus	tooth
+SRR6877332	2	dental calculus	dental calculus
+SRR6877333	2	tooth	tooth
+SRR6877334	2	dental calculus	dental calculus
+SRR6877335	2	tooth	tooth
+SRR6877336	2	dental calculus	dental calculus
+SRR6877337	2	tooth	tooth
+SRR6877338	2	dental calculus	dental calculus
+SRR6877339	2	dental calculus	dental calculus
+SRR6877340	2	dental calculus	dental calculus
+SRR6877341	2	dental calculus	tooth
+SRR6877342	2	dental calculus	dental calculus
+SRR6877343	2	dental calculus	tooth
+SRR6877344	2	dental calculus	dental calculus
+SRR6877345	2	tooth	tooth
+SRR6877346	2	dental calculus	dental calculus
+SRR6877347	2	dental calculus	tooth
+SRR6877348	2	dental calculus	dental calculus
+SRR6877349	2	tooth	tooth
+SRR6877350	2	dental calculus	dental calculus
+SRR6877351	2	tooth	tooth
+SRR6877352	2	dental calculus	dental calculus
+SRR6877353	2	tooth	tooth
+SRR6877354	2	dental calculus	dental calculus
+SRR6877355	2	tooth	tooth
+SRR6877356	2	dental calculus	dental calculus
+SRR6877357	2	tooth	tooth
+SRR6877358	2	dental calculus	dental calculus
+SRR6877359	2	tooth	tooth
+SRR6877360	2	tooth	tooth
+SRR6877361	2	dental calculus	dental calculus
+SRR6877362	2	tooth	tooth
+SRR6877363	2	dental calculus	dental calculus
+SRR6877364	2	tooth	tooth
+SRR6877365	2	dental calculus	dental calculus
+SRR6877366	2	dental calculus	tooth
+SRR6877367	2	dental calculus	dental calculus
+SRR6877368	2	tooth	tooth
+SRR6877369	2	dental calculus	dental calculus
+SRR6877370	2	dental calculus	dental calculus
+SRR6877371	2	tooth	tooth
+SRR6877372	2	dental calculus	dental calculus
+SRR6877373	2	tooth	tooth
+SRR6877374	2	dental calculus	dental calculus
+SRR6877375	2	tooth	tooth
+SRR6877376	2	dental calculus	dental calculus
+SRR6877377	2	tooth	tooth
+SRR6877378	2	dental calculus	dental calculus
+SRR6877379	2	tooth	tooth
+SRR6877380	2	tooth	tooth
+SRR6877381	2	tooth	tooth
+SRR6877382	2	dental calculus	dental calculus
+SRR6877383	2	tooth	tooth
+SRR6877384	2	dental calculus	dental calculus
+SRR6877385	2	tooth	tooth
+SRR6877386	2	dental calculus	dental calculus
+SRR6877387	2	tooth	tooth
+SRR6877388	2	dental calculus	dental calculus
+SRR6877389	2	dental calculus	tooth
+SRR6877390	2	dental calculus	dental calculus
+SRR6877391	2	tooth	tooth
+SRR6877392	2	dental calculus	dental calculus
+SRR6877393	2	dental calculus	dental calculus
+SRR6877394	2	tooth	tooth
+SRR6877395	2	dental calculus	dental calculus
+SRR6877396	2	tooth	tooth
+SRR6877397	2	dental calculus	dental calculus
+SRR6877398	2	dental calculus	tooth
+SRR6877399	2	dental calculus	dental calculus
+SRR6877400	2	tooth	tooth
+SRR6877401	2	dental calculus	dental calculus
+SRR6877402	2	dental calculus	tooth
+SRR6877403	2	dental calculus	dental calculus
+SRR7774469	2	digestive tract contents	midden
+SRR7774470	2	digestive tract contents	midden
+SRR7774471	2	palaeofaeces	midden
+SRR7774472	2	dental calculus	midden
+SRR7774473	2	dental calculus	midden
+SRR7774474	2	palaeofaeces	midden
+SRR7774475	2	dental calculus	midden
+SRR7774476	2	digestive tract contents	midden
+SRR7774477	2	permafrost	midden
+SRR7774478	2	dental calculus	midden
+SRR7774479	2	digestive tract contents	midden
+SRR8652706	2	dental calculus	lake sediment
+SRR8652707	2	bone	lake sediment
+SRR8652708	2	bone	lake sediment
+SRR8652709	2	sediment	lake sediment
+SRR8652710	2	sediment	lake sediment
+SRR8652711	2	sediment	lake sediment
+SRR8652712	2	sediment	lake sediment
+SRR8652713	2	sediment	lake sediment
+SRR8652714	2	sediment	lake sediment
+SRR8652715	2	sediment	lake sediment
+SRR8652716	2	sediment	lake sediment
+SRR8652717	2	lake sediment	lake sediment
+ERR11413657	3	sediment	dental calculus
+ERR11413658	3	dental calculus	dental calculus
+ERR11413659	3	dental calculus	dental calculus
+ERR11413660	3	dental calculus	dental calculus
+ERR11413661	3	dental calculus	dental calculus
+ERR11413662	3	dental calculus	dental calculus
+ERR11413663	3	dental calculus	dental calculus
+ERR11413664	3	sediment	dental calculus
+ERR11413665	3	dental calculus	dental calculus
+ERR11413666	3	dental calculus	dental calculus
+ERR11413667	3	dental calculus	dental calculus
+ERR11413668	3	dental calculus	dental calculus
+ERR11413669	3	dental calculus	dental calculus
+ERR11413670	3	dental calculus	dental calculus
+ERR11413671	3	dental calculus	dental calculus
+ERR11413672	3	dental calculus	dental calculus
+ERR11413673	3	dental calculus	dental calculus
+ERR11413674	3	dental calculus	dental calculus
+ERR11413675	3	dental calculus	dental calculus
+ERR11413676	3	dental calculus	dental calculus
+ERR11413677	3	dental calculus	dental calculus
+ERR11413678	3	tooth	dental calculus
+ERR11413679	3	dental calculus	dental calculus
+ERR11413680	3	dental calculus	dental calculus
+ERR11413681	3	dental calculus	dental calculus
+ERR11413682	3	dental calculus	dental calculus
+ERR11413683	3	dental calculus	dental calculus
+ERR11413684	3	dental calculus	dental calculus
+ERR11413685	3	dental calculus	dental calculus
+ERR11413686	3	dental calculus	dental calculus
+ERR11413687	3	dental calculus	dental calculus
+ERR11413688	3	dental calculus	dental calculus
+ERR11413689	3	dental calculus	dental calculus
+ERR11413690	3	dental calculus	dental calculus
+ERR11413691	3	dental calculus	dental calculus
+ERR11413692	3	dental calculus	dental calculus
+ERR11413693	3	dental calculus	dental calculus
+ERR11413694	3	dental calculus	dental calculus
+ERR11413695	3	dental calculus	dental calculus
+ERR11413696	3	dental calculus	dental calculus
+ERR11413697	3	dental calculus	dental calculus
+ERR11413698	3	dental calculus	dental calculus
+ERR11413699	3	dental calculus	dental calculus
+ERR11413700	3	dental calculus	dental calculus
+ERR11413701	3	dental calculus	dental calculus
+ERR11413702	3	dental calculus	dental calculus
+ERR11413703	3	dental calculus	dental calculus
+ERR11413704	3	dental calculus	dental calculus
+ERR11413705	3	dental calculus	dental calculus
+ERR11413706	3	dental calculus	dental calculus
+ERR11413707	3	dental calculus	dental calculus
+ERR11413708	3	dental calculus	dental calculus
+ERR11413709	3	dental calculus	dental calculus
+ERR11413710	3	dental calculus	dental calculus
+ERR11413711	3	dental calculus	dental calculus
+ERR11413712	3	dental calculus	dental calculus
+ERR11413713	3	dental calculus	dental calculus
+ERR11413714	3	dental calculus	dental calculus
+ERR11413715	3	dental calculus	dental calculus
+ERR11413716	3	dental calculus	dental calculus
+ERR11413717	3	dental calculus	dental calculus
+ERR11413718	3	dental calculus	dental calculus
+ERR11413719	3	dental calculus	dental calculus
+ERR11413720	3	dental calculus	dental calculus
+ERR11413721	3	dental calculus	dental calculus
+ERR11413722	3	dental calculus	dental calculus
+ERR11413723	3	dental calculus	dental calculus
+ERR11413724	3	dental calculus	dental calculus
+ERR11413725	3	dental calculus	dental calculus
+ERR11413726	3	dental calculus	dental calculus
+ERR11413727	3	dental calculus	dental calculus
+ERR11413728	3	dental calculus	dental calculus
+ERR11413729	3	dental calculus	dental calculus
+ERR11413731	3	dental calculus	dental calculus
+ERR11413732	3	dental calculus	dental calculus
+ERR11413733	3	dental calculus	dental calculus
+ERR11413734	3	dental calculus	dental calculus
+ERR11413735	3	dental calculus	dental calculus
+ERR11413736	3	sediment	dental calculus
+ERR11413737	3	dental calculus	dental calculus
+ERR11413738	3	lake sediment	dental calculus
+ERR11413739	3	dental calculus	dental calculus
+ERR11413740	3	sediment	dental calculus
+ERR11413741	3	dental calculus	dental calculus
+ERR11413742	3	tooth	dental calculus
+ERR11413743	3	tooth	dental calculus
+ERR11413744	3	sediment	dental calculus
+ERR11413745	3	dental calculus	dental calculus
+ERR11413746	3	dental calculus	dental calculus
+ERR11413747	3	dental calculus	dental calculus
+ERR11413748	3	dental calculus	dental calculus
+ERR11413749	3	dental calculus	dental calculus
+ERR11413750	3	dental calculus	dental calculus
+ERR11413751	3	dental calculus	dental calculus
+ERR11413752	3	dental calculus	dental calculus
+ERR11413753	3	dental calculus	dental calculus
+ERR11413754	3	dental calculus	dental calculus
+ERR11413755	3	dental calculus	dental calculus
+ERR11413756	3	dental calculus	dental calculus
+ERR11413757	3	dental calculus	dental calculus
+ERR11413758	3	dental calculus	dental calculus
+ERR11413759	3	dental calculus	dental calculus
+ERR11656729	3	tooth	bone
+ERR11656730	3	tooth	bone
+ERR11656731	3	tooth	bone
+ERR11656732	3	tooth	bone
+ERR11656733	3	tooth	bone
+ERR11656734	3	tooth	bone
+ERR11656735	3	tooth	bone
+ERR11656736	3	tooth	bone
+ERR11656737	3	bone	bone
+ERR11656738	3	tooth	bone
+ERR11656739	3	tooth	bone
+ERR11656740	3	tooth	bone
+ERR11656741	3	tooth	bone
+ERR11656742	3	tooth	bone
+ERR11656743	3	tooth	bone
+ERR11656744	3	tooth	bone
+ERR11656745	3	tooth	bone
+ERR11656746	3	tooth	bone
+ERR11656747	3	tooth	bone
+ERR11656748	3	tooth	bone
+ERR1560012	3	lake sediment	lake sediment
+ERR1560013	3	lake sediment	lake sediment
+ERR1560014	3	lake sediment	lake sediment
+ERR1560015	3	lake sediment	lake sediment
+ERR1560016	3	lake sediment	lake sediment
+ERR1560017	3	lake sediment	lake sediment
+ERR1560018	3	tooth	lake sediment
+ERR1560019	3	leaf	lake sediment
+ERR1560020	3	lake sediment	lake sediment
+ERR1560021	3	leaf	lake sediment
+ERR1560022	3	lake sediment	lake sediment
+ERR1560023	3	lake sediment	lake sediment
+ERR1560024	3	tooth	lake sediment
+ERR1560025	3	lake sediment	lake sediment
+ERR1560093	3	lake sediment	lake sediment
+ERR1560094	3	lake sediment	lake sediment
+ERR1560095	3	leaf	lake sediment
+ERR1560096	3	lake sediment	lake sediment
+ERR1560097	3	lake sediment	lake sediment
+ERR1560098	3	leaf	lake sediment
+ERR1560099	3	lake sediment	lake sediment
+ERR1560100	3	permafrost	lake sediment
+ERR1560101	3	lake sediment	lake sediment
+ERR1560102	3	permafrost	lake sediment
+ERR1560103	3	permafrost	lake sediment
+ERR1560104	3	permafrost	lake sediment
+ERR1560105	3	lake sediment	lake sediment
+ERR1560106	3	lake sediment	lake sediment
+ERR1560107	3	lake sediment	lake sediment
+ERR1560108	3	lake sediment	lake sediment
+ERR1560109	3	permafrost	lake sediment
+ERR1560110	3	lake sediment	lake sediment
+ERR1688747	3	leaf	sediment
+ERR1688749	3	lake sediment	sediment
+ERR1688750	3	lake sediment	sediment
+ERR1688752	3	leaf	sediment
+ERR1688754	3	leaf	sediment
+ERR1688756	3	lake sediment	sediment
+ERR1688758	3	leaf	sediment
+ERR1688760	3	leaf	sediment
+ERR1688761	3	lake sediment	sediment
+ERR1688762	3	lake sediment	sediment
+ERR1688764	3	lake sediment	sediment
+ERR1688765	3	lake sediment	sediment
+ERR1688768	3	marine sediment	sediment
+ERR1688769	3	leaf	sediment
+ERR1688771	3	lake sediment	sediment
+ERR1688772	3	lake sediment	sediment
+ERR1688775	3	lake sediment	sediment
+ERR1688778	3	leaf	sediment
+ERR1688780	3	lake sediment	sediment
+ERR1688782	3	marine sediment	sediment
+ERR1688785	3	marine sediment	sediment
+ERR1688788	3	tooth	sediment
+ERR1688789	3	bone	sediment
+ERR1688797	3	leaf	sediment
+ERR1688799	3	leaf	sediment
+ERR1688803	3	leaf	sediment
+ERR1688804	3	leaf	sediment
+ERR1688808	3	lake sediment	sediment
+ERR1688810	3	lake sediment	sediment
+ERR3458787	3	tooth	
+ERR3458788	3	tooth	
+ERR3458789	3	tooth	
+ERR3458790	3	tooth	
+ERR3458791	3	marine sediment	
+ERR3458792	3	marine sediment	
+ERR3459717	3	tooth	
+ERR3459718	3	tooth	
+ERR3459719	3	tooth	
+ERR3459720	3	dental calculus	
+ERR3459721	3	tooth	
+ERR3459722	3	tooth	
+ERR3459723	3	tooth	
+ERR3459724	3	tooth	
+ERR3459725	3	lake sediment	
+ERR3459726	3	lake sediment	
+ERR3459727	3	lake sediment	
+ERR3459728	3	lake sediment	
+ERR3459729	3	lake sediment	
+ERR3459730	3	lake sediment	
+ERR3459731	3	lake sediment	
+ERR3459732	3	dental calculus	
+ERR3459733	3	lake sediment	
+ERR3459734	3	lake sediment	
+ERR3459735	3	lake sediment	
+ERR3459736	3	lake sediment	
+ERR3459737	3	tooth	
+ERR3459738	3	tooth	
+ERR3459739	3	tooth	
+ERR3459740	3	marine sediment	
+ERR3459741	3	tooth	
+ERR3459742	3	lake sediment	
+ERR3459743	3	dental calculus	
+ERR3459744	3	lake sediment	
+ERR3772645	3	lake sediment	lake sediment
+ERR3804374	3	lake sediment	lake sediment
+ERR3804375	3	lake sediment	lake sediment
+ERR4172756	3	dental calculus	dental calculus
+ERR4172758	3	dental calculus	dental calculus
+ERR4172761	3	dental calculus	dental calculus
+ERR4172763	3	dental calculus	dental calculus
+ERR4172766	3	dental calculus	dental calculus
+ERR4172783	3	dental calculus	dental calculus
+ERR4172788	3	dental calculus	dental calculus
+ERR4172789	3	dental calculus	dental calculus
+ERR4172797	3	dental calculus	dental calculus
+ERR4172799	3	dental calculus	dental calculus
+ERR4172800	3	dental calculus	dental calculus
+ERR4172802	3	dental calculus	dental calculus
+ERR4172804	3	dental calculus	dental calculus
+ERR4172806	3	dental calculus	dental calculus
+ERR4172808	3	dental calculus	dental calculus
+ERR4172809	3	dental calculus	dental calculus
+ERR4172811	3	dental calculus	dental calculus
+ERR4172813	3	dental calculus	dental calculus
+ERR4172814	3	dental calculus	dental calculus
+ERR4172817	3	dental calculus	dental calculus
+ERR4172819	3	dental calculus	dental calculus
+ERR4172823	3	dental calculus	dental calculus
+ERR4172827	3	dental calculus	dental calculus
+ERR4172829	3	dental calculus	dental calculus
+ERR4172830	3	dental calculus	dental calculus
+ERR4172832	3	dental calculus	dental calculus
+ERR4172834	3	dental calculus	dental calculus
+ERR4172835	3	leaf	dental calculus
+ERR4172836	3	leaf	dental calculus
+ERR4172838	3	leaf	dental calculus
+ERR4172839	3	leaf	dental calculus
+ERR4172841	3	dental calculus	dental calculus
+ERR4172843	3	dental calculus	dental calculus
+ERR4172850	3	dental calculus	dental calculus
+ERR4172854	3	dental calculus	dental calculus
+ERR4172855	3	dental calculus	dental calculus
+ERR4172857	3	dental calculus	dental calculus
+ERR4172860	3	dental calculus	dental calculus
+ERR4172872	3	dental calculus	dental calculus
+ERR4172883	3	dental calculus	tooth
+ERR4172889	3	dental calculus	tooth
+ERR4172953	3	dental calculus	tooth
+ERR4172977	3	dental calculus	tooth
+ERR4172978	3	dental calculus	dental calculus
+ERR4172979	3	dental calculus	dental calculus
+ERR4172981	3	dental calculus	dental calculus
+ERR4172982	3	dental calculus	dental calculus
+ERR4172991	3	dental calculus	dental calculus
+ERR4173008	3	dental calculus	dental calculus
+ERR4173033	3	dental calculus	dental calculus
+ERR4173039	3	dental calculus	dental calculus
+ERR4173041	3	dental calculus	dental calculus
+ERR4173043	3	dental calculus	dental calculus
+ERR4173045	3	dental calculus	dental calculus
+ERR4173049	3	dental calculus	dental calculus
+ERR4173051	3	dental calculus	dental calculus
+ERR4173057	3	dental calculus	dental calculus
+ERR4173060	3	dental calculus	dental calculus
+ERR4173061	3	dental calculus	dental calculus
+ERR4173063	3	dental calculus	dental calculus
+ERR4173066	3	dental calculus	dental calculus
+ERR4173068	3	dental calculus	dental calculus
+ERR4173070	3	dental calculus	dental calculus
+ERR4173072	3	dental calculus	dental calculus
+ERR4173073	3	dental calculus	dental calculus
+ERR4173075	3	dental calculus	dental calculus
+ERR4173082	3	dental calculus	dental calculus
+ERR9612721	3	dental calculus	dental calculus
+ERR9612722	3	dental calculus	dental calculus
+ERR9612723	3	dental calculus	dental calculus
+ERR9612724	3	dental calculus	dental calculus
+ERR9612725	3	dental calculus	dental calculus
+ERR9612726	3	dental calculus	dental calculus
+ERR9612727	3	dental calculus	dental calculus
+ERR9612728	3	dental calculus	dental calculus
+ERR9612729	3	dental calculus	dental calculus
+ERR9612730	3	dental calculus	dental calculus
+ERR9612731	3	dental calculus	dental calculus
+ERR9612732	3	dental calculus	dental calculus
+ERR9612733	3	dental calculus	dental calculus
+ERR9612734	3	dental calculus	dental calculus
+ERR9612735	3	dental calculus	dental calculus
+ERR9612736	3	dental calculus	dental calculus
+ERR9612737	3	dental calculus	dental calculus
+ERR9612738	3	dental calculus	dental calculus
+ERR9612739	3	dental calculus	dental calculus
+ERR9612740	3	dental calculus	dental calculus
+ERR9612741	3	dental calculus	dental calculus
+ERR9612742	3	dental calculus	dental calculus
+ERR9612743	3	dental calculus	dental calculus
+ERR9612744	3	dental calculus	dental calculus
+ERR9612745	3	dental calculus	dental calculus
+ERR9612746	3	dental calculus	dental calculus
+ERR9612747	3	dental calculus	dental calculus
+ERR9612748	3	dental calculus	dental calculus
+ERR9612749	3	dental calculus	dental calculus
+ERR9612750	3	dental calculus	dental calculus
+ERR9612751	3	dental calculus	dental calculus
+ERR9612752	3	dental calculus	dental calculus
+ERR9612753	3	dental calculus	dental calculus
+ERR9612754	3	dental calculus	dental calculus
+ERR9612755	3	dental calculus	dental calculus
+ERR9612756	3	dental calculus	dental calculus
+ERR9612757	3	dental calculus	dental calculus
+ERR9612758	3	dental calculus	dental calculus
+ERR9612759	3	dental calculus	dental calculus
+ERR9612760	3	dental calculus	dental calculus
+ERR9612761	3	dental calculus	dental calculus
+ERR9612762	3	dental calculus	dental calculus
+ERR9612763	3	dental calculus	dental calculus
+ERR9612764	3	dental calculus	dental calculus
+ERR9612765	3	dental calculus	dental calculus
+ERR9612766	3	dental calculus	dental calculus
+ERR9612767	3	dental calculus	dental calculus
+ERR9612768	3	dental calculus	dental calculus
+ERR9612769	3	dental calculus	dental calculus
+ERR9612770	3	dental calculus	dental calculus
+ERR9612771	3	dental calculus	dental calculus
+ERR9612772	3	dental calculus	dental calculus
+ERR9612773	3	dental calculus	dental calculus
+ERR9612774	3	dental calculus	dental calculus
+ERR9612775	3	dental calculus	dental calculus
+ERR9612776	3	dental calculus	dental calculus
+ERR9612777	3	dental calculus	dental calculus
+ERR9612778	3	dental calculus	dental calculus
+ERR9612779	3	dental calculus	dental calculus
+ERR9612780	3	dental calculus	dental calculus
+ERR9612781	3	dental calculus	dental calculus
+ERR9612782	3	dental calculus	dental calculus
+ERR9612783	3	dental calculus	dental calculus
+ERR9612784	3	dental calculus	dental calculus
+ERR9612785	3	dental calculus	dental calculus
+ERR9612786	3	dental calculus	dental calculus
+ERR9612787	3	dental calculus	dental calculus
+ERR9612788	3	dental calculus	dental calculus
+ERR9612789	3	dental calculus	dental calculus
+ERR9612790	3	dental calculus	dental calculus
+ERR9612791	3	dental calculus	dental calculus
+ERR9612792	3	dental calculus	dental calculus
+ERR9612793	3	dental calculus	dental calculus
+ERR9612794	3	dental calculus	dental calculus
+ERR9612795	3	dental calculus	dental calculus
+ERR9612796	3	dental calculus	dental calculus
+ERR9612797	3	dental calculus	dental calculus
+ERR9612798	3	dental calculus	dental calculus
+ERR9612799	3	dental calculus	dental calculus
+ERR9612800	3	dental calculus	dental calculus
+ERR9612801	3	dental calculus	dental calculus
+ERR9612802	3	dental calculus	dental calculus
+ERR9612803	3	dental calculus	dental calculus
+ERR9612804	3	dental calculus	dental calculus
+ERR9612805	3	dental calculus	dental calculus
+ERR9612806	3	dental calculus	dental calculus
+ERR9612807	3	dental calculus	dental calculus
+ERR9612808	3	dental calculus	dental calculus
+ERR9612809	3	dental calculus	dental calculus
+ERR9612810	3	dental calculus	dental calculus
+ERR9612811	3	dental calculus	dental calculus
+ERR9612812	3	dental calculus	dental calculus
+ERR9612813	3	dental calculus	dental calculus
+ERR9612814	3	dental calculus	dental calculus
+ERR9612815	3	dental calculus	dental calculus
+ERR9612816	3	dental calculus	dental calculus
+ERR9612817	3	dental calculus	dental calculus
+ERR9612818	3	dental calculus	dental calculus
+ERR9612819	3	dental calculus	dental calculus
+ERR9612820	3	dental calculus	dental calculus
+ERR9612821	3	dental calculus	dental calculus
+ERR9612822	3	dental calculus	dental calculus
+ERR9612823	3	dental calculus	dental calculus
+ERR9612824	3	dental calculus	dental calculus
+ERR9612825	3	dental calculus	dental calculus
+ERR9612826	3	dental calculus	dental calculus
+ERR9612827	3	dental calculus	dental calculus
+ERR9612828	3	dental calculus	dental calculus
+ERR9612829	3	dental calculus	dental calculus
+ERR9612830	3	dental calculus	dental calculus
+ERR9612831	3	dental calculus	dental calculus
+ERR9612832	3	dental calculus	dental calculus
+ERR9612833	3	dental calculus	dental calculus
+ERR9612834	3	dental calculus	dental calculus
+ERR9612835	3	dental calculus	dental calculus
+ERR9612836	3	dental calculus	dental calculus
+ERR9612837	3	dental calculus	dental calculus
+ERR9612838	3	dental calculus	dental calculus
+ERR9612839	3	dental calculus	dental calculus
+ERR9612840	3	dental calculus	dental calculus
+ERR9612841	3	dental calculus	dental calculus
+ERR9612842	3	dental calculus	dental calculus
+ERR9612843	3	dental calculus	dental calculus
+ERR9612844	3	dental calculus	dental calculus
+ERR9612845	3	dental calculus	dental calculus
+ERR9612846	3	dental calculus	dental calculus
+ERR9612847	3	dental calculus	dental calculus
+ERR9612848	3	dental calculus	dental calculus
+ERR9612849	3	dental calculus	dental calculus
+ERR9612850	3	dental calculus	dental calculus
+ERR9612851	3	dental calculus	dental calculus
+ERR9612852	3	dental calculus	dental calculus
+ERR9612853	3	dental calculus	dental calculus
+ERR9612854	3	dental calculus	dental calculus
+ERR9612855	3	dental calculus	dental calculus
+ERR9612856	3	dental calculus	dental calculus
+ERR9612857	3	dental calculus	dental calculus
+ERR9612858	3	dental calculus	dental calculus
+ERR9612859	3	dental calculus	dental calculus
+ERR9612860	3	dental calculus	dental calculus
+ERR9612861	3	dental calculus	dental calculus
+ERR9612862	3	dental calculus	dental calculus
+ERR9612863	3	dental calculus	dental calculus
+ERR9612864	3	dental calculus	dental calculus
+ERR9612865	3	dental calculus	dental calculus
+ERR9612866	3	dental calculus	dental calculus
+ERR9612867	3	dental calculus	dental calculus
+ERR9612868	3	dental calculus	dental calculus
+ERR9612869	3	dental calculus	dental calculus
+ERR9612870	3	dental calculus	dental calculus
+ERR9612871	3	dental calculus	dental calculus
+ERR9612872	3	dental calculus	dental calculus
+ERR9612873	3	dental calculus	dental calculus
+ERR9612874	3	dental calculus	dental calculus
+ERR9612875	3	dental calculus	dental calculus
+ERR9612876	3	dental calculus	dental calculus
+ERR9612877	3	dental calculus	dental calculus
+ERR9612878	3	dental calculus	dental calculus
+ERR9612879	3	dental calculus	dental calculus
+ERR9612880	3	dental calculus	dental calculus
+ERR9612881	3	dental calculus	dental calculus
+ERR9612882	3	dental calculus	dental calculus
+ERR9612883	3	dental calculus	dental calculus
+ERR9612884	3	dental calculus	dental calculus
+ERR9612885	3	dental calculus	dental calculus
+ERR9612886	3	dental calculus	dental calculus
+ERR9612887	3	dental calculus	dental calculus
+ERR9612888	3	dental calculus	dental calculus
+ERR9612889	3	dental calculus	dental calculus
+ERR9612890	3	dental calculus	dental calculus
+ERR9612891	3	dental calculus	dental calculus
+ERR9612892	3	dental calculus	dental calculus
+ERR9612893	3	dental calculus	dental calculus
+ERR9612894	3	dental calculus	dental calculus
+ERR9612895	3	dental calculus	dental calculus
+ERR9612896	3	dental calculus	dental calculus
+ERR9612897	3	dental calculus	dental calculus
+ERR9612898	3	dental calculus	dental calculus
+ERR9690357	3	permafrost	permafrost
+ERR9690358	3	sediment	permafrost
+ERR9690359	3	lake sediment	permafrost
+ERR9690360	3	lake sediment	permafrost
+ERR9690361	3	sediment	permafrost
+ERR9690362	3	permafrost	permafrost
+ERR9690363	3	sediment	permafrost
+ERR9690364	3	permafrost	permafrost
+ERR9690365	3	permafrost	permafrost
+ERR9690366	3	permafrost	permafrost
+SRR10156707	3	lake sediment	sediment
+SRR10156708	3	lake sediment	sediment
+SRR10156709	3	lake sediment	sediment
+SRR10156710	3	lake sediment	sediment
+SRR10156713	3	lake sediment	sediment
+SRR10156724	3	lake sediment	sediment
+SRR10156735	3	lake sediment	sediment
+SRR10156737	3	lake sediment	sediment
+SRR10156738	3	lake sediment	sediment
+SRR10156739	3	lake sediment	sediment
+SRR10156740	3	lake sediment	sediment
+SRR10156741	3	lake sediment	sediment
+SRR10156742	3	marine sediment	sediment
+SRR10156743	3	lake sediment	sediment
+SRR10156744	3	lake sediment	sediment
+SRR10156745	3	lake sediment	sediment
+SRR10156746	3	lake sediment	sediment
+SRR10156747	3	lake sediment	sediment
+SRR10156748	3	lake sediment	sediment
+SRR10156749	3	lake sediment	sediment
+SRR10156750	3	lake sediment	sediment
+SRR10156751	3	lake sediment	sediment
+SRR10156752	3	lake sediment	sediment
+SRR10156753	3	lake sediment	sediment
+SRR10156754	3	lake sediment	sediment
+SRR10156755	3	lake sediment	sediment
+SRR10156756	3	lake sediment	sediment
+SRR10156757	3	lake sediment	sediment
+SRR10156758	3	lake sediment	sediment
+SRR12136712	3	dental calculus	dental calculus
+SRR12136713	3	dental calculus	dental calculus
+SRR12462930	3	dental calculus	dental calculus
+SRR12462931	3	dental calculus	dental calculus
+SRR12462932	3	dental calculus	dental calculus
+SRR12462933	3	dental calculus	dental calculus
+SRR12462934	3	dental calculus	dental calculus
+SRR12462935	3	dental calculus	dental calculus
+SRR12462936	3	dental calculus	dental calculus
+SRR12462937	3	dental calculus	dental calculus
+SRR12462938	3	dental calculus	dental calculus
+SRR12462939	3	dental calculus	dental calculus
+SRR12462940	3	dental calculus	dental calculus
+SRR12462941	3	dental calculus	dental calculus
+SRR12462942	3	dental calculus	dental calculus
+SRR12462943	3	dental calculus	dental calculus
+SRR12462944	3	dental calculus	dental calculus
+SRR12462945	3	dental calculus	dental calculus
+SRR12462946	3	dental calculus	dental calculus
+SRR12462947	3	dental calculus	dental calculus
+SRR19160147	3	dental calculus	intestine
+SRR19160150	3	dental calculus	intestine
+SRR19160161	3	tooth	intestine
+SRR19160174	3	dental calculus	intestine
+SRR19160175	3	lake sediment	intestine
+SRR19160180	3	tooth	intestine
+SRR19160184	3	tooth	intestine
+SRR19160194	3	tooth	intestine
+SRR19160206	3	dental calculus	intestine
+SRR19160231	3	dental calculus	intestine
+SRR19160251	3	lake sediment	intestine
+SRR957738	3	dental calculus	dental calculus
+SRR957739	3	dental calculus	dental calculus
+SRR957740	3	dental calculus	dental calculus
+SRR957741	3	dental calculus	dental calculus
+SRR957742	3	dental calculus	dental calculus
+SRR957743	3	dental calculus	dental calculus
+SRR957744	3	dental calculus	dental calculus
+SRR957745	3	dental calculus	dental calculus
+SRR957746	3	dental calculus	dental calculus
+ERR12115113	4	dental calculus	dental calculus
+ERR12115114	4	dental calculus	dental calculus
+ERR12115115	4	dental calculus	dental calculus
+ERR12115116	4	dental calculus	dental calculus
+ERR1777519	4	tooth	bone
+ERR1777520	4	tooth	bone
+ERR1777521	4	tooth	tooth
+ERR1777522	4	tooth	bone
+ERR1777523	4	tooth	bone
+ERR1777524	4	tooth	tooth
+ERR1777525	4	tooth	bone
+ERR1777526	4	tooth	bone
+ERR1777527	4	tooth	tooth
+ERR1777528	4	tooth	bone
+ERR1777529	4	tooth	bone
+ERR1777530	4	tooth	tooth
+ERR1777531	4	tooth	bone
+ERR1777532	4	tooth	bone
+ERR1777533	4	tooth	tooth
+ERR1777534	4	tooth	bone
+ERR1777535	4	tooth	bone
+ERR1777536	4	tooth	tooth
+ERR1777537	4	tooth	bone
+ERR1777538	4	tooth	bone
+ERR1777539	4	tooth	tooth
+ERR1777540	4	tooth	bone
+ERR1777541	4	tooth	bone
+ERR1777542	4	tooth	tooth
+ERR1777543	4	tooth	bone
+ERR1777544	4	tooth	bone
+ERR1777545	4	tooth	tooth
+ERR1777546	4	tooth	bone
+ERR1777547	4	tooth	tooth
+ERR1777548	4	tooth	bone
+ERR1777549	4	dental calculus	tooth
+ERR1777550	4	tooth	bone
+ERR1777551	4	dental calculus	tooth
+ERR1777552	4	tooth	bone
+ERR1777553	4	tooth	tooth
+ERR1777554	4	tooth	bone
+ERR1777555	4	dental calculus	tooth
+ERR1777556	4	tooth	bone
+ERR1777557	4	tooth	tooth
+ERR1777558	4	tooth	bone
+ERR1777559	4	tooth	tooth
+ERR1777560	4	tooth	bone
+ERR1777561	4	tooth	tooth
+ERR1777562	4	tooth	bone
+ERR1777563	4	tooth	tooth
+ERR1777564	4	tooth	bone
+ERR1777565	4	tooth	tooth
+ERR1777566	4	tooth	bone
+ERR1777567	4	tooth	tooth
+ERR1777568	4	tooth	bone
+ERR1777569	4	dental calculus	tooth
+ERR3609652	4	intestine	dental calculus
+ERR3609653	4	lake sediment	dental calculus
+ERR3609654	4	dental calculus	dental calculus
+ERR3609655	4	intestine	dental calculus
+ERR3609656	4	intestine	dental calculus
+ERR3609657	4	dental calculus	dental calculus
+ERR3609658	4	dental calculus	dental calculus
+ERR3609659	4	dental calculus	dental calculus
+ERR3609660	4	dental calculus	dental calculus
+ERR3609661	4	dental calculus	dental calculus
+ERR4596443	4	dental calculus	dental calculus
+ERR4596813	4	dental calculus	dental calculus
+ERR4596815	4	dental calculus	dental calculus
+ERR4596816	4	dental calculus	dental calculus
+ERR4596817	4	dental calculus	dental calculus
+ERR4596818	4	dental calculus	dental calculus
+ERR4596819	4	dental calculus	dental calculus
+ERR4596820	4	dental calculus	dental calculus
+ERR4596822	4	dental calculus	dental calculus
+ERR4596823	4	dental calculus	dental calculus
+ERR4596824	4	dental calculus	dental calculus
+ERR4596825	4	dental calculus	dental calculus
+ERR4596826	4	dental calculus	dental calculus
+ERR4596828	4	dental calculus	dental calculus
+ERR5670952	4	dental calculus	dental calculus
+ERR5670953	4	dental calculus	dental calculus
+ERR5670954	4	dental calculus	dental calculus
+ERR5670955	4	dental calculus	dental calculus
+ERR5670956	4	dental calculus	dental calculus
+ERR5670957	4	dental calculus	dental calculus
+ERR5670958	4	dental calculus	dental calculus
+ERR5670959	4	dental calculus	dental calculus
+ERR5670960	4	dental calculus	dental calculus
+ERR5670961	4	dental calculus	dental calculus
+ERR5670962	4	dental calculus	dental calculus
+ERR5670963	4	dental calculus	dental calculus
+ERR5670964	4	dental calculus	dental calculus
+ERR5670965	4	dental calculus	dental calculus
+ERR5670966	4	dental calculus	dental calculus
+ERR5670967	4	dental calculus	dental calculus
+ERR5670968	4	dental calculus	dental calculus
+ERR5670969	4	dental calculus	dental calculus
+ERR5670970	4	dental calculus	dental calculus
+ERR5670971	4	dental calculus	dental calculus
+ERR5766165	4	palaeofaeces	palaeofaeces
+ERR5766166	4	palaeofaeces	palaeofaeces
+ERR5766167	4	palaeofaeces	palaeofaeces
+ERR5766168	4	palaeofaeces	palaeofaeces
+ERR5766169	4	palaeofaeces	palaeofaeces
+ERR5766170	4	palaeofaeces	palaeofaeces
+ERR5766171	4	palaeofaeces	palaeofaeces
+ERR5766172	4	palaeofaeces	palaeofaeces
+ERR5766173	4	palaeofaeces	palaeofaeces
+ERR5766174	4	palaeofaeces	palaeofaeces
+ERR5766175	4	palaeofaeces	palaeofaeces
+ERR5766176	4	palaeofaeces	palaeofaeces
+ERR5766177	4	palaeofaeces	palaeofaeces
+ERR5766178	4	palaeofaeces	palaeofaeces
+ERR5766179	4	palaeofaeces	palaeofaeces
+ERR5766180	4	palaeofaeces	palaeofaeces
+ERR5766181	4	palaeofaeces	palaeofaeces
+ERR5766182	4	palaeofaeces	palaeofaeces
+ERR5766183	4	palaeofaeces	palaeofaeces
+ERR6178850	4	dental calculus	dental calculus
+ERR6178851	4	dental calculus	dental calculus
+ERR6178852	4	dental calculus	dental calculus
+ERR6178853	4	dental calculus	dental calculus
+ERR6178854	4	dental calculus	dental calculus
+ERR6178855	4	dental calculus	dental calculus
+ERR6178856	4	dental calculus	dental calculus
+ERR6178857	4	dental calculus	dental calculus
+ERR6178858	4	dental calculus	dental calculus
+ERR6178859	4	dental calculus	dental calculus
+ERR6178860	4	dental calculus	dental calculus
+ERR6178861	4	dental calculus	dental calculus
+ERR6178862	4	dental calculus	dental calculus
+ERR6178863	4	dental calculus	dental calculus
+ERR6178864	4	dental calculus	dental calculus
+ERR6178865	4	dental calculus	dental calculus
+ERR6178866	4	dental calculus	dental calculus
+ERR6178867	4	dental calculus	dental calculus
+ERR6178868	4	dental calculus	dental calculus
+ERR6178869	4	dental calculus	dental calculus
+ERR6178870	4	dental calculus	dental calculus
+ERR6178871	4	dental calculus	dental calculus
+ERR6178872	4	dental calculus	dental calculus
+ERR6178873	4	dental calculus	dental calculus
+ERR6178874	4	dental calculus	dental calculus
+ERR6178875	4	dental calculus	dental calculus
+ERR6178876	4	dental calculus	dental calculus
+ERR6178877	4	dental calculus	dental calculus
+ERR6178878	4	dental calculus	dental calculus
+ERR6178879	4	dental calculus	dental calculus
+ERR6178880	4	dental calculus	dental calculus
+ERR6178881	4	dental calculus	dental calculus
+ERR6178882	4	dental calculus	dental calculus
+ERR6178883	4	dental calculus	dental calculus
+ERR6178884	4	dental calculus	dental calculus
+ERR6178885	4	dental calculus	dental calculus
+ERR6178886	4	dental calculus	dental calculus
+ERR6178887	4	dental calculus	dental calculus
+ERR6178888	4	dental calculus	dental calculus
+ERR6178889	4	dental calculus	dental calculus
+ERR6178890	4	dental calculus	dental calculus
+ERR6178891	4	dental calculus	dental calculus
+ERR6178892	4	dental calculus	dental calculus
+ERR6178893	4	dental calculus	dental calculus
+ERR6178894	4	dental calculus	dental calculus
+ERR6178895	4	dental calculus	dental calculus
+ERR6178897	4	dental calculus	dental calculus
+ERR6178898	4	dental calculus	dental calculus
+ERR6178899	4	dental calculus	dental calculus
+ERR6178900	4	dental calculus	dental calculus
+ERR6178901	4	dental calculus	dental calculus
+ERR6178902	4	dental calculus	dental calculus
+ERR6178903	4	dental calculus	dental calculus
+ERR6178904	4	dental calculus	dental calculus
+ERR6178905	4	dental calculus	dental calculus
+ERR6178906	4	dental calculus	dental calculus
+ERR6178907	4	dental calculus	dental calculus
+ERR6178908	4	dental calculus	dental calculus
+ERR6178909	4	dental calculus	dental calculus
+ERR6178910	4	dental calculus	dental calculus
+ERR6178911	4	dental calculus	dental calculus
+ERR6178912	4	dental calculus	dental calculus
+ERR6178913	4	dental calculus	dental calculus
+ERR6178914	4	dental calculus	dental calculus
+ERR6178915	4	dental calculus	dental calculus
+ERR6178916	4	dental calculus	dental calculus
+ERR6178917	4	dental calculus	dental calculus
+ERR6178918	4	dental calculus	dental calculus
+ERR6178919	4	dental calculus	dental calculus
+ERR6178920	4	dental calculus	dental calculus
+ERR6178921	4	dental calculus	dental calculus
+ERR6178923	4	dental calculus	dental calculus
+ERR6178924	4	dental calculus	dental calculus
+ERR6178925	4	dental calculus	dental calculus
+ERR6178926	4	dental calculus	dental calculus
+ERR6178927	4	dental calculus	dental calculus
+ERR6178928	4	dental calculus	dental calculus
+ERR6178929	4	dental calculus	dental calculus
+ERR6178930	4	dental calculus	dental calculus
+ERR6178931	4	dental calculus	dental calculus
+ERR6178932	4	dental calculus	dental calculus
+ERR6178933	4	dental calculus	dental calculus
+ERR6178934	4	dental calculus	dental calculus
+ERR6178935	4	dental calculus	dental calculus
+ERR6178936	4	dental calculus	dental calculus
+ERR6178937	4	dental calculus	dental calculus
+ERR6178938	4	dental calculus	dental calculus
+ERR6178939	4	dental calculus	dental calculus
+ERR6178940	4	dental calculus	dental calculus
+ERR6178941	4	dental calculus	dental calculus
+ERR6178942	4	dental calculus	dental calculus
+ERR6178943	4	dental calculus	dental calculus
+ERR6178944	4	dental calculus	dental calculus
+ERR6178945	4	dental calculus	dental calculus
+ERR6178946	4	dental calculus	dental calculus
+ERR6178947	4	dental calculus	dental calculus
+ERR6178948	4	dental calculus	dental calculus
+ERR6178949	4	dental calculus	dental calculus
+ERR6178950	4	dental calculus	dental calculus
+ERR6178951	4	dental calculus	dental calculus
+ERR6178952	4	dental calculus	dental calculus
+ERR6178953	4	dental calculus	dental calculus
+ERR6178954	4	dental calculus	dental calculus
+ERR6178955	4	dental calculus	dental calculus
+ERR6178956	4	dental calculus	dental calculus
+ERR6178957	4	dental calculus	dental calculus
+ERR6178958	4	dental calculus	dental calculus
+ERR6178959	4	dental calculus	dental calculus
+ERR6178960	4	dental calculus	dental calculus
+ERR6178961	4	dental calculus	dental calculus
+ERR6178962	4	dental calculus	dental calculus
+ERR6178963	4	dental calculus	dental calculus
+ERR6178964	4	dental calculus	dental calculus
+ERR6178965	4	dental calculus	dental calculus
+ERR6178966	4	dental calculus	dental calculus
+ERR6178967	4	dental calculus	dental calculus
+ERR6178968	4	dental calculus	dental calculus
+ERR6178969	4	dental calculus	dental calculus
+ERR6178970	4	dental calculus	dental calculus
+ERR6178971	4	dental calculus	dental calculus
+ERR6178972	4	dental calculus	dental calculus
+ERR6178973	4	dental calculus	dental calculus
+ERR6178974	4	dental calculus	dental calculus
+ERR6178975	4	dental calculus	dental calculus
+ERR6178976	4	dental calculus	dental calculus
+ERR6178977	4	dental calculus	dental calculus
+ERR6178978	4	dental calculus	dental calculus
+ERR6178979	4	dental calculus	dental calculus
+ERR6178980	4	dental calculus	dental calculus
+ERR6178981	4	dental calculus	dental calculus
+ERR6178982	4	dental calculus	dental calculus
+ERR6178983	4	dental calculus	dental calculus
+ERR6178984	4	dental calculus	dental calculus
+ERR6178985	4	dental calculus	dental calculus
+ERR6178986	4	dental calculus	dental calculus
+ERR6178987	4	dental calculus	dental calculus
+ERR6178988	4	dental calculus	dental calculus
+SRR16071515	4	marine sediment	marine sediment
+SRR16071516	4	permafrost	marine sediment
+SRR16071517	4	marine sediment	marine sediment
+SRR16071520	4	marine sediment	marine sediment
+SRR16071521	4	marine sediment	marine sediment
+SRR24222601	4	lake sediment	lake sediment
+SRR24222602	4	lake sediment	lake sediment
+SRR24222603	4	marine sediment	lake sediment
+SRR24222604	4	lake sediment	lake sediment
+SRR24222605	4	lake sediment	lake sediment
+SRR24222606	4	lake sediment	lake sediment
+SRR24222607	4	lake sediment	lake sediment
+SRR24222608	4	marine sediment	lake sediment
+SRR24222609	4	lake sediment	lake sediment
+SRR24222610	4	sediment	lake sediment
+SRR24222612	4	lake sediment	lake sediment
+SRR24222613	4	lake sediment	lake sediment
+SRR24222614	4	marine sediment	lake sediment
+SRR24222615	4	marine sediment	lake sediment
+SRR24222616	4	lake sediment	lake sediment
+SRR24222617	4	marine sediment	lake sediment
+SRR24222618	4	marine sediment	lake sediment
+SRR24222619	4	lake sediment	lake sediment
+SRR24222620	4	lake sediment	lake sediment
+SRR24222621	4	lake sediment	lake sediment
+SRR24222623	4	lake sediment	lake sediment
+SRR24222624	4	lake sediment	lake sediment
+SRR24222625	4	lake sediment	lake sediment
+SRR24222626	4	lake sediment	lake sediment
+SRR24222627	4	lake sediment	lake sediment
+SRR24222628	4	marine sediment	lake sediment
+SRR24222629	4	lake sediment	lake sediment
+SRR24222630	4	lake sediment	lake sediment
+SRR24222631	4	lake sediment	lake sediment
+SRR24222632	4	lake sediment	lake sediment
+SRR4047197	4	leaf	leaf
+SRR4047199	4	leaf	leaf
+SRR4047201	4	leaf	leaf
+SRR4047203	4	leaf	leaf
+SRR4047207	4	leaf	leaf
+SRR4047214	4	leaf	leaf
+SRR4047219	4	leaf	leaf
+SRR4047221	4	leaf	leaf
+SRR4047223	4	lake sediment	leaf
+SRR4047225	4	lake sediment	leaf
+SRR4047228	4	leaf	leaf
+SRR5047040	4	tooth	tooth
+SRR5047041	4	tooth	tooth
+SRR5047042	4	tooth	tooth
+SRR5047043	4	tooth	tooth
+SRR5047044	4	tooth	tooth
+SRR5047045	4	dental calculus	tooth
+SRR5047046	4	tooth	tooth
+SRR5047047	4	tooth	tooth
+SRR5047048	4	tooth	tooth
+SRR5047049	4	tooth	tooth
+SRR5047050	4	bone	tooth
+SRR5047051	4	tooth	tooth
+SRR5047052	4	tooth	tooth
+SRR5047053	4	tooth	tooth
+SRR5047054	4	tooth	tooth
+SRR5047055	4	marine sediment	tooth
+SRR5047056	4	tooth	tooth
+SRR5047057	4	tooth	tooth
+SRR5047058	4	tooth	tooth
+SRR5047059	4	tooth	tooth
+SRR5047060	4	tooth	tooth
+SRR5047061	4	tooth	tooth
+SRR5047062	4	tooth	tooth
+SRR5047063	4	dental calculus	tooth
+SRR5047064	4	sediment	tooth
+SRR5047065	4	tooth	tooth
+SRR5047066	4	tooth	tooth
+SRR5047067	4	tooth	tooth
+SRR5047068	4	tooth	tooth
+SRR5047069	4	tooth	tooth
+SRR5047070	4	tooth	tooth
+SRR5047071	4	tooth	tooth
+SRR5047072	4	tooth	tooth
+SRR5047073	4	tooth	tooth
+SRR5047074	4	tooth	tooth
+SRR5047075	4	tooth	tooth
+SRR5047076	4	tooth	tooth
+SRR5047077	4	tooth	tooth
+SRR5047078	4	tooth	tooth
+SRR5047079	4	tooth	tooth
+SRR5047080	4	tooth	tooth
+SRR5047081	4	tooth	tooth
+SRR5047082	4	tooth	tooth
+SRR5047083	4	tooth	tooth
+SRR5047084	4	tooth	tooth
+SRR5047085	4	tooth	tooth
+SRR5047086	4	bone	tooth
+SRR5047087	4	tooth	tooth
+SRR5047088	4	tooth	tooth
+SRR5047089	4	tooth	tooth
+SRR5047090	4	tooth	tooth
+SRR5047091	4	tooth	tooth
+SRR5047092	4	lake sediment	tooth
+SRR5047093	4	tooth	tooth
+SRR5047094	4	tooth	tooth
+SRR5047095	4	tooth	tooth
+SRR5047096	4	bone	tooth
+SRR5047097	4	tooth	tooth
+SRR5047098	4	tooth	tooth
+SRR5047099	4	bone	tooth
+SRR5047100	4	tooth	tooth
+SRR5047101	4	tooth	tooth
+SRR5047102	4	tooth	tooth
+SRR5047103	4	dental calculus	tooth
+SRR5047104	4	dental calculus	tooth
+SRR5047105	4	tooth	tooth
+SRR5047106	4	tooth	tooth
+SRR5047107	4	dental calculus	tooth
+SRR5047108	4	dental calculus	tooth
+SRR5047109	4	tooth	tooth
+SRR5047110	4	tooth	tooth
+SRR5047111	4	dental calculus	tooth
+SRR5047112	4	marine sediment	tooth
+SRR5047113	4	tooth	tooth
+SRR5047114	4	tooth	tooth
+SRR5047115	4	tooth	tooth
+SRR5047116	4	tooth	tooth
+SRR5047117	4	tooth	tooth
+SRR5047118	4	tooth	tooth
+SRR5047119	4	tooth	tooth
+SRR5047120	4	tooth	tooth
+SRR5047121	4	tooth	tooth
+SRR5047122	4	tooth	tooth
+SRR5047123	4	tooth	tooth
+SRR5047124	4	tooth	tooth
+SRR5047125	4	dental calculus	tooth
+SRR5047126	4	tooth	tooth
+SRR5047127	4	dental calculus	tooth
+SRR5047128	4	dental calculus	tooth
+SRR5047129	4	dental calculus	tooth
+SRR5047130	4	bone	tooth
+SRR5047131	4	tooth	tooth
+SRR5047132	4	tooth	tooth
+SRR5047133	4	tooth	tooth
+SRR5047134	4	tooth	tooth
+SRR5047135	4	dental calculus	tooth
+SRR5047136	4	dental calculus	tooth
+SRR5047137	4	tooth	tooth
+SRR5047138	4	tooth	tooth
+SRR5047139	4	bone	tooth
+SRR5047140	4	tooth	tooth
+SRR5047141	4	tooth	tooth
+SRR5047142	4	tooth	tooth
+SRR5047143	4	tooth	tooth
+SRR5047144	4	dental calculus	tooth
+SRR5047145	4	tooth	tooth
+SRR5047146	4	tooth	tooth
+SRR5047147	4	tooth	tooth
+SRR5047148	4	tooth	tooth
+SRR5047149	4	tooth	tooth
+SRR5047150	4	bone	tooth
+SRR5047151	4	tooth	tooth
+SRR5047152	4	tooth	tooth
+SRR5047153	4	tooth	tooth
+SRR5047154	4	dental calculus	tooth
+SRR5047155	4	tooth	tooth
+SRR5047156	4	tooth	tooth
+SRR5047157	4	tooth	tooth
+SRR5047158	4	tooth	tooth
+SRR5047159	4	dental calculus	tooth
+SRR5047160	4	dental calculus	tooth
+SRR5047161	4	tooth	tooth
+SRR5047162	4	tooth	tooth
+SRR5047163	4	tooth	tooth
+SRR5047164	4	tooth	tooth
+SRR5047165	4	tooth	tooth
+SRR5047166	4	tooth	tooth
+SRR5047167	4	dental calculus	tooth
+SRR5047168	4	dental calculus	tooth
+SRR5047169	4	tooth	tooth
+SRR5047170	4	dental calculus	tooth
+SRR5047171	4	tooth	tooth
+SRR5047172	4	tooth	tooth
+SRR5047173	4	dental calculus	tooth
+SRR5047174	4	dental calculus	tooth
+SRR5047175	4	marine sediment	tooth
+SRR5047176	4	tooth	tooth
+SRR5047177	4	tooth	tooth
+SRR5047178	4	tooth	tooth
+SRR5047179	4	tooth	tooth
+SRR5047180	4	dental calculus	tooth
+SRR5047181	4	lake sediment	tooth
+SRR5047182	4	dental calculus	tooth
+SRR5047183	4	tooth	tooth
+SRR5047184	4	tooth	tooth
+SRR5047185	4	tooth	tooth
+SRR5047186	4	tooth	tooth
+SRR5047187	4	tooth	tooth
+SRR5047188	4	dental calculus	tooth
+SRR5047189	4	tooth	tooth
+SRR5047190	4	tooth	tooth
+SRR5047191	4	tooth	tooth
+SRR5047192	4	marine sediment	tooth
+SRR5047193	4	tooth	tooth
+SRR5047194	4	dental calculus	tooth
+SRR5047195	4	tooth	tooth
+SRR5047196	4	bone	tooth
+SRR5047197	4	tooth	tooth
+SRR5047198	4	tooth	tooth
+SRR5047199	4	tooth	tooth
+SRR5047200	4	dental calculus	tooth
+SRR5047201	4	tooth	tooth
+SRR5047202	4	tooth	tooth
+SRR5047203	4	tooth	tooth
+SRR5047204	4	tooth	tooth
+SRR5332455	4	lake sediment	lake sediment
+SRR5332456	4	lake sediment	lake sediment
+SRR5332457	4	lake sediment	lake sediment
+SRR5332458	4	lake sediment	lake sediment
+SRR5332459	4	lake sediment	lake sediment
+SRR5332461	4	lake sediment	lake sediment
+SRR5332462	4	lake sediment	lake sediment
+SRR5332463	4	lake sediment	lake sediment
+SRR5332464	4	lake sediment	lake sediment
+SRR5332466	4	sediment	lake sediment
+SRR866660	4	lake sediment	bone
+SRR866662	4	tooth	bone
+SRR866663	4	lake sediment	bone
+SRR866665	4	tooth	bone
+SRR866666	4	sediment	bone
+SRR867031	4	bone	bone
+SRR867032	4	bone	bone
+SRR867033	4	bone	bone
+SRR867034	4	bone	bone
+SRR867036	4	tooth	bone
+SRR867037	4	tooth	bone
+SRR867038	4	tooth	bone
+SRR867039	4	tooth	bone

@@ -1,0 +1,5 @@
+arm	budget	lr	schedule	horizon
+community_type	7	3e-3	constant	
+feature	122	2.41e-5	constant	
+sample_host	95	1.41e-3	constant	
+material	66	1e-4	cosine	300

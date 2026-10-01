@@ -1,0 +1,2717 @@
+Run_accession	fold	feature_pred	feature_true
+ERR13950600	0	lake	lake
+ERR13950601	0	lake	lake
+ERR13950606	0	lake	lake
+ERR13950607	0	lake	lake
+ERR13950608	0	lake	lake
+ERR13950609	0	lake	lake
+ERR13950611	0	lake	lake
+ERR13950612	0	lake	lake
+ERR13950613	0	lake	lake
+ERR13950614	0	lake	lake
+ERR13950615	0	lake	lake
+ERR13950620	0	lake	lake
+ERR13950621	0	lake	lake
+ERR13950622	0	lake	lake
+ERR13950623	0	lake	lake
+ERR13950624	0	lake	lake
+ERR13950625	0	lake	lake
+ERR13950627	0	lake	lake
+ERR13950628	0	lake	lake
+ERR13950629	0	lake	lake
+ERR13950630	0	lake	lake
+ERR13950631	0	lake	lake
+ERR13950632	0	lake	lake
+ERR13950633	0	lake	lake
+ERR13950634	0	lake	lake
+ERR13950635	0	lake	lake
+ERR13950637	0	lake	lake
+ERR13950638	0	lake	lake
+ERR13950639	0	lake	lake
+ERR13950640	0	lake	lake
+ERR13950641	0	lake	lake
+ERR13950642	0	lake	lake
+ERR13950643	0	lake	lake
+ERR13950644	0	lake	lake
+ERR13950646	0	lake	lake
+ERR13950647	0	lake	lake
+ERR13950648	0	swamp forest	lake
+ERR13950649	0	swamp forest	lake
+ERR13950650	0	lake	lake
+ERR13950653	0	lake	lake
+ERR13950654	0	lake	lake
+ERR13950655	0	lake	lake
+ERR13950658	0	lake	lake
+ERR13950659	0	lake	lake
+ERR13950660	0	lake	lake
+ERR13950661	0	lake	lake
+ERR13950662	0	lake	lake
+ERR13950663	0	lake	lake
+ERR13950664	0	lake	lake
+ERR13950665	0	lake	lake
+ERR13950666	0	lake	lake
+ERR13950667	0	lake	lake
+ERR13950668	0	lake	lake
+ERR13950669	0	lake	lake
+ERR13950670	0	lake	lake
+ERR13950671	0	swamp forest	lake
+ERR13950673	0	lake	lake
+ERR13950674	0	lake	lake
+ERR3579671	0	cave	
+ERR3579672	0	ocean	
+ERR3579673	0	ocean	
+ERR3579674	0	ocean	
+ERR3579675	0	cave	
+ERR3579676	0	midden	
+ERR3579677	0	cave	
+ERR3579678	0	cave	
+ERR3579680	0	cave	
+ERR3579681	0	ocean	
+ERR3579682	0	ocean	
+ERR3579683	0	midden	
+ERR3579685	0	ocean	
+ERR3579687	0	ocean	
+ERR3579688	0	cave	
+ERR3579699	0	cave	
+ERR3579700	0	cave	
+ERR3579701	0	cave	
+ERR3579702	0	cave	
+ERR3579703	0	cave	
+ERR3579704	0	ocean	
+ERR3579705	0	sea coast	
+ERR3579706	0	midden	
+ERR3579707	0	cave	
+ERR3579708	0	cave	
+ERR3579709	0	cave	
+ERR3579710	0	cave	
+ERR3579711	0	cave	
+ERR3579712	0	cave	
+ERR3579713	0	cave	
+ERR3579714	0	cave	
+ERR3579715	0	cave	
+ERR3579716	0	cave	
+ERR3579719	0	ocean	
+ERR3579720	0	swamp forest	
+ERR3579721	0	cave	
+ERR3579722	0	cave	
+ERR3579723	0	cave	
+ERR3579726	0	cave	
+ERR3579727	0	cave	
+ERR3579728	0	cave	
+ERR3579729	0	cave	
+ERR3579730	0	cave	
+ERR3579731	0	cave	
+ERR3579732	0	cave	
+ERR3579733	0	cave	
+ERR3579734	0	cave	
+ERR3579735	0	cave	
+ERR3579738	0	cave	
+ERR3579740	0	cave	
+ERR3579741	0	cave	
+ERR3579742	0	cave	
+ERR3579743	0	ocean	
+ERR3579744	0	ocean	
+ERR3579745	0	ocean	
+ERR3579746	0	cave	
+ERR3579747	0	cave	
+ERR3579748	0	ocean	
+ERR3579749	0	cave	
+ERR3579750	0	midden	
+ERR3579751	0	cave	
+ERR3579752	0	cave	
+ERR3579753	0	cave	
+ERR3579754	0	ocean	
+ERR3579755	0	thermokarst	
+ERR3579756	0	thermokarst	
+ERR3579757	0	midden	
+ERR3579758	0	midden	
+ERR3579759	0	cave	
+ERR3579760	0	cave	
+ERR3579761	0	cave	
+ERR3579762	0	cave	
+ERR3579763	0	cave	
+ERR3579764	0	cave	
+ERR3579765	0	cave	
+ERR3579766	0	cave	
+ERR3579767	0	cave	
+ERR3579768	0	cave	
+ERR3579774	0	cave	
+ERR3579775	0	cave	
+ERR3579776	0	ocean	
+ERR3579777	0	ocean	
+ERR3579779	0	ocean	
+ERR3579781	0	ocean	
+ERR3579782	0	cave	
+ERR3579783	0	cave	
+ERR3579784	0	cave	
+ERR3579785	0	ocean	
+ERR3579786	0	cave	
+ERR3579787	0	cave	
+ERR3579788	0	cave	
+ERR3579789	0	cave	
+ERR3579790	0	cave	
+ERR3579791	0	cave	
+ERR3579792	0	cave	
+ERR3579793	0	cave	
+ERR3579796	0	ocean	
+ERR3579797	0	ocean	
+ERR3579798	0	ocean	
+ERR3579799	0	cave	
+ERR3579800	0	cave	
+ERR3579801	0	cave	
+ERR3579802	0	cave	
+ERR3579803	0	cave	
+ERR3579804	0	cave	
+ERR3579805	0	cave	
+ERR3579806	0	cave	
+ERR3579807	0	ocean	
+ERR3579809	0	cave	
+ERR3579810	0	cave	
+ERR3579811	0	ocean	
+ERR3579812	0	cave	
+ERR3579813	0	ocean	
+ERR3579814	0	ocean	
+ERR3579815	0	cave	
+ERR3579816	0	cave	
+ERR3579817	0	cave	
+ERR3579818	0	cave	
+ERR3579827	0	cave	
+ERR3579828	0	midden	
+ERR3579829	0	midden	
+ERR3579830	0	ocean	
+ERR3678173	0	cave	
+ERR3678174	0	cave	
+ERR3678175	0	midden	
+ERR3678176	0	cave	
+ERR3678177	0	cave	
+ERR3678179	0	cave	
+ERR3678180	0	ocean	
+ERR3678181	0	ocean	
+ERR3678182	0	thermokarst	
+ERR3678184	0	ocean	
+ERR3678186	0	cave	
+ERR3678187	0	cave	
+ERR3678595	0	cave	
+ERR3678596	0	cave	
+ERR3678598	0	cave	
+ERR3678599	0	cave	
+ERR3678600	0	midden	
+ERR3678602	0	cave	
+ERR3678603	0	cave	
+ERR3678604	0	cave	
+ERR3678605	0	cave	
+ERR3678606	0	cave	
+ERR3678607	0	cave	
+ERR3678609	0	cave	
+ERR3678610	0	cave	
+ERR3678611	0	cave	
+ERR3678612	0	cave	
+ERR3678613	0	cave	
+ERR3678614	0	midden	
+ERR3678615	0	cave	
+ERR3678616	0	cave	
+ERR3678617	0	cave	
+ERR3678618	0	midden	
+ERR3678619	0	cave	
+ERR3678620	0	midden	
+ERR3678622	0	cave	
+ERR3678623	0	midden	
+ERR3678625	0	cave	
+ERR3678626	0	midden	
+ERR3678627	0	cave	
+ERR3678628	0	midden	
+ERR3678629	0	midden	
+ERR3678727	0	cave	
+ERR3906046	0	cave	
+ERR4334735	0	lake	lake
+ERR4334736	0	lake	lake
+ERR4426516	0	cave	cave
+ERR4426517	0	cave	cave
+ERR4426518	0	swamp forest	cave
+ERR4426519	0	shell	cave
+ERR4426520	0	sea coast	cave
+ERR4426521	0	sea coast	cave
+ERR4426522	0	shell	cave
+ERR4426523	0	archeological site	cave
+ERR4426524	0	shell	cave
+ERR4426525	0	ocean	cave
+ERR4426526	0	cave	cave
+ERR4426527	0	archeological site	cave
+ERR4426529	0	cave	cave
+ERR4426530	0	swamp forest	cave
+ERR4426531	0	swamp forest	cave
+ERR4426532	0	lake	cave
+ERR4426533	0	swamp forest	cave
+ERR4426534	0	thermokarst	cave
+ERR4426535	0	thermokarst	cave
+ERR4426536	0	swamp forest	cave
+ERR4426537	0	sea coast	cave
+ERR4426538	0	thermokarst	cave
+ERR4426539	0	thermokarst	cave
+ERR4426540	0	swamp forest	cave
+ERR4426541	0	swamp forest	cave
+ERR4426542	0	swamp forest	cave
+ERR4426543	0	thermokarst	cave
+ERR4426545	0	cave	cave
+ERR4426546	0	archeological site	cave
+ERR4426547	0	archeological site	cave
+ERR4426548	0	sea coast	cave
+ERR4426549	0	archeological site	cave
+ERR4426550	0	archeological site	cave
+ERR4426552	0	ocean	cave
+ERR5863536	0	midden	
+ERR6093854	0	sea coast	
+ERR6093855	0	sea coast	
+ERR6093856	0	sea coast	
+ERR6093857	0	sea coast	
+ERR6093858	0	cave	
+ERR6093859	0	cave	
+ERR6093860	0	ocean	
+ERR6093861	0	ocean	
+ERR6093862	0	midden	
+ERR6093863	0	midden	
+ERR6093864	0	midden	
+ERR6093865	0	midden	
+ERR6093866	0	midden	
+ERR6093867	0	ocean	
+ERR6093868	0	ocean	
+ERR6093869	0	midden	
+ERR6093870	0	cave	
+ERR6093871	0	cave	
+ERR6093872	0	cave	
+ERR6093874	0	cave	
+ERR6093875	0	cave	
+ERR6093876	0	cave	
+ERR6093877	0	cave	
+ERR6093878	0	cave	
+ERR6093879	0	cave	
+ERR6093880	0	cave	
+ERR6093881	0	cave	
+ERR6093882	0	cave	
+ERR6093883	0	cave	
+ERR6093885	0	cave	
+ERR6093886	0	cave	
+ERR6093887	0	cave	
+ERR6093888	0	midden	
+ERR6093889	0	midden	
+ERR6093890	0	midden	
+ERR6093891	0	midden	
+ERR6093893	0	midden	
+ERR6093894	0	midden	
+ERR6093896	0	midden	
+ERR6093897	0	midden	
+ERR6093899	0	ocean	
+ERR6093900	0	ocean	
+ERR6093901	0	ocean	
+ERR6093902	0	ocean	
+ERR6093903	0	midden	
+ERR6093904	0	midden	
+ERR6093905	0	midden	
+ERR6093906	0	midden	
+ERR6093907	0	cave	
+ERR6093908	0	cave	
+ERR6093909	0	cave	
+ERR6093910	0	cave	
+ERR6093912	0	midden	
+ERR6093913	0	midden	
+ERR6093914	0	midden	
+ERR6093916	0	midden	
+ERR6093917	0	cave	
+ERR6093919	0	cave	
+ERR6093920	0	cave	
+ERR6093921	0	cave	
+ERR6093922	0	cave	
+ERR6093923	0	cave	
+ERR6093924	0	cave	
+ERR6093926	0	cave	
+ERR6093927	0	midden	
+ERR6093928	0	midden	
+ERR6093929	0	midden	
+ERR6093930	0	midden	
+ERR6093931	0	cave	
+ERR6093932	0	cave	
+ERR6093934	0	cave	
+ERR6093935	0	cave	
+ERR6093936	0	ocean	
+ERR6093937	0	ocean	
+ERR6093938	0	ocean	
+ERR6093939	0	ocean	
+ERR6093941	0	ocean	
+ERR6093942	0	ocean	
+ERR6093943	0	ocean	
+ERR6093945	0	ocean	
+ERR6093946	0	ocean	
+ERR6093947	0	ocean	
+ERR6093948	0	ocean	
+ERR6093949	0	ocean	
+ERR6093950	0	ocean	
+ERR6093951	0	ocean	
+ERR6093952	0	ocean	
+ERR6093953	0	ocean	
+ERR6093954	0	ocean	
+ERR6093955	0	ocean	
+ERR6093956	0	ocean	
+ERR6093957	0	ocean	
+ERR6093958	0	ocean	
+ERR6093959	0	ocean	
+ERR6093960	0	ocean	
+ERR6093961	0	ocean	
+ERR6093963	0	cave	
+ERR6093964	0	cave	
+ERR6093965	0	cave	
+ERR6093966	0	cave	
+ERR6093967	0	cave	
+ERR6093968	0	cave	
+ERR6093969	0	cave	
+ERR6093970	0	cave	
+ERR6093972	0	ocean	
+ERR6096533	0	ocean	
+ERR6096535	0	ocean	
+ERR6096536	0	ocean	
+ERR6096537	0	cave	
+ERR6096538	0	ocean	
+ERR6096539	0	ocean	
+ERR6096540	0	cave	
+ERR6096541	0	ocean	
+ERR6096542	0	ocean	
+ERR6096543	0	ocean	
+ERR6096544	0	ocean	
+ERR6096545	0	cave	
+ERR6096547	0	cave	
+ERR6096548	0	cave	
+ERR6096549	0	cave	
+ERR6096550	0	ocean	
+ERR6096551	0	ocean	
+ERR6096552	0	ocean	
+ERR6096554	0	ocean	
+ERR6096555	0	midden	
+ERR6096557	0	midden	
+ERR6096570	0	midden	
+ERR6096574	0	midden	
+ERR6096575	0	cave	
+ERR6096576	0	cave	
+ERR6096579	0	cave	
+ERR6096580	0	cave	
+ERR6096581	0	cave	
+ERR6096582	0	cave	
+ERR6096739	0	cave	
+ERR6096740	0	cave	
+ERR6096741	0	ocean	
+ERR6096742	0	ocean	
+ERR6096743	0	ocean	
+ERR6096744	0	ocean	
+ERR6096745	0	midden	
+ERR6096746	0	midden	
+ERR6096747	0	sea coast	
+ERR6096748	0	sea coast	
+ERR6096749	0	midden	
+ERR6096752	0	midden	
+ERR6096755	0	midden	
+ERR6096759	0	midden	
+ERR6096760	0	ocean	
+ERR6096762	0	ocean	
+ERR6096764	0	ocean	
+ERR6096766	0	ocean	
+ERR6096776	0	cave	
+ERR6096784	0	cave	
+ERR6096796	0	sea coast	
+ERR6096814	0	cave	
+ERR6096818	0	ocean	
+ERR6096822	0	ocean	
+ERR6096826	0	ocean	
+ERR6096829	0	ocean	
+ERR6096835	0	midden	
+ERR6096842	0	ocean	
+ERR6096847	0	ocean	
+ERR6096853	0	midden	
+ERR6096886	0	cave	
+ERR6096922	0	cave	
+ERR6096923	0	cave	
+ERR6096924	0	cave	
+ERR6096925	0	cave	
+ERR6096926	0	cave	
+ERR6096927	0	cave	
+ERR6096928	0	cave	
+ERR6096929	0	sea coast	
+ERR6096930	0	sea coast	
+ERR6096931	0	midden	
+ERR6096932	0	midden	
+ERR6096933	0	midden	
+ERR6096934	0	midden	
+ERR6096935	0	midden	
+ERR6096937	0	midden	
+ERR6096955	0	cave	
+ERR6097155	0	cave	
+ERR6097156	0	cave	
+ERR6097514	0	cave	
+ERR6097549	0	cave	
+ERR6097552	0	cave	
+ERR6097573	0	cave	
+ERR6097575	0	cave	
+ERR6097576	0	midden	
+ERR6097577	0	midden	
+ERR6097579	0	midden	
+ERR6097580	0	midden	
+ERR6097581	0	cave	
+ERR6097583	0	cave	
+ERR6097619	0	cave	
+ERR6097621	0	cave	
+ERR6097622	0	cave	
+ERR6097623	0	cave	
+ERR6097625	0	cave	
+ERR6097626	0	cave	
+ERR6097627	0	ocean	
+ERR6097628	0	ocean	
+ERR6097629	0	ocean	
+ERR6097630	0	ocean	
+ERR6097759	0	cave	
+ERR6098066	0	cave	
+ERR6098349	0	cave	
+ERR6098517	0	cave	
+ERR6098519	0	cave	
+ERR6098520	0	cave	
+ERR6098552	0	cave	
+ERR6098553	0	cave	
+ERR6098554	0	ocean	
+ERR6098555	0	ocean	
+ERR6098556	0	ocean	
+ERR6098557	0	ocean	
+ERR6098559	0	cave	
+ERR6098560	0	cave	
+ERR6098730	0	cave	
+ERR6098929	0	cave	
+ERR6098930	0	cave	
+ERR6098932	0	cave	
+ERR6098934	0	cave	
+ERR6098936	0	cave	
+ERR6098937	0	ocean	
+ERR6098938	0	ocean	
+ERR6098939	0	ocean	
+ERR6098940	0	ocean	
+ERR6098982	0	ocean	
+ERR6098983	0	ocean	
+ERR6098984	0	ocean	
+ERR6098985	0	ocean	
+ERR6098990	0	midden	
+ERR6099166	0	midden	
+ERR6099349	0	midden	
+ERR6099809	0	midden	
+ERR6099810	0	midden	
+ERR6099811	0	midden	
+ERR6099812	0	midden	
+ERR6099813	0	midden	
+ERR6099814	0	cave	
+ERR6099815	0	cave	
+ERR6099816	0	cave	
+ERR6099817	0	cave	
+ERR6099818	0	cave	
+ERR6099824	0	cave	
+ERR6099825	0	cave	
+ERR6099826	0	cave	
+ERR6101230	0	cave	
+ERR6108965	0	cave	
+ERR6108966	0	cave	
+ERR6108967	0	cave	
+ERR6108968	0	cave	
+ERR6108969	0	cave	
+ERR6108970	0	cave	
+ERR6108971	0	cave	
+ERR6108972	0	cave	
+ERR6108973	0	cave	
+ERR6108974	0	cave	
+ERR6108975	0	cave	
+ERR6108976	0	cave	
+ERR6108977	0	cave	
+ERR6108978	0	cave	
+ERR6108979	0	cave	
+ERR6108980	0	cave	
+ERR6108981	0	cave	
+ERR6108982	0	cave	
+ERR6108983	0	cave	
+ERR6108984	0	cave	
+ERR6108985	0	cave	
+ERR6108986	0	cave	
+ERR6108987	0	cave	
+ERR6108988	0	midden	
+ERR6108989	0	ocean	
+ERR6108990	0	midden	
+ERR6108991	0	midden	
+ERR6108992	0	ocean	
+ERR6108993	0	ocean	
+ERR6108994	0	ocean	
+ERR6108995	0	ocean	
+ERR6108996	0	cave	
+ERR6108997	0	cave	
+ERR6108998	0	cave	
+ERR6109000	0	cave	
+ERR6109001	0	cave	
+ERR6109002	0	cave	
+ERR6109003	0	cave	
+ERR6109004	0	cave	
+ERR6109005	0	ocean	
+ERR6109010	0	ocean	
+ERR6109011	0	ocean	
+ERR6109012	0	ocean	
+ERR6109013	0	midden	
+ERR6109014	0	midden	
+ERR6109015	0	midden	
+ERR6109016	0	midden	
+ERR6109017	0	cave	
+ERR6109019	0	cave	
+ERR6109020	0	cave	
+ERR6109021	0	cave	
+ERR6109022	0	ocean	
+ERR6109023	0	ocean	
+ERR6109024	0	ocean	
+ERR6109025	0	ocean	
+ERR6109027	0	cave	
+ERR6109028	0	cave	
+ERR6109049	0	cave	
+ERR6109050	0	cave	
+ERR6109051	0	midden	
+ERR6109053	0	midden	
+ERR6109054	0	midden	
+ERR6109055	0	midden	
+ERR6109056	0	cave	
+ERR6109057	0	cave	
+ERR6109058	0	cave	
+ERR6109059	0	cave	
+ERR8050978	0	cave	
+SRR1047998	0	ocean	
+SRR17604731	0	ocean	
+SRR17604732	0	cave	
+SRR17604735	0	cave	
+SRR17604736	0	cave	
+SRR17604737	0	cave	
+SRR17604738	0	ocean	
+SRR17604739	0	cave	
+SRR17604740	0	cave	
+SRR17604741	0	cave	
+SRR17604742	0	cave	
+SRR17604743	0	cave	
+SRR17604744	0	cave	
+SRR17604745	0	cave	
+SRR17604746	0	cave	
+SRR17604747	0	cave	
+SRR17604748	0	cave	
+SRR17604749	0	cave	
+SRR17604750	0	cave	
+SRR17604751	0	cave	
+SRR17604752	0	cave	
+SRR17604753	0	cave	
+SRR17604754	0	sea coast	
+SRR17604755	0	cave	
+SRR17604756	0	cave	
+SRR17604757	0	cave	
+SRR17604758	0	cave	
+SRR17604759	0	cave	
+SRR17604760	0	cave	
+SRR17604761	0	cave	
+SRR17604762	0	cave	
+SRR17604763	0	cave	
+SRR17604764	0	cave	
+SRR17604765	0	cave	
+SRR17604766	0	cave	
+SRR17604767	0	cave	
+SRR17604768	0	cave	
+SRR17604769	0	cave	
+SRR17604770	0	cave	
+SRR17604771	0	cave	
+SRR17604772	0	ocean	
+SRR17604773	0	ocean	
+SRR17604774	0	ocean	
+SRR17604775	0	cave	
+SRR17604776	0	cave	
+SRR17604777	0	cave	
+SRR17604778	0	ocean	
+SRR17604779	0	cave	
+SRR17604780	0	ocean	
+SRR17604781	0	cave	
+SRR17604782	0	cave	
+SRR17604783	0	shell	
+SRR17604784	0	cave	
+SRR17604785	0	cave	
+SRR17604786	0	cave	
+SRR17604787	0	cave	
+SRR17604788	0	cave	
+SRR17604789	0	cave	
+SRR17604790	0	ocean	
+SRR17604791	0	cave	
+SRR17604792	0	cave	
+SRR17604793	0	cave	
+SRR17604794	0	cave	
+SRR17604795	0	cave	
+SRR17604796	0	cave	
+SRR17604797	0	cave	
+SRR17604798	0	cave	
+SRR17604799	0	cave	
+SRR17604800	0	cave	
+SRR17604801	0	cave	
+SRR17604802	0	lake	
+SRR17604803	0	cave	
+SRR17604804	0	cave	
+SRR17604805	0	cave	
+SRR17604806	0	cave	
+SRR17604807	0	cave	
+SRR17604808	0	cave	
+SRR2229974	0	cave	
+SRR2229975	0	ocean	
+SRR2229976	0	cave	
+SRR2229977	0	cave	
+SRR6933819	0	shell	
+SRR6933820	0	shell	
+SRR6933821	0	shell	
+SRR6933822	0	shell	
+SRR6933823	0	midden	
+SRR6933824	0	shell	
+SRR6933825	0	midden	
+SRR6933826	0	sea coast	
+SRR6974014	0	shell	
+SRR6974015	0	shell	
+SRR6974016	0	shell	
+SRR6974017	0	shell	
+ERR3761400	1	cave	midden
+ERR3761401	1	cave	midden
+ERR3761402	1	cave	archeological site
+ERR3761403	1	shell	midden
+ERR3761404	1	cave	archeological site
+ERR3761405	1	shell	midden
+ERR3761406	1	ocean	archeological site
+ERR3761407	1	midden	
+ERR3761408	1	ocean	
+ERR3761409	1	midden	
+ERR3761410	1	midden	
+ERR3761411	1	ocean	
+ERR3761412	1	midden	
+ERR3761413	1	ocean	
+ERR6430820	1	ocean	ocean
+ERR6430821	1	rock shelter	ocean
+ERR6430822	1	lake	ocean
+ERR6430823	1	shell	ocean
+ERR6430825	1	ocean	ocean
+ERR6430828	1	lake	ocean
+ERR6430830	1	lake	ocean
+ERR6430831	1	rock shelter	ocean
+ERR6430832	1	sea coast	ocean
+ERR6430833	1	sea coast	ocean
+ERR6430834	1	sea coast	ocean
+ERR6430836	1	ocean	ocean
+ERR6430838	1	lake	ocean
+ERR6430839	1	lake	ocean
+ERR6430840	1	lake	ocean
+ERR6430841	1	lake	ocean
+ERR6430842	1	lake	ocean
+ERR6430843	1	lake	ocean
+ERR6430845	1	lake	ocean
+ERR6430846	1	lake	ocean
+ERR6430847	1	ocean	ocean
+ERR6430848	1	lake	ocean
+ERR6430849	1	lake	ocean
+ERR6430850	1	lake	ocean
+ERR6430851	1	lake	ocean
+ERR6589621	1	shell	
+ERR6589622	1	shell	
+ERR6589623	1	ocean	
+ERR6589624	1	ocean	
+ERR6589625	1	ocean	
+ERR6589626	1	ocean	
+ERR6589627	1	shell	
+ERR6589628	1	shell	
+ERR6589629	1	shell	
+ERR6589630	1	shell	
+ERR7919459	1	ocean	
+ERR7919460	1	ocean	
+ERR7919462	1	rock shelter	
+ERR7919463	1	ocean	
+ERR7919464	1	shell	
+ERR7919465	1	midden	
+ERR7919466	1	ocean	
+ERR7919467	1	ocean	
+ERR7919468	1	ocean	
+ERR7919469	1	ocean	
+ERR7919470	1	rock shelter	
+ERR7919471	1	shell	
+ERR7919472	1	ocean	
+ERR7919473	1	ocean	
+ERR7919474	1	ocean	
+ERR7919475	1	ocean	
+ERR7919476	1	ocean	
+ERR7919477	1	ocean	
+ERR7919478	1	ocean	
+ERR7919479	1	rock shelter	
+ERR7919480	1	ocean	
+ERR7919481	1	ocean	
+ERR7919482	1	ocean	
+ERR7919483	1	ocean	
+ERR7919484	1	rock shelter	
+ERR7919485	1	ocean	
+ERR7919486	1	ocean	
+ERR7919487	1	rock shelter	
+ERR7919488	1	ocean	
+ERR7919489	1	ocean	
+ERR7919490	1	ocean	
+ERR7919491	1	ocean	
+ERR7919492	1	sea coast	
+ERR7919493	1	ocean	
+ERR7919494	1	rock shelter	
+ERR7919495	1	ocean	
+ERR7919496	1	shell	
+ERR7919497	1	ocean	
+ERR7919498	1	rock shelter	
+ERR7919499	1	shell	
+ERR7919500	1	rock shelter	
+ERR7919501	1	rock shelter	
+ERR7919502	1	ocean	
+ERR7919503	1	ocean	
+ERR7919504	1	ocean	
+ERR7919505	1	rock shelter	
+ERR7919506	1	shell	
+ERR7919507	1	rock shelter	
+ERR7919508	1	ocean	
+ERR7919509	1	shell	
+ERR7919510	1	ocean	
+ERR7919511	1	ocean	
+ERR7919512	1	shell	
+ERR7919513	1	ocean	
+ERR7919514	1	shell	
+ERR7919515	1	ocean	
+ERR7919516	1	ocean	
+ERR7919517	1	shell	
+ERR7919518	1	rock shelter	
+ERR7919519	1	ocean	
+ERR7919520	1	rock shelter	
+ERR7919521	1	rock shelter	
+ERR7919522	1	ocean	
+ERR7919523	1	ocean	
+ERR7919524	1	ocean	
+ERR7919525	1	ocean	
+ERR7919526	1	rock shelter	
+ERR7919527	1	ocean	
+ERR7919528	1	ocean	
+ERR7919529	1	ocean	
+ERR7919530	1	shell	
+ERR7919531	1	ocean	
+ERR7919532	1	ocean	
+ERR7919533	1	ocean	
+ERR7919534	1	rock shelter	
+ERR7919535	1	ocean	
+ERR7919536	1	ocean	
+ERR7919537	1	ocean	
+ERR7919538	1	ocean	
+ERR7919539	1	midden	
+ERR7919540	1	shell	
+ERR7919541	1	ocean	
+ERR7919542	1	shell	
+ERR7919543	1	ocean	
+ERR7919544	1	ocean	
+ERR7919545	1	shell	
+ERR7919546	1	shell	
+ERR7919547	1	ocean	
+ERR7919548	1	thermokarst	
+ERR7919641	1	rock shelter	
+ERR7919642	1	rock shelter	
+ERR7919643	1	shell	
+ERR7919644	1	shell	
+ERR7919645	1	ocean	
+ERR7919646	1	thermokarst	
+SRR13355784	1	shell	
+SRR13355785	1	shell	
+SRR13355786	1	swamp forest	
+SRR13355787	1	shell	
+SRR13355789	1	shell	
+SRR13355790	1	shell	
+SRR13355791	1	shell	
+SRR13355792	1	swamp forest	
+SRR13355794	1	shell	
+SRR13355796	1	shell	
+SRR13355797	1	shell	
+SRR13355798	1	shell	
+SRR13355799	1	shell	
+SRR13355800	1	shell	
+SRR13355801	1	shell	
+SRR13355802	1	shell	
+SRR13355803	1	shell	
+SRR13355804	1	swamp forest	
+SRR13355805	1	shell	
+SRR13355806	1	shell	
+SRR13355807	1	shell	
+SRR13355808	1	shell	
+SRR13355809	1	swamp forest	
+SRR13355810	1	shell	
+SRR13355811	1	shell	
+SRR13355812	1	shell	
+SRR13355813	1	shell	
+SRR20576738	1	lake	ocean
+SRR20576739	1	shell	ocean
+SRR20576742	1	lake	ocean
+SRR20576743	1	lake	ocean
+SRR20576744	1	shell	ocean
+SRR20576745	1	lake	ocean
+SRR20576746	1	lake	ocean
+SRR20576747	1	shell	ocean
+SRR20576748	1	lake	ocean
+SRR20576749	1	lake	ocean
+SRR20576750	1	lake	ocean
+SRR20576751	1	lake	ocean
+SRR20576752	1	lake	ocean
+SRR20576754	1	lake	ocean
+SRR20576755	1	lake	ocean
+SRR20576756	1	lake	ocean
+SRR20576757	1	lake	ocean
+SRR20576758	1	lake	ocean
+SRR20576759	1	lake	ocean
+SRR20576760	1	sea coast	ocean
+SRR20576761	1	sea coast	ocean
+SRR20576762	1	lake	ocean
+SRR20576763	1	lake	ocean
+SRR20576764	1	lake	ocean
+SRR20576765	1	lake	ocean
+SRR20576766	1	lake	ocean
+SRR20576767	1	lake	ocean
+SRR20576768	1	shell	ocean
+SRR20576769	1	lake	ocean
+SRR20576770	1	lake	ocean
+SRR20576771	1	lake	ocean
+SRR20576772	1	lake	ocean
+SRR20576773	1	lake	ocean
+SRR20576774	1	lake	ocean
+SRR20576775	1	lake	ocean
+SRR20576776	1	shell	ocean
+SRR20576779	1	lake	ocean
+SRR20576780	1	lake	ocean
+SRR20576781	1	lake	ocean
+SRR20576782	1	lake	ocean
+SRR20576783	1	lake	ocean
+SRR20576784	1	lake	ocean
+SRR20576785	1	lake	ocean
+SRR20576786	1	shell	ocean
+SRR20576787	1	lake	ocean
+SRR20576794	1	shell	ocean
+SRR20576795	1	shell	ocean
+SRR20576796	1	sea coast	ocean
+SRR20576797	1	lake	ocean
+SRR20576798	1	lake	ocean
+SRR20576799	1	lake	ocean
+SRR20576800	1	lake	ocean
+SRR20576802	1	lake	ocean
+SRR20576803	1	shell	ocean
+SRR20576805	1	lake	ocean
+SRR20576807	1	lake	ocean
+SRR20576808	1	lake	ocean
+SRR20576809	1	swamp forest	ocean
+SRR20576811	1	lake	ocean
+SRR20576812	1	lake	ocean
+SRR20576813	1	lake	ocean
+SRR20576814	1	lake	ocean
+SRR20576815	1	lake	ocean
+SRR20576816	1	swamp forest	ocean
+SRR20576817	1	shell	ocean
+SRR21589119	1	shell	midden
+SRR21589120	1	shell	midden
+SRR23699551	1	shell	
+SRR23699552	1	shell	
+SRR23699553	1	shell	
+SRR23699554	1	shell	
+SRR23699555	1	shell	
+SRR23699556	1	shell	
+SRR23699557	1	shell	
+SRR23699558	1	shell	
+SRR23699559	1	shell	
+SRR23699560	1	shell	
+SRR23699561	1	shell	
+SRR23699562	1	shell	
+SRR23699563	1	shell	
+SRR23699564	1	shell	
+SRR23699565	1	shell	
+SRR23699566	1	shell	
+SRR23699567	1	shell	
+SRR23699568	1	shell	
+SRR23699569	1	shell	
+SRR23699570	1	shell	
+SRR23699571	1	shell	
+SRR23699572	1	shell	
+SRR23699573	1	shell	
+SRR23699574	1	shell	
+SRR23699575	1	shell	
+SRR23699576	1	shell	
+SRR23699577	1	shell	
+SRR23699578	1	shell	
+SRR25620676	1	lake	archeological site
+SRR25620681	1	lake	archeological site
+SRR25620753	1	rock shelter	archeological site
+SRR25620756	1	lake	archeological site
+SRR25620780	1	lake	archeological site
+SRR25620786	1	lake	archeological site
+SRR25620790	1	lake	archeological site
+SRR25620795	1	lake	archeological site
+SRR5297130	1	shell	
+SRR5297131	1	shell	
+SRR5297132	1	shell	
+SRR5297133	1	shell	
+SRR5875714	1	lake	
+SRR5875715	1	sea coast	
+SRR5875718	1	sea coast	
+SRR5875719	1	sea coast	
+SRR5875720	1	shell	
+SRR5875721	1	sea coast	
+SRR5875722	1	shell	
+SRR5875723	1	sea coast	
+SRR5875724	1	midden	
+SRR5875725	1	midden	
+SRR5875726	1	shell	
+SRR5875727	1	rock shelter	
+SRR5875728	1	shell	
+SRR5875729	1	sea coast	
+SRR5875730	1	shell	
+SRR5875731	1	sea coast	
+SRR8731955	1	midden	
+SRR8731956	1	lake	rock shelter
+SRR8731957	1	midden	
+SRR8731958	1	midden	
+SRR8731959	1	sea coast	rock shelter
+ERR10114844	2	shell	
+ERR10114845	2	shell	
+ERR10114846	2	shell	
+ERR10114847	2	ocean	
+ERR10114848	2	shell	
+ERR10114849	2	shell	
+ERR10114850	2	thermokarst	
+ERR10114851	2	ocean	
+ERR10114852	2	ocean	
+ERR10114853	2	ocean	
+ERR10114854	2	ocean	
+ERR10114855	2	ocean	
+ERR10114856	2	ocean	
+ERR10114857	2	shell	
+ERR10114858	2	shell	
+ERR10114859	2	shell	
+ERR10114860	2	shell	
+ERR10114861	2	ocean	
+ERR10114862	2	ocean	
+ERR10114863	2	sea coast	
+ERR10114864	2	sea coast	
+ERR10114865	2	ocean	
+ERR10114866	2	ocean	
+ERR10114878	2	cave	archeological site
+ERR10114879	2	cave	archeological site
+ERR10114880	2	cave	archeological site
+ERR10114881	2	cave	archeological site
+ERR10114882	2	cave	archeological site
+ERR10114883	2	cave	archeological site
+ERR10493277	2	thermokarst	sea coast
+ERR10493281	2	thermokarst	sea coast
+ERR10493283	2	lake	sea coast
+ERR10493285	2	lake	sea coast
+ERR10493287	2	lake	sea coast
+ERR10493289	2	lake	sea coast
+ERR10493291	2	lake	sea coast
+ERR10493292	2	lake	sea coast
+ERR10493294	2	sea coast	sea coast
+ERR10493297	2	lake	sea coast
+ERR10493299	2	lake	sea coast
+ERR10493301	2	lake	sea coast
+ERR10493303	2	thermokarst	sea coast
+ERR10493304	2	lake	sea coast
+ERR10493306	2	sea coast	sea coast
+ERR10493308	2	thermokarst	sea coast
+ERR10493310	2	lake	sea coast
+ERR10493311	2	lake	sea coast
+ERR10493312	2	sea coast	sea coast
+ERR10493314	2	lake	sea coast
+ERR10493316	2	sea coast	sea coast
+ERR10493318	2	lake	sea coast
+ERR10493320	2	lake	sea coast
+ERR10493322	2	lake	sea coast
+ERR10493324	2	lake	sea coast
+ERR10493326	2	sea coast	sea coast
+ERR10493328	2	sea coast	sea coast
+ERR10493330	2	lake	sea coast
+ERR10493332	2	lake	sea coast
+ERR10493333	2	sea coast	sea coast
+ERR10493334	2	sea coast	sea coast
+ERR10493335	2	ocean	sea coast
+ERR10493336	2	lake	sea coast
+ERR10493337	2	sea coast	sea coast
+ERR10493338	2	sea coast	sea coast
+ERR10493339	2	sea coast	sea coast
+ERR10493340	2	lake	sea coast
+ERR10493341	2	sea coast	sea coast
+ERR10493343	2	lake	sea coast
+ERR10493344	2	sea coast	sea coast
+ERR10493345	2	cave	sea coast
+ERR10493346	2	lake	sea coast
+ERR10493347	2	sea coast	sea coast
+ERR10493348	2	ocean	sea coast
+ERR10493349	2	sea coast	sea coast
+ERR10493357	2	ocean	sea coast
+ERR10493358	2	ocean	sea coast
+ERR10493359	2	ocean	sea coast
+ERR10493360	2	lake	sea coast
+ERR10493361	2	lake	sea coast
+ERR10493362	2	lake	sea coast
+ERR10493363	2	lake	sea coast
+ERR11660399	2	shell	
+ERR11660400	2	shell	
+ERR11660401	2	shell	
+ERR11660402	2	shell	
+ERR11660403	2	shell	
+ERR11660404	2	shell	
+ERR11660405	2	shell	
+ERR11660406	2	shell	
+ERR11660407	2	shell	
+ERR11660408	2	shell	
+ERR11660409	2	shell	
+ERR11660410	2	shell	
+ERR11660411	2	shell	
+ERR11660412	2	shell	
+ERR11660413	2	shell	
+ERR11660414	2	shell	
+ERR11660415	2	shell	
+ERR11660416	2	shell	
+ERR11660417	2	shell	
+ERR11660418	2	shell	
+ERR11660419	2	shell	
+ERR11660420	2	shell	
+ERR11660421	2	shell	
+ERR11660422	2	shell	
+ERR11660423	2	shell	
+ERR11660424	2	shell	
+ERR11660425	2	shell	
+ERR11660426	2	shell	
+ERR11660427	2	shell	
+ERR11660428	2	shell	
+ERR11660429	2	sea coast	
+ERR11660430	2	sea coast	
+ERR11660431	2	sea coast	
+ERR11660432	2	ocean	
+ERR11660433	2	sea coast	
+ERR11660434	2	cave	
+ERR11660435	2	sea coast	
+ERR11660436	2	sea coast	
+ERR11660437	2	sea coast	
+ERR11660438	2	cave	
+ERR11660439	2	cave	
+ERR11660440	2	cave	
+ERR11660441	2	cave	
+ERR11660442	2	cave	
+ERR11660443	2	cave	
+ERR11660444	2	cave	
+ERR11660445	2	cave	
+ERR11660446	2	cave	
+ERR11660447	2	cave	
+ERR11660448	2	cave	
+ERR11660449	2	cave	
+ERR11660450	2	cave	
+ERR11660451	2	sea coast	
+ERR11660452	2	ocean	
+ERR11660453	2	sea coast	
+ERR11660454	2	sea coast	
+ERR11660455	2	sea coast	
+ERR11660456	2	shell	
+ERR11660457	2	shell	
+ERR11660458	2	shell	
+ERR11660459	2	shell	
+ERR11660460	2	sea coast	
+ERR11660461	2	shell	
+ERR11660462	2	shell	
+ERR11660463	2	shell	
+ERR11660464	2	shell	
+ERR11660465	2	shell	
+ERR11660466	2	shell	
+ERR12814413	2	lake	lake
+ERR12814414	2	lake	lake
+ERR12814415	2	lake	lake
+ERR12814416	2	lake	lake
+ERR12814417	2	lake	lake
+ERR12814418	2	lake	lake
+ERR12814419	2	lake	lake
+ERR12814422	2	lake	lake
+ERR12814423	2	lake	lake
+ERR12814424	2	lake	lake
+ERR12814425	2	lake	lake
+ERR12814427	2	lake	lake
+ERR12814428	2	lake	lake
+ERR12814429	2	lake	lake
+ERR12814430	2	lake	lake
+ERR12814431	2	lake	lake
+ERR12814432	2	lake	lake
+ERR12814433	2	ocean	lake
+ERR12814434	2	lake	lake
+ERR12814435	2	lake	lake
+ERR12814436	2	lake	lake
+ERR12814437	2	lake	lake
+ERR12814438	2	lake	lake
+ERR12814439	2	lake	lake
+ERR12814440	2	lake	lake
+ERR12814442	2	lake	lake
+ERR12814443	2	lake	lake
+ERR12814444	2	lake	lake
+ERR12814445	2	lake	lake
+ERR12814446	2	lake	lake
+ERR12814447	2	lake	lake
+ERR12814448	2	lake	lake
+ERR12814449	2	lake	lake
+ERR12814450	2	lake	lake
+ERR12814452	2	lake	lake
+ERR12814453	2	lake	lake
+ERR12814454	2	lake	lake
+ERR12814455	2	lake	lake
+ERR12814456	2	lake	lake
+ERR12814457	2	lake	lake
+ERR12814458	2	lake	lake
+ERR12814460	2	lake	lake
+ERR12814461	2	lake	lake
+ERR12814462	2	lake	lake
+ERR12814463	2	lake	lake
+ERR12814464	2	lake	lake
+ERR12814465	2	lake	lake
+ERR12814467	2	lake	lake
+ERR12814468	2	lake	lake
+ERR12814469	2	lake	lake
+ERR12814470	2	lake	lake
+ERR12814471	2	lake	lake
+ERR12814472	2	lake	lake
+ERR12814473	2	lake	lake
+ERR12814474	2	lake	lake
+ERR12814475	2	lake	lake
+ERR12814476	2	lake	lake
+ERR14057409	2	sea coast	
+ERR14057410	2	sea coast	
+ERR14057411	2	shell	
+ERR14057412	2	shell	
+ERR14057413	2	ocean	
+ERR14057414	2	ocean	
+ERR14057415	2	ocean	
+ERR14057416	2	ocean	
+ERR14100444	2	sea coast	
+ERR14100445	2	sea coast	
+ERR14100446	2	shell	
+ERR14100447	2	shell	
+ERR14100448	2	ocean	
+ERR14100449	2	ocean	
+ERR14100450	2	ocean	
+ERR14100451	2	ocean	
+ERR1894879	2	ocean	shell
+ERR1894880	2	sea coast	shell
+ERR1894881	2	shell	shell
+ERR1894882	2	ocean	shell
+ERR1894900	2	ocean	shell
+ERR1894901	2	sea coast	shell
+ERR1894902	2	ocean	shell
+ERR1894903	2	sea coast	shell
+ERR1894904	2	cave	shell
+ERR1894905	2	cave	shell
+ERR1894906	2	cave	shell
+ERR1894907	2	ocean	shell
+ERR1894908	2	sea coast	shell
+ERR1894909	2	ocean	shell
+ERR1894910	2	ocean	shell
+ERR1894911	2	ocean	shell
+ERR1894912	2	sea coast	shell
+ERR1894913	2	sea coast	shell
+ERR1894914	2	ocean	shell
+ERR1894915	2	ocean	shell
+ERR1894916	2	cave	shell
+ERR1894917	2	ocean	shell
+ERR1894918	2	ocean	shell
+ERR1894919	2	ocean	shell
+ERR2269773	2	lake	
+ERR2269775	2	lake	
+ERR2269776	2	lake	
+ERR2269777	2	lake	
+ERR2269778	2	lake	
+ERR2269779	2	lake	
+ERR2269780	2	lake	
+ERR2269781	2	lake	
+ERR2269782	2	lake	
+ERR2269783	2	lake	
+ERR2269784	2	lake	
+ERR2269785	2	lake	
+ERR2269786	2	lake	
+ERR2269787	2	lake	
+ERR2269788	2	lake	
+ERR2269789	2	lake	
+ERR2269790	2	lake	
+ERR2269791	2	lake	
+ERR2269792	2	lake	
+ERR2269793	2	lake	
+ERR2269794	2	lake	
+ERR2269795	2	lake	
+ERR2269796	2	sea coast	
+ERR2269797	2	lake	
+ERR2269798	2	lake	
+ERR2269799	2	lake	
+ERR2269800	2	lake	
+ERR2269801	2	lake	
+ERR2269802	2	lake	
+ERR2269803	2	sea coast	
+ERR2269804	2	lake	
+ERR2269805	2	lake	
+ERR3728226	2	shell	
+ERR3728227	2	shell	
+ERR3728228	2	shell	
+ERR3728238	2	sea coast	
+ERR3728239	2	shell	
+ERR3728240	2	sea coast	
+ERR3728241	2	sea coast	
+ERR3728245	2	shell	
+ERR3728246	2	shell	
+ERR3728247	2	shell	
+ERR3728248	2	shell	
+ERR3728249	2	shell	
+ERR3728250	2	shell	
+ERR3728251	2	shell	
+ERR3728252	2	shell	
+ERR3728254	2	shell	
+ERR3728255	2	shell	
+ERR3728256	2	shell	
+ERR3728257	2	shell	
+ERR4373119	2	shell	
+ERR4373134	2	cave	
+ERR4373146	2	shell	
+ERR4373153	2	cave	
+ERR4373159	2	ocean	
+ERR4373979	2	shell	
+ERR4373995	2	sea coast	
+ERR4373996	2	sea coast	
+ERR4373997	2	ocean	
+ERR4373998	2	ocean	
+ERR4373999	2	sea coast	
+ERR4374000	2	sea coast	
+ERR4374001	2	ocean	
+ERR4374002	2	cave	
+ERR4374003	2	ocean	
+ERR4374004	2	sea coast	
+ERR4374005	2	sea coast	
+ERR4374006	2	cave	
+ERR4374007	2	cave	
+ERR4374008	2	sea coast	
+ERR4374009	2	ocean	
+ERR4374010	2	cave	
+ERR4374011	2	cave	
+ERR4374012	2	sea coast	
+ERR4374013	2	shell	
+ERR4374014	2	ocean	
+ERR4374015	2	ocean	
+ERR4374016	2	cave	
+ERR4374017	2	sea coast	
+ERR4374018	2	cave	
+ERR4374019	2	ocean	
+ERR4374020	2	sea coast	
+ERR4374021	2	sea coast	
+ERR4374022	2	sea coast	
+ERR4374023	2	sea coast	
+ERR4374024	2	sea coast	
+ERR4374025	2	cave	
+ERR4374026	2	ocean	
+ERR4374027	2	cave	
+ERR4374028	2	cave	
+ERR4374029	2	sea coast	
+ERR4374030	2	sea coast	
+ERR4374031	2	cave	
+ERR4374032	2	cave	
+ERR4374033	2	sea coast	
+ERR4374034	2	shell	
+ERR4374035	2	cave	
+ERR4374036	2	sea coast	
+ERR4374037	2	shell	
+ERR4374038	2	cave	
+ERR4374039	2	sea coast	
+ERR4374040	2	ocean	
+ERR4374041	2	ocean	
+ERR4374042	2	cave	
+ERR4374043	2	sea coast	
+ERR4374044	2	cave	
+ERR4374045	2	sea coast	
+ERR4374046	2	sea coast	
+ERR4374047	2	shell	
+ERR4374048	2	cave	
+ERR4374049	2	cave	
+ERR4374050	2	cave	
+ERR4374051	2	cave	
+ERR4374052	2	ocean	
+ERR4374053	2	sea coast	
+ERR4374055	2	cave	
+ERR4374588	2	cave	
+ERR4374589	2	cave	
+ERR4374838	2	sea coast	
+ERR4374839	2	cave	
+ERR4374851	2	sea coast	
+ERR4374857	2	cave	
+ERR4374858	2	ocean	
+ERR4374859	2	ocean	
+ERR4374860	2	cave	
+ERR4374861	2	cave	
+ERR4374862	2	shell	
+ERR4374863	2	cave	
+ERR4374864	2	cave	
+ERR4374865	2	cave	
+ERR4374866	2	cave	
+ERR4374867	2	cave	
+ERR4374868	2	cave	
+ERR4374869	2	sea coast	
+ERR4374870	2	cave	
+ERR4374871	2	cave	
+ERR4374872	2	cave	
+ERR4374873	2	sea coast	
+ERR4374874	2	sea coast	
+ERR4374875	2	cave	
+ERR4374912	2	ocean	
+ERR4374913	2	cave	
+ERR4374914	2	sea coast	
+ERR4374915	2	shell	
+ERR4374916	2	cave	
+ERR4374917	2	cave	
+ERR4374918	2	cave	
+ERR4374919	2	cave	
+ERR4374920	2	cave	
+ERR4374921	2	ocean	
+ERR4374922	2	sea coast	
+ERR4374923	2	cave	
+ERR4374924	2	cave	
+ERR4374925	2	cave	
+ERR4374926	2	sea coast	
+ERR4374927	2	ocean	
+ERR4374928	2	cave	
+ERR4374929	2	ocean	
+ERR4374948	2	sea coast	
+ERR4374962	2	ocean	
+ERR4374963	2	ocean	
+ERR4375010	2	sea coast	
+ERR4375011	2	cave	
+ERR4375017	2	sea coast	
+ERR4375025	2	cave	
+ERR4375032	2	cave	
+ERR4375036	2	ocean	
+ERR4375039	2	ocean	
+ERR4375040	2	cave	
+ERR4375042	2	sea coast	
+ERR4375045	2	cave	
+ERR4375046	2	cave	
+ERR4375047	2	ocean	
+ERR4375048	2	cave	
+ERR4375049	2	ocean	
+ERR4375050	2	cave	
+ERR4375132	2	ocean	
+ERR4375133	2	cave	
+ERR4375134	2	sea coast	
+ERR4375135	2	cave	
+ERR4375136	2	cave	
+ERR4375137	2	ocean	
+ERR4375141	2	sea coast	
+ERR4375142	2	cave	
+ERR4375143	2	cave	
+ERR4375144	2	cave	
+ERR4383828	2	cave	
+ERR4383829	2	cave	
+ERR4384927	2	sea coast	
+ERR4385800	2	ocean	
+ERR4385809	2	ocean	
+ERR4386464	2	shell	
+ERR4386569	2	sea coast	
+ERR4386594	2	cave	
+ERR4388102	2	cave	
+ERR4388107	2	cave	
+ERR4388231	2	ocean	
+ERR4388236	2	ocean	
+ERR4391165	2	shell	
+ERR4391166	2	shell	
+ERR4408185	2	sea coast	
+ERR4408187	2	cave	
+ERR4408188	2	ocean	
+ERR4413529	2	shell	
+ERR567364	2	ocean	ocean
+ERR567366	2	ocean	ocean
+ERR5729614	2	shell	
+ERR5729615	2	shell	
+ERR5729616	2	shell	
+ERR5729617	2	shell	
+ERR5729618	2	shell	
+ERR5729619	2	shell	
+ERR5729620	2	shell	
+ERR5729621	2	shell	
+ERR5729622	2	shell	
+ERR5729623	2	shell	
+ERR5729624	2	shell	
+ERR5729625	2	shell	
+ERR5729626	2	shell	
+ERR5729627	2	shell	
+ERR5729628	2	shell	
+ERR5729629	2	shell	
+ERR5729630	2	thermokarst	
+ERR5729631	2	shell	
+ERR5729632	2	shell	
+ERR5729633	2	shell	
+ERR5729634	2	shell	
+ERR5729635	2	cave	
+ERR5729636	2	shell	
+ERR5729637	2	shell	
+ERR5729638	2	shell	
+ERR5729639	2	shell	
+ERR5729640	2	shell	
+ERR5729641	2	shell	
+ERR5729642	2	shell	
+ERR5729643	2	shell	
+ERR5729644	2	shell	
+ERR5729645	2	shell	
+ERR5729646	2	shell	
+ERR5729647	2	shell	
+ERR5729648	2	shell	
+ERR5729649	2	shell	
+ERR5729650	2	shell	
+ERR5729651	2	shell	
+ERR5729652	2	shell	
+ERR5729653	2	shell	
+ERR5729654	2	shell	
+ERR5729655	2	shell	
+ERR5729656	2	shell	
+ERR5729657	2	shell	
+ERR9465622	2	lake	lake
+ERR9465623	2	lake	lake
+ERR9465624	2	lake	lake
+ERR9465625	2	lake	lake
+ERR9465626	2	lake	lake
+ERR9465627	2	lake	lake
+ERR9465628	2	lake	lake
+ERR9465629	2	sea coast	lake
+ERR9465630	2	lake	lake
+ERR9465631	2	sea coast	lake
+ERR9465632	2	ocean	lake
+SRR30066258	2	shell	
+SRR30066259	2	shell	
+SRR30066260	2	shell	
+SRR30066261	2	shell	
+SRR30066262	2	shell	
+SRR30066263	2	shell	
+SRR30066264	2	shell	
+SRR30066265	2	shell	
+SRR30066269	2	shell	
+SRR30066270	2	shell	
+SRR30066271	2	shell	
+SRR30066272	2	shell	
+SRR32023812	2	ocean	ocean
+SRR32023817	2	ocean	ocean
+SRR32023818	2	ocean	ocean
+SRR32023819	2	ocean	ocean
+SRR32023820	2	ocean	ocean
+SRR32023821	2	ocean	ocean
+SRR32023822	2	ocean	ocean
+SRR32023823	2	ocean	ocean
+SRR32023824	2	ocean	ocean
+SRR32023825	2	ocean	ocean
+SRR32023826	2	ocean	ocean
+SRR32023827	2	ocean	ocean
+SRR32023828	2	ocean	ocean
+SRR32023829	2	ocean	ocean
+SRR32023830	2	ocean	ocean
+SRR32023831	2	ocean	ocean
+SRR32023832	2	ocean	ocean
+SRR32023833	2	ocean	ocean
+SRR32023835	2	ocean	ocean
+SRR32023836	2	ocean	ocean
+SRR32023837	2	ocean	ocean
+SRR32023838	2	ocean	ocean
+SRR32023839	2	ocean	ocean
+SRR32023840	2	ocean	ocean
+SRR32023841	2	ocean	ocean
+SRR32023842	2	ocean	ocean
+SRR32023845	2	ocean	ocean
+SRR32023846	2	ocean	ocean
+SRR32023847	2	ocean	ocean
+SRR32023848	2	ocean	ocean
+SRR32023849	2	ocean	ocean
+SRR32023851	2	ocean	ocean
+SRR32023854	2	ocean	ocean
+SRR32023855	2	ocean	ocean
+SRR32023858	2	ocean	ocean
+SRR32023859	2	ocean	ocean
+SRR32023860	2	ocean	ocean
+SRR32023861	2	ocean	ocean
+SRR32023864	2	ocean	ocean
+SRR32023865	2	ocean	ocean
+SRR32023867	2	ocean	ocean
+SRR32023868	2	ocean	ocean
+SRR32023870	2	ocean	ocean
+SRR32023871	2	ocean	ocean
+SRR32023872	2	ocean	ocean
+SRR32023873	2	ocean	ocean
+SRR32023874	2	ocean	ocean
+SRR32023875	2	ocean	ocean
+SRR6877282	2	shell	
+SRR6877283	2	sea coast	
+SRR6877284	2	shell	
+SRR6877285	2	cave	
+SRR6877286	2	shell	
+SRR6877287	2	cave	
+SRR6877288	2	shell	
+SRR6877289	2	sea coast	
+SRR6877290	2	shell	
+SRR6877291	2	sea coast	
+SRR6877292	2	shell	
+SRR6877293	2	ocean	
+SRR6877294	2	thermokarst	
+SRR6877295	2	cave	
+SRR6877296	2	shell	
+SRR6877297	2	sea coast	
+SRR6877298	2	sea coast	
+SRR6877299	2	sea coast	
+SRR6877300	2	shell	
+SRR6877301	2	sea coast	
+SRR6877302	2	ocean	
+SRR6877303	2	thermokarst	
+SRR6877304	2	shell	
+SRR6877305	2	thermokarst	
+SRR6877306	2	cave	
+SRR6877307	2	cave	
+SRR6877308	2	shell	
+SRR6877309	2	shell	
+SRR6877310	2	shell	
+SRR6877311	2	thermokarst	
+SRR6877312	2	shell	
+SRR6877313	2	shell	
+SRR6877314	2	shell	
+SRR6877315	2	sea coast	
+SRR6877316	2	shell	
+SRR6877317	2	cave	
+SRR6877318	2	shell	
+SRR6877319	2	ocean	
+SRR6877320	2	shell	
+SRR6877321	2	shell	
+SRR6877322	2	thermokarst	
+SRR6877323	2	shell	
+SRR6877324	2	shell	
+SRR6877325	2	cave	
+SRR6877326	2	shell	
+SRR6877327	2	cave	
+SRR6877328	2	thermokarst	
+SRR6877329	2	sea coast	
+SRR6877330	2	shell	
+SRR6877331	2	cave	
+SRR6877332	2	thermokarst	
+SRR6877333	2	cave	
+SRR6877334	2	shell	
+SRR6877335	2	sea coast	
+SRR6877336	2	shell	
+SRR6877337	2	cave	
+SRR6877338	2	shell	
+SRR6877339	2	shell	
+SRR6877340	2	shell	
+SRR6877341	2	ocean	
+SRR6877342	2	shell	
+SRR6877343	2	sea coast	
+SRR6877344	2	shell	
+SRR6877345	2	cave	
+SRR6877346	2	shell	
+SRR6877347	2	sea coast	
+SRR6877348	2	shell	
+SRR6877349	2	sea coast	
+SRR6877350	2	shell	
+SRR6877351	2	cave	
+SRR6877352	2	shell	
+SRR6877353	2	cave	
+SRR6877354	2	shell	
+SRR6877355	2	cave	
+SRR6877356	2	thermokarst	
+SRR6877357	2	cave	
+SRR6877358	2	shell	
+SRR6877359	2	cave	
+SRR6877360	2	sea coast	
+SRR6877361	2	thermokarst	
+SRR6877362	2	sea coast	
+SRR6877363	2	shell	
+SRR6877364	2	shell	
+SRR6877365	2	shell	
+SRR6877366	2	sea coast	
+SRR6877367	2	shell	
+SRR6877368	2	sea coast	
+SRR6877369	2	shell	
+SRR6877370	2	shell	
+SRR6877371	2	cave	
+SRR6877372	2	shell	
+SRR6877373	2	sea coast	
+SRR6877374	2	shell	
+SRR6877375	2	shell	
+SRR6877376	2	thermokarst	
+SRR6877377	2	cave	
+SRR6877378	2	shell	
+SRR6877379	2	cave	
+SRR6877380	2	cave	
+SRR6877381	2	cave	
+SRR6877382	2	shell	
+SRR6877383	2	sea coast	
+SRR6877384	2	shell	
+SRR6877385	2	cave	
+SRR6877386	2	thermokarst	
+SRR6877387	2	cave	
+SRR6877388	2	shell	
+SRR6877389	2	ocean	
+SRR6877390	2	thermokarst	
+SRR6877391	2	cave	
+SRR6877392	2	thermokarst	
+SRR6877393	2	shell	
+SRR6877394	2	sea coast	
+SRR6877395	2	shell	
+SRR6877396	2	sea coast	
+SRR6877397	2	thermokarst	
+SRR6877398	2	sea coast	
+SRR6877399	2	shell	
+SRR6877400	2	sea coast	
+SRR6877401	2	shell	
+SRR6877402	2	sea coast	
+SRR6877403	2	shell	
+SRR7774469	2	sea coast	midden
+SRR7774470	2	lake	midden
+SRR7774471	2	sea coast	midden
+SRR7774472	2	thermokarst	midden
+SRR7774473	2	thermokarst	midden
+SRR7774474	2	sea coast	midden
+SRR7774475	2	cave	midden
+SRR7774476	2	sea coast	midden
+SRR7774477	2	thermokarst	midden
+SRR7774478	2	ocean	midden
+SRR7774479	2	sea coast	midden
+SRR8652706	2	ocean	lake
+SRR8652707	2	ocean	lake
+SRR8652708	2	ocean	lake
+SRR8652709	2	cave	lake
+SRR8652710	2	ocean	lake
+SRR8652711	2	ocean	lake
+SRR8652712	2	sea coast	lake
+SRR8652713	2	sea coast	lake
+SRR8652714	2	sea coast	lake
+SRR8652715	2	sea coast	lake
+SRR8652716	2	cave	lake
+SRR8652717	2	cave	lake
+ERR11413657	3	swamp forest	
+ERR11413658	3	swamp forest	
+ERR11413659	3	swamp forest	
+ERR11413660	3	swamp forest	
+ERR11413661	3	swamp forest	
+ERR11413662	3	swamp forest	
+ERR11413663	3	swamp forest	
+ERR11413664	3	shell	
+ERR11413665	3	swamp forest	
+ERR11413666	3	swamp forest	
+ERR11413667	3	swamp forest	
+ERR11413668	3	swamp forest	
+ERR11413669	3	swamp forest	
+ERR11413670	3	swamp forest	
+ERR11413671	3	swamp forest	
+ERR11413672	3	swamp forest	
+ERR11413673	3	swamp forest	
+ERR11413674	3	swamp forest	
+ERR11413675	3	swamp forest	
+ERR11413676	3	swamp forest	
+ERR11413677	3	swamp forest	
+ERR11413678	3	shell	
+ERR11413679	3	swamp forest	
+ERR11413680	3	swamp forest	
+ERR11413681	3	swamp forest	
+ERR11413682	3	swamp forest	
+ERR11413683	3	swamp forest	
+ERR11413684	3	swamp forest	
+ERR11413685	3	swamp forest	
+ERR11413686	3	swamp forest	
+ERR11413687	3	swamp forest	
+ERR11413688	3	swamp forest	
+ERR11413689	3	swamp forest	
+ERR11413690	3	swamp forest	
+ERR11413691	3	swamp forest	
+ERR11413692	3	swamp forest	
+ERR11413693	3	swamp forest	
+ERR11413694	3	swamp forest	
+ERR11413695	3	swamp forest	
+ERR11413696	3	swamp forest	
+ERR11413697	3	swamp forest	
+ERR11413698	3	swamp forest	
+ERR11413699	3	swamp forest	
+ERR11413700	3	swamp forest	
+ERR11413701	3	swamp forest	
+ERR11413702	3	swamp forest	
+ERR11413703	3	swamp forest	
+ERR11413704	3	swamp forest	
+ERR11413705	3	swamp forest	
+ERR11413706	3	swamp forest	
+ERR11413707	3	swamp forest	
+ERR11413708	3	swamp forest	
+ERR11413709	3	swamp forest	
+ERR11413710	3	swamp forest	
+ERR11413711	3	swamp forest	
+ERR11413712	3	swamp forest	
+ERR11413713	3	swamp forest	
+ERR11413714	3	swamp forest	
+ERR11413715	3	swamp forest	
+ERR11413716	3	swamp forest	
+ERR11413717	3	swamp forest	
+ERR11413718	3	swamp forest	
+ERR11413719	3	swamp forest	
+ERR11413720	3	swamp forest	
+ERR11413721	3	swamp forest	
+ERR11413722	3	swamp forest	
+ERR11413723	3	swamp forest	
+ERR11413724	3	swamp forest	
+ERR11413725	3	swamp forest	
+ERR11413726	3	swamp forest	
+ERR11413727	3	swamp forest	
+ERR11413728	3	swamp forest	
+ERR11413729	3	swamp forest	
+ERR11413731	3	swamp forest	
+ERR11413732	3	swamp forest	
+ERR11413733	3	swamp forest	
+ERR11413734	3	swamp forest	
+ERR11413735	3	swamp forest	
+ERR11413736	3	cave	
+ERR11413737	3	swamp forest	
+ERR11413738	3	cave	
+ERR11413739	3	swamp forest	
+ERR11413740	3	swamp forest	
+ERR11413741	3	swamp forest	
+ERR11413742	3	shell	
+ERR11413743	3	shell	
+ERR11413744	3	swamp forest	
+ERR11413745	3	swamp forest	
+ERR11413746	3	ocean	
+ERR11413747	3	swamp forest	
+ERR11413748	3	swamp forest	
+ERR11413749	3	ocean	
+ERR11413750	3	swamp forest	
+ERR11413751	3	swamp forest	
+ERR11413752	3	swamp forest	
+ERR11413753	3	swamp forest	
+ERR11413754	3	swamp forest	
+ERR11413755	3	swamp forest	
+ERR11413756	3	swamp forest	
+ERR11413757	3	swamp forest	
+ERR11413758	3	swamp forest	
+ERR11413759	3	swamp forest	
+ERR11656729	3	shell	
+ERR11656730	3	shell	
+ERR11656731	3	shell	
+ERR11656732	3	shell	
+ERR11656733	3	swamp forest	
+ERR11656734	3	shell	
+ERR11656735	3	shell	
+ERR11656736	3	swamp forest	
+ERR11656737	3	swamp forest	
+ERR11656738	3	swamp forest	
+ERR11656739	3	swamp forest	
+ERR11656740	3	shell	
+ERR11656741	3	shell	
+ERR11656742	3	ocean	
+ERR11656743	3	shell	
+ERR11656744	3	shell	
+ERR11656745	3	swamp forest	
+ERR11656746	3	swamp forest	
+ERR11656747	3	shell	
+ERR11656748	3	swamp forest	
+ERR1560012	3	lake	lake
+ERR1560013	3	lake	lake
+ERR1560014	3	lake	lake
+ERR1560015	3	lake	lake
+ERR1560016	3	lake	lake
+ERR1560017	3	lake	lake
+ERR1560018	3	lake	lake
+ERR1560019	3	archeological site	lake
+ERR1560020	3	lake	lake
+ERR1560021	3	archeological site	lake
+ERR1560022	3	archeological site	lake
+ERR1560023	3	lake	lake
+ERR1560024	3	shell	lake
+ERR1560025	3	swamp forest	lake
+ERR1560093	3	lake	lake
+ERR1560094	3	lake	lake
+ERR1560095	3	lake	lake
+ERR1560096	3	lake	lake
+ERR1560097	3	lake	lake
+ERR1560098	3	archeological site	lake
+ERR1560099	3	lake	lake
+ERR1560100	3	archeological site	lake
+ERR1560101	3	lake	lake
+ERR1560102	3	archeological site	lake
+ERR1560103	3	archeological site	lake
+ERR1560104	3	archeological site	lake
+ERR1560105	3	lake	lake
+ERR1560106	3	lake	lake
+ERR1560107	3	archeological site	lake
+ERR1560108	3	lake	lake
+ERR1560109	3	archeological site	lake
+ERR1560110	3	lake	lake
+ERR1688747	3	lake	midden
+ERR1688749	3	lake	midden
+ERR1688750	3	lake	midden
+ERR1688752	3	lake	midden
+ERR1688754	3	lake	midden
+ERR1688756	3	lake	midden
+ERR1688758	3	lake	midden
+ERR1688760	3	lake	midden
+ERR1688761	3	lake	midden
+ERR1688762	3	lake	midden
+ERR1688764	3	lake	midden
+ERR1688765	3	lake	midden
+ERR1688768	3	ocean	midden
+ERR1688769	3	lake	midden
+ERR1688771	3	lake	midden
+ERR1688772	3	swamp forest	midden
+ERR1688775	3	lake	midden
+ERR1688778	3	lake	midden
+ERR1688780	3	lake	midden
+ERR1688782	3	ocean	midden
+ERR1688785	3	ocean	midden
+ERR1688788	3	swamp forest	midden
+ERR1688789	3	swamp forest	midden
+ERR1688797	3	lake	midden
+ERR1688799	3	lake	midden
+ERR1688803	3	lake	midden
+ERR1688804	3	lake	midden
+ERR1688808	3	lake	midden
+ERR1688810	3	swamp forest	midden
+ERR3458787	3	shell	ocean
+ERR3458788	3	shell	ocean
+ERR3458789	3	shell	ocean
+ERR3458790	3	ocean	ocean
+ERR3458791	3	ocean	ocean
+ERR3458792	3	ocean	ocean
+ERR3459717	3	swamp forest	ocean
+ERR3459718	3	ocean	ocean
+ERR3459719	3	swamp forest	ocean
+ERR3459720	3	swamp forest	ocean
+ERR3459721	3	swamp forest	ocean
+ERR3459722	3	shell	ocean
+ERR3459723	3	swamp forest	ocean
+ERR3459724	3	swamp forest	ocean
+ERR3459725	3	lake	ocean
+ERR3459726	3	lake	ocean
+ERR3459727	3	lake	ocean
+ERR3459728	3	lake	ocean
+ERR3459729	3	lake	ocean
+ERR3459730	3	lake	ocean
+ERR3459731	3	lake	ocean
+ERR3459732	3	swamp forest	ocean
+ERR3459733	3	lake	ocean
+ERR3459734	3	lake	ocean
+ERR3459735	3	lake	ocean
+ERR3459736	3	lake	ocean
+ERR3459737	3	shell	ocean
+ERR3459738	3	ocean	ocean
+ERR3459739	3	ocean	ocean
+ERR3459740	3	ocean	ocean
+ERR3459741	3	ocean	ocean
+ERR3459742	3	ocean	ocean
+ERR3459743	3	lake	ocean
+ERR3459744	3	lake	ocean
+ERR3772645	3	lake	lake
+ERR3804374	3	lake	lake
+ERR3804375	3	lake	lake
+ERR4172756	3	midden	
+ERR4172758	3	midden	
+ERR4172761	3	midden	
+ERR4172763	3	ocean	
+ERR4172766	3	swamp forest	
+ERR4172783	3	midden	
+ERR4172788	3	midden	
+ERR4172789	3	swamp forest	
+ERR4172797	3	swamp forest	
+ERR4172799	3	swamp forest	
+ERR4172800	3	swamp forest	
+ERR4172802	3	swamp forest	
+ERR4172804	3	swamp forest	
+ERR4172806	3	swamp forest	
+ERR4172808	3	swamp forest	
+ERR4172809	3	ocean	
+ERR4172811	3	ocean	
+ERR4172813	3	swamp forest	
+ERR4172814	3	swamp forest	
+ERR4172817	3	ocean	
+ERR4172819	3	ocean	
+ERR4172823	3	ocean	
+ERR4172827	3	ocean	
+ERR4172829	3	ocean	
+ERR4172830	3	ocean	
+ERR4172832	3	ocean	
+ERR4172834	3	ocean	
+ERR4172835	3	lake	
+ERR4172836	3	lake	
+ERR4172838	3	lake	
+ERR4172839	3	lake	
+ERR4172841	3	midden	
+ERR4172843	3	midden	
+ERR4172850	3	midden	
+ERR4172854	3	midden	
+ERR4172855	3	swamp forest	
+ERR4172857	3	swamp forest	
+ERR4172860	3	swamp forest	
+ERR4172872	3	swamp forest	
+ERR4172883	3	sea coast	
+ERR4172889	3	sea coast	
+ERR4172953	3	sea coast	
+ERR4172977	3	sea coast	
+ERR4172978	3	swamp forest	
+ERR4172979	3	swamp forest	
+ERR4172981	3	swamp forest	
+ERR4172982	3	swamp forest	
+ERR4172991	3	swamp forest	
+ERR4173008	3	swamp forest	
+ERR4173033	3	swamp forest	
+ERR4173039	3	swamp forest	
+ERR4173041	3	swamp forest	
+ERR4173043	3	swamp forest	
+ERR4173045	3	swamp forest	
+ERR4173049	3	swamp forest	
+ERR4173051	3	swamp forest	
+ERR4173057	3	swamp forest	
+ERR4173060	3	swamp forest	
+ERR4173061	3	swamp forest	
+ERR4173063	3	swamp forest	
+ERR4173066	3	swamp forest	
+ERR4173068	3	swamp forest	
+ERR4173070	3	midden	
+ERR4173072	3	midden	
+ERR4173073	3	midden	
+ERR4173075	3	midden	
+ERR4173082	3	swamp forest	
+ERR9612721	3	swamp forest	
+ERR9612722	3	swamp forest	
+ERR9612723	3	swamp forest	
+ERR9612724	3	swamp forest	
+ERR9612725	3	swamp forest	
+ERR9612726	3	swamp forest	
+ERR9612727	3	swamp forest	
+ERR9612728	3	swamp forest	
+ERR9612729	3	swamp forest	
+ERR9612730	3	swamp forest	
+ERR9612731	3	swamp forest	
+ERR9612732	3	swamp forest	
+ERR9612733	3	swamp forest	
+ERR9612734	3	swamp forest	
+ERR9612735	3	swamp forest	
+ERR9612736	3	swamp forest	
+ERR9612737	3	swamp forest	
+ERR9612738	3	swamp forest	
+ERR9612739	3	swamp forest	
+ERR9612740	3	swamp forest	
+ERR9612741	3	swamp forest	
+ERR9612742	3	swamp forest	
+ERR9612743	3	swamp forest	
+ERR9612744	3	swamp forest	
+ERR9612745	3	swamp forest	
+ERR9612746	3	swamp forest	
+ERR9612747	3	swamp forest	
+ERR9612748	3	swamp forest	
+ERR9612749	3	swamp forest	
+ERR9612750	3	swamp forest	
+ERR9612751	3	swamp forest	
+ERR9612752	3	swamp forest	
+ERR9612753	3	swamp forest	
+ERR9612754	3	swamp forest	
+ERR9612755	3	swamp forest	
+ERR9612756	3	swamp forest	
+ERR9612757	3	swamp forest	
+ERR9612758	3	swamp forest	
+ERR9612759	3	swamp forest	
+ERR9612760	3	swamp forest	
+ERR9612761	3	swamp forest	
+ERR9612762	3	swamp forest	
+ERR9612763	3	swamp forest	
+ERR9612764	3	swamp forest	
+ERR9612765	3	swamp forest	
+ERR9612766	3	swamp forest	
+ERR9612767	3	swamp forest	
+ERR9612768	3	swamp forest	
+ERR9612769	3	swamp forest	
+ERR9612770	3	swamp forest	
+ERR9612771	3	swamp forest	
+ERR9612772	3	swamp forest	
+ERR9612773	3	swamp forest	
+ERR9612774	3	swamp forest	
+ERR9612775	3	swamp forest	
+ERR9612776	3	swamp forest	
+ERR9612777	3	swamp forest	
+ERR9612778	3	swamp forest	
+ERR9612779	3	swamp forest	
+ERR9612780	3	swamp forest	
+ERR9612781	3	swamp forest	
+ERR9612782	3	swamp forest	
+ERR9612783	3	swamp forest	
+ERR9612784	3	swamp forest	
+ERR9612785	3	swamp forest	
+ERR9612786	3	swamp forest	
+ERR9612787	3	swamp forest	
+ERR9612788	3	swamp forest	
+ERR9612789	3	swamp forest	
+ERR9612790	3	swamp forest	
+ERR9612791	3	swamp forest	
+ERR9612792	3	swamp forest	
+ERR9612793	3	swamp forest	
+ERR9612794	3	swamp forest	
+ERR9612795	3	swamp forest	
+ERR9612796	3	swamp forest	
+ERR9612797	3	swamp forest	
+ERR9612798	3	swamp forest	
+ERR9612799	3	swamp forest	
+ERR9612800	3	swamp forest	
+ERR9612801	3	swamp forest	
+ERR9612802	3	swamp forest	
+ERR9612803	3	swamp forest	
+ERR9612804	3	swamp forest	
+ERR9612805	3	swamp forest	
+ERR9612806	3	swamp forest	
+ERR9612807	3	swamp forest	
+ERR9612808	3	swamp forest	
+ERR9612809	3	swamp forest	
+ERR9612810	3	swamp forest	
+ERR9612811	3	swamp forest	
+ERR9612812	3	swamp forest	
+ERR9612813	3	swamp forest	
+ERR9612814	3	swamp forest	
+ERR9612815	3	swamp forest	
+ERR9612816	3	swamp forest	
+ERR9612817	3	swamp forest	
+ERR9612818	3	swamp forest	
+ERR9612819	3	swamp forest	
+ERR9612820	3	swamp forest	
+ERR9612821	3	swamp forest	
+ERR9612822	3	swamp forest	
+ERR9612823	3	swamp forest	
+ERR9612824	3	swamp forest	
+ERR9612825	3	swamp forest	
+ERR9612826	3	swamp forest	
+ERR9612827	3	swamp forest	
+ERR9612828	3	swamp forest	
+ERR9612829	3	swamp forest	
+ERR9612830	3	swamp forest	
+ERR9612831	3	swamp forest	
+ERR9612832	3	swamp forest	
+ERR9612833	3	swamp forest	
+ERR9612834	3	swamp forest	
+ERR9612835	3	swamp forest	
+ERR9612836	3	swamp forest	
+ERR9612837	3	swamp forest	
+ERR9612838	3	swamp forest	
+ERR9612839	3	swamp forest	
+ERR9612840	3	swamp forest	
+ERR9612841	3	swamp forest	
+ERR9612842	3	swamp forest	
+ERR9612843	3	swamp forest	
+ERR9612844	3	swamp forest	
+ERR9612845	3	swamp forest	
+ERR9612846	3	swamp forest	
+ERR9612847	3	swamp forest	
+ERR9612848	3	swamp forest	
+ERR9612849	3	swamp forest	
+ERR9612850	3	swamp forest	
+ERR9612851	3	swamp forest	
+ERR9612852	3	swamp forest	
+ERR9612853	3	swamp forest	
+ERR9612854	3	swamp forest	
+ERR9612855	3	swamp forest	
+ERR9612856	3	swamp forest	
+ERR9612857	3	swamp forest	
+ERR9612858	3	swamp forest	
+ERR9612859	3	swamp forest	
+ERR9612860	3	swamp forest	
+ERR9612861	3	swamp forest	
+ERR9612862	3	swamp forest	
+ERR9612863	3	swamp forest	
+ERR9612864	3	swamp forest	
+ERR9612865	3	swamp forest	
+ERR9612866	3	swamp forest	
+ERR9612867	3	swamp forest	
+ERR9612868	3	swamp forest	
+ERR9612869	3	swamp forest	
+ERR9612870	3	swamp forest	
+ERR9612871	3	swamp forest	
+ERR9612872	3	swamp forest	
+ERR9612873	3	swamp forest	
+ERR9612874	3	swamp forest	
+ERR9612875	3	swamp forest	
+ERR9612876	3	swamp forest	
+ERR9612877	3	swamp forest	
+ERR9612878	3	swamp forest	
+ERR9612879	3	swamp forest	
+ERR9612880	3	swamp forest	
+ERR9612881	3	swamp forest	
+ERR9612882	3	swamp forest	
+ERR9612883	3	swamp forest	
+ERR9612884	3	swamp forest	
+ERR9612885	3	swamp forest	
+ERR9612886	3	swamp forest	
+ERR9612887	3	swamp forest	
+ERR9612888	3	swamp forest	
+ERR9612889	3	swamp forest	
+ERR9612890	3	swamp forest	
+ERR9612891	3	swamp forest	
+ERR9612892	3	swamp forest	
+ERR9612893	3	swamp forest	
+ERR9612894	3	swamp forest	
+ERR9612895	3	swamp forest	
+ERR9612896	3	swamp forest	
+ERR9612897	3	swamp forest	
+ERR9612898	3	swamp forest	
+ERR9690357	3	archeological site	thermokarst
+ERR9690358	3	cave	thermokarst
+ERR9690359	3	archeological site	thermokarst
+ERR9690360	3	archeological site	thermokarst
+ERR9690361	3	cave	thermokarst
+ERR9690362	3	swamp forest	thermokarst
+ERR9690363	3	swamp forest	thermokarst
+ERR9690364	3	swamp forest	thermokarst
+ERR9690365	3	archeological site	thermokarst
+ERR9690366	3	swamp forest	thermokarst
+SRR10156707	3	lake	swamp forest
+SRR10156708	3	lake	swamp forest
+SRR10156709	3	lake	swamp forest
+SRR10156710	3	thermokarst	swamp forest
+SRR10156713	3	lake	swamp forest
+SRR10156724	3	lake	swamp forest
+SRR10156735	3	lake	swamp forest
+SRR10156737	3	lake	swamp forest
+SRR10156738	3	lake	swamp forest
+SRR10156739	3	lake	swamp forest
+SRR10156740	3	lake	swamp forest
+SRR10156741	3	lake	swamp forest
+SRR10156742	3	swamp forest	swamp forest
+SRR10156743	3	lake	swamp forest
+SRR10156744	3	lake	swamp forest
+SRR10156745	3	lake	swamp forest
+SRR10156746	3	lake	swamp forest
+SRR10156747	3	lake	swamp forest
+SRR10156748	3	lake	swamp forest
+SRR10156749	3	lake	swamp forest
+SRR10156750	3	lake	swamp forest
+SRR10156751	3	lake	swamp forest
+SRR10156752	3	lake	swamp forest
+SRR10156753	3	lake	swamp forest
+SRR10156754	3	lake	swamp forest
+SRR10156755	3	lake	swamp forest
+SRR10156756	3	lake	swamp forest
+SRR10156757	3	lake	swamp forest
+SRR10156758	3	lake	swamp forest
+SRR12136712	3	thermokarst	
+SRR12136713	3	swamp forest	
+SRR12462930	3	swamp forest	
+SRR12462931	3	swamp forest	
+SRR12462932	3	swamp forest	
+SRR12462933	3	swamp forest	
+SRR12462934	3	swamp forest	
+SRR12462935	3	swamp forest	
+SRR12462936	3	swamp forest	
+SRR12462937	3	swamp forest	
+SRR12462938	3	swamp forest	
+SRR12462939	3	swamp forest	
+SRR12462940	3	swamp forest	
+SRR12462941	3	swamp forest	
+SRR12462942	3	swamp forest	
+SRR12462943	3	swamp forest	
+SRR12462944	3	swamp forest	
+SRR12462945	3	swamp forest	
+SRR12462946	3	swamp forest	
+SRR12462947	3	swamp forest	
+SRR19160147	3	sea coast	
+SRR19160150	3	swamp forest	
+SRR19160161	3	swamp forest	
+SRR19160174	3	swamp forest	
+SRR19160175	3	lake	
+SRR19160180	3	swamp forest	
+SRR19160184	3	swamp forest	
+SRR19160194	3	swamp forest	
+SRR19160206	3	sea coast	
+SRR19160231	3	lake	
+SRR19160251	3	swamp forest	
+SRR957738	3	swamp forest	
+SRR957739	3	swamp forest	
+SRR957740	3	swamp forest	
+SRR957741	3	swamp forest	
+SRR957742	3	swamp forest	
+SRR957743	3	swamp forest	
+SRR957744	3	swamp forest	
+SRR957745	3	swamp forest	
+SRR957746	3	swamp forest	
+ERR12115113	4	rock shelter	
+ERR12115114	4	rock shelter	
+ERR12115115	4	rock shelter	
+ERR12115116	4	rock shelter	
+ERR1777519	4	shell	
+ERR1777520	4	shell	
+ERR1777521	4	shell	
+ERR1777522	4	shell	
+ERR1777523	4	rock shelter	
+ERR1777524	4	shell	
+ERR1777525	4	shell	
+ERR1777526	4	shell	
+ERR1777527	4	shell	
+ERR1777528	4	shell	
+ERR1777529	4	shell	
+ERR1777530	4	shell	
+ERR1777531	4	shell	
+ERR1777532	4	shell	
+ERR1777533	4	shell	
+ERR1777534	4	shell	
+ERR1777535	4	shell	
+ERR1777536	4	shell	
+ERR1777537	4	shell	
+ERR1777538	4	shell	
+ERR1777539	4	shell	
+ERR1777540	4	shell	
+ERR1777541	4	shell	
+ERR1777542	4	rock shelter	
+ERR1777543	4	shell	
+ERR1777544	4	shell	
+ERR1777545	4	shell	
+ERR1777546	4	shell	
+ERR1777547	4	shell	
+ERR1777548	4	shell	
+ERR1777549	4	shell	
+ERR1777550	4	shell	
+ERR1777551	4	rock shelter	
+ERR1777552	4	shell	
+ERR1777553	4	shell	
+ERR1777554	4	shell	
+ERR1777555	4	rock shelter	
+ERR1777556	4	shell	
+ERR1777557	4	shell	
+ERR1777558	4	shell	
+ERR1777559	4	rock shelter	
+ERR1777560	4	shell	
+ERR1777561	4	rock shelter	
+ERR1777562	4	shell	
+ERR1777563	4	shell	
+ERR1777564	4	shell	
+ERR1777565	4	shell	
+ERR1777566	4	shell	
+ERR1777567	4	shell	
+ERR1777568	4	shell	
+ERR1777569	4	rock shelter	
+ERR3609652	4	sea coast	
+ERR3609653	4	rock shelter	
+ERR3609654	4	rock shelter	
+ERR3609655	4	rock shelter	
+ERR3609656	4	rock shelter	
+ERR3609657	4	rock shelter	
+ERR3609658	4	rock shelter	
+ERR3609659	4	rock shelter	
+ERR3609660	4	rock shelter	
+ERR3609661	4	rock shelter	
+ERR4596443	4	rock shelter	
+ERR4596813	4	rock shelter	
+ERR4596815	4	rock shelter	
+ERR4596816	4	rock shelter	
+ERR4596817	4	rock shelter	
+ERR4596818	4	rock shelter	
+ERR4596819	4	rock shelter	
+ERR4596820	4	rock shelter	
+ERR4596822	4	rock shelter	
+ERR4596823	4	rock shelter	
+ERR4596824	4	rock shelter	
+ERR4596825	4	rock shelter	
+ERR4596826	4	rock shelter	
+ERR4596828	4	rock shelter	
+ERR5670952	4	rock shelter	
+ERR5670953	4	rock shelter	
+ERR5670954	4	rock shelter	
+ERR5670955	4	rock shelter	
+ERR5670956	4	rock shelter	
+ERR5670957	4	rock shelter	
+ERR5670958	4	rock shelter	
+ERR5670959	4	rock shelter	
+ERR5670960	4	rock shelter	
+ERR5670961	4	rock shelter	
+ERR5670962	4	rock shelter	
+ERR5670963	4	rock shelter	
+ERR5670964	4	rock shelter	
+ERR5670965	4	rock shelter	
+ERR5670966	4	rock shelter	
+ERR5670967	4	rock shelter	
+ERR5670968	4	rock shelter	
+ERR5670969	4	rock shelter	
+ERR5670970	4	rock shelter	
+ERR5670971	4	rock shelter	
+ERR5766165	4	midden	
+ERR5766166	4	midden	
+ERR5766167	4	midden	
+ERR5766168	4	midden	
+ERR5766169	4	midden	
+ERR5766170	4	midden	
+ERR5766171	4	midden	
+ERR5766172	4	midden	
+ERR5766173	4	midden	
+ERR5766174	4	midden	
+ERR5766175	4	midden	
+ERR5766176	4	midden	
+ERR5766177	4	midden	
+ERR5766178	4	midden	
+ERR5766179	4	midden	
+ERR5766180	4	midden	
+ERR5766181	4	midden	
+ERR5766182	4	midden	
+ERR5766183	4	midden	
+ERR6178850	4	rock shelter	
+ERR6178851	4	rock shelter	
+ERR6178852	4	rock shelter	
+ERR6178853	4	rock shelter	
+ERR6178854	4	rock shelter	
+ERR6178855	4	rock shelter	
+ERR6178856	4	rock shelter	
+ERR6178857	4	rock shelter	
+ERR6178858	4	rock shelter	
+ERR6178859	4	rock shelter	
+ERR6178860	4	rock shelter	
+ERR6178861	4	rock shelter	
+ERR6178862	4	rock shelter	
+ERR6178863	4	rock shelter	
+ERR6178864	4	rock shelter	
+ERR6178865	4	rock shelter	
+ERR6178866	4	rock shelter	
+ERR6178867	4	rock shelter	
+ERR6178868	4	rock shelter	
+ERR6178869	4	rock shelter	
+ERR6178870	4	rock shelter	
+ERR6178871	4	rock shelter	
+ERR6178872	4	rock shelter	
+ERR6178873	4	rock shelter	
+ERR6178874	4	rock shelter	
+ERR6178875	4	rock shelter	
+ERR6178876	4	rock shelter	
+ERR6178877	4	rock shelter	
+ERR6178878	4	rock shelter	
+ERR6178879	4	rock shelter	
+ERR6178880	4	rock shelter	
+ERR6178881	4	rock shelter	
+ERR6178882	4	rock shelter	
+ERR6178883	4	rock shelter	
+ERR6178884	4	rock shelter	
+ERR6178885	4	rock shelter	
+ERR6178886	4	rock shelter	
+ERR6178887	4	rock shelter	
+ERR6178888	4	rock shelter	
+ERR6178889	4	rock shelter	
+ERR6178890	4	rock shelter	
+ERR6178891	4	rock shelter	
+ERR6178892	4	rock shelter	
+ERR6178893	4	rock shelter	
+ERR6178894	4	rock shelter	
+ERR6178895	4	rock shelter	
+ERR6178897	4	rock shelter	
+ERR6178898	4	rock shelter	
+ERR6178899	4	rock shelter	
+ERR6178900	4	rock shelter	
+ERR6178901	4	rock shelter	
+ERR6178902	4	rock shelter	
+ERR6178903	4	rock shelter	
+ERR6178904	4	rock shelter	
+ERR6178905	4	rock shelter	
+ERR6178906	4	rock shelter	
+ERR6178907	4	rock shelter	
+ERR6178908	4	rock shelter	
+ERR6178909	4	rock shelter	
+ERR6178910	4	rock shelter	
+ERR6178911	4	rock shelter	
+ERR6178912	4	rock shelter	
+ERR6178913	4	rock shelter	
+ERR6178914	4	rock shelter	
+ERR6178915	4	rock shelter	
+ERR6178916	4	rock shelter	
+ERR6178917	4	rock shelter	
+ERR6178918	4	rock shelter	
+ERR6178919	4	rock shelter	
+ERR6178920	4	rock shelter	
+ERR6178921	4	rock shelter	
+ERR6178923	4	rock shelter	
+ERR6178924	4	rock shelter	
+ERR6178925	4	rock shelter	
+ERR6178926	4	rock shelter	
+ERR6178927	4	rock shelter	
+ERR6178928	4	rock shelter	
+ERR6178929	4	rock shelter	
+ERR6178930	4	rock shelter	
+ERR6178931	4	rock shelter	
+ERR6178932	4	rock shelter	
+ERR6178933	4	rock shelter	
+ERR6178934	4	rock shelter	
+ERR6178935	4	rock shelter	
+ERR6178936	4	rock shelter	
+ERR6178937	4	ocean	
+ERR6178938	4	rock shelter	
+ERR6178939	4	rock shelter	
+ERR6178940	4	rock shelter	
+ERR6178941	4	rock shelter	
+ERR6178942	4	rock shelter	
+ERR6178943	4	rock shelter	
+ERR6178944	4	rock shelter	
+ERR6178945	4	rock shelter	
+ERR6178946	4	rock shelter	
+ERR6178947	4	rock shelter	
+ERR6178948	4	rock shelter	
+ERR6178949	4	rock shelter	
+ERR6178950	4	rock shelter	
+ERR6178951	4	rock shelter	
+ERR6178952	4	rock shelter	
+ERR6178953	4	rock shelter	
+ERR6178954	4	rock shelter	
+ERR6178955	4	rock shelter	
+ERR6178956	4	rock shelter	
+ERR6178957	4	rock shelter	
+ERR6178958	4	rock shelter	
+ERR6178959	4	rock shelter	
+ERR6178960	4	rock shelter	
+ERR6178961	4	rock shelter	
+ERR6178962	4	rock shelter	
+ERR6178963	4	rock shelter	
+ERR6178964	4	rock shelter	
+ERR6178965	4	rock shelter	
+ERR6178966	4	rock shelter	
+ERR6178967	4	rock shelter	
+ERR6178968	4	rock shelter	
+ERR6178969	4	rock shelter	
+ERR6178970	4	rock shelter	
+ERR6178971	4	rock shelter	
+ERR6178972	4	rock shelter	
+ERR6178973	4	rock shelter	
+ERR6178974	4	rock shelter	
+ERR6178975	4	rock shelter	
+ERR6178976	4	rock shelter	
+ERR6178977	4	rock shelter	
+ERR6178978	4	rock shelter	
+ERR6178979	4	rock shelter	
+ERR6178980	4	rock shelter	
+ERR6178981	4	rock shelter	
+ERR6178982	4	rock shelter	
+ERR6178983	4	rock shelter	
+ERR6178984	4	rock shelter	
+ERR6178985	4	rock shelter	
+ERR6178986	4	rock shelter	
+ERR6178987	4	rock shelter	
+ERR6178988	4	rock shelter	
+SRR16071515	4	rock shelter	ocean
+SRR16071516	4	rock shelter	ocean
+SRR16071517	4	ocean	ocean
+SRR16071520	4	ocean	ocean
+SRR16071521	4	ocean	ocean
+SRR24222601	4	lake	lake
+SRR24222602	4	lake	lake
+SRR24222603	4	ocean	lake
+SRR24222604	4	lake	lake
+SRR24222605	4	lake	lake
+SRR24222606	4	lake	lake
+SRR24222607	4	lake	lake
+SRR24222608	4	ocean	lake
+SRR24222609	4	swamp forest	lake
+SRR24222610	4	rock shelter	lake
+SRR24222612	4	lake	lake
+SRR24222613	4	lake	lake
+SRR24222614	4	ocean	lake
+SRR24222615	4	lake	lake
+SRR24222616	4	lake	lake
+SRR24222617	4	rock shelter	lake
+SRR24222618	4	ocean	lake
+SRR24222619	4	lake	lake
+SRR24222620	4	ocean	lake
+SRR24222621	4	lake	lake
+SRR24222623	4	lake	lake
+SRR24222624	4	lake	lake
+SRR24222625	4	lake	lake
+SRR24222626	4	lake	lake
+SRR24222627	4	lake	lake
+SRR24222628	4	lake	lake
+SRR24222629	4	lake	lake
+SRR24222630	4	lake	lake
+SRR24222631	4	lake	lake
+SRR24222632	4	ocean	lake
+SRR4047197	4	lake	
+SRR4047199	4	lake	
+SRR4047201	4	lake	
+SRR4047203	4	lake	
+SRR4047207	4	lake	
+SRR4047214	4	lake	
+SRR4047219	4	lake	
+SRR4047221	4	lake	
+SRR4047223	4	lake	
+SRR4047225	4	lake	
+SRR4047228	4	lake	
+SRR5047040	4	shell	
+SRR5047041	4	shell	
+SRR5047042	4	shell	
+SRR5047043	4	shell	
+SRR5047044	4	ocean	
+SRR5047045	4	rock shelter	
+SRR5047046	4	shell	
+SRR5047047	4	shell	
+SRR5047048	4	shell	
+SRR5047049	4	shell	
+SRR5047050	4	shell	
+SRR5047051	4	shell	
+SRR5047052	4	shell	
+SRR5047053	4	shell	
+SRR5047054	4	shell	
+SRR5047055	4	ocean	
+SRR5047056	4	shell	
+SRR5047057	4	rock shelter	
+SRR5047058	4	shell	
+SRR5047059	4	shell	
+SRR5047060	4	rock shelter	
+SRR5047061	4	shell	
+SRR5047062	4	shell	
+SRR5047063	4	rock shelter	
+SRR5047064	4	shell	
+SRR5047065	4	shell	
+SRR5047066	4	shell	
+SRR5047067	4	shell	
+SRR5047068	4	shell	
+SRR5047069	4	shell	
+SRR5047070	4	shell	
+SRR5047071	4	shell	
+SRR5047072	4	shell	
+SRR5047073	4	shell	
+SRR5047074	4	shell	
+SRR5047075	4	shell	
+SRR5047076	4	shell	
+SRR5047077	4	shell	
+SRR5047078	4	shell	
+SRR5047079	4	shell	
+SRR5047080	4	shell	
+SRR5047081	4	shell	
+SRR5047082	4	shell	
+SRR5047083	4	shell	
+SRR5047084	4	shell	
+SRR5047085	4	shell	
+SRR5047086	4	shell	
+SRR5047087	4	shell	
+SRR5047088	4	shell	
+SRR5047089	4	shell	
+SRR5047090	4	shell	
+SRR5047091	4	shell	
+SRR5047092	4	rock shelter	
+SRR5047093	4	rock shelter	
+SRR5047094	4	shell	
+SRR5047095	4	shell	
+SRR5047096	4	shell	
+SRR5047097	4	rock shelter	
+SRR5047098	4	shell	
+SRR5047099	4	shell	
+SRR5047100	4	shell	
+SRR5047101	4	rock shelter	
+SRR5047102	4	shell	
+SRR5047103	4	ocean	
+SRR5047104	4	rock shelter	
+SRR5047105	4	shell	
+SRR5047106	4	shell	
+SRR5047107	4	rock shelter	
+SRR5047108	4	shell	
+SRR5047109	4	shell	
+SRR5047110	4	shell	
+SRR5047111	4	rock shelter	
+SRR5047112	4	ocean	
+SRR5047113	4	shell	
+SRR5047114	4	shell	
+SRR5047115	4	shell	
+SRR5047116	4	shell	
+SRR5047117	4	shell	
+SRR5047118	4	shell	
+SRR5047119	4	shell	
+SRR5047120	4	shell	
+SRR5047121	4	shell	
+SRR5047122	4	shell	
+SRR5047123	4	shell	
+SRR5047124	4	shell	
+SRR5047125	4	rock shelter	
+SRR5047126	4	shell	
+SRR5047127	4	rock shelter	
+SRR5047128	4	rock shelter	
+SRR5047129	4	rock shelter	
+SRR5047130	4	shell	
+SRR5047131	4	shell	
+SRR5047132	4	shell	
+SRR5047133	4	shell	
+SRR5047134	4	shell	
+SRR5047135	4	rock shelter	
+SRR5047136	4	rock shelter	
+SRR5047137	4	shell	
+SRR5047138	4	shell	
+SRR5047139	4	shell	
+SRR5047140	4	shell	
+SRR5047141	4	shell	
+SRR5047142	4	shell	
+SRR5047143	4	shell	
+SRR5047144	4	rock shelter	
+SRR5047145	4	shell	
+SRR5047146	4	shell	
+SRR5047147	4	shell	
+SRR5047148	4	shell	
+SRR5047149	4	shell	
+SRR5047150	4	shell	
+SRR5047151	4	shell	
+SRR5047152	4	shell	
+SRR5047153	4	shell	
+SRR5047154	4	rock shelter	
+SRR5047155	4	shell	
+SRR5047156	4	shell	
+SRR5047157	4	shell	
+SRR5047158	4	shell	
+SRR5047159	4	rock shelter	
+SRR5047160	4	rock shelter	
+SRR5047161	4	shell	
+SRR5047162	4	shell	
+SRR5047163	4	shell	
+SRR5047164	4	ocean	
+SRR5047165	4	shell	
+SRR5047166	4	rock shelter	
+SRR5047167	4	rock shelter	
+SRR5047168	4	rock shelter	
+SRR5047169	4	shell	
+SRR5047170	4	rock shelter	
+SRR5047171	4	shell	
+SRR5047172	4	shell	
+SRR5047173	4	rock shelter	
+SRR5047174	4	rock shelter	
+SRR5047175	4	ocean	
+SRR5047176	4	ocean	
+SRR5047177	4	shell	
+SRR5047178	4	shell	
+SRR5047179	4	shell	
+SRR5047180	4	rock shelter	
+SRR5047181	4	shell	
+SRR5047182	4	shell	
+SRR5047183	4	shell	
+SRR5047184	4	shell	
+SRR5047185	4	shell	
+SRR5047186	4	shell	
+SRR5047187	4	shell	
+SRR5047188	4	rock shelter	
+SRR5047189	4	shell	
+SRR5047190	4	shell	
+SRR5047191	4	shell	
+SRR5047192	4	ocean	
+SRR5047193	4	shell	
+SRR5047194	4	rock shelter	
+SRR5047195	4	shell	
+SRR5047196	4	shell	
+SRR5047197	4	shell	
+SRR5047198	4	shell	
+SRR5047199	4	shell	
+SRR5047200	4	rock shelter	
+SRR5047201	4	shell	
+SRR5047202	4	shell	
+SRR5047203	4	shell	
+SRR5047204	4	shell	
+SRR5332455	4	lake	lake
+SRR5332456	4	shell	lake
+SRR5332457	4	rock shelter	lake
+SRR5332458	4	rock shelter	lake
+SRR5332459	4	rock shelter	lake
+SRR5332461	4	rock shelter	lake
+SRR5332462	4	rock shelter	lake
+SRR5332463	4	shell	lake
+SRR5332464	4	shell	lake
+SRR5332466	4	rock shelter	lake
+SRR866660	4	shell	
+SRR866662	4	cave	
+SRR866663	4	rock shelter	
+SRR866665	4	shell	
+SRR866666	4	cave	
+SRR867031	4	rock shelter	
+SRR867032	4	rock shelter	
+SRR867033	4	rock shelter	
+SRR867034	4	rock shelter	
+SRR867036	4	shell	
+SRR867037	4	shell	
+SRR867038	4	rock shelter	
+SRR867039	4	shell	

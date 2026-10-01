@@ -1,0 +1,276 @@
+task	model	true_class	clean_runs_mean	false_flag_rate
+community_type	reference	gut	79.85	0.0
+community_type	reference	oral	1530.7	0.0514140020271211
+community_type	reference	plant tissue	38.65	0.0
+community_type	reference	skeletal tissue	192.45	0.013247810387907875
+community_type	reference	soft tissue	24.35	0.0
+community_type	step4_5	gut	79.85	0.0
+community_type	step4_5	oral	1530.7	0.056971866991969745
+community_type	step4_5	plant tissue	38.65	0.0
+community_type	step4_5	skeletal tissue	192.45	0.00804784577003292
+community_type	step4_5	soft tissue	24.35	0.0
+community_type	LogisticRegression_Bal	gut	79.85	0.21065513988202755
+community_type	LogisticRegression_Bal	oral	1530.7	0.025249685517219518
+community_type	LogisticRegression_Bal	plant tissue	38.65	0.0
+community_type	LogisticRegression_Bal	skeletal tissue	192.45	0.10681230286904393
+community_type	LogisticRegression_Bal	soft tissue	24.35	0.37833539447669884
+community_type	RandomForest_Bal	gut	79.85	0.23705628871377266
+community_type	RandomForest_Bal	oral	1530.7	0.02182047862975437
+community_type	RandomForest_Bal	plant tissue	38.65	0.0
+community_type	RandomForest_Bal	skeletal tissue	192.45	0.07978608127430985
+community_type	RandomForest_Bal	soft tissue	24.35	1.0
+community_type	kNN	gut	79.85	0.0
+community_type	kNN	oral	1530.7	0.0
+community_type	kNN	plant tissue	38.65	0.0
+community_type	kNN	skeletal tissue	192.45	0.0
+community_type	kNN	soft tissue	24.35	0.0
+feature	reference	archeological site	15.65	0.574238310708899
+feature	reference	cave	30.75	0.0
+feature	reference	lake	194.25	0.015914586552073975
+feature	reference	midden	41.15	0.0862921869678818
+feature	reference	ocean	160.1	0.06494952070459983
+feature	reference	rock shelter	1.8	0.0
+feature	reference	sea coast	46.5	0.0
+feature	reference	shell	24.0	0.0
+feature	reference	swamp forest	29.0	0.0
+feature	reference	thermokarst	8.8	0.0
+feature	step4_5	archeological site	15.65	0.5593486048265459
+feature	step4_5	cave	30.75	0.0
+feature	step4_5	lake	194.25	0.018239330260462545
+feature	step4_5	midden	41.15	0.087482663158358
+feature	step4_5	ocean	160.1	0.06431085551604664
+feature	step4_5	rock shelter	1.8	0.0
+feature	step4_5	sea coast	46.5	0.0
+feature	step4_5	shell	24.0	0.0
+feature	step4_5	swamp forest	29.0	0.0
+feature	step4_5	thermokarst	8.8	0.0
+feature	LogisticRegression_Bal	archeological site	15.65	0.0
+feature	LogisticRegression_Bal	cave	30.75	0.0
+feature	LogisticRegression_Bal	lake	194.25	0.0
+feature	LogisticRegression_Bal	midden	41.15	0.0
+feature	LogisticRegression_Bal	ocean	160.1	0.0
+feature	LogisticRegression_Bal	rock shelter	1.8	0.0
+feature	LogisticRegression_Bal	sea coast	46.5	0.0
+feature	LogisticRegression_Bal	shell	24.0	0.0
+feature	LogisticRegression_Bal	swamp forest	29.0	0.0
+feature	LogisticRegression_Bal	thermokarst	8.8	0.0
+feature	RandomForest_Bal	archeological site	15.65	0.0
+feature	RandomForest_Bal	cave	30.75	0.0
+feature	RandomForest_Bal	lake	194.25	0.0
+feature	RandomForest_Bal	midden	41.15	0.0
+feature	RandomForest_Bal	ocean	160.1	0.0
+feature	RandomForest_Bal	rock shelter	1.8	0.0
+feature	RandomForest_Bal	sea coast	46.5	0.0
+feature	RandomForest_Bal	shell	24.0	0.0
+feature	RandomForest_Bal	swamp forest	29.0	0.0
+feature	RandomForest_Bal	thermokarst	8.8	0.0
+feature	kNN	archeological site	15.65	0.0
+feature	kNN	cave	30.75	0.0
+feature	kNN	lake	194.25	0.0
+feature	kNN	midden	41.15	0.0
+feature	kNN	ocean	160.1	0.0
+feature	kNN	rock shelter	1.8	0.0
+feature	kNN	sea coast	46.5	0.0
+feature	kNN	shell	24.0	0.0
+feature	kNN	swamp forest	29.0	0.0
+feature	kNN	thermokarst	8.8	0.0
+sample_host	reference	Alouatta palliata	6.0	0.0
+sample_host	reference	Ambrosia artemisiifolia	9.6	0.01
+sample_host	reference	Arabidopsis thaliana	32.0	0.0
+sample_host	reference	Bison priscus	16.0	0.0
+sample_host	reference	Canis lupus	10.75	0.921489898989899
+sample_host	reference	Conepatus chinga	4.0	0.0
+sample_host	reference	Gerbilliscus boehmi	4.0	0.0
+sample_host	reference	Gorilla beringei	20.0	0.0
+sample_host	reference	Gorilla beringei beringei	20.85	0.5910761092454456
+sample_host	reference	Gorilla beringei graueri	59.85	0.0
+sample_host	reference	Gorilla gorilla gorilla	40.45	0.4970059506066555
+sample_host	reference	Homo sapiens	1256.7	0.0007957491223301609
+sample_host	reference	Homo sapiens neanderthalensis	14.6	0.0
+sample_host	reference	Lithobates pipiens	11.0	0.0
+sample_host	reference	Mammuthus primigenius	14.55	0.0
+sample_host	reference	Pan troglodytes ellioti	8.0	0.0
+sample_host	reference	Pan troglodytes schweinfurthii	10.15	0.0
+sample_host	reference	Pan troglodytes verus	9.0	0.0
+sample_host	reference	Papio anubis	4.0	0.0
+sample_host	reference	Papio hamadryas	5.0	0.0
+sample_host	reference	Papio sp.	1.0	0.0
+sample_host	reference	Rangifer tarandus	24.0	0.0
+sample_host	reference	Strigocuscus celebensis	4.0	0.0
+sample_host	reference	Ursus arctos	305.5	0.15113349940381304
+sample_host	step4_5	Alouatta palliata	6.0	0.0
+sample_host	step4_5	Ambrosia artemisiifolia	9.6	0.04633477633477633
+sample_host	step4_5	Arabidopsis thaliana	32.0	0.0
+sample_host	step4_5	Bison priscus	16.0	0.0
+sample_host	step4_5	Canis lupus	10.75	0.921489898989899
+sample_host	step4_5	Conepatus chinga	4.0	0.0
+sample_host	step4_5	Gerbilliscus boehmi	4.0	0.0
+sample_host	step4_5	Gorilla beringei	20.0	0.0
+sample_host	step4_5	Gorilla beringei beringei	20.85	0.5989708460875509
+sample_host	step4_5	Gorilla beringei graueri	59.85	0.0
+sample_host	step4_5	Gorilla gorilla gorilla	40.45	0.5413206562040787
+sample_host	step4_5	Homo sapiens	1256.7	0.0007957491223301609
+sample_host	step4_5	Homo sapiens neanderthalensis	14.6	0.0
+sample_host	step4_5	Lithobates pipiens	11.0	0.0
+sample_host	step4_5	Mammuthus primigenius	14.55	0.0
+sample_host	step4_5	Pan troglodytes ellioti	8.0	0.0
+sample_host	step4_5	Pan troglodytes schweinfurthii	10.15	0.0
+sample_host	step4_5	Pan troglodytes verus	9.0	0.0
+sample_host	step4_5	Papio anubis	4.0	0.0
+sample_host	step4_5	Papio hamadryas	5.0	0.0
+sample_host	step4_5	Papio sp.	1.0	0.0
+sample_host	step4_5	Rangifer tarandus	24.0	0.0
+sample_host	step4_5	Strigocuscus celebensis	4.0	0.0
+sample_host	step4_5	Ursus arctos	305.5	0.14845486950770398
+sample_host	LogisticRegression_Bal	Alouatta palliata	6.0	0.0
+sample_host	LogisticRegression_Bal	Ambrosia artemisiifolia	9.6	0.0
+sample_host	LogisticRegression_Bal	Arabidopsis thaliana	32.0	0.0
+sample_host	LogisticRegression_Bal	Bison priscus	16.0	0.0
+sample_host	LogisticRegression_Bal	Canis lupus	10.75	0.0
+sample_host	LogisticRegression_Bal	Conepatus chinga	4.0	0.0
+sample_host	LogisticRegression_Bal	Gerbilliscus boehmi	4.0	0.0
+sample_host	LogisticRegression_Bal	Gorilla beringei	20.0	0.0
+sample_host	LogisticRegression_Bal	Gorilla beringei beringei	20.85	0.0
+sample_host	LogisticRegression_Bal	Gorilla beringei graueri	59.85	0.0
+sample_host	LogisticRegression_Bal	Gorilla gorilla gorilla	40.45	0.0
+sample_host	LogisticRegression_Bal	Homo sapiens	1256.7	0.0
+sample_host	LogisticRegression_Bal	Homo sapiens neanderthalensis	14.6	0.0
+sample_host	LogisticRegression_Bal	Lithobates pipiens	11.0	0.0
+sample_host	LogisticRegression_Bal	Mammuthus primigenius	14.55	0.0
+sample_host	LogisticRegression_Bal	Pan troglodytes ellioti	8.0	0.0
+sample_host	LogisticRegression_Bal	Pan troglodytes schweinfurthii	10.15	0.0
+sample_host	LogisticRegression_Bal	Pan troglodytes verus	9.0	0.0
+sample_host	LogisticRegression_Bal	Papio anubis	4.0	0.0
+sample_host	LogisticRegression_Bal	Papio hamadryas	5.0	0.0
+sample_host	LogisticRegression_Bal	Papio sp.	1.0	0.0
+sample_host	LogisticRegression_Bal	Rangifer tarandus	24.0	0.0
+sample_host	LogisticRegression_Bal	Strigocuscus celebensis	4.0	0.0
+sample_host	LogisticRegression_Bal	Ursus arctos	305.5	0.0
+sample_host	RandomForest_Bal	Alouatta palliata	6.0	0.0
+sample_host	RandomForest_Bal	Ambrosia artemisiifolia	9.6	0.0
+sample_host	RandomForest_Bal	Arabidopsis thaliana	32.0	0.0
+sample_host	RandomForest_Bal	Bison priscus	16.0	0.0
+sample_host	RandomForest_Bal	Canis lupus	10.75	0.0
+sample_host	RandomForest_Bal	Conepatus chinga	4.0	0.0
+sample_host	RandomForest_Bal	Gerbilliscus boehmi	4.0	0.0
+sample_host	RandomForest_Bal	Gorilla beringei	20.0	0.0
+sample_host	RandomForest_Bal	Gorilla beringei beringei	20.85	0.0
+sample_host	RandomForest_Bal	Gorilla beringei graueri	59.85	0.0
+sample_host	RandomForest_Bal	Gorilla gorilla gorilla	40.45	0.0
+sample_host	RandomForest_Bal	Homo sapiens	1256.7	0.0
+sample_host	RandomForest_Bal	Homo sapiens neanderthalensis	14.6	0.0
+sample_host	RandomForest_Bal	Lithobates pipiens	11.0	0.0
+sample_host	RandomForest_Bal	Mammuthus primigenius	14.55	0.0
+sample_host	RandomForest_Bal	Pan troglodytes ellioti	8.0	0.0
+sample_host	RandomForest_Bal	Pan troglodytes schweinfurthii	10.15	0.0
+sample_host	RandomForest_Bal	Pan troglodytes verus	9.0	0.0
+sample_host	RandomForest_Bal	Papio anubis	4.0	0.0
+sample_host	RandomForest_Bal	Papio hamadryas	5.0	0.0
+sample_host	RandomForest_Bal	Papio sp.	1.0	0.0
+sample_host	RandomForest_Bal	Rangifer tarandus	24.0	0.0
+sample_host	RandomForest_Bal	Strigocuscus celebensis	4.0	0.0
+sample_host	RandomForest_Bal	Ursus arctos	305.5	0.0
+sample_host	kNN	Alouatta palliata	6.0	0.0
+sample_host	kNN	Ambrosia artemisiifolia	9.6	0.0
+sample_host	kNN	Arabidopsis thaliana	32.0	0.0
+sample_host	kNN	Bison priscus	16.0	0.0
+sample_host	kNN	Canis lupus	10.75	0.0
+sample_host	kNN	Conepatus chinga	4.0	0.0
+sample_host	kNN	Gerbilliscus boehmi	4.0	0.0
+sample_host	kNN	Gorilla beringei	20.0	0.0
+sample_host	kNN	Gorilla beringei beringei	20.85	0.0
+sample_host	kNN	Gorilla beringei graueri	59.85	0.0
+sample_host	kNN	Gorilla gorilla gorilla	40.45	0.0
+sample_host	kNN	Homo sapiens	1256.7	0.0
+sample_host	kNN	Homo sapiens neanderthalensis	14.6	0.0
+sample_host	kNN	Lithobates pipiens	11.0	0.0
+sample_host	kNN	Mammuthus primigenius	14.55	0.0
+sample_host	kNN	Pan troglodytes ellioti	8.0	0.0
+sample_host	kNN	Pan troglodytes schweinfurthii	10.15	0.0
+sample_host	kNN	Pan troglodytes verus	9.0	0.0
+sample_host	kNN	Papio anubis	4.0	0.0
+sample_host	kNN	Papio hamadryas	5.0	0.0
+sample_host	kNN	Papio sp.	1.0	0.0
+sample_host	kNN	Rangifer tarandus	24.0	0.0
+sample_host	kNN	Strigocuscus celebensis	4.0	0.0
+sample_host	kNN	Ursus arctos	305.5	0.0
+material	reference	bone	113.75	0.28900874863324555
+material	reference	dental calculus	1250.8	0.01127200318361326
+material	reference	digestive tract contents	14.6	0.0
+material	reference	intestine	13.7	0.0
+material	reference	lake sediment	192.9	0.01866045471379511
+material	reference	leaf	38.05	0.0
+material	reference	marine sediment	130.0	0.020772645622151732
+material	reference	midden	13.95	0.27115134865134866
+material	reference	muscle tissue	3.65	0.0
+material	reference	palaeofaeces	55.1	0.0
+material	reference	permafrost	63.6	0.07237738621331472
+material	reference	sediment	94.2	0.1689750038920103
+material	reference	shell	24.0	0.0
+material	reference	soil	1.7894736842105263	0.0
+material	reference	tooth	358.0	0.10754796018710577
+material	reference	unknown	11.0	0.0
+material	step4_5	bone	113.75	0.25415921393467394
+material	step4_5	dental calculus	1250.8	0.006436511226801879
+material	step4_5	digestive tract contents	14.6	0.0
+material	step4_5	intestine	13.7	0.0
+material	step4_5	lake sediment	192.9	0.013990262582958166
+material	step4_5	leaf	38.05	0.0
+material	step4_5	marine sediment	130.0	0.0
+material	step4_5	midden	13.95	0.5304412254412254
+material	step4_5	muscle tissue	3.65	0.0
+material	step4_5	palaeofaeces	55.1	0.0
+material	step4_5	permafrost	63.6	0.059813451151148875
+material	step4_5	sediment	94.2	0.22056156814306666
+material	step4_5	shell	24.0	0.0
+material	step4_5	soil	1.7894736842105263	0.0
+material	step4_5	tooth	358.0	0.12431604386860143
+material	step4_5	unknown	11.0	0.0
+material	LogisticRegression_Bal	bone	113.75	0.029061822662339438
+material	LogisticRegression_Bal	dental calculus	1250.8	0.0
+material	LogisticRegression_Bal	digestive tract contents	14.6	1.0
+material	LogisticRegression_Bal	intestine	13.7	0.0
+material	LogisticRegression_Bal	lake sediment	192.9	0.0
+material	LogisticRegression_Bal	leaf	38.05	0.0
+material	LogisticRegression_Bal	marine sediment	130.0	0.0
+material	LogisticRegression_Bal	midden	13.95	0.6577214452214453
+material	LogisticRegression_Bal	muscle tissue	3.65	1.0
+material	LogisticRegression_Bal	palaeofaeces	55.1	0.0
+material	LogisticRegression_Bal	permafrost	63.6	0.017296366207175343
+material	LogisticRegression_Bal	sediment	94.2	0.06486975578355204
+material	LogisticRegression_Bal	shell	24.0	1.0
+material	LogisticRegression_Bal	soil	1.7894736842105263	1.0
+material	LogisticRegression_Bal	tooth	358.0	0.11942088059741077
+material	LogisticRegression_Bal	unknown	11.0	1.0
+material	RandomForest_Bal	bone	113.75	0.019435138314259016
+material	RandomForest_Bal	dental calculus	1250.8	0.0029567666478540417
+material	RandomForest_Bal	digestive tract contents	14.6	1.0
+material	RandomForest_Bal	intestine	13.7	0.12366300366300367
+material	RandomForest_Bal	lake sediment	192.9	0.0
+material	RandomForest_Bal	leaf	38.05	0.0
+material	RandomForest_Bal	marine sediment	130.0	0.0
+material	RandomForest_Bal	midden	13.95	0.8983058608058607
+material	RandomForest_Bal	muscle tissue	3.65	1.0
+material	RandomForest_Bal	palaeofaeces	55.1	0.01541817646830708
+material	RandomForest_Bal	permafrost	63.6	0.08727145073163461
+material	RandomForest_Bal	sediment	94.2	0.22092456040303693
+material	RandomForest_Bal	shell	24.0	1.0
+material	RandomForest_Bal	soil	1.7894736842105263	1.0
+material	RandomForest_Bal	tooth	358.0	0.041200710239296855
+material	RandomForest_Bal	unknown	11.0	1.0
+material	kNN	bone	113.75	0.0
+material	kNN	dental calculus	1250.8	0.0
+material	kNN	digestive tract contents	14.6	0.0
+material	kNN	intestine	13.7	0.0
+material	kNN	lake sediment	192.9	0.0
+material	kNN	leaf	38.05	0.0
+material	kNN	marine sediment	130.0	0.0
+material	kNN	midden	13.95	0.0
+material	kNN	muscle tissue	3.65	0.0
+material	kNN	palaeofaeces	55.1	0.0
+material	kNN	permafrost	63.6	0.0
+material	kNN	sediment	94.2	0.0
+material	kNN	shell	24.0	0.0
+material	kNN	soil	1.7894736842105263	0.0
+material	kNN	tooth	358.0	0.0
+material	kNN	unknown	11.0	0.0

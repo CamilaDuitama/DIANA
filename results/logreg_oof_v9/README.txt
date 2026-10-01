@@ -1,0 +1,1 @@
+Out-of-fold argmax of the tuned logistic regression (results/devfold_probs_v9/, 17_devfold_baseline_probs_v9.py), in the 54_seed_ensemble.py layout so 48_paired_sig_vs_fraction.py can pair DIANA candidates against it (Phase 4).

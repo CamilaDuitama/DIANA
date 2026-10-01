@@ -17,6 +17,19 @@ from tqdm import tqdm
 logger = logging.getLogger(__name__)
 
 
+class GradReverse(torch.autograd.Function):
+    """Identity forward, gradient multiplied by -lam backward (4.4 study-adversarial training)."""
+
+    @staticmethod
+    def forward(ctx, x, lam):
+        ctx.lam = float(lam)
+        return x.view_as(x)
+
+    @staticmethod
+    def backward(ctx, grad):
+        return -ctx.lam * grad, None
+
+
 class MultiTaskTrainer:
     """Trainer for multi-task classification and/or regression."""
 
@@ -32,7 +45,15 @@ class MultiTaskTrainer:
                  logit_adjust_tau: float = 0.0,
                  label_smoothing: Union[float, Dict[str, float]] = 0.0,
                  regression_tasks: Optional[List[str]] = None,
-                 encoder_learning_rate: Optional[float] = None):
+                 encoder_learning_rate: Optional[float] = None,
+                 sample_weighted: bool = False,
+                 depth_augment: float = 0.0,
+                 uses_offsets: bool = False,
+                 mixup: float = 0.0,
+                 mixup_frac: float = 0.5,
+                 adversarial: float = 0.0,
+                 n_studies: int = 0,
+                 adv_in_dim: int = 0):
         """
         Initialize trainer.
 
@@ -67,11 +88,34 @@ class MultiTaskTrainer:
         self.device = device
         self.task_names = task_names
         self.regression_tasks = set(regression_tasks or [])
-        # One parameter group unless a reader is present and has been given its own rate.
+        # Phase 4 batch layout and loss options (PROJECT.md §8, Phase 4 protocol).
+        self.sample_weighted = bool(sample_weighted)        # 4.2: a trailing per-row loss weight tensor
+        self.depth_augment = float(depth_augment or 0.0)    # 4.3: a trailing per-row depth floor; rows thinned with this probability
+        self.uses_offsets = bool(uses_offsets)              # X9a: trailing per-task logit offsets
+        self.mixup, self.mixup_frac = float(mixup or 0.0), float(mixup_frac)   # 4.5: Beta(alpha, alpha) mixing of same-class rows from other studies; trailing study codes
+        # 4.4: a head predicts the study from the backbone features through a gradient-reversal layer
+        # scaled by `adversarial`; the study codes are the same trailing tensor as for mixup.
+        self.adversarial = float(adversarial or 0.0)
+        self.adv_head = None
+        if self.adversarial > 0.0:
+            if n_studies < 2 or adv_in_dim < 1:
+                raise ValueError("adversarial training needs n_studies >= 2 and adv_in_dim (the backbone's output width)")
+            self.adv_head = nn.Sequential(nn.Linear(adv_in_dim, 64), nn.GELU(), nn.Linear(64, n_studies)).to(device)
+        # One parameter group unless the model defines its own (4.1: the linear part at its own L2)
+        # or a reader is present and has been given its own rate.
         backbone = getattr(model, "backbone", None)
         first = backbone[0] if backbone is not None and len(backbone) else None
         reader = getattr(first, "reader", None)
-        if encoder_learning_rate is not None and reader is not None:
+        groups_fn = getattr(model, "param_groups", None)
+        if callable(groups_fn):
+            groups = groups_fn(learning_rate, weight_decay)
+            self.optimizer = optim.Adam(groups, lr=learning_rate, weight_decay=weight_decay)
+            logger.info("parameter groups from the model: %s", [(len(g["params"]), g["weight_decay"]) for g in groups])
+        elif self.adv_head is not None:
+            self.optimizer = optim.Adam([{"params": list(model.parameters())}, {"params": list(self.adv_head.parameters())}],
+                                        lr=learning_rate, weight_decay=weight_decay)
+            logger.info("study-adversarial head (%d studies, reversal scale %.2f) trained with the model", n_studies, self.adversarial)
+        elif encoder_learning_rate is not None and reader is not None:
             reader_ids = {id(q) for q in reader.parameters()}
             rest = [q for q in model.parameters() if id(q) not in reader_ids]
             self.optimizer = optim.Adam(
@@ -109,16 +153,17 @@ class MultiTaskTrainer:
                 self.criteria[target] = nn.SmoothL1Loss(reduction='none')
             else:
                 ls = ls_per_task.get(target, 0.0)
+                red = "none" if self.sample_weighted else "mean"   # per-row losses for the weighted mean (4.2)
                 if class_weights is not None and target in class_weights:
                     self.criteria[target] = nn.CrossEntropyLoss(
                         weight=class_weights[target],
                         label_smoothing=ls,
-                        ignore_index=IGNORE_INDEX,
+                        ignore_index=IGNORE_INDEX, reduction=red,
                     )
                 else:
                     self.criteria[target] = nn.CrossEntropyLoss(
                         label_smoothing=ls,
-                        ignore_index=IGNORE_INDEX,
+                        ignore_index=IGNORE_INDEX, reduction=red,
                     )
         
         # Task weights (default: equal weighting)
@@ -320,6 +365,37 @@ class MultiTaskTrainer:
         """
         return self._train_epoch_from_loader(train_loader)
 
+    def _thin(self, x: torch.Tensor, lo: torch.Tensor) -> torch.Tensor:
+        """4.3 depth augmentation: with probability ``depth_augment`` a row is thinned to a target
+        depth d' drawn uniformly between its floor ``lo`` and its own non-zero count d; every
+        non-zero entry is kept with probability d'/d, kept values unchanged. Rows at or below
+        the floor are left alone."""
+        nz = x > 0
+        d = nz.sum(dim=1).float()
+        pick = (torch.rand(x.shape[0], device=x.device) < self.depth_augment) & (d > lo)
+        if not bool(pick.any()):
+            return x
+        target = lo + torch.rand_like(d) * (d - lo)
+        rate = torch.where(d > 0, target / d.clamp_min(1.0), torch.ones_like(d))
+        keep = (torch.rand_like(x) < rate[:, None]) | ~pick[:, None]
+        return x * keep
+
+    def _mixup(self, x: torch.Tensor, y: torch.Tensor, study: torch.Tensor) -> torch.Tensor:
+        """4.5 mixup: a share ``mixup_frac`` of the rows is replaced by lam * x_i + (1 - lam) * x_j with
+        lam ~ Beta(alpha, alpha), the partner j drawn inside the batch among rows of the same label
+        from a different study; the label is shared, so targets are unchanged. Rows without a
+        partner, or not selected, stay as they are."""
+        n = x.shape[0]
+        sel = torch.rand(n, device=x.device) < self.mixup_frac
+        same = (y[:, None] == y[None, :]) & (study[:, None] != study[None, :]) & (y[:, None] != IGNORE_INDEX)
+        has = sel & same.any(dim=1)
+        if not bool(has.any()):
+            return x
+        partner = (torch.rand(n, n, device=x.device) * same).argmax(dim=1)
+        lam = torch.distributions.Beta(self.mixup, self.mixup).sample((n,)).to(x.device)
+        lam = torch.where(has, lam, torch.ones_like(lam))
+        return lam[:, None] * x + (1.0 - lam[:, None]) * x[partner]
+
     def _train_epoch_from_loader(self, train_loader: DataLoader) -> Dict[str, float]:
         """Train for one epoch using a DataLoader."""
         self.model.train()
@@ -329,16 +405,50 @@ class MultiTaskTrainer:
         task_total = {target: 0 for target in self.task_names}
 
         for batch in train_loader:
-            # Unpack batch (X, task1_y, task2_y, ...)
+            # Unpack batch (X, task1_y, task2_y, ...[, task1_offset, task2_offset, ...])
+            # The optional trailing tensors are fixed per-row logit offsets (X9a, the residual
+            # network on top of logistic regression): added to the model's logits before the
+            # loss, so the network learns the correction to a frozen linear model.
+            # Phase 4 layout: X, y_1..y_n, [offset_1..offset_n], [loss weights], [depth floor];
+            # which trailing tensors exist is declared at construction (uses_offsets,
+            # sample_weighted, depth_augment). Without any declaration, a batch of
+            # 1 + 2n tensors is read as offsets, as before.
+            n_t = len(self.task_names)
             batch_x = batch[0].to(self.device)
             batch_y = {
                 task: batch[i+1].to(self.device)
                 for i, task in enumerate(self.task_names)
             }
+            k = 1 + n_t
+            legacy_offsets = (not self.sample_weighted and self.depth_augment == 0.0 and self.mixup == 0.0
+                              and self.adv_head is None and len(batch) == 1 + 2 * n_t)
+            offsets = weights = None
+            if self.uses_offsets or legacy_offsets:
+                offsets = {task: batch[k + i].to(self.device) for i, task in enumerate(self.task_names)}
+                k += n_t
+            if self.sample_weighted:
+                weights = batch[k].to(self.device).float(); k += 1
+            if self.depth_augment > 0.0:
+                batch_x = self._thin(batch_x, batch[k].to(self.device).float()); k += 1
+            study = None
+            if self.mixup > 0.0 or self.adv_head is not None:
+                study = batch[k].to(self.device); k += 1
+            if self.mixup > 0.0:
+                batch_x = self._mixup(batch_x, batch_y[self.task_names[0]], study)
+            if k != len(batch):
+                raise ValueError(f"batch has {len(batch)} tensors, expected {k} for this trainer's layout")
 
             # Forward pass
             self.optimizer.zero_grad()
-            outputs = self.model(batch_x)
+            adv_loss = None
+            if self.adv_head is not None:
+                features = self.model.backbone(batch_x)
+                outputs = {t: self.model.heads[t](features) for t in self.task_names}
+                adv_loss = nn.functional.cross_entropy(self.adv_head(GradReverse.apply(features, self.adversarial)), study)
+            else:
+                outputs = self.model(batch_x)
+            if offsets is not None:
+                outputs = {t: outputs[t] + offsets[t] for t in self.task_names}
 
             # Compute losses
             losses = {}
@@ -368,6 +478,10 @@ class MultiTaskTrainer:
                     labelled = batch_y[target] != IGNORE_INDEX
                     if labelled.sum() == 0:
                         losses[target] = outputs[target].sum() * 0.0
+                    elif weights is not None:
+                        # 4.2: weighted mean over the labelled rows (ignored rows return 0 under reduction='none')
+                        per_row = self.criteria[target](self._adjust(target, outputs[target]), batch_y[target])
+                        losses[target] = (per_row * weights)[labelled].sum() / weights[labelled].sum().clamp_min(1e-12)
                     else:
                         losses[target] = self.criteria[target](
                             self._adjust(target, outputs[target]), batch_y[target])
@@ -384,6 +498,8 @@ class MultiTaskTrainer:
             
             # Combined loss
             total = sum(self.task_weights[t] * losses[t] for t in self.task_names)
+            if adv_loss is not None:
+                total = total + adv_loss      # the head learns the study; the reversed gradient pushes the backbone to forget it
             total_loss += total.item()
             
             # Backward pass

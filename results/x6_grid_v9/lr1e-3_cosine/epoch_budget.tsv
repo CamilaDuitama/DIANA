@@ -1,0 +1,5 @@
+arm	n_epochs_run	budget	criterion_smoothed	criterion_raw	peaked	loss_cap_epoch	budget_uncapped	capped	f1_elig_community_type	f1_elig_feature	f1_elig_sample_host	f1_elig_material
+community_type	300	12	0.5505916976898073	0.5517143296064864	True	300	12	False	0.5517143296064864			
+feature	300	133	0.32229633447703815	0.3269403707397748	True	297	133	False		0.3269403707397748		
+sample_host	300	99	0.3057561945301542	0.30384061060356216	True	282	99	False			0.30384061060356216	
+material	300	91	0.3429761075103088	0.312000564993537	True	285	91	False				0.312000564993537

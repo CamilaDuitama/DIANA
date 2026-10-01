@@ -1,0 +1,5 @@
+arm	budget	peaked	cfg	criterion_smoothed
+community_type	7	True	lr3e-3_constant	0.5827004997494271
+feature	56	True	lr3e-3_cosine	0.3315264842636088
+sample_host	99	True	lr1e-3_cosine	0.3057561945301542
+material	66	True	lr1e-4_cosine	0.3534685582097544

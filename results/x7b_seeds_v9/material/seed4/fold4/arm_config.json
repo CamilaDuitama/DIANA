@@ -1,0 +1,58 @@
+{
+  "features_path": "data/matrices/matrix_v9_train/unitigs.frac.mat",
+  "metadata_path": "data/splits_v9/train_metadata.tsv",
+  "train_ids_path": "data/splits_v9/train_accessions.txt",
+  "output_dir": "results/final_fixed_v9/material/final_model",
+  "hyperparameters": {
+    "model_params": {
+      "hidden_dims": [
+        512,
+        384,
+        320,
+        64
+      ],
+      "dropout": 0.1320508639889595,
+      "activation": "relu",
+      "use_batch_norm": false
+    },
+    "trainer_params": {
+      "learning_rate": 0.005566277139530344,
+      "weight_decay": 9.247277089005245e-05,
+      "task_weights": {
+        "material": 1.0
+      }
+    },
+    "batch_size": 64
+  },
+  "task_names": [
+    "material"
+  ],
+  "task_types": {
+    "material": "classification"
+  },
+  "task_weights": {
+    "material": 1.0
+  },
+  "label_smoothing_per_task": {
+    "material": 0.10615753721289313
+  },
+  "validation_split": 0.1,
+  "max_epochs": 200,
+  "early_stopping_patience": 20,
+  "random_seed": 42,
+  "class_imbalance": {
+    "method": "logit_adjustment",
+    "logit_adjust_tau": 0.14176718887127365,
+    "search_tau": false,
+    "class_weights": null,
+    "_comment": "tau is SEARCHED in [0.05, 0.8]. tau=1.0, the parameter-free default, over-corrects at this imbalance: dev fold 2 single-task `feature` scored 0.009 at tau=1.0 against 0.484 at tau=0.25.",
+    "_selected_by": "grouped Optuna search over the dev folds"
+  },
+  "_provenance": {
+    "source": "results/search_v9_final_single_material/cv_results/search_all_train_best_params.json",
+    "selection": "single Optuna search over all of train, dev folds as inner CV",
+    "why": "per-outer-fold hyperparameters would be selected on fold difficulty; fold 4 scored 0.453 against 0.154-0.238 because it had 98.8 % in-vocabulary coverage and a 75.3 % majority class",
+    "refit_reason": "Third and intended refit. BioProject-grouped early-stopping split that must also carry at least 3 distinct classes per task on the validation side, early stopping on mean macro-F1 rather than validation loss, and the trainer's all-masked-batch NaN fixed. Hyperparameters, features, train ids and seed unchanged from the published v9 configs. Supersedes final_grouped_v9 (loss rule: underfit) and final_groupedf1_v9 (no class-coverage floor, so sample_host validated on 1 of 24 classes and stopped at epoch 0)."
+  },
+  "early_stopping_monitor": "val_macro_f1"
+}
