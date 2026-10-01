@@ -1,0 +1,11 @@
+kind	runs	flagged	planted_flagged	planted_total	model
+can't check	124.45	0.0	0.0	6.45	reference+3.8[3.2,3.5]
+unusual sample	93.0	0.0	0.0	4.1	reference+3.8[3.2,3.5]
+study-level	10.3	8.95	0.7	0.7	reference+3.8[3.2,3.5]
+convention conflict	14.95	14.95	13.05	13.05	reference+3.8[3.2,3.5]
+likely mistake	1839.15	106.75	28.55	40.85	reference+3.8[3.2,3.5]
+can't check	112.55	0.0	0.0	6.3	LogisticRegression_Bal+3.8[3.2,3.5]
+unusual sample	93.0	0.0	0.0	4.1	LogisticRegression_Bal+3.8[3.2,3.5]
+study-level	0.0	0.0	0.0	0.0	LogisticRegression_Bal+3.8[3.2,3.5]
+convention conflict	0.0	0.0	0.0	0.0	LogisticRegression_Bal+3.8[3.2,3.5]
+likely mistake	1876.3	0.0	0.0	54.75	LogisticRegression_Bal+3.8[3.2,3.5]

@@ -161,6 +161,72 @@ def plant(df: pd.DataFrame, train: pd.DataFrame, eligible: dict, rate: float,
     return out
 
 
+def plant_records(df: pd.DataFrame, eligible: dict, rate: float, rng: np.random.Generator,
+                  report: list) -> pd.DataFrame:
+    """X9.0e, the second benchmark: a planted run receives another sample's COMPLETE record.
+
+    This is how the real AMD merge-key bug behaved: all metadata fields of one sample were
+    attached to another run. Recipients are 10 % of the runs that carry at least one
+    eligible label. The donor is drawn with the same merge-key confusions: where the
+    recipient's community_type or material has a measured wrong value (oral -> skeletal
+    tissue, dental calculus -> tooth, ...), the donor is sampled among runs carrying that
+    value from a different sample; otherwise among runs of a different sample whose four
+    labels differ in at least one task. All four labels are copied. `<target>_planted` is
+    True where the copied label differs from the original and the original was eligible,
+    so one swapped record is counted as a planted error in every task it changed;
+    `record_planted` marks the recipient.
+    """
+    out = df.copy()
+    emp = empirical_transitions()
+    for target in TARGETS:
+        out[f"{target}_planted"] = False
+    out["record_planted"] = False
+    has_elig = np.zeros(len(out), dtype=bool)
+    for target in TARGETS:
+        if target in out:
+            has_elig |= (out[target].notna() & out[target].isin(eligible.get(target, set()))).to_numpy()
+    idx = out.index[has_elig]
+    n = int(round(rate * len(idx)))
+    chosen = rng.choice(idx, size=n, replace=False) if n else np.array([], dtype=int)
+    sample_col = "archive_sample_accession" if "archive_sample_accession" in out else None
+    labels = out[TARGETS].astype(object)
+    n_guided = 0
+    for i in chosen:
+        donors = None
+        for target in ("community_type", "material"):
+            truth = out.at[i, target]
+            cand, prob = emp.get(target, {}).get(truth, (None, None))
+            if cand is not None and len(cand):
+                want = rng.choice(cand, p=prob)
+                pool = out.index[(out[target] == want)]
+                if sample_col:
+                    pool = pool[out.loc[pool, sample_col] != out.at[i, sample_col]]
+                if len(pool):
+                    donors = pool; n_guided += 1
+                    break
+        if donors is None:
+            differs = (labels != labels.loc[i]).any(axis=1).to_numpy()
+            pool = out.index[differs]
+            if sample_col:
+                pool = pool[out.loc[pool, sample_col] != out.at[i, sample_col]]
+            donors = pool
+        if not len(donors):
+            continue
+        j = rng.choice(donors)
+        for target in TARGETS:
+            old_v, new_v = out.at[i, target], out.at[j, target]
+            changed = not (pd.isna(old_v) and pd.isna(new_v)) and (pd.isna(old_v) != pd.isna(new_v) or old_v != new_v)
+            if changed and not pd.isna(old_v) and old_v in eligible.get(target, set()):
+                out.at[i, f"{target}_planted"] = True
+            out.at[i, target] = new_v
+        out.at[i, "record_planted"] = True
+    report.append(f"  whole-record swaps: {int(out.record_planted.sum())} of {len(idx)} runs with an eligible label "
+                  f"({100 * out.record_planted.sum() / max(len(idx), 1):.1f}%), {n_guided} donors guided by the merge-key confusions")
+    for target in TARGETS:
+        report.append(f"  {target:16s} {int(out[f'{target}_planted'].sum()):5d} labels changed by the swaps")
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -172,6 +238,11 @@ def main() -> int:
                          "optimistic bound to report beside the realistic number")
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--output", type=Path, default=PROJECT_ROOT / "results/planted_mislabels")
+    ap.add_argument("--mode", default="label", choices=["label", "record"],
+                    help="label (default): one label at a time, the headline benchmark; record: whole-record swaps, "
+                         "the second benchmark (X9.0e)")
+    ap.add_argument("--name", default=None,
+                    help="output file name (default planted_<split>_<model>_r<rate>.tsv); X9.0b uses one file per seed")
     args = ap.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
 
@@ -187,19 +258,21 @@ def main() -> int:
     rng = np.random.default_rng(args.seed)
     report = [f"Planted mislabels — split={args.split}, rate={args.rate}, "
               f"model={args.model}, seed={args.seed}", ""]
-    out = plant(df, train, eligible, args.rate, args.model, rng, report)
+    out = (plant_records(df, eligible, args.rate, rng, report) if args.mode == "record"
+           else plant(df, train, eligible, args.rate, args.model, rng, report))
 
-    dest = args.output / f"planted_{args.split}_{args.model}_r{args.rate}.tsv"
+    dest = args.output / (args.name or f"planted_{args.split}_{'record' if args.mode == 'record' else args.model}_r{args.rate}.tsv")
     out.to_csv(dest, sep="\t", index=False)
     report.append("")
     report.append(f"wrote {dest.name}")
     report.append("Ground truth is the `<target>_planted` boolean columns.")
     text = "\n".join(report)
     print(text)
-    (args.output / "planting_report.txt").write_text(text + "\n")
+    stem = dest.stem
+    (args.output / f"planting_report_{stem}.txt").write_text(text + "\n")
     json.dump({"split": args.split, "rate": args.rate, "model": args.model,
                "seed": args.seed, "file": dest.name},
-              open(args.output / "planting_config.json", "w"), indent=2)
+              open(args.output / f"planting_config_{stem}.json", "w"), indent=2)
     return 0
 
 

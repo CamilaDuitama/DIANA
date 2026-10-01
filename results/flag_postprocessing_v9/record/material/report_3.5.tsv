@@ -1,0 +1,3 @@
+model	runs_marked	planted_marked	planted_total	prjeb42014_marked	prjeb42014_runs
+LogisticRegression_Bal	117.85	10.35	239.95	24.0	316.0
+reference	117.85	10.35	239.95	24.0	316.0

@@ -1,0 +1,21 @@
+model	half	predicted_as	n	share
+DIANA	deep half	gut	0	0.0
+DIANA	deep half	oral	849	1.0
+DIANA	deep half	plant tissue	0	0.0
+DIANA	deep half	skeletal tissue	0	0.0
+DIANA	deep half	soft tissue	0	0.0
+DIANA	shallow half	gut	276	0.3250883392226148
+DIANA	shallow half	oral	359	0.42285041224970554
+DIANA	shallow half	plant tissue	9	0.01060070671378092
+DIANA	shallow half	skeletal tissue	190	0.22379269729093051
+DIANA	shallow half	soft tissue	15	0.0176678445229682
+logistic regression	deep half	gut	0	0.0
+logistic regression	deep half	oral	845	0.9952885747938751
+logistic regression	deep half	plant tissue	0	0.0
+logistic regression	deep half	skeletal tissue	4	0.004711425206124852
+logistic regression	deep half	soft tissue	0	0.0
+logistic regression	shallow half	gut	148	0.17432273262661954
+logistic regression	shallow half	oral	451	0.5312131919905771
+logistic regression	shallow half	plant tissue	11	0.012956419316843345
+logistic regression	shallow half	skeletal tissue	237	0.2791519434628975
+logistic regression	shallow half	soft tissue	2	0.002355712603062426

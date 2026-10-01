@@ -1,0 +1,7 @@
+{
+  "split": "train",
+  "rate": 0.1,
+  "model": "mixed",
+  "seed": 3,
+  "file": "planted_train_record_r0.1_s3.tsv"
+}

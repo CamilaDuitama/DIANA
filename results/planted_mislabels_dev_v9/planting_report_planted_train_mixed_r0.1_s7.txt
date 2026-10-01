@@ -1,0 +1,9 @@
+Planted mislabels — split=train, rate=0.1, model=mixed, seed=7
+
+  community_type     207 of  2073 eligible rows corrupted (10.0%), 198 from the empirical model
+  feature             56 of   555 eligible rows corrupted (10.1%), 0 from the empirical model
+  sample_host        194 of  1937 eligible rows corrupted (10.0%), 0 from the empirical model
+  material           260 of  2604 eligible rows corrupted (10.0%), 197 from the empirical model
+
+wrote planted_train_mixed_r0.1_s7.tsv
+Ground truth is the `<target>_planted` boolean columns.

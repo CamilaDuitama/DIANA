@@ -1,0 +1,10 @@
+Planted mislabels — split=train, rate=0.1, model=mixed, seed=16
+
+  whole-record swaps: 266 of 2657 runs with an eligible label (10.0%), 202 donors guided by the merge-key confusions
+  community_type     216 labels changed by the swaps
+  feature             43 labels changed by the swaps
+  sample_host         64 labels changed by the swaps
+  material           243 labels changed by the swaps
+
+wrote planted_train_record_r0.1_s16.tsv
+Ground truth is the `<target>_planted` boolean columns.

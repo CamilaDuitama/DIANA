@@ -1,0 +1,3 @@
+model	share_clean_unseen	share_planted_unseen
+LogisticRegression_Bal	0.16826706525496188	0.051959984459984454
+reference	0.16826706525496188	0.051959984459984454

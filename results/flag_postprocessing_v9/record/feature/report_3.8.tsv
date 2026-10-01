@@ -1,0 +1,5 @@
+model	runs_marked_mean	planted_marked_mean	planted_total_mean	classes_marked_planting0	step	runs_marked	planted_marked	planted_total	prjeb42014_marked	prjeb42014_runs
+reference	105.25	3.3	9.65	fold0:archeological site,midden,rock shelter,sea coast,shell,swamp forest,thermokarst;fold1:archeological site,cave,midden,sea coast,shell,swamp forest,thermokarst;fold2:archeological site,cave,midden,rock shelter,sea coast,swamp forest,thermokarst;fold3:archeological site,cave,midden,rock shelter,sea coast,shell;fold4:archeological site,cave,midden,rock shelter,sea coast,shell,swamp forest,thermokarst	3.2					
+reference					3.5	29.3	0.6	9.65	0.0	0.0
+LogisticRegression_Bal	110.7	3.45	9.65	fold0:archeological site,midden,rock shelter,sea coast,shell,swamp forest,thermokarst;fold1:archeological site,cave,midden,sea coast,shell,swamp forest,thermokarst;fold2:archeological site,cave,midden,rock shelter,sea coast,swamp forest,thermokarst;fold3:archeological site,cave,midden,rock shelter,sea coast,shell;fold4:archeological site,cave,midden,rock shelter,sea coast,shell,swamp forest,thermokarst	3.2					
+LogisticRegression_Bal					3.5	29.3	0.6	9.65	0.0	0.0

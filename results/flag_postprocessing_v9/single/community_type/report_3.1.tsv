@@ -1,0 +1,3 @@
+model	study_level_flags_mean	share_planted_in_small_groups	share_planted_in_planted_majority_groups	share_runs_in_groups	studies_flagged_in_half_of_plantings
+LogisticRegression_Bal	1.85	0.17149758454106281	0.6367149758454106	0.9741678726483357	PRJEB83219;PRJNA836960
+reference	0.0	0.17149758454106281	0.6367149758454106	0.9741678726483357	

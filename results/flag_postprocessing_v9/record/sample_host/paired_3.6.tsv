@@ -1,0 +1,3 @@
+bench	task	step	a	b	a_choosing	b_choosing	delta_choosing	ci_low	ci_high	frac_boot_positive	verdict	a_recall_at_5pct	b_recall_at_5pct	delta_recall_at_5pct	ci_low_5pct	ci_high_5pct
+record	sample_host	3.6	reference+3.6	reference	0.49188655727289426	0.7580322999431007	-0.26614574267020646	-0.4081073785212171	-0.055668075836150174	0.0	reference	0.05051745131194528	0.6724899747873586	-0.6219725234754133	-0.7061837579915811	-0.13062287735466035
+record	sample_host	3.6	LogisticRegression_Bal+3.6	LogisticRegression_Bal	0.5364727304439111	0.6840767669960378	-0.14760403655212673	-0.4860773105460462	-0.008624335324440817	0.0	LogisticRegression_Bal	0.0	0.0	0.0	-0.1114014914261674	0.005

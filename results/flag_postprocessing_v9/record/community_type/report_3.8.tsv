@@ -1,0 +1,5 @@
+model	runs_marked_mean	planted_marked_mean	planted_total_mean	classes_marked_planting0	step	runs_marked	planted_marked	planted_total	prjeb42014_marked	prjeb42014_runs
+reference	141.7	34.5	203.5	fold0:;fold1:;fold2:plant tissue;fold3:;fold4:plant tissue,skeletal tissue	3.2					
+reference					3.5	93.0	8.7	203.5	24.0	316.0
+LogisticRegression_Bal	63.95	2.95	203.5	fold0:soft tissue;fold1:soft tissue;fold2:plant tissue,soft tissue;fold3:soft tissue;fold4:plant tissue,soft tissue	3.2					
+LogisticRegression_Bal					3.5	93.0	8.7	203.5	24.0	316.0

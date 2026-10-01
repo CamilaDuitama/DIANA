@@ -1,0 +1,3 @@
+model	study_level_flags_mean	share_planted_in_small_groups	share_planted_in_planted_majority_groups	share_runs_in_groups	studies_flagged_in_half_of_plantings
+LogisticRegression_Bal	0.0	0.24133822206696154	0.6370235808034213	0.9712521565628991	
+reference	0.0	0.24133822206696154	0.6370235808034213	0.9712521565628991	

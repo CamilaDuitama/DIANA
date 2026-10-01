@@ -1,0 +1,3 @@
+model	runs_marked_mean	planted_marked_mean	planted_total_mean	classes_marked_planting0
+LogisticRegression_Bal	63.95	2.95	203.5	fold0:soft tissue;fold1:soft tissue;fold2:plant tissue,soft tissue;fold3:soft tissue;fold4:plant tissue,soft tissue
+reference	141.7	34.5	203.5	fold0:;fold1:;fold2:plant tissue;fold3:;fold4:plant tissue,skeletal tissue
