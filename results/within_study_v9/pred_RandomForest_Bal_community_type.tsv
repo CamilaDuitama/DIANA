@@ -1,0 +1,2074 @@
+Run_accession	fold	y_true	y_pred
+ERR11413662	0	oral	oral
+ERR11413673	0	oral	oral
+ERR11413675	0	oral	oral
+ERR11413682	0	oral	oral
+ERR11413688	0	oral	oral
+ERR11413692	0	oral	oral
+ERR11413696	0	oral	oral
+ERR11413702	0	oral	skeletal tissue
+ERR11413714	0	oral	oral
+ERR11413720	0	oral	oral
+ERR11413724	0	oral	oral
+ERR11413726	0	oral	oral
+ERR11413732	0	oral	oral
+ERR11413734	0	oral	oral
+ERR11413751	0	oral	oral
+ERR11656730	0	skeletal tissue	skeletal tissue
+ERR11656732	0	skeletal tissue	skeletal tissue
+ERR11656736	0	skeletal tissue	skeletal tissue
+ERR11656738	0	skeletal tissue	skeletal tissue
+ERR11656739	0	skeletal tissue	skeletal tissue
+ERR11656746	0	skeletal tissue	skeletal tissue
+ERR1777519	0	skeletal tissue	skeletal tissue
+ERR1777536	0	skeletal tissue	skeletal tissue
+ERR1777546	0	skeletal tissue	skeletal tissue
+ERR1777547	0	skeletal tissue	skeletal tissue
+ERR1777551	0	skeletal tissue	oral
+ERR1777561	0	skeletal tissue	skeletal tissue
+ERR1777562	0	skeletal tissue	skeletal tissue
+ERR1777564	0	skeletal tissue	skeletal tissue
+ERR1777569	0	skeletal tissue	oral
+ERR2269773	0	plant tissue	plant tissue
+ERR2269782	0	plant tissue	plant tissue
+ERR2269787	0	plant tissue	plant tissue
+ERR2269795	0	plant tissue	plant tissue
+ERR2269798	0	plant tissue	plant tissue
+ERR2269805	0	plant tissue	plant tissue
+ERR3579676	0	oral	oral
+ERR3579685	0	oral	oral
+ERR3579699	0	oral	oral
+ERR3579700	0	oral	oral
+ERR3579701	0	oral	oral
+ERR3579710	0	oral	oral
+ERR3579711	0	oral	oral
+ERR3579721	0	oral	oral
+ERR3579731	0	oral	oral
+ERR3579732	0	oral	oral
+ERR3579735	0	oral	oral
+ERR3579740	0	oral	oral
+ERR3579753	0	oral	oral
+ERR3579757	0	oral	oral
+ERR3579758	0	oral	oral
+ERR3579759	0	oral	oral
+ERR3579760	0	oral	oral
+ERR3579761	0	oral	oral
+ERR3579768	0	oral	oral
+ERR3579775	0	oral	oral
+ERR3579787	0	oral	oral
+ERR3579792	0	oral	oral
+ERR3579793	0	oral	oral
+ERR3579798	0	oral	oral
+ERR3579805	0	oral	oral
+ERR3579806	0	oral	oral
+ERR3579817	0	oral	oral
+ERR3609661	0	oral	oral
+ERR3678175	0	oral	oral
+ERR3678184	0	oral	oral
+ERR3678598	0	gut	gut
+ERR3678602	0	gut	gut
+ERR3678604	0	gut	gut
+ERR3678613	0	gut	gut
+ERR3678614	0	gut	gut
+ERR3678628	0	gut	gut
+ERR3728240	0	oral	oral
+ERR3728250	0	oral	oral
+ERR3761408	0	gut	gut
+ERR3761409	0	gut	gut
+ERR3761410	0	gut	gut
+ERR3761413	0	gut	gut
+ERR4172756	0	oral	oral
+ERR4172758	0	oral	oral
+ERR4172761	0	oral	oral
+ERR4172763	0	oral	oral
+ERR4172817	0	oral	oral
+ERR4172819	0	oral	oral
+ERR4172823	0	oral	oral
+ERR4172827	0	oral	oral
+ERR4173039	0	oral	oral
+ERR4173041	0	oral	oral
+ERR4173043	0	oral	oral
+ERR4173045	0	oral	oral
+ERR4373146	0	oral	oral
+ERR4373997	0	skeletal tissue	skeletal tissue
+ERR4374001	0	skeletal tissue	skeletal tissue
+ERR4374005	0	skeletal tissue	skeletal tissue
+ERR4374010	0	oral	skeletal tissue
+ERR4374012	0	oral	skeletal tissue
+ERR4374036	0	skeletal tissue	skeletal tissue
+ERR4374039	0	skeletal tissue	skeletal tissue
+ERR4374041	0	skeletal tissue	skeletal tissue
+ERR4374043	0	skeletal tissue	skeletal tissue
+ERR4374047	0	skeletal tissue	skeletal tissue
+ERR4374589	0	oral	skeletal tissue
+ERR4374851	0	skeletal tissue	skeletal tissue
+ERR4374861	0	skeletal tissue	skeletal tissue
+ERR4374864	0	oral	skeletal tissue
+ERR4374875	0	oral	skeletal tissue
+ERR4374915	0	skeletal tissue	skeletal tissue
+ERR4374920	0	oral	skeletal tissue
+ERR4374922	0	oral	oral
+ERR4374923	0	skeletal tissue	skeletal tissue
+ERR4374924	0	oral	skeletal tissue
+ERR4375011	0	oral	skeletal tissue
+ERR4375045	0	oral	soft tissue
+ERR4375143	0	oral	skeletal tissue
+ERR4386569	0	skeletal tissue	skeletal tissue
+ERR4388102	0	soft tissue	soft tissue
+ERR4408188	0	oral	skeletal tissue
+ERR4596813	0	oral	oral
+ERR5670957	0	oral	oral
+ERR5670963	0	oral	oral
+ERR5670964	0	oral	oral
+ERR5670967	0	oral	oral
+ERR5670970	0	oral	oral
+ERR5729614	0	oral	oral
+ERR5729627	0	oral	oral
+ERR5729628	0	oral	oral
+ERR5729631	0	oral	oral
+ERR5729632	0	oral	oral
+ERR5729633	0	oral	oral
+ERR5729636	0	oral	oral
+ERR5729642	0	oral	oral
+ERR5729644	0	oral	oral
+ERR5729646	0	oral	oral
+ERR5729654	0	oral	oral
+ERR5766165	0	gut	gut
+ERR5766166	0	gut	gut
+ERR5766167	0	gut	gut
+ERR6093875	0	oral	oral
+ERR6093876	0	oral	oral
+ERR6093877	0	oral	oral
+ERR6093878	0	oral	oral
+ERR6093903	0	oral	oral
+ERR6093904	0	oral	oral
+ERR6093905	0	oral	oral
+ERR6093906	0	oral	oral
+ERR6093907	0	oral	oral
+ERR6093908	0	oral	oral
+ERR6093909	0	oral	oral
+ERR6093910	0	oral	oral
+ERR6093917	0	oral	oral
+ERR6093919	0	oral	oral
+ERR6093920	0	oral	oral
+ERR6093921	0	oral	oral
+ERR6093958	0	oral	oral
+ERR6093959	0	oral	oral
+ERR6093960	0	oral	oral
+ERR6093961	0	oral	oral
+ERR6096537	0	oral	skeletal tissue
+ERR6096538	0	oral	skeletal tissue
+ERR6096539	0	oral	skeletal tissue
+ERR6096540	0	oral	skeletal tissue
+ERR6096555	0	oral	oral
+ERR6096557	0	oral	oral
+ERR6096570	0	oral	oral
+ERR6096574	0	oral	oral
+ERR6096741	0	oral	oral
+ERR6096742	0	oral	oral
+ERR6096743	0	oral	oral
+ERR6096744	0	oral	oral
+ERR6096760	0	oral	oral
+ERR6096762	0	oral	oral
+ERR6096764	0	oral	oral
+ERR6096766	0	oral	oral
+ERR6096776	0	oral	oral
+ERR6096784	0	oral	oral
+ERR6096796	0	oral	oral
+ERR6096814	0	oral	oral
+ERR6097627	0	oral	oral
+ERR6097628	0	oral	oral
+ERR6097629	0	oral	oral
+ERR6097630	0	oral	oral
+ERR6098930	0	oral	oral
+ERR6098932	0	oral	oral
+ERR6098934	0	oral	oral
+ERR6098936	0	oral	oral
+ERR6099814	0	oral	oral
+ERR6099815	0	oral	oral
+ERR6099816	0	oral	oral
+ERR6099817	0	oral	oral
+ERR6108992	0	oral	oral
+ERR6108993	0	oral	oral
+ERR6108994	0	oral	oral
+ERR6108995	0	oral	oral
+ERR6109022	0	oral	oral
+ERR6109023	0	oral	oral
+ERR6109024	0	oral	oral
+ERR6109025	0	oral	oral
+ERR6109051	0	oral	oral
+ERR6109053	0	oral	oral
+ERR6109054	0	oral	oral
+ERR6109055	0	oral	oral
+ERR6178860	0	oral	oral
+ERR6178861	0	oral	oral
+ERR6178864	0	oral	oral
+ERR6178865	0	oral	oral
+ERR6178880	0	oral	oral
+ERR6178881	0	oral	oral
+ERR6178886	0	oral	oral
+ERR6178887	0	oral	oral
+ERR6178888	0	oral	oral
+ERR6178889	0	oral	oral
+ERR6178892	0	oral	oral
+ERR6178893	0	oral	oral
+ERR6178897	0	oral	oral
+ERR6178898	0	oral	oral
+ERR6178899	0	oral	oral
+ERR6178900	0	oral	oral
+ERR6178921	0	oral	oral
+ERR6178926	0	oral	oral
+ERR6178933	0	oral	oral
+ERR6178934	0	oral	oral
+ERR6178935	0	oral	oral
+ERR6178955	0	oral	oral
+ERR6178963	0	oral	oral
+ERR6178964	0	oral	oral
+ERR6178970	0	oral	oral
+ERR6178971	0	oral	oral
+ERR6178980	0	oral	oral
+ERR6178981	0	oral	oral
+ERR6589626	0	oral	oral
+ERR6589629	0	oral	oral
+ERR7919474	0	oral	oral
+ERR7919475	0	oral	oral
+ERR7919506	0	oral	oral
+ERR7919511	0	oral	oral
+ERR7919514	0	oral	oral
+ERR7919516	0	oral	oral
+ERR7919530	0	oral	oral
+ERR7919542	0	oral	oral
+ERR7919641	0	oral	oral
+ERR7919642	0	oral	oral
+ERR9612727	0	oral	oral
+ERR9612728	0	oral	oral
+ERR9612737	0	oral	oral
+ERR9612740	0	oral	oral
+ERR9612757	0	oral	oral
+ERR9612758	0	oral	oral
+ERR9612769	0	oral	oral
+ERR9612770	0	oral	oral
+ERR9612773	0	oral	oral
+ERR9612774	0	oral	oral
+ERR9612789	0	oral	oral
+ERR9612790	0	oral	oral
+ERR9612805	0	oral	oral
+ERR9612806	0	oral	oral
+ERR9612817	0	oral	oral
+ERR9612818	0	oral	oral
+ERR9612823	0	oral	oral
+ERR9612824	0	oral	oral
+ERR9612835	0	oral	oral
+ERR9612836	0	oral	oral
+ERR9612841	0	oral	oral
+ERR9612842	0	oral	oral
+ERR9612843	0	oral	oral
+ERR9612844	0	oral	oral
+ERR9612851	0	oral	oral
+ERR9612852	0	oral	oral
+ERR9612861	0	oral	oral
+ERR9612862	0	oral	oral
+ERR9612883	0	oral	oral
+ERR9612884	0	oral	oral
+ERR9612889	0	oral	oral
+ERR9612890	0	oral	oral
+SRR1047998	0	gut	skeletal tissue
+SRR12462932	0	oral	oral
+SRR12462934	0	oral	oral
+SRR12462938	0	oral	oral
+SRR12462939	0	oral	oral
+SRR12462941	0	oral	oral
+SRR12462943	0	oral	oral
+SRR12462945	0	oral	oral
+SRR12462947	0	oral	oral
+SRR13355792	0	oral	oral
+SRR13355796	0	oral	oral
+SRR13355810	0	oral	oral
+SRR13355811	0	oral	oral
+SRR17604752	0	oral	oral
+SRR17604758	0	oral	oral
+SRR17604759	0	oral	oral
+SRR17604764	0	oral	oral
+SRR17604772	0	oral	oral
+SRR17604777	0	oral	oral
+SRR17604778	0	oral	oral
+SRR17604779	0	oral	oral
+SRR17604784	0	oral	oral
+SRR17604789	0	oral	oral
+SRR17604791	0	oral	oral
+SRR17604796	0	oral	oral
+SRR17604799	0	oral	oral
+SRR17604803	0	oral	oral
+SRR17604804	0	oral	oral
+SRR17604805	0	oral	oral
+SRR17604807	0	oral	oral
+SRR19160174	0	gut	gut
+SRR2229977	0	skeletal tissue	skeletal tissue
+SRR23699554	0	oral	oral
+SRR23699557	0	oral	oral
+SRR23699566	0	oral	oral
+SRR23699567	0	oral	oral
+SRR23699568	0	oral	oral
+SRR23699574	0	oral	oral
+SRR23699577	0	oral	oral
+SRR30066270	0	oral	oral
+SRR4047201	0	plant tissue	plant tissue
+SRR4047207	0	plant tissue	plant tissue
+SRR4047228	0	plant tissue	plant tissue
+SRR5047044	0	oral	skeletal tissue
+SRR5047053	0	oral	oral
+SRR5047059	0	oral	skeletal tissue
+SRR5047066	0	oral	oral
+SRR5047069	0	oral	oral
+SRR5047070	0	oral	skeletal tissue
+SRR5047071	0	oral	oral
+SRR5047072	0	oral	oral
+SRR5047080	0	oral	skeletal tissue
+SRR5047082	0	oral	skeletal tissue
+SRR5047092	0	oral	oral
+SRR5047095	0	oral	oral
+SRR5047100	0	oral	oral
+SRR5047103	0	oral	skeletal tissue
+SRR5047104	0	oral	oral
+SRR5047107	0	oral	oral
+SRR5047108	0	oral	oral
+SRR5047111	0	oral	oral
+SRR5047115	0	oral	skeletal tissue
+SRR5047116	0	oral	skeletal tissue
+SRR5047125	0	oral	oral
+SRR5047135	0	oral	oral
+SRR5047141	0	oral	oral
+SRR5047150	0	oral	oral
+SRR5047151	0	oral	skeletal tissue
+SRR5047155	0	oral	skeletal tissue
+SRR5047159	0	oral	oral
+SRR5047169	0	oral	oral
+SRR5047179	0	oral	skeletal tissue
+SRR5047180	0	oral	oral
+SRR5047184	0	oral	skeletal tissue
+SRR5047186	0	oral	skeletal tissue
+SRR5047191	0	oral	oral
+SRR5047193	0	oral	skeletal tissue
+SRR5047202	0	oral	oral
+SRR5297132	0	oral	oral
+SRR5297133	0	oral	oral
+SRR5875722	0	soft tissue	soft tissue
+SRR5875723	0	soft tissue	soft tissue
+SRR6877286	0	oral	oral
+SRR6877290	0	oral	oral
+SRR6877292	0	oral	oral
+SRR6877299	0	skeletal tissue	oral
+SRR6877301	0	skeletal tissue	oral
+SRR6877305	0	oral	oral
+SRR6877307	0	skeletal tissue	skeletal tissue
+SRR6877313	0	oral	oral
+SRR6877317	0	skeletal tissue	skeletal tissue
+SRR6877319	0	skeletal tissue	oral
+SRR6877329	0	skeletal tissue	skeletal tissue
+SRR6877335	0	skeletal tissue	skeletal tissue
+SRR6877350	0	oral	oral
+SRR6877352	0	oral	oral
+SRR6877356	0	oral	oral
+SRR6877358	0	oral	oral
+SRR6877363	0	oral	oral
+SRR6877376	0	oral	oral
+SRR6877380	0	skeletal tissue	skeletal tissue
+SRR6877381	0	skeletal tissue	skeletal tissue
+SRR6877387	0	skeletal tissue	skeletal tissue
+SRR6877399	0	oral	oral
+SRR957741	0	oral	oral
+SRR957744	0	oral	oral
+ERR11413657	1	oral	oral
+ERR11413659	1	oral	oral
+ERR11413661	1	oral	oral
+ERR11413678	1	oral	oral
+ERR11413679	1	oral	oral
+ERR11413687	1	oral	oral
+ERR11413690	1	oral	oral
+ERR11413694	1	oral	oral
+ERR11413697	1	oral	oral
+ERR11413705	1	oral	oral
+ERR11413710	1	oral	oral
+ERR11413712	1	oral	oral
+ERR11413717	1	oral	oral
+ERR11413718	1	oral	oral
+ERR11413723	1	oral	oral
+ERR11413727	1	oral	oral
+ERR11413733	1	oral	oral
+ERR11413735	1	oral	oral
+ERR11413736	1	oral	oral
+ERR11413747	1	oral	oral
+ERR11413757	1	oral	oral
+ERR11656729	1	skeletal tissue	skeletal tissue
+ERR11656733	1	skeletal tissue	skeletal tissue
+ERR11656737	1	skeletal tissue	skeletal tissue
+ERR11656741	1	skeletal tissue	skeletal tissue
+ERR11656747	1	skeletal tissue	skeletal tissue
+ERR11660399	1	oral	oral
+ERR11660400	1	oral	oral
+ERR11660401	1	oral	oral
+ERR11660402	1	oral	oral
+ERR11660403	1	oral	oral
+ERR11660404	1	oral	oral
+ERR11660405	1	oral	oral
+ERR11660406	1	oral	oral
+ERR11660407	1	oral	oral
+ERR11660408	1	oral	oral
+ERR11660409	1	oral	oral
+ERR11660410	1	oral	oral
+ERR11660411	1	oral	oral
+ERR11660412	1	oral	oral
+ERR11660413	1	oral	oral
+ERR11660414	1	oral	oral
+ERR11660415	1	oral	oral
+ERR11660416	1	oral	oral
+ERR11660417	1	oral	oral
+ERR11660418	1	oral	oral
+ERR11660419	1	oral	oral
+ERR11660420	1	oral	oral
+ERR11660421	1	oral	oral
+ERR11660422	1	oral	oral
+ERR11660423	1	oral	oral
+ERR11660424	1	oral	oral
+ERR11660425	1	oral	oral
+ERR11660426	1	oral	oral
+ERR11660427	1	oral	oral
+ERR11660428	1	oral	oral
+ERR11660429	1	oral	skeletal tissue
+ERR11660451	1	oral	skeletal tissue
+ERR11660452	1	oral	skeletal tissue
+ERR11660453	1	oral	skeletal tissue
+ERR11660454	1	oral	oral
+ERR11660455	1	oral	skeletal tissue
+ERR11660456	1	oral	oral
+ERR11660457	1	oral	oral
+ERR11660458	1	oral	oral
+ERR11660459	1	oral	oral
+ERR1777522	1	skeletal tissue	skeletal tissue
+ERR1777523	1	skeletal tissue	skeletal tissue
+ERR1777526	1	skeletal tissue	skeletal tissue
+ERR1777527	1	skeletal tissue	skeletal tissue
+ERR1777529	1	skeletal tissue	skeletal tissue
+ERR1777539	1	skeletal tissue	skeletal tissue
+ERR1777542	1	skeletal tissue	skeletal tissue
+ERR1777549	1	skeletal tissue	oral
+ERR1777553	1	skeletal tissue	skeletal tissue
+ERR1777557	1	skeletal tissue	skeletal tissue
+ERR1777565	1	skeletal tissue	skeletal tissue
+ERR1777567	1	skeletal tissue	skeletal tissue
+ERR2269776	1	plant tissue	plant tissue
+ERR2269783	1	plant tissue	plant tissue
+ERR2269788	1	plant tissue	plant tissue
+ERR2269792	1	plant tissue	plant tissue
+ERR2269800	1	plant tissue	plant tissue
+ERR2269801	1	plant tissue	plant tissue
+ERR3579671	1	oral	oral
+ERR3579673	1	oral	oral
+ERR3579675	1	oral	oral
+ERR3579688	1	oral	oral
+ERR3579722	1	oral	oral
+ERR3579723	1	oral	oral
+ERR3579738	1	oral	oral
+ERR3579745	1	oral	oral
+ERR3579749	1	oral	oral
+ERR3579752	1	oral	oral
+ERR3579766	1	oral	oral
+ERR3579767	1	oral	oral
+ERR3579776	1	oral	oral
+ERR3579784	1	oral	oral
+ERR3579788	1	oral	oral
+ERR3579800	1	oral	oral
+ERR3579803	1	oral	oral
+ERR3579807	1	oral	skeletal tissue
+ERR3579811	1	oral	skeletal tissue
+ERR3579818	1	oral	oral
+ERR3579828	1	oral	oral
+ERR3579829	1	oral	oral
+ERR3609655	1	oral	oral
+ERR3609656	1	oral	oral
+ERR3678173	1	oral	oral
+ERR3678187	1	oral	oral
+ERR3678606	1	gut	gut
+ERR3678607	1	gut	gut
+ERR3678609	1	gut	gut
+ERR3678619	1	gut	gut
+ERR3678623	1	gut	gut
+ERR3678627	1	gut	gut
+ERR3678727	1	oral	oral
+ERR3728226	1	oral	oral
+ERR3728245	1	oral	oral
+ERR3728251	1	oral	oral
+ERR3728256	1	oral	oral
+ERR3761407	1	gut	gut
+ERR4172789	1	oral	oral
+ERR4172797	1	oral	oral
+ERR4172799	1	oral	oral
+ERR4172800	1	oral	oral
+ERR4172809	1	oral	oral
+ERR4172811	1	oral	oral
+ERR4172813	1	oral	oral
+ERR4172814	1	oral	oral
+ERR4172883	1	skeletal tissue	oral
+ERR4172889	1	skeletal tissue	oral
+ERR4172953	1	skeletal tissue	oral
+ERR4172977	1	skeletal tissue	oral
+ERR4172978	1	oral	oral
+ERR4172979	1	oral	oral
+ERR4172981	1	oral	oral
+ERR4172982	1	oral	oral
+ERR4173061	1	oral	oral
+ERR4173063	1	oral	oral
+ERR4173066	1	oral	oral
+ERR4173068	1	oral	oral
+ERR4373119	1	oral	skeletal tissue
+ERR4373996	1	oral	soft tissue
+ERR4373999	1	oral	soft tissue
+ERR4374004	1	skeletal tissue	skeletal tissue
+ERR4374019	1	skeletal tissue	skeletal tissue
+ERR4374020	1	skeletal tissue	skeletal tissue
+ERR4374034	1	skeletal tissue	skeletal tissue
+ERR4374040	1	skeletal tissue	skeletal tissue
+ERR4374044	1	oral	skeletal tissue
+ERR4374048	1	oral	skeletal tissue
+ERR4374051	1	oral	soft tissue
+ERR4374858	1	oral	oral
+ERR4374863	1	oral	skeletal tissue
+ERR4374867	1	oral	soft tissue
+ERR4374869	1	oral	skeletal tissue
+ERR4374871	1	oral	soft tissue
+ERR4374874	1	oral	skeletal tissue
+ERR4374912	1	skeletal tissue	skeletal tissue
+ERR4374914	1	oral	skeletal tissue
+ERR4374918	1	skeletal tissue	skeletal tissue
+ERR4374921	1	oral	skeletal tissue
+ERR4374927	1	skeletal tissue	skeletal tissue
+ERR4374928	1	skeletal tissue	skeletal tissue
+ERR4375032	1	oral	soft tissue
+ERR4375036	1	skeletal tissue	skeletal tissue
+ERR4375040	1	skeletal tissue	skeletal tissue
+ERR4375046	1	skeletal tissue	skeletal tissue
+ERR4375049	1	oral	oral
+ERR4375133	1	oral	soft tissue
+ERR4375136	1	skeletal tissue	skeletal tissue
+ERR4385809	1	skeletal tissue	skeletal tissue
+ERR4388107	1	soft tissue	soft tissue
+ERR4388231	1	soft tissue	soft tissue
+ERR4408187	1	skeletal tissue	skeletal tissue
+ERR4596824	1	oral	oral
+ERR4596825	1	oral	oral
+ERR5670956	1	oral	oral
+ERR5670966	1	oral	oral
+ERR5729616	1	oral	oral
+ERR5729622	1	oral	oral
+ERR5729625	1	oral	oral
+ERR5729629	1	oral	oral
+ERR5729630	1	oral	oral
+ERR5729635	1	oral	oral
+ERR5729647	1	oral	oral
+ERR5729652	1	oral	oral
+ERR5766171	1	gut	gut
+ERR5766172	1	gut	gut
+ERR5766173	1	gut	gut
+ERR5766174	1	gut	gut
+ERR5766175	1	gut	gut
+ERR5766176	1	gut	gut
+ERR5766177	1	gut	gut
+ERR5766178	1	gut	gut
+ERR5766179	1	gut	gut
+ERR5766180	1	gut	gut
+ERR5766181	1	gut	gut
+ERR5766182	1	gut	gut
+ERR5766183	1	gut	gut
+ERR6093893	1	oral	oral
+ERR6093894	1	oral	oral
+ERR6093896	1	oral	oral
+ERR6093897	1	oral	oral
+ERR6093931	1	oral	oral
+ERR6093932	1	oral	oral
+ERR6093934	1	oral	oral
+ERR6093935	1	oral	oral
+ERR6093941	1	oral	oral
+ERR6093942	1	oral	oral
+ERR6093943	1	oral	oral
+ERR6093945	1	oral	oral
+ERR6093963	1	oral	oral
+ERR6093964	1	oral	oral
+ERR6093965	1	oral	oral
+ERR6093966	1	oral	oral
+ERR6093972	1	oral	oral
+ERR6096533	1	oral	oral
+ERR6096535	1	oral	oral
+ERR6096536	1	oral	oral
+ERR6096541	1	oral	oral
+ERR6096542	1	oral	oral
+ERR6096543	1	oral	oral
+ERR6096544	1	oral	oral
+ERR6096550	1	oral	oral
+ERR6096551	1	oral	oral
+ERR6096552	1	oral	oral
+ERR6096554	1	oral	oral
+ERR6096886	1	oral	oral
+ERR6096922	1	oral	oral
+ERR6096923	1	oral	oral
+ERR6096924	1	oral	oral
+ERR6098554	1	oral	oral
+ERR6098555	1	oral	oral
+ERR6098556	1	oral	oral
+ERR6098557	1	oral	oral
+ERR6101230	1	oral	oral
+ERR6108965	1	oral	oral
+ERR6108966	1	oral	oral
+ERR6108967	1	oral	oral
+ERR6108972	1	oral	oral
+ERR6108973	1	oral	oral
+ERR6108974	1	oral	oral
+ERR6108975	1	oral	oral
+ERR6109001	1	oral	oral
+ERR6109002	1	oral	oral
+ERR6109003	1	oral	oral
+ERR6109004	1	oral	oral
+ERR6109005	1	oral	oral
+ERR6109010	1	oral	oral
+ERR6109011	1	oral	oral
+ERR6109012	1	oral	oral
+ERR6109056	1	oral	oral
+ERR6109057	1	oral	oral
+ERR6109058	1	oral	oral
+ERR6109059	1	oral	oral
+ERR6178850	1	oral	oral
+ERR6178851	1	oral	oral
+ERR6178854	1	oral	oral
+ERR6178867	1	oral	oral
+ERR6178875	1	oral	oral
+ERR6178876	1	oral	oral
+ERR6178877	1	oral	oral
+ERR6178891	1	oral	oral
+ERR6178901	1	oral	oral
+ERR6178902	1	oral	oral
+ERR6178912	1	oral	oral
+ERR6178913	1	oral	oral
+ERR6178929	1	oral	oral
+ERR6178930	1	oral	oral
+ERR6178941	1	oral	oral
+ERR6178942	1	oral	oral
+ERR6178943	1	oral	oral
+ERR6178944	1	oral	oral
+ERR6178945	1	oral	oral
+ERR6178958	1	oral	oral
+ERR6178961	1	oral	oral
+ERR6178962	1	oral	oral
+ERR6178968	1	oral	oral
+ERR6178969	1	oral	oral
+ERR6178972	1	oral	oral
+ERR6178973	1	oral	oral
+ERR6178984	1	oral	oral
+ERR6589623	1	oral	oral
+ERR6589628	1	oral	oral
+ERR7919460	1	oral	oral
+ERR7919463	1	oral	oral
+ERR7919467	1	oral	oral
+ERR7919476	1	oral	oral
+ERR7919477	1	oral	oral
+ERR7919479	1	oral	oral
+ERR7919480	1	oral	oral
+ERR7919485	1	oral	oral
+ERR7919491	1	oral	oral
+ERR7919493	1	oral	oral
+ERR7919500	1	oral	oral
+ERR7919503	1	oral	oral
+ERR7919505	1	oral	oral
+ERR7919518	1	oral	oral
+ERR7919521	1	oral	oral
+ERR7919522	1	oral	oral
+ERR7919525	1	oral	oral
+ERR7919529	1	oral	oral
+ERR7919535	1	oral	oral
+ERR7919538	1	oral	oral
+ERR7919548	1	oral	oral
+ERR7919646	1	oral	oral
+ERR9612721	1	oral	oral
+ERR9612722	1	oral	oral
+ERR9612723	1	oral	oral
+ERR9612724	1	oral	oral
+ERR9612739	1	oral	oral
+ERR9612749	1	oral	oral
+ERR9612750	1	oral	oral
+ERR9612753	1	oral	oral
+ERR9612754	1	oral	oral
+ERR9612775	1	oral	oral
+ERR9612776	1	oral	oral
+ERR9612783	1	oral	oral
+ERR9612784	1	oral	oral
+ERR9612791	1	oral	oral
+ERR9612792	1	oral	oral
+ERR9612797	1	oral	oral
+ERR9612798	1	oral	oral
+ERR9612799	1	oral	oral
+ERR9612800	1	oral	oral
+ERR9612801	1	oral	oral
+ERR9612802	1	oral	oral
+ERR9612819	1	oral	oral
+ERR9612820	1	oral	oral
+ERR9612821	1	oral	oral
+ERR9612822	1	oral	oral
+ERR9612833	1	oral	oral
+ERR9612834	1	oral	oral
+ERR9612839	1	oral	oral
+ERR9612840	1	oral	oral
+ERR9612865	1	oral	oral
+ERR9612866	1	oral	oral
+ERR9612885	1	oral	oral
+ERR9612886	1	oral	oral
+SRR12462930	1	oral	oral
+SRR12462935	1	oral	oral
+SRR12462940	1	oral	oral
+SRR13355786	1	oral	oral
+SRR13355791	1	oral	oral
+SRR13355794	1	oral	oral
+SRR13355801	1	oral	oral
+SRR13355804	1	oral	oral
+SRR13355805	1	oral	oral
+SRR17604739	1	oral	oral
+SRR17604740	1	oral	oral
+SRR17604742	1	oral	oral
+SRR17604744	1	oral	oral
+SRR17604748	1	oral	oral
+SRR17604749	1	oral	oral
+SRR17604756	1	oral	oral
+SRR17604760	1	oral	oral
+SRR17604762	1	oral	oral
+SRR17604774	1	oral	oral
+SRR17604776	1	oral	oral
+SRR17604786	1	oral	oral
+SRR17604790	1	oral	oral
+SRR17604793	1	oral	oral
+SRR17604794	1	oral	oral
+SRR17604801	1	oral	oral
+SRR19160147	1	gut	gut
+SRR19160150	1	gut	gut
+SRR19160184	1	gut	gut
+SRR23699551	1	oral	oral
+SRR23699556	1	oral	oral
+SRR23699558	1	oral	oral
+SRR23699564	1	oral	oral
+SRR23699570	1	oral	oral
+SRR23699572	1	oral	oral
+SRR23699575	1	oral	oral
+SRR30066259	1	oral	oral
+SRR30066261	1	oral	oral
+SRR30066263	1	oral	oral
+SRR30066271	1	oral	oral
+SRR4047221	1	plant tissue	plant tissue
+SRR5047045	1	oral	oral
+SRR5047050	1	oral	skeletal tissue
+SRR5047054	1	oral	oral
+SRR5047056	1	oral	skeletal tissue
+SRR5047062	1	oral	oral
+SRR5047063	1	oral	oral
+SRR5047064	1	oral	oral
+SRR5047086	1	oral	skeletal tissue
+SRR5047087	1	oral	skeletal tissue
+SRR5047089	1	oral	oral
+SRR5047093	1	oral	oral
+SRR5047097	1	oral	oral
+SRR5047105	1	oral	oral
+SRR5047117	1	oral	skeletal tissue
+SRR5047119	1	oral	oral
+SRR5047123	1	oral	skeletal tissue
+SRR5047126	1	oral	skeletal tissue
+SRR5047138	1	oral	skeletal tissue
+SRR5047139	1	oral	skeletal tissue
+SRR5047143	1	oral	skeletal tissue
+SRR5047153	1	oral	skeletal tissue
+SRR5047160	1	oral	oral
+SRR5047165	1	oral	oral
+SRR5047173	1	oral	skeletal tissue
+SRR5047176	1	oral	skeletal tissue
+SRR5047185	1	oral	oral
+SRR5047190	1	oral	skeletal tissue
+SRR5047195	1	oral	skeletal tissue
+SRR5047200	1	oral	oral
+SRR5047203	1	oral	skeletal tissue
+SRR5047204	1	oral	skeletal tissue
+SRR5875718	1	soft tissue	soft tissue
+SRR5875719	1	soft tissue	soft tissue
+SRR6877282	1	oral	oral
+SRR6877283	1	skeletal tissue	skeletal tissue
+SRR6877284	1	oral	oral
+SRR6877287	1	skeletal tissue	oral
+SRR6877295	1	skeletal tissue	skeletal tissue
+SRR6877298	1	skeletal tissue	oral
+SRR6877300	1	oral	oral
+SRR6877310	1	oral	oral
+SRR6877312	1	oral	oral
+SRR6877315	1	skeletal tissue	skeletal tissue
+SRR6877325	1	skeletal tissue	oral
+SRR6877328	1	oral	oral
+SRR6877331	1	skeletal tissue	oral
+SRR6877333	1	skeletal tissue	skeletal tissue
+SRR6877337	1	skeletal tissue	skeletal tissue
+SRR6877346	1	oral	oral
+SRR6877351	1	skeletal tissue	skeletal tissue
+SRR6877354	1	oral	oral
+SRR6877370	1	oral	oral
+SRR6877373	1	skeletal tissue	skeletal tissue
+SRR6877374	1	oral	oral
+SRR6877377	1	skeletal tissue	oral
+SRR6877379	1	skeletal tissue	skeletal tissue
+SRR6877386	1	oral	oral
+SRR6877393	1	oral	oral
+SRR6877394	1	skeletal tissue	skeletal tissue
+SRR6877396	1	skeletal tissue	skeletal tissue
+SRR6877401	1	oral	oral
+SRR866660	1	skeletal tissue	oral
+SRR866663	1	skeletal tissue	oral
+SRR8731955	1	gut	gut
+SRR957738	1	oral	oral
+ERR11413658	2	oral	oral
+ERR11413665	2	oral	oral
+ERR11413669	2	oral	oral
+ERR11413674	2	oral	oral
+ERR11413676	2	oral	oral
+ERR11413677	2	oral	oral
+ERR11413683	2	oral	oral
+ERR11413689	2	oral	oral
+ERR11413701	2	oral	skeletal tissue
+ERR11413706	2	oral	oral
+ERR11413708	2	oral	oral
+ERR11413721	2	oral	oral
+ERR11413722	2	oral	oral
+ERR11413731	2	oral	oral
+ERR11413744	2	oral	oral
+ERR11413745	2	oral	oral
+ERR11413748	2	oral	oral
+ERR11413752	2	oral	oral
+ERR11413754	2	oral	oral
+ERR11413756	2	oral	oral
+ERR11413759	2	oral	oral
+ERR11656745	2	skeletal tissue	skeletal tissue
+ERR11656748	2	skeletal tissue	skeletal tissue
+ERR12115114	2	oral	oral
+ERR12115116	2	oral	oral
+ERR1777521	2	skeletal tissue	skeletal tissue
+ERR1777530	2	skeletal tissue	skeletal tissue
+ERR1777534	2	skeletal tissue	skeletal tissue
+ERR1777537	2	skeletal tissue	skeletal tissue
+ERR1777543	2	skeletal tissue	skeletal tissue
+ERR1777548	2	skeletal tissue	skeletal tissue
+ERR1777556	2	skeletal tissue	skeletal tissue
+ERR1777559	2	skeletal tissue	oral
+ERR1777568	2	skeletal tissue	skeletal tissue
+ERR2269780	2	plant tissue	plant tissue
+ERR2269784	2	plant tissue	plant tissue
+ERR2269785	2	plant tissue	plant tissue
+ERR2269791	2	plant tissue	plant tissue
+ERR2269797	2	plant tissue	plant tissue
+ERR2269803	2	plant tissue	plant tissue
+ERR2269804	2	plant tissue	plant tissue
+ERR3579677	2	oral	oral
+ERR3579678	2	oral	oral
+ERR3579681	2	oral	oral
+ERR3579683	2	oral	oral
+ERR3579687	2	oral	oral
+ERR3579709	2	oral	oral
+ERR3579728	2	oral	oral
+ERR3579729	2	oral	oral
+ERR3579730	2	oral	oral
+ERR3579743	2	oral	oral
+ERR3579744	2	oral	oral
+ERR3579746	2	oral	oral
+ERR3579747	2	oral	oral
+ERR3579754	2	oral	skeletal tissue
+ERR3579755	2	oral	oral
+ERR3579756	2	oral	oral
+ERR3579762	2	oral	oral
+ERR3579763	2	oral	oral
+ERR3579764	2	oral	oral
+ERR3579765	2	oral	oral
+ERR3579774	2	oral	oral
+ERR3579782	2	oral	oral
+ERR3579783	2	oral	oral
+ERR3579801	2	oral	oral
+ERR3579812	2	oral	oral
+ERR3609654	2	oral	oral
+ERR3609658	2	oral	oral
+ERR3609660	2	oral	oral
+ERR3678176	2	oral	oral
+ERR3678177	2	oral	oral
+ERR3678180	2	oral	oral
+ERR3678182	2	oral	oral
+ERR3678186	2	oral	oral
+ERR3678596	2	gut	gut
+ERR3678599	2	gut	gut
+ERR3678605	2	gut	gut
+ERR3678611	2	gut	gut
+ERR3678615	2	gut	gut
+ERR3678622	2	gut	gut
+ERR3678625	2	gut	gut
+ERR3728227	2	oral	oral
+ERR3728238	2	oral	oral
+ERR3728248	2	oral	oral
+ERR3728254	2	oral	oral
+ERR3728255	2	oral	oral
+ERR3761411	2	gut	gut
+ERR3906046	2	oral	oral
+ERR4172855	2	oral	oral
+ERR4172857	2	oral	oral
+ERR4172860	2	oral	oral
+ERR4172872	2	oral	oral
+ERR4373159	2	oral	skeletal tissue
+ERR4373995	2	skeletal tissue	skeletal tissue
+ERR4373998	2	skeletal tissue	skeletal tissue
+ERR4374000	2	skeletal tissue	skeletal tissue
+ERR4374003	2	skeletal tissue	skeletal tissue
+ERR4374006	2	oral	skeletal tissue
+ERR4374007	2	oral	skeletal tissue
+ERR4374008	2	skeletal tissue	skeletal tissue
+ERR4374009	2	oral	skeletal tissue
+ERR4374014	2	oral	skeletal tissue
+ERR4374018	2	oral	skeletal tissue
+ERR4374022	2	oral	skeletal tissue
+ERR4374023	2	oral	skeletal tissue
+ERR4374025	2	skeletal tissue	skeletal tissue
+ERR4374027	2	oral	skeletal tissue
+ERR4374033	2	skeletal tissue	skeletal tissue
+ERR4374038	2	skeletal tissue	skeletal tissue
+ERR4374053	2	oral	oral
+ERR4374839	2	skeletal tissue	skeletal tissue
+ERR4374857	2	soft tissue	skeletal tissue
+ERR4374862	2	skeletal tissue	skeletal tissue
+ERR4374873	2	oral	skeletal tissue
+ERR4374917	2	oral	skeletal tissue
+ERR4374962	2	oral	skeletal tissue
+ERR4375025	2	skeletal tissue	skeletal tissue
+ERR4375047	2	skeletal tissue	skeletal tissue
+ERR4375137	2	oral	skeletal tissue
+ERR4383828	2	skeletal tissue	skeletal tissue
+ERR4385800	2	skeletal tissue	skeletal tissue
+ERR4386464	2	oral	oral
+ERR4386594	2	soft tissue	soft tissue
+ERR4391165	2	oral	oral
+ERR4391166	2	oral	oral
+ERR4408185	2	oral	skeletal tissue
+ERR4413529	2	oral	oral
+ERR4596443	2	oral	oral
+ERR4596816	2	oral	oral
+ERR4596817	2	oral	oral
+ERR4596822	2	oral	oral
+ERR5670954	2	oral	oral
+ERR5670960	2	oral	oral
+ERR5670962	2	oral	oral
+ERR5670965	2	oral	oral
+ERR5670968	2	oral	oral
+ERR5729615	2	oral	oral
+ERR5729617	2	oral	oral
+ERR5729619	2	oral	oral
+ERR5729621	2	oral	oral
+ERR5729624	2	oral	oral
+ERR5729626	2	oral	oral
+ERR5729641	2	oral	oral
+ERR5729643	2	oral	oral
+ERR5729645	2	oral	oral
+ERR5729655	2	oral	oral
+ERR5863536	2	gut	gut
+ERR6093866	2	oral	oral
+ERR6093867	2	oral	oral
+ERR6093868	2	oral	oral
+ERR6093869	2	oral	oral
+ERR6093870	2	oral	oral
+ERR6093871	2	oral	oral
+ERR6093872	2	oral	oral
+ERR6093874	2	oral	oral
+ERR6093883	2	oral	oral
+ERR6093885	2	oral	oral
+ERR6093886	2	oral	oral
+ERR6093887	2	oral	oral
+ERR6093912	2	oral	oral
+ERR6093913	2	oral	oral
+ERR6093914	2	oral	oral
+ERR6093916	2	oral	oral
+ERR6093922	2	oral	oral
+ERR6093923	2	oral	oral
+ERR6093924	2	oral	oral
+ERR6093926	2	oral	oral
+ERR6093936	2	oral	oral
+ERR6093937	2	oral	oral
+ERR6093938	2	oral	oral
+ERR6093939	2	oral	oral
+ERR6093946	2	oral	oral
+ERR6093947	2	oral	oral
+ERR6093948	2	oral	oral
+ERR6093949	2	oral	oral
+ERR6096545	2	oral	oral
+ERR6096547	2	oral	oral
+ERR6096548	2	oral	oral
+ERR6096549	2	oral	oral
+ERR6096818	2	oral	oral
+ERR6096822	2	oral	oral
+ERR6096826	2	oral	oral
+ERR6096829	2	oral	oral
+ERR6097549	2	oral	oral
+ERR6097552	2	oral	oral
+ERR6097573	2	oral	oral
+ERR6097575	2	oral	oral
+ERR6097576	2	oral	oral
+ERR6097577	2	oral	oral
+ERR6097579	2	oral	oral
+ERR6097580	2	oral	oral
+ERR6097622	2	oral	oral
+ERR6097623	2	oral	oral
+ERR6097625	2	oral	oral
+ERR6097626	2	oral	oral
+ERR6097759	2	oral	oral
+ERR6098066	2	oral	oral
+ERR6098349	2	oral	oral
+ERR6098517	2	oral	oral
+ERR6098990	2	oral	oral
+ERR6099166	2	oral	oral
+ERR6099349	2	oral	oral
+ERR6099809	2	oral	oral
+ERR6108980	2	oral	oral
+ERR6108981	2	oral	oral
+ERR6108982	2	oral	oral
+ERR6108983	2	oral	oral
+ERR6108988	2	oral	oral
+ERR6108989	2	oral	oral
+ERR6108990	2	oral	oral
+ERR6108991	2	oral	oral
+ERR6109013	2	oral	oral
+ERR6109014	2	oral	oral
+ERR6109015	2	oral	oral
+ERR6109016	2	oral	oral
+ERR6178862	2	oral	oral
+ERR6178863	2	oral	oral
+ERR6178874	2	oral	oral
+ERR6178882	2	oral	oral
+ERR6178883	2	oral	oral
+ERR6178884	2	oral	oral
+ERR6178885	2	oral	oral
+ERR6178890	2	oral	oral
+ERR6178916	2	oral	oral
+ERR6178917	2	oral	oral
+ERR6178918	2	oral	oral
+ERR6178919	2	oral	oral
+ERR6178920	2	oral	oral
+ERR6178925	2	oral	oral
+ERR6178927	2	oral	oral
+ERR6178932	2	oral	oral
+ERR6178948	2	oral	oral
+ERR6178949	2	oral	oral
+ERR6178950	2	oral	oral
+ERR6178977	2	oral	oral
+ERR6178978	2	oral	oral
+ERR6178979	2	oral	oral
+ERR6178987	2	oral	oral
+ERR6178988	2	oral	oral
+ERR6589627	2	oral	oral
+ERR6589630	2	oral	oral
+ERR7919464	2	oral	skeletal tissue
+ERR7919471	2	oral	skeletal tissue
+ERR7919496	2	oral	skeletal tissue
+ERR7919499	2	oral	skeletal tissue
+ERR7919509	2	oral	skeletal tissue
+ERR7919512	2	oral	skeletal tissue
+ERR7919517	2	oral	skeletal tissue
+ERR7919540	2	oral	skeletal tissue
+ERR7919545	2	oral	skeletal tissue
+ERR7919546	2	oral	skeletal tissue
+ERR7919547	2	oral	oral
+ERR7919643	2	oral	skeletal tissue
+ERR7919644	2	oral	skeletal tissue
+ERR7919645	2	oral	oral
+ERR9612725	2	oral	oral
+ERR9612726	2	oral	oral
+ERR9612729	2	oral	oral
+ERR9612730	2	oral	oral
+ERR9612744	2	oral	oral
+ERR9612747	2	oral	oral
+ERR9612748	2	oral	oral
+ERR9612759	2	oral	oral
+ERR9612760	2	oral	oral
+ERR9612763	2	oral	oral
+ERR9612764	2	oral	oral
+ERR9612781	2	oral	oral
+ERR9612782	2	oral	oral
+ERR9612787	2	oral	oral
+ERR9612788	2	oral	oral
+ERR9612795	2	oral	oral
+ERR9612796	2	oral	oral
+ERR9612807	2	oral	oral
+ERR9612808	2	oral	oral
+ERR9612811	2	oral	oral
+ERR9612812	2	oral	oral
+ERR9612813	2	oral	oral
+ERR9612814	2	oral	oral
+ERR9612853	2	oral	oral
+ERR9612854	2	oral	oral
+ERR9612857	2	oral	oral
+ERR9612858	2	oral	oral
+ERR9612859	2	oral	oral
+ERR9612860	2	oral	oral
+ERR9612863	2	oral	oral
+ERR9612864	2	oral	oral
+ERR9612869	2	oral	oral
+ERR9612870	2	oral	oral
+ERR9612873	2	oral	oral
+ERR9612874	2	oral	oral
+ERR9612875	2	oral	oral
+ERR9612876	2	oral	oral
+ERR9612881	2	oral	oral
+ERR9612882	2	oral	oral
+ERR9612895	2	oral	oral
+ERR9612896	2	oral	oral
+SRR12136712	2	oral	oral
+SRR12462933	2	oral	oral
+SRR12462946	2	oral	oral
+SRR13355784	2	oral	oral
+SRR13355797	2	oral	oral
+SRR13355799	2	oral	oral
+SRR13355812	2	oral	oral
+SRR13355813	2	oral	oral
+SRR17604731	2	oral	oral
+SRR17604738	2	oral	oral
+SRR17604753	2	oral	oral
+SRR17604766	2	oral	oral
+SRR17604769	2	oral	oral
+SRR17604781	2	oral	oral
+SRR17604782	2	oral	oral
+SRR17604787	2	oral	oral
+SRR17604797	2	oral	oral
+SRR17604798	2	oral	oral
+SRR17604802	2	oral	skeletal tissue
+SRR17604808	2	oral	oral
+SRR19160175	2	gut	gut
+SRR19160206	2	gut	gut
+SRR2229974	2	oral	skeletal tissue
+SRR2229975	2	skeletal tissue	skeletal tissue
+SRR2229976	2	oral	skeletal tissue
+SRR23699553	2	oral	oral
+SRR23699565	2	oral	oral
+SRR23699576	2	oral	oral
+SRR23699578	2	oral	oral
+SRR30066258	2	oral	oral
+SRR30066260	2	oral	oral
+SRR30066264	2	oral	oral
+SRR30066272	2	oral	oral
+SRR4047199	2	plant tissue	plant tissue
+SRR4047223	2	plant tissue	plant tissue
+SRR5047040	2	oral	oral
+SRR5047043	2	oral	skeletal tissue
+SRR5047049	2	oral	skeletal tissue
+SRR5047051	2	oral	skeletal tissue
+SRR5047055	2	oral	skeletal tissue
+SRR5047057	2	oral	oral
+SRR5047058	2	oral	oral
+SRR5047061	2	oral	skeletal tissue
+SRR5047074	2	oral	skeletal tissue
+SRR5047076	2	oral	skeletal tissue
+SRR5047081	2	oral	skeletal tissue
+SRR5047090	2	oral	skeletal tissue
+SRR5047094	2	oral	oral
+SRR5047098	2	oral	oral
+SRR5047102	2	oral	skeletal tissue
+SRR5047110	2	oral	oral
+SRR5047112	2	oral	skeletal tissue
+SRR5047113	2	oral	oral
+SRR5047121	2	oral	skeletal tissue
+SRR5047130	2	oral	skeletal tissue
+SRR5047132	2	oral	skeletal tissue
+SRR5047136	2	oral	oral
+SRR5047137	2	oral	oral
+SRR5047147	2	oral	skeletal tissue
+SRR5047148	2	oral	oral
+SRR5047154	2	oral	oral
+SRR5047162	2	oral	oral
+SRR5047166	2	oral	skeletal tissue
+SRR5047168	2	oral	oral
+SRR5047172	2	oral	oral
+SRR5047175	2	oral	skeletal tissue
+SRR5047178	2	oral	oral
+SRR5047181	2	oral	oral
+SRR5047189	2	oral	skeletal tissue
+SRR5875726	2	soft tissue	soft tissue
+SRR5875727	2	soft tissue	soft tissue
+SRR6877289	2	skeletal tissue	oral
+SRR6877297	2	skeletal tissue	skeletal tissue
+SRR6877302	2	skeletal tissue	skeletal tissue
+SRR6877303	2	oral	oral
+SRR6877304	2	oral	oral
+SRR6877309	2	skeletal tissue	skeletal tissue
+SRR6877311	2	skeletal tissue	oral
+SRR6877314	2	skeletal tissue	oral
+SRR6877316	2	oral	oral
+SRR6877321	2	skeletal tissue	skeletal tissue
+SRR6877327	2	skeletal tissue	skeletal tissue
+SRR6877336	2	oral	oral
+SRR6877338	2	oral	oral
+SRR6877355	2	skeletal tissue	skeletal tissue
+SRR6877360	2	skeletal tissue	skeletal tissue
+SRR6877361	2	oral	oral
+SRR6877365	2	oral	oral
+SRR6877366	2	skeletal tissue	oral
+SRR6877368	2	skeletal tissue	skeletal tissue
+SRR6877382	2	oral	oral
+SRR6877384	2	oral	oral
+SRR6877388	2	oral	oral
+SRR6877398	2	skeletal tissue	oral
+SRR6877403	2	oral	oral
+SRR866665	2	skeletal tissue	skeletal tissue
+SRR957739	2	oral	oral
+SRR957745	2	oral	oral
+ERR11413660	3	oral	oral
+ERR11413663	3	oral	oral
+ERR11413664	3	oral	oral
+ERR11413670	3	oral	oral
+ERR11413671	3	oral	oral
+ERR11413680	3	oral	oral
+ERR11413685	3	oral	oral
+ERR11413686	3	oral	oral
+ERR11413695	3	oral	oral
+ERR11413698	3	oral	oral
+ERR11413700	3	oral	oral
+ERR11413703	3	oral	oral
+ERR11413711	3	oral	oral
+ERR11413713	3	oral	oral
+ERR11413716	3	oral	oral
+ERR11413725	3	oral	oral
+ERR11413728	3	oral	oral
+ERR11413740	3	oral	oral
+ERR11413749	3	oral	oral
+ERR11413750	3	oral	oral
+ERR11413753	3	oral	oral
+ERR11413758	3	oral	oral
+ERR11656731	3	skeletal tissue	skeletal tissue
+ERR11656734	3	skeletal tissue	skeletal tissue
+ERR11656735	3	skeletal tissue	skeletal tissue
+ERR11656743	3	skeletal tissue	skeletal tissue
+ERR11660433	3	oral	skeletal tissue
+ERR11660434	3	oral	skeletal tissue
+ERR11660435	3	oral	skeletal tissue
+ERR11660436	3	oral	skeletal tissue
+ERR11660437	3	oral	skeletal tissue
+ERR11660438	3	oral	oral
+ERR11660439	3	oral	oral
+ERR11660440	3	oral	oral
+ERR11660441	3	oral	oral
+ERR11660442	3	oral	oral
+ERR11660443	3	oral	oral
+ERR11660444	3	oral	oral
+ERR11660445	3	oral	oral
+ERR11660446	3	oral	oral
+ERR11660447	3	oral	oral
+ERR11660448	3	oral	oral
+ERR11660449	3	oral	oral
+ERR11660450	3	oral	oral
+ERR14057409	3	gut	skeletal tissue
+ERR14057410	3	gut	skeletal tissue
+ERR14057411	3	gut	oral
+ERR14057412	3	gut	oral
+ERR14057413	3	gut	oral
+ERR14057414	3	gut	oral
+ERR14057415	3	gut	oral
+ERR14057416	3	gut	oral
+ERR14100444	3	gut	skeletal tissue
+ERR14100445	3	gut	skeletal tissue
+ERR14100446	3	gut	oral
+ERR14100447	3	gut	oral
+ERR14100448	3	gut	oral
+ERR14100449	3	gut	oral
+ERR14100450	3	gut	oral
+ERR14100451	3	gut	oral
+ERR1777524	3	skeletal tissue	skeletal tissue
+ERR1777528	3	skeletal tissue	skeletal tissue
+ERR1777532	3	skeletal tissue	skeletal tissue
+ERR1777535	3	skeletal tissue	skeletal tissue
+ERR1777538	3	skeletal tissue	skeletal tissue
+ERR1777540	3	skeletal tissue	skeletal tissue
+ERR1777550	3	skeletal tissue	skeletal tissue
+ERR1777554	3	skeletal tissue	skeletal tissue
+ERR1777558	3	skeletal tissue	skeletal tissue
+ERR1777563	3	skeletal tissue	skeletal tissue
+ERR2269775	3	plant tissue	plant tissue
+ERR2269779	3	plant tissue	plant tissue
+ERR2269781	3	plant tissue	plant tissue
+ERR2269789	3	plant tissue	plant tissue
+ERR2269794	3	plant tissue	plant tissue
+ERR2269799	3	plant tissue	plant tissue
+ERR3579672	3	oral	oral
+ERR3579680	3	oral	oral
+ERR3579702	3	oral	oral
+ERR3579703	3	oral	oral
+ERR3579708	3	oral	oral
+ERR3579715	3	oral	oral
+ERR3579716	3	oral	oral
+ERR3579719	3	oral	oral
+ERR3579720	3	oral	skeletal tissue
+ERR3579741	3	oral	oral
+ERR3579742	3	oral	oral
+ERR3579750	3	oral	oral
+ERR3579751	3	oral	oral
+ERR3579777	3	oral	oral
+ERR3579779	3	oral	oral
+ERR3579799	3	oral	oral
+ERR3579802	3	oral	oral
+ERR3579809	3	oral	oral
+ERR3579810	3	oral	oral
+ERR3579813	3	oral	oral
+ERR3579814	3	oral	oral
+ERR3579815	3	oral	skeletal tissue
+ERR3579816	3	oral	skeletal tissue
+ERR3579827	3	oral	oral
+ERR3579830	3	oral	oral
+ERR3609652	3	oral	oral
+ERR3609659	3	oral	skeletal tissue
+ERR3678174	3	oral	oral
+ERR3678179	3	oral	oral
+ERR3678612	3	gut	gut
+ERR3678616	3	gut	gut
+ERR3678617	3	gut	gut
+ERR3678618	3	gut	gut
+ERR3678629	3	gut	gut
+ERR3728228	3	oral	oral
+ERR3728239	3	oral	oral
+ERR3728246	3	oral	oral
+ERR3728249	3	oral	oral
+ERR3728257	3	oral	oral
+ERR3761412	3	gut	gut
+ERR4172835	3	oral	skeletal tissue
+ERR4172836	3	oral	plant tissue
+ERR4172838	3	oral	plant tissue
+ERR4172839	3	oral	plant tissue
+ERR4172841	3	oral	oral
+ERR4172843	3	oral	oral
+ERR4172850	3	oral	oral
+ERR4172854	3	oral	oral
+ERR4172991	3	oral	oral
+ERR4173008	3	oral	oral
+ERR4173033	3	oral	oral
+ERR4173049	3	oral	oral
+ERR4173051	3	oral	oral
+ERR4173057	3	oral	oral
+ERR4173060	3	oral	oral
+ERR4374011	3	soft tissue	soft tissue
+ERR4374015	3	skeletal tissue	skeletal tissue
+ERR4374021	3	soft tissue	soft tissue
+ERR4374024	3	oral	skeletal tissue
+ERR4374026	3	skeletal tissue	skeletal tissue
+ERR4374030	3	skeletal tissue	skeletal tissue
+ERR4374031	3	oral	skeletal tissue
+ERR4374042	3	oral	skeletal tissue
+ERR4374050	3	oral	skeletal tissue
+ERR4374052	3	skeletal tissue	skeletal tissue
+ERR4374838	3	oral	oral
+ERR4374860	3	oral	soft tissue
+ERR4374865	3	oral	soft tissue
+ERR4374872	3	oral	skeletal tissue
+ERR4374913	3	skeletal tissue	skeletal tissue
+ERR4374916	3	skeletal tissue	skeletal tissue
+ERR4374919	3	oral	skeletal tissue
+ERR4374925	3	oral	skeletal tissue
+ERR4374926	3	oral	skeletal tissue
+ERR4375017	3	oral	skeletal tissue
+ERR4375039	3	oral	skeletal tissue
+ERR4375042	3	oral	oral
+ERR4375132	3	oral	skeletal tissue
+ERR4375134	3	skeletal tissue	skeletal tissue
+ERR4375141	3	oral	skeletal tissue
+ERR4375142	3	oral	skeletal tissue
+ERR4383829	3	skeletal tissue	skeletal tissue
+ERR4596818	3	oral	oral
+ERR4596820	3	oral	oral
+ERR4596823	3	oral	oral
+ERR5670952	3	oral	oral
+ERR5670955	3	oral	oral
+ERR5670958	3	oral	oral
+ERR5670971	3	oral	oral
+ERR5729620	3	oral	oral
+ERR5729634	3	oral	oral
+ERR5729637	3	oral	oral
+ERR5729639	3	oral	oral
+ERR5729640	3	oral	oral
+ERR5729649	3	oral	oral
+ERR5729656	3	oral	oral
+ERR5729657	3	oral	oral
+ERR5766168	3	gut	gut
+ERR5766169	3	gut	gut
+ERR5766170	3	gut	gut
+ERR6093858	3	oral	oral
+ERR6093859	3	oral	oral
+ERR6093860	3	oral	oral
+ERR6093861	3	oral	oral
+ERR6093927	3	oral	oral
+ERR6093928	3	oral	oral
+ERR6093929	3	oral	oral
+ERR6093930	3	oral	oral
+ERR6093950	3	oral	oral
+ERR6093951	3	oral	oral
+ERR6093952	3	oral	oral
+ERR6093953	3	oral	oral
+ERR6093954	3	oral	oral
+ERR6093955	3	oral	oral
+ERR6093956	3	oral	oral
+ERR6093957	3	oral	oral
+ERR6093967	3	oral	oral
+ERR6093968	3	oral	oral
+ERR6093969	3	oral	oral
+ERR6093970	3	oral	oral
+ERR6096749	3	oral	oral
+ERR6096752	3	oral	oral
+ERR6096755	3	oral	oral
+ERR6096759	3	oral	oral
+ERR6096835	3	oral	oral
+ERR6096842	3	oral	oral
+ERR6096847	3	oral	oral
+ERR6096853	3	oral	oral
+ERR6096925	3	oral	oral
+ERR6096926	3	oral	oral
+ERR6096927	3	oral	oral
+ERR6096928	3	oral	oral
+ERR6098559	3	oral	oral
+ERR6098560	3	oral	oral
+ERR6098730	3	oral	oral
+ERR6098929	3	oral	oral
+ERR6098937	3	oral	oral
+ERR6098938	3	oral	oral
+ERR6098939	3	oral	oral
+ERR6098940	3	oral	oral
+ERR6099810	3	oral	oral
+ERR6099811	3	oral	oral
+ERR6099812	3	oral	oral
+ERR6099813	3	oral	oral
+ERR6099818	3	oral	oral
+ERR6099824	3	oral	oral
+ERR6099825	3	oral	oral
+ERR6099826	3	oral	oral
+ERR6108968	3	oral	oral
+ERR6108969	3	oral	oral
+ERR6108970	3	oral	oral
+ERR6108971	3	oral	oral
+ERR6108976	3	oral	oral
+ERR6108977	3	oral	oral
+ERR6108978	3	oral	oral
+ERR6108979	3	oral	oral
+ERR6108996	3	oral	oral
+ERR6108997	3	oral	oral
+ERR6108998	3	oral	oral
+ERR6109000	3	oral	oral
+ERR6109027	3	oral	oral
+ERR6109028	3	oral	oral
+ERR6109049	3	oral	oral
+ERR6109050	3	oral	oral
+ERR6178852	3	oral	oral
+ERR6178853	3	oral	oral
+ERR6178858	3	oral	oral
+ERR6178859	3	oral	oral
+ERR6178866	3	oral	oral
+ERR6178870	3	oral	oral
+ERR6178871	3	oral	oral
+ERR6178878	3	oral	oral
+ERR6178879	3	oral	oral
+ERR6178895	3	oral	oral
+ERR6178903	3	oral	oral
+ERR6178904	3	oral	oral
+ERR6178907	3	oral	oral
+ERR6178908	3	oral	oral
+ERR6178910	3	oral	oral
+ERR6178911	3	oral	oral
+ERR6178928	3	oral	oral
+ERR6178938	3	oral	oral
+ERR6178939	3	oral	oral
+ERR6178951	3	oral	oral
+ERR6178952	3	oral	oral
+ERR6178953	3	oral	oral
+ERR6178954	3	oral	oral
+ERR6178959	3	oral	oral
+ERR6178967	3	oral	oral
+ERR6178975	3	oral	oral
+ERR6178976	3	oral	oral
+ERR6178982	3	oral	oral
+ERR6178983	3	oral	oral
+ERR6178985	3	oral	oral
+ERR6178986	3	oral	oral
+ERR6589621	3	oral	oral
+ERR6589624	3	oral	skeletal tissue
+ERR7919459	3	oral	oral
+ERR7919465	3	oral	oral
+ERR7919466	3	oral	oral
+ERR7919468	3	oral	oral
+ERR7919469	3	oral	skeletal tissue
+ERR7919470	3	oral	oral
+ERR7919472	3	oral	oral
+ERR7919478	3	oral	oral
+ERR7919481	3	oral	oral
+ERR7919483	3	oral	oral
+ERR7919484	3	oral	oral
+ERR7919486	3	oral	oral
+ERR7919492	3	oral	oral
+ERR7919501	3	oral	oral
+ERR7919502	3	oral	oral
+ERR7919508	3	oral	oral
+ERR7919510	3	oral	oral
+ERR7919513	3	oral	oral
+ERR7919515	3	oral	oral
+ERR7919519	3	oral	oral
+ERR7919523	3	oral	oral
+ERR7919524	3	oral	skeletal tissue
+ERR7919528	3	oral	oral
+ERR7919533	3	oral	oral
+ERR7919536	3	oral	oral
+ERR7919537	3	oral	oral
+ERR7919539	3	oral	oral
+ERR7919543	3	oral	oral
+ERR9612731	3	oral	oral
+ERR9612732	3	oral	oral
+ERR9612742	3	oral	oral
+ERR9612745	3	oral	oral
+ERR9612746	3	oral	oral
+ERR9612765	3	oral	oral
+ERR9612766	3	oral	oral
+ERR9612777	3	oral	oral
+ERR9612778	3	oral	oral
+ERR9612779	3	oral	oral
+ERR9612780	3	oral	oral
+ERR9612785	3	oral	oral
+ERR9612786	3	oral	oral
+ERR9612809	3	oral	oral
+ERR9612810	3	oral	oral
+ERR9612825	3	oral	oral
+ERR9612826	3	oral	oral
+ERR9612827	3	oral	oral
+ERR9612828	3	oral	oral
+ERR9612837	3	oral	oral
+ERR9612838	3	oral	oral
+ERR9612845	3	oral	oral
+ERR9612846	3	oral	oral
+ERR9612855	3	oral	oral
+ERR9612856	3	oral	oral
+ERR9612867	3	oral	oral
+ERR9612868	3	oral	oral
+ERR9612879	3	oral	oral
+ERR9612880	3	oral	oral
+ERR9612893	3	oral	oral
+ERR9612894	3	oral	oral
+ERR9612897	3	oral	oral
+ERR9612898	3	oral	oral
+SRR12462931	3	oral	oral
+SRR12462937	3	oral	oral
+SRR12462944	3	oral	oral
+SRR13355789	3	oral	oral
+SRR13355798	3	oral	oral
+SRR13355800	3	oral	oral
+SRR13355806	3	oral	oral
+SRR13355807	3	oral	oral
+SRR13355808	3	oral	oral
+SRR13355809	3	oral	oral
+SRR17604737	3	oral	oral
+SRR17604741	3	oral	oral
+SRR17604743	3	oral	oral
+SRR17604747	3	oral	oral
+SRR17604750	3	oral	oral
+SRR17604755	3	oral	oral
+SRR17604757	3	oral	oral
+SRR17604767	3	oral	oral
+SRR17604768	3	oral	oral
+SRR17604771	3	oral	oral
+SRR17604773	3	oral	oral
+SRR17604775	3	oral	oral
+SRR17604783	3	oral	skeletal tissue
+SRR17604792	3	oral	oral
+SRR17604800	3	oral	oral
+SRR19160161	3	gut	gut
+SRR19160180	3	gut	gut
+SRR19160251	3	gut	gut
+SRR23699555	3	oral	oral
+SRR23699559	3	oral	oral
+SRR23699569	3	oral	oral
+SRR23699571	3	oral	oral
+SRR30066262	3	oral	oral
+SRR30066269	3	oral	oral
+SRR4047203	3	plant tissue	plant tissue
+SRR4047214	3	plant tissue	plant tissue
+SRR4047219	3	plant tissue	plant tissue
+SRR4047225	3	plant tissue	plant tissue
+SRR5047041	3	oral	oral
+SRR5047046	3	oral	skeletal tissue
+SRR5047047	3	oral	oral
+SRR5047052	3	oral	skeletal tissue
+SRR5047065	3	oral	oral
+SRR5047067	3	oral	skeletal tissue
+SRR5047068	3	oral	skeletal tissue
+SRR5047073	3	oral	skeletal tissue
+SRR5047079	3	oral	skeletal tissue
+SRR5047083	3	oral	skeletal tissue
+SRR5047085	3	oral	skeletal tissue
+SRR5047091	3	oral	skeletal tissue
+SRR5047096	3	oral	oral
+SRR5047109	3	oral	skeletal tissue
+SRR5047118	3	oral	skeletal tissue
+SRR5047122	3	oral	oral
+SRR5047127	3	oral	oral
+SRR5047129	3	oral	oral
+SRR5047133	3	oral	oral
+SRR5047140	3	oral	oral
+SRR5047142	3	oral	skeletal tissue
+SRR5047152	3	oral	oral
+SRR5047156	3	oral	skeletal tissue
+SRR5047157	3	oral	skeletal tissue
+SRR5047161	3	oral	oral
+SRR5047164	3	oral	skeletal tissue
+SRR5047171	3	oral	skeletal tissue
+SRR5047174	3	oral	oral
+SRR5047183	3	oral	skeletal tissue
+SRR5047187	3	oral	oral
+SRR5047194	3	oral	oral
+SRR5047196	3	oral	oral
+SRR5297131	3	oral	oral
+SRR5875714	3	soft tissue	soft tissue
+SRR5875715	3	soft tissue	soft tissue
+SRR5875728	3	soft tissue	soft tissue
+SRR5875729	3	soft tissue	soft tissue
+SRR5875730	3	soft tissue	soft tissue
+SRR5875731	3	soft tissue	soft tissue
+SRR6877285	3	skeletal tissue	skeletal tissue
+SRR6877288	3	oral	oral
+SRR6877293	3	skeletal tissue	skeletal tissue
+SRR6877294	3	oral	oral
+SRR6877296	3	oral	oral
+SRR6877308	3	oral	oral
+SRR6877322	3	oral	oral
+SRR6877326	3	oral	oral
+SRR6877332	3	oral	oral
+SRR6877339	3	oral	oral
+SRR6877340	3	oral	oral
+SRR6877347	3	skeletal tissue	oral
+SRR6877348	3	oral	oral
+SRR6877353	3	skeletal tissue	oral
+SRR6877359	3	skeletal tissue	oral
+SRR6877362	3	skeletal tissue	skeletal tissue
+SRR6877369	3	oral	oral
+SRR6877375	3	skeletal tissue	skeletal tissue
+SRR6877378	3	oral	oral
+SRR6877385	3	skeletal tissue	skeletal tissue
+SRR6877390	3	oral	oral
+SRR6877400	3	skeletal tissue	skeletal tissue
+SRR866662	3	skeletal tissue	oral
+SRR867031	3	skeletal tissue	skeletal tissue
+SRR867032	3	skeletal tissue	skeletal tissue
+SRR867033	3	skeletal tissue	skeletal tissue
+SRR867034	3	skeletal tissue	skeletal tissue
+SRR867036	3	skeletal tissue	skeletal tissue
+SRR867037	3	skeletal tissue	skeletal tissue
+SRR867038	3	skeletal tissue	skeletal tissue
+SRR867039	3	skeletal tissue	skeletal tissue
+SRR8731957	3	gut	gut
+SRR957740	3	oral	oral
+SRR957743	3	oral	oral
+ERR11413666	4	oral	oral
+ERR11413667	4	oral	oral
+ERR11413668	4	oral	oral
+ERR11413672	4	oral	oral
+ERR11413681	4	oral	oral
+ERR11413684	4	oral	oral
+ERR11413691	4	oral	oral
+ERR11413693	4	oral	oral
+ERR11413699	4	oral	oral
+ERR11413704	4	oral	oral
+ERR11413707	4	oral	oral
+ERR11413709	4	oral	oral
+ERR11413715	4	oral	oral
+ERR11413719	4	oral	oral
+ERR11413729	4	oral	oral
+ERR11413737	4	oral	oral
+ERR11413738	4	oral	oral
+ERR11413739	4	oral	oral
+ERR11413741	4	oral	oral
+ERR11413742	4	oral	oral
+ERR11413743	4	oral	oral
+ERR11413746	4	oral	oral
+ERR11413755	4	oral	oral
+ERR11656740	4	skeletal tissue	skeletal tissue
+ERR11656742	4	skeletal tissue	skeletal tissue
+ERR11656744	4	skeletal tissue	skeletal tissue
+ERR11660430	4	oral	skeletal tissue
+ERR11660431	4	oral	skeletal tissue
+ERR11660432	4	oral	skeletal tissue
+ERR11660460	4	oral	skeletal tissue
+ERR11660461	4	oral	oral
+ERR11660462	4	oral	oral
+ERR11660463	4	oral	oral
+ERR11660464	4	oral	oral
+ERR11660465	4	oral	oral
+ERR11660466	4	oral	oral
+ERR12115113	4	oral	oral
+ERR12115115	4	oral	oral
+ERR1777520	4	skeletal tissue	skeletal tissue
+ERR1777525	4	skeletal tissue	skeletal tissue
+ERR1777531	4	skeletal tissue	skeletal tissue
+ERR1777533	4	skeletal tissue	skeletal tissue
+ERR1777541	4	skeletal tissue	skeletal tissue
+ERR1777544	4	skeletal tissue	skeletal tissue
+ERR1777545	4	skeletal tissue	skeletal tissue
+ERR1777552	4	skeletal tissue	skeletal tissue
+ERR1777555	4	skeletal tissue	oral
+ERR1777560	4	skeletal tissue	skeletal tissue
+ERR1777566	4	skeletal tissue	skeletal tissue
+ERR2269777	4	plant tissue	plant tissue
+ERR2269778	4	plant tissue	plant tissue
+ERR2269786	4	plant tissue	plant tissue
+ERR2269790	4	plant tissue	plant tissue
+ERR2269793	4	plant tissue	plant tissue
+ERR2269796	4	plant tissue	plant tissue
+ERR2269802	4	plant tissue	plant tissue
+ERR3579674	4	oral	oral
+ERR3579682	4	oral	oral
+ERR3579704	4	oral	skeletal tissue
+ERR3579705	4	oral	oral
+ERR3579706	4	oral	oral
+ERR3579707	4	oral	oral
+ERR3579712	4	oral	oral
+ERR3579713	4	oral	oral
+ERR3579714	4	oral	oral
+ERR3579726	4	oral	oral
+ERR3579727	4	oral	oral
+ERR3579733	4	oral	oral
+ERR3579734	4	oral	oral
+ERR3579748	4	oral	oral
+ERR3579781	4	oral	oral
+ERR3579785	4	oral	oral
+ERR3579786	4	oral	oral
+ERR3579789	4	oral	oral
+ERR3579790	4	oral	oral
+ERR3579791	4	oral	oral
+ERR3579796	4	oral	oral
+ERR3579797	4	oral	oral
+ERR3579804	4	oral	oral
+ERR3609653	4	oral	oral
+ERR3609657	4	oral	oral
+ERR3678181	4	oral	oral
+ERR3678595	4	gut	gut
+ERR3678600	4	gut	gut
+ERR3678603	4	gut	gut
+ERR3678610	4	gut	skeletal tissue
+ERR3678620	4	gut	gut
+ERR3678626	4	gut	gut
+ERR3728241	4	oral	oral
+ERR3728247	4	oral	oral
+ERR3728252	4	oral	oral
+ERR4172766	4	oral	oral
+ERR4172783	4	oral	oral
+ERR4172788	4	oral	oral
+ERR4172802	4	oral	oral
+ERR4172804	4	oral	oral
+ERR4172806	4	oral	oral
+ERR4172808	4	oral	oral
+ERR4172829	4	oral	oral
+ERR4172830	4	oral	oral
+ERR4172832	4	oral	oral
+ERR4172834	4	oral	oral
+ERR4173070	4	oral	oral
+ERR4173072	4	oral	oral
+ERR4173073	4	oral	oral
+ERR4173075	4	oral	oral
+ERR4173082	4	oral	oral
+ERR4373134	4	oral	oral
+ERR4373153	4	oral	skeletal tissue
+ERR4373979	4	oral	oral
+ERR4374002	4	skeletal tissue	skeletal tissue
+ERR4374013	4	oral	skeletal tissue
+ERR4374016	4	skeletal tissue	skeletal tissue
+ERR4374017	4	soft tissue	skeletal tissue
+ERR4374028	4	oral	skeletal tissue
+ERR4374029	4	skeletal tissue	skeletal tissue
+ERR4374032	4	skeletal tissue	skeletal tissue
+ERR4374035	4	soft tissue	skeletal tissue
+ERR4374037	4	skeletal tissue	skeletal tissue
+ERR4374045	4	oral	skeletal tissue
+ERR4374046	4	soft tissue	skeletal tissue
+ERR4374049	4	oral	skeletal tissue
+ERR4374055	4	skeletal tissue	skeletal tissue
+ERR4374588	4	skeletal tissue	skeletal tissue
+ERR4374859	4	skeletal tissue	skeletal tissue
+ERR4374866	4	oral	skeletal tissue
+ERR4374868	4	oral	skeletal tissue
+ERR4374870	4	oral	skeletal tissue
+ERR4374929	4	oral	skeletal tissue
+ERR4374948	4	skeletal tissue	skeletal tissue
+ERR4374963	4	oral	skeletal tissue
+ERR4375010	4	skeletal tissue	skeletal tissue
+ERR4375048	4	oral	oral
+ERR4375050	4	skeletal tissue	skeletal tissue
+ERR4375135	4	skeletal tissue	skeletal tissue
+ERR4375144	4	skeletal tissue	skeletal tissue
+ERR4384927	4	skeletal tissue	skeletal tissue
+ERR4388236	4	soft tissue	soft tissue
+ERR4596815	4	oral	oral
+ERR4596819	4	oral	oral
+ERR4596826	4	oral	oral
+ERR4596828	4	oral	oral
+ERR5670953	4	oral	oral
+ERR5670959	4	oral	oral
+ERR5670961	4	oral	oral
+ERR5670969	4	oral	oral
+ERR5729618	4	oral	oral
+ERR5729623	4	oral	oral
+ERR5729638	4	oral	oral
+ERR5729648	4	oral	oral
+ERR5729650	4	oral	oral
+ERR5729651	4	oral	oral
+ERR5729653	4	oral	oral
+ERR6093854	4	oral	oral
+ERR6093855	4	oral	oral
+ERR6093856	4	oral	oral
+ERR6093857	4	oral	oral
+ERR6093862	4	oral	oral
+ERR6093863	4	oral	oral
+ERR6093864	4	oral	oral
+ERR6093865	4	oral	oral
+ERR6093879	4	oral	oral
+ERR6093880	4	oral	oral
+ERR6093881	4	oral	oral
+ERR6093882	4	oral	oral
+ERR6093888	4	oral	oral
+ERR6093889	4	oral	oral
+ERR6093890	4	oral	oral
+ERR6093891	4	oral	oral
+ERR6093899	4	oral	oral
+ERR6093900	4	oral	oral
+ERR6093901	4	oral	oral
+ERR6093902	4	oral	oral
+ERR6096575	4	oral	oral
+ERR6096576	4	oral	oral
+ERR6096579	4	oral	oral
+ERR6096580	4	oral	oral
+ERR6096581	4	oral	oral
+ERR6096582	4	oral	oral
+ERR6096739	4	oral	oral
+ERR6096740	4	oral	oral
+ERR6096745	4	oral	oral
+ERR6096746	4	oral	oral
+ERR6096747	4	oral	oral
+ERR6096748	4	oral	oral
+ERR6096929	4	oral	oral
+ERR6096930	4	oral	oral
+ERR6096931	4	oral	oral
+ERR6096932	4	oral	oral
+ERR6096933	4	oral	oral
+ERR6096934	4	oral	oral
+ERR6096935	4	oral	oral
+ERR6096937	4	oral	oral
+ERR6096955	4	oral	oral
+ERR6097155	4	oral	oral
+ERR6097156	4	oral	oral
+ERR6097514	4	oral	oral
+ERR6097581	4	oral	oral
+ERR6097583	4	oral	oral
+ERR6097619	4	oral	oral
+ERR6097621	4	oral	oral
+ERR6098519	4	oral	oral
+ERR6098520	4	oral	oral
+ERR6098552	4	oral	oral
+ERR6098553	4	oral	oral
+ERR6098982	4	oral	oral
+ERR6098983	4	oral	oral
+ERR6098984	4	oral	oral
+ERR6098985	4	oral	oral
+ERR6108984	4	oral	oral
+ERR6108985	4	oral	oral
+ERR6108986	4	oral	oral
+ERR6108987	4	oral	oral
+ERR6109017	4	oral	oral
+ERR6109019	4	oral	oral
+ERR6109020	4	oral	oral
+ERR6109021	4	oral	oral
+ERR6178855	4	oral	oral
+ERR6178856	4	oral	oral
+ERR6178857	4	oral	oral
+ERR6178868	4	oral	oral
+ERR6178869	4	oral	oral
+ERR6178872	4	oral	oral
+ERR6178873	4	oral	oral
+ERR6178894	4	oral	oral
+ERR6178905	4	oral	oral
+ERR6178906	4	oral	oral
+ERR6178909	4	oral	oral
+ERR6178914	4	oral	oral
+ERR6178915	4	oral	oral
+ERR6178923	4	oral	oral
+ERR6178924	4	oral	oral
+ERR6178931	4	oral	oral
+ERR6178936	4	oral	oral
+ERR6178937	4	oral	oral
+ERR6178940	4	oral	oral
+ERR6178946	4	oral	oral
+ERR6178947	4	oral	oral
+ERR6178956	4	oral	oral
+ERR6178957	4	oral	oral
+ERR6178960	4	oral	oral
+ERR6178965	4	oral	oral
+ERR6178966	4	oral	oral
+ERR6178974	4	oral	oral
+ERR6589622	4	oral	oral
+ERR6589625	4	oral	oral
+ERR7919462	4	oral	oral
+ERR7919473	4	oral	oral
+ERR7919482	4	oral	oral
+ERR7919487	4	oral	oral
+ERR7919488	4	oral	oral
+ERR7919489	4	oral	oral
+ERR7919490	4	oral	oral
+ERR7919494	4	oral	oral
+ERR7919495	4	oral	oral
+ERR7919497	4	oral	oral
+ERR7919498	4	oral	oral
+ERR7919504	4	oral	oral
+ERR7919507	4	oral	oral
+ERR7919520	4	oral	oral
+ERR7919526	4	oral	oral
+ERR7919527	4	oral	oral
+ERR7919531	4	oral	oral
+ERR7919532	4	oral	oral
+ERR7919534	4	oral	oral
+ERR7919541	4	oral	oral
+ERR7919544	4	oral	oral
+ERR8050978	4	oral	oral
+ERR9612733	4	oral	oral
+ERR9612734	4	oral	oral
+ERR9612735	4	oral	oral
+ERR9612736	4	oral	oral
+ERR9612738	4	oral	oral
+ERR9612741	4	oral	oral
+ERR9612743	4	oral	oral
+ERR9612751	4	oral	oral
+ERR9612752	4	oral	oral
+ERR9612755	4	oral	oral
+ERR9612756	4	oral	oral
+ERR9612761	4	oral	oral
+ERR9612762	4	oral	oral
+ERR9612767	4	oral	oral
+ERR9612768	4	oral	oral
+ERR9612771	4	oral	oral
+ERR9612772	4	oral	oral
+ERR9612793	4	oral	oral
+ERR9612794	4	oral	oral
+ERR9612803	4	oral	oral
+ERR9612804	4	oral	oral
+ERR9612815	4	oral	oral
+ERR9612816	4	oral	oral
+ERR9612829	4	oral	oral
+ERR9612830	4	oral	oral
+ERR9612831	4	oral	oral
+ERR9612832	4	oral	oral
+ERR9612847	4	oral	oral
+ERR9612848	4	oral	oral
+ERR9612849	4	oral	oral
+ERR9612850	4	oral	oral
+ERR9612871	4	oral	oral
+ERR9612872	4	oral	oral
+ERR9612877	4	oral	oral
+ERR9612878	4	oral	oral
+ERR9612887	4	oral	oral
+ERR9612888	4	oral	oral
+ERR9612891	4	oral	oral
+ERR9612892	4	oral	oral
+SRR12136713	4	oral	oral
+SRR12462936	4	oral	oral
+SRR12462942	4	oral	oral
+SRR13355785	4	oral	oral
+SRR13355787	4	oral	oral
+SRR13355790	4	oral	oral
+SRR13355802	4	oral	oral
+SRR13355803	4	oral	oral
+SRR17604732	4	oral	oral
+SRR17604735	4	oral	oral
+SRR17604736	4	oral	oral
+SRR17604745	4	oral	oral
+SRR17604746	4	oral	oral
+SRR17604751	4	oral	oral
+SRR17604754	4	oral	skeletal tissue
+SRR17604761	4	oral	oral
+SRR17604763	4	oral	oral
+SRR17604765	4	oral	oral
+SRR17604770	4	oral	oral
+SRR17604780	4	oral	oral
+SRR17604785	4	oral	oral
+SRR17604788	4	oral	oral
+SRR17604795	4	oral	oral
+SRR17604806	4	oral	oral
+SRR19160194	4	gut	gut
+SRR19160231	4	gut	gut
+SRR23699552	4	oral	oral
+SRR23699560	4	oral	oral
+SRR23699561	4	oral	oral
+SRR23699562	4	oral	oral
+SRR23699563	4	oral	oral
+SRR23699573	4	oral	oral
+SRR30066265	4	oral	oral
+SRR4047197	4	plant tissue	plant tissue
+SRR5047042	4	oral	skeletal tissue
+SRR5047048	4	oral	skeletal tissue
+SRR5047060	4	oral	skeletal tissue
+SRR5047075	4	oral	skeletal tissue
+SRR5047077	4	oral	skeletal tissue
+SRR5047078	4	oral	skeletal tissue
+SRR5047084	4	oral	skeletal tissue
+SRR5047088	4	oral	skeletal tissue
+SRR5047099	4	oral	oral
+SRR5047101	4	oral	skeletal tissue
+SRR5047106	4	oral	oral
+SRR5047114	4	oral	skeletal tissue
+SRR5047120	4	oral	skeletal tissue
+SRR5047124	4	oral	skeletal tissue
+SRR5047128	4	oral	skeletal tissue
+SRR5047131	4	oral	oral
+SRR5047134	4	oral	oral
+SRR5047144	4	oral	oral
+SRR5047145	4	oral	skeletal tissue
+SRR5047146	4	oral	skeletal tissue
+SRR5047149	4	oral	oral
+SRR5047158	4	oral	skeletal tissue
+SRR5047163	4	oral	oral
+SRR5047167	4	oral	oral
+SRR5047170	4	oral	oral
+SRR5047177	4	oral	skeletal tissue
+SRR5047182	4	oral	skeletal tissue
+SRR5047188	4	oral	oral
+SRR5047192	4	oral	skeletal tissue
+SRR5047197	4	oral	skeletal tissue
+SRR5047198	4	oral	skeletal tissue
+SRR5047199	4	oral	oral
+SRR5047201	4	oral	oral
+SRR5297130	4	oral	oral
+SRR5875720	4	soft tissue	soft tissue
+SRR5875721	4	soft tissue	soft tissue
+SRR5875724	4	soft tissue	oral
+SRR5875725	4	soft tissue	oral
+SRR6877291	4	skeletal tissue	oral
+SRR6877306	4	skeletal tissue	skeletal tissue
+SRR6877318	4	oral	oral
+SRR6877320	4	oral	oral
+SRR6877323	4	oral	oral
+SRR6877324	4	oral	oral
+SRR6877330	4	oral	oral
+SRR6877334	4	oral	oral
+SRR6877341	4	skeletal tissue	oral
+SRR6877342	4	oral	oral
+SRR6877343	4	skeletal tissue	oral
+SRR6877344	4	oral	oral
+SRR6877345	4	skeletal tissue	skeletal tissue
+SRR6877349	4	skeletal tissue	skeletal tissue
+SRR6877357	4	skeletal tissue	skeletal tissue
+SRR6877364	4	skeletal tissue	skeletal tissue
+SRR6877367	4	oral	oral
+SRR6877371	4	skeletal tissue	skeletal tissue
+SRR6877372	4	oral	oral
+SRR6877383	4	skeletal tissue	skeletal tissue
+SRR6877389	4	skeletal tissue	oral
+SRR6877391	4	skeletal tissue	oral
+SRR6877392	4	oral	oral
+SRR6877395	4	oral	oral
+SRR6877397	4	oral	oral
+SRR6877402	4	skeletal tissue	oral
+SRR866666	4	skeletal tissue	oral
+SRR8731958	4	gut	oral
+SRR957742	4	oral	oral
+SRR957746	4	oral	oral

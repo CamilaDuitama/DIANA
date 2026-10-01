@@ -1,0 +1,2 @@
+model	task	n_scored	n_planted	roc_auc	average_precision	tpr_at_fpr1	threshold_at_fpr1	tpr_at_fpr5	threshold_at_fpr5	tpr_at_fpr10	threshold_at_fpr10
+DIANA_sample_host	sample_host	540	27	0.9578369792794743	0.8776266801587829	0.7777777777777778	0.91800536	0.9629629629629629	0.20659019999999995	0.9629629629629629	0.20659019999999995

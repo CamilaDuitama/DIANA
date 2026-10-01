@@ -1,0 +1,5 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+fraction	sample_host	LinearSVM_Bal	"{""C"": 0.001}"	0.751212226766192	5
+fraction	sample_host	LinearSVM_Bal	"{""C"": 0.01}"	0.7906747251613663	5
+fraction	sample_host	LinearSVM_Bal	"{""C"": 0.1}"	0.7776230127765147	5
+fraction	sample_host	LinearSVM_Bal	"{""C"": 1.0}"	0.7386766738687216	5

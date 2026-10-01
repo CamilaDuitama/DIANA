@@ -1,0 +1,5 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+sigonly	feature	LogisticRegression_Bal	"{""C"": 0.01}"	0.1544495764007959	5
+sigonly	feature	LogisticRegression_Bal	"{""C"": 0.1}"	0.27141598262141553	5
+sigonly	feature	LogisticRegression_Bal	"{""C"": 1.0}"	0.22487487024035874	5
+sigonly	feature	LogisticRegression_Bal	"{""C"": 10.0}"	0.2115704587366427	5

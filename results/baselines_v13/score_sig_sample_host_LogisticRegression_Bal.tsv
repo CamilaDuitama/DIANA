@@ -1,0 +1,5 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+sig	sample_host	LogisticRegression_Bal	"{""C"": 0.01}"	0.7574021419025925	5
+sig	sample_host	LogisticRegression_Bal	"{""C"": 0.1}"	0.7449469258478583	5
+sig	sample_host	LogisticRegression_Bal	"{""C"": 1.0}"	0.7445749726470943	5
+sig	sample_host	LogisticRegression_Bal	"{""C"": 10.0}"	0.7792518258399899	5

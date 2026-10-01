@@ -1,0 +1,9 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+hash	community_type	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 1}"	0.33083405612054817	5
+hash	community_type	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.3261284558398379	5
+hash	community_type	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": 0.05, ""min_samples_leaf"": 1}"	0.3196084910098871	5
+hash	community_type	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": 0.05, ""min_samples_leaf"": 3}"	0.3574313794673466	5
+hash	community_type	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": ""sqrt"", ""min_samples_leaf"": 1}"	0.32188278333843073	5
+hash	community_type	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.3268262850027185	5
+hash	community_type	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": 0.05, ""min_samples_leaf"": 1}"	0.3202484466797752	5
+hash	community_type	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": 0.05, ""min_samples_leaf"": 3}"	0.3513775714581192	5

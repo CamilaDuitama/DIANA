@@ -1,0 +1,18 @@
+{
+  "n_runs": 2716,
+  "n_samples": 2019,
+  "n_projects": 68,
+  "runs_per_fold": {
+    "0": 500,
+    "1": 569,
+    "2": 532,
+    "3": 572,
+    "4": 543
+  },
+  "projects_in_more_than_one_fold": 61,
+  "projects_in_one_fold_only": 7,
+  "runs_whose_project_is_also_in_another_fold": 2692,
+  "seed": 42,
+  "grouping": "archive_sample_accession",
+  "stratification": "community_type|feature|material, strata < 5 pooled"
+}

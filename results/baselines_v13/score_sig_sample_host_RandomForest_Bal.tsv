@@ -1,0 +1,9 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+sig	sample_host	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 1}"	0.763195303358295	5
+sig	sample_host	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.7615758818100952	5
+sig	sample_host	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": 0.05, ""min_samples_leaf"": 1}"	0.7675236954312272	5
+sig	sample_host	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": 0.05, ""min_samples_leaf"": 3}"	0.7607110730172013	5
+sig	sample_host	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": ""sqrt"", ""min_samples_leaf"": 1}"	0.7650841028665303	5
+sig	sample_host	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.7687107869557744	5
+sig	sample_host	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": 0.05, ""min_samples_leaf"": 1}"	0.7727914337194549	5
+sig	sample_host	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": 0.05, ""min_samples_leaf"": 3}"	0.7636174043940163	5

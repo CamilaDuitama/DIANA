@@ -60,7 +60,7 @@ logger = logging.getLogger(__name__)
 TUNED = PROJECT_ROOT / "results/baselines_tuned_v9/best_per_model.tsv"
 
 
-def tuned_params(target: str) -> dict:
+def tuned_params(target: str, tuned: Path = TUNED) -> dict:
     """Hyperparameters selected for this task on the dev folds, if they exist.
 
     Without these the baselines run at scikit-learn defaults while every MLP arm
@@ -68,11 +68,11 @@ def tuned_params(target: str) -> dict:
     R1.3 is that objection. Selected by 12_tune_baselines_v9.py on the same 5
     grouped dev folds and the same metric; held-out was not used.
     """
-    if not TUNED.exists():
+    if not tuned.exists():
         logger.warning("%s missing: baselines run at scikit-learn DEFAULTS, which is "
-                       "not a fair comparator for the MLP arms", TUNED)
+                       "not a fair comparator for the MLP arms", tuned)
         return {}
-    t = pd.read_csv(TUNED, sep="\t")
+    t = pd.read_csv(tuned, sep="\t")
     return {r.model: json.loads(r.params) for r in t[t.task == target].itertuples()}
 
 
@@ -123,6 +123,7 @@ def bootstrap_ci(y_true, y_pred, eligible: set, groups, n_boot: int, seed: int) 
 
 
 def main() -> int:
+    global SPLITS
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--output", type=Path, default=PROJECT_ROOT / "results/baseline_comparison_v9")
@@ -130,7 +131,10 @@ def main() -> int:
     ap.add_argument("--models", nargs="*", default=None, help="subset of model names")
     ap.add_argument("--n-boot", type=int, default=500)
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--splits", type=Path, default=SPLITS, help="split directory (metadata, eligibility); v13 = data/splits_v13")
+    ap.add_argument("--tuned", type=Path, default=TUNED, help="best_per_model.tsv with the dev-fold selections")
     args = ap.parse_args()
+    SPLITS = args.splits
     args.output.mkdir(parents=True, exist_ok=True)
 
     tr = pd.read_csv(SPLITS / "train_metadata.tsv", sep="\t")
@@ -146,7 +150,7 @@ def main() -> int:
 
     results, rows, pred_rows, prob_rows = {}, [], [], []
     for target in args.targets:
-        models = build_models(args.seed, tuned_params(target))
+        models = build_models(args.seed, tuned_params(target, args.tuned))
         if args.models:
             models = {k: v for k, v in models.items() if k in args.models}
         eligible = set(elig_tbl[(elig_tbl.target == target) & elig_tbl.evaluable]["class"])

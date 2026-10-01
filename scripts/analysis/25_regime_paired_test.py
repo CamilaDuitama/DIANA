@@ -55,6 +55,7 @@ def regime_of(n: float) -> str | None:
 
 
 def main() -> int:
+    global SPLITS, BASE
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     # X4 (2026-09-25): the same test on another set of final models without touching
     # the read-1 outputs. The budget arms are written as heldout_<task>.
@@ -62,7 +63,10 @@ def main() -> int:
     ap.add_argument("--eval-dir", type=Path, default=EVAL)
     ap.add_argument("--single-pattern", default="heldout_single_{task}")
     ap.add_argument("--out", type=Path, default=OUT)
+    ap.add_argument("--splits", type=Path, default=SPLITS, help="split directory; v13 = data/splits_v13")
+    ap.add_argument("--baselines", type=Path, default=BASE, help="baseline heldout_predictions.tsv")
     a = ap.parse_args()
+    SPLITS, BASE = a.splits, a.baselines
     train = pd.read_csv(SPLITS / "train_metadata.tsv", sep="\t", low_memory=False)
     elig = pd.read_csv(SPLITS / "class_eligibility.tsv", sep="\t")
     meta = pd.read_csv(SPLITS / "test_metadata.tsv", sep="\t", low_memory=False)

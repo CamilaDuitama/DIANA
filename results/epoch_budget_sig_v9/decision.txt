@@ -1,0 +1,2 @@
+A6 on the dev folds, rule fixed 2026-09-25: single-task (published architecture stands: no arm wins without losing)
+per-task verdicts: {'tie': 4}

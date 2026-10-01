@@ -70,10 +70,12 @@ def paired(y_true, a_pred, b_pred, groups, eligible, n_boot, seed):
 
 
 def main() -> int:
+    global SPLITS
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--baselines", type=Path,
                     default=PROJECT_ROOT / "results/baseline_predictions_v9/heldout_predictions.tsv")
+    ap.add_argument("--splits", type=Path, default=SPLITS, help="split directory (eligibility); v13 = data/splits_v13")
     ap.add_argument("--n-boot", type=int, default=2000)
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--output", type=Path, default=PROJECT_ROOT / "results/paired_superiority_v9")
@@ -85,6 +87,7 @@ def main() -> int:
     ap.add_argument("--single-pattern", default="heldout_single_{t}",
                     help="subdirectory name of the single-task output for task {t}")
     args = ap.parse_args()
+    SPLITS = args.splits
 
     base = pd.read_csv(args.baselines, sep="\t")
     elig_tbl = pd.read_csv(SPLITS / "class_eligibility.tsv", sep="\t")

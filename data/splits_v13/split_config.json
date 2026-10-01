@@ -1,0 +1,62 @@
+{
+  "version": "v9",
+  "method": "StratifiedGroupKFold on archive_project; disjointness asserted in code",
+  "group_column": "archive_project",
+  "seed": 42,
+  "n_holdout_splits": 5,
+  "n_dev_folds": 5,
+  "code_commit": "1de0ae660b537443b8c6ed04aeac592bcba8e8c0",
+  "counts": {
+    "train": 2716,
+    "test": 922
+  },
+  "bioprojects": {
+    "train": 68,
+    "test": 34
+  },
+  "classes_single_bioproject": 22,
+  "out_of_vocabulary": {
+    "val_community_type": 0,
+    "test_community_type": 0,
+    "val_feature": 0,
+    "test_feature": 20,
+    "val_sample_host": 0,
+    "test_sample_host": 1,
+    "val_material": 0,
+    "test_material": 87
+  },
+  "assertion_log": [
+    "train vs test: 69 / 34 BioProjects, shared=0",
+    "held-out runs that built the matrix: 0 (of 2716 matrix runs)",
+    "train reconciled to matrix: 2775 -> 2716, 59 excluded, held-out unchanged"
+  ],
+  "structure": "two-way: train + held-out",
+  "merged_from": "val (253) + test (670), merged in place 2026-09-09",
+  "dropped_unrepresentable": [
+    "ERR1883466"
+  ],
+  "why_two_way": "The v9 matrix is built from training runs only (R3.4), so val and test are both fully external to it and are no longer different kinds of set. Tuning uses the grouped dev folds in dev_folds.tsv.",
+  "why_merged_in_place": "Regenerating the split would move runs that built the matrix into the held-out set (677 of them, measured) and reintroduce the R3.4 leak. The split and the matrix are locked together.",
+  "excluded_no_matrix": {
+    "n": 59,
+    "reason": "no Logan unitigs, so absent from data/train_samples_v9.fof and from the MUSET matrix; vectorised from FASTQ instead",
+    "file": "excluded_no_matrix.txt",
+    "date": "2026-09-09",
+    "held_out_untouched": true
+  },
+  "dev_folds": {
+    "seed": 191,
+    "n_folds": 5,
+    "stratified_on": [
+      "community_type",
+      "feature",
+      "sample_host",
+      "material"
+    ],
+    "selected_by": "max of the mean-across-tasks worst-per-fold in-vocabulary coverage; objective uses labels and BioProject membership only, never a model",
+    "seeds_searched": 300,
+    "objective": 0.8573,
+    "previous_objective": 0.7015,
+    "date": "2026-09-09"
+  }
+}

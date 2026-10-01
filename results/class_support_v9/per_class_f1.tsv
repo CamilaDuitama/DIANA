@@ -1,0 +1,381 @@
+set	task	class	model	n_train_runs	n_train_projects	n_heldout_runs	n_heldout_projects	n_scored_runs	chance_f1	f1	project_bin	run_bin
+dev-folds	community_type	gut	DIANA single-task	88	8	52	5	88	0.042450554751567775	0.25277161862527714	6+	20-100
+dev-folds	community_type	oral	DIANA single-task	1701	28	377	16	1701	0.8205499276410999	0.8018586126783936	6+	>100
+dev-folds	community_type	plant tissue	DIANA single-task	43	2	38	1	43	0.020742884708152436	0.8118811881188119	2	20-100
+dev-folds	community_type	skeletal tissue	DIANA single-task	214	7	178	6	214	0.10323203087313072	0.3543307086614173	6+	>100
+dev-folds	community_type	soft tissue	DIANA single-task	27	2	8	2	27	0.013024602026049204	0.3013698630136986	2	20-100
+dev-folds	community_type	gut	LogisticRegression_Bal	88	8	52	5	88	0.042450554751567775	0.3717948717948718	6+	20-100
+dev-folds	community_type	oral	LogisticRegression_Bal	1701	28	377	16	1701	0.8205499276410999	0.8334405144694533	6+	>100
+dev-folds	community_type	plant tissue	LogisticRegression_Bal	43	2	38	1	43	0.020742884708152436	0.8514851485148515	2	20-100
+dev-folds	community_type	skeletal tissue	LogisticRegression_Bal	214	7	178	6	214	0.10323203087313072	0.4033898305084746	6+	>100
+dev-folds	community_type	soft tissue	LogisticRegression_Bal	27	2	8	2	27	0.013024602026049204	0.0	2	20-100
+dev-folds	community_type	gut	LinearSVM_Bal	88	8	52	5	88	0.042450554751567775	0.57	6+	20-100
+dev-folds	community_type	oral	LinearSVM_Bal	1701	28	377	16	1701	0.8205499276410999	0.8665247795682578	6+	>100
+dev-folds	community_type	plant tissue	LinearSVM_Bal	43	2	38	1	43	0.020742884708152436	0.8367346938775511	2	20-100
+dev-folds	community_type	skeletal tissue	LinearSVM_Bal	214	7	178	6	214	0.10323203087313072	0.32196969696969696	6+	>100
+dev-folds	community_type	soft tissue	LinearSVM_Bal	27	2	8	2	27	0.013024602026049204	0.0	2	20-100
+dev-folds	community_type	gut	RandomForest_Bal	88	8	52	5	88	0.042450554751567775	0.4933920704845815	6+	20-100
+dev-folds	community_type	oral	RandomForest_Bal	1701	28	377	16	1701	0.8205499276410999	0.8588198949644733	6+	>100
+dev-folds	community_type	plant tissue	RandomForest_Bal	43	2	38	1	43	0.020742884708152436	0.9148936170212766	2	20-100
+dev-folds	community_type	skeletal tissue	RandomForest_Bal	214	7	178	6	214	0.10323203087313072	0.39215686274509803	6+	>100
+dev-folds	community_type	soft tissue	RandomForest_Bal	27	2	8	2	27	0.013024602026049204	0.0	2	20-100
+dev-folds	community_type	gut	kNN	88	8	52	5	88	0.042450554751567775	0.4017467248908297	6+	20-100
+dev-folds	community_type	oral	kNN	1701	28	377	16	1701	0.8205499276410999	0.848	6+	>100
+dev-folds	community_type	plant tissue	kNN	43	2	38	1	43	0.020742884708152436	0.8155339805825242	2	20-100
+dev-folds	community_type	skeletal tissue	kNN	214	7	178	6	214	0.10323203087313072	0.32945736434108525	6+	>100
+dev-folds	community_type	soft tissue	kNN	27	2	8	2	27	0.013024602026049204	0.0	2	20-100
+held-out read 9	community_type	gut	DIANA single-task	88	8	52	5	52	0.07963246554364471	0.33043478260869563	6+	20-100
+held-out read 9	community_type	oral	DIANA single-task	1701	28	377	16	377	0.5773353751914242	0.7926988265971316	6+	>100
+held-out read 9	community_type	plant tissue	DIANA single-task	43	2	38	1	38	0.05819295558958652	0.9620253164556962	2	20-100
+held-out read 9	community_type	skeletal tissue	DIANA single-task	214	7	178	6	178	0.2725880551301684	0.5688622754491018	6+	>100
+held-out read 9	community_type	soft tissue	DIANA single-task	27	2	8	2	8	0.01225114854517611	0.0	2	20-100
+held-out read 9	community_type	gut	LogisticRegression_Bal	88	8	52	5	52	0.07963246554364471	0.5263157894736842	6+	20-100
+held-out read 9	community_type	oral	LogisticRegression_Bal	1701	28	377	16	377	0.5773353751914242	0.8187919463087249	6+	>100
+held-out read 9	community_type	plant tissue	LogisticRegression_Bal	43	2	38	1	38	0.05819295558958652	0.9743589743589743	2	20-100
+held-out read 9	community_type	skeletal tissue	LogisticRegression_Bal	214	7	178	6	178	0.2725880551301684	0.5816326530612245	6+	>100
+held-out read 9	community_type	soft tissue	LogisticRegression_Bal	27	2	8	2	8	0.01225114854517611	0.0	2	20-100
+held-out read 9	community_type	gut	LinearSVM_Bal	88	8	52	5	52	0.07963246554364471	0.5405405405405406	6+	20-100
+held-out read 9	community_type	oral	LinearSVM_Bal	1701	28	377	16	377	0.5773353751914242	0.815	6+	>100
+held-out read 9	community_type	plant tissue	LinearSVM_Bal	43	2	38	1	38	0.05819295558958652	0.9620253164556962	2	20-100
+held-out read 9	community_type	skeletal tissue	LinearSVM_Bal	214	7	178	6	178	0.2725880551301684	0.49557522123893805	6+	>100
+held-out read 9	community_type	soft tissue	LinearSVM_Bal	27	2	8	2	8	0.01225114854517611	0.0	2	20-100
+held-out read 9	community_type	gut	RandomForest_Bal	88	8	52	5	52	0.07963246554364471	0.37142857142857144	6+	20-100
+held-out read 9	community_type	oral	RandomForest_Bal	1701	28	377	16	377	0.5773353751914242	0.7988980716253443	6+	>100
+held-out read 9	community_type	plant tissue	RandomForest_Bal	43	2	38	1	38	0.05819295558958652	0.987012987012987	2	20-100
+held-out read 9	community_type	skeletal tissue	RandomForest_Bal	214	7	178	6	178	0.2725880551301684	0.6211764705882353	6+	>100
+held-out read 9	community_type	soft tissue	RandomForest_Bal	27	2	8	2	8	0.01225114854517611	0.0	2	20-100
+held-out read 9	community_type	gut	kNN	88	8	52	5	52	0.07963246554364471	0.32432432432432434	6+	20-100
+held-out read 9	community_type	oral	kNN	1701	28	377	16	377	0.5773353751914242	0.7383059418457648	6+	>100
+held-out read 9	community_type	plant tissue	kNN	43	2	38	1	38	0.05819295558958652	1.0	2	20-100
+held-out read 9	community_type	skeletal tissue	kNN	214	7	178	6	178	0.2725880551301684	0.4	6+	>100
+held-out read 9	community_type	soft tissue	kNN	27	2	8	2	8	0.01225114854517611	0.1	2	20-100
+dev-folds	feature	archeological site	DIANA single-task	17	3	0	0	17	0.027960526315789474	0.0	3-5	<20
+dev-folds	feature	cave	DIANA single-task	34	1	98	3	34	0.05592105263157895	0.4	1	20-100
+dev-folds	feature	lake	DIANA single-task	215	10	70	1	215	0.3536184210526316	0.5237020316027088	6+	>100
+dev-folds	feature	midden	DIANA single-task	46	4	0	0	46	0.0756578947368421	0.056338028169014086	3-5	20-100
+dev-folds	feature	ocean	DIANA single-task	179	6	63	2	179	0.2944078947368421	0.5015479876160991	6+	>100
+dev-folds	feature	rock shelter	DIANA single-task	2	1	11	1	2	0.003289473684210526	0.16666666666666666	1	<20
+dev-folds	feature	sea coast	DIANA single-task	52	1	12	1	52	0.08552631578947369	0.41025641025641024	1	20-100
+dev-folds	feature	thermokarst	DIANA single-task	10	1	9	1	10	0.01644736842105263	0.0	1	<20
+dev-folds	feature	archeological site	LogisticRegression_Bal	17	3	0	0	17	0.027960526315789474	0.0	3-5	<20
+dev-folds	feature	cave	LogisticRegression_Bal	34	1	98	3	34	0.05592105263157895	0.0	1	20-100
+dev-folds	feature	lake	LogisticRegression_Bal	215	10	70	1	215	0.3536184210526316	0.6029106029106029	6+	>100
+dev-folds	feature	midden	LogisticRegression_Bal	46	4	0	0	46	0.0756578947368421	0.03389830508474576	3-5	20-100
+dev-folds	feature	ocean	LogisticRegression_Bal	179	6	63	2	179	0.2944078947368421	0.6666666666666666	6+	>100
+dev-folds	feature	rock shelter	LogisticRegression_Bal	2	1	11	1	2	0.003289473684210526	0.0	1	<20
+dev-folds	feature	sea coast	LogisticRegression_Bal	52	1	12	1	52	0.08552631578947369	0.0	1	20-100
+dev-folds	feature	thermokarst	LogisticRegression_Bal	10	1	9	1	10	0.01644736842105263	0.0	1	<20
+dev-folds	feature	archeological site	LinearSVM_Bal	17	3	0	0	17	0.027960526315789474	0.0	3-5	<20
+dev-folds	feature	cave	LinearSVM_Bal	34	1	98	3	34	0.05592105263157895	0.0	1	20-100
+dev-folds	feature	lake	LinearSVM_Bal	215	10	70	1	215	0.3536184210526316	0.6173361522198731	6+	>100
+dev-folds	feature	midden	LinearSVM_Bal	46	4	0	0	46	0.0756578947368421	0.10526315789473684	3-5	20-100
+dev-folds	feature	ocean	LinearSVM_Bal	179	6	63	2	179	0.2944078947368421	0.6274509803921569	6+	>100
+dev-folds	feature	rock shelter	LinearSVM_Bal	2	1	11	1	2	0.003289473684210526	0.0	1	<20
+dev-folds	feature	sea coast	LinearSVM_Bal	52	1	12	1	52	0.08552631578947369	0.0	1	20-100
+dev-folds	feature	thermokarst	LinearSVM_Bal	10	1	9	1	10	0.01644736842105263	0.0	1	<20
+dev-folds	feature	archeological site	RandomForest_Bal	17	3	0	0	17	0.027960526315789474	0.0	3-5	<20
+dev-folds	feature	cave	RandomForest_Bal	34	1	98	3	34	0.05592105263157895	0.0	1	20-100
+dev-folds	feature	lake	RandomForest_Bal	215	10	70	1	215	0.3536184210526316	0.6372745490981964	6+	>100
+dev-folds	feature	midden	RandomForest_Bal	46	4	0	0	46	0.0756578947368421	0.0	3-5	20-100
+dev-folds	feature	ocean	RandomForest_Bal	179	6	63	2	179	0.2944078947368421	0.6112469437652812	6+	>100
+dev-folds	feature	rock shelter	RandomForest_Bal	2	1	11	1	2	0.003289473684210526	0.0	1	<20
+dev-folds	feature	sea coast	RandomForest_Bal	52	1	12	1	52	0.08552631578947369	0.0	1	20-100
+dev-folds	feature	thermokarst	RandomForest_Bal	10	1	9	1	10	0.01644736842105263	0.0	1	<20
+dev-folds	feature	archeological site	kNN	17	3	0	0	17	0.027960526315789474	0.0	3-5	<20
+dev-folds	feature	cave	kNN	34	1	98	3	34	0.05592105263157895	0.0	1	20-100
+dev-folds	feature	lake	kNN	215	10	70	1	215	0.3536184210526316	0.5950095969289827	6+	>100
+dev-folds	feature	midden	kNN	46	4	0	0	46	0.0756578947368421	0.0	3-5	20-100
+dev-folds	feature	ocean	kNN	179	6	63	2	179	0.2944078947368421	0.6558265582655827	6+	>100
+dev-folds	feature	rock shelter	kNN	2	1	11	1	2	0.003289473684210526	0.0	1	<20
+dev-folds	feature	sea coast	kNN	52	1	12	1	52	0.08552631578947369	0.0	1	20-100
+dev-folds	feature	thermokarst	kNN	10	1	9	1	10	0.01644736842105263	0.0	1	<20
+held-out read 9	feature	archeological site	DIANA single-task	17	3	0	0	0	0.0		3-5	<20
+held-out read 9	feature	cave	DIANA single-task	34	1	98	3	98	0.3726235741444867	0.21238938053097345	1	20-100
+held-out read 9	feature	lake	DIANA single-task	215	10	70	1	70	0.2661596958174905	0.8661417322834646	6+	>100
+held-out read 9	feature	midden	DIANA single-task	46	4	0	0	0	0.0		3-5	20-100
+held-out read 9	feature	ocean	DIANA single-task	179	6	63	2	63	0.23954372623574144	0.6331658291457286	6+	>100
+held-out read 9	feature	rock shelter	DIANA single-task	2	1	11	1	11	0.04182509505703422	0.0	1	<20
+held-out read 9	feature	sea coast	DIANA single-task	52	1	12	1	12	0.045627376425855515	0.0	1	20-100
+held-out read 9	feature	thermokarst	DIANA single-task	10	1	9	1	9	0.034220532319391636	0.15384615384615385	1	<20
+held-out read 9	feature	archeological site	LogisticRegression_Bal	17	3	0	0	0	0.0		3-5	<20
+held-out read 9	feature	cave	LogisticRegression_Bal	34	1	98	3	98	0.3726235741444867	0.25	1	20-100
+held-out read 9	feature	lake	LogisticRegression_Bal	215	10	70	1	70	0.2661596958174905	0.958904109589041	6+	>100
+held-out read 9	feature	midden	LogisticRegression_Bal	46	4	0	0	0	0.0		3-5	20-100
+held-out read 9	feature	ocean	LogisticRegression_Bal	179	6	63	2	63	0.23954372623574144	0.6461538461538462	6+	>100
+held-out read 9	feature	rock shelter	LogisticRegression_Bal	2	1	11	1	11	0.04182509505703422	0.0	1	<20
+held-out read 9	feature	sea coast	LogisticRegression_Bal	52	1	12	1	12	0.045627376425855515	0.0	1	20-100
+held-out read 9	feature	thermokarst	LogisticRegression_Bal	10	1	9	1	9	0.034220532319391636	0.13333333333333333	1	<20
+held-out read 9	feature	archeological site	LinearSVM_Bal	17	3	0	0	0	0.0		3-5	<20
+held-out read 9	feature	cave	LinearSVM_Bal	34	1	98	3	98	0.3726235741444867	0.3103448275862069	1	20-100
+held-out read 9	feature	lake	LinearSVM_Bal	215	10	70	1	70	0.2661596958174905	0.918918918918919	6+	>100
+held-out read 9	feature	midden	LinearSVM_Bal	46	4	0	0	0	0.0		3-5	20-100
+held-out read 9	feature	ocean	LinearSVM_Bal	179	6	63	2	63	0.23954372623574144	0.6428571428571429	6+	>100
+held-out read 9	feature	rock shelter	LinearSVM_Bal	2	1	11	1	11	0.04182509505703422	0.0	1	<20
+held-out read 9	feature	sea coast	LinearSVM_Bal	52	1	12	1	12	0.045627376425855515	0.14285714285714285	1	20-100
+held-out read 9	feature	thermokarst	LinearSVM_Bal	10	1	9	1	9	0.034220532319391636	0.13333333333333333	1	<20
+held-out read 9	feature	archeological site	RandomForest_Bal	17	3	0	0	0	0.0		3-5	<20
+held-out read 9	feature	cave	RandomForest_Bal	34	1	98	3	98	0.3726235741444867	0.24347826086956523	1	20-100
+held-out read 9	feature	lake	RandomForest_Bal	215	10	70	1	70	0.2661596958174905	0.6481481481481481	6+	>100
+held-out read 9	feature	midden	RandomForest_Bal	46	4	0	0	0	0.0		3-5	20-100
+held-out read 9	feature	ocean	RandomForest_Bal	179	6	63	2	63	0.23954372623574144	0.5625	6+	>100
+held-out read 9	feature	rock shelter	RandomForest_Bal	2	1	11	1	11	0.04182509505703422	0.0	1	<20
+held-out read 9	feature	sea coast	RandomForest_Bal	52	1	12	1	12	0.045627376425855515	0.0	1	20-100
+held-out read 9	feature	thermokarst	RandomForest_Bal	10	1	9	1	9	0.034220532319391636	0.6428571428571429	1	<20
+held-out read 9	feature	archeological site	kNN	17	3	0	0	0	0.0		3-5	<20
+held-out read 9	feature	cave	kNN	34	1	98	3	98	0.3726235741444867	0.2542372881355932	1	20-100
+held-out read 9	feature	lake	kNN	215	10	70	1	70	0.2661596958174905	0.7086614173228346	6+	>100
+held-out read 9	feature	midden	kNN	46	4	0	0	0	0.0		3-5	20-100
+held-out read 9	feature	ocean	kNN	179	6	63	2	63	0.23954372623574144	0.5502183406113537	6+	>100
+held-out read 9	feature	rock shelter	kNN	2	1	11	1	11	0.04182509505703422	0.0	1	<20
+held-out read 9	feature	sea coast	kNN	52	1	12	1	12	0.045627376425855515	0.0	1	20-100
+held-out read 9	feature	thermokarst	kNN	10	1	9	1	9	0.034220532319391636	0.3333333333333333	1	<20
+dev-folds	sample_host	Ambrosia artemisiifolia	DIANA single-task	11	1	38	1	11	0.005275779376498801	0.0	1	<20
+dev-folds	sample_host	Canis lupus	DIANA single-task	12	3	9	1	12	0.0057553956834532375	0.125	3-5	<20
+dev-folds	sample_host	Gorilla beringei beringei	DIANA single-task	23	2	0	0	23	0.011031175059952039	0.25	2	20-100
+dev-folds	sample_host	Gorilla beringei graueri	DIANA single-task	67	2	0	0	67	0.03213429256594724	0.6751592356687898	2	20-100
+dev-folds	sample_host	Gorilla gorilla gorilla	DIANA single-task	45	2	0	0	45	0.02158273381294964	0.0	2	20-100
+dev-folds	sample_host	Homo sapiens	DIANA single-task	1397	31	555	20	1397	0.6700239808153478	0.936271186440678	6+	>100
+dev-folds	sample_host	Homo sapiens neanderthalensis	DIANA single-task	16	1	18	2	16	0.007673860911270983	0.0	1	<20
+dev-folds	sample_host	Mammuthus primigenius	DIANA single-task	16	1	13	1	16	0.007673860911270983	0.47368421052631576	1	<20
+dev-folds	sample_host	Pan troglodytes schweinfurthii	DIANA single-task	11	1	19	1	11	0.005275779376498801	0.0	1	<20
+dev-folds	sample_host	Ursus arctos	DIANA single-task	339	2	0	0	339	0.16258992805755396	0.5454545454545454	2	>100
+dev-folds	sample_host	Ambrosia artemisiifolia	LogisticRegression_Bal	11	1	38	1	11	0.005275779376498801	0.0	1	<20
+dev-folds	sample_host	Canis lupus	LogisticRegression_Bal	12	3	9	1	12	0.0057553956834532375	0.06666666666666667	3-5	<20
+dev-folds	sample_host	Gorilla beringei beringei	LogisticRegression_Bal	23	2	0	0	23	0.011031175059952039	0.1724137931034483	2	20-100
+dev-folds	sample_host	Gorilla beringei graueri	LogisticRegression_Bal	67	2	0	0	67	0.03213429256594724	0.7083333333333334	2	20-100
+dev-folds	sample_host	Gorilla gorilla gorilla	LogisticRegression_Bal	45	2	0	0	45	0.02158273381294964	0.03260869565217391	2	20-100
+dev-folds	sample_host	Homo sapiens	LogisticRegression_Bal	1397	31	555	20	1397	0.6700239808153478	0.9084967320261438	6+	>100
+dev-folds	sample_host	Homo sapiens neanderthalensis	LogisticRegression_Bal	16	1	18	2	16	0.007673860911270983	0.0	1	<20
+dev-folds	sample_host	Mammuthus primigenius	LogisticRegression_Bal	16	1	13	1	16	0.007673860911270983	0.0	1	<20
+dev-folds	sample_host	Pan troglodytes schweinfurthii	LogisticRegression_Bal	11	1	19	1	11	0.005275779376498801	0.0	1	<20
+dev-folds	sample_host	Ursus arctos	LogisticRegression_Bal	339	2	0	0	339	0.16258992805755396	0.6951871657754011	2	>100
+dev-folds	sample_host	Ambrosia artemisiifolia	LinearSVM_Bal	11	1	38	1	11	0.005275779376498801	0.0	1	<20
+dev-folds	sample_host	Canis lupus	LinearSVM_Bal	12	3	9	1	12	0.0057553956834532375	0.06666666666666667	3-5	<20
+dev-folds	sample_host	Gorilla beringei beringei	LinearSVM_Bal	23	2	0	0	23	0.011031175059952039	0.18867924528301888	2	20-100
+dev-folds	sample_host	Gorilla beringei graueri	LinearSVM_Bal	67	2	0	0	67	0.03213429256594724	0.6575342465753424	2	20-100
+dev-folds	sample_host	Gorilla gorilla gorilla	LinearSVM_Bal	45	2	0	0	45	0.02158273381294964	0.014084507042253521	2	20-100
+dev-folds	sample_host	Homo sapiens	LinearSVM_Bal	1397	31	555	20	1397	0.6700239808153478	0.9348903043170559	6+	>100
+dev-folds	sample_host	Homo sapiens neanderthalensis	LinearSVM_Bal	16	1	18	2	16	0.007673860911270983	0.0	1	<20
+dev-folds	sample_host	Mammuthus primigenius	LinearSVM_Bal	16	1	13	1	16	0.007673860911270983	0.0	1	<20
+dev-folds	sample_host	Pan troglodytes schweinfurthii	LinearSVM_Bal	11	1	19	1	11	0.005275779376498801	0.0	1	<20
+dev-folds	sample_host	Ursus arctos	LinearSVM_Bal	339	2	0	0	339	0.16258992805755396	0.7508532423208191	2	>100
+dev-folds	sample_host	Ambrosia artemisiifolia	RandomForest_Bal	11	1	38	1	11	0.005275779376498801	0.0	1	<20
+dev-folds	sample_host	Canis lupus	RandomForest_Bal	12	3	9	1	12	0.0057553956834532375	0.0	3-5	<20
+dev-folds	sample_host	Gorilla beringei beringei	RandomForest_Bal	23	2	0	0	23	0.011031175059952039	0.23529411764705882	2	20-100
+dev-folds	sample_host	Gorilla beringei graueri	RandomForest_Bal	67	2	0	0	67	0.03213429256594724	0.5977011494252874	2	20-100
+dev-folds	sample_host	Gorilla gorilla gorilla	RandomForest_Bal	45	2	0	0	45	0.02158273381294964	0.0	2	20-100
+dev-folds	sample_host	Homo sapiens	RandomForest_Bal	1397	31	555	20	1397	0.6700239808153478	0.9241952232606438	6+	>100
+dev-folds	sample_host	Homo sapiens neanderthalensis	RandomForest_Bal	16	1	18	2	16	0.007673860911270983	0.0	1	<20
+dev-folds	sample_host	Mammuthus primigenius	RandomForest_Bal	16	1	13	1	16	0.007673860911270983	0.0	1	<20
+dev-folds	sample_host	Pan troglodytes schweinfurthii	RandomForest_Bal	11	1	19	1	11	0.005275779376498801	0.0	1	<20
+dev-folds	sample_host	Ursus arctos	RandomForest_Bal	339	2	0	0	339	0.16258992805755396	0.7892976588628763	2	>100
+dev-folds	sample_host	Ambrosia artemisiifolia	kNN	11	1	38	1	11	0.005275779376498801	0.0	1	<20
+dev-folds	sample_host	Canis lupus	kNN	12	3	9	1	12	0.0057553956834532375	0.08333333333333333	3-5	<20
+dev-folds	sample_host	Gorilla beringei beringei	kNN	23	2	0	0	23	0.011031175059952039	0.16	2	20-100
+dev-folds	sample_host	Gorilla beringei graueri	kNN	67	2	0	0	67	0.03213429256594724	0.5538461538461539	2	20-100
+dev-folds	sample_host	Gorilla gorilla gorilla	kNN	45	2	0	0	45	0.02158273381294964	0.04784688995215311	2	20-100
+dev-folds	sample_host	Homo sapiens	kNN	1397	31	555	20	1397	0.6700239808153478	0.9138603332151719	6+	>100
+dev-folds	sample_host	Homo sapiens neanderthalensis	kNN	16	1	18	2	16	0.007673860911270983	0.0	1	<20
+dev-folds	sample_host	Mammuthus primigenius	kNN	16	1	13	1	16	0.007673860911270983	0.0	1	<20
+dev-folds	sample_host	Pan troglodytes schweinfurthii	kNN	11	1	19	1	11	0.005275779376498801	0.0	1	<20
+dev-folds	sample_host	Ursus arctos	kNN	339	2	0	0	339	0.16258992805755396	0.5708502024291497	2	>100
+held-out read 9	sample_host	Ambrosia artemisiifolia	DIANA single-task	11	1	38	1	38	0.05828220858895705	0.7936507936507936	1	<20
+held-out read 9	sample_host	Canis lupus	DIANA single-task	12	3	9	1	9	0.013803680981595092	0.42857142857142855	3-5	<20
+held-out read 9	sample_host	Gorilla beringei beringei	DIANA single-task	23	2	0	0	0	0.0		2	20-100
+held-out read 9	sample_host	Gorilla beringei graueri	DIANA single-task	67	2	0	0	0	0.0		2	20-100
+held-out read 9	sample_host	Gorilla gorilla gorilla	DIANA single-task	45	2	0	0	0	0.0		2	20-100
+held-out read 9	sample_host	Homo sapiens	DIANA single-task	1397	31	555	20	555	0.8512269938650306	0.9559859154929577	6+	>100
+held-out read 9	sample_host	Homo sapiens neanderthalensis	DIANA single-task	16	1	18	2	18	0.027607361963190184	0.0	1	<20
+held-out read 9	sample_host	Mammuthus primigenius	DIANA single-task	16	1	13	1	13	0.019938650306748466	0.14285714285714285	1	<20
+held-out read 9	sample_host	Pan troglodytes schweinfurthii	DIANA single-task	11	1	19	1	19	0.029141104294478526	0.7	1	<20
+held-out read 9	sample_host	Ursus arctos	DIANA single-task	339	2	0	0	0	0.0		2	>100
+held-out read 9	sample_host	Ambrosia artemisiifolia	LogisticRegression_Bal	11	1	38	1	38	0.05828220858895705	0.8985507246376812	1	<20
+held-out read 9	sample_host	Canis lupus	LogisticRegression_Bal	12	3	9	1	9	0.013803680981595092	0.0	3-5	<20
+held-out read 9	sample_host	Gorilla beringei beringei	LogisticRegression_Bal	23	2	0	0	0	0.0		2	20-100
+held-out read 9	sample_host	Gorilla beringei graueri	LogisticRegression_Bal	67	2	0	0	0	0.0		2	20-100
+held-out read 9	sample_host	Gorilla gorilla gorilla	LogisticRegression_Bal	45	2	0	0	0	0.0		2	20-100
+held-out read 9	sample_host	Homo sapiens	LogisticRegression_Bal	1397	31	555	20	555	0.8512269938650306	0.946236559139785	6+	>100
+held-out read 9	sample_host	Homo sapiens neanderthalensis	LogisticRegression_Bal	16	1	18	2	18	0.027607361963190184	0.08695652173913043	1	<20
+held-out read 9	sample_host	Mammuthus primigenius	LogisticRegression_Bal	16	1	13	1	13	0.019938650306748466	0.5454545454545454	1	<20
+held-out read 9	sample_host	Pan troglodytes schweinfurthii	LogisticRegression_Bal	11	1	19	1	19	0.029141104294478526	0.7741935483870968	1	<20
+held-out read 9	sample_host	Ursus arctos	LogisticRegression_Bal	339	2	0	0	0	0.0		2	>100
+held-out read 9	sample_host	Ambrosia artemisiifolia	LinearSVM_Bal	11	1	38	1	38	0.05828220858895705	0.9315068493150684	1	<20
+held-out read 9	sample_host	Canis lupus	LinearSVM_Bal	12	3	9	1	9	0.013803680981595092	0.0	3-5	<20
+held-out read 9	sample_host	Gorilla beringei beringei	LinearSVM_Bal	23	2	0	0	0	0.0		2	20-100
+held-out read 9	sample_host	Gorilla beringei graueri	LinearSVM_Bal	67	2	0	0	0	0.0		2	20-100
+held-out read 9	sample_host	Gorilla gorilla gorilla	LinearSVM_Bal	45	2	0	0	0	0.0		2	20-100
+held-out read 9	sample_host	Homo sapiens	LinearSVM_Bal	1397	31	555	20	555	0.8512269938650306	0.9545859305431879	6+	>100
+held-out read 9	sample_host	Homo sapiens neanderthalensis	LinearSVM_Bal	16	1	18	2	18	0.027607361963190184	0.2857142857142857	1	<20
+held-out read 9	sample_host	Mammuthus primigenius	LinearSVM_Bal	16	1	13	1	13	0.019938650306748466	0.3333333333333333	1	<20
+held-out read 9	sample_host	Pan troglodytes schweinfurthii	LinearSVM_Bal	11	1	19	1	19	0.029141104294478526	0.972972972972973	1	<20
+held-out read 9	sample_host	Ursus arctos	LinearSVM_Bal	339	2	0	0	0	0.0		2	>100
+held-out read 9	sample_host	Ambrosia artemisiifolia	RandomForest_Bal	11	1	38	1	38	0.05828220858895705	0.8985507246376812	1	<20
+held-out read 9	sample_host	Canis lupus	RandomForest_Bal	12	3	9	1	9	0.013803680981595092	0.2	3-5	<20
+held-out read 9	sample_host	Gorilla beringei beringei	RandomForest_Bal	23	2	0	0	0	0.0		2	20-100
+held-out read 9	sample_host	Gorilla beringei graueri	RandomForest_Bal	67	2	0	0	0	0.0		2	20-100
+held-out read 9	sample_host	Gorilla gorilla gorilla	RandomForest_Bal	45	2	0	0	0	0.0		2	20-100
+held-out read 9	sample_host	Homo sapiens	RandomForest_Bal	1397	31	555	20	555	0.8512269938650306	0.9423247559893523	6+	>100
+held-out read 9	sample_host	Homo sapiens neanderthalensis	RandomForest_Bal	16	1	18	2	18	0.027607361963190184	0.0	1	<20
+held-out read 9	sample_host	Mammuthus primigenius	RandomForest_Bal	16	1	13	1	13	0.019938650306748466	0.35294117647058826	1	<20
+held-out read 9	sample_host	Pan troglodytes schweinfurthii	RandomForest_Bal	11	1	19	1	19	0.029141104294478526	0.5925925925925926	1	<20
+held-out read 9	sample_host	Ursus arctos	RandomForest_Bal	339	2	0	0	0	0.0		2	>100
+held-out read 9	sample_host	Ambrosia artemisiifolia	kNN	11	1	38	1	38	0.05828220858895705	0.8125	1	<20
+held-out read 9	sample_host	Canis lupus	kNN	12	3	9	1	9	0.013803680981595092	0.3076923076923077	3-5	<20
+held-out read 9	sample_host	Gorilla beringei beringei	kNN	23	2	0	0	0	0.0		2	20-100
+held-out read 9	sample_host	Gorilla beringei graueri	kNN	67	2	0	0	0	0.0		2	20-100
+held-out read 9	sample_host	Gorilla gorilla gorilla	kNN	45	2	0	0	0	0.0		2	20-100
+held-out read 9	sample_host	Homo sapiens	kNN	1397	31	555	20	555	0.8512269938650306	0.9254829806807727	6+	>100
+held-out read 9	sample_host	Homo sapiens neanderthalensis	kNN	16	1	18	2	18	0.027607361963190184	0.09090909090909091	1	<20
+held-out read 9	sample_host	Mammuthus primigenius	kNN	16	1	13	1	13	0.019938650306748466	0.4	1	<20
+held-out read 9	sample_host	Pan troglodytes schweinfurthii	kNN	11	1	19	1	19	0.029141104294478526	0.9444444444444444	1	<20
+held-out read 9	sample_host	Ursus arctos	kNN	339	2	0	0	0	0.0		2	>100
+dev-folds	material	birch pitch	DIANA single-task	0	0	79	2	0	0.0		none	none
+dev-folds	material	bone	DIANA single-task	127	4	143	4	127	0.04812428950359985	0.01282051282051282	3-5	>100
+dev-folds	material	dental calculus	DIANA single-task	1389	25	181	11	1389	0.526335733232285	0.8958969142082062	6+	>100
+dev-folds	material	digestive tract contents	DIANA single-task	16	1	15	1	16	0.0060629026146267525	0.0	1	<20
+dev-folds	material	intestine	DIANA single-task	15	2	1	1	15	0.005683971201212581	0.0	2	<20
+dev-folds	material	lake sediment	DIANA single-task	215	10	70	1	215	0.08147025388404698	0.6549295774647887	6+	>100
+dev-folds	material	leaf	DIANA single-task	43	2	38	1	43	0.0162940507768094	0.41975308641975306	2	20-100
+dev-folds	material	marine sediment	DIANA single-task	143	4	63	2	143	0.054187192118226604	0.3644859813084112	3-5	>100
+dev-folds	material	midden	DIANA single-task	15	2	0	0	15	0.005683971201212581	0.0	2	<20
+dev-folds	material	muscle tissue	DIANA single-task	4	1	2	1	4	0.0015157256536566881	0.0	1	<20
+dev-folds	material	palaeofaeces	DIANA single-task	61	6	14	2	61	0.023114816218264493	0.7913669064748201	6+	20-100
+dev-folds	material	permafrost	DIANA single-task	70	3	21	2	70	0.026525198938992044	0.2698412698412698	3-5	20-100
+dev-folds	material	sediment	DIANA single-task	105	7	109	4	105	0.03978779840848806	0.1267605633802817	6+	>100
+dev-folds	material	soil	DIANA single-task	2	1	20	1	2	0.0007578628268283441	0.03773584905660377	1	<20
+dev-folds	material	tooth	DIANA single-task	399	8	145	7	399	0.15119363395225463	0.5884057971014492	6+	>100
+dev-folds	material	birch pitch	LogisticRegression_Bal	0	0	79	2	0	0.0		none	none
+dev-folds	material	bone	LogisticRegression_Bal	127	4	143	4	127	0.04812428950359985	0.08733624454148471	3-5	>100
+dev-folds	material	dental calculus	LogisticRegression_Bal	1389	25	181	11	1389	0.526335733232285	0.8678955453149002	6+	>100
+dev-folds	material	digestive tract contents	LogisticRegression_Bal	16	1	15	1	16	0.0060629026146267525	0.0	1	<20
+dev-folds	material	intestine	LogisticRegression_Bal	15	2	1	1	15	0.005683971201212581	0.0	2	<20
+dev-folds	material	lake sediment	LogisticRegression_Bal	215	10	70	1	215	0.08147025388404698	0.6355140186915887	6+	>100
+dev-folds	material	leaf	LogisticRegression_Bal	43	2	38	1	43	0.0162940507768094	0.6238532110091743	2	20-100
+dev-folds	material	marine sediment	LogisticRegression_Bal	143	4	63	2	143	0.054187192118226604	0.5989010989010989	3-5	>100
+dev-folds	material	midden	LogisticRegression_Bal	15	2	0	0	15	0.005683971201212581	0.0	2	<20
+dev-folds	material	muscle tissue	LogisticRegression_Bal	4	1	2	1	4	0.0015157256536566881	0.0	1	<20
+dev-folds	material	palaeofaeces	LogisticRegression_Bal	61	6	14	2	61	0.023114816218264493	0.5436893203883495	6+	20-100
+dev-folds	material	permafrost	LogisticRegression_Bal	70	3	21	2	70	0.026525198938992044	0.3816793893129771	3-5	20-100
+dev-folds	material	sediment	LogisticRegression_Bal	105	7	109	4	105	0.03978779840848806	0.19900497512437812	6+	>100
+dev-folds	material	soil	LogisticRegression_Bal	2	1	20	1	2	0.0007578628268283441	0.0	1	<20
+dev-folds	material	tooth	LogisticRegression_Bal	399	8	145	7	399	0.15119363395225463	0.6185286103542235	6+	>100
+dev-folds	material	birch pitch	LinearSVM_Bal	0	0	79	2	0	0.0		none	none
+dev-folds	material	bone	LinearSVM_Bal	127	4	143	4	127	0.04812428950359985	0.06349206349206349	3-5	>100
+dev-folds	material	dental calculus	LinearSVM_Bal	1389	25	181	11	1389	0.526335733232285	0.9018315018315018	6+	>100
+dev-folds	material	digestive tract contents	LinearSVM_Bal	16	1	15	1	16	0.0060629026146267525	0.0	1	<20
+dev-folds	material	intestine	LinearSVM_Bal	15	2	1	1	15	0.005683971201212581	0.0	2	<20
+dev-folds	material	lake sediment	LinearSVM_Bal	215	10	70	1	215	0.08147025388404698	0.5978494623655914	6+	>100
+dev-folds	material	leaf	LinearSVM_Bal	43	2	38	1	43	0.0162940507768094	0.4	2	20-100
+dev-folds	material	marine sediment	LinearSVM_Bal	143	4	63	2	143	0.054187192118226604	0.6385542168674698	3-5	>100
+dev-folds	material	midden	LinearSVM_Bal	15	2	0	0	15	0.005683971201212581	0.0	2	<20
+dev-folds	material	muscle tissue	LinearSVM_Bal	4	1	2	1	4	0.0015157256536566881	0.0	1	<20
+dev-folds	material	palaeofaeces	LinearSVM_Bal	61	6	14	2	61	0.023114816218264493	0.6187845303867403	6+	20-100
+dev-folds	material	permafrost	LinearSVM_Bal	70	3	21	2	70	0.026525198938992044	0.4233576642335766	3-5	20-100
+dev-folds	material	sediment	LinearSVM_Bal	105	7	109	4	105	0.03978779840848806	0.18994413407821228	6+	>100
+dev-folds	material	soil	LinearSVM_Bal	2	1	20	1	2	0.0007578628268283441	0.0	1	<20
+dev-folds	material	tooth	LinearSVM_Bal	399	8	145	7	399	0.15119363395225463	0.6526867627785059	6+	>100
+dev-folds	material	birch pitch	RandomForest_Bal	0	0	79	2	0	0.0		none	none
+dev-folds	material	bone	RandomForest_Bal	127	4	143	4	127	0.04812428950359985	0.021505376344086023	3-5	>100
+dev-folds	material	dental calculus	RandomForest_Bal	1389	25	181	11	1389	0.526335733232285	0.899219040535515	6+	>100
+dev-folds	material	digestive tract contents	RandomForest_Bal	16	1	15	1	16	0.0060629026146267525	0.0	1	<20
+dev-folds	material	intestine	RandomForest_Bal	15	2	1	1	15	0.005683971201212581	0.0	2	<20
+dev-folds	material	lake sediment	RandomForest_Bal	215	10	70	1	215	0.08147025388404698	0.6160337552742616	6+	>100
+dev-folds	material	leaf	RandomForest_Bal	43	2	38	1	43	0.0162940507768094	0.5486725663716814	2	20-100
+dev-folds	material	marine sediment	RandomForest_Bal	143	4	63	2	143	0.054187192118226604	0.43373493975903615	3-5	>100
+dev-folds	material	midden	RandomForest_Bal	15	2	0	0	15	0.005683971201212581	0.0	2	<20
+dev-folds	material	muscle tissue	RandomForest_Bal	4	1	2	1	4	0.0015157256536566881	0.0	1	<20
+dev-folds	material	palaeofaeces	RandomForest_Bal	61	6	14	2	61	0.023114816218264493	0.8780487804878049	6+	20-100
+dev-folds	material	permafrost	RandomForest_Bal	70	3	21	2	70	0.026525198938992044	0.14285714285714285	3-5	20-100
+dev-folds	material	sediment	RandomForest_Bal	105	7	109	4	105	0.03978779840848806	0.05240174672489083	6+	>100
+dev-folds	material	soil	RandomForest_Bal	2	1	20	1	2	0.0007578628268283441	0.0	1	<20
+dev-folds	material	tooth	RandomForest_Bal	399	8	145	7	399	0.15119363395225463	0.6144278606965174	6+	>100
+dev-folds	material	birch pitch	kNN	0	0	79	2	0	0.0		none	none
+dev-folds	material	bone	kNN	127	4	143	4	127	0.04812428950359985	0.12844036697247707	3-5	>100
+dev-folds	material	dental calculus	kNN	1389	25	181	11	1389	0.526335733232285	0.8441607209913631	6+	>100
+dev-folds	material	digestive tract contents	kNN	16	1	15	1	16	0.0060629026146267525	0.0	1	<20
+dev-folds	material	intestine	kNN	15	2	1	1	15	0.005683971201212581	0.0	2	<20
+dev-folds	material	lake sediment	kNN	215	10	70	1	215	0.08147025388404698	0.5340909090909091	6+	>100
+dev-folds	material	leaf	kNN	43	2	38	1	43	0.0162940507768094	0.603448275862069	2	20-100
+dev-folds	material	marine sediment	kNN	143	4	63	2	143	0.054187192118226604	0.5369649805447471	3-5	>100
+dev-folds	material	midden	kNN	15	2	0	0	15	0.005683971201212581	0.0	2	<20
+dev-folds	material	muscle tissue	kNN	4	1	2	1	4	0.0015157256536566881	0.0	1	<20
+dev-folds	material	palaeofaeces	kNN	61	6	14	2	61	0.023114816218264493	0.7603305785123967	6+	20-100
+dev-folds	material	permafrost	kNN	70	3	21	2	70	0.026525198938992044	0.11214953271028037	3-5	20-100
+dev-folds	material	sediment	kNN	105	7	109	4	105	0.03978779840848806	0.10112359550561797	6+	>100
+dev-folds	material	soil	kNN	2	1	20	1	2	0.0007578628268283441	0.0	1	<20
+dev-folds	material	tooth	kNN	399	8	145	7	399	0.15119363395225463	0.5981087470449172	6+	>100
+held-out read 9	material	birch pitch	DIANA single-task	0	0	79	2	0	0.0		none	none
+held-out read 9	material	bone	DIANA single-task	127	4	143	4	143	0.17396593673965938	0.07228915662650602	3-5	>100
+held-out read 9	material	dental calculus	DIANA single-task	1389	25	181	11	181	0.22019464720194648	0.9002557544757033	6+	>100
+held-out read 9	material	digestive tract contents	DIANA single-task	16	1	15	1	15	0.01824817518248175	0.0	1	<20
+held-out read 9	material	intestine	DIANA single-task	15	2	1	1	1	0.0012165450121654502	0.0	2	<20
+held-out read 9	material	lake sediment	DIANA single-task	215	10	70	1	70	0.0851581508515815	0.7417218543046358	6+	>100
+held-out read 9	material	leaf	DIANA single-task	43	2	38	1	38	0.046228710462287104	0.9866666666666667	2	20-100
+held-out read 9	material	marine sediment	DIANA single-task	143	4	63	2	63	0.07664233576642336	0.7786259541984732	3-5	>100
+held-out read 9	material	midden	DIANA single-task	15	2	0	0	0	0.0		2	<20
+held-out read 9	material	muscle tissue	DIANA single-task	4	1	2	1	2	0.0024330900243309003	0.0	1	<20
+held-out read 9	material	palaeofaeces	DIANA single-task	61	6	14	2	14	0.0170316301703163	0.5161290322580645	6+	20-100
+held-out read 9	material	permafrost	DIANA single-task	70	3	21	2	21	0.025547445255474453	0.42105263157894735	3-5	20-100
+held-out read 9	material	sediment	DIANA single-task	105	7	109	4	109	0.13260340632603407	0.6091954022988506	6+	>100
+held-out read 9	material	soil	DIANA single-task	2	1	20	1	20	0.024330900243309004	0.0	1	<20
+held-out read 9	material	tooth	DIANA single-task	399	8	145	7	145	0.17639902676399027	0.5174825174825175	6+	>100
+held-out read 9	material	birch pitch	LogisticRegression_Bal	0	0	79	2	0	0.0		none	none
+held-out read 9	material	bone	LogisticRegression_Bal	127	4	143	4	143	0.17396593673965938	0.5020242914979757	3-5	>100
+held-out read 9	material	dental calculus	LogisticRegression_Bal	1389	25	181	11	181	0.22019464720194648	0.9116022099447514	6+	>100
+held-out read 9	material	digestive tract contents	LogisticRegression_Bal	16	1	15	1	15	0.01824817518248175	0.0	1	<20
+held-out read 9	material	intestine	LogisticRegression_Bal	15	2	1	1	1	0.0012165450121654502	0.0	2	<20
+held-out read 9	material	lake sediment	LogisticRegression_Bal	215	10	70	1	70	0.0851581508515815	0.6610169491525424	6+	>100
+held-out read 9	material	leaf	LogisticRegression_Bal	43	2	38	1	38	0.046228710462287104	1.0	2	20-100
+held-out read 9	material	marine sediment	LogisticRegression_Bal	143	4	63	2	63	0.07664233576642336	0.7039106145251397	3-5	>100
+held-out read 9	material	midden	LogisticRegression_Bal	15	2	0	0	0	0.0		2	<20
+held-out read 9	material	muscle tissue	LogisticRegression_Bal	4	1	2	1	2	0.0024330900243309003	0.0	1	<20
+held-out read 9	material	palaeofaeces	LogisticRegression_Bal	61	6	14	2	14	0.0170316301703163	0.4166666666666667	6+	20-100
+held-out read 9	material	permafrost	LogisticRegression_Bal	70	3	21	2	21	0.025547445255474453	0.5405405405405406	3-5	20-100
+held-out read 9	material	sediment	LogisticRegression_Bal	105	7	109	4	109	0.13260340632603407	0.6344086021505376	6+	>100
+held-out read 9	material	soil	LogisticRegression_Bal	2	1	20	1	20	0.024330900243309004	0.0	1	<20
+held-out read 9	material	tooth	LogisticRegression_Bal	399	8	145	7	145	0.17639902676399027	0.629080118694362	6+	>100
+held-out read 9	material	birch pitch	LinearSVM_Bal	0	0	79	2	0	0.0		none	none
+held-out read 9	material	bone	LinearSVM_Bal	127	4	143	4	143	0.17396593673965938	0.36363636363636365	3-5	>100
+held-out read 9	material	dental calculus	LinearSVM_Bal	1389	25	181	11	181	0.22019464720194648	0.9168900804289544	6+	>100
+held-out read 9	material	digestive tract contents	LinearSVM_Bal	16	1	15	1	15	0.01824817518248175	0.0	1	<20
+held-out read 9	material	intestine	LinearSVM_Bal	15	2	1	1	1	0.0012165450121654502	0.0	2	<20
+held-out read 9	material	lake sediment	LinearSVM_Bal	215	10	70	1	70	0.0851581508515815	0.7571428571428571	6+	>100
+held-out read 9	material	leaf	LinearSVM_Bal	43	2	38	1	38	0.046228710462287104	1.0	2	20-100
+held-out read 9	material	marine sediment	LinearSVM_Bal	143	4	63	2	63	0.07664233576642336	0.75	3-5	>100
+held-out read 9	material	midden	LinearSVM_Bal	15	2	0	0	0	0.0		2	<20
+held-out read 9	material	muscle tissue	LinearSVM_Bal	4	1	2	1	2	0.0024330900243309003	0.0	1	<20
+held-out read 9	material	palaeofaeces	LinearSVM_Bal	61	6	14	2	14	0.0170316301703163	0.5	6+	20-100
+held-out read 9	material	permafrost	LinearSVM_Bal	70	3	21	2	21	0.025547445255474453	0.7555555555555555	3-5	20-100
+held-out read 9	material	sediment	LinearSVM_Bal	105	7	109	4	109	0.13260340632603407	0.6740331491712708	6+	>100
+held-out read 9	material	soil	LinearSVM_Bal	2	1	20	1	20	0.024330900243309004	0.0	1	<20
+held-out read 9	material	tooth	LinearSVM_Bal	399	8	145	7	145	0.17639902676399027	0.6111111111111112	6+	>100
+held-out read 9	material	birch pitch	RandomForest_Bal	0	0	79	2	0	0.0		none	none
+held-out read 9	material	bone	RandomForest_Bal	127	4	143	4	143	0.17396593673965938	0.08695652173913043	3-5	>100
+held-out read 9	material	dental calculus	RandomForest_Bal	1389	25	181	11	181	0.22019464720194648	0.9206349206349206	6+	>100
+held-out read 9	material	digestive tract contents	RandomForest_Bal	16	1	15	1	15	0.01824817518248175	0.0	1	<20
+held-out read 9	material	intestine	RandomForest_Bal	15	2	1	1	1	0.0012165450121654502	0.0	2	<20
+held-out read 9	material	lake sediment	RandomForest_Bal	215	10	70	1	70	0.0851581508515815	0.0	6+	>100
+held-out read 9	material	leaf	RandomForest_Bal	43	2	38	1	38	0.046228710462287104	1.0	2	20-100
+held-out read 9	material	marine sediment	RandomForest_Bal	143	4	63	2	63	0.07664233576642336	0.4679245283018868	3-5	>100
+held-out read 9	material	midden	RandomForest_Bal	15	2	0	0	0	0.0		2	<20
+held-out read 9	material	muscle tissue	RandomForest_Bal	4	1	2	1	2	0.0024330900243309003	0.0	1	<20
+held-out read 9	material	palaeofaeces	RandomForest_Bal	61	6	14	2	14	0.0170316301703163	0.42857142857142855	6+	20-100
+held-out read 9	material	permafrost	RandomForest_Bal	70	3	21	2	21	0.025547445255474453	0.8292682926829268	3-5	20-100
+held-out read 9	material	sediment	RandomForest_Bal	105	7	109	4	109	0.13260340632603407	0.3026315789473684	6+	>100
+held-out read 9	material	soil	RandomForest_Bal	2	1	20	1	20	0.024330900243309004	0.0	1	<20
+held-out read 9	material	tooth	RandomForest_Bal	399	8	145	7	145	0.17639902676399027	0.5198019801980198	6+	>100
+held-out read 9	material	birch pitch	kNN	0	0	79	2	0	0.0		none	none
+held-out read 9	material	bone	kNN	127	4	143	4	143	0.17396593673965938	0.3236514522821577	3-5	>100
+held-out read 9	material	dental calculus	kNN	1389	25	181	11	181	0.22019464720194648	0.7494252873563219	6+	>100
+held-out read 9	material	digestive tract contents	kNN	16	1	15	1	15	0.01824817518248175	0.0	1	<20
+held-out read 9	material	intestine	kNN	15	2	1	1	1	0.0012165450121654502	0.0	2	<20
+held-out read 9	material	lake sediment	kNN	215	10	70	1	70	0.0851581508515815	0.5736434108527132	6+	>100
+held-out read 9	material	leaf	kNN	43	2	38	1	38	0.046228710462287104	1.0	2	20-100
+held-out read 9	material	marine sediment	kNN	143	4	63	2	63	0.07664233576642336	0.7116564417177914	3-5	>100
+held-out read 9	material	midden	kNN	15	2	0	0	0	0.0		2	<20
+held-out read 9	material	muscle tissue	kNN	4	1	2	1	2	0.0024330900243309003	0.0	1	<20
+held-out read 9	material	palaeofaeces	kNN	61	6	14	2	14	0.0170316301703163	0.48484848484848486	6+	20-100
+held-out read 9	material	permafrost	kNN	70	3	21	2	21	0.025547445255474453	0.6470588235294118	3-5	20-100
+held-out read 9	material	sediment	kNN	105	7	109	4	109	0.13260340632603407	0.20155038759689922	6+	>100
+held-out read 9	material	soil	kNN	2	1	20	1	20	0.024330900243309004	0.0	1	<20
+held-out read 9	material	tooth	kNN	399	8	145	7	145	0.17639902676399027	0.45977011494252873	6+	>100

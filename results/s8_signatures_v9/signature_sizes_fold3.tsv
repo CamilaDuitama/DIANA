@@ -1,0 +1,39 @@
+fold	task	class	train_fold_runs	train_fold_projects	consistent	signature
+3	community_type	gut	77	7	48098	45489
+3	community_type	oral	1329	22	1145	414
+3	community_type	plant tissue	43	2	47188	35872
+3	community_type	skeletal tissue	190	5	14373	3
+3	community_type	soft tissue	27	2	200593	138688
+3	feature	archeological site	17	3	25891	13934
+3	feature	cave	34	1	267484	259157
+3	feature	lake	180	7	199667	62793
+3	feature	midden	17	3	185068	145953
+3	feature	ocean	145	5	15236	1075
+3	feature	rock shelter	2	1	347917	324791
+3	feature	sea coast	52	1	509001	471748
+3	feature	thermokarst	0	0	0	0
+3	sample_host	Ambrosia artemisiifolia	11	1	17181	15140
+3	sample_host	Canis lupus	12	3	969995	968239
+3	sample_host	Gorilla beringei beringei	23	2	208676	197980
+3	sample_host	Gorilla beringei graueri	67	2	30552	24762
+3	sample_host	Gorilla gorilla gorilla	45	2	14303	12568
+3	sample_host	Homo sapiens	1068	26	4771	571
+3	sample_host	Homo sapiens neanderthalensis	16	1	161196	114318
+3	sample_host	Mammuthus primigenius	16	1	529152	461371
+3	sample_host	Pan troglodytes schweinfurthii	11	1	1227588	1146679
+3	sample_host	Ursus arctos	316	1	208170	204854
+3	material	birch pitch	0	0	0	0
+3	material	bone	107	3	16949	3816
+3	material	dental calculus	1017	19	1764	995
+3	material	digestive tract contents	16	1	949470	738190
+3	material	intestine	4	1	812710	749230
+3	material	lake sediment	180	7	199667	137486
+3	material	leaf	43	2	47188	35544
+3	material	marine sediment	143	4	16273	4909
+3	material	midden	15	2	505481	452331
+3	material	muscle tissue	4	1	913550	826970
+3	material	palaeofaeces	61	6	107062	102445
+3	material	permafrost	60	2	373961	362866
+3	material	sediment	47	5	119835	114618
+3	material	soil	2	1	3696391	3635977
+3	material	tooth	395	7	7896	28

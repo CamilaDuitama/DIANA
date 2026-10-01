@@ -1,0 +1,39 @@
+task	class	train_runs	train_projects	consistent	consistent_and_exclusive	signature_loose	signature_strict	cross_study_tested
+community_type	soft tissue	27	2	254119.0	193517.0	15440.0	2172.0	True
+community_type	plant tissue	43	2	73351.0	63223.0	1165.0	166.0	True
+community_type	gut	88	8	66344.0	55909.0	55909.0	55822.0	True
+community_type	skeletal tissue	214	7	14058.0	1.0	1.0	1.0	True
+community_type	oral	1701	28	3170.0	1374.0	1374.0	1374.0	True
+feature	rock shelter	2	1	257348.0	233784.0	233784.0	233784.0	False
+feature	thermokarst	10	1	4222879.0	3495923.0	3495923.0	3495923.0	False
+feature	archeological site	17	3	81800.0	40039.0	5420.0	4319.0	True
+feature	cave	34	1	541885.0	496912.0	496912.0	496912.0	False
+feature	midden	46	4	914.0	17.0	17.0	16.0	True
+feature	sea coast	52	1	783027.0	616920.0	616920.0	616920.0	False
+feature	ocean	179	6	10923.0	746.0	739.0	736.0	True
+feature	lake	215	10	179754.0	33037.0	33037.0	32720.0	True
+material	birch pitch	0	0					
+material	soil	2	1	5011326.0	4922648.0	4922648.0	4922648.0	False
+material	muscle tissue	4	1	972020.0	868980.0	868980.0	868980.0	False
+material	intestine	15	2	1005052.0	920229.0	60060.0	19072.0	True
+material	midden	15	2	929678.0	849120.0	23081.0	2176.0	True
+material	digestive tract contents	16	1	1161765.0	919767.0	919767.0	919767.0	False
+material	leaf	43	2	73351.0	62395.0	821.0	58.0	True
+material	palaeofaeces	61	6	234624.0	223223.0	223198.0	200213.0	True
+material	permafrost	70	3	347167.0	284989.0	142146.0	47640.0	True
+material	sediment	105	7	4179.0	123.0	123.0	121.0	True
+material	bone	127	4	12924.0	1699.0	26.0	0.0	True
+material	marine sediment	143	4	23427.0	9158.0	9136.0	9064.0	True
+material	lake sediment	215	10	179754.0	100779.0	100779.0	100456.0	True
+material	tooth	399	8	9419.0	55.0	55.0	53.0	True
+material	dental calculus	1389	25	5734.0	3918.0	3918.0	3918.0	True
+sample_host	Ambrosia artemisiifolia	11	1	22184.0	19920.0	19920.0	19920.0	False
+sample_host	Pan troglodytes schweinfurthii	11	1	1423230.0	1202671.0	1202671.0	1202671.0	False
+sample_host	Canis lupus	12	3	1212394.0	1204623.0	86160.0	70692.0	True
+sample_host	Homo sapiens neanderthalensis	16	1	273947.0	160141.0	160141.0	160141.0	False
+sample_host	Mammuthus primigenius	16	1	614386.0	540505.0	540505.0	540505.0	False
+sample_host	Gorilla beringei beringei	23	2	315744.0	280407.0	272158.0	210160.0	True
+sample_host	Gorilla gorilla gorilla	45	2	31029.0	23029.0	20924.0	697.0	True
+sample_host	Gorilla beringei graueri	67	2	66527.0	47673.0	47224.0	29222.0	True
+sample_host	Ursus arctos	339	2	312779.0	297567.0	268209.0	15209.0	True
+sample_host	Homo sapiens	1397	31	8019.0	1566.0	1566.0	1566.0	True

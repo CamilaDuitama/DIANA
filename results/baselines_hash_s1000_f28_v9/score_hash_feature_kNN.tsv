@@ -1,0 +1,11 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+hash	feature	kNN	"{""n_neighbors"": 1, ""weights"": ""uniform""}"	0.15448747189143458	5
+hash	feature	kNN	"{""n_neighbors"": 1, ""weights"": ""distance""}"	0.15448747189143458	5
+hash	feature	kNN	"{""n_neighbors"": 3, ""weights"": ""uniform""}"	0.163217086068768	5
+hash	feature	kNN	"{""n_neighbors"": 3, ""weights"": ""distance""}"	0.16781559952798858	5
+hash	feature	kNN	"{""n_neighbors"": 5, ""weights"": ""uniform""}"	0.14000598266153158	5
+hash	feature	kNN	"{""n_neighbors"": 5, ""weights"": ""distance""}"	0.14190602798541319	5
+hash	feature	kNN	"{""n_neighbors"": 10, ""weights"": ""uniform""}"	0.1118108562405727	5
+hash	feature	kNN	"{""n_neighbors"": 10, ""weights"": ""distance""}"	0.12164887843227153	5
+hash	feature	kNN	"{""n_neighbors"": 20, ""weights"": ""uniform""}"	0.13421356673128818	5
+hash	feature	kNN	"{""n_neighbors"": 20, ""weights"": ""distance""}"	0.1433660246803608	5

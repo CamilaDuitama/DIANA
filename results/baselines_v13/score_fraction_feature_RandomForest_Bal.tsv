@@ -1,0 +1,9 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+fraction	feature	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 1}"	0.41832320128289896	5
+fraction	feature	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.43387142055025263	5
+fraction	feature	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": 0.05, ""min_samples_leaf"": 1}"	0.43584012476598194	5
+fraction	feature	RandomForest_Bal	"{""n_estimators"": 300, ""max_features"": 0.05, ""min_samples_leaf"": 3}"	0.4590719021642484	5
+fraction	feature	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": ""sqrt"", ""min_samples_leaf"": 1}"	0.4273603051220052	5
+fraction	feature	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.43623453832356657	5
+fraction	feature	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": 0.05, ""min_samples_leaf"": 1}"	0.4432193137846445	5
+fraction	feature	RandomForest_Bal	"{""n_estimators"": 800, ""max_features"": 0.05, ""min_samples_leaf"": 3}"	0.4757890226707076	5

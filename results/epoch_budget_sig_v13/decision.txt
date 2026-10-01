@@ -1,0 +1,2 @@
+A6 on the dev folds, rule fixed 2026-09-25: multi-task
+per-task verdicts: {'tie': 3, 'multi': 1}

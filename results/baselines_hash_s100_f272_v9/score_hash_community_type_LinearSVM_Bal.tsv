@@ -1,0 +1,5 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+hash	community_type	LinearSVM_Bal	"{""C"": 0.001}"	0.49867764822162786	5
+hash	community_type	LinearSVM_Bal	"{""C"": 0.01}"	0.47348361676350914	5
+hash	community_type	LinearSVM_Bal	"{""C"": 0.1}"	0.41767429977318554	5
+hash	community_type	LinearSVM_Bal	"{""C"": 1.0}"	0.4123810391188926	5

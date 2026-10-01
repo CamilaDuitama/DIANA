@@ -1,0 +1,23 @@
+{
+  "tag": "s100_f272",
+  "scaled": 100,
+  "ksize": 31,
+  "n_training_runs": 2716,
+  "n_distinct_hashes_train": 3098575072,
+  "floor_present_in_runs": 272,
+  "cap_present_in_runs": 2444,
+  "n_kept": 214900,
+  "n_above_floor": 214904,
+  "n_above_cap": 4,
+  "kept_by_floor": {
+    "14": 23015525,
+    "20": 14056358,
+    "28": 8952430,
+    "272": 214900
+  },
+  "median_hashes_per_train_run": 609909.0,
+  "rule": "present in >= 272 and <= 2444 (90 %) of the 2,716 training runs",
+  "built_on": "2026-09-30",
+  "train_density": 0.1472829795137102,
+  "heldout": "not written: 922 held-out runs have no sketch at this scale"
+}

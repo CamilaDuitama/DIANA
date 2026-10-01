@@ -1,0 +1,49 @@
+task	model	setting	f1_macro_eligible	ci_low	ci_high
+community_type	DIANA single-task	within-study (new run, seen study; training-set CV)	0.7700307022104497	0.6231533238310023	0.8822521420145624
+community_type	DIANA multi-task	within-study (new run, seen study; training-set CV)	0.8079817993171275	0.6804488954349782	0.8876631630056554
+community_type	LogisticRegression_Bal	within-study (new run, seen study; training-set CV)	0.7498282056322436	0.6033013716358102	0.8898496944877335
+community_type	LinearSVM_Bal	within-study (new run, seen study; training-set CV)	0.8127067011705857	0.6510177382897251	0.8962189553093135
+community_type	RandomForest_Bal	within-study (new run, seen study; training-set CV)	0.8187805179671883	0.6831909647437738	0.9086335806082023
+community_type	kNN	within-study (new run, seen study; training-set CV)	0.7072113966187271	0.5579519843488244	0.8415290315278506
+feature	DIANA single-task	within-study (new run, seen study; training-set CV)	0.4095409800129943	0.3066421275854565	0.6287714227930954
+feature	DIANA multi-task	within-study (new run, seen study; training-set CV)	0.7493779868680768	0.588850198251763	0.9145033437661649
+feature	LogisticRegression_Bal	within-study (new run, seen study; training-set CV)	0.7787719029298248	0.6358425065731511	0.9405747862821164
+feature	LinearSVM_Bal	within-study (new run, seen study; training-set CV)	0.7746460927264776	0.6146970299318139	0.9383116973570366
+feature	RandomForest_Bal	within-study (new run, seen study; training-set CV)	0.7029088017298132	0.5347336244991742	0.862155456598134
+feature	kNN	within-study (new run, seen study; training-set CV)	0.6999655637631282	0.5301497472271364	0.8598639707328513
+sample_host	DIANA single-task	within-study (new run, seen study; training-set CV)	0.6614868191420296	0.5065809260590577	0.93646108189914
+sample_host	DIANA multi-task	within-study (new run, seen study; training-set CV)	0.6247031855499643	0.44808374329213096	0.9493407705964071
+sample_host	LogisticRegression_Bal	within-study (new run, seen study; training-set CV)	0.6932384808955372	0.4957424793871504	0.8971826690510507
+sample_host	LinearSVM_Bal	within-study (new run, seen study; training-set CV)	0.7032224385815218	0.5071639791975455	0.9019023911620541
+sample_host	RandomForest_Bal	within-study (new run, seen study; training-set CV)	0.6641799950199643	0.48013436086242073	0.926473643248422
+sample_host	kNN	within-study (new run, seen study; training-set CV)	0.6615992760303577	0.4859927957649097	0.9019643062908851
+material	DIANA single-task	within-study (new run, seen study; training-set CV)	0.5879216994336627	0.522734954815575	0.7425217161087541
+material	DIANA multi-task	within-study (new run, seen study; training-set CV)	0.6370893607151084	0.5320298353186306	0.7889713154372507
+material	LogisticRegression_Bal	within-study (new run, seen study; training-set CV)	0.6424849723617468	0.5297817635853437	0.8207066301287512
+material	LinearSVM_Bal	within-study (new run, seen study; training-set CV)	0.6622946299809199	0.5598864833207308	0.8516414204240486
+material	RandomForest_Bal	within-study (new run, seen study; training-set CV)	0.6231355647941169	0.5035695462534129	0.7833880502285411
+material	kNN	within-study (new run, seen study; training-set CV)	0.5886824632830664	0.5073768916187021	0.7343356855378422
+community_type	LogisticRegression_Bal	across-study (unseen study; held-out, read 9)	0.5802198726405216	0.3094451186634174	0.6542999693072916
+community_type	LinearSVM_Bal	across-study (unseen study; held-out, read 9)	0.5626282156470349	0.3035455787721566	0.6355254709381677
+community_type	RandomForest_Bal	across-study (unseen study; held-out, read 9)	0.5557032201310276	0.2511837826861675	0.6258871035987739
+community_type	kNN	across-study (unseen study; held-out, read 9)	0.5125260532340178	0.2436081729270465	0.577249918778555
+community_type	DIANA multi-task	across-study (unseen study; held-out, read 9)	0.5467750677506775	0.2949105499480807	0.6234251681122024
+community_type	DIANA single-task	across-study (unseen study; held-out, read 9)	0.530804240222125	0.2480566682676207	0.5798452639605965
+feature	LogisticRegression_Bal	across-study (unseen study; held-out, read 9)	0.33139854817937	0.0730089671962325	0.4709631132853941
+feature	LinearSVM_Bal	across-study (unseen study; held-out, read 9)	0.3580518942587908	0.1019265080335233	0.4910563757379497
+feature	RandomForest_Bal	across-study (unseen study; held-out, read 9)	0.3494972586458094	0.101377280109945	0.4952125218211488
+feature	kNN	across-study (unseen study; held-out, read 9)	0.3077417299005191	0.0878187961533296	0.4239416913306583
+feature	DIANA multi-task	across-study (unseen study; held-out, read 9)	0.3337426629168576	0.0699375188196326	0.4146347149878171
+feature	DIANA single-task	across-study (unseen study; held-out, read 9)	0.3109238493010534	0.0691688845696103	0.4327265042879493
+sample_host	LogisticRegression_Bal	across-study (unseen study; held-out, read 9)	0.5418986498930397	0.1849789801575001	0.5825586753547395
+sample_host	LinearSVM_Bal	across-study (unseen study; held-out, read 9)	0.579685561979808	0.2115945966632363	0.6778347494762166
+sample_host	RandomForest_Bal	across-study (unseen study; held-out, read 9)	0.497734874948369	0.1916678317747351	0.501868843261979
+sample_host	kNN	across-study (unseen study; held-out, read 9)	0.5801714706211025	0.2145861815730312	0.6068548407793491
+sample_host	DIANA multi-task	across-study (unseen study; held-out, read 9)	0.527530605574912	0.2001619264704342	0.5365191450114644
+sample_host	DIANA single-task	across-study (unseen study; held-out, read 9)	0.5035108800953871	0.1847722970312079	0.5201992956841898
+material	LogisticRegression_Bal	across-study (unseen study; held-out, read 9)	0.4614807687055782	0.2652903237345579	0.4838036471794035
+material	LinearSVM_Bal	across-study (unseen study; held-out, read 9)	0.4867976243881624	0.2829716199416667	0.5070509930830307
+material	RandomForest_Bal	across-study (unseen study; held-out, read 9)	0.3504453270058216	0.1850044370785216	0.4026409740272805
+material	kNN	across-study (unseen study; held-out, read 9)	0.3962772617789468	0.220418373545181	0.423156592022651
+material	DIANA multi-task	across-study (unseen study; held-out, read 9)	0.4143407491402048	0.2162074553583592	0.4308787538485925
+material	DIANA single-task	across-study (unseen study; held-out, read 9)	0.4264168438377203	0.2417670352472538	0.4353855422497691

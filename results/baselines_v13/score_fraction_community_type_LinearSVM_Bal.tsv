@@ -1,0 +1,5 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+fraction	community_type	LinearSVM_Bal	"{""C"": 0.001}"	0.5010265370251493	5
+fraction	community_type	LinearSVM_Bal	"{""C"": 0.01}"	0.5188509248407916	5
+fraction	community_type	LinearSVM_Bal	"{""C"": 0.1}"	0.5003237759894594	5
+fraction	community_type	LinearSVM_Bal	"{""C"": 1.0}"	0.4739100948030662	5

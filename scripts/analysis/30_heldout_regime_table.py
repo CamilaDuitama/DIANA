@@ -37,11 +37,12 @@ ROOT = Path(__file__).resolve().parents[2]
 TASKS = ["community_type", "feature", "sample_host", "material"]
 REGIMES = [("few-shot (<20)", 0, 20), ("medium-shot (20-100)", 20, 100),
            ("many-shot (>100)", 100, np.inf)]
+SPLITS = ROOT / "data/splits_v9"
 REFERENCE = "results/final_eval_v9/stratified_by_shot.tsv"
 
 
 def training_support() -> dict[str, pd.Series]:
-    meta = pd.read_csv(ROOT / "data/splits_v9/train_metadata.tsv", sep="\t", low_memory=False)
+    meta = pd.read_csv(SPLITS / "train_metadata.tsv", sep="\t", low_memory=False)
     return {t: meta[t].dropna().astype(str).value_counts() for t in TASKS}
 
 
@@ -82,10 +83,13 @@ def arm_table(arm: Path, support: dict[str, pd.Series],
 
 
 def main() -> int:
+    global SPLITS
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--arm", type=Path, required=True)
     ap.add_argument("--label", default="arm")
+    ap.add_argument("--splits", type=Path, default=SPLITS, help="split directory (training support); v13 = data/splits_v13")
     a = ap.parse_args()
+    SPLITS = a.splits
     support = training_support()
 
     # Refuse to report a new arm unless the rule still reproduces the published table.

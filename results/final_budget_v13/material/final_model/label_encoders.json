@@ -1,0 +1,17 @@
+{
+  "material": {
+    "classes": [
+      "bone",
+      "dental calculus",
+      "intestine",
+      "lake sediment",
+      "leaf",
+      "marine sediment",
+      "midden",
+      "palaeofaeces",
+      "permafrost",
+      "sediment",
+      "tooth"
+    ]
+  }
+}

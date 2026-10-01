@@ -1,0 +1,5 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+sigonly	sample_host	LinearSVM_Bal	"{""C"": 0.001}"	0.5362663687411031	5
+sigonly	sample_host	LinearSVM_Bal	"{""C"": 0.01}"	0.6037143589066127	5
+sigonly	sample_host	LinearSVM_Bal	"{""C"": 0.1}"	0.6494089172872937	5
+sigonly	sample_host	LinearSVM_Bal	"{""C"": 1.0}"	0.6448347044970777	5

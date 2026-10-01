@@ -1,0 +1,226 @@
+{
+  "rule": "a class is modelled and scored only if it has >= 2 training BioProjects",
+  "fixed_on": "2026-09-30",
+  "source": "data/splits_v9",
+  "unchanged": [
+    "test_metadata.tsv",
+    "dev_folds.tsv",
+    "train_accessions.txt",
+    "test_accessions.txt",
+    "split_config.json"
+  ],
+  "counts": {
+    "community_type": {
+      "classes_kept": 5,
+      "classes_dropped": 0,
+      "runs_labelled_before": 2073,
+      "runs_masked": 0,
+      "runs_labelled_after": 2073
+    },
+    "feature": {
+      "classes_kept": 4,
+      "classes_dropped": 6,
+      "runs_labelled_before": 608,
+      "runs_masked": 151,
+      "runs_labelled_after": 457
+    },
+    "sample_host": {
+      "classes_kept": 6,
+      "classes_dropped": 18,
+      "runs_labelled_before": 2085,
+      "runs_masked": 202,
+      "runs_labelled_after": 1883
+    },
+    "material": {
+      "classes_kept": 11,
+      "classes_dropped": 5,
+      "runs_labelled_before": 2639,
+      "runs_masked": 57,
+      "runs_labelled_after": 2582
+    }
+  },
+  "eligible_classes_total": 26,
+  "eligible_classes_v9": 38,
+  "dropped_classes_with_training_runs": [
+    {
+      "target": "feature",
+      "class": "sea coast",
+      "n_runs": 52,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "feature",
+      "class": "cave",
+      "n_runs": 34,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "feature",
+      "class": "swamp forest",
+      "n_runs": 29,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "feature",
+      "class": "shell",
+      "n_runs": 24,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "feature",
+      "class": "thermokarst",
+      "n_runs": 10,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "feature",
+      "class": "rock shelter",
+      "n_runs": 2,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "material",
+      "class": "shell",
+      "n_runs": 24,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "material",
+      "class": "digestive tract contents",
+      "n_runs": 16,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "material",
+      "class": "unknown",
+      "n_runs": 11,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "material",
+      "class": "muscle tissue",
+      "n_runs": 4,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "material",
+      "class": "soil",
+      "n_runs": 2,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "sample_host",
+      "class": "Arabidopsis thaliana",
+      "n_runs": 32,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "sample_host",
+      "class": "Rangifer tarandus",
+      "n_runs": 24,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "sample_host",
+      "class": "Gorilla beringei",
+      "n_runs": 20,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "sample_host",
+      "class": "Bison priscus",
+      "n_runs": 16,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "sample_host",
+      "class": "Homo sapiens neanderthalensis",
+      "n_runs": 16,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "sample_host",
+      "class": "Mammuthus primigenius",
+      "n_runs": 16,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "sample_host",
+      "class": "Ambrosia artemisiifolia",
+      "n_runs": 11,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "sample_host",
+      "class": "Lithobates pipiens",
+      "n_runs": 11,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "sample_host",
+      "class": "Pan troglodytes schweinfurthii",
+      "n_runs": 11,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "sample_host",
+      "class": "Pan troglodytes verus",
+      "n_runs": 9,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "sample_host",
+      "class": "Pan troglodytes ellioti",
+      "n_runs": 8,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "sample_host",
+      "class": "Alouatta palliata",
+      "n_runs": 6,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "sample_host",
+      "class": "Papio hamadryas",
+      "n_runs": 5,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "sample_host",
+      "class": "Conepatus chinga",
+      "n_runs": 4,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "sample_host",
+      "class": "Gerbilliscus boehmi",
+      "n_runs": 4,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "sample_host",
+      "class": "Papio anubis",
+      "n_runs": 4,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "sample_host",
+      "class": "Strigocuscus celebensis",
+      "n_runs": 4,
+      "n_bioprojects": 1
+    },
+    {
+      "target": "sample_host",
+      "class": "Papio sp.",
+      "n_runs": 1,
+      "n_bioprojects": 1
+    }
+  ],
+  "heldout_runs_of_dropped_classes": {
+    "community_type": 0,
+    "feature": 150,
+    "sample_host": 89,
+    "material": 124
+  }
+}

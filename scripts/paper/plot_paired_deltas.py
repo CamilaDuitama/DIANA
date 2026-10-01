@@ -38,10 +38,11 @@ def main() -> int:
     ap.add_argument("--detection", type=Path, required=True,
                     help="39_detector_paired_test.py output")
     ap.add_argument("--out", type=Path, default=PROJECT_ROOT / "results/paper/paired_deltas.png")
+    ap.add_argument("--baseline-summary", type=Path, default=PROJECT_ROOT / "results/baseline_predictions_v9/summary.csv")
     args = ap.parse_args()
     pdl = pd.read_csv(args.paired, sep="\t")
     det = pd.read_csv(args.detection, sep="\t").set_index("task")
-    b = pd.read_csv(PROJECT_ROOT / "results/baseline_predictions_v9/summary.csv")
+    b = pd.read_csv(args.baseline_summary)
     b = b[(b.split == "test") & (b.model != "MajorityClass")]
 
     rows = []

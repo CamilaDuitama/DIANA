@@ -1,0 +1,5 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+fraction	feature	LogisticRegression_Bal	"{""C"": 0.01}"	0.4590740960667383	5
+fraction	feature	LogisticRegression_Bal	"{""C"": 0.1}"	0.47579837037119643	5
+fraction	feature	LogisticRegression_Bal	"{""C"": 1.0}"	0.4964420898195304	5
+fraction	feature	LogisticRegression_Bal	"{""C"": 10.0}"	0.4966212100258516	5

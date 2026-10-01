@@ -1,0 +1,38 @@
+Anomaly detection: DIANA against the tuned baselines
+
+Identical detector for every model: flag when 1 - P(stated label) exceeds a
+threshold set by false-flag budget. Ground truth is the planted flags.
+
+task            model                       AUC     AP   TPR@5%  TPR@10%
+community_type  LogisticRegression_Bal    0.849  0.473    0.354    0.446
+community_type  RandomForest_Bal          0.832  0.411    0.292    0.400
+community_type  RandomForest              0.749  0.359    0.277    0.354
+community_type  DIANA                     0.728  0.309    0.215    0.308  <-- DIANA
+community_type  kNN                       0.623  0.135    0.000    0.000
+community_type  MajorityClass             0.557  0.112    0.000    0.000
+
+feature         LogisticRegression_Bal    1.000  1.000    1.000    1.000
+feature         RandomForest              1.000  1.000    1.000    1.000
+feature         RandomForest_Bal          1.000  1.000    1.000    1.000
+feature         kNN                       0.926  0.250    0.000    0.000
+feature         DIANA                     0.926  0.629    0.462    0.692  <-- DIANA
+feature         MajorityClass             0.779  0.100    0.000    0.000
+
+sample_host     LogisticRegression_Bal    0.991  0.837    0.941    1.000
+sample_host     RandomForest_Bal          0.972  0.671    0.882    0.882
+sample_host     RandomForest              0.969  0.659    0.882    0.882
+sample_host     DIANA                     0.958  0.878    0.963    0.963  <-- DIANA
+sample_host     kNN                       0.936  0.291    0.000    0.941
+sample_host     MajorityClass             0.934  0.605    0.882    0.882
+
+material        LogisticRegression_Bal    0.901  0.554    0.646    0.785
+material        RandomForest_Bal          0.856  0.620    0.569    0.677
+material        DIANA                     0.846  0.404    0.250    0.611  <-- DIANA
+material        RandomForest              0.829  0.534    0.492    0.554
+material        kNN                       0.726  0.149    0.000    0.000
+material        MajorityClass             0.455  0.077    0.000    0.000
+
+LinearSVM_Bal is absent: LinearSVC has no predict_proba, so it cannot be
+used as a detector at all. It is the strongest classification baseline on
+sample_host and material, so that is a point in DIANA's favour and should be
+reported rather than worked around.

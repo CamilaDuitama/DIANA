@@ -1,0 +1,36 @@
+{
+  "community_type": [
+    "gut",
+    "oral",
+    "plant tissue",
+    "skeletal tissue",
+    "soft tissue"
+  ],
+  "feature": [
+    "archeological site",
+    "lake",
+    "midden",
+    "ocean"
+  ],
+  "sample_host": [
+    "Canis lupus",
+    "Gorilla beringei beringei",
+    "Gorilla beringei graueri",
+    "Gorilla gorilla gorilla",
+    "Homo sapiens",
+    "Ursus arctos"
+  ],
+  "material": [
+    "bone",
+    "dental calculus",
+    "intestine",
+    "lake sediment",
+    "leaf",
+    "marine sediment",
+    "midden",
+    "palaeofaeces",
+    "permafrost",
+    "sediment",
+    "tooth"
+  ]
+}

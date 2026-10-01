@@ -1,0 +1,5 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+sig	material	LinearSVM_Bal	"{""C"": 0.001}"	0.4760730306869231	5
+sig	material	LinearSVM_Bal	"{""C"": 0.01}"	0.4838708343722267	5
+sig	material	LinearSVM_Bal	"{""C"": 0.1}"	0.46082835209481543	5
+sig	material	LinearSVM_Bal	"{""C"": 1.0}"	0.42917549622958645	5

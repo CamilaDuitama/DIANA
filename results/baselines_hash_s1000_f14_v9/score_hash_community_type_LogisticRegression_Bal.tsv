@@ -1,0 +1,5 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+hash	community_type	LogisticRegression_Bal	"{""C"": 0.01}"	0.46207914927293164	5
+hash	community_type	LogisticRegression_Bal	"{""C"": 0.1}"	0.4747195747096108	5
+hash	community_type	LogisticRegression_Bal	"{""C"": 1.0}"	0.47590073750338313	5
+hash	community_type	LogisticRegression_Bal	"{""C"": 10.0}"	0.5106755093734803	5

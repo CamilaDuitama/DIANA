@@ -1,0 +1,61 @@
+target	class	n_runs	n_bioprojects	evaluable	n_heldout_runs	n_heldout_bioprojects	evaluable_v9
+community_type	oral	1701	28	True	377	16	True
+community_type	skeletal tissue	214	7	True	178	6	True
+community_type	gut	88	8	True	52	5	True
+community_type	plant tissue	43	2	True	38	1	True
+community_type	soft tissue	27	2	True	8	2	True
+feature	lake	215	10	True	70	1	True
+feature	ocean	179	6	True	63	2	True
+feature	sea coast	52	1	False	12	1	True
+feature	midden	46	4	True	0	0	True
+feature	cave	34	1	False	98	3	True
+feature	swamp forest	29	1	False	0	0	False
+feature	shell	24	1	False	0	0	False
+feature	archeological site	17	3	True	0	0	True
+feature	thermokarst	10	1	False	9	1	True
+feature	rock shelter	2	1	False	11	1	True
+feature	hydrothermal field	0	0	False	15	1	False
+feature	wetland area	0	0	False	5	1	False
+material	dental calculus	1389	25	True	181	11	True
+material	tooth	399	8	True	145	7	True
+material	lake sediment	215	10	True	70	1	True
+material	marine sediment	143	4	True	63	2	True
+material	bone	127	4	True	143	4	True
+material	sediment	105	7	True	109	4	True
+material	permafrost	70	3	True	21	2	True
+material	palaeofaeces	61	6	True	14	2	True
+material	leaf	43	2	True	38	1	True
+material	shell	24	1	False	0	0	False
+material	digestive tract contents	16	1	False	15	1	True
+material	intestine	15	2	True	1	1	True
+material	midden	15	2	True	0	0	True
+material	unknown	11	1	False	0	0	False
+material	muscle tissue	4	1	False	2	1	True
+material	soil	2	1	False	20	1	True
+material	birch pitch	0	0	False	79	2	True
+material	latrine	0	0	False	8	1	False
+sample_host	Homo sapiens	1397	31	True	555	20	True
+sample_host	Ursus arctos	339	2	True	0	0	True
+sample_host	Gorilla beringei graueri	67	2	True	0	0	True
+sample_host	Gorilla gorilla gorilla	45	2	True	0	0	True
+sample_host	Arabidopsis thaliana	32	1	False	0	0	False
+sample_host	Rangifer tarandus	24	1	False	0	0	False
+sample_host	Gorilla beringei beringei	23	2	True	0	0	True
+sample_host	Gorilla beringei	20	1	False	0	0	False
+sample_host	Bison priscus	16	1	False	0	0	False
+sample_host	Homo sapiens neanderthalensis	16	1	False	18	2	True
+sample_host	Mammuthus primigenius	16	1	False	13	1	True
+sample_host	Canis lupus	12	3	True	9	1	True
+sample_host	Ambrosia artemisiifolia	11	1	False	38	1	True
+sample_host	Lithobates pipiens	11	1	False	0	0	False
+sample_host	Pan troglodytes schweinfurthii	11	1	False	19	1	True
+sample_host	Pan troglodytes verus	9	1	False	0	0	False
+sample_host	Pan troglodytes ellioti	8	1	False	0	0	False
+sample_host	Alouatta palliata	6	1	False	0	0	False
+sample_host	Papio hamadryas	5	1	False	0	0	False
+sample_host	Conepatus chinga	4	1	False	0	0	False
+sample_host	Gerbilliscus boehmi	4	1	False	0	0	False
+sample_host	Papio anubis	4	1	False	0	0	False
+sample_host	Strigocuscus celebensis	4	1	False	0	0	False
+sample_host	Papio sp.	1	1	False	0	0	False
+sample_host	Pan troglodytes	0	0	False	1	1	False

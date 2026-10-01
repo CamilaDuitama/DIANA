@@ -1,0 +1,96 @@
+set	model	project_bin	run_bin	n_classes	share_f1_ge_0_5	mean_f1
+dev-folds	DIANA single-task	1	20-100	2	0.0	0.40512820512820513
+dev-folds	DIANA single-task	1	<20	9	0.0	0.07534296958328736
+dev-folds	DIANA single-task	2	20-100	6	0.3333333333333333	0.40969389553684227
+dev-folds	DIANA single-task	2	<20	2	0.0	0.0
+dev-folds	DIANA single-task	2	>100	1	1.0	0.5454545454545454
+dev-folds	DIANA single-task	3-5	20-100	2	0.0	0.16308964900514195
+dev-folds	DIANA single-task	3-5	<20	2	0.0	0.0625
+dev-folds	DIANA single-task	3-5	>100	2	0.0	0.18865324706446202
+dev-folds	DIANA single-task	6+	20-100	2	0.5	0.5220692625500486
+dev-folds	DIANA single-task	6+	>100	9	0.7777777777777778	0.598189264350447
+dev-folds	LinearSVM_Bal	1	20-100	2	0.0	0.0
+dev-folds	LinearSVM_Bal	1	<20	9	0.0	0.0
+dev-folds	LinearSVM_Bal	2	20-100	6	0.3333333333333333	0.349505448796361
+dev-folds	LinearSVM_Bal	2	<20	2	0.0	0.0
+dev-folds	LinearSVM_Bal	2	>100	1	1.0	0.7508532423208191
+dev-folds	LinearSVM_Bal	3-5	20-100	2	0.0	0.26431041106415676
+dev-folds	LinearSVM_Bal	3-5	<20	2	0.0	0.03333333333333333
+dev-folds	LinearSVM_Bal	3-5	>100	2	0.5	0.35102314017976666
+dev-folds	LinearSVM_Bal	6+	20-100	2	1.0	0.5943922651933702
+dev-folds	LinearSVM_Bal	6+	>100	9	0.7777777777777778	0.6344981971689836
+dev-folds	LogisticRegression_Bal	1	20-100	2	0.0	0.0
+dev-folds	LogisticRegression_Bal	1	<20	9	0.0	0.0
+dev-folds	LogisticRegression_Bal	2	20-100	6	0.5	0.3981156969354969
+dev-folds	LogisticRegression_Bal	2	<20	2	0.0	0.0
+dev-folds	LogisticRegression_Bal	2	>100	1	1.0	0.6951871657754011
+dev-folds	LogisticRegression_Bal	3-5	20-100	2	0.0	0.20778884719886145
+dev-folds	LogisticRegression_Bal	3-5	<20	2	0.0	0.03333333333333333
+dev-folds	LogisticRegression_Bal	3-5	>100	2	0.5	0.3431186717212918
+dev-folds	LogisticRegression_Bal	6+	20-100	2	0.5	0.45774209609161065
+dev-folds	LogisticRegression_Bal	6+	>100	9	0.7777777777777778	0.6373163884518258
+dev-folds	RandomForest_Bal	1	20-100	2	0.0	0.0
+dev-folds	RandomForest_Bal	1	<20	9	0.0	0.0
+dev-folds	RandomForest_Bal	2	20-100	6	0.5	0.38276024174421736
+dev-folds	RandomForest_Bal	2	<20	2	0.0	0.0
+dev-folds	RandomForest_Bal	2	>100	1	1.0	0.7892976588628763
+dev-folds	RandomForest_Bal	3-5	20-100	2	0.0	0.07142857142857142
+dev-folds	RandomForest_Bal	3-5	<20	2	0.0	0.0
+dev-folds	RandomForest_Bal	3-5	>100	2	0.0	0.22762015805156108
+dev-folds	RandomForest_Bal	6+	20-100	2	0.5	0.6857204254861932
+dev-folds	RandomForest_Bal	6+	>100	9	0.7777777777777778	0.622863986340542
+dev-folds	kNN	1	20-100	2	0.0	0.0
+dev-folds	kNN	1	<20	9	0.0	0.0
+dev-folds	kNN	2	20-100	6	0.5	0.3634458833738167
+dev-folds	kNN	2	<20	2	0.0	0.0
+dev-folds	kNN	2	>100	1	1.0	0.5708502024291497
+dev-folds	kNN	3-5	20-100	2	0.0	0.056074766355140186
+dev-folds	kNN	3-5	<20	2	0.0	0.041666666666666664
+dev-folds	kNN	3-5	>100	2	0.5	0.33270267375861207
+dev-folds	kNN	6+	20-100	2	0.5	0.5810386517016132
+dev-folds	kNN	6+	>100	9	0.7777777777777778	0.6021819805981811
+held-out read 9	DIANA single-task	1	20-100	2	0.0	0.10619469026548672
+held-out read 9	DIANA single-task	1	<20	9	0.2222222222222222	0.19892823226156559
+held-out read 9	DIANA single-task	2	20-100	3	0.6666666666666666	0.6495639943741209
+held-out read 9	DIANA single-task	2	<20	1	0.0	0.0
+held-out read 9	DIANA single-task	3-5	20-100	1	0.0	0.42105263157894735
+held-out read 9	DIANA single-task	3-5	<20	1	0.0	0.42857142857142855
+held-out read 9	DIANA single-task	3-5	>100	2	0.5	0.42545755541248964
+held-out read 9	DIANA single-task	6+	20-100	2	0.5	0.42328190743338007
+held-out read 9	DIANA single-task	6+	>100	9	1.0	0.7317233452811213
+held-out read 9	LinearSVM_Bal	1	20-100	2	0.0	0.22660098522167488
+held-out read 9	LinearSVM_Bal	1	<20	9	0.2222222222222222	0.29520675274099933
+held-out read 9	LinearSVM_Bal	2	20-100	3	0.6666666666666666	0.6540084388185654
+held-out read 9	LinearSVM_Bal	2	<20	1	0.0	0.0
+held-out read 9	LinearSVM_Bal	3-5	20-100	1	1.0	0.7555555555555555
+held-out read 9	LinearSVM_Bal	3-5	<20	1	0.0	0.0
+held-out read 9	LinearSVM_Bal	3-5	>100	2	0.5	0.5568181818181819
+held-out read 9	LinearSVM_Bal	6+	20-100	2	1.0	0.5202702702702703
+held-out read 9	LinearSVM_Bal	6+	>100	9	0.8888888888888888	0.7540127123791535
+held-out read 9	LogisticRegression_Bal	1	20-100	2	0.0	0.125
+held-out read 9	LogisticRegression_Bal	1	<20	9	0.3333333333333333	0.27094318595019856
+held-out read 9	LogisticRegression_Bal	2	20-100	3	0.6666666666666666	0.6581196581196581
+held-out read 9	LogisticRegression_Bal	2	<20	1	0.0	0.0
+held-out read 9	LogisticRegression_Bal	3-5	20-100	1	1.0	0.5405405405405406
+held-out read 9	LogisticRegression_Bal	3-5	<20	1	0.0	0.0
+held-out read 9	LogisticRegression_Bal	3-5	>100	2	1.0	0.6029674530115576
+held-out read 9	LogisticRegression_Bal	6+	20-100	2	0.5	0.4714912280701754
+held-out read 9	LogisticRegression_Bal	6+	>100	9	1.0	0.7542029993549795
+held-out read 9	RandomForest_Bal	1	20-100	2	0.0	0.12173913043478261
+held-out read 9	RandomForest_Bal	1	<20	9	0.3333333333333333	0.27632684850644496
+held-out read 9	RandomForest_Bal	2	20-100	3	0.6666666666666666	0.6623376623376623
+held-out read 9	RandomForest_Bal	2	<20	1	0.0	0.0
+held-out read 9	RandomForest_Bal	3-5	20-100	1	1.0	0.8292682926829268
+held-out read 9	RandomForest_Bal	3-5	<20	1	0.0	0.2
+held-out read 9	RandomForest_Bal	3-5	>100	2	0.0	0.27744052502050864
+held-out read 9	RandomForest_Bal	6+	20-100	2	0.0	0.4
+held-out read 9	RandomForest_Bal	6+	>100	9	0.7777777777777778	0.590679547347932
+held-out read 9	kNN	1	20-100	2	0.0	0.1271186440677966
+held-out read 9	kNN	1	<20	9	0.2222222222222222	0.2867985409652076
+held-out read 9	kNN	2	20-100	3	0.6666666666666666	0.7000000000000001
+held-out read 9	kNN	2	<20	1	0.0	0.0
+held-out read 9	kNN	3-5	20-100	1	1.0	0.6470588235294118
+held-out read 9	kNN	3-5	<20	1	0.0	0.3076923076923077
+held-out read 9	kNN	3-5	>100	2	0.5	0.5176539469999746
+held-out read 9	kNN	6+	20-100	2	0.0	0.4045864045864046
+held-out read 9	kNN	6+	>100	9	0.6666666666666666	0.5896730979121321

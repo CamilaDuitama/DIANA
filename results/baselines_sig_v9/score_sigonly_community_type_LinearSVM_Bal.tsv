@@ -1,0 +1,5 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+sigonly	community_type	LinearSVM_Bal	"{""C"": 0.001}"	0.2956709406419172	5
+sigonly	community_type	LinearSVM_Bal	"{""C"": 0.01}"	0.43210449975919635	5
+sigonly	community_type	LinearSVM_Bal	"{""C"": 0.1}"	0.46644855292969156	5
+sigonly	community_type	LinearSVM_Bal	"{""C"": 1.0}"	0.48762730537082594	5

@@ -1,0 +1,13 @@
+task	regime	classes	train_runs	heldout_runs
+community_type	many-shot	2	1915	555
+community_type	medium-shot	3	158	98
+feature	few-shot	3	29	20
+feature	many-shot	2	394	133
+feature	medium-shot	3	132	110
+material	few-shot	5	52	38
+material	many-shot	6	2378	711
+material	medium-shot	3	174	73
+material	no training runs	1	0	79
+sample_host	few-shot	5	66	97
+sample_host	many-shot	2	1736	555
+sample_host	medium-shot	3	135	0

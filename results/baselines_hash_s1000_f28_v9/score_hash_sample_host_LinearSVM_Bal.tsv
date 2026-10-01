@@ -1,0 +1,5 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+hash	sample_host	LinearSVM_Bal	"{""C"": 0.001}"	0.7221136855819503	5
+hash	sample_host	LinearSVM_Bal	"{""C"": 0.01}"	0.7325383674463612	5
+hash	sample_host	LinearSVM_Bal	"{""C"": 0.1}"	0.7171979651832051	5
+hash	sample_host	LinearSVM_Bal	"{""C"": 1.0}"	0.7184112894554278	5

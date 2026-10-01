@@ -55,6 +55,7 @@ def mcc_ci(y_true, y_pred, groups, n_boot: int, seed: int) -> tuple[float, float
 
 
 def main() -> int:
+    global SPLITS
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--n-boot", type=int, default=1000)
@@ -65,10 +66,12 @@ def main() -> int:
     # touching the read-1 outputs. The budget arms are written as heldout_<task>.
     ap.add_argument("--eval-dir", type=Path, default=PROJECT_ROOT / "results/final_eval_v9")
     ap.add_argument("--single-pattern", default="heldout_single_{task}")
+    ap.add_argument("--splits", type=Path, default=SPLITS, help="split directory; v13 = data/splits_v13")
+    ap.add_argument("--baselines", type=Path, default=PROJECT_ROOT / "results/baseline_predictions_v9/heldout_predictions.tsv")
     args = ap.parse_args()
+    SPLITS = args.splits
 
-    base = pd.read_csv(PROJECT_ROOT / "results/baseline_predictions_v9/heldout_predictions.tsv",
-                       sep="\t")
+    base = pd.read_csv(args.baselines, sep="\t")
     rows = []
     for task in TASKS:
         bt = base[base.task == task]

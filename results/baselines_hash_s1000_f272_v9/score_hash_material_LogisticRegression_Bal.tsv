@@ -1,0 +1,5 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+hash	material	LogisticRegression_Bal	"{""C"": 0.01}"	0.2904869633164354	5
+hash	material	LogisticRegression_Bal	"{""C"": 0.1}"	0.3281559794554064	5
+hash	material	LogisticRegression_Bal	"{""C"": 1.0}"	0.33601151080376646	5
+hash	material	LogisticRegression_Bal	"{""C"": 10.0}"	0.3450494940630104	5

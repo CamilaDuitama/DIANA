@@ -1,0 +1,2717 @@
+Run_accession	fold	feature_pred	feature_true
+ERR13950600	0	lake	lake
+ERR13950601	0	lake	lake
+ERR13950606	0	lake	lake
+ERR13950607	0	lake	lake
+ERR13950608	0	lake	lake
+ERR13950609	0	lake	lake
+ERR13950611	0	lake	lake
+ERR13950612	0	lake	lake
+ERR13950613	0	lake	lake
+ERR13950614	0	lake	lake
+ERR13950615	0	lake	lake
+ERR13950620	0	lake	lake
+ERR13950621	0	lake	lake
+ERR13950622	0	lake	lake
+ERR13950623	0	lake	lake
+ERR13950624	0	lake	lake
+ERR13950625	0	lake	lake
+ERR13950627	0	lake	lake
+ERR13950628	0	lake	lake
+ERR13950629	0	lake	lake
+ERR13950630	0	lake	lake
+ERR13950631	0	lake	lake
+ERR13950632	0	lake	lake
+ERR13950633	0	lake	lake
+ERR13950634	0	lake	lake
+ERR13950635	0	lake	lake
+ERR13950637	0	lake	lake
+ERR13950638	0	lake	lake
+ERR13950639	0	lake	lake
+ERR13950640	0	lake	lake
+ERR13950641	0	lake	lake
+ERR13950642	0	lake	lake
+ERR13950643	0	lake	lake
+ERR13950644	0	lake	lake
+ERR13950646	0	lake	lake
+ERR13950647	0	lake	lake
+ERR13950648	0	lake	lake
+ERR13950649	0	lake	lake
+ERR13950650	0	lake	lake
+ERR13950653	0	lake	lake
+ERR13950654	0	lake	lake
+ERR13950655	0	lake	lake
+ERR13950658	0	lake	lake
+ERR13950659	0	lake	lake
+ERR13950660	0	lake	lake
+ERR13950661	0	lake	lake
+ERR13950662	0	lake	lake
+ERR13950663	0	lake	lake
+ERR13950664	0	lake	lake
+ERR13950665	0	lake	lake
+ERR13950666	0	lake	lake
+ERR13950667	0	lake	lake
+ERR13950668	0	lake	lake
+ERR13950669	0	lake	lake
+ERR13950670	0	lake	lake
+ERR13950671	0	lake	lake
+ERR13950673	0	lake	lake
+ERR13950674	0	lake	lake
+ERR3579671	0	ocean	
+ERR3579672	0	midden	
+ERR3579673	0	midden	
+ERR3579674	0	midden	
+ERR3579675	0	midden	
+ERR3579676	0	archeological site	
+ERR3579677	0	midden	
+ERR3579678	0	midden	
+ERR3579680	0	ocean	
+ERR3579681	0	archeological site	
+ERR3579682	0	archeological site	
+ERR3579683	0	archeological site	
+ERR3579685	0	archeological site	
+ERR3579687	0	archeological site	
+ERR3579688	0	midden	
+ERR3579699	0	midden	
+ERR3579700	0	midden	
+ERR3579701	0	midden	
+ERR3579702	0	midden	
+ERR3579703	0	midden	
+ERR3579704	0	ocean	
+ERR3579705	0	archeological site	
+ERR3579706	0	archeological site	
+ERR3579707	0	midden	
+ERR3579708	0	midden	
+ERR3579709	0	midden	
+ERR3579710	0	midden	
+ERR3579711	0	midden	
+ERR3579712	0	midden	
+ERR3579713	0	midden	
+ERR3579714	0	midden	
+ERR3579715	0	midden	
+ERR3579716	0	midden	
+ERR3579719	0	ocean	
+ERR3579720	0	lake	
+ERR3579721	0	midden	
+ERR3579722	0	midden	
+ERR3579723	0	midden	
+ERR3579726	0	midden	
+ERR3579727	0	midden	
+ERR3579728	0	midden	
+ERR3579729	0	midden	
+ERR3579730	0	midden	
+ERR3579731	0	midden	
+ERR3579732	0	midden	
+ERR3579733	0	midden	
+ERR3579734	0	midden	
+ERR3579735	0	midden	
+ERR3579738	0	midden	
+ERR3579740	0	midden	
+ERR3579741	0	midden	
+ERR3579742	0	midden	
+ERR3579743	0	ocean	
+ERR3579744	0	archeological site	
+ERR3579745	0	midden	
+ERR3579746	0	midden	
+ERR3579747	0	midden	
+ERR3579748	0	midden	
+ERR3579749	0	midden	
+ERR3579750	0	archeological site	
+ERR3579751	0	midden	
+ERR3579752	0	midden	
+ERR3579753	0	midden	
+ERR3579754	0	lake	
+ERR3579755	0	ocean	
+ERR3579756	0	archeological site	
+ERR3579757	0	archeological site	
+ERR3579758	0	archeological site	
+ERR3579759	0	midden	
+ERR3579760	0	midden	
+ERR3579761	0	midden	
+ERR3579762	0	midden	
+ERR3579763	0	midden	
+ERR3579764	0	midden	
+ERR3579765	0	midden	
+ERR3579766	0	midden	
+ERR3579767	0	midden	
+ERR3579768	0	midden	
+ERR3579774	0	midden	
+ERR3579775	0	midden	
+ERR3579776	0	archeological site	
+ERR3579777	0	archeological site	
+ERR3579779	0	archeological site	
+ERR3579781	0	ocean	
+ERR3579782	0	ocean	
+ERR3579783	0	midden	
+ERR3579784	0	midden	
+ERR3579785	0	midden	
+ERR3579786	0	midden	
+ERR3579787	0	midden	
+ERR3579788	0	midden	
+ERR3579789	0	midden	
+ERR3579790	0	midden	
+ERR3579791	0	midden	
+ERR3579792	0	ocean	
+ERR3579793	0	midden	
+ERR3579796	0	ocean	
+ERR3579797	0	ocean	
+ERR3579798	0	ocean	
+ERR3579799	0	ocean	
+ERR3579800	0	midden	
+ERR3579801	0	midden	
+ERR3579802	0	midden	
+ERR3579803	0	midden	
+ERR3579804	0	midden	
+ERR3579805	0	midden	
+ERR3579806	0	midden	
+ERR3579807	0	ocean	
+ERR3579809	0	midden	
+ERR3579810	0	midden	
+ERR3579811	0	ocean	
+ERR3579812	0	midden	
+ERR3579813	0	midden	
+ERR3579814	0	midden	
+ERR3579815	0	ocean	
+ERR3579816	0	midden	
+ERR3579817	0	midden	
+ERR3579818	0	midden	
+ERR3579827	0	midden	
+ERR3579828	0	archeological site	
+ERR3579829	0	archeological site	
+ERR3579830	0	midden	
+ERR3678173	0	midden	
+ERR3678174	0	midden	
+ERR3678175	0	archeological site	
+ERR3678176	0	midden	
+ERR3678177	0	midden	
+ERR3678179	0	ocean	
+ERR3678180	0	archeological site	
+ERR3678181	0	ocean	
+ERR3678182	0	ocean	
+ERR3678184	0	archeological site	
+ERR3678186	0	ocean	
+ERR3678187	0	midden	
+ERR3678595	0	midden	
+ERR3678596	0	midden	
+ERR3678598	0	midden	
+ERR3678599	0	midden	
+ERR3678600	0	midden	
+ERR3678602	0	midden	
+ERR3678603	0	midden	
+ERR3678604	0	midden	
+ERR3678605	0	midden	
+ERR3678606	0	midden	
+ERR3678607	0	midden	
+ERR3678609	0	midden	
+ERR3678610	0	lake	
+ERR3678611	0	midden	
+ERR3678612	0	midden	
+ERR3678613	0	midden	
+ERR3678614	0	midden	
+ERR3678615	0	midden	
+ERR3678616	0	midden	
+ERR3678617	0	midden	
+ERR3678618	0	midden	
+ERR3678619	0	midden	
+ERR3678620	0	midden	
+ERR3678622	0	midden	
+ERR3678623	0	midden	
+ERR3678625	0	midden	
+ERR3678626	0	midden	
+ERR3678627	0	midden	
+ERR3678628	0	midden	
+ERR3678629	0	midden	
+ERR3678727	0	midden	
+ERR3906046	0	ocean	
+ERR4334735	0	lake	lake
+ERR4334736	0	lake	lake
+ERR4426516	0	archeological site	
+ERR4426517	0	ocean	
+ERR4426518	0	lake	
+ERR4426519	0	ocean	
+ERR4426520	0	lake	
+ERR4426521	0	lake	
+ERR4426522	0	archeological site	
+ERR4426523	0	lake	
+ERR4426524	0	lake	
+ERR4426525	0	lake	
+ERR4426526	0	lake	
+ERR4426527	0	lake	
+ERR4426529	0	lake	
+ERR4426530	0	lake	
+ERR4426531	0	lake	
+ERR4426532	0	lake	
+ERR4426533	0	lake	
+ERR4426534	0	lake	
+ERR4426535	0	archeological site	
+ERR4426536	0	lake	
+ERR4426537	0	lake	
+ERR4426538	0	lake	
+ERR4426539	0	archeological site	
+ERR4426540	0	lake	
+ERR4426541	0	lake	
+ERR4426542	0	lake	
+ERR4426543	0	archeological site	
+ERR4426545	0	lake	
+ERR4426546	0	lake	
+ERR4426547	0	archeological site	
+ERR4426548	0	lake	
+ERR4426549	0	archeological site	
+ERR4426550	0	lake	
+ERR4426552	0	ocean	
+ERR5863536	0	archeological site	
+ERR6093854	0	ocean	
+ERR6093855	0	ocean	
+ERR6093856	0	ocean	
+ERR6093857	0	ocean	
+ERR6093858	0	ocean	
+ERR6093859	0	ocean	
+ERR6093860	0	ocean	
+ERR6093861	0	ocean	
+ERR6093862	0	ocean	
+ERR6093863	0	ocean	
+ERR6093864	0	ocean	
+ERR6093865	0	ocean	
+ERR6093866	0	ocean	
+ERR6093867	0	ocean	
+ERR6093868	0	ocean	
+ERR6093869	0	ocean	
+ERR6093870	0	ocean	
+ERR6093871	0	ocean	
+ERR6093872	0	ocean	
+ERR6093874	0	ocean	
+ERR6093875	0	ocean	
+ERR6093876	0	ocean	
+ERR6093877	0	ocean	
+ERR6093878	0	ocean	
+ERR6093879	0	ocean	
+ERR6093880	0	ocean	
+ERR6093881	0	ocean	
+ERR6093882	0	ocean	
+ERR6093883	0	ocean	
+ERR6093885	0	lake	
+ERR6093886	0	lake	
+ERR6093887	0	ocean	
+ERR6093888	0	lake	
+ERR6093889	0	lake	
+ERR6093890	0	lake	
+ERR6093891	0	lake	
+ERR6093893	0	ocean	
+ERR6093894	0	ocean	
+ERR6093896	0	ocean	
+ERR6093897	0	ocean	
+ERR6093899	0	ocean	
+ERR6093900	0	ocean	
+ERR6093901	0	ocean	
+ERR6093902	0	ocean	
+ERR6093903	0	ocean	
+ERR6093904	0	ocean	
+ERR6093905	0	ocean	
+ERR6093906	0	ocean	
+ERR6093907	0	ocean	
+ERR6093908	0	ocean	
+ERR6093909	0	ocean	
+ERR6093910	0	ocean	
+ERR6093912	0	ocean	
+ERR6093913	0	ocean	
+ERR6093914	0	ocean	
+ERR6093916	0	ocean	
+ERR6093917	0	ocean	
+ERR6093919	0	ocean	
+ERR6093920	0	ocean	
+ERR6093921	0	ocean	
+ERR6093922	0	ocean	
+ERR6093923	0	ocean	
+ERR6093924	0	ocean	
+ERR6093926	0	ocean	
+ERR6093927	0	ocean	
+ERR6093928	0	ocean	
+ERR6093929	0	ocean	
+ERR6093930	0	ocean	
+ERR6093931	0	ocean	
+ERR6093932	0	ocean	
+ERR6093934	0	ocean	
+ERR6093935	0	ocean	
+ERR6093936	0	ocean	
+ERR6093937	0	ocean	
+ERR6093938	0	ocean	
+ERR6093939	0	ocean	
+ERR6093941	0	ocean	
+ERR6093942	0	ocean	
+ERR6093943	0	ocean	
+ERR6093945	0	ocean	
+ERR6093946	0	ocean	
+ERR6093947	0	ocean	
+ERR6093948	0	ocean	
+ERR6093949	0	ocean	
+ERR6093950	0	ocean	
+ERR6093951	0	ocean	
+ERR6093952	0	ocean	
+ERR6093953	0	ocean	
+ERR6093954	0	ocean	
+ERR6093955	0	ocean	
+ERR6093956	0	ocean	
+ERR6093957	0	ocean	
+ERR6093958	0	ocean	
+ERR6093959	0	ocean	
+ERR6093960	0	ocean	
+ERR6093961	0	ocean	
+ERR6093963	0	ocean	
+ERR6093964	0	ocean	
+ERR6093965	0	ocean	
+ERR6093966	0	ocean	
+ERR6093967	0	ocean	
+ERR6093968	0	ocean	
+ERR6093969	0	ocean	
+ERR6093970	0	ocean	
+ERR6093972	0	ocean	
+ERR6096533	0	ocean	
+ERR6096535	0	ocean	
+ERR6096536	0	ocean	
+ERR6096537	0	ocean	
+ERR6096538	0	ocean	
+ERR6096539	0	lake	
+ERR6096540	0	lake	
+ERR6096541	0	ocean	
+ERR6096542	0	ocean	
+ERR6096543	0	ocean	
+ERR6096544	0	ocean	
+ERR6096545	0	archeological site	
+ERR6096547	0	archeological site	
+ERR6096548	0	archeological site	
+ERR6096549	0	archeological site	
+ERR6096550	0	ocean	
+ERR6096551	0	ocean	
+ERR6096552	0	ocean	
+ERR6096554	0	ocean	
+ERR6096555	0	ocean	
+ERR6096557	0	ocean	
+ERR6096570	0	ocean	
+ERR6096574	0	ocean	
+ERR6096575	0	ocean	
+ERR6096576	0	ocean	
+ERR6096579	0	ocean	
+ERR6096580	0	ocean	
+ERR6096581	0	ocean	
+ERR6096582	0	ocean	
+ERR6096739	0	ocean	
+ERR6096740	0	ocean	
+ERR6096741	0	ocean	
+ERR6096742	0	ocean	
+ERR6096743	0	ocean	
+ERR6096744	0	ocean	
+ERR6096745	0	ocean	
+ERR6096746	0	ocean	
+ERR6096747	0	ocean	
+ERR6096748	0	ocean	
+ERR6096749	0	ocean	
+ERR6096752	0	ocean	
+ERR6096755	0	ocean	
+ERR6096759	0	ocean	
+ERR6096760	0	ocean	
+ERR6096762	0	ocean	
+ERR6096764	0	ocean	
+ERR6096766	0	ocean	
+ERR6096776	0	ocean	
+ERR6096784	0	ocean	
+ERR6096796	0	ocean	
+ERR6096814	0	ocean	
+ERR6096818	0	ocean	
+ERR6096822	0	ocean	
+ERR6096826	0	ocean	
+ERR6096829	0	ocean	
+ERR6096835	0	ocean	
+ERR6096842	0	ocean	
+ERR6096847	0	ocean	
+ERR6096853	0	ocean	
+ERR6096886	0	archeological site	
+ERR6096922	0	archeological site	
+ERR6096923	0	archeological site	
+ERR6096924	0	archeological site	
+ERR6096925	0	ocean	
+ERR6096926	0	ocean	
+ERR6096927	0	ocean	
+ERR6096928	0	ocean	
+ERR6096929	0	ocean	
+ERR6096930	0	ocean	
+ERR6096931	0	ocean	
+ERR6096932	0	ocean	
+ERR6096933	0	ocean	
+ERR6096934	0	ocean	
+ERR6096935	0	ocean	
+ERR6096937	0	ocean	
+ERR6096955	0	lake	
+ERR6097155	0	lake	
+ERR6097156	0	lake	
+ERR6097514	0	lake	
+ERR6097549	0	ocean	
+ERR6097552	0	ocean	
+ERR6097573	0	ocean	
+ERR6097575	0	ocean	
+ERR6097576	0	ocean	
+ERR6097577	0	ocean	
+ERR6097579	0	ocean	
+ERR6097580	0	ocean	
+ERR6097581	0	lake	
+ERR6097583	0	lake	
+ERR6097619	0	lake	
+ERR6097621	0	lake	
+ERR6097622	0	ocean	
+ERR6097623	0	ocean	
+ERR6097625	0	ocean	
+ERR6097626	0	ocean	
+ERR6097627	0	ocean	
+ERR6097628	0	ocean	
+ERR6097629	0	ocean	
+ERR6097630	0	ocean	
+ERR6097759	0	archeological site	
+ERR6098066	0	archeological site	
+ERR6098349	0	archeological site	
+ERR6098517	0	ocean	
+ERR6098519	0	ocean	
+ERR6098520	0	ocean	
+ERR6098552	0	ocean	
+ERR6098553	0	ocean	
+ERR6098554	0	ocean	
+ERR6098555	0	ocean	
+ERR6098556	0	ocean	
+ERR6098557	0	ocean	
+ERR6098559	0	ocean	
+ERR6098560	0	ocean	
+ERR6098730	0	ocean	
+ERR6098929	0	ocean	
+ERR6098930	0	lake	
+ERR6098932	0	ocean	
+ERR6098934	0	ocean	
+ERR6098936	0	ocean	
+ERR6098937	0	ocean	
+ERR6098938	0	ocean	
+ERR6098939	0	ocean	
+ERR6098940	0	ocean	
+ERR6098982	0	ocean	
+ERR6098983	0	ocean	
+ERR6098984	0	ocean	
+ERR6098985	0	ocean	
+ERR6098990	0	ocean	
+ERR6099166	0	ocean	
+ERR6099349	0	ocean	
+ERR6099809	0	ocean	
+ERR6099810	0	ocean	
+ERR6099811	0	ocean	
+ERR6099812	0	ocean	
+ERR6099813	0	ocean	
+ERR6099814	0	ocean	
+ERR6099815	0	ocean	
+ERR6099816	0	ocean	
+ERR6099817	0	ocean	
+ERR6099818	0	ocean	
+ERR6099824	0	ocean	
+ERR6099825	0	ocean	
+ERR6099826	0	ocean	
+ERR6101230	0	archeological site	
+ERR6108965	0	archeological site	
+ERR6108966	0	archeological site	
+ERR6108967	0	archeological site	
+ERR6108968	0	ocean	
+ERR6108969	0	lake	
+ERR6108970	0	ocean	
+ERR6108971	0	lake	
+ERR6108972	0	ocean	
+ERR6108973	0	ocean	
+ERR6108974	0	ocean	
+ERR6108975	0	ocean	
+ERR6108976	0	ocean	
+ERR6108977	0	ocean	
+ERR6108978	0	ocean	
+ERR6108979	0	ocean	
+ERR6108980	0	archeological site	
+ERR6108981	0	archeological site	
+ERR6108982	0	archeological site	
+ERR6108983	0	archeological site	
+ERR6108984	0	ocean	
+ERR6108985	0	ocean	
+ERR6108986	0	ocean	
+ERR6108987	0	ocean	
+ERR6108988	0	ocean	
+ERR6108989	0	ocean	
+ERR6108990	0	ocean	
+ERR6108991	0	ocean	
+ERR6108992	0	ocean	
+ERR6108993	0	ocean	
+ERR6108994	0	ocean	
+ERR6108995	0	ocean	
+ERR6108996	0	ocean	
+ERR6108997	0	ocean	
+ERR6108998	0	ocean	
+ERR6109000	0	ocean	
+ERR6109001	0	ocean	
+ERR6109002	0	ocean	
+ERR6109003	0	ocean	
+ERR6109004	0	ocean	
+ERR6109005	0	ocean	
+ERR6109010	0	ocean	
+ERR6109011	0	ocean	
+ERR6109012	0	ocean	
+ERR6109013	0	ocean	
+ERR6109014	0	ocean	
+ERR6109015	0	ocean	
+ERR6109016	0	ocean	
+ERR6109017	0	ocean	
+ERR6109019	0	ocean	
+ERR6109020	0	ocean	
+ERR6109021	0	ocean	
+ERR6109022	0	ocean	
+ERR6109023	0	ocean	
+ERR6109024	0	ocean	
+ERR6109025	0	ocean	
+ERR6109027	0	ocean	
+ERR6109028	0	ocean	
+ERR6109049	0	ocean	
+ERR6109050	0	ocean	
+ERR6109051	0	ocean	
+ERR6109053	0	ocean	
+ERR6109054	0	ocean	
+ERR6109055	0	ocean	
+ERR6109056	0	ocean	
+ERR6109057	0	ocean	
+ERR6109058	0	ocean	
+ERR6109059	0	ocean	
+ERR8050978	0	midden	
+SRR1047998	0	lake	
+SRR17604731	0	midden	
+SRR17604732	0	midden	
+SRR17604735	0	midden	
+SRR17604736	0	midden	
+SRR17604737	0	midden	
+SRR17604738	0	midden	
+SRR17604739	0	midden	
+SRR17604740	0	midden	
+SRR17604741	0	midden	
+SRR17604742	0	midden	
+SRR17604743	0	midden	
+SRR17604744	0	midden	
+SRR17604745	0	midden	
+SRR17604746	0	midden	
+SRR17604747	0	midden	
+SRR17604748	0	midden	
+SRR17604749	0	midden	
+SRR17604750	0	midden	
+SRR17604751	0	midden	
+SRR17604752	0	midden	
+SRR17604753	0	midden	
+SRR17604754	0	lake	
+SRR17604755	0	midden	
+SRR17604756	0	midden	
+SRR17604757	0	midden	
+SRR17604758	0	midden	
+SRR17604759	0	midden	
+SRR17604760	0	midden	
+SRR17604761	0	midden	
+SRR17604762	0	midden	
+SRR17604763	0	midden	
+SRR17604764	0	midden	
+SRR17604765	0	midden	
+SRR17604766	0	midden	
+SRR17604767	0	midden	
+SRR17604768	0	midden	
+SRR17604769	0	midden	
+SRR17604770	0	midden	
+SRR17604771	0	midden	
+SRR17604772	0	midden	
+SRR17604773	0	midden	
+SRR17604774	0	midden	
+SRR17604775	0	midden	
+SRR17604776	0	midden	
+SRR17604777	0	midden	
+SRR17604778	0	midden	
+SRR17604779	0	midden	
+SRR17604780	0	midden	
+SRR17604781	0	midden	
+SRR17604782	0	midden	
+SRR17604783	0	ocean	
+SRR17604784	0	midden	
+SRR17604785	0	midden	
+SRR17604786	0	midden	
+SRR17604787	0	midden	
+SRR17604788	0	midden	
+SRR17604789	0	midden	
+SRR17604790	0	midden	
+SRR17604791	0	midden	
+SRR17604792	0	midden	
+SRR17604793	0	midden	
+SRR17604794	0	midden	
+SRR17604795	0	midden	
+SRR17604796	0	midden	
+SRR17604797	0	midden	
+SRR17604798	0	midden	
+SRR17604799	0	midden	
+SRR17604800	0	midden	
+SRR17604801	0	midden	
+SRR17604802	0	lake	
+SRR17604803	0	midden	
+SRR17604804	0	midden	
+SRR17604805	0	midden	
+SRR17604806	0	midden	
+SRR17604807	0	midden	
+SRR17604808	0	midden	
+SRR2229974	0	lake	
+SRR2229975	0	ocean	
+SRR2229976	0	lake	
+SRR2229977	0	ocean	
+SRR6933819	0	lake	
+SRR6933820	0	lake	
+SRR6933821	0	lake	
+SRR6933822	0	ocean	
+SRR6933823	0	ocean	
+SRR6933824	0	ocean	
+SRR6933825	0	ocean	
+SRR6933826	0	lake	
+SRR6974014	0	lake	
+SRR6974015	0	ocean	
+SRR6974016	0	ocean	
+SRR6974017	0	ocean	
+ERR3761400	1	midden	midden
+ERR3761401	1	lake	midden
+ERR3761402	1	lake	archeological site
+ERR3761403	1	lake	midden
+ERR3761404	1	lake	archeological site
+ERR3761405	1	lake	midden
+ERR3761406	1	lake	archeological site
+ERR3761407	1	midden	
+ERR3761408	1	ocean	
+ERR3761409	1	ocean	
+ERR3761410	1	midden	
+ERR3761411	1	ocean	
+ERR3761412	1	midden	
+ERR3761413	1	midden	
+ERR6430820	1	ocean	ocean
+ERR6430821	1	lake	ocean
+ERR6430822	1	lake	ocean
+ERR6430823	1	lake	ocean
+ERR6430825	1	ocean	ocean
+ERR6430828	1	lake	ocean
+ERR6430830	1	lake	ocean
+ERR6430831	1	lake	ocean
+ERR6430832	1	lake	ocean
+ERR6430833	1	lake	ocean
+ERR6430834	1	ocean	ocean
+ERR6430836	1	ocean	ocean
+ERR6430838	1	ocean	ocean
+ERR6430839	1	lake	ocean
+ERR6430840	1	lake	ocean
+ERR6430841	1	lake	ocean
+ERR6430842	1	lake	ocean
+ERR6430843	1	lake	ocean
+ERR6430845	1	lake	ocean
+ERR6430846	1	ocean	ocean
+ERR6430847	1	lake	ocean
+ERR6430848	1	lake	ocean
+ERR6430849	1	lake	ocean
+ERR6430850	1	lake	ocean
+ERR6430851	1	lake	ocean
+ERR6589621	1	ocean	
+ERR6589622	1	ocean	
+ERR6589623	1	ocean	
+ERR6589624	1	ocean	
+ERR6589625	1	ocean	
+ERR6589626	1	ocean	
+ERR6589627	1	ocean	
+ERR6589628	1	ocean	
+ERR6589629	1	ocean	
+ERR6589630	1	ocean	
+ERR7919459	1	ocean	
+ERR7919460	1	archeological site	
+ERR7919462	1	ocean	
+ERR7919463	1	ocean	
+ERR7919464	1	lake	
+ERR7919465	1	lake	
+ERR7919466	1	midden	
+ERR7919467	1	archeological site	
+ERR7919468	1	midden	
+ERR7919469	1	lake	
+ERR7919470	1	midden	
+ERR7919471	1	lake	
+ERR7919472	1	midden	
+ERR7919473	1	midden	
+ERR7919474	1	midden	
+ERR7919475	1	midden	
+ERR7919476	1	midden	
+ERR7919477	1	archeological site	
+ERR7919478	1	midden	
+ERR7919479	1	archeological site	
+ERR7919480	1	midden	
+ERR7919481	1	ocean	
+ERR7919482	1	midden	
+ERR7919483	1	ocean	
+ERR7919484	1	lake	
+ERR7919485	1	ocean	
+ERR7919486	1	ocean	
+ERR7919487	1	midden	
+ERR7919488	1	midden	
+ERR7919489	1	midden	
+ERR7919490	1	midden	
+ERR7919491	1	archeological site	
+ERR7919492	1	lake	
+ERR7919493	1	ocean	
+ERR7919494	1	midden	
+ERR7919495	1	midden	
+ERR7919496	1	lake	
+ERR7919497	1	ocean	
+ERR7919498	1	ocean	
+ERR7919499	1	lake	
+ERR7919500	1	archeological site	
+ERR7919501	1	lake	
+ERR7919502	1	midden	
+ERR7919503	1	midden	
+ERR7919504	1	ocean	
+ERR7919505	1	archeological site	
+ERR7919506	1	archeological site	
+ERR7919507	1	ocean	
+ERR7919508	1	midden	
+ERR7919509	1	lake	
+ERR7919510	1	midden	
+ERR7919511	1	midden	
+ERR7919512	1	lake	
+ERR7919513	1	midden	
+ERR7919514	1	archeological site	
+ERR7919515	1	midden	
+ERR7919516	1	midden	
+ERR7919517	1	lake	
+ERR7919518	1	archeological site	
+ERR7919519	1	ocean	
+ERR7919520	1	midden	
+ERR7919521	1	archeological site	
+ERR7919522	1	midden	
+ERR7919523	1	ocean	
+ERR7919524	1	lake	
+ERR7919525	1	archeological site	
+ERR7919526	1	ocean	
+ERR7919527	1	midden	
+ERR7919528	1	midden	
+ERR7919529	1	archeological site	
+ERR7919530	1	archeological site	
+ERR7919531	1	midden	
+ERR7919532	1	ocean	
+ERR7919533	1	midden	
+ERR7919534	1	midden	
+ERR7919535	1	archeological site	
+ERR7919536	1	midden	
+ERR7919537	1	midden	
+ERR7919538	1	ocean	
+ERR7919539	1	lake	
+ERR7919540	1	lake	
+ERR7919541	1	midden	
+ERR7919542	1	archeological site	
+ERR7919543	1	midden	
+ERR7919544	1	midden	
+ERR7919545	1	lake	
+ERR7919546	1	lake	
+ERR7919547	1	ocean	
+ERR7919548	1	archeological site	
+ERR7919641	1	midden	
+ERR7919642	1	ocean	
+ERR7919643	1	lake	
+ERR7919644	1	lake	
+ERR7919645	1	ocean	
+ERR7919646	1	archeological site	
+SRR13355784	1	ocean	
+SRR13355785	1	ocean	
+SRR13355786	1	ocean	
+SRR13355787	1	ocean	
+SRR13355789	1	ocean	
+SRR13355790	1	ocean	
+SRR13355791	1	ocean	
+SRR13355792	1	ocean	
+SRR13355794	1	ocean	
+SRR13355796	1	ocean	
+SRR13355797	1	ocean	
+SRR13355798	1	ocean	
+SRR13355799	1	ocean	
+SRR13355800	1	ocean	
+SRR13355801	1	ocean	
+SRR13355802	1	ocean	
+SRR13355803	1	ocean	
+SRR13355804	1	ocean	
+SRR13355805	1	ocean	
+SRR13355806	1	ocean	
+SRR13355807	1	ocean	
+SRR13355808	1	ocean	
+SRR13355809	1	ocean	
+SRR13355810	1	ocean	
+SRR13355811	1	ocean	
+SRR13355812	1	ocean	
+SRR13355813	1	ocean	
+SRR20576738	1	lake	ocean
+SRR20576739	1	lake	ocean
+SRR20576742	1	lake	ocean
+SRR20576743	1	lake	ocean
+SRR20576744	1	lake	ocean
+SRR20576745	1	lake	ocean
+SRR20576746	1	lake	ocean
+SRR20576747	1	lake	ocean
+SRR20576748	1	lake	ocean
+SRR20576749	1	lake	ocean
+SRR20576750	1	lake	ocean
+SRR20576751	1	lake	ocean
+SRR20576752	1	lake	ocean
+SRR20576754	1	lake	ocean
+SRR20576755	1	lake	ocean
+SRR20576756	1	lake	ocean
+SRR20576757	1	lake	ocean
+SRR20576758	1	lake	ocean
+SRR20576759	1	lake	ocean
+SRR20576760	1	lake	ocean
+SRR20576761	1	lake	ocean
+SRR20576762	1	lake	ocean
+SRR20576763	1	lake	ocean
+SRR20576764	1	lake	ocean
+SRR20576765	1	lake	ocean
+SRR20576766	1	lake	ocean
+SRR20576767	1	lake	ocean
+SRR20576768	1	lake	ocean
+SRR20576769	1	lake	ocean
+SRR20576770	1	lake	ocean
+SRR20576771	1	lake	ocean
+SRR20576772	1	lake	ocean
+SRR20576773	1	lake	ocean
+SRR20576774	1	lake	ocean
+SRR20576775	1	lake	ocean
+SRR20576776	1	lake	ocean
+SRR20576779	1	lake	ocean
+SRR20576780	1	lake	ocean
+SRR20576781	1	lake	ocean
+SRR20576782	1	lake	ocean
+SRR20576783	1	lake	ocean
+SRR20576784	1	lake	ocean
+SRR20576785	1	lake	ocean
+SRR20576786	1	lake	ocean
+SRR20576787	1	lake	ocean
+SRR20576794	1	lake	ocean
+SRR20576795	1	lake	ocean
+SRR20576796	1	lake	ocean
+SRR20576797	1	lake	ocean
+SRR20576798	1	lake	ocean
+SRR20576799	1	lake	ocean
+SRR20576800	1	lake	ocean
+SRR20576802	1	lake	ocean
+SRR20576803	1	lake	ocean
+SRR20576805	1	lake	ocean
+SRR20576807	1	lake	ocean
+SRR20576808	1	lake	ocean
+SRR20576809	1	lake	ocean
+SRR20576811	1	lake	ocean
+SRR20576812	1	lake	ocean
+SRR20576813	1	lake	ocean
+SRR20576814	1	lake	ocean
+SRR20576815	1	lake	ocean
+SRR20576816	1	ocean	ocean
+SRR20576817	1	lake	ocean
+SRR21589119	1	midden	midden
+SRR21589120	1	midden	midden
+SRR23699551	1	ocean	
+SRR23699552	1	ocean	
+SRR23699553	1	ocean	
+SRR23699554	1	ocean	
+SRR23699555	1	ocean	
+SRR23699556	1	ocean	
+SRR23699557	1	ocean	
+SRR23699558	1	ocean	
+SRR23699559	1	ocean	
+SRR23699560	1	ocean	
+SRR23699561	1	ocean	
+SRR23699562	1	ocean	
+SRR23699563	1	ocean	
+SRR23699564	1	ocean	
+SRR23699565	1	ocean	
+SRR23699566	1	ocean	
+SRR23699567	1	ocean	
+SRR23699568	1	ocean	
+SRR23699569	1	ocean	
+SRR23699570	1	ocean	
+SRR23699571	1	ocean	
+SRR23699572	1	ocean	
+SRR23699573	1	ocean	
+SRR23699574	1	ocean	
+SRR23699575	1	ocean	
+SRR23699576	1	ocean	
+SRR23699577	1	ocean	
+SRR23699578	1	ocean	
+SRR25620676	1	lake	archeological site
+SRR25620681	1	lake	archeological site
+SRR25620753	1	lake	archeological site
+SRR25620756	1	lake	archeological site
+SRR25620780	1	lake	archeological site
+SRR25620786	1	lake	archeological site
+SRR25620790	1	lake	archeological site
+SRR25620795	1	lake	archeological site
+SRR5297130	1	ocean	
+SRR5297131	1	ocean	
+SRR5297132	1	ocean	
+SRR5297133	1	ocean	
+SRR5875714	1	lake	
+SRR5875715	1	lake	
+SRR5875718	1	lake	
+SRR5875719	1	lake	
+SRR5875720	1	lake	
+SRR5875721	1	lake	
+SRR5875722	1	lake	
+SRR5875723	1	midden	
+SRR5875724	1	lake	
+SRR5875725	1	lake	
+SRR5875726	1	lake	
+SRR5875727	1	ocean	
+SRR5875728	1	ocean	
+SRR5875729	1	lake	
+SRR5875730	1	lake	
+SRR5875731	1	midden	
+SRR8731955	1	midden	
+SRR8731956	1	lake	
+SRR8731957	1	midden	
+SRR8731958	1	lake	
+SRR8731959	1	lake	
+ERR10114844	2	ocean	
+ERR10114845	2	ocean	
+ERR10114846	2	ocean	
+ERR10114847	2	ocean	
+ERR10114848	2	ocean	
+ERR10114849	2	ocean	
+ERR10114850	2	ocean	
+ERR10114851	2	ocean	
+ERR10114852	2	ocean	
+ERR10114853	2	ocean	
+ERR10114854	2	ocean	
+ERR10114855	2	ocean	
+ERR10114856	2	ocean	
+ERR10114857	2	ocean	
+ERR10114858	2	ocean	
+ERR10114859	2	ocean	
+ERR10114860	2	ocean	
+ERR10114861	2	lake	
+ERR10114862	2	ocean	
+ERR10114863	2	ocean	
+ERR10114864	2	ocean	
+ERR10114865	2	ocean	
+ERR10114866	2	ocean	
+ERR10114878	2	midden	archeological site
+ERR10114879	2	midden	archeological site
+ERR10114880	2	midden	archeological site
+ERR10114881	2	midden	archeological site
+ERR10114882	2	midden	archeological site
+ERR10114883	2	midden	archeological site
+ERR10493277	2	archeological site	
+ERR10493281	2	archeological site	
+ERR10493283	2	archeological site	
+ERR10493285	2	lake	
+ERR10493287	2	lake	
+ERR10493289	2	lake	
+ERR10493291	2	lake	
+ERR10493292	2	lake	
+ERR10493294	2	archeological site	
+ERR10493297	2	lake	
+ERR10493299	2	lake	
+ERR10493301	2	lake	
+ERR10493303	2	archeological site	
+ERR10493304	2	lake	
+ERR10493306	2	archeological site	
+ERR10493308	2	archeological site	
+ERR10493310	2	lake	
+ERR10493311	2	lake	
+ERR10493312	2	archeological site	
+ERR10493314	2	archeological site	
+ERR10493316	2	archeological site	
+ERR10493318	2	archeological site	
+ERR10493320	2	archeological site	
+ERR10493322	2	archeological site	
+ERR10493324	2	archeological site	
+ERR10493326	2	archeological site	
+ERR10493328	2	archeological site	
+ERR10493330	2	ocean	
+ERR10493332	2	lake	
+ERR10493333	2	archeological site	
+ERR10493334	2	lake	
+ERR10493335	2	ocean	
+ERR10493336	2	lake	
+ERR10493337	2	archeological site	
+ERR10493338	2	archeological site	
+ERR10493339	2	archeological site	
+ERR10493340	2	lake	
+ERR10493341	2	archeological site	
+ERR10493343	2	archeological site	
+ERR10493344	2	archeological site	
+ERR10493345	2	archeological site	
+ERR10493346	2	lake	
+ERR10493347	2	archeological site	
+ERR10493348	2	lake	
+ERR10493349	2	lake	
+ERR10493357	2	ocean	
+ERR10493358	2	ocean	
+ERR10493359	2	lake	
+ERR10493360	2	lake	
+ERR10493361	2	lake	
+ERR10493362	2	lake	
+ERR10493363	2	lake	
+ERR11660399	2	ocean	
+ERR11660400	2	ocean	
+ERR11660401	2	ocean	
+ERR11660402	2	ocean	
+ERR11660403	2	ocean	
+ERR11660404	2	ocean	
+ERR11660405	2	ocean	
+ERR11660406	2	ocean	
+ERR11660407	2	ocean	
+ERR11660408	2	ocean	
+ERR11660409	2	ocean	
+ERR11660410	2	ocean	
+ERR11660411	2	ocean	
+ERR11660412	2	ocean	
+ERR11660413	2	ocean	
+ERR11660414	2	ocean	
+ERR11660415	2	ocean	
+ERR11660416	2	ocean	
+ERR11660417	2	ocean	
+ERR11660418	2	ocean	
+ERR11660419	2	ocean	
+ERR11660420	2	ocean	
+ERR11660421	2	ocean	
+ERR11660422	2	ocean	
+ERR11660423	2	ocean	
+ERR11660424	2	ocean	
+ERR11660425	2	ocean	
+ERR11660426	2	ocean	
+ERR11660427	2	ocean	
+ERR11660428	2	ocean	
+ERR11660429	2	ocean	
+ERR11660430	2	ocean	
+ERR11660431	2	ocean	
+ERR11660432	2	ocean	
+ERR11660433	2	lake	
+ERR11660434	2	ocean	
+ERR11660435	2	lake	
+ERR11660436	2	lake	
+ERR11660437	2	lake	
+ERR11660438	2	ocean	
+ERR11660439	2	ocean	
+ERR11660440	2	ocean	
+ERR11660441	2	ocean	
+ERR11660442	2	ocean	
+ERR11660443	2	ocean	
+ERR11660444	2	ocean	
+ERR11660445	2	ocean	
+ERR11660446	2	ocean	
+ERR11660447	2	ocean	
+ERR11660448	2	ocean	
+ERR11660449	2	ocean	
+ERR11660450	2	ocean	
+ERR11660451	2	lake	
+ERR11660452	2	ocean	
+ERR11660453	2	lake	
+ERR11660454	2	ocean	
+ERR11660455	2	lake	
+ERR11660456	2	ocean	
+ERR11660457	2	ocean	
+ERR11660458	2	ocean	
+ERR11660459	2	ocean	
+ERR11660460	2	ocean	
+ERR11660461	2	ocean	
+ERR11660462	2	ocean	
+ERR11660463	2	ocean	
+ERR11660464	2	ocean	
+ERR11660465	2	ocean	
+ERR11660466	2	ocean	
+ERR12814413	2	lake	lake
+ERR12814414	2	lake	lake
+ERR12814415	2	lake	lake
+ERR12814416	2	lake	lake
+ERR12814417	2	lake	lake
+ERR12814418	2	lake	lake
+ERR12814419	2	lake	lake
+ERR12814422	2	lake	lake
+ERR12814423	2	lake	lake
+ERR12814424	2	lake	lake
+ERR12814425	2	lake	lake
+ERR12814427	2	archeological site	lake
+ERR12814428	2	archeological site	lake
+ERR12814429	2	lake	lake
+ERR12814430	2	archeological site	lake
+ERR12814431	2	lake	lake
+ERR12814432	2	lake	lake
+ERR12814433	2	ocean	lake
+ERR12814434	2	lake	lake
+ERR12814435	2	lake	lake
+ERR12814436	2	lake	lake
+ERR12814437	2	lake	lake
+ERR12814438	2	lake	lake
+ERR12814439	2	lake	lake
+ERR12814440	2	lake	lake
+ERR12814442	2	lake	lake
+ERR12814443	2	lake	lake
+ERR12814444	2	lake	lake
+ERR12814445	2	lake	lake
+ERR12814446	2	lake	lake
+ERR12814447	2	lake	lake
+ERR12814448	2	lake	lake
+ERR12814449	2	lake	lake
+ERR12814450	2	lake	lake
+ERR12814452	2	lake	lake
+ERR12814453	2	lake	lake
+ERR12814454	2	lake	lake
+ERR12814455	2	lake	lake
+ERR12814456	2	lake	lake
+ERR12814457	2	lake	lake
+ERR12814458	2	lake	lake
+ERR12814460	2	lake	lake
+ERR12814461	2	lake	lake
+ERR12814462	2	lake	lake
+ERR12814463	2	lake	lake
+ERR12814464	2	lake	lake
+ERR12814465	2	lake	lake
+ERR12814467	2	lake	lake
+ERR12814468	2	lake	lake
+ERR12814469	2	lake	lake
+ERR12814470	2	lake	lake
+ERR12814471	2	lake	lake
+ERR12814472	2	lake	lake
+ERR12814473	2	lake	lake
+ERR12814474	2	lake	lake
+ERR12814475	2	lake	lake
+ERR12814476	2	lake	lake
+ERR14057409	2	lake	
+ERR14057410	2	lake	
+ERR14057411	2	ocean	
+ERR14057412	2	ocean	
+ERR14057413	2	archeological site	
+ERR14057414	2	archeological site	
+ERR14057415	2	archeological site	
+ERR14057416	2	archeological site	
+ERR14100444	2	lake	
+ERR14100445	2	lake	
+ERR14100446	2	ocean	
+ERR14100447	2	ocean	
+ERR14100448	2	archeological site	
+ERR14100449	2	archeological site	
+ERR14100450	2	archeological site	
+ERR14100451	2	archeological site	
+ERR1894879	2	lake	
+ERR1894880	2	lake	
+ERR1894881	2	lake	
+ERR1894882	2	lake	
+ERR1894900	2	lake	
+ERR1894901	2	lake	
+ERR1894902	2	lake	
+ERR1894903	2	lake	
+ERR1894904	2	lake	
+ERR1894905	2	lake	
+ERR1894906	2	lake	
+ERR1894907	2	lake	
+ERR1894908	2	lake	
+ERR1894909	2	lake	
+ERR1894910	2	lake	
+ERR1894911	2	lake	
+ERR1894912	2	lake	
+ERR1894913	2	lake	
+ERR1894914	2	lake	
+ERR1894915	2	lake	
+ERR1894916	2	lake	
+ERR1894917	2	lake	
+ERR1894918	2	lake	
+ERR1894919	2	lake	
+ERR2269773	2	archeological site	
+ERR2269775	2	lake	
+ERR2269776	2	archeological site	
+ERR2269777	2	archeological site	
+ERR2269778	2	lake	
+ERR2269779	2	archeological site	
+ERR2269780	2	archeological site	
+ERR2269781	2	archeological site	
+ERR2269782	2	lake	
+ERR2269783	2	lake	
+ERR2269784	2	archeological site	
+ERR2269785	2	lake	
+ERR2269786	2	archeological site	
+ERR2269787	2	archeological site	
+ERR2269788	2	archeological site	
+ERR2269789	2	lake	
+ERR2269790	2	lake	
+ERR2269791	2	archeological site	
+ERR2269792	2	archeological site	
+ERR2269793	2	archeological site	
+ERR2269794	2	archeological site	
+ERR2269795	2	lake	
+ERR2269796	2	archeological site	
+ERR2269797	2	archeological site	
+ERR2269798	2	archeological site	
+ERR2269799	2	archeological site	
+ERR2269800	2	lake	
+ERR2269801	2	lake	
+ERR2269802	2	lake	
+ERR2269803	2	archeological site	
+ERR2269804	2	archeological site	
+ERR2269805	2	archeological site	
+ERR3728226	2	ocean	
+ERR3728227	2	ocean	
+ERR3728228	2	ocean	
+ERR3728238	2	ocean	
+ERR3728239	2	ocean	
+ERR3728240	2	ocean	
+ERR3728241	2	ocean	
+ERR3728245	2	ocean	
+ERR3728246	2	ocean	
+ERR3728247	2	ocean	
+ERR3728248	2	ocean	
+ERR3728249	2	ocean	
+ERR3728250	2	ocean	
+ERR3728251	2	ocean	
+ERR3728252	2	ocean	
+ERR3728254	2	ocean	
+ERR3728255	2	ocean	
+ERR3728256	2	ocean	
+ERR3728257	2	ocean	
+ERR4373119	2	ocean	
+ERR4373134	2	ocean	
+ERR4373146	2	ocean	
+ERR4373153	2	ocean	
+ERR4373159	2	ocean	
+ERR4373979	2	ocean	
+ERR4373995	2	ocean	
+ERR4373996	2	ocean	
+ERR4373997	2	ocean	
+ERR4373998	2	midden	
+ERR4373999	2	ocean	
+ERR4374000	2	ocean	
+ERR4374001	2	ocean	
+ERR4374002	2	ocean	
+ERR4374003	2	midden	
+ERR4374004	2	ocean	
+ERR4374005	2	ocean	
+ERR4374006	2	ocean	
+ERR4374007	2	ocean	
+ERR4374008	2	ocean	
+ERR4374009	2	ocean	
+ERR4374010	2	ocean	
+ERR4374011	2	ocean	
+ERR4374012	2	ocean	
+ERR4374013	2	ocean	
+ERR4374014	2	ocean	
+ERR4374015	2	ocean	
+ERR4374016	2	ocean	
+ERR4374017	2	midden	
+ERR4374018	2	ocean	
+ERR4374019	2	ocean	
+ERR4374020	2	ocean	
+ERR4374021	2	ocean	
+ERR4374022	2	ocean	
+ERR4374023	2	ocean	
+ERR4374024	2	ocean	
+ERR4374025	2	ocean	
+ERR4374026	2	ocean	
+ERR4374027	2	ocean	
+ERR4374028	2	ocean	
+ERR4374029	2	archeological site	
+ERR4374030	2	midden	
+ERR4374031	2	ocean	
+ERR4374032	2	ocean	
+ERR4374033	2	ocean	
+ERR4374034	2	ocean	
+ERR4374035	2	ocean	
+ERR4374036	2	ocean	
+ERR4374037	2	ocean	
+ERR4374038	2	ocean	
+ERR4374039	2	ocean	
+ERR4374040	2	ocean	
+ERR4374041	2	ocean	
+ERR4374042	2	ocean	
+ERR4374043	2	ocean	
+ERR4374044	2	lake	
+ERR4374045	2	ocean	
+ERR4374046	2	ocean	
+ERR4374047	2	ocean	
+ERR4374048	2	ocean	
+ERR4374049	2	ocean	
+ERR4374050	2	ocean	
+ERR4374051	2	ocean	
+ERR4374052	2	ocean	
+ERR4374053	2	ocean	
+ERR4374055	2	ocean	
+ERR4374588	2	ocean	
+ERR4374589	2	ocean	
+ERR4374838	2	ocean	
+ERR4374839	2	archeological site	
+ERR4374851	2	midden	
+ERR4374857	2	ocean	
+ERR4374858	2	ocean	
+ERR4374859	2	ocean	
+ERR4374860	2	ocean	
+ERR4374861	2	ocean	
+ERR4374862	2	ocean	
+ERR4374863	2	ocean	
+ERR4374864	2	ocean	
+ERR4374865	2	ocean	
+ERR4374866	2	ocean	
+ERR4374867	2	ocean	
+ERR4374868	2	ocean	
+ERR4374869	2	midden	
+ERR4374870	2	ocean	
+ERR4374871	2	ocean	
+ERR4374872	2	ocean	
+ERR4374873	2	ocean	
+ERR4374874	2	ocean	
+ERR4374875	2	ocean	
+ERR4374912	2	ocean	
+ERR4374913	2	ocean	
+ERR4374914	2	ocean	
+ERR4374915	2	ocean	
+ERR4374916	2	ocean	
+ERR4374917	2	ocean	
+ERR4374918	2	ocean	
+ERR4374919	2	ocean	
+ERR4374920	2	ocean	
+ERR4374921	2	ocean	
+ERR4374922	2	ocean	
+ERR4374923	2	archeological site	
+ERR4374924	2	ocean	
+ERR4374925	2	ocean	
+ERR4374926	2	ocean	
+ERR4374927	2	ocean	
+ERR4374928	2	midden	
+ERR4374929	2	ocean	
+ERR4374948	2	ocean	
+ERR4374962	2	ocean	
+ERR4374963	2	ocean	
+ERR4375010	2	midden	
+ERR4375011	2	ocean	
+ERR4375017	2	ocean	
+ERR4375025	2	midden	
+ERR4375032	2	ocean	
+ERR4375036	2	ocean	
+ERR4375039	2	ocean	
+ERR4375040	2	ocean	
+ERR4375042	2	ocean	
+ERR4375045	2	ocean	
+ERR4375046	2	ocean	
+ERR4375047	2	ocean	
+ERR4375048	2	ocean	
+ERR4375049	2	ocean	
+ERR4375050	2	ocean	
+ERR4375132	2	ocean	
+ERR4375133	2	ocean	
+ERR4375134	2	ocean	
+ERR4375135	2	ocean	
+ERR4375136	2	ocean	
+ERR4375137	2	ocean	
+ERR4375141	2	ocean	
+ERR4375142	2	ocean	
+ERR4375143	2	ocean	
+ERR4375144	2	ocean	
+ERR4383828	2	ocean	
+ERR4383829	2	ocean	
+ERR4384927	2	ocean	
+ERR4385800	2	ocean	
+ERR4385809	2	ocean	
+ERR4386464	2	ocean	
+ERR4386569	2	ocean	
+ERR4386594	2	ocean	
+ERR4388102	2	ocean	
+ERR4388107	2	ocean	
+ERR4388231	2	ocean	
+ERR4388236	2	ocean	
+ERR4391165	2	ocean	
+ERR4391166	2	ocean	
+ERR4408185	2	ocean	
+ERR4408187	2	ocean	
+ERR4408188	2	ocean	
+ERR4413529	2	ocean	
+ERR567364	2	ocean	ocean
+ERR567366	2	ocean	ocean
+ERR5729614	2	ocean	
+ERR5729615	2	ocean	
+ERR5729616	2	ocean	
+ERR5729617	2	ocean	
+ERR5729618	2	ocean	
+ERR5729619	2	ocean	
+ERR5729620	2	ocean	
+ERR5729621	2	ocean	
+ERR5729622	2	ocean	
+ERR5729623	2	ocean	
+ERR5729624	2	ocean	
+ERR5729625	2	ocean	
+ERR5729626	2	ocean	
+ERR5729627	2	ocean	
+ERR5729628	2	ocean	
+ERR5729629	2	ocean	
+ERR5729630	2	ocean	
+ERR5729631	2	ocean	
+ERR5729632	2	ocean	
+ERR5729633	2	ocean	
+ERR5729634	2	ocean	
+ERR5729635	2	ocean	
+ERR5729636	2	ocean	
+ERR5729637	2	ocean	
+ERR5729638	2	ocean	
+ERR5729639	2	ocean	
+ERR5729640	2	ocean	
+ERR5729641	2	ocean	
+ERR5729642	2	ocean	
+ERR5729643	2	ocean	
+ERR5729644	2	ocean	
+ERR5729645	2	ocean	
+ERR5729646	2	ocean	
+ERR5729647	2	ocean	
+ERR5729648	2	ocean	
+ERR5729649	2	ocean	
+ERR5729650	2	ocean	
+ERR5729651	2	ocean	
+ERR5729652	2	ocean	
+ERR5729653	2	ocean	
+ERR5729654	2	ocean	
+ERR5729655	2	ocean	
+ERR5729656	2	ocean	
+ERR5729657	2	ocean	
+ERR9465622	2	lake	lake
+ERR9465623	2	lake	lake
+ERR9465624	2	lake	lake
+ERR9465625	2	lake	lake
+ERR9465626	2	lake	lake
+ERR9465627	2	lake	lake
+ERR9465628	2	lake	lake
+ERR9465629	2	lake	lake
+ERR9465630	2	lake	lake
+ERR9465631	2	lake	lake
+ERR9465632	2	ocean	lake
+SRR30066258	2	ocean	
+SRR30066259	2	ocean	
+SRR30066260	2	ocean	
+SRR30066261	2	ocean	
+SRR30066262	2	ocean	
+SRR30066263	2	ocean	
+SRR30066264	2	ocean	
+SRR30066265	2	ocean	
+SRR30066269	2	ocean	
+SRR30066270	2	ocean	
+SRR30066271	2	ocean	
+SRR30066272	2	ocean	
+SRR32023812	2	ocean	ocean
+SRR32023817	2	ocean	ocean
+SRR32023818	2	ocean	ocean
+SRR32023819	2	ocean	ocean
+SRR32023820	2	ocean	ocean
+SRR32023821	2	ocean	ocean
+SRR32023822	2	ocean	ocean
+SRR32023823	2	ocean	ocean
+SRR32023824	2	ocean	ocean
+SRR32023825	2	lake	ocean
+SRR32023826	2	ocean	ocean
+SRR32023827	2	ocean	ocean
+SRR32023828	2	ocean	ocean
+SRR32023829	2	ocean	ocean
+SRR32023830	2	ocean	ocean
+SRR32023831	2	ocean	ocean
+SRR32023832	2	ocean	ocean
+SRR32023833	2	ocean	ocean
+SRR32023835	2	ocean	ocean
+SRR32023836	2	ocean	ocean
+SRR32023837	2	ocean	ocean
+SRR32023838	2	ocean	ocean
+SRR32023839	2	ocean	ocean
+SRR32023840	2	lake	ocean
+SRR32023841	2	ocean	ocean
+SRR32023842	2	ocean	ocean
+SRR32023845	2	ocean	ocean
+SRR32023846	2	ocean	ocean
+SRR32023847	2	ocean	ocean
+SRR32023848	2	ocean	ocean
+SRR32023849	2	ocean	ocean
+SRR32023851	2	ocean	ocean
+SRR32023854	2	ocean	ocean
+SRR32023855	2	ocean	ocean
+SRR32023858	2	ocean	ocean
+SRR32023859	2	ocean	ocean
+SRR32023860	2	ocean	ocean
+SRR32023861	2	ocean	ocean
+SRR32023864	2	ocean	ocean
+SRR32023865	2	ocean	ocean
+SRR32023867	2	ocean	ocean
+SRR32023868	2	ocean	ocean
+SRR32023870	2	ocean	ocean
+SRR32023871	2	ocean	ocean
+SRR32023872	2	ocean	ocean
+SRR32023873	2	lake	ocean
+SRR32023874	2	ocean	ocean
+SRR32023875	2	ocean	ocean
+SRR6877282	2	ocean	
+SRR6877283	2	ocean	
+SRR6877284	2	ocean	
+SRR6877285	2	ocean	
+SRR6877286	2	ocean	
+SRR6877287	2	lake	
+SRR6877288	2	ocean	
+SRR6877289	2	ocean	
+SRR6877290	2	ocean	
+SRR6877291	2	ocean	
+SRR6877292	2	ocean	
+SRR6877293	2	ocean	
+SRR6877294	2	ocean	
+SRR6877295	2	ocean	
+SRR6877296	2	ocean	
+SRR6877297	2	ocean	
+SRR6877298	2	ocean	
+SRR6877299	2	ocean	
+SRR6877300	2	ocean	
+SRR6877301	2	ocean	
+SRR6877302	2	ocean	
+SRR6877303	2	ocean	
+SRR6877304	2	ocean	
+SRR6877305	2	ocean	
+SRR6877306	2	ocean	
+SRR6877307	2	ocean	
+SRR6877308	2	ocean	
+SRR6877309	2	ocean	
+SRR6877310	2	ocean	
+SRR6877311	2	ocean	
+SRR6877312	2	ocean	
+SRR6877313	2	ocean	
+SRR6877314	2	ocean	
+SRR6877315	2	ocean	
+SRR6877316	2	ocean	
+SRR6877317	2	ocean	
+SRR6877318	2	ocean	
+SRR6877319	2	ocean	
+SRR6877320	2	ocean	
+SRR6877321	2	ocean	
+SRR6877322	2	ocean	
+SRR6877323	2	ocean	
+SRR6877324	2	ocean	
+SRR6877325	2	ocean	
+SRR6877326	2	ocean	
+SRR6877327	2	ocean	
+SRR6877328	2	ocean	
+SRR6877329	2	ocean	
+SRR6877330	2	ocean	
+SRR6877331	2	ocean	
+SRR6877332	2	ocean	
+SRR6877333	2	ocean	
+SRR6877334	2	ocean	
+SRR6877335	2	ocean	
+SRR6877336	2	ocean	
+SRR6877337	2	ocean	
+SRR6877338	2	ocean	
+SRR6877339	2	ocean	
+SRR6877340	2	ocean	
+SRR6877341	2	ocean	
+SRR6877342	2	ocean	
+SRR6877343	2	ocean	
+SRR6877344	2	ocean	
+SRR6877345	2	ocean	
+SRR6877346	2	ocean	
+SRR6877347	2	ocean	
+SRR6877348	2	ocean	
+SRR6877349	2	ocean	
+SRR6877350	2	ocean	
+SRR6877351	2	ocean	
+SRR6877352	2	ocean	
+SRR6877353	2	ocean	
+SRR6877354	2	ocean	
+SRR6877355	2	ocean	
+SRR6877356	2	ocean	
+SRR6877357	2	ocean	
+SRR6877358	2	ocean	
+SRR6877359	2	ocean	
+SRR6877360	2	ocean	
+SRR6877361	2	ocean	
+SRR6877362	2	ocean	
+SRR6877363	2	ocean	
+SRR6877364	2	ocean	
+SRR6877365	2	ocean	
+SRR6877366	2	ocean	
+SRR6877367	2	ocean	
+SRR6877368	2	ocean	
+SRR6877369	2	ocean	
+SRR6877370	2	ocean	
+SRR6877371	2	ocean	
+SRR6877372	2	ocean	
+SRR6877373	2	ocean	
+SRR6877374	2	ocean	
+SRR6877375	2	ocean	
+SRR6877376	2	ocean	
+SRR6877377	2	ocean	
+SRR6877378	2	ocean	
+SRR6877379	2	ocean	
+SRR6877380	2	ocean	
+SRR6877381	2	ocean	
+SRR6877382	2	ocean	
+SRR6877383	2	ocean	
+SRR6877384	2	ocean	
+SRR6877385	2	ocean	
+SRR6877386	2	ocean	
+SRR6877387	2	ocean	
+SRR6877388	2	ocean	
+SRR6877389	2	ocean	
+SRR6877390	2	ocean	
+SRR6877391	2	ocean	
+SRR6877392	2	ocean	
+SRR6877393	2	ocean	
+SRR6877394	2	ocean	
+SRR6877395	2	ocean	
+SRR6877396	2	ocean	
+SRR6877397	2	ocean	
+SRR6877398	2	ocean	
+SRR6877399	2	ocean	
+SRR6877400	2	ocean	
+SRR6877401	2	ocean	
+SRR6877402	2	ocean	
+SRR6877403	2	ocean	
+SRR7774469	2	archeological site	midden
+SRR7774470	2	archeological site	midden
+SRR7774471	2	archeological site	midden
+SRR7774472	2	archeological site	midden
+SRR7774473	2	archeological site	midden
+SRR7774474	2	archeological site	midden
+SRR7774475	2	archeological site	midden
+SRR7774476	2	archeological site	midden
+SRR7774477	2	archeological site	midden
+SRR7774478	2	lake	midden
+SRR7774479	2	archeological site	midden
+SRR8652706	2	ocean	lake
+SRR8652707	2	lake	lake
+SRR8652708	2	ocean	lake
+SRR8652709	2	lake	lake
+SRR8652710	2	lake	lake
+SRR8652711	2	ocean	lake
+SRR8652712	2	lake	lake
+SRR8652713	2	lake	lake
+SRR8652714	2	lake	lake
+SRR8652715	2	lake	lake
+SRR8652716	2	lake	lake
+SRR8652717	2	lake	lake
+ERR11413657	3	archeological site	
+ERR11413658	3	midden	
+ERR11413659	3	midden	
+ERR11413660	3	midden	
+ERR11413661	3	midden	
+ERR11413662	3	midden	
+ERR11413663	3	midden	
+ERR11413664	3	archeological site	
+ERR11413665	3	midden	
+ERR11413666	3	midden	
+ERR11413667	3	midden	
+ERR11413668	3	midden	
+ERR11413669	3	midden	
+ERR11413670	3	midden	
+ERR11413671	3	midden	
+ERR11413672	3	midden	
+ERR11413673	3	midden	
+ERR11413674	3	midden	
+ERR11413675	3	midden	
+ERR11413676	3	midden	
+ERR11413677	3	midden	
+ERR11413678	3	lake	
+ERR11413679	3	midden	
+ERR11413680	3	midden	
+ERR11413681	3	midden	
+ERR11413682	3	midden	
+ERR11413683	3	midden	
+ERR11413684	3	midden	
+ERR11413685	3	midden	
+ERR11413686	3	midden	
+ERR11413687	3	midden	
+ERR11413688	3	midden	
+ERR11413689	3	midden	
+ERR11413690	3	midden	
+ERR11413691	3	midden	
+ERR11413692	3	midden	
+ERR11413693	3	midden	
+ERR11413694	3	midden	
+ERR11413695	3	midden	
+ERR11413696	3	midden	
+ERR11413697	3	midden	
+ERR11413698	3	midden	
+ERR11413699	3	midden	
+ERR11413700	3	midden	
+ERR11413701	3	midden	
+ERR11413702	3	lake	
+ERR11413703	3	midden	
+ERR11413704	3	midden	
+ERR11413705	3	midden	
+ERR11413706	3	midden	
+ERR11413707	3	midden	
+ERR11413708	3	midden	
+ERR11413709	3	ocean	
+ERR11413710	3	midden	
+ERR11413711	3	midden	
+ERR11413712	3	midden	
+ERR11413713	3	midden	
+ERR11413714	3	midden	
+ERR11413715	3	midden	
+ERR11413716	3	midden	
+ERR11413717	3	midden	
+ERR11413718	3	midden	
+ERR11413719	3	midden	
+ERR11413720	3	midden	
+ERR11413721	3	midden	
+ERR11413722	3	midden	
+ERR11413723	3	midden	
+ERR11413724	3	midden	
+ERR11413725	3	midden	
+ERR11413726	3	ocean	
+ERR11413727	3	midden	
+ERR11413728	3	midden	
+ERR11413729	3	midden	
+ERR11413731	3	midden	
+ERR11413732	3	midden	
+ERR11413733	3	midden	
+ERR11413734	3	midden	
+ERR11413735	3	midden	
+ERR11413736	3	archeological site	
+ERR11413737	3	midden	
+ERR11413738	3	archeological site	
+ERR11413739	3	midden	
+ERR11413740	3	lake	
+ERR11413741	3	midden	
+ERR11413742	3	lake	
+ERR11413743	3	lake	
+ERR11413744	3	midden	
+ERR11413745	3	midden	
+ERR11413746	3	lake	
+ERR11413747	3	midden	
+ERR11413748	3	ocean	
+ERR11413749	3	ocean	
+ERR11413750	3	midden	
+ERR11413751	3	midden	
+ERR11413752	3	midden	
+ERR11413753	3	midden	
+ERR11413754	3	midden	
+ERR11413755	3	midden	
+ERR11413756	3	midden	
+ERR11413757	3	midden	
+ERR11413758	3	midden	
+ERR11413759	3	midden	
+ERR11656729	3	lake	
+ERR11656730	3	ocean	
+ERR11656731	3	ocean	
+ERR11656732	3	ocean	
+ERR11656733	3	ocean	
+ERR11656734	3	ocean	
+ERR11656735	3	ocean	
+ERR11656736	3	lake	
+ERR11656737	3	archeological site	
+ERR11656738	3	ocean	
+ERR11656739	3	ocean	
+ERR11656740	3	ocean	
+ERR11656741	3	ocean	
+ERR11656742	3	ocean	
+ERR11656743	3	ocean	
+ERR11656744	3	ocean	
+ERR11656745	3	ocean	
+ERR11656746	3	ocean	
+ERR11656747	3	ocean	
+ERR11656748	3	ocean	
+ERR1560012	3	lake	lake
+ERR1560013	3	lake	lake
+ERR1560014	3	lake	lake
+ERR1560015	3	lake	lake
+ERR1560016	3	lake	lake
+ERR1560017	3	lake	lake
+ERR1560018	3	lake	lake
+ERR1560019	3	archeological site	lake
+ERR1560020	3	lake	lake
+ERR1560021	3	lake	lake
+ERR1560022	3	lake	lake
+ERR1560023	3	lake	lake
+ERR1560024	3	lake	lake
+ERR1560025	3	midden	lake
+ERR1560093	3	lake	lake
+ERR1560094	3	lake	lake
+ERR1560095	3	lake	lake
+ERR1560096	3	lake	lake
+ERR1560097	3	lake	lake
+ERR1560098	3	lake	lake
+ERR1560099	3	lake	lake
+ERR1560100	3	archeological site	lake
+ERR1560101	3	lake	lake
+ERR1560102	3	archeological site	lake
+ERR1560103	3	archeological site	lake
+ERR1560104	3	archeological site	lake
+ERR1560105	3	lake	lake
+ERR1560106	3	lake	lake
+ERR1560107	3	lake	lake
+ERR1560108	3	lake	lake
+ERR1560109	3	lake	lake
+ERR1560110	3	archeological site	lake
+ERR1688747	3	lake	midden
+ERR1688749	3	lake	midden
+ERR1688750	3	lake	midden
+ERR1688752	3	lake	midden
+ERR1688754	3	lake	midden
+ERR1688756	3	lake	midden
+ERR1688758	3	lake	midden
+ERR1688760	3	lake	midden
+ERR1688761	3	lake	midden
+ERR1688762	3	lake	midden
+ERR1688764	3	lake	midden
+ERR1688765	3	lake	midden
+ERR1688768	3	lake	midden
+ERR1688769	3	lake	midden
+ERR1688771	3	lake	midden
+ERR1688772	3	lake	midden
+ERR1688775	3	lake	midden
+ERR1688778	3	lake	midden
+ERR1688780	3	lake	midden
+ERR1688782	3	ocean	midden
+ERR1688785	3	ocean	midden
+ERR1688788	3	ocean	midden
+ERR1688789	3	archeological site	midden
+ERR1688797	3	lake	midden
+ERR1688799	3	lake	midden
+ERR1688803	3	lake	midden
+ERR1688804	3	lake	midden
+ERR1688808	3	lake	midden
+ERR1688810	3	lake	midden
+ERR3458787	3	lake	ocean
+ERR3458788	3	archeological site	ocean
+ERR3458789	3	lake	ocean
+ERR3458790	3	lake	ocean
+ERR3458791	3	lake	ocean
+ERR3458792	3	lake	ocean
+ERR3459717	3	lake	ocean
+ERR3459718	3	lake	ocean
+ERR3459719	3	lake	ocean
+ERR3459720	3	midden	ocean
+ERR3459721	3	lake	ocean
+ERR3459722	3	ocean	ocean
+ERR3459723	3	archeological site	ocean
+ERR3459724	3	midden	ocean
+ERR3459725	3	lake	ocean
+ERR3459726	3	lake	ocean
+ERR3459727	3	lake	ocean
+ERR3459728	3	lake	ocean
+ERR3459729	3	lake	ocean
+ERR3459730	3	lake	ocean
+ERR3459731	3	lake	ocean
+ERR3459732	3	ocean	ocean
+ERR3459733	3	lake	ocean
+ERR3459734	3	lake	ocean
+ERR3459735	3	lake	ocean
+ERR3459736	3	lake	ocean
+ERR3459737	3	lake	ocean
+ERR3459738	3	lake	ocean
+ERR3459739	3	lake	ocean
+ERR3459740	3	ocean	ocean
+ERR3459741	3	ocean	ocean
+ERR3459742	3	lake	ocean
+ERR3459743	3	lake	ocean
+ERR3459744	3	lake	ocean
+ERR3772645	3	lake	lake
+ERR3804374	3	lake	lake
+ERR3804375	3	lake	lake
+ERR4172756	3	archeological site	
+ERR4172758	3	archeological site	
+ERR4172761	3	archeological site	
+ERR4172763	3	archeological site	
+ERR4172766	3	archeological site	
+ERR4172783	3	archeological site	
+ERR4172788	3	archeological site	
+ERR4172789	3	lake	
+ERR4172797	3	lake	
+ERR4172799	3	archeological site	
+ERR4172800	3	lake	
+ERR4172802	3	archeological site	
+ERR4172804	3	archeological site	
+ERR4172806	3	archeological site	
+ERR4172808	3	archeological site	
+ERR4172809	3	archeological site	
+ERR4172811	3	archeological site	
+ERR4172813	3	archeological site	
+ERR4172814	3	archeological site	
+ERR4172817	3	lake	
+ERR4172819	3	lake	
+ERR4172823	3	lake	
+ERR4172827	3	archeological site	
+ERR4172829	3	lake	
+ERR4172830	3	lake	
+ERR4172832	3	lake	
+ERR4172834	3	lake	
+ERR4172835	3	lake	
+ERR4172836	3	lake	
+ERR4172838	3	lake	
+ERR4172839	3	lake	
+ERR4172841	3	lake	
+ERR4172843	3	lake	
+ERR4172850	3	lake	
+ERR4172854	3	lake	
+ERR4172855	3	lake	
+ERR4172857	3	lake	
+ERR4172860	3	archeological site	
+ERR4172872	3	lake	
+ERR4172883	3	lake	
+ERR4172889	3	lake	
+ERR4172953	3	lake	
+ERR4172977	3	lake	
+ERR4172978	3	midden	
+ERR4172979	3	midden	
+ERR4172981	3	midden	
+ERR4172982	3	midden	
+ERR4172991	3	midden	
+ERR4173008	3	midden	
+ERR4173033	3	midden	
+ERR4173039	3	midden	
+ERR4173041	3	midden	
+ERR4173043	3	midden	
+ERR4173045	3	midden	
+ERR4173049	3	midden	
+ERR4173051	3	midden	
+ERR4173057	3	midden	
+ERR4173060	3	midden	
+ERR4173061	3	midden	
+ERR4173063	3	midden	
+ERR4173066	3	midden	
+ERR4173068	3	midden	
+ERR4173070	3	lake	
+ERR4173072	3	lake	
+ERR4173073	3	lake	
+ERR4173075	3	lake	
+ERR4173082	3	archeological site	
+ERR9612721	3	midden	
+ERR9612722	3	midden	
+ERR9612723	3	midden	
+ERR9612724	3	midden	
+ERR9612725	3	midden	
+ERR9612726	3	midden	
+ERR9612727	3	midden	
+ERR9612728	3	midden	
+ERR9612729	3	midden	
+ERR9612730	3	midden	
+ERR9612731	3	midden	
+ERR9612732	3	midden	
+ERR9612733	3	midden	
+ERR9612734	3	midden	
+ERR9612735	3	midden	
+ERR9612736	3	midden	
+ERR9612737	3	midden	
+ERR9612738	3	midden	
+ERR9612739	3	midden	
+ERR9612740	3	midden	
+ERR9612741	3	midden	
+ERR9612742	3	midden	
+ERR9612743	3	midden	
+ERR9612744	3	midden	
+ERR9612745	3	midden	
+ERR9612746	3	midden	
+ERR9612747	3	midden	
+ERR9612748	3	midden	
+ERR9612749	3	midden	
+ERR9612750	3	midden	
+ERR9612751	3	midden	
+ERR9612752	3	midden	
+ERR9612753	3	midden	
+ERR9612754	3	midden	
+ERR9612755	3	midden	
+ERR9612756	3	midden	
+ERR9612757	3	midden	
+ERR9612758	3	midden	
+ERR9612759	3	midden	
+ERR9612760	3	midden	
+ERR9612761	3	midden	
+ERR9612762	3	midden	
+ERR9612763	3	midden	
+ERR9612764	3	midden	
+ERR9612765	3	midden	
+ERR9612766	3	midden	
+ERR9612767	3	midden	
+ERR9612768	3	midden	
+ERR9612769	3	midden	
+ERR9612770	3	midden	
+ERR9612771	3	midden	
+ERR9612772	3	midden	
+ERR9612773	3	midden	
+ERR9612774	3	midden	
+ERR9612775	3	midden	
+ERR9612776	3	midden	
+ERR9612777	3	midden	
+ERR9612778	3	midden	
+ERR9612779	3	midden	
+ERR9612780	3	midden	
+ERR9612781	3	midden	
+ERR9612782	3	midden	
+ERR9612783	3	midden	
+ERR9612784	3	midden	
+ERR9612785	3	midden	
+ERR9612786	3	midden	
+ERR9612787	3	midden	
+ERR9612788	3	midden	
+ERR9612789	3	midden	
+ERR9612790	3	midden	
+ERR9612791	3	midden	
+ERR9612792	3	midden	
+ERR9612793	3	midden	
+ERR9612794	3	midden	
+ERR9612795	3	midden	
+ERR9612796	3	midden	
+ERR9612797	3	midden	
+ERR9612798	3	midden	
+ERR9612799	3	midden	
+ERR9612800	3	midden	
+ERR9612801	3	midden	
+ERR9612802	3	midden	
+ERR9612803	3	midden	
+ERR9612804	3	midden	
+ERR9612805	3	midden	
+ERR9612806	3	midden	
+ERR9612807	3	midden	
+ERR9612808	3	midden	
+ERR9612809	3	midden	
+ERR9612810	3	midden	
+ERR9612811	3	midden	
+ERR9612812	3	midden	
+ERR9612813	3	midden	
+ERR9612814	3	midden	
+ERR9612815	3	midden	
+ERR9612816	3	midden	
+ERR9612817	3	midden	
+ERR9612818	3	midden	
+ERR9612819	3	midden	
+ERR9612820	3	midden	
+ERR9612821	3	midden	
+ERR9612822	3	midden	
+ERR9612823	3	midden	
+ERR9612824	3	midden	
+ERR9612825	3	midden	
+ERR9612826	3	midden	
+ERR9612827	3	midden	
+ERR9612828	3	midden	
+ERR9612829	3	midden	
+ERR9612830	3	midden	
+ERR9612831	3	midden	
+ERR9612832	3	midden	
+ERR9612833	3	midden	
+ERR9612834	3	midden	
+ERR9612835	3	midden	
+ERR9612836	3	midden	
+ERR9612837	3	midden	
+ERR9612838	3	midden	
+ERR9612839	3	midden	
+ERR9612840	3	midden	
+ERR9612841	3	midden	
+ERR9612842	3	midden	
+ERR9612843	3	midden	
+ERR9612844	3	midden	
+ERR9612845	3	midden	
+ERR9612846	3	midden	
+ERR9612847	3	midden	
+ERR9612848	3	midden	
+ERR9612849	3	midden	
+ERR9612850	3	midden	
+ERR9612851	3	midden	
+ERR9612852	3	midden	
+ERR9612853	3	midden	
+ERR9612854	3	midden	
+ERR9612855	3	midden	
+ERR9612856	3	midden	
+ERR9612857	3	midden	
+ERR9612858	3	midden	
+ERR9612859	3	midden	
+ERR9612860	3	midden	
+ERR9612861	3	midden	
+ERR9612862	3	midden	
+ERR9612863	3	midden	
+ERR9612864	3	midden	
+ERR9612865	3	midden	
+ERR9612866	3	midden	
+ERR9612867	3	midden	
+ERR9612868	3	midden	
+ERR9612869	3	midden	
+ERR9612870	3	midden	
+ERR9612871	3	midden	
+ERR9612872	3	midden	
+ERR9612873	3	midden	
+ERR9612874	3	midden	
+ERR9612875	3	midden	
+ERR9612876	3	midden	
+ERR9612877	3	midden	
+ERR9612878	3	midden	
+ERR9612879	3	midden	
+ERR9612880	3	midden	
+ERR9612881	3	midden	
+ERR9612882	3	midden	
+ERR9612883	3	midden	
+ERR9612884	3	midden	
+ERR9612885	3	midden	
+ERR9612886	3	midden	
+ERR9612887	3	midden	
+ERR9612888	3	midden	
+ERR9612889	3	midden	
+ERR9612890	3	midden	
+ERR9612891	3	midden	
+ERR9612892	3	midden	
+ERR9612893	3	midden	
+ERR9612894	3	midden	
+ERR9612895	3	midden	
+ERR9612896	3	midden	
+ERR9612897	3	midden	
+ERR9612898	3	midden	
+ERR9690357	3	archeological site	
+ERR9690358	3	archeological site	
+ERR9690359	3	archeological site	
+ERR9690360	3	archeological site	
+ERR9690361	3	archeological site	
+ERR9690362	3	archeological site	
+ERR9690363	3	archeological site	
+ERR9690364	3	archeological site	
+ERR9690365	3	archeological site	
+ERR9690366	3	archeological site	
+SRR10156707	3	lake	
+SRR10156708	3	lake	
+SRR10156709	3	lake	
+SRR10156710	3	lake	
+SRR10156713	3	lake	
+SRR10156724	3	lake	
+SRR10156735	3	lake	
+SRR10156737	3	lake	
+SRR10156738	3	lake	
+SRR10156739	3	lake	
+SRR10156740	3	lake	
+SRR10156741	3	lake	
+SRR10156742	3	lake	
+SRR10156743	3	lake	
+SRR10156744	3	lake	
+SRR10156745	3	lake	
+SRR10156746	3	lake	
+SRR10156747	3	lake	
+SRR10156748	3	lake	
+SRR10156749	3	lake	
+SRR10156750	3	lake	
+SRR10156751	3	lake	
+SRR10156752	3	lake	
+SRR10156753	3	lake	
+SRR10156754	3	lake	
+SRR10156755	3	lake	
+SRR10156756	3	lake	
+SRR10156757	3	lake	
+SRR10156758	3	lake	
+SRR12136712	3	midden	
+SRR12136713	3	midden	
+SRR12462930	3	midden	
+SRR12462931	3	midden	
+SRR12462932	3	midden	
+SRR12462933	3	midden	
+SRR12462934	3	midden	
+SRR12462935	3	midden	
+SRR12462936	3	midden	
+SRR12462937	3	midden	
+SRR12462938	3	midden	
+SRR12462939	3	midden	
+SRR12462940	3	midden	
+SRR12462941	3	midden	
+SRR12462942	3	midden	
+SRR12462943	3	midden	
+SRR12462944	3	midden	
+SRR12462945	3	midden	
+SRR12462946	3	midden	
+SRR12462947	3	midden	
+SRR19160147	3	lake	
+SRR19160150	3	lake	
+SRR19160161	3	lake	
+SRR19160174	3	midden	
+SRR19160175	3	lake	
+SRR19160180	3	lake	
+SRR19160184	3	lake	
+SRR19160194	3	lake	
+SRR19160206	3	midden	
+SRR19160231	3	midden	
+SRR19160251	3	lake	
+SRR957738	3	midden	
+SRR957739	3	midden	
+SRR957740	3	midden	
+SRR957741	3	midden	
+SRR957742	3	midden	
+SRR957743	3	midden	
+SRR957744	3	midden	
+SRR957745	3	midden	
+SRR957746	3	midden	
+ERR12115113	4	ocean	
+ERR12115114	4	ocean	
+ERR12115115	4	ocean	
+ERR12115116	4	ocean	
+ERR1777519	4	ocean	
+ERR1777520	4	lake	
+ERR1777521	4	ocean	
+ERR1777522	4	ocean	
+ERR1777523	4	ocean	
+ERR1777524	4	ocean	
+ERR1777525	4	ocean	
+ERR1777526	4	ocean	
+ERR1777527	4	ocean	
+ERR1777528	4	ocean	
+ERR1777529	4	ocean	
+ERR1777530	4	ocean	
+ERR1777531	4	ocean	
+ERR1777532	4	ocean	
+ERR1777533	4	ocean	
+ERR1777534	4	ocean	
+ERR1777535	4	ocean	
+ERR1777536	4	ocean	
+ERR1777537	4	ocean	
+ERR1777538	4	ocean	
+ERR1777539	4	ocean	
+ERR1777540	4	ocean	
+ERR1777541	4	ocean	
+ERR1777542	4	ocean	
+ERR1777543	4	ocean	
+ERR1777544	4	ocean	
+ERR1777545	4	ocean	
+ERR1777546	4	ocean	
+ERR1777547	4	lake	
+ERR1777548	4	ocean	
+ERR1777549	4	ocean	
+ERR1777550	4	ocean	
+ERR1777551	4	ocean	
+ERR1777552	4	ocean	
+ERR1777553	4	ocean	
+ERR1777554	4	ocean	
+ERR1777555	4	ocean	
+ERR1777556	4	ocean	
+ERR1777557	4	ocean	
+ERR1777558	4	ocean	
+ERR1777559	4	lake	
+ERR1777560	4	ocean	
+ERR1777561	4	ocean	
+ERR1777562	4	ocean	
+ERR1777563	4	ocean	
+ERR1777564	4	ocean	
+ERR1777565	4	ocean	
+ERR1777566	4	ocean	
+ERR1777567	4	ocean	
+ERR1777568	4	ocean	
+ERR1777569	4	ocean	
+ERR3609652	4	lake	
+ERR3609653	4	ocean	
+ERR3609654	4	ocean	
+ERR3609655	4	lake	
+ERR3609656	4	lake	
+ERR3609657	4	ocean	
+ERR3609658	4	ocean	
+ERR3609659	4	ocean	
+ERR3609660	4	ocean	
+ERR3609661	4	ocean	
+ERR4596443	4	ocean	
+ERR4596813	4	ocean	
+ERR4596815	4	ocean	
+ERR4596816	4	ocean	
+ERR4596817	4	ocean	
+ERR4596818	4	ocean	
+ERR4596819	4	ocean	
+ERR4596820	4	ocean	
+ERR4596822	4	ocean	
+ERR4596823	4	ocean	
+ERR4596824	4	ocean	
+ERR4596825	4	ocean	
+ERR4596826	4	ocean	
+ERR4596828	4	ocean	
+ERR5670952	4	ocean	
+ERR5670953	4	ocean	
+ERR5670954	4	ocean	
+ERR5670955	4	ocean	
+ERR5670956	4	ocean	
+ERR5670957	4	ocean	
+ERR5670958	4	ocean	
+ERR5670959	4	ocean	
+ERR5670960	4	ocean	
+ERR5670961	4	ocean	
+ERR5670962	4	ocean	
+ERR5670963	4	ocean	
+ERR5670964	4	ocean	
+ERR5670965	4	ocean	
+ERR5670966	4	ocean	
+ERR5670967	4	ocean	
+ERR5670968	4	ocean	
+ERR5670969	4	ocean	
+ERR5670970	4	ocean	
+ERR5670971	4	ocean	
+ERR5766165	4	midden	
+ERR5766166	4	midden	
+ERR5766167	4	ocean	
+ERR5766168	4	archeological site	
+ERR5766169	4	midden	
+ERR5766170	4	archeological site	
+ERR5766171	4	archeological site	
+ERR5766172	4	archeological site	
+ERR5766173	4	archeological site	
+ERR5766174	4	archeological site	
+ERR5766175	4	archeological site	
+ERR5766176	4	archeological site	
+ERR5766177	4	ocean	
+ERR5766178	4	ocean	
+ERR5766179	4	archeological site	
+ERR5766180	4	archeological site	
+ERR5766181	4	archeological site	
+ERR5766182	4	ocean	
+ERR5766183	4	ocean	
+ERR6178850	4	ocean	
+ERR6178851	4	ocean	
+ERR6178852	4	ocean	
+ERR6178853	4	ocean	
+ERR6178854	4	ocean	
+ERR6178855	4	ocean	
+ERR6178856	4	ocean	
+ERR6178857	4	ocean	
+ERR6178858	4	ocean	
+ERR6178859	4	ocean	
+ERR6178860	4	ocean	
+ERR6178861	4	ocean	
+ERR6178862	4	ocean	
+ERR6178863	4	ocean	
+ERR6178864	4	ocean	
+ERR6178865	4	ocean	
+ERR6178866	4	ocean	
+ERR6178867	4	ocean	
+ERR6178868	4	ocean	
+ERR6178869	4	ocean	
+ERR6178870	4	ocean	
+ERR6178871	4	ocean	
+ERR6178872	4	ocean	
+ERR6178873	4	ocean	
+ERR6178874	4	ocean	
+ERR6178875	4	ocean	
+ERR6178876	4	ocean	
+ERR6178877	4	ocean	
+ERR6178878	4	ocean	
+ERR6178879	4	ocean	
+ERR6178880	4	ocean	
+ERR6178881	4	ocean	
+ERR6178882	4	ocean	
+ERR6178883	4	ocean	
+ERR6178884	4	ocean	
+ERR6178885	4	ocean	
+ERR6178886	4	ocean	
+ERR6178887	4	ocean	
+ERR6178888	4	ocean	
+ERR6178889	4	ocean	
+ERR6178890	4	ocean	
+ERR6178891	4	ocean	
+ERR6178892	4	ocean	
+ERR6178893	4	ocean	
+ERR6178894	4	ocean	
+ERR6178895	4	ocean	
+ERR6178897	4	ocean	
+ERR6178898	4	ocean	
+ERR6178899	4	ocean	
+ERR6178900	4	ocean	
+ERR6178901	4	ocean	
+ERR6178902	4	ocean	
+ERR6178903	4	ocean	
+ERR6178904	4	ocean	
+ERR6178905	4	ocean	
+ERR6178906	4	ocean	
+ERR6178907	4	ocean	
+ERR6178908	4	ocean	
+ERR6178909	4	ocean	
+ERR6178910	4	ocean	
+ERR6178911	4	ocean	
+ERR6178912	4	ocean	
+ERR6178913	4	ocean	
+ERR6178914	4	ocean	
+ERR6178915	4	ocean	
+ERR6178916	4	ocean	
+ERR6178917	4	ocean	
+ERR6178918	4	ocean	
+ERR6178919	4	ocean	
+ERR6178920	4	ocean	
+ERR6178921	4	ocean	
+ERR6178923	4	ocean	
+ERR6178924	4	ocean	
+ERR6178925	4	ocean	
+ERR6178926	4	ocean	
+ERR6178927	4	ocean	
+ERR6178928	4	ocean	
+ERR6178929	4	ocean	
+ERR6178930	4	ocean	
+ERR6178931	4	ocean	
+ERR6178932	4	ocean	
+ERR6178933	4	ocean	
+ERR6178934	4	ocean	
+ERR6178935	4	ocean	
+ERR6178936	4	ocean	
+ERR6178937	4	ocean	
+ERR6178938	4	ocean	
+ERR6178939	4	ocean	
+ERR6178940	4	ocean	
+ERR6178941	4	ocean	
+ERR6178942	4	ocean	
+ERR6178943	4	ocean	
+ERR6178944	4	ocean	
+ERR6178945	4	ocean	
+ERR6178946	4	ocean	
+ERR6178947	4	ocean	
+ERR6178948	4	ocean	
+ERR6178949	4	ocean	
+ERR6178950	4	ocean	
+ERR6178951	4	ocean	
+ERR6178952	4	ocean	
+ERR6178953	4	ocean	
+ERR6178954	4	ocean	
+ERR6178955	4	ocean	
+ERR6178956	4	ocean	
+ERR6178957	4	ocean	
+ERR6178958	4	ocean	
+ERR6178959	4	ocean	
+ERR6178960	4	ocean	
+ERR6178961	4	ocean	
+ERR6178962	4	ocean	
+ERR6178963	4	ocean	
+ERR6178964	4	ocean	
+ERR6178965	4	ocean	
+ERR6178966	4	ocean	
+ERR6178967	4	ocean	
+ERR6178968	4	ocean	
+ERR6178969	4	ocean	
+ERR6178970	4	ocean	
+ERR6178971	4	ocean	
+ERR6178972	4	ocean	
+ERR6178973	4	ocean	
+ERR6178974	4	ocean	
+ERR6178975	4	ocean	
+ERR6178976	4	ocean	
+ERR6178977	4	ocean	
+ERR6178978	4	ocean	
+ERR6178979	4	ocean	
+ERR6178980	4	ocean	
+ERR6178981	4	ocean	
+ERR6178982	4	ocean	
+ERR6178983	4	ocean	
+ERR6178984	4	ocean	
+ERR6178985	4	ocean	
+ERR6178986	4	ocean	
+ERR6178987	4	ocean	
+ERR6178988	4	ocean	
+SRR16071515	4	ocean	ocean
+SRR16071516	4	ocean	ocean
+SRR16071517	4	ocean	ocean
+SRR16071520	4	ocean	ocean
+SRR16071521	4	ocean	ocean
+SRR24222601	4	lake	lake
+SRR24222602	4	lake	lake
+SRR24222603	4	ocean	lake
+SRR24222604	4	lake	lake
+SRR24222605	4	lake	lake
+SRR24222606	4	lake	lake
+SRR24222607	4	lake	lake
+SRR24222608	4	ocean	lake
+SRR24222609	4	lake	lake
+SRR24222610	4	lake	lake
+SRR24222612	4	lake	lake
+SRR24222613	4	lake	lake
+SRR24222614	4	lake	lake
+SRR24222615	4	lake	lake
+SRR24222616	4	lake	lake
+SRR24222617	4	ocean	lake
+SRR24222618	4	ocean	lake
+SRR24222619	4	ocean	lake
+SRR24222620	4	lake	lake
+SRR24222621	4	lake	lake
+SRR24222623	4	lake	lake
+SRR24222624	4	lake	lake
+SRR24222625	4	lake	lake
+SRR24222626	4	lake	lake
+SRR24222627	4	lake	lake
+SRR24222628	4	lake	lake
+SRR24222629	4	lake	lake
+SRR24222630	4	lake	lake
+SRR24222631	4	lake	lake
+SRR24222632	4	lake	lake
+SRR4047197	4	lake	
+SRR4047199	4	lake	
+SRR4047201	4	lake	
+SRR4047203	4	lake	
+SRR4047207	4	lake	
+SRR4047214	4	lake	
+SRR4047219	4	lake	
+SRR4047221	4	lake	
+SRR4047223	4	lake	
+SRR4047225	4	lake	
+SRR4047228	4	lake	
+SRR5047040	4	ocean	
+SRR5047041	4	ocean	
+SRR5047042	4	ocean	
+SRR5047043	4	ocean	
+SRR5047044	4	ocean	
+SRR5047045	4	ocean	
+SRR5047046	4	ocean	
+SRR5047047	4	ocean	
+SRR5047048	4	ocean	
+SRR5047049	4	ocean	
+SRR5047050	4	ocean	
+SRR5047051	4	ocean	
+SRR5047052	4	ocean	
+SRR5047053	4	ocean	
+SRR5047054	4	ocean	
+SRR5047055	4	lake	
+SRR5047056	4	ocean	
+SRR5047057	4	ocean	
+SRR5047058	4	ocean	
+SRR5047059	4	ocean	
+SRR5047060	4	ocean	
+SRR5047061	4	ocean	
+SRR5047062	4	ocean	
+SRR5047063	4	ocean	
+SRR5047064	4	lake	
+SRR5047065	4	ocean	
+SRR5047066	4	ocean	
+SRR5047067	4	ocean	
+SRR5047068	4	ocean	
+SRR5047069	4	ocean	
+SRR5047070	4	ocean	
+SRR5047071	4	ocean	
+SRR5047072	4	ocean	
+SRR5047073	4	ocean	
+SRR5047074	4	ocean	
+SRR5047075	4	ocean	
+SRR5047076	4	ocean	
+SRR5047077	4	ocean	
+SRR5047078	4	ocean	
+SRR5047079	4	ocean	
+SRR5047080	4	ocean	
+SRR5047081	4	ocean	
+SRR5047082	4	ocean	
+SRR5047083	4	ocean	
+SRR5047084	4	ocean	
+SRR5047085	4	ocean	
+SRR5047086	4	ocean	
+SRR5047087	4	ocean	
+SRR5047088	4	ocean	
+SRR5047089	4	ocean	
+SRR5047090	4	ocean	
+SRR5047091	4	ocean	
+SRR5047092	4	lake	
+SRR5047093	4	ocean	
+SRR5047094	4	ocean	
+SRR5047095	4	ocean	
+SRR5047096	4	ocean	
+SRR5047097	4	ocean	
+SRR5047098	4	ocean	
+SRR5047099	4	ocean	
+SRR5047100	4	ocean	
+SRR5047101	4	ocean	
+SRR5047102	4	ocean	
+SRR5047103	4	lake	
+SRR5047104	4	ocean	
+SRR5047105	4	ocean	
+SRR5047106	4	ocean	
+SRR5047107	4	ocean	
+SRR5047108	4	ocean	
+SRR5047109	4	ocean	
+SRR5047110	4	ocean	
+SRR5047111	4	ocean	
+SRR5047112	4	ocean	
+SRR5047113	4	midden	
+SRR5047114	4	ocean	
+SRR5047115	4	ocean	
+SRR5047116	4	ocean	
+SRR5047117	4	ocean	
+SRR5047118	4	ocean	
+SRR5047119	4	ocean	
+SRR5047120	4	ocean	
+SRR5047121	4	ocean	
+SRR5047122	4	ocean	
+SRR5047123	4	ocean	
+SRR5047124	4	ocean	
+SRR5047125	4	ocean	
+SRR5047126	4	ocean	
+SRR5047127	4	ocean	
+SRR5047128	4	ocean	
+SRR5047129	4	ocean	
+SRR5047130	4	ocean	
+SRR5047131	4	ocean	
+SRR5047132	4	ocean	
+SRR5047133	4	ocean	
+SRR5047134	4	ocean	
+SRR5047135	4	ocean	
+SRR5047136	4	lake	
+SRR5047137	4	ocean	
+SRR5047138	4	ocean	
+SRR5047139	4	ocean	
+SRR5047140	4	ocean	
+SRR5047141	4	ocean	
+SRR5047142	4	ocean	
+SRR5047143	4	ocean	
+SRR5047144	4	ocean	
+SRR5047145	4	ocean	
+SRR5047146	4	ocean	
+SRR5047147	4	ocean	
+SRR5047148	4	ocean	
+SRR5047149	4	ocean	
+SRR5047150	4	ocean	
+SRR5047151	4	ocean	
+SRR5047152	4	ocean	
+SRR5047153	4	ocean	
+SRR5047154	4	ocean	
+SRR5047155	4	ocean	
+SRR5047156	4	ocean	
+SRR5047157	4	ocean	
+SRR5047158	4	ocean	
+SRR5047159	4	ocean	
+SRR5047160	4	ocean	
+SRR5047161	4	ocean	
+SRR5047162	4	ocean	
+SRR5047163	4	ocean	
+SRR5047164	4	ocean	
+SRR5047165	4	ocean	
+SRR5047166	4	ocean	
+SRR5047167	4	midden	
+SRR5047168	4	ocean	
+SRR5047169	4	ocean	
+SRR5047170	4	ocean	
+SRR5047171	4	ocean	
+SRR5047172	4	ocean	
+SRR5047173	4	ocean	
+SRR5047174	4	ocean	
+SRR5047175	4	ocean	
+SRR5047176	4	ocean	
+SRR5047177	4	ocean	
+SRR5047178	4	ocean	
+SRR5047179	4	ocean	
+SRR5047180	4	ocean	
+SRR5047181	4	ocean	
+SRR5047182	4	ocean	
+SRR5047183	4	ocean	
+SRR5047184	4	ocean	
+SRR5047185	4	ocean	
+SRR5047186	4	ocean	
+SRR5047187	4	ocean	
+SRR5047188	4	ocean	
+SRR5047189	4	ocean	
+SRR5047190	4	ocean	
+SRR5047191	4	ocean	
+SRR5047192	4	lake	
+SRR5047193	4	ocean	
+SRR5047194	4	ocean	
+SRR5047195	4	ocean	
+SRR5047196	4	ocean	
+SRR5047197	4	ocean	
+SRR5047198	4	ocean	
+SRR5047199	4	ocean	
+SRR5047200	4	ocean	
+SRR5047201	4	ocean	
+SRR5047202	4	ocean	
+SRR5047203	4	ocean	
+SRR5047204	4	ocean	
+SRR5332455	4	lake	lake
+SRR5332456	4	lake	lake
+SRR5332457	4	lake	lake
+SRR5332458	4	lake	lake
+SRR5332459	4	lake	lake
+SRR5332461	4	lake	lake
+SRR5332462	4	lake	lake
+SRR5332463	4	lake	lake
+SRR5332464	4	lake	lake
+SRR5332466	4	lake	lake
+SRR866660	4	ocean	
+SRR866662	4	ocean	
+SRR866663	4	lake	
+SRR866665	4	ocean	
+SRR866666	4	midden	
+SRR867031	4	ocean	
+SRR867032	4	ocean	
+SRR867033	4	ocean	
+SRR867034	4	ocean	
+SRR867036	4	ocean	
+SRR867037	4	ocean	
+SRR867038	4	ocean	
+SRR867039	4	ocean	

@@ -1,0 +1,12 @@
+{
+  "sample_host": {
+    "classes": [
+      "Canis lupus",
+      "Gorilla beringei beringei",
+      "Gorilla beringei graueri",
+      "Gorilla gorilla gorilla",
+      "Homo sapiens",
+      "Ursus arctos"
+    ]
+  }
+}

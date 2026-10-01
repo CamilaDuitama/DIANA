@@ -1,0 +1,23 @@
+{
+  "tag": "s1000_f28",
+  "scaled": 1000,
+  "ksize": 31,
+  "n_training_runs": 2716,
+  "n_distinct_hashes_train": 309839914,
+  "floor_present_in_runs": 28,
+  "cap_present_in_runs": 2444,
+  "n_kept": 894186,
+  "n_above_floor": 894186,
+  "n_above_cap": 0,
+  "kept_by_floor": {
+    "14": 2301085,
+    "20": 1404040,
+    "28": 894186,
+    "272": 21411
+  },
+  "median_hashes_per_train_run": 60957.0,
+  "rule": "present in >= 28 and <= 2444 (90 %) of the 2,716 training runs",
+  "built_on": "2026-09-30",
+  "train_density": 0.025753136658658495,
+  "heldout_density": 0.01582503643578491
+}

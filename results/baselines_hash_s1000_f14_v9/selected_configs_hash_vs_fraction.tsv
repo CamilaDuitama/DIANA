@@ -1,0 +1,33 @@
+task	model	rep	cfg	mean_f1_eligible_selection	all_converged
+community_type	LogisticRegression_Bal	hash	"{""C"": 10.0}"	0.5106755093734803	True
+community_type	LogisticRegression_Bal	fraction	"{""C"": 0.1}"	0.525113056488294	True
+community_type	LinearSVM_Bal	hash	"{""C"": 0.001}"	0.4724568202558873	True
+community_type	LinearSVM_Bal	fraction	"{""C"": 0.01}"	0.5188509248407916	True
+community_type	RandomForest_Bal	hash	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.4680590376204327	True
+community_type	RandomForest_Bal	fraction	"{""n_estimators"": 800, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.5763846672557078	True
+community_type	kNN	hash	"{""n_neighbors"": 3, ""weights"": ""distance""}"	0.3744644577120463	True
+community_type	kNN	fraction	"{""n_neighbors"": 1, ""weights"": ""uniform""}"	0.4953882897971535	True
+feature	LogisticRegression_Bal	hash	"{""C"": 10.0}"	0.3854087301379565	True
+feature	LogisticRegression_Bal	fraction	"{""C"": 10.0}"	0.4599229709911849	True
+feature	LinearSVM_Bal	hash	"{""C"": 1.0}"	0.3729866019988075	True
+feature	LinearSVM_Bal	fraction	"{""C"": 0.1}"	0.4589827537615177	True
+feature	RandomForest_Bal	hash	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.2253101801627703	True
+feature	RandomForest_Bal	fraction	"{""n_estimators"": 300, ""max_features"": 0.05, ""min_samples_leaf"": 3}"	0.4824661264661265	True
+feature	kNN	hash	"{""n_neighbors"": 1, ""weights"": ""uniform""}"	0.1499424028502256	True
+feature	kNN	fraction	"{""n_neighbors"": 3, ""weights"": ""distance""}"	0.5096142072773822	True
+sample_host	LogisticRegression_Bal	hash	"{""C"": 10.0}"	0.7371570783033254	True
+sample_host	LogisticRegression_Bal	fraction	"{""C"": 10.0}"	0.7361804207457304	True
+sample_host	LinearSVM_Bal	hash	"{""C"": 0.01}"	0.7163662138968248	False
+sample_host	LinearSVM_Bal	fraction	"{""C"": 1.0}"	0.7660568018817993	False
+sample_host	RandomForest_Bal	hash	"{""n_estimators"": 800, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.7589647497757038	True
+sample_host	RandomForest_Bal	fraction	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.7503425553776506	True
+sample_host	kNN	hash	"{""n_neighbors"": 3, ""weights"": ""distance""}"	0.5935323847817993	True
+sample_host	kNN	fraction	"{""n_neighbors"": 1, ""weights"": ""uniform""}"	0.7517340044006721	True
+material	LogisticRegression_Bal	hash	"{""C"": 1.0}"	0.3938052004334431	True
+material	LogisticRegression_Bal	fraction	"{""C"": 0.1}"	0.4972515290786068	True
+material	LinearSVM_Bal	hash	"{""C"": 1.0}"	0.4058980039689746	True
+material	LinearSVM_Bal	fraction	"{""C"": 0.01}"	0.4959531643985285	True
+material	RandomForest_Bal	hash	"{""n_estimators"": 800, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.3144572084017375	True
+material	RandomForest_Bal	fraction	"{""n_estimators"": 300, ""max_features"": ""sqrt"", ""min_samples_leaf"": 3}"	0.4515242837281416	True
+material	kNN	hash	"{""n_neighbors"": 1, ""weights"": ""uniform""}"	0.2096902171521359	True
+material	kNN	fraction	"{""n_neighbors"": 1, ""weights"": ""uniform""}"	0.4358076554312139	True

@@ -31,12 +31,14 @@ TASKS = ["community_type", "feature", "sample_host", "material"]
 COLOUR = dict(zip(TASKS, ["#2a78d6", "#eb6834", "#1baf7a", "#eda100"]))
 
 
+BASE_DIR = PROJECT_ROOT / "results/baseline_predictions_v9"
+PLANTED = PROJECT_ROOT / "results/planted_mislabels_v9/planted_test_mixed_r0.1.tsv"
+
+
 def logreg_curve(task: str):
-    prob = pd.read_csv(PROJECT_ROOT /
-        f"results/baseline_predictions_v9/heldout_probabilities_{task}.tsv", sep="\t")
+    prob = pd.read_csv(BASE_DIR / f"heldout_probabilities_{task}.tsv", sep="\t")
     g = prob[prob.model == "LogisticRegression_Bal"]
-    plant = pd.read_csv(PROJECT_ROOT /
-        "results/planted_mislabels_v9/planted_test_mixed_r0.1.tsv", sep="\t")
+    plant = pd.read_csv(PLANTED, sep="\t")
     pl = plant[["Run_accession", task, f"{task}_planted"]].dropna()
     m = g.merge(pl, on="Run_accession", suffixes=("", "_st"))
     cols = {c[2:]: c for c in m.columns if c.startswith("p_")}
@@ -50,11 +52,15 @@ def logreg_curve(task: str):
 
 
 def main() -> int:
+    global BASE_DIR, PLANTED
     ap = argparse.ArgumentParser(description="Figure 2: detector operating curve")
     ap.add_argument("--diana-dir", type=Path, default=PROJECT_ROOT / "results/anomaly_detection",
                     help="where 15_anomaly_detection_roc.py wrote curves_DIANA_<task>.json")
     ap.add_argument("--out", type=Path, default=PROJECT_ROOT / "results/paper/detector_operating_curve.png")
+    ap.add_argument("--baseline-dir", type=Path, default=BASE_DIR)
+    ap.add_argument("--planted", type=Path, default=PLANTED)
     args = ap.parse_args()
+    BASE_DIR, PLANTED = args.baseline_dir, args.planted
     fig, ax = plt.subplots(figsize=(6.8, 5.4))
     for task in TASKS:
         c = json.loads((args.diana_dir / f"curves_DIANA_{task}.json").read_text())[task]

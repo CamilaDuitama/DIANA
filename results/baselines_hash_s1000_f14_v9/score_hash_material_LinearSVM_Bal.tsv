@@ -1,0 +1,5 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+hash	material	LinearSVM_Bal	"{""C"": 0.001}"	0.39029755958902723	5
+hash	material	LinearSVM_Bal	"{""C"": 0.01}"	0.3887621751960531	5
+hash	material	LinearSVM_Bal	"{""C"": 0.1}"	0.3978566318551076	5
+hash	material	LinearSVM_Bal	"{""C"": 1.0}"	0.4058980039689746	5

@@ -1,0 +1,2 @@
+A6 on the dev folds, rule fixed 2026-09-25: single-task
+per-task verdicts: {'tie': 3, 'single': 1}

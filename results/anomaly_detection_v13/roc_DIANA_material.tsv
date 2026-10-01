@@ -1,0 +1,2 @@
+model	task	n_scored	n_planted	roc_auc	average_precision	tpr_at_fpr1	threshold_at_fpr1	tpr_at_fpr5	threshold_at_fpr5	tpr_at_fpr10	threshold_at_fpr10
+DIANA_material	material	787	72	0.8460470085470085	0.4038669885085289	0.125	0.9863890065	0.25	0.973730087	0.6111111111111112	0.929595195

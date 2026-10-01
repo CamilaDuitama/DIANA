@@ -1,0 +1,89 @@
+{
+  "feature": {
+    "task_type": "classification",
+    "n_samples": 457,
+    "n_masked": 2259,
+    "n_out_of_vocabulary": 0,
+    "n_unseen": 2259,
+    "precision_macro": 0.677788039713692,
+    "recall_macro": 0.7410768452982811,
+    "confusion_matrix": [
+      [
+        0,
+        1,
+        16,
+        0
+      ],
+      [
+        0,
+        212,
+        0,
+        3
+      ],
+      [
+        0,
+        0,
+        45,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        179
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 17.0
+      },
+      "1": {
+        "precision": 0.9953051643192489,
+        "recall": 0.986046511627907,
+        "f1-score": 0.9906542056074766,
+        "support": 215.0
+      },
+      "2": {
+        "precision": 0.7377049180327869,
+        "recall": 0.9782608695652174,
+        "f1-score": 0.8411214953271028,
+        "support": 46.0
+      },
+      "3": {
+        "precision": 0.9781420765027322,
+        "recall": 1.0,
+        "f1-score": 0.988950276243094,
+        "support": 179.0
+      },
+      "accuracy": 0.9540481400437637,
+      "macro avg": {
+        "precision": 0.677788039713692,
+        "recall": 0.7410768452982811,
+        "f1-score": 0.7051814942944183,
+        "support": 457.0
+      },
+      "weighted avg": {
+        "precision": 0.9256290333744766,
+        "recall": 0.9540481400437637,
+        "f1-score": 0.9380839003023371,
+        "support": 457.0
+      }
+    },
+    "accuracy": 0.9540481400437637,
+    "balanced_accuracy": 0.7410768452982811,
+    "f1_macro_seen": 0.7051814942944183,
+    "f1_weighted": 0.9380839003023371,
+    "n_classes_seen": 4,
+    "f1_macro_eligible": 0.7051814942944183,
+    "n_classes_eligible": 4,
+    "f1_macro_eligible_ci_low": 0.5504799976687712,
+    "f1_macro_eligible_ci_high": 0.739531284227082,
+    "balanced_accuracy_ci_low": 0.7350117465604016,
+    "balanced_accuracy_ci_high": 0.9839782936586005,
+    "ci_resampling_unit": "group",
+    "n_groups": 22
+  }
+}

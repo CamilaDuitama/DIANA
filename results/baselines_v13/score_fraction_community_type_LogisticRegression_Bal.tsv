@@ -1,0 +1,5 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+fraction	community_type	LogisticRegression_Bal	"{""C"": 0.01}"	0.5046684468818181	5
+fraction	community_type	LogisticRegression_Bal	"{""C"": 0.1}"	0.525113056488294	5
+fraction	community_type	LogisticRegression_Bal	"{""C"": 1.0}"	0.5041044061785169	5
+fraction	community_type	LogisticRegression_Bal	"{""C"": 10.0}"	0.5250900100828472	5

@@ -124,6 +124,7 @@ def detection_by_regime(task: str, p_stated: np.ndarray, planted: np.ndarray,
 
 
 def main() -> int:
+    global SPLITS, PLANTED, BASE_PROB
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     # X4 (2026-09-25): the same table for another set of final models, without touching
     # the read-1 outputs. With --encoders-pattern the detection rows are like-for-like
@@ -134,7 +135,11 @@ def main() -> int:
     ap.add_argument("--encoders-pattern", default=None,
                     help="label_encoders.json of the single-task model, with {task}")
     ap.add_argument("--out", type=Path, default=OUT)
+    ap.add_argument("--splits", type=Path, default=SPLITS, help="split directory; v13 = data/splits_v13")
+    ap.add_argument("--planted", type=Path, default=PLANTED)
+    ap.add_argument("--baseline-dir", type=Path, default=BASE_PROB, help="baseline held-out probabilities directory")
     a = ap.parse_args()
+    SPLITS, PLANTED, BASE_PROB = a.splits, a.planted, a.baseline_dir
     sup = support()
     sup["regime"] = sup.n_train.map(regime_of)
     plant = pd.read_csv(PLANTED, sep="\t")

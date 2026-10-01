@@ -113,6 +113,23 @@ def smooth(x: np.ndarray) -> np.ndarray:
 
 
 def main() -> int:
+    global BASE, SPLITS
+    import argparse
+    ap = argparse.ArgumentParser(description="epoch budgets from pooled dev folds, and the A6 test")
+    ap.add_argument("--base", type=Path, default=BASE,
+                    help="arm directories (default results/epoch_budget_v9; S8.8 uses results/epoch_budget_sig_v9)")
+    ap.add_argument("--splits", type=Path, default=SPLITS, help="split directory (metadata, eligibility); v13 = data/splits_v13")
+    ap.add_argument("--arms", default=None, help="comma list of arms to select (default: all five); A6 needs all five")
+    args = ap.parse_args()
+    BASE, SPLITS = args.base, args.splits
+    if args.arms:
+        keep = args.arms.split(",")
+        unknown = [a for a in keep if a not in ARMS]
+        if unknown:
+            raise SystemExit(f"unknown arms {unknown}")
+        for a in list(ARMS):
+            if a not in keep:
+                del ARMS[a]
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     meta = pd.read_csv(SPLITS / "train_metadata.tsv", sep="\t", low_memory=False)
     project = meta.set_index("Run_accession")["archive_project"]
@@ -161,6 +178,13 @@ def main() -> int:
                          ).to_csv(BASE / f"oof_{arm}_{t}.tsv", sep="\t", index=False)
     bud = pd.DataFrame(budgets)
     bud.to_csv(BASE / "epoch_budget.tsv", sep="\t", index=False)
+
+    if set(ARMS) != {"multitask", *TASKS}:
+        pd.set_option("display.width", 200)
+        print("\nepoch budgets, pooled dev-fold f1_macro_eligible, 5-epoch centred smoothing:")
+        print(bud.round(4).to_string(index=False))
+        print("\nA6 skipped: not all five arms present")
+        return 0
 
     rows = []
     for t in TASKS:

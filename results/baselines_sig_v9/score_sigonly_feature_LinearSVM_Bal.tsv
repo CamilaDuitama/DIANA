@@ -1,0 +1,5 @@
+rep	task	model	cfg	mean_f1_eligible	n_folds
+sigonly	feature	LinearSVM_Bal	"{""C"": 0.001}"	0.3593051459330529	5
+sigonly	feature	LinearSVM_Bal	"{""C"": 0.01}"	0.37071111061467865	5
+sigonly	feature	LinearSVM_Bal	"{""C"": 0.1}"	0.294748863759753	5
+sigonly	feature	LinearSVM_Bal	"{""C"": 1.0}"	0.2314349953668839	5
