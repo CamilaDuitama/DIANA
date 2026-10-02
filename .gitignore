@@ -360,6 +360,8 @@ results/training/diana_train.log
 # Claude Code local context files (kept locally only)
 CLAUDE.md
 PROJECT.md
+DONE.md
+PROTOCOLS.md
 .claude/
 
 # ---- Large data and per-sample outputs: regenerable, kept local only ----------
