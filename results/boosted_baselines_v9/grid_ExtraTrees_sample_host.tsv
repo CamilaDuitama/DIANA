@@ -1,0 +1,3 @@
+model	task	config	cfg	f1_macro_oof	minutes
+ExtraTrees	sample_host	0	{'n_estimators': 500, 'max_features': 'sqrt'}	0.1014	0.5
+ExtraTrees	sample_host	1	{'n_estimators': 500, 'max_features': 0.05}	0.1132	5.3

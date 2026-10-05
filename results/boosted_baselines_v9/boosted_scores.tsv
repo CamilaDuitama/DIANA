@@ -1,0 +1,21 @@
+task	model	f1_macro_eligible	choosing_score
+community_type	DIANA+LogReg	0.495	0.613
+community_type	LogReg	0.492	0.701
+community_type	HGB	0.337	0.683
+community_type	AdaBoost	0.334	0.43
+community_type	ExtraTrees	0.557	0.705
+feature	DIANA+LogReg	0.161	0.58
+feature	LogReg	0.163	
+feature	HGB	0.145	
+feature	AdaBoost	0.141	
+feature	ExtraTrees	0.142	
+sample_host	DIANA+LogReg	0.258	0.896
+sample_host	LogReg	0.258	0.969
+sample_host	HGB	0.253	0.955
+sample_host	AdaBoost	0.195	0.439
+sample_host	ExtraTrees	0.272	0.984
+material	DIANA+LogReg	0.335	0.755
+material	LogReg	0.325	0.679
+material	HGB	0.292	0.693
+material	AdaBoost	0.213	0.265
+material	ExtraTrees	0.294	0.469

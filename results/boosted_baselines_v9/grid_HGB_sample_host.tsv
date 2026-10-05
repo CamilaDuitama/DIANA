@@ -1,0 +1,5 @@
+model	task	config	cfg	f1_macro_oof	minutes
+HGB	sample_host	0	{'learning_rate': 0.1, 'max_iter': 200}	0.1017	126.3
+HGB	sample_host	1	{'learning_rate': 0.1, 'max_iter': 500}	0.1018	146.7
+HGB	sample_host	2	{'learning_rate': 0.05, 'max_iter': 200}	0.105	231.1
+HGB	sample_host	3	{'learning_rate': 0.05, 'max_iter': 500}	0.1054	247.5

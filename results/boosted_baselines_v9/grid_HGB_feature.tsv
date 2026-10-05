@@ -1,0 +1,5 @@
+model	task	config	cfg	f1_macro_oof	minutes
+HGB	feature	0	{'learning_rate': 0.1, 'max_iter': 200}	0.1122	27.3
+HGB	feature	1	{'learning_rate': 0.1, 'max_iter': 500}	0.1139	35.4
+HGB	feature	2	{'learning_rate': 0.05, 'max_iter': 200}	0.1141	49.7
+HGB	feature	3	{'learning_rate': 0.05, 'max_iter': 500}	0.116	54.1

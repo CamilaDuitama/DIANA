@@ -618,6 +618,14 @@ Resource Requirements:
         action='store_true',
         help='Skip plot generation'
     )
+    parser.add_argument(
+        '--min-confidence', type=float, default=None,
+        help='No-call cutoff applied to every task, overriding the per-task defaults chosen on the '
+             'cross-validation folds (configs/abstention_v9.json); predictions below it return call="no call"')
+    parser.add_argument(
+        '--stated-label', action='append', default=[], metavar='TASK=LABEL',
+        help='Check a label on file, e.g. --stated-label material=tooth; repeatable. The output carries '
+             'flag_score = 1 - P(stated), or status "cannot assess" when the label is outside the training vocabulary')
     
     # Logging
     parser.add_argument(
@@ -755,7 +763,9 @@ Resource Requirements:
             kmer_size=args.kmer_size,
             min_abundance=args.min_abundance,
             threads=args.threads,
-            generate_plots=not args.no_plots
+            generate_plots=not args.no_plots,
+            min_confidence=args.min_confidence,
+            stated_labels=args.stated_label
         )
         
         results.append(result)

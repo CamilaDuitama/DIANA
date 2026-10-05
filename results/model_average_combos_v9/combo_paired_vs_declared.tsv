@@ -1,0 +1,53 @@
+task	combo	delta_choosing_vs_DIANA+LogReg	ci_low	ci_high	verdict
+community_type	DIANA	-0.149	-0.21	0.042	tie
+community_type	LogReg	0.088	-0.054	0.328	tie
+community_type	RF	0.078	-0.082	0.285	tie
+community_type	kNN		-0.031	0.177	tie
+community_type	DIANA+RF	0.053	-0.013	0.19	tie
+community_type	DIANA+kNN	-0.142	-0.169	0.035	tie
+community_type	LogReg+RF	0.079	-0.054	0.292	tie
+community_type	LogReg+kNN	0.097	-0.046	0.321	tie
+community_type	RF+kNN	0.077	-0.081	0.283	tie
+community_type	DIANA+LogReg+RF	0.075	-0.012	0.223	tie
+community_type	DIANA+LogReg+kNN	0.012	-0.018	0.029	tie
+community_type	DIANA+RF+kNN	0.058	-0.03	0.193	tie
+community_type	LogReg+RF+kNN	0.082	-0.057	0.292	tie
+feature	DIANA	0.011	-0.034	0.037	tie
+feature	LogReg		-0.545	0.131	tie
+feature	RF		-0.47	0.294	tie
+feature	kNN				can't check
+feature	DIANA+RF	-0.004	-0.082	0.14	tie
+feature	DIANA+kNN	0.002	-0.041	0.028	tie
+feature	LogReg+RF		-0.539	0.259	tie
+feature	LogReg+kNN		-0.554	0.154	tie
+feature	RF+kNN		-0.47	0.292	tie
+feature	DIANA+LogReg+RF	-0.031	-0.108	0.104	tie
+feature	DIANA+LogReg+kNN	-0.004	-0.019	0.006	tie
+feature	DIANA+RF+kNN	-0.007	-0.085	0.133	tie
+feature	LogReg+RF+kNN		-0.539	0.252	tie
+sample_host	DIANA	-0.008	-0.061	0.013	tie
+sample_host	LogReg	0.073	-0.065	0.151	tie
+sample_host	RF	0.085	-0.259	0.177	tie
+sample_host	kNN		-0.013	0.034	tie
+sample_host	DIANA+RF	-0.03	-0.125	0.094	tie
+sample_host	DIANA+kNN	-0.012	-0.063	0.007	tie
+sample_host	LogReg+RF	0.079	-0.301	0.166	tie
+sample_host	LogReg+kNN	0.07	-0.068	0.15	tie
+sample_host	RF+kNN	0.075	-0.26	0.163	tie
+sample_host	DIANA+LogReg+RF	-0.034	-0.125	0.089	tie
+sample_host	DIANA+LogReg+kNN	-0.003	-0.009	0.005	tie
+sample_host	DIANA+RF+kNN	-0.036	-0.126	0.082	tie
+sample_host	LogReg+RF+kNN	0.072	-0.301	0.158	tie
+material	DIANA	0.011	-0.047	0.052	tie
+material	LogReg	-0.076	-0.18	-0.015	DIANA+LogReg
+material	RF	-0.236	-0.359	-0.109	DIANA+LogReg
+material	kNN				can't check
+material	DIANA+RF	-0.075	-0.177	0.003	tie
+material	DIANA+kNN	0.004	-0.049	0.054	tie
+material	LogReg+RF	-0.156	-0.271	-0.048	DIANA+LogReg
+material	LogReg+kNN	-0.067	-0.168	-0.009	DIANA+LogReg
+material	RF+kNN	-0.223	-0.352	-0.091	DIANA+LogReg
+material	DIANA+LogReg+RF	-0.04	-0.107	-0.004	DIANA+LogReg
+material	DIANA+LogReg+kNN	0.006	-0.013	0.014	tie
+material	DIANA+RF+kNN	-0.075	-0.173	-0.001	DIANA+LogReg
+material	LogReg+RF+kNN	-0.144	-0.262	-0.035	DIANA+LogReg

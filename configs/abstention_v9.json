@@ -1,0 +1,12 @@
+{
+  "chosen_on": "grouped dev folds, final DIANA out-of-fold probabilities",
+  "rule": "smallest tau on the 0 to 0.9 grid (step 0.05) whose retained accuracy is at least 0.05 above the no-abstention accuracy; 0 if none reaches that with coverage >= 0.5",
+  "date": "2026-10-05",
+  "min_confidence": {
+    "community_type": 0.35,
+    "feature": 0.2,
+    "sample_host": 0.25,
+    "material": 0.2
+  },
+  "caveat": "a no-call threshold removes low-confidence errors only; confidently wrong predictions (for example a label absent from training, like birch pitch at confidence 0.64) pass through"
+}

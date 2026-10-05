@@ -196,6 +196,59 @@ def assess_representation(fractions: np.ndarray) -> dict:
     }
 
 
+DEFAULT_MIN_CONFIDENCE = {"community_type": 0.35, "feature": 0.20, "sample_host": 0.25, "material": 0.20}
+
+
+def load_abstention_config(path: Path | None) -> dict:
+    """The per-task no-call cutoffs, chosen on the grouped dev folds (configs/abstention_v9.json);
+    falls back to the built-in copy of the same values."""
+    if path and Path(path).exists():
+        with open(path) as f:
+            return json.load(f).get("min_confidence", DEFAULT_MIN_CONFIDENCE)
+    return dict(DEFAULT_MIN_CONFIDENCE)
+
+
+def apply_decision_policy(formatted: dict, class_names: dict, min_confidence: dict,
+                          stated_labels: dict | None = None) -> dict:
+    """Turn raw predictions into calls, in place; returns the dict.
+
+    Two rules, both chosen on the cross-validation folds and never on held-out:
+      * no call   -- a classification whose top probability is below the task's cutoff keeps its
+                     probabilities but is marked call="no call"; the predicted class moves to
+                     "suggestion". This removes low-confidence errors only: a confidently wrong
+                     prediction (for example a sample type absent from training) passes through.
+      * cannot assess -- a user-stated label outside the training vocabulary gets no flag score,
+                     because 1 - P(label) is undefined for a class the model has no concept of.
+    """
+    stated_labels = stated_labels or {}
+    for task, entry in formatted.items():
+        if not isinstance(entry, dict) or "probabilities" not in entry:
+            continue
+        cut = float(min_confidence.get(task, 0.0))
+        entry["min_confidence"] = cut
+        if float(entry.get("confidence", 1.0)) < cut:
+            entry["call"] = "no call"
+            entry["suggestion"] = entry.pop("predicted_class")
+            entry["note"] = (f"top probability {entry['confidence']:.2f} is below the task cutoff {cut:.2f} "
+                             "(chosen on the cross-validation folds); treat the suggestion as unverified")
+        else:
+            entry["call"] = "answered"
+        if task in stated_labels:
+            stated = stated_labels[task]
+            names = class_names.get(task, [])
+            if stated not in names:
+                entry["stated_label_assessment"] = {
+                    "stated_label": stated, "status": "cannot assess",
+                    "reason": "label is not in the training vocabulary for this task, so the model has no "
+                              "probability for it; this is not evidence that the label is right or wrong"}
+            else:
+                p_stated = float(entry["probabilities"][stated])
+                entry["stated_label_assessment"] = {
+                    "stated_label": stated, "status": "assessed",
+                    "p_stated": p_stated, "flag_score": 1.0 - p_stated}
+    return formatted
+
+
 def format_predictions(predictions: dict, class_names: dict = None,
                        regression_bounds: dict = None) -> dict:
     """
@@ -298,6 +351,16 @@ def main():
     )
 
     parser.add_argument(
+        '--min-confidence', type=float, default=None,
+        help='One no-call cutoff for every task, overriding the per-task defaults from --abstention-config')
+    parser.add_argument(
+        '--abstention-config', type=Path, default=None,
+        help='JSON with per-task min_confidence (default: the packaged configs/abstention_v9.json values)')
+    parser.add_argument(
+        '--stated-label', action='append', default=[], metavar='TASK=LABEL',
+        help='A label on file to check, e.g. --stated-label material=tooth; repeatable. Output carries '
+             'flag_score = 1 - P(stated), or "cannot assess" when the label is outside the training vocabulary')
+    parser.add_argument(
         '--label-encoders',
         type=Path,
         default=None,
@@ -345,6 +408,10 @@ def main():
     # Format output
     formatted_preds = format_predictions(predictions, class_names=class_names,
                                          regression_bounds=regression_bounds)
+    stated = dict(kv.split('=', 1) for kv in args.stated_label) if args.stated_label else {}
+    cuts = ({t: args.min_confidence for t in formatted_preds} if args.min_confidence is not None
+            else load_abstention_config(args.abstention_config))
+    formatted_preds = apply_decision_policy(formatted_preds, class_names or {}, cuts, stated)
     
     output = {
         'sample_id': sample_id,

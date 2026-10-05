@@ -97,6 +97,15 @@ def parse_args() -> argparse.Namespace:
                    help="Phase 4 step 4.5: Beta(alpha, alpha) mixup of same-class rows from different studies, half of each batch")
     p.add_argument("--adversarial", type=float, default=0.0,
                    help="Phase 4 step 4.4: gradient-reversal scale of a head predicting the study from the backbone features")
+    p.add_argument("--heldout", type=Path, default=None,
+                   help="FINAL TEST ONLY (ledger read, Camila's approval): fit on all training runs and predict this held-out "
+                        "matrix (unitigs.frac.mat) for the runs in --heldout-ids with labels from --heldout-metadata; --fold is ignored")
+    p.add_argument("--heldout-ids", type=Path, default=Path("data/splits_v9/test_accessions.txt"))
+    p.add_argument("--heldout-metadata", type=Path, default=Path("data/splits_v9/test_metadata.tsv"))
+    p.add_argument("--resubstitution", action="store_true",
+                   help="SELF-GRADING DEMO ONLY (PROTOCOLS.md 2026-10-05): train on all training runs and predict those same runs; --fold is ignored")
+    p.add_argument("--adversarial-mode", choices=["reverse", "confusion"], default="reverse",
+                   help="4.4: 'reverse' = gradient reversal (unbounded); 4.4b: 'confusion' = uniform-target cross-entropy, bounded")
     p.add_argument("--save-probs", action="store_true",
                    help="also save softmax probabilities of the last epoch run (X7b, seed ensembles)")
     p.add_argument("--dev-folds", type=Path, default=Path("data/splits_v9/dev_folds.tsv"),
@@ -226,10 +235,34 @@ def main() -> int:
     y, classes = encode_labels(meta, task_names)
     folds = fold_assignment(meta, args.dev_folds)
 
-    eval_mask = folds == args.fold
+    heldout = None
+    if args.resubstitution:
+        eval_mask = np.zeros(len(meta), dtype=bool)
+        logger.info("RESUBSTITUTION (self-grading demo): fitting on all %d runs and predicting the same runs", len(meta))
+    elif args.heldout is not None:
+        # final test: every training run fits, the evaluation rows come from the held-out matrix
+        loader = MatrixLoader(args.heldout)
+        Xh_all, meta_h = loader.load_with_metadata(metadata_path=args.heldout_metadata, align_to_matrix=True, require_all_metadata=True)
+        meta_h = meta_h.to_pandas()
+        ho_ids = {l.strip() for l in open(args.heldout_ids) if l.strip()}
+        hmask = meta_h["Run_accession"].isin(ho_ids).to_numpy()
+        Xh, meta_h = Xh_all[hmask], meta_h[hmask].reset_index(drop=True)
+        if len(meta_h) != len(ho_ids):
+            raise ValueError(f"{len(ho_ids)} held-out ids but {len(meta_h)} found in {args.heldout}")
+        if set(meta_h.Run_accession) & set(meta.Run_accession):
+            raise ValueError("held-out runs overlap the training runs")
+        if set(meta_h[GROUP_COL]) & set(meta[GROUP_COL]):
+            raise ValueError("held-out BioProjects overlap the training BioProjects")
+        heldout = (Xh, meta_h)
+        logger.info("FINAL TEST: fitting on all %d training runs, predicting %d held-out runs from %s", len(meta), len(meta_h), args.heldout)
+        eval_mask = np.zeros(len(meta), dtype=bool)
+    else:
+        eval_mask = folds == args.fold
     train_idx, eval_idx = np.where(~eval_mask)[0], np.where(eval_mask)[0]
+    if args.resubstitution:
+        eval_idx = train_idx
     groups = meta[GROUP_COL].to_numpy()
-    shared = set(groups[train_idx]) & set(groups[eval_idx])
+    shared = set(groups[train_idx]) & set(groups[eval_idx]) if (heldout is None and not args.resubstitution) else set()
     if shared and not args.allow_shared_projects:
         raise ValueError(f"{len(shared)} BioProject(s) on both sides of fold {args.fold}: "
                          f"{sorted(shared)[:5]}")
@@ -291,6 +324,7 @@ def main() -> int:
         uses_offsets=args.offsets_dir is not None, mixup=args.mixup,
         adversarial=args.adversarial, n_studies=n_studies_fit if args.adversarial > 0 else 0,
         adv_in_dim=hp["model_params"]["hidden_dims"][-1] if args.adversarial > 0 else 0,
+        adversarial_mode=args.adversarial_mode,
     )
 
     offsets = None
@@ -321,15 +355,21 @@ def main() -> int:
         if args.mixup > 0:
             logger.info("4.5: mixup alpha=%.2f on half of each batch, same-class partners from other studies (%d studies)", args.mixup, n_studies)
         if args.adversarial > 0:
-            logger.info("4.4: study-adversarial head over %d studies, reversal scale %.2f", n_studies, args.adversarial)
+            logger.info("4.4: study-adversarial head over %d studies, strength %.2f, mode %s", n_studies, args.adversarial, args.adversarial_mode)
     gen = torch.Generator().manual_seed(seed)
     train_ds = TensorDataset(torch.FloatTensor(X[fit_idx]),
                              *[torch.LongTensor(y[t][fit_idx]) for t in task_names],
                              *([torch.FloatTensor(offsets[t][fit_idx]) for t in task_names] if offsets is not None else []),
                              *extras)
     train_loader = DataLoader(train_ds, batch_size=hp["batch_size"], shuffle=True, generator=gen)
-    X_eval = torch.FloatTensor(X[eval_idx]).to(device)
-    y_eval = {t: y[t][eval_idx] for t in task_names}
+    if heldout is not None:
+        Xh, meta_h = heldout
+        enc_h = {t: np.array([classes[t].index(v) if isinstance(v, str) and v in classes[t] else IGNORE_INDEX
+                              for v in meta_h[t].astype(object)]) for t in task_names}
+        X_eval = torch.FloatTensor(Xh).to(device); y_eval = enc_h; eval_runs = meta_h.Run_accession.to_numpy()
+    else:
+        X_eval = torch.FloatTensor(X[eval_idx]).to(device)
+        y_eval = {t: y[t][eval_idx] for t in task_names}; eval_runs = meta.Run_accession.to_numpy()[eval_idx]
     off_eval = {t: torch.FloatTensor(offsets[t][eval_idx]).to(device) for t in task_names} if offsets is not None else None
     off_val = ({t: torch.FloatTensor(offsets[t][val_idx]).to(device) for t in task_names}
                if offsets is not None and val_idx is not None else None)
@@ -342,13 +382,13 @@ def main() -> int:
         logger.info("recipe: lr=%s schedule=%s ema=%s early_stop=%s", trainer.optimizer.param_groups[0]["lr"],
                     args.lr_schedule, args.ema or "off", args.early_stop)
 
-    preds = {t: np.full((args.max_epochs, len(eval_idx)), -1, dtype=np.int16) for t in task_names}
+    preds = {t: np.full((args.max_epochs, len(eval_runs)), -1, dtype=np.int16) for t in task_names}
     history = {"train_loss": [], "eval_macro_f1": {t: [] for t in task_names}, "lr": [],
                "val_macro_f1": [], "recipe": {"seed": seed, "lr": trainer.optimizer.param_groups[0]["lr"],
                                                "lr_schedule": args.lr_schedule, "ema": args.ema,
                                                "early_stop": args.early_stop, "val_split": args.val_split,
                                                "linear_init": str(args.linear_init_dir) if args.linear_init_dir else None,
-                                               "study_weights": bool(args.study_weights), "depth_augment": args.depth_augment, "mixup": args.mixup, "adversarial": args.adversarial,
+                                               "study_weights": bool(args.study_weights), "depth_augment": args.depth_augment, "mixup": args.mixup, "adversarial": args.adversarial, "adversarial_mode": args.adversarial_mode,
                                                "patience": args.patience,
                                                "n_fit": int(len(fit_idx)), "n_val": int(len(val_idx)) if val_idx is not None else 0}}
     best_val, best_epoch, since_best, stopped_epoch = -1.0, None, 0, None
@@ -417,7 +457,7 @@ def main() -> int:
         np.savez_compressed(args.out / "probs_last.npz", **probs)
 
     np.savez_compressed(args.out / "preds_by_epoch.npz", **preds)
-    (args.out / "eval_runs.txt").write_text("\n".join(meta.Run_accession.to_numpy()[eval_idx]) + "\n")
+    (args.out / "eval_runs.txt").write_text("\n".join(eval_runs) + "\n")
     json.dump(classes, open(args.out / "label_classes.json", "w"), indent=2)
     json.dump(history, open(args.out / "history.json", "w"))
     logger.info("wrote %s", args.out)

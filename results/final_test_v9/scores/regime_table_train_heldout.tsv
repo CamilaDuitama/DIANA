@@ -1,0 +1,37 @@
+set	task	model	few	few_k	medium	medium_k	many	many_k
+held-out	community_type	final DIANA		0	0.5	3	0.725	2
+held-out	community_type	LogisticRegression_Bal		0	0.5	3	0.7	2
+held-out	community_type	RandomForest_Bal		0	0.453	3	0.71	2
+held-out	community_type	kNN		0	0.475	3	0.569	2
+held-out	community_type	LinearSVM_Bal		0	0.501	3	0.655	2
+train OOF	community_type	final DIANA		0	0.55	3	0.619	2
+train OOF	community_type	LogisticRegression_Bal		0	0.408	3	0.618	2
+train OOF	community_type	RandomForest_Bal		0	0.469	3	0.625	2
+train OOF	community_type	kNN		0	0.406	3	0.589	2
+held-out	feature	final DIANA	0.29	2	0.0	2	0.765	2
+held-out	feature	LogisticRegression_Bal	0.067	2	0.125	2	0.803	2
+held-out	feature	RandomForest_Bal	0.321	2	0.122	2	0.605	2
+held-out	feature	kNN	0.167	2	0.127	2	0.629	2
+held-out	feature	LinearSVM_Bal	0.067	2	0.227	2	0.781	2
+train OOF	feature	final DIANA	0.0	3	0.098	3	0.497	2
+train OOF	feature	LogisticRegression_Bal	0.0	3	0.011	3	0.635	2
+train OOF	feature	RandomForest_Bal	0.0	3	0.0	3	0.624	2
+train OOF	feature	kNN	0.0	3	0.0	3	0.625	2
+held-out	sample_host	final DIANA	0.493	5		0	0.968	1
+held-out	sample_host	LogisticRegression_Bal	0.461	5		0	0.946	1
+held-out	sample_host	RandomForest_Bal	0.409	5		0	0.942	1
+held-out	sample_host	kNN	0.511	5		0	0.925	1
+held-out	sample_host	LinearSVM_Bal	0.505	5		0	0.955	1
+train OOF	sample_host	final DIANA	0.075	5	0.256	3	0.748	2
+train OOF	sample_host	LogisticRegression_Bal	0.013	5	0.304	3	0.802	2
+train OOF	sample_host	RandomForest_Bal	0.0	5	0.278	3	0.857	2
+train OOF	sample_host	kNN	0.017	5	0.254	3	0.742	2
+held-out	material	final DIANA	0.0	4	0.791	3	0.612	6
+held-out	material	LogisticRegression_Bal	0.0	4	0.652	3	0.674	6
+held-out	material	RandomForest_Bal	0.0	4	0.753	3	0.383	6
+held-out	material	kNN	0.0	4	0.711	3	0.503	6
+held-out	material	LinearSVM_Bal	0.0	4	0.752	3	0.679	6
+train OOF	material	final DIANA	0.057	5	0.598	3	0.512	6
+train OOF	material	LogisticRegression_Bal	0.0	5	0.516	3	0.501	6
+train OOF	material	RandomForest_Bal	0.0	5	0.523	3	0.44	6
+train OOF	material	kNN	0.0	5	0.492	3	0.457	6

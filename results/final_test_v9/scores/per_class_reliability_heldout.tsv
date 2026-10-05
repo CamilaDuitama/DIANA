@@ -1,0 +1,32 @@
+task	class	train_runs	train_studies	heldout_runs	F1	catch_at_5pct	false_flag_rate	classifies_well	flags_well
+community_type	gut	88	8	52	0.54	1.0	0.08	True	True
+community_type	oral	1701	28	377	0.79	0.43	0.06	True	False
+community_type	plant tissue	43	2	38	0.96		0.0	True	False
+community_type	skeletal tissue	214	7	178	0.65	0.03	0.0	True	False
+community_type	soft tissue	27	2	8	0.0	0.4	0.0	False	False
+feature	cave	34	1	98	0.0	0.91	0.03	False	True
+feature	lake	215	10	70	0.85		0.0	True	False
+feature	ocean	179	6	63	0.68	0.0	0.0	True	False
+feature	rock shelter	2	1	11	0.0	0.63	0.48	False	False
+feature	sea coast	52	1	12	0.0	0.66	0.08	False	True
+feature	thermokarst	10	1	9	0.58	0.72	0.0	True	True
+sample_host	Ambrosia artemisiifolia	11	1	38	0.77		0.06	True	False
+sample_host	Canis lupus	12	3	9	0.4	1.0	0.44	False	False
+sample_host	Homo sapiens	1397	31	555	0.97	0.22	0.0	True	False
+sample_host	Homo sapiens neanderthalensis	16	1	18	0.11	0.99	0.81	False	False
+sample_host	Mammuthus primigenius	16	1	13	0.38	1.0	0.43	False	False
+sample_host	Pan troglodytes schweinfurthii	11	1	19	0.81	1.0	0.06	True	True
+material	birch pitch	0	0	79	0.0			False	False
+material	bone	127	4	143	0.24	0.58	0.1	False	True
+material	dental calculus	1389	25	181	0.79	0.73	0.01	True	True
+material	digestive tract contents	16	1	15	0.0	0.53	0.43	False	False
+material	intestine	15	2	1	0.0	0.24	0.89	False	False
+material	lake sediment	215	10	70	0.87	1.0	0.0	True	True
+material	leaf	43	2	38	1.0	0.4	0.0	True	False
+material	marine sediment	143	4	63	0.81	0.32	0.0	True	False
+material	muscle tissue	4	1	2	0.0	0.36	0.0	False	False
+material	palaeofaeces	61	6	14	0.61	0.46	0.0	True	False
+material	permafrost	70	3	21	0.77	0.52	0.0	True	True
+material	sediment	105	7	109	0.42	0.62	0.03	False	True
+material	soil	2	1	20	0.0	0.1	0.0	False	False
+material	tooth	399	8	145	0.54	0.51	0.09	True	True

@@ -1,0 +1,3 @@
+model	task	config	cfg	f1_macro_oof	minutes
+AdaBoost	community_type	0	{'n_estimators': 200}	0.3301	53.6
+AdaBoost	community_type	1	{'n_estimators': 500}	0.3339	128.6

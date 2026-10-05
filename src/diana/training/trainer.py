@@ -7,6 +7,7 @@ from ..models.multitask_mlp import IGNORE_INDEX
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
+from torch.func import functional_call
 from torch.utils.data import DataLoader, TensorDataset
 from typing import Dict, Optional, List, Union
 from pathlib import Path
@@ -53,7 +54,8 @@ class MultiTaskTrainer:
                  mixup_frac: float = 0.5,
                  adversarial: float = 0.0,
                  n_studies: int = 0,
-                 adv_in_dim: int = 0):
+                 adv_in_dim: int = 0,
+                 adversarial_mode: str = "reverse"):
         """
         Initialize trainer.
 
@@ -96,6 +98,9 @@ class MultiTaskTrainer:
         # 4.4: a head predicts the study from the backbone features through a gradient-reversal layer
         # scaled by `adversarial`; the study codes are the same trailing tensor as for mixup.
         self.adversarial = float(adversarial or 0.0)
+        if adversarial_mode not in ("reverse", "confusion"):
+            raise ValueError("adversarial_mode must be 'reverse' (gradient reversal, unbounded) or 'confusion' (uniform-target cross-entropy, bounded)")
+        self.adversarial_mode = adversarial_mode
         self.adv_head = None
         if self.adversarial > 0.0:
             if n_studies < 2 or adv_in_dim < 1:
@@ -444,7 +449,19 @@ class MultiTaskTrainer:
             if self.adv_head is not None:
                 features = self.model.backbone(batch_x)
                 outputs = {t: self.model.heads[t](features) for t in self.task_names}
-                adv_loss = nn.functional.cross_entropy(self.adv_head(GradReverse.apply(features, self.adversarial)), study)
+                if self.adversarial_mode == "reverse":
+                    # 4.4: the head learns the study; the reversed gradient makes the backbone maximise the head's
+                    # error, an unbounded objective (it diverged on 2026-10-01)
+                    adv_loss = nn.functional.cross_entropy(self.adv_head(GradReverse.apply(features, self.adversarial)), study)
+                else:
+                    # 4.4b: the head learns the study from detached features; the backbone minimises the cross-entropy
+                    # between the head's prediction (head parameters held fixed) and the uniform distribution over
+                    # studies, which is bounded below by log K and cannot run away
+                    head_loss = nn.functional.cross_entropy(self.adv_head(features.detach()), study)
+                    frozen = {k: v.detach() for k, v in self.adv_head.named_parameters()}
+                    logp = torch.log_softmax(functional_call(self.adv_head, frozen, (features,)), dim=1)
+                    conf_loss = -logp.mean(dim=1).mean()
+                    adv_loss = head_loss + self.adversarial * conf_loss
             else:
                 outputs = self.model(batch_x)
             if offsets is not None:

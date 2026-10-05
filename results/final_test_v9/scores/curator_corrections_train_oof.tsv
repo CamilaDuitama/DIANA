@@ -1,0 +1,180 @@
+source	task	run	project	old	new	pred	P_old	caught	flag
+history	community_type	ERR11656739	PRJEB61887	oral	skeletal tissue	skeletal tissue	0.23535685241222382	True	0.7646431475877762
+history	material	ERR11656739	PRJEB61887	dental calculus	bone	bone	0.0902365893125534	True	0.9097634106874466
+history	community_type	ERR11413733	PRJEB61887	skeletal tissue	oral	oral	0.07961593568325043	True	0.9203840643167496
+history	material	ERR11413733	PRJEB61887	bone	dental calculus	dental calculus	0.01529020071029663	True	0.9847097992897034
+history	feature	ERR6430820	PRJEB46821	marine sediment	ocean	ocean		True	
+history	feature	ERR6430821	PRJEB46821	marine sediment	ocean	lake		False	
+history	feature	ERR6430822	PRJEB46821	marine sediment	ocean	lake		False	
+history	feature	ERR6430823	PRJEB46821	marine sediment	ocean	lake		False	
+history	feature	ERR6430825	PRJEB46821	marine sediment	ocean	ocean		True	
+history	feature	ERR6430828	PRJEB46821	marine sediment	ocean	lake		False	
+history	feature	ERR6430830	PRJEB46821	marine sediment	ocean	lake		False	
+history	feature	ERR6430831	PRJEB46821	marine sediment	ocean	ocean		True	
+history	feature	ERR6430832	PRJEB46821	marine sediment	ocean	ocean		True	
+history	feature	ERR6430833	PRJEB46821	marine sediment	ocean	ocean		True	
+history	feature	ERR6430834	PRJEB46821	marine sediment	ocean	ocean		True	
+history	feature	ERR6430838	PRJEB46821	marine sediment	ocean	lake		False	
+history	feature	ERR6430840	PRJEB46821	marine sediment	ocean	lake		False	
+history	feature	ERR6430841	PRJEB46821	marine sediment	ocean	lake		False	
+history	feature	ERR6430842	PRJEB46821	marine sediment	ocean	lake		False	
+history	feature	ERR6430843	PRJEB46821	marine sediment	ocean	lake		False	
+history	feature	ERR6430846	PRJEB46821	marine sediment	ocean	ocean		True	
+history	feature	ERR6430847	PRJEB46821	marine sediment	ocean	ocean		True	
+history	feature	ERR6430849	PRJEB46821	marine sediment	ocean	ocean		True	
+history	feature	ERR6430850	PRJEB46821	marine sediment	ocean	ocean		True	
+history	feature	ERR6430851	PRJEB46821	marine sediment	ocean	ocean		True	
+merge-key	community_type	ERR11656730	PRJEB61887	oral	skeletal tissue	skeletal tissue	0.07091746479272842	True	0.9290825352072716
+merge-key	community_type	ERR11656731	PRJEB61887	oral	skeletal tissue	skeletal tissue	0.02873281016945839	True	0.9712671898305416
+merge-key	community_type	ERR11656732	PRJEB61887	oral	skeletal tissue	oral	0.552658200263977	False	0.44734179973602295
+merge-key	community_type	ERR11656733	PRJEB61887	oral	skeletal tissue	skeletal tissue	0.012804849073290825	True	0.9871951509267092
+merge-key	community_type	ERR11656734	PRJEB61887	oral	skeletal tissue	skeletal tissue	0.07226673513650894	True	0.9277332648634911
+merge-key	community_type	ERR11656735	PRJEB61887	oral	skeletal tissue	skeletal tissue	0.01616356149315834	True	0.9838364385068417
+merge-key	community_type	ERR11656736	PRJEB61887	oral	skeletal tissue	skeletal tissue	0.008326464332640171	True	0.9916735356673598
+merge-key	community_type	ERR11656738	PRJEB61887	oral	skeletal tissue	skeletal tissue	0.03157975897192955	True	0.9684202410280704
+merge-key	community_type	ERR4373119	PRJEB33848	skeletal tissue	oral	oral	0.10951980203390121	True	0.8904801979660988
+merge-key	community_type	ERR4374008	PRJEB33848	soft tissue	skeletal tissue	oral	0.2416248768568039	False	0.7583751231431961
+merge-key	community_type	ERR4374011	PRJEB33848	skeletal tissue	soft tissue	soft tissue	0.13161799311637878	True	0.8683820068836212
+merge-key	community_type	ERR4374017	PRJEB33848	skeletal tissue	soft tissue	oral	0.2277461290359497	False	0.7722538709640503
+merge-key	community_type	ERR4374020	PRJEB33848	oral	skeletal tissue	soft tissue	0.1881406456232071	False	0.8118593543767929
+merge-key	community_type	ERR4374021	PRJEB33848	oral	soft tissue	soft tissue	0.1140642985701561	True	0.8859357014298439
+merge-key	community_type	ERR4374023	PRJEB33848	skeletal tissue	oral	oral	0.09087724983692169	True	0.9091227501630783
+merge-key	community_type	ERR4374035	PRJEB33848	skeletal tissue	soft tissue	oral	0.06962749361991882	False	0.9303725063800812
+merge-key	community_type	ERR4374046	PRJEB33848	skeletal tissue	soft tissue	skeletal tissue	0.2778889536857605	False	0.7221110463142395
+merge-key	community_type	ERR4374053	PRJEB33848	skeletal tissue	oral	oral	0.09916315972805023	True	0.9008368402719498
+merge-key	community_type	ERR4374857	PRJEB33848	skeletal tissue	soft tissue	oral	0.07678593695163727	False	0.9232140630483627
+merge-key	community_type	ERR4374918	PRJEB33848	oral	skeletal tissue	oral	0.40479832887649536	False	0.5952016711235046
+merge-key	community_type	ERR4374928	PRJEB33848	oral	skeletal tissue	gut	0.07743548601865768	False	0.9225645139813423
+merge-key	community_type	ERR4375039	PRJEB33848	skeletal tissue	oral	oral	0.06915640085935593	True	0.9308435991406441
+merge-key	community_type	ERR4386569	PRJEB33848	soft tissue	skeletal tissue	gut	0.23116561770439148	False	0.7688343822956085
+merge-key	community_type	ERR4386594	PRJEB33848	skeletal tissue	soft tissue	soft tissue	0.12086448818445206	True	0.8791355118155479
+merge-key	community_type	ERR4388102	PRJEB33848	skeletal tissue	soft tissue	soft tissue	0.13676205277442932	True	0.8632379472255707
+merge-key	community_type	ERR4388107	PRJEB33848	skeletal tissue	soft tissue	oral	0.13553515076637268	False	0.8644648492336273
+merge-key	community_type	ERR4388231	PRJEB33848	skeletal tissue	soft tissue	oral	0.09420768171548843	False	0.9057923182845116
+merge-key	community_type	ERR4388236	PRJEB33848	skeletal tissue	soft tissue	soft tissue	0.13431677222251892	True	0.8656832277774811
+merge-key	community_type	SRR6877285	PRJNA445215	oral	skeletal tissue	oral	0.28961730003356934	False	0.7103826999664307
+merge-key	community_type	SRR6877287	PRJNA445215	oral	skeletal tissue	skeletal tissue	0.1879918873310089	True	0.8120081126689911
+merge-key	community_type	SRR6877289	PRJNA445215	oral	skeletal tissue	oral	0.40761908888816833	False	0.5923809111118317
+merge-key	community_type	SRR6877293	PRJNA445215	oral	skeletal tissue	skeletal tissue	0.2528076469898224	True	0.7471923530101776
+merge-key	community_type	SRR6877295	PRJNA445215	oral	skeletal tissue	oral	0.3638705313205719	False	0.6361294686794281
+merge-key	community_type	SRR6877297	PRJNA445215	oral	skeletal tissue	skeletal tissue	0.14294199645519257	True	0.8570580035448074
+merge-key	community_type	SRR6877298	PRJNA445215	oral	skeletal tissue	oral	0.3726617693901062	False	0.6273382306098938
+merge-key	community_type	SRR6877299	PRJNA445215	oral	skeletal tissue	oral	0.35715875029563904	False	0.642841249704361
+merge-key	community_type	SRR6877301	PRJNA445215	oral	skeletal tissue	oral	0.3751460909843445	False	0.6248539090156555
+merge-key	community_type	SRR6877302	PRJNA445215	oral	skeletal tissue	oral	0.3277754485607147	False	0.6722245514392853
+merge-key	community_type	SRR6877306	PRJNA445215	oral	skeletal tissue	oral	0.28379929065704346	False	0.7162007093429565
+merge-key	community_type	SRR6877307	PRJNA445215	oral	skeletal tissue	skeletal tissue	0.006192008499056101	True	0.9938079915009439
+merge-key	community_type	SRR6877311	PRJNA445215	oral	skeletal tissue	oral	0.4025951027870178	False	0.5974048972129822
+merge-key	community_type	SRR6877312	PRJNA445215	skeletal tissue	oral	oral	0.07654572278261185	True	0.9234542772173882
+merge-key	community_type	SRR6877315	PRJNA445215	oral	skeletal tissue	skeletal tissue	0.09402893483638763	True	0.9059710651636124
+merge-key	community_type	SRR6877318	PRJNA445215	skeletal tissue	oral	oral	0.08227834105491638	True	0.9177216589450836
+merge-key	community_type	SRR6877319	PRJNA445215	oral	skeletal tissue	oral	0.39898961782455444	False	0.6010103821754456
+merge-key	community_type	SRR6877321	PRJNA445215	oral	skeletal tissue	oral	0.3775339722633362	False	0.6224660277366638
+merge-key	community_type	SRR6877325	PRJNA445215	oral	skeletal tissue	oral	0.28982800245285034	False	0.7101719975471497
+merge-key	community_type	SRR6877327	PRJNA445215	oral	skeletal tissue	oral	0.3701253831386566	False	0.6298746168613434
+merge-key	community_type	SRR6877331	PRJNA445215	oral	skeletal tissue	oral	0.38403087854385376	False	0.6159691214561462
+merge-key	community_type	SRR6877333	PRJNA445215	oral	skeletal tissue	skeletal tissue	0.061764318495988846	True	0.9382356815040112
+merge-key	community_type	SRR6877335	PRJNA445215	oral	skeletal tissue	oral	0.27394866943359375	False	0.7260513305664062
+merge-key	community_type	SRR6877336	PRJNA445215	skeletal tissue	oral	oral	0.09002107381820679	True	0.9099789261817932
+merge-key	community_type	SRR6877337	PRJNA445215	oral	skeletal tissue	skeletal tissue	0.1915397346019745	True	0.8084602653980255
+merge-key	community_type	SRR6877339	PRJNA445215	skeletal tissue	oral	oral	0.05462248995900154	True	0.9453775100409985
+merge-key	community_type	SRR6877340	PRJNA445215	skeletal tissue	oral	oral	0.059960685670375824	True	0.9400393143296242
+merge-key	community_type	SRR6877341	PRJNA445215	oral	skeletal tissue	oral	0.3966462016105652	False	0.6033537983894348
+merge-key	community_type	SRR6877342	PRJNA445215	skeletal tissue	oral	oral	0.057222992181777954	True	0.942777007818222
+merge-key	community_type	SRR6877343	PRJNA445215	oral	skeletal tissue	oral	0.3675850033760071	False	0.6324149966239929
+merge-key	community_type	SRR6877345	PRJNA445215	oral	skeletal tissue	oral	0.3974990248680115	False	0.6025009751319885
+merge-key	community_type	SRR6877347	PRJNA445215	oral	skeletal tissue	oral	0.3924090564250946	False	0.6075909435749054
+merge-key	community_type	SRR6877353	PRJNA445215	oral	skeletal tissue	oral	0.31666019558906555	False	0.6833398044109344
+merge-key	community_type	SRR6877355	PRJNA445215	oral	skeletal tissue	skeletal tissue	0.24098463356494904	True	0.759015366435051
+merge-key	community_type	SRR6877357	PRJNA445215	oral	skeletal tissue	oral	0.31828776001930237	False	0.6817122399806976
+merge-key	community_type	SRR6877359	PRJNA445215	oral	skeletal tissue	oral	0.404536634683609	False	0.595463365316391
+merge-key	community_type	SRR6877360	PRJNA445215	oral	skeletal tissue	skeletal tissue	0.15970245003700256	True	0.8402975499629974
+merge-key	community_type	SRR6877364	PRJNA445215	oral	skeletal tissue	oral	0.37411826848983765	False	0.6258817315101624
+merge-key	community_type	SRR6877366	PRJNA445215	oral	skeletal tissue	oral	0.3748090863227844	False	0.6251909136772156
+merge-key	community_type	SRR6877368	PRJNA445215	oral	skeletal tissue	oral	0.4175949692726135	False	0.5824050307273865
+merge-key	community_type	SRR6877371	PRJNA445215	oral	skeletal tissue	skeletal tissue	0.16921482980251312	True	0.8307851701974869
+merge-key	community_type	SRR6877373	PRJNA445215	oral	skeletal tissue	skeletal tissue	0.11336363852024078	True	0.8866363614797592
+merge-key	community_type	SRR6877375	PRJNA445215	oral	skeletal tissue	oral	0.2786482274532318	False	0.7213517725467682
+merge-key	community_type	SRR6877379	PRJNA445215	oral	skeletal tissue	skeletal tissue	0.09183189272880554	True	0.9081681072711945
+merge-key	community_type	SRR6877380	PRJNA445215	oral	skeletal tissue	oral	0.36092087626457214	False	0.6390791237354279
+merge-key	community_type	SRR6877383	PRJNA445215	oral	skeletal tissue	oral	0.311878502368927	False	0.688121497631073
+merge-key	community_type	SRR6877385	PRJNA445215	oral	skeletal tissue	oral	0.3829050660133362	False	0.6170949339866638
+merge-key	community_type	SRR6877387	PRJNA445215	oral	skeletal tissue	oral	0.36480313539505005	False	0.63519686460495
+merge-key	community_type	SRR6877389	PRJNA445215	oral	skeletal tissue	oral	0.38679978251457214	False	0.6132002174854279
+merge-key	community_type	SRR6877391	PRJNA445215	oral	skeletal tissue	oral	0.26337864995002747	False	0.7366213500499725
+merge-key	community_type	SRR6877394	PRJNA445215	oral	skeletal tissue	skeletal tissue	0.18417134881019592	True	0.8158286511898041
+merge-key	community_type	SRR6877396	PRJNA445215	oral	skeletal tissue	skeletal tissue	0.18589630722999573	True	0.8141036927700043
+merge-key	community_type	SRR6877398	PRJNA445215	oral	skeletal tissue	oral	0.3538423180580139	False	0.6461576819419861
+merge-key	community_type	SRR6877400	PRJNA445215	oral	skeletal tissue	skeletal tissue	0.19107994437217712	True	0.8089200556278229
+merge-key	material	ERR11656730	PRJEB61887	dental calculus	bone	tooth	0.027361303567886353	False	0.9726386964321136
+merge-key	material	ERR11656731	PRJEB61887	dental calculus	bone	tooth	0.025973021984100342	False	0.9740269780158997
+merge-key	material	ERR11656732	PRJEB61887	dental calculus	bone	tooth	0.016981175169348717	False	0.9830188248306513
+merge-key	material	ERR11656733	PRJEB61887	dental calculus	bone	bone	0.0417352095246315	True	0.9582647904753685
+merge-key	material	ERR11656734	PRJEB61887	dental calculus	bone	tooth	0.021773353219032288	False	0.9782266467809677
+merge-key	material	ERR11656735	PRJEB61887	dental calculus	bone	tooth	0.026394132524728775	False	0.9736058674752712
+merge-key	material	ERR11656736	PRJEB61887	dental calculus	bone	bone	0.02931853011250496	True	0.970681469887495
+merge-key	material	ERR11656738	PRJEB61887	dental calculus	bone	tooth	0.025932256132364273	False	0.9740677438676357
+merge-key	material	ERR4373119	PRJEB33848	bone	dental calculus	tooth	0.03977998346090317	False	0.9602200165390968
+merge-key	material	ERR4373159	PRJEB33848	tooth	dental calculus	digestive tract contents	0.04774566367268562	False	0.9522543363273144
+merge-key	material	ERR4374020	PRJEB33848	tooth	bone	shell	0.12600906193256378	False	0.8739909380674362
+merge-key	material	ERR4374023	PRJEB33848	bone	tooth	digestive tract contents	0.0378628633916378	False	0.9621371366083622
+merge-key	material	ERR4374053	PRJEB33848	bone	tooth	dental calculus	0.028444726020097733	False	0.9715552739799023
+merge-key	material	ERR4374918	PRJEB33848	tooth	bone	digestive tract contents	0.059696607291698456	False	0.9403033927083015
+merge-key	material	ERR4374928	PRJEB33848	tooth	bone	palaeofaeces	0.0300888754427433	False	0.9699111245572567
+merge-key	material	ERR4375039	PRJEB33848	bone	tooth	dental calculus	0.04402320832014084	False	0.9559767916798592
+merge-key	material	ERR4391165	PRJEB33848	tooth	dental calculus	dental calculus	0.020151745527982712	True	0.9798482544720173
+merge-key	material	ERR4391166	PRJEB33848	tooth	dental calculus	dental calculus	0.020032066851854324	True	0.9799679331481457
+merge-key	material	SRR6877285	PRJNA445215	dental calculus	tooth	bone	0.016155477613210678	False	0.9838445223867893
+merge-key	material	SRR6877287	PRJNA445215	dental calculus	tooth	tooth	0.006064797751605511	True	0.9939352022483945
+merge-key	material	SRR6877289	PRJNA445215	dental calculus	tooth	tooth	0.009790112264454365	True	0.9902098877355456
+merge-key	material	SRR6877293	PRJNA445215	dental calculus	tooth	tooth	0.0040663862600922585	True	0.9959336137399077
+merge-key	material	SRR6877295	PRJNA445215	dental calculus	tooth	tooth	0.023020239546895027	True	0.976979760453105
+merge-key	material	SRR6877297	PRJNA445215	dental calculus	tooth	tooth	0.002980906516313553	True	0.9970190934836864
+merge-key	material	SRR6877298	PRJNA445215	dental calculus	tooth	tooth	0.057586003094911575	True	0.9424139969050884
+merge-key	material	SRR6877299	PRJNA445215	dental calculus	tooth	tooth	0.023325609043240547	True	0.9766743909567595
+merge-key	material	SRR6877301	PRJNA445215	dental calculus	tooth	tooth	0.03618527576327324	True	0.9638147242367268
+merge-key	material	SRR6877302	PRJNA445215	dental calculus	tooth	tooth	0.0030199664179235697	True	0.9969800335820764
+merge-key	material	SRR6877306	PRJNA445215	dental calculus	tooth	tooth	0.01005630660802126	True	0.9899436933919787
+merge-key	material	SRR6877307	PRJNA445215	dental calculus	tooth	bone	0.00358204054646194	False	0.9964179594535381
+merge-key	material	SRR6877311	PRJNA445215	dental calculus	tooth	dental calculus	0.4391542077064514	False	0.5608457922935486
+merge-key	material	SRR6877312	PRJNA445215	tooth	dental calculus	dental calculus	0.008042218163609505	True	0.9919577818363905
+merge-key	material	SRR6877315	PRJNA445215	dental calculus	tooth	tooth	0.00364508293569088	True	0.9963549170643091
+merge-key	material	SRR6877318	PRJNA445215	tooth	dental calculus	dental calculus	0.010244605131447315	True	0.9897553948685527
+merge-key	material	SRR6877319	PRJNA445215	dental calculus	tooth	tooth	0.00533657381311059	True	0.9946634261868894
+merge-key	material	SRR6877321	PRJNA445215	dental calculus	tooth	tooth	0.002887023612856865	True	0.9971129763871431
+merge-key	material	SRR6877325	PRJNA445215	dental calculus	tooth	tooth	0.004652282223105431	True	0.9953477177768946
+merge-key	material	SRR6877327	PRJNA445215	dental calculus	tooth	tooth	0.0029958125669509172	True	0.9970041874330491
+merge-key	material	SRR6877331	PRJNA445215	dental calculus	tooth	tooth	0.012680168263614178	True	0.9873198317363858
+merge-key	material	SRR6877333	PRJNA445215	dental calculus	tooth	tooth	0.0069229938089847565	True	0.9930770061910152
+merge-key	material	SRR6877335	PRJNA445215	dental calculus	tooth	tooth	0.0022784951142966747	True	0.9977215048857033
+merge-key	material	SRR6877336	PRJNA445215	tooth	dental calculus	dental calculus	0.01574566960334778	True	0.9842543303966522
+merge-key	material	SRR6877337	PRJNA445215	dental calculus	tooth	tooth	0.003863818943500519	True	0.9961361810564995
+merge-key	material	SRR6877339	PRJNA445215	tooth	dental calculus	dental calculus	0.003463122295215726	True	0.9965368777047843
+merge-key	material	SRR6877340	PRJNA445215	tooth	dental calculus	dental calculus	0.0043397946283221245	True	0.9956602053716779
+merge-key	material	SRR6877341	PRJNA445215	dental calculus	tooth	digestive tract contents	0.09844455868005753	False	0.9015554413199425
+merge-key	material	SRR6877342	PRJNA445215	tooth	dental calculus	dental calculus	0.004174222704023123	True	0.9958257772959769
+merge-key	material	SRR6877343	PRJNA445215	dental calculus	tooth	dental calculus	0.17054340243339539	False	0.8294565975666046
+merge-key	material	SRR6877345	PRJNA445215	dental calculus	tooth	tooth	0.0035436798352748156	True	0.9964563201647252
+merge-key	material	SRR6877347	PRJNA445215	dental calculus	tooth	digestive tract contents	0.08120385557413101	False	0.918796144425869
+merge-key	material	SRR6877353	PRJNA445215	dental calculus	tooth	tooth	0.00541404914110899	True	0.994585950858891
+merge-key	material	SRR6877355	PRJNA445215	dental calculus	tooth	tooth	0.005835272837430239	True	0.9941647271625698
+merge-key	material	SRR6877357	PRJNA445215	dental calculus	tooth	tooth	0.0035410388372838497	True	0.9964589611627162
+merge-key	material	SRR6877359	PRJNA445215	dental calculus	tooth	tooth	0.006659261882305145	True	0.9933407381176949
+merge-key	material	SRR6877360	PRJNA445215	dental calculus	tooth	tooth	0.0025161877274513245	True	0.9974838122725487
+merge-key	material	SRR6877364	PRJNA445215	dental calculus	tooth	tooth	0.0026185130700469017	True	0.9973814869299531
+merge-key	material	SRR6877366	PRJNA445215	dental calculus	tooth	dental calculus	0.22868022322654724	False	0.7713197767734528
+merge-key	material	SRR6877368	PRJNA445215	dental calculus	tooth	tooth	0.0025603913236409426	True	0.9974396086763591
+merge-key	material	SRR6877371	PRJNA445215	dental calculus	tooth	tooth	0.00746725220233202	True	0.992532747797668
+merge-key	material	SRR6877373	PRJNA445215	dental calculus	tooth	tooth	0.004101837519556284	True	0.9958981624804437
+merge-key	material	SRR6877375	PRJNA445215	dental calculus	tooth	tooth	0.0024272617883980274	True	0.997572738211602
+merge-key	material	SRR6877379	PRJNA445215	dental calculus	tooth	bone	0.0026568740140646696	False	0.9973431259859353
+merge-key	material	SRR6877380	PRJNA445215	dental calculus	tooth	tooth	0.003609337378293276	True	0.9963906626217067
+merge-key	material	SRR6877383	PRJNA445215	dental calculus	tooth	tooth	0.0021786049474030733	True	0.9978213950525969
+merge-key	material	SRR6877385	PRJNA445215	dental calculus	tooth	tooth	0.002087627537548542	True	0.9979123724624515
+merge-key	material	SRR6877387	PRJNA445215	dental calculus	tooth	tooth	0.002247630851343274	True	0.9977523691486567
+merge-key	material	SRR6877389	PRJNA445215	dental calculus	tooth	tooth	0.04589071869850159	True	0.9541092813014984
+merge-key	material	SRR6877391	PRJNA445215	dental calculus	tooth	tooth	0.003355847205966711	True	0.9966441527940333
+merge-key	material	SRR6877394	PRJNA445215	dental calculus	tooth	tooth	0.004122690763324499	True	0.9958773092366755
+merge-key	material	SRR6877396	PRJNA445215	dental calculus	tooth	tooth	0.007155970670282841	True	0.9928440293297172
+merge-key	material	SRR6877398	PRJNA445215	dental calculus	tooth	dental calculus	0.2194902002811432	False	0.7805097997188568
+merge-key	material	SRR6877400	PRJNA445215	dental calculus	tooth	tooth	0.002908624242991209	True	0.9970913757570088

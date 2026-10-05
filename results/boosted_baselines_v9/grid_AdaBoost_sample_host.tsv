@@ -1,0 +1,3 @@
+model	task	config	cfg	f1_macro_oof	minutes
+AdaBoost	sample_host	0	{'n_estimators': 200}	0.0814	54.4
+AdaBoost	sample_host	1	{'n_estimators': 500}	0.0575	130.3

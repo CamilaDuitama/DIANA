@@ -1,0 +1,37 @@
+set	task	model	few	medium	many
+train OOF	community_type	final DIANA		0.55	0.619
+train OOF	community_type	LogisticRegression_Bal		0.408	0.618
+train OOF	community_type	RandomForest_Bal		0.469	0.625
+train OOF	community_type	kNN		0.406	0.589
+train OOF	feature	final DIANA	0.0	0.098	0.497
+train OOF	feature	LogisticRegression_Bal	0.0	0.011	0.635
+train OOF	feature	RandomForest_Bal	0.0	0.0	0.624
+train OOF	feature	kNN	0.0	0.0	0.625
+train OOF	sample_host	final DIANA	0.075	0.256	0.748
+train OOF	sample_host	LogisticRegression_Bal	0.013	0.304	0.802
+train OOF	sample_host	RandomForest_Bal	0.0	0.278	0.857
+train OOF	sample_host	kNN	0.017	0.254	0.742
+train OOF	material	final DIANA	0.057	0.598	0.512
+train OOF	material	LogisticRegression_Bal	0.0	0.516	0.501
+train OOF	material	RandomForest_Bal	0.0	0.523	0.44
+train OOF	material	kNN	0.0	0.492	0.457
+held-out	community_type	final DIANA		0.5	0.725
+held-out	community_type	LogisticRegression_Bal		0.5	0.7
+held-out	community_type	RandomForest_Bal		0.453	0.71
+held-out	community_type	kNN		0.475	0.569
+held-out	community_type	LinearSVM_Bal		0.501	0.655
+held-out	feature	final DIANA	0.29	0.0	0.765
+held-out	feature	LogisticRegression_Bal	0.067	0.125	0.803
+held-out	feature	RandomForest_Bal	0.321	0.122	0.605
+held-out	feature	kNN	0.167	0.127	0.629
+held-out	feature	LinearSVM_Bal	0.067	0.227	0.781
+held-out	sample_host	final DIANA	0.493		0.968
+held-out	sample_host	LogisticRegression_Bal	0.461		0.946
+held-out	sample_host	RandomForest_Bal	0.409		0.942
+held-out	sample_host	kNN	0.511		0.925
+held-out	sample_host	LinearSVM_Bal	0.505		0.955
+held-out	material	final DIANA	0.0	0.791	0.612
+held-out	material	LogisticRegression_Bal	0.0	0.652	0.674
+held-out	material	RandomForest_Bal	0.0	0.753	0.383
+held-out	material	kNN	0.0	0.711	0.503
+held-out	material	LinearSVM_Bal	0.0	0.752	0.679

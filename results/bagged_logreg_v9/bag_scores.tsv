@@ -1,0 +1,17 @@
+task	model	f1_macro_eligible	recall_at_5pct	choosing_score
+community_type	DIANA+LogReg	0.495	0.35	0.613
+community_type	LogReg	0.492	0.619	0.701
+community_type	bag_runs	0.492	0.612	0.699
+community_type	bag_studies	0.544	0.531	0.679
+feature	DIANA+LogReg	0.161	0.379	0.58
+feature	LogReg	0.163	0.0	
+feature	bag_runs	0.158	0.0	
+feature	bag_studies	0.15	0.0	
+sample_host	DIANA+LogReg	0.258	0.8	0.896
+sample_host	LogReg	0.258	0.0	0.969
+sample_host	bag_runs	0.267	0.0	0.977
+sample_host	bag_studies	0.29	0.0	0.985
+material	DIANA+LogReg	0.335	0.635	0.755
+material	LogReg	0.325	0.482	0.679
+material	bag_runs	0.329	0.485	0.674
+material	bag_studies	0.271	0.468	0.664

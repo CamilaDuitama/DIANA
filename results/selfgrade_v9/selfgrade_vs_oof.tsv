@@ -1,0 +1,5 @@
+task	out-of-fold: recall@5%	out-of-fold: mean flag on planted	self-graded: recall@5%	self-graded: mean flag on planted
+community_type	0.034	0.852	0.763	0.727
+feature	0.286	0.908	0.446	0.873
+sample_host	0.82	0.977	0.495	0.502
+material	0.646	0.958	0.158	0.242

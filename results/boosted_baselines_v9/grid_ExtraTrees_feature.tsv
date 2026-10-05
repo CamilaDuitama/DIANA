@@ -1,0 +1,3 @@
+model	task	config	cfg	f1_macro_oof	minutes
+ExtraTrees	feature	0	{'n_estimators': 500, 'max_features': 'sqrt'}	0.1066	0.2
+ExtraTrees	feature	1	{'n_estimators': 500, 'max_features': 0.05}	0.1134	1.3

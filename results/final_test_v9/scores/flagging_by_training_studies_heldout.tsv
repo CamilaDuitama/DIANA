@@ -1,0 +1,5 @@
+task	0-1 studies	2-5 studies	6+ studies	0-1 studies_planted	2-5 studies_planted	6+ studies_planted
+community_type		0.4	0.17	0.0	3.3	61.7
+feature	0.7	0.24	0.0	13.2	11.8	1.7
+sample_host	1.0	1.0	0.22	38.0	24.9	2.2
+material	0.2	0.37	0.63	6.0	16.4	58.6

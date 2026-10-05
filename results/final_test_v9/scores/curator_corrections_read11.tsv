@@ -1,0 +1,21 @@
+task	run	project	old_label	new_label	DIANA_pred	P_old	P_new	flag_1_minus_Pold	LogReg_pred	LogReg_flag
+feature	ERR10878152	PRJEB59830	nan	rock shelter	thermokarst		0.079		sea coast	
+feature	ERR10878153	PRJEB59830	nan	rock shelter	midden		0.045		shell	
+feature	ERR10878154	PRJEB59830	nan	rock shelter	ocean		0.086		ocean	
+feature	ERR10878155	PRJEB59830	nan	rock shelter	midden		0.023		archeological site	
+feature	ERR10878156	PRJEB59830	nan	rock shelter	midden		0.005		archeological site	
+feature	ERR10878157	PRJEB59830	nan	rock shelter	midden		0.003		midden	
+feature	ERR10878158	PRJEB59830	nan	rock shelter	midden		0.026		midden	
+feature	ERR10878159	PRJEB59830	nan	rock shelter	ocean		0.069		ocean	
+feature	ERR10878160	PRJEB59830	nan	rock shelter	ocean		0.083		ocean	
+feature	ERR10878162	PRJEB59830	nan	rock shelter	ocean		0.07		ocean	
+feature	ERR10878163	PRJEB59830	nan	rock shelter	midden		0.082		ocean	
+feature	ERR6857195	PRJEB47746	lake	thermokarst	thermokarst	0.017	0.315	0.983	ocean	0.94
+feature	ERR6862847	PRJEB47746	lake	thermokarst	thermokarst	0.0	0.666	1.0	midden	0.914
+feature	ERR6862848	PRJEB47746	alas	thermokarst	thermokarst		0.422		lake	
+feature	ERR6862849	PRJEB47746	lake	thermokarst	thermokarst	0.0	0.669	1.0	midden	0.981
+feature	ERR6862850	PRJEB47746	alas	thermokarst	thermokarst		0.498		midden	
+feature	ERR6862851	PRJEB47746	lake	thermokarst	thermokarst	0.0	0.669	1.0	lake	0.611
+feature	ERR6862852	PRJEB47746	lake	thermokarst	thermokarst	0.0	0.665	1.0	midden	0.947
+feature	ERR6862853	PRJEB47746	lake	thermokarst	thermokarst	0.0	0.55	1.0	thermokarst	0.995
+feature	ERR6862854	PRJEB47746	alas	thermokarst	thermokarst		0.628		midden	

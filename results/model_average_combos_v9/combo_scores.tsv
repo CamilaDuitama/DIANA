@@ -1,0 +1,57 @@
+task	model	f1_macro_eligible	recall_at_5pct	choosing_score
+community_type	DIANA	0.577	0.036	0.464
+community_type	LogReg	0.492	0.619	0.701
+community_type	RF	0.532	0.571	0.691
+community_type	kNN	0.479	0.0	
+community_type	DIANA+LogReg	0.495	0.35	0.613
+community_type	DIANA+RF	0.53	0.491	0.666
+community_type	DIANA+kNN	0.479	0.039	0.471
+community_type	LogReg+RF	0.508	0.576	0.692
+community_type	LogReg+kNN	0.479	0.619	0.71
+community_type	RF+kNN	0.479	0.57	0.69
+community_type	DIANA+LogReg+RF	0.503	0.568	0.688
+community_type	DIANA+LogReg+kNN	0.505	0.358	0.625
+community_type	DIANA+RF+kNN	0.487	0.501	0.671
+community_type	LogReg+RF+kNN	0.501	0.575	0.695
+feature	DIANA	0.161	0.411	0.591
+feature	LogReg	0.163	0.0	
+feature	RF	0.156	0.0	
+feature	kNN	0.156	0.0	
+feature	DIANA+LogReg	0.161	0.379	0.58
+feature	DIANA+RF	0.149	0.459	0.576
+feature	DIANA+kNN	0.155	0.401	0.582
+feature	LogReg+RF	0.161	0.0	
+feature	LogReg+kNN	0.154	0.0	
+feature	RF+kNN	0.159	0.0	
+feature	DIANA+LogReg+RF	0.162	0.439	0.549
+feature	DIANA+LogReg+kNN	0.157	0.378	0.576
+feature	DIANA+RF+kNN	0.158	0.457	0.573
+feature	LogReg+RF+kNN	0.155	0.0	
+sample_host	DIANA	0.264	0.805	0.888
+sample_host	LogReg	0.258	0.0	0.969
+sample_host	RF	0.255	0.0	0.981
+sample_host	kNN	0.233	0.0	
+sample_host	DIANA+LogReg	0.258	0.8	0.896
+sample_host	DIANA+RF	0.265	0.717	0.866
+sample_host	DIANA+kNN	0.233	0.798	0.884
+sample_host	LogReg+RF	0.26	0.0	0.975
+sample_host	LogReg+kNN	0.233	0.0	0.966
+sample_host	RF+kNN	0.233	0.0	0.971
+sample_host	DIANA+LogReg+RF	0.263	0.713	0.862
+sample_host	DIANA+LogReg+kNN	0.264	0.798	0.893
+sample_host	DIANA+RF+kNN	0.24	0.716	0.86
+sample_host	LogReg+RF+kNN	0.261	0.0	0.968
+material	DIANA	0.368	0.637	0.766
+material	LogReg	0.325	0.482	0.679
+material	RF	0.3	0.233	0.519
+material	kNN	0.301	0.0	
+material	DIANA+LogReg	0.335	0.635	0.755
+material	DIANA+RF	0.337	0.468	0.68
+material	DIANA+kNN	0.301	0.633	0.759
+material	LogReg+RF	0.324	0.291	0.599
+material	LogReg+kNN	0.301	0.48	0.688
+material	RF+kNN	0.301	0.232	0.532
+material	DIANA+LogReg+RF	0.337	0.559	0.715
+material	DIANA+LogReg+kNN	0.314	0.635	0.761
+material	DIANA+RF+kNN	0.305	0.467	0.68
+material	LogReg+RF+kNN	0.31	0.29	0.611

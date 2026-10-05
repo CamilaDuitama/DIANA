@@ -1,0 +1,3 @@
+model	task	config	cfg	f1_macro_oof	minutes
+AdaBoost	material	0	{'n_estimators': 200}	0.1738	57.3
+AdaBoost	material	1	{'n_estimators': 500}	0.1866	145.7

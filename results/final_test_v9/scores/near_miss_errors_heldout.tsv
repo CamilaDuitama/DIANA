@@ -1,0 +1,9 @@
+task	model	runs	accuracy	errors	near_miss (same family)	near_miss_share
+community_type	DIANA	653	0.71	188	0	0.0
+community_type	LogReg	653	0.73	176	0	0.0
+feature	DIANA	283	0.49	145	83	0.57
+feature	LogReg	263	0.56	115	38	0.33
+sample_host	DIANA	653	0.92	55	16	0.29
+sample_host	LogReg	652	0.89	74	22	0.3
+material	DIANA	909	0.59	373	177	0.47
+material	LogReg	822	0.67	275	168	0.61

@@ -1,0 +1,11 @@
+run_accession	sample_accession	secondary_sample_accession	sample_alias	sample_title	library_name	scientific_name	instrument_model	read_count	description	in_diana_training	diana_community_type	diana_material	diana_sample_host
+ERR6589621	SAMEA9560349	ERS7283094	T2_nesk	Postmedieval human tooth metagenome.	T2_nesk	metagenome	Ion Torrent Proton	368870	Ion Torrent Proton sequencing	True	oral	tooth	Homo sapiens
+ERR6589622	SAMEA9560350	ERS7283095	T2_skelt	Postmedieval human tooth metagenome.	T2_skelt	metagenome	Ion Torrent Proton	7946030	Ion Torrent Proton sequencing	True	oral	tooth	Homo sapiens
+ERR6589623	SAMEA9560351	ERS7283096	T3_nesk	Postmedieval human tooth metagenome.	T3_nesk	metagenome	Ion Torrent Proton	195972	Ion Torrent Proton sequencing	True	oral	tooth	Homo sapiens
+ERR6589624	SAMEA9560352	ERS7283097	T3_skelt	Postmedieval human tooth metagenome.	T3_skelt	metagenome	Ion Torrent Proton	4122576	Ion Torrent Proton sequencing	True	oral	tooth	Homo sapiens
+ERR6589625	SAMEA9560353	ERS7283098	T9_nesk	Postmedieval human tooth metagenome.	T9_nesk	metagenome	Ion Torrent Proton	710005	Ion Torrent Proton sequencing	True	oral	tooth	Homo sapiens
+ERR6589626	SAMEA9560354	ERS7283099	T9_skelt	Postmedieval human tooth metagenome.	T9_skelt	metagenome	Ion Torrent Proton	8449132	Ion Torrent Proton sequencing	True	oral	tooth	Homo sapiens
+ERR6589627	SAMEA9560355	ERS7283100	TZA3_nesk	Postmedieval human tooth metagenome.	TZA3_nesk	metagenome	Ion Torrent Proton	3385668	Ion Torrent Proton sequencing	True	oral	tooth	Homo sapiens
+ERR6589628	SAMEA9560356	ERS7283101	TZA3_sk	Postmedieval human tooth metagenome.	TZA3_sk	metagenome	Ion Torrent Proton	3827287	Ion Torrent Proton sequencing	True	oral	tooth	Homo sapiens
+ERR6589629	SAMEA9560357	ERS7283102	TZA4_nesk	Postmedieval human tooth metagenome.	TZA4_nesk	metagenome	Ion Torrent Proton	3331062	Ion Torrent Proton sequencing	True	oral	tooth	Homo sapiens
+ERR6589630	SAMEA9560358	ERS7283103	TZA4_sk	Postmedieval human tooth metagenome.	TZA4_sk	metagenome	Ion Torrent Proton	4290308	Ion Torrent Proton sequencing	True	oral	tooth	Homo sapiens

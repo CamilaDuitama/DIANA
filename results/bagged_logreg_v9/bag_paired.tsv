@@ -1,0 +1,17 @@
+task	a	b	delta_choosing	ci_low	ci_high	verdict
+community_type	bag_runs	DIANA+LogReg	0.086	-0.05	0.319	tie
+community_type	bag_runs	LogReg	-0.002	-0.008	0.007	tie
+community_type	bag_studies	DIANA+LogReg	0.066	-0.076	0.272	tie
+community_type	bag_studies	LogReg	-0.022	-0.083	0.052	tie
+feature	bag_runs	DIANA+LogReg		-0.516	0.197	tie
+feature	bag_runs	LogReg		-0.034	0.129	tie
+feature	bag_studies	DIANA+LogReg		-0.515	0.154	tie
+feature	bag_studies	LogReg		-0.121	0.123	tie
+sample_host	bag_runs	DIANA+LogReg	0.081	-0.074	0.167	tie
+sample_host	bag_runs	LogReg	0.008	-0.019	0.034	tie
+sample_host	bag_studies	DIANA+LogReg	0.089	-0.125	0.177	tie
+sample_host	bag_studies	LogReg	0.016	-0.079	0.046	tie
+material	bag_runs	DIANA+LogReg	-0.081	-0.208	-0.024	DIANA+LogReg
+material	bag_runs	LogReg	-0.005	-0.147	0.009	tie
+material	bag_studies	DIANA+LogReg	-0.091	-0.234	-0.023	DIANA+LogReg
+material	bag_studies	LogReg	-0.015	-0.19	0.044	tie

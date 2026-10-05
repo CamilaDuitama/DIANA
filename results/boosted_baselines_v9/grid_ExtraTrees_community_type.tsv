@@ -1,0 +1,3 @@
+model	task	config	cfg	f1_macro_oof	minutes
+ExtraTrees	community_type	0	{'n_estimators': 500, 'max_features': 'sqrt'}	0.5568	0.4
+ExtraTrees	community_type	1	{'n_estimators': 500, 'max_features': 0.05}	0.5478	4.3
