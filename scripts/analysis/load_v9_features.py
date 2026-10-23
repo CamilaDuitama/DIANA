@@ -29,14 +29,22 @@ VECTORS = PROJECT_ROOT / "results/v9_vectors"
 N_FEATURES = 110202
 
 
-def load_features(accessions: Iterable[str]) -> tuple:
-    """Return (X, kept) for the requested accessions, in the given order."""
+def load_features(accessions: Iterable[str], matrix: Path = MATRIX,
+                  vectors: Path | None = None) -> tuple:
+    """Return (X, kept) for the requested accessions, in the given order.
+
+    Runs absent from the matrix are read from per-run vectors. With the default
+    matrix these are the v9 vectors; a non-default matrix (e.g. v17) needs its own
+    vectors directory, since vectors in another unitig space would not align.
+    """
     from diana.data.loader import MatrixLoader
 
     accessions = list(accessions)
     want = set(accessions)
+    if vectors is None:
+        vectors = VECTORS if Path(matrix) == MATRIX else None
 
-    X_mat, ids, _ = MatrixLoader(str(MATRIX)).load()
+    X_mat, ids, _ = MatrixLoader(str(matrix)).load()
     idx = {str(a): i for i, a in enumerate(ids) if str(a) in want}
 
     rows, kept = [], []
@@ -45,10 +53,12 @@ def load_features(accessions: Iterable[str]) -> tuple:
             rows.append(X_mat[idx[acc]])
             kept.append(acc)
             continue
-        f = VECTORS / acc / f"{acc}_unitig_fraction.txt"
+        if vectors is None:
+            continue
+        f = Path(vectors) / acc / f"{acc}_unitig_fraction.txt"
         if f.exists():
             v = np.loadtxt(f)
-            if v.size == N_FEATURES and v.sum() > 0:
+            if v.size == X_mat.shape[1] and v.sum() > 0:
                 rows.append(v.astype(X_mat.dtype))
                 kept.append(acc)
     if not rows:

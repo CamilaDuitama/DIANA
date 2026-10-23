@@ -28,7 +28,10 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--base", type=Path, required=True)
     ap.add_argument("--out", type=Path, required=True)
+    ap.add_argument("--arms", default=",".join(TASKS),
+                    help="comma list of arms to select (default: the four single-task arms)")
     a = ap.parse_args()
+    arms = a.arms.split(",")
     a.out.mkdir(parents=True, exist_ok=True)
     grid, chosen = [], []
     for cfg in sorted(p for p in a.base.iterdir() if p.is_dir() and (p / "epoch_budget.tsv").exists()):
@@ -38,12 +41,13 @@ def main() -> int:
                          "criterion_raw": float(r.criterion_raw), "peaked": bool(r.peaked), "capped": bool(r.get("capped", False))})
     g = pd.DataFrame(grid)
     g.to_csv(a.out / "x6_grid.tsv", sep="\t", index=False)
-    for arm in TASKS:
+    for arm in arms:
         sub = g[(g.arm == arm) & g.peaked]
         if sub.empty:
             raise SystemExit(f"{arm}: no grid point peaked below the cap")
         best = sub.sort_values("criterion_smoothed", ascending=False).iloc[0]
-        shutil.copy2(a.base / best.cfg / f"oof_{arm}_{arm}.tsv", a.out / f"oof_{arm}_{arm}.tsv")
+        for src in sorted((a.base / best.cfg).glob(f"oof_{arm}_*.tsv")):
+            shutil.copy2(src, a.out / src.name)
         chosen.append({"arm": arm, "budget": int(best.budget), "peaked": True, "cfg": best.cfg,
                        "criterion_smoothed": float(best.criterion_smoothed)})
     pd.DataFrame(chosen).to_csv(a.out / "epoch_budget.tsv", sep="\t", index=False)

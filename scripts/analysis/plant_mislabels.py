@@ -42,7 +42,6 @@ import numpy as np
 import pandas as pd
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-SPLITS = PROJECT_ROOT / "data/splits_v9"
 MERGEKEY = PROJECT_ROOT / "results/amd_label_corrections/mergekey_usable.tsv"
 TARGETS = ["community_type", "feature", "sample_host", "material"]
 
@@ -50,17 +49,20 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 
-def empirical_transitions() -> dict:
-    """Observed error directions, from the merge-key corrections.
+def empirical_transitions(train_runs: set) -> dict:
+    """Observed error directions, from the merge-key corrections of TRAINING runs only.
 
     Keyed target -> true class -> (candidate wrong classes, probabilities).
     Note the direction: `old` is what the wrong metadata said, `new` is the truth,
-    so a realistic corruption of `new` is `old`.
+    so a realistic corruption of `new` is `old`. Corrections of held-out runs are left
+    out (v19 C6), so no held-out label shapes the benchmark.
     """
     if not MERGEKEY.exists():
-        logger.warning("%s absent; empirical model unavailable", MERGEKEY)
-        return {}
+        raise FileNotFoundError(f"{MERGEKEY} absent; the empirical error directions are required")
     df = pd.read_csv(MERGEKEY, sep="\t")
+    n_all = len(df)
+    df = df[df["run"].isin(train_runs)]
+    logger.info("error directions from %d of %d merge-key corrections (training runs only)", len(df), n_all)
     out: dict = {}
     for (field, truth), g in df.groupby(["field", "new"]):
         counts = g["old"].value_counts()
@@ -116,7 +118,7 @@ def confusable_classes(train: pd.DataFrame, target: str, eligible: set,
 def plant(df: pd.DataFrame, train: pd.DataFrame, eligible: dict, rate: float,
           model: str, rng: np.random.Generator, report: list) -> pd.DataFrame:
     out = df.copy()
-    emp = empirical_transitions() if model in ("empirical", "mixed") else {}
+    emp = empirical_transitions(set(train.Run_accession)) if model in ("empirical", "mixed") else {}
 
     for target in TARGETS:
         if target not in out:
@@ -146,7 +148,7 @@ def plant(df: pd.DataFrame, train: pd.DataFrame, eligible: dict, rate: float,
                     # Genuinely uniform over the label space -- that is the point of
                     # this mode. Drawing from the confusable neighbours instead made
                     # the "optimistic bound" no looser than `mixed`.
-                    alt = np.array([c for c in eligible.get(target, set()) if c != truth])
+                    alt = np.array(sorted(c for c in eligible.get(target, set()) if c != truth))
                 else:
                     alt = confusable.get(truth, np.array([]))
                     alt = alt[alt != truth]
@@ -161,7 +163,7 @@ def plant(df: pd.DataFrame, train: pd.DataFrame, eligible: dict, rate: float,
     return out
 
 
-def plant_records(df: pd.DataFrame, eligible: dict, rate: float, rng: np.random.Generator,
+def plant_records(df: pd.DataFrame, train: pd.DataFrame, eligible: dict, rate: float, rng: np.random.Generator,
                   report: list) -> pd.DataFrame:
     """X9.0e, the second benchmark: a planted run receives another sample's COMPLETE record.
 
@@ -177,7 +179,7 @@ def plant_records(df: pd.DataFrame, eligible: dict, rate: float, rng: np.random.
     `record_planted` marks the recipient.
     """
     out = df.copy()
-    emp = empirical_transitions()
+    emp = empirical_transitions(set(train.Run_accession))
     for target in TARGETS:
         out[f"{target}_planted"] = False
     out["record_planted"] = False
@@ -243,13 +245,22 @@ def main() -> int:
                          "the second benchmark (X9.0e)")
     ap.add_argument("--name", default=None,
                     help="output file name (default planted_<split>_<model>_r<rate>.tsv); X9.0b uses one file per seed")
+    ap.add_argument("--splits-dir", type=Path, required=True,
+                    help="split directory (metadata, eligibility); no default, the split is always named")
     args = ap.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
 
-    df = pd.read_csv(SPLITS / f"{args.split}_metadata.tsv", sep="\t")
-    train = pd.read_csv(SPLITS / "train_metadata.tsv", sep="\t")
-    el = pd.read_csv(SPLITS / "class_eligibility.tsv", sep="\t")
-    eligible = {t: set(g[g.evaluable]["class"]) for t, g in el.groupby("target")}
+    df = pd.read_csv(args.splits_dir / f"{args.split}_metadata.tsv", sep="\t")
+    train = pd.read_csv(args.splits_dir / "train_metadata.tsv", sep="\t")
+    if args.split == "train":
+        # Dev-fold benchmark: plantable classes are defined from the training runs alone
+        # (>= 2 training BioProjects, so a planted run can be assessed in its fold); no
+        # held-out label may decide which training runs are corrupted (v19 C6).
+        eligible = {t: set(c for c, n in train[train[t].notna()].groupby(t).archive_project.nunique().items() if n >= 2)
+                    for t in TARGETS if t in train}
+    else:
+        el = pd.read_csv(args.splits_dir / "class_eligibility.tsv", sep="\t")
+        eligible = {t: set(g[g.evaluable]["class"]) for t, g in el.groupby("target")}
     if args.model == "uniform":
         # No restriction to evaluable classes is the point of the uniform bound,
         # but keep it inside the label space or the model cannot express the error.
@@ -258,7 +269,7 @@ def main() -> int:
     rng = np.random.default_rng(args.seed)
     report = [f"Planted mislabels — split={args.split}, rate={args.rate}, "
               f"model={args.model}, seed={args.seed}", ""]
-    out = (plant_records(df, eligible, args.rate, rng, report) if args.mode == "record"
+    out = (plant_records(df, train, eligible, args.rate, rng, report) if args.mode == "record"
            else plant(df, train, eligible, args.rate, args.model, rng, report))
 
     dest = args.output / (args.name or f"planted_{args.split}_{'record' if args.mode == 'record' else args.model}_r{args.rate}.tsv")
@@ -270,8 +281,8 @@ def main() -> int:
     print(text)
     stem = dest.stem
     (args.output / f"planting_report_{stem}.txt").write_text(text + "\n")
-    json.dump({"split": args.split, "rate": args.rate, "model": args.model,
-               "seed": args.seed, "file": dest.name},
+    json.dump({"split": args.split, "rate": args.rate, "model": args.model, "mode": args.mode,
+               "seed": args.seed, "file": dest.name, "splits_dir": str(args.splits_dir)},
               open(args.output / f"planting_config_{stem}.json", "w"), indent=2)
     return 0
 

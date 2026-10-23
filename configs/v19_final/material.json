@@ -1,0 +1,64 @@
+{
+ "features_path": "data/matrices/matrix_v17_train/unitigs.frac.mat",
+ "metadata_path": "data/splits_v19/train_metadata.tsv",
+ "train_ids_path": "data/splits_v19/train_accessions.txt",
+ "task_names": [
+  "material"
+ ],
+ "task_types": {
+  "material": "classification"
+ },
+ "random_seed": 42,
+ "hyperparameters": {
+  "model_params": {
+   "hidden_dims": [
+    128,
+    192,
+    128
+   ],
+   "dropout": 0.43279503461195645,
+   "activation": "leaky_relu",
+   "use_batch_norm": false
+  },
+  "trainer_params": {
+   "learning_rate": 0.00027679510708703784,
+   "weight_decay": 2.0514757494649346e-05,
+   "task_weights": {
+    "material": 1.0
+   }
+  },
+  "batch_size": 128
+ },
+ "class_imbalance": {
+  "method": "logit_adjustment",
+  "logit_adjust_tau": 0.6130444572115646
+ },
+ "label_smoothing_per_task": {
+  "material": 0.12746234984308843
+ },
+ "epochs": 110,
+ "_provenance": {
+  "protocol": "PROTOCOLS.md v19, C3-C4",
+  "search_trial": 33,
+  "rank": 0,
+  "five_seed_criterion_smoothed": 0.6085423252871808,
+  "cap": 400,
+  "selection": {
+   "epochs": 110,
+   "criterion_smoothed": 0.6085423252871808,
+   "criterion_raw": 0.6093213095409162,
+   "loss_cap_epoch": 400,
+   "epochs_uncapped": 110,
+   "capped": false,
+   "peaked": true,
+   "n_epochs_run": 400
+  },
+  "candidates": {
+   "0": 0.6085423252871808,
+   "1": 0.5333522018436521,
+   "2": 0.5305109679749777,
+   "3": 0.5605029886947188,
+   "4": 0.5386134030175725
+  }
+ }
+}

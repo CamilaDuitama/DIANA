@@ -1,0 +1,52 @@
+{
+ "features_path": "data/matrices/matrix_v17_train/unitigs.frac.mat",
+ "metadata_path": "data/splits_v17/train_metadata.tsv",
+ "train_ids_path": "data/splits_v17/train_accessions.txt",
+ "output_dir": "results/final_fixed_v17/sample_host/final_model",
+ "hyperparameters": {
+  "model_params": {
+   "hidden_dims": [
+    64,
+    384
+   ],
+   "dropout": 0.27606099749584057,
+   "activation": "leaky_relu",
+   "use_batch_norm": false
+  },
+  "trainer_params": {
+   "learning_rate": 2.32335035153901e-05,
+   "weight_decay": 3.058656666978529e-05,
+   "task_weights": {
+    "sample_host": 1.0
+   }
+  },
+  "batch_size": 64
+ },
+ "task_names": [
+  "sample_host"
+ ],
+ "task_types": {
+  "sample_host": "classification"
+ },
+ "task_weights": {
+  "sample_host": 1.0
+ },
+ "label_smoothing_per_task": {
+  "sample_host": 0.14092484123462837
+ },
+ "validation_split": 0.1,
+ "max_epochs": 200,
+ "early_stopping_patience": 20,
+ "random_seed": 42,
+ "class_imbalance": {
+  "method": "logit_adjustment",
+  "logit_adjust_tau": 0.631349617520836,
+  "search_tau": false,
+  "class_weights": null
+ },
+ "_provenance": {
+  "source": "results/search_v17_final_single_sample_host/cv_results/search_all_train_best_params.json",
+  "selection": "v17 Optuna search (100 trials, eligible_pooled) on the v17 dev folds",
+  "protocol": "PROTOCOLS.md v17"
+ }
+}

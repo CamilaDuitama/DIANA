@@ -55,7 +55,8 @@ class MultiTaskTrainer:
                  adversarial: float = 0.0,
                  n_studies: int = 0,
                  adv_in_dim: int = 0,
-                 adversarial_mode: str = "reverse"):
+                 adversarial_mode: str = "reverse",
+                 active_classes: Optional[Dict[str, np.ndarray]] = None):
         """
         Initialize trainer.
 
@@ -82,6 +83,10 @@ class MultiTaskTrainer:
                 `feature`'s 2.41e-05 (24 updates, weights unmoved) while `material`'s
                 5.57e-03 trained it into emitting one constant output for every sample.
                 Ignored when the model has no reader.
+            active_classes: Per classification task, a boolean mask of the classes the
+                model may learn and predict (active_classes.active_masks of the fit rows).
+                The loss, the logit adjustment and the argmax run over these classes only.
+                Required whenever some class has no fit row; omitted, every class is active.
         """
         if isinstance(device, str):
             device = torch.device(device)
@@ -139,37 +144,56 @@ class MultiTaskTrainer:
                 "using them together double-corrects. Pick one."
             )
         self.logit_adjust_tau = float(logit_adjust_tau or 0.0)
-        # log(prior) per task, on the training device. Masked labels must already be
-        # excluded from the counts by the caller.
+        # Active classes: column index into the model's outputs, and a map from the
+        # encoder's label index to the position among the active columns.
+        self.active_idx: Dict[str, torch.Tensor] = {}
+        self.remap: Dict[str, torch.Tensor] = {}
+        for target, mask in (active_classes or {}).items():
+            m = torch.as_tensor(np.asarray(mask), dtype=torch.bool, device=device)
+            idx = torch.nonzero(m).flatten()
+            if not len(idx):
+                raise ValueError(f"{target}: no active class")
+            remap = torch.full((m.shape[0],), IGNORE_INDEX, dtype=torch.long, device=device)
+            remap[idx] = torch.arange(len(idx), device=device)
+            self.active_idx[target], self.remap[target] = idx, remap
+        # log(prior) per task over the active classes, from the fit rows' label counts
+        # (masked labels excluded by the caller). A class with no fit row must be
+        # inactive: a clamped zero prior hands it a large offset in the loss and lets
+        # its raw logit win at inference.
         self.log_priors: Dict[str, torch.Tensor] = {}
         if self.logit_adjust_tau and class_priors:
             for target, prior in class_priors.items():
-                pr = torch.as_tensor(prior, dtype=torch.float32, device=device)
-                pr = pr / pr.sum()
-                self.log_priors[target] = torch.log(pr.clamp_min(1e-12))
+                counts = torch.as_tensor(prior, dtype=torch.float32, device=device)
+                if target in self.active_idx:
+                    act = torch.zeros(counts.shape[0], dtype=torch.bool, device=device)
+                    act[self.active_idx[target]] = True
+                    if (counts[act] <= 0).any():
+                        raise ValueError(f"{target}: an active class has no fit row")
+                    if (counts[~act] > 0).any():
+                        raise ValueError(f"{target}: fit rows carry a class marked inactive")
+                    counts = counts[self.active_idx[target]]
+                elif (counts <= 0).any():
+                    raise ValueError(
+                        f"{target}: {int((counts <= 0).sum())} class(es) have no fit row; "
+                        "pass active_classes so they can be neither learned nor predicted")
+                self.log_priors[target] = torch.log(counts / counts.sum())
 
-        # Task-specific loss functions
+        # Task-specific losses: SmoothL1 for regression; classification goes through
+        # _class_loss, which restricts the cross-entropy to the active classes.
         ls_per_task = label_smoothing if isinstance(label_smoothing, dict) \
                       else {t: float(label_smoothing) for t in task_names}
         self.criteria = {}
+        self.label_smoothing: Dict[str, float] = {}
+        self.class_weights: Dict[str, torch.Tensor] = {}
         for target in task_names:
             if target in self.regression_tasks:
                 # SmoothL1 (Huber) — reduction='none' for NaN masking
                 self.criteria[target] = nn.SmoothL1Loss(reduction='none')
             else:
-                ls = ls_per_task.get(target, 0.0)
-                red = "none" if self.sample_weighted else "mean"   # per-row losses for the weighted mean (4.2)
+                self.label_smoothing[target] = float(ls_per_task.get(target, 0.0))
                 if class_weights is not None and target in class_weights:
-                    self.criteria[target] = nn.CrossEntropyLoss(
-                        weight=class_weights[target],
-                        label_smoothing=ls,
-                        ignore_index=IGNORE_INDEX, reduction=red,
-                    )
-                else:
-                    self.criteria[target] = nn.CrossEntropyLoss(
-                        label_smoothing=ls,
-                        ignore_index=IGNORE_INDEX, reduction=red,
-                    )
+                    self.class_weights[target] = torch.as_tensor(
+                        class_weights[target], dtype=torch.float32, device=device)
         
         # Task weights (default: equal weighting)
         if task_weights is None:
@@ -183,6 +207,38 @@ class MultiTaskTrainer:
             "val_acc": {target: [] for target in task_names}
         }
         
+    def _class_loss(self, target: str, logits: "torch.Tensor", labels: "torch.Tensor") -> "torch.Tensor":
+        """Cross-entropy over the active classes, with logit adjustment and label smoothing.
+
+        Smoothing mass is spread over the active classes only, and the adjustment uses
+        the active classes' priors, so an absent class receives neither target mass nor
+        an offset. Returns per-row losses when sample-weighted (4.2), else the mean.
+        """
+        z, y = logits, labels
+        cw = self.class_weights.get(target)
+        if target in self.active_idx:
+            idx = self.active_idx[target]
+            z = logits.index_select(1, idx)
+            y = labels.clone()
+            valid = y != IGNORE_INDEX
+            mapped = self.remap[target][y[valid]]
+            if (mapped == IGNORE_INDEX).any():
+                raise ValueError(f"{target}: a training row carries an inactive class")
+            y[valid] = mapped
+            if cw is not None:
+                cw = cw.index_select(0, idx)
+        return F.cross_entropy(self._adjust(target, z), y, weight=cw,
+                               label_smoothing=self.label_smoothing.get(target, 0.0),
+                               ignore_index=IGNORE_INDEX,
+                               reduction="none" if self.sample_weighted else "mean")
+
+    def _predict(self, target: str, logits: "torch.Tensor") -> "torch.Tensor":
+        """Argmax over the active classes, in the encoder's label index."""
+        if target in self.active_idx:
+            idx = self.active_idx[target]
+            return idx[logits.index_select(1, idx).argmax(dim=1)]
+        return logits.argmax(dim=1)
+
     def _adjust(self, target: str, logits: "torch.Tensor") -> "torch.Tensor":
         """Add tau*log(prior) to logits during loss computation only.
 
@@ -389,10 +445,15 @@ class MultiTaskTrainer:
         """4.5 mixup: a share ``mixup_frac`` of the rows is replaced by lam * x_i + (1 - lam) * x_j with
         lam ~ Beta(alpha, alpha), the partner j drawn inside the batch among rows of the same label
         from a different study; the label is shared, so targets are unchanged. Rows without a
-        partner, or not selected, stay as they are."""
+        partner, or not selected, stay as they are. ``y`` is one label per row, or one column per
+        field (shared network, 2026-10-21): then the partner has the same label on every field,
+        an unlabelled field counting as a value, and the row has at least one labelled field."""
+        if y.dim() == 1:
+            y = y[:, None]
         n = x.shape[0]
         sel = torch.rand(n, device=x.device) < self.mixup_frac
-        same = (y[:, None] == y[None, :]) & (study[:, None] != study[None, :]) & (y[:, None] != IGNORE_INDEX)
+        same = ((y[:, None, :] == y[None, :, :]).all(dim=2) & (study[:, None] != study[None, :])
+                & (y != IGNORE_INDEX).any(dim=1)[:, None])
         has = sel & same.any(dim=1)
         if not bool(has.any()):
             return x
@@ -439,7 +500,7 @@ class MultiTaskTrainer:
             if self.mixup > 0.0 or self.adv_head is not None:
                 study = batch[k].to(self.device); k += 1
             if self.mixup > 0.0:
-                batch_x = self._mixup(batch_x, batch_y[self.task_names[0]], study)
+                batch_x = self._mixup(batch_x, torch.stack([batch_y[t] for t in self.task_names], dim=1), study)
             if k != len(batch):
                 raise ValueError(f"batch has {len(batch)} tensors, expected {k} for this trainer's layout")
 
@@ -469,7 +530,7 @@ class MultiTaskTrainer:
 
             # Compute losses
             losses = {}
-            for target in self.task_names:
+            for j, target in enumerate(self.task_names):
                 if target in self.regression_tasks:
                     pred = outputs[target]          # (batch,)
                     tgt  = batch_y[target]          # (batch,) float, may contain NaN
@@ -496,18 +557,19 @@ class MultiTaskTrainer:
                     if labelled.sum() == 0:
                         losses[target] = outputs[target].sum() * 0.0
                     elif weights is not None:
-                        # 4.2: weighted mean over the labelled rows (ignored rows return 0 under reduction='none')
-                        per_row = self.criteria[target](self._adjust(target, outputs[target]), batch_y[target])
-                        losses[target] = (per_row * weights)[labelled].sum() / weights[labelled].sum().clamp_min(1e-12)
+                        # 4.2: weighted mean over the labelled rows (ignored rows return 0 under reduction='none');
+                        # a 2-D weight tensor holds one column per task
+                        w = weights[:, j] if weights.dim() == 2 else weights
+                        per_row = self._class_loss(target, outputs[target], batch_y[target])
+                        losses[target] = (per_row * w)[labelled].sum() / w[labelled].sum().clamp_min(1e-12)
                     else:
-                        losses[target] = self.criteria[target](
-                            self._adjust(target, outputs[target]), batch_y[target])
+                        losses[target] = self._class_loss(target, outputs[target], batch_y[target])
                     with torch.no_grad():
                         # Masked rows must not sit in the denominator: a prediction can
                         # never equal IGNORE_INDEX, so counting them scored every
                         # unlabelled run as wrong and understated accuracy.
                         if labelled.sum() > 0:
-                            _, predicted = torch.max(outputs[target], 1)
+                            predicted = self._predict(target, outputs[target])
                             task_correct[target] += (
                                 predicted[labelled] == batch_y[target][labelled]
                             ).sum().item()
@@ -578,13 +640,22 @@ class MultiTaskTrainer:
                         # the checkpoint was then never saved and the fit ended with
                         # "Best validation loss: inf".
                         labelled = batch_y[target] != IGNORE_INDEX
+                        if target in self.remap:
+                            # a validation row whose class the model was not fitted on is
+                            # not scored (v19 C2a), neither in the loss nor in accuracy
+                            known = torch.zeros_like(labelled)
+                            known[labelled] = self.remap[target][batch_y[target][labelled]] != IGNORE_INDEX
+                            labelled = known
+                            batch_y[target] = torch.where(labelled, batch_y[target],
+                                                          torch.full_like(batch_y[target], IGNORE_INDEX))
                         if labelled.sum() == 0:
                             losses.append(0.0)
                         else:
-                            loss = self.criteria[target](
-                                self._adjust(target, outputs[target]), batch_y[target])
+                            loss = self._class_loss(target, outputs[target], batch_y[target])
+                            if loss.dim():
+                                loss = loss[labelled].mean()
                             losses.append(self.task_weights[target] * loss.item())
-                            _, predicted = torch.max(outputs[target], 1)
+                            predicted = self._predict(target, outputs[target])
                             task_correct[target] += (
                                 predicted[labelled] == batch_y[target][labelled]
                             ).sum().item()

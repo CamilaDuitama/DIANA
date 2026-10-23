@@ -75,15 +75,22 @@ def main() -> int:
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--output", type=Path,
                     default=PROJECT_ROOT / "results/baselines_tuned_v9")
+    ap.add_argument("--splits-dir", type=Path, default=SPLITS,
+                    help="split directory (metadata, folds, eligibility); v15 = data/splits_v15")
+    ap.add_argument("--matrix", type=Path, default=None,
+                    help="unitig fraction matrix; default = the v9 training matrix")
     args = ap.parse_args()
 
     from load_v9_features import load_features
 
-    train = pd.read_csv(SPLITS / "train_metadata.tsv", sep="\t", low_memory=False)
-    dev = pd.read_csv(SPLITS / "dev_folds.tsv", sep="\t")
-    elig_tbl = pd.read_csv(SPLITS / "class_eligibility.tsv", sep="\t")
+    train = pd.read_csv(args.splits_dir / "train_metadata.tsv", sep="\t", low_memory=False)
+    dev = pd.read_csv(args.splits_dir / "dev_folds.tsv", sep="\t")
+    elig_tbl = pd.read_csv(args.splits_dir / "class_eligibility.tsv", sep="\t")
     train = train.merge(dev[["Run_accession", "fold"]], on="Run_accession", how="inner")
-    X, kept = load_features(train.Run_accession.tolist())
+    if args.matrix is not None:
+        X, kept = load_features(train.Run_accession.tolist(), matrix=args.matrix)
+    else:
+        X, kept = load_features(train.Run_accession.tolist())
     train = train[train.Run_accession.isin(kept)].reset_index(drop=True)
     print(f"train {X.shape}, folds {sorted(train.fold.unique())}")
 

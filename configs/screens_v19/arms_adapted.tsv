@@ -1,0 +1,5 @@
+depth_aug	configs/v19_final/multitask.json	173	--depth-augment 0.5
+mixup	configs/v19_final/multitask.json	173	--mixup 0.4
+adv_conf0.1	configs/v19_final/multitask.json	173	--adversarial 0.1 --adversarial-mode confusion
+adv_conf0.3	configs/v19_final/multitask.json	173	--adversarial 0.3 --adversarial-mode confusion
+adv_conf1.0	configs/v19_final/multitask.json	173	--adversarial 1.0 --adversarial-mode confusion

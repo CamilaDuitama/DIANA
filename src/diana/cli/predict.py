@@ -621,7 +621,7 @@ Resource Requirements:
     parser.add_argument(
         '--min-confidence', type=float, default=None,
         help='No-call cutoff applied to every task, overriding the per-task defaults chosen on the '
-             'cross-validation folds (configs/abstention_v9.json); predictions below it return call="no call"')
+             'cross-validation folds (configs/abstention_v19.json); predictions below it return call="no call"')
     parser.add_argument(
         '--stated-label', action='append', default=[], metavar='TASK=LABEL',
         help='Check a label on file, e.g. --stated-label material=tooth; repeatable. The output carries '

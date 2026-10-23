@@ -22,6 +22,8 @@ import time
 from pathlib import Path
 
 import numpy as np
+import sys
+
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
@@ -55,6 +57,12 @@ def main() -> int:
     ap.add_argument("--study-weights", action="store_true",
                     help="Phase 4 step 4.2: sample_weight 1/max(n_study, 5) over the training rows, mean 1 (logistic regression only)")
     ap.add_argument("--out", type=Path, default=OUT, help="output directory")
+    ap.add_argument("--splits", type=Path, default=SPLITS,
+                    help="split directory (metadata, dev folds); v17 = data/splits_v17")
+    ap.add_argument("--matrix", type=Path, default=NPZ,
+                    help=".npz (sample_ids + frac) or a .mat read via MatrixLoader")
+    ap.add_argument("--selected", type=Path, default=SELECTED,
+                    help="tuned-config table; v17 = results/baselines_tuned_v17/best_per_model.tsv")
     a = ap.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
     if a.study_weights and a.model != "LogisticRegression_Bal":
@@ -63,16 +71,26 @@ def main() -> int:
     out = a.out / f"probs_{a.model}_{a.task}.tsv"
     if out.exists():
         raise SystemExit(f"{out} exists; refusing to overwrite")
-    sel = pd.read_csv(SELECTED, sep="\t")
-    row = sel[(sel.task == a.task) & (sel.model == a.model) & (sel.rep == "fraction")]
+    sel = pd.read_csv(a.selected, sep="\t")
+    row = sel[(sel.task == a.task) & (sel.model == a.model)]
+    if "rep" in sel.columns:
+        row = row[row.rep == "fraction"]
     if len(row) != 1:
         raise SystemExit(f"no unique selected config for {a.task} / {a.model}")
-    params = json.loads(row.cfg.iloc[0])
+    cfg_col = "cfg" if "cfg" in sel.columns else "params"
+    params = json.loads(row[cfg_col].iloc[0])
     t0 = time.time()
-    with np.load(NPZ, allow_pickle=False) as z:
-        ids = list(z["sample_ids"].astype(str)); X = z["frac"].astype(np.float32)
-    meta = pd.read_csv(SPLITS / "train_metadata.tsv", sep="\t", low_memory=False).set_index("Run_accession").loc[ids]
-    folds = pd.read_csv(SPLITS / "dev_folds.tsv", sep="\t").set_index("Run_accession").loc[ids, "fold"].to_numpy()
+    if a.matrix.suffix == ".npz":
+        with np.load(a.matrix, allow_pickle=False) as z:
+            ids = list(z["sample_ids"].astype(str)); X = z["frac"].astype(np.float32)
+    else:
+        sys.path.insert(0, str(ROOT / "src"))
+        from diana.data.loader import MatrixLoader
+        X, mat_ids, _ = MatrixLoader(str(a.matrix)).load()
+        ids = [str(i) for i in mat_ids]
+        X = X.astype(np.float32)
+    meta = pd.read_csv(a.splits / "train_metadata.tsv", sep="\t", low_memory=False).set_index("Run_accession").loc[ids]
+    folds = pd.read_csv(a.splits / "dev_folds.tsv", sep="\t").set_index("Run_accession").loc[ids, "fold"].to_numpy()
     lab = meta[a.task].notna().to_numpy()
     y_all = meta[a.task].astype(object).to_numpy()
     classes = sorted(set(y_all[lab].astype(str)))
@@ -86,7 +104,11 @@ def main() -> int:
             g = meta["archive_project"].astype(str).to_numpy()[tr]
             n = pd.Series(g).value_counts().loc[g].to_numpy(dtype=float)
             sw = 1.0 / np.maximum(n, 5); sw *= len(sw) / sw.sum()
-        clf = build(a.model, params, a.n_jobs).fit(X[tr], y_all[tr].astype(str), sample_weight=sw)
+        clf = build(a.model, params, a.n_jobs)
+        if sw is None:
+            clf = clf.fit(X[tr], y_all[tr].astype(str))
+        else:
+            clf = clf.fit(X[tr], y_all[tr].astype(str), sample_weight=sw)
         P = clf.predict_proba(X[te])
         full = np.zeros((int(te.sum()), len(classes)), dtype=np.float32)   # classes absent from the fit get 0
         for j, c in enumerate(clf.classes_):

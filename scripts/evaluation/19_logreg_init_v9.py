@@ -32,19 +32,27 @@ def main() -> int:
     ap.add_argument("--task", choices=TASKS, required=True)
     ap.add_argument("--fold", type=int, required=True)
     ap.add_argument("--n-jobs", type=int, default=8)
+    ap.add_argument("--splits", type=Path, default=SPLITS, help="split directory (v19: data/splits_v19)")
+    ap.add_argument("--npz", type=Path, default=NPZ, help="fraction matrix in the npz layout (frac, sample_ids)")
+    ap.add_argument("--out", type=Path, default=OUT)
+    ap.add_argument("--params-json", default=None,
+                    help="v19: best_LogisticRegression_Bal.json template with {task} (40_baselines_v19.py); default the v9 table")
     a = ap.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
-    OUT.mkdir(parents=True, exist_ok=True)
-    out = OUT / f"linear_{a.task}_fold{a.fold}.npz"
+    a.out.mkdir(parents=True, exist_ok=True)
+    out = a.out / f"linear_{a.task}_fold{a.fold}.npz"
     if out.exists():
         raise SystemExit(f"{out} exists; refusing to overwrite")
-    sel = pd.read_csv(SELECTED, sep="\t")
-    params = json.loads(sel[(sel.task == a.task) & (sel.model == "LogisticRegression_Bal") & (sel.rep == "fraction")].cfg.iloc[0])
+    if a.params_json:
+        params = json.load(open(a.params_json.format(task=a.task)))["params"]
+    else:
+        sel = pd.read_csv(SELECTED, sep="\t")
+        params = json.loads(sel[(sel.task == a.task) & (sel.model == "LogisticRegression_Bal") & (sel.rep == "fraction")].cfg.iloc[0])
     t0 = time.time()
-    with np.load(NPZ, allow_pickle=False) as z:
+    with np.load(a.npz, allow_pickle=False) as z:
         ids = np.asarray(z["sample_ids"].astype(str)); X = z["frac"].astype(np.float32)
-    meta = pd.read_csv(SPLITS / "train_metadata.tsv", sep="\t", low_memory=False).set_index("Run_accession").loc[ids]
-    folds = pd.read_csv(SPLITS / "dev_folds.tsv", sep="\t").set_index("Run_accession").loc[ids, "fold"].to_numpy()
+    meta = pd.read_csv(a.splits / "train_metadata.tsv", sep="\t", low_memory=False).set_index("Run_accession").loc[ids]
+    folds = pd.read_csv(a.splits / "dev_folds.tsv", sep="\t").set_index("Run_accession").loc[ids, "fold"].to_numpy()
     fit = meta[a.task].notna().to_numpy() & (folds != a.fold)
     y = meta[a.task].astype(object).to_numpy()[fit].astype(str)
     clf = LogisticRegression(max_iter=3000, class_weight="balanced", n_jobs=a.n_jobs, **params).fit(X[fit], y)

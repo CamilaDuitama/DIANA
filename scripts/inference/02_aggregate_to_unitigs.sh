@@ -23,9 +23,15 @@ SAMPLE_NAME=$(basename "$OUT_ABUNDANCE" | sed 's/_unitig_abundance.txt//')
 # user's PATH (e.g. a personal miniconda) takes different arguments and fails with
 # "unrecognized arguments: -p ... --out-frac" only after the expensive k-mer
 # counting step has already run. CLAUDE.md: there is one environment, use it.
+# KMAT_TOOLS_BIN, when set, names the binary explicitly: features must be aggregated by
+# the same kmat_tools version that built the training matrix (v19 C5: the matrix was
+# built by MUSET v0.6.1; env/bin/kmat_tools is v0.5.1).
 PROJECT_KMAT="$SCRIPT_DIR/../../env/bin/kmat_tools"
 SUBMODULE_KMAT="$SCRIPT_DIR/../../external/muset/bin/kmat_tools"
-if [ -x "$PROJECT_KMAT" ]; then
+if [ -n "${KMAT_TOOLS_BIN:-}" ]; then
+    [ -x "$KMAT_TOOLS_BIN" ] || { echo "[ERROR] KMAT_TOOLS_BIN=$KMAT_TOOLS_BIN is not executable"; exit 2; }
+    KMAT_TOOLS="$KMAT_TOOLS_BIN"
+elif [ -x "$PROJECT_KMAT" ]; then
     KMAT_TOOLS="$PROJECT_KMAT"
 elif [ -x "$SUBMODULE_KMAT" ]; then
     KMAT_TOOLS="$SUBMODULE_KMAT"
@@ -36,6 +42,8 @@ else
     echo "[ERROR] kmat_tools not found at $PROJECT_KMAT, $SUBMODULE_KMAT, or on PATH"
     exit 2
 fi
+
+echo "[INFO] kmat_tools: $KMAT_TOOLS ($("$KMAT_TOOLS" --version 2>&1 | head -1))"
 
 # Fail fast if the resolved binary is not the MUSET one that supports --out-frac.
 if ! "$KMAT_TOOLS" unitig --help 2>&1 | grep -q -- '--out-frac'; then

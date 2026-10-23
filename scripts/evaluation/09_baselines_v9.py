@@ -133,7 +133,13 @@ def main() -> int:
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--splits", type=Path, default=SPLITS, help="split directory (metadata, eligibility); v13 = data/splits_v13")
     ap.add_argument("--tuned", type=Path, default=TUNED, help="best_per_model.tsv with the dev-fold selections")
+    ap.add_argument("--matrix", type=Path, default=None, help="training fraction matrix (default: v9)")
+    ap.add_argument("--vectors", type=Path, default=None,
+                    help="per-run vectors for runs outside the matrix (required with --matrix)")
     args = ap.parse_args()
+    if (args.matrix is None) != (args.vectors is None):
+        raise SystemExit("--matrix and --vectors go together")
+    feat_kw = {} if args.matrix is None else {"matrix": args.matrix, "vectors": args.vectors}
     SPLITS = args.splits
     args.output.mkdir(parents=True, exist_ok=True)
 
@@ -142,8 +148,10 @@ def main() -> int:
     elig_tbl = pd.read_csv(SPLITS / "class_eligibility.tsv", sep="\t")
 
     logger.info("loading features")
-    Xtr_all, ktr = load_features(tr.Run_accession)
-    Xte_all, kte = load_features(te.Run_accession)
+    Xtr_all, ktr = load_features(tr.Run_accession, **feat_kw)
+    Xte_all, kte = load_features(te.Run_accession, **feat_kw)
+    if len(ktr) != len(tr) or len(kte) != len(te):
+        raise SystemExit(f"features missing: train {len(ktr)}/{len(tr)}, test {len(kte)}/{len(te)}")
     tr = tr.set_index("Run_accession").loc[ktr].reset_index()
     te = te.set_index("Run_accession").loc[kte].reset_index()
     logger.info("train %s  test %s", Xtr_all.shape, Xte_all.shape)

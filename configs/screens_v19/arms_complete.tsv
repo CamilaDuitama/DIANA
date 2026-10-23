@@ -1,0 +1,13 @@
+pa	configs/screens_v19/pa.json	173	
+abund	configs/screens_v19/abund.json	173	
+frac_pca192	configs/screens_v19/frac_pca192_fold{fold}.json	173	
+pa_pca192	configs/screens_v19/pa_pca192_fold{fold}.json	173	
+frac_pca191nd	configs/screens_v19/frac_pca191nd_fold{fold}.json	173	
+pa_pca191nd	configs/screens_v19/pa_pca191nd_fold{fold}.json	173	
+frac_kmer4	configs/screens_v19/frac_kmer4_fold{fold}.json	173	
+frac_clust	configs/screens_v19/frac_clust_fold{fold}.json	173	
+logdepth	configs/screens_v19/logdepth.json	173	
+stop_random	configs/v19_final/multitask.json	400	--early-stop random --val-split 0.1 --patience 20 --save-probs-by-epoch
+lr_init	configs/v19_final/multitask.json	173	--linear-init-dir results/screens_v19/lr_inputs/linear_init
+lr_offsets	configs/v19_final/multitask.json	173	--offsets-dir results/screens_v19/lr_inputs/offsets
+ema	configs/v19_final/multitask.json	173	--ema 0.9

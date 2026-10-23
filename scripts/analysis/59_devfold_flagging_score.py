@@ -50,12 +50,14 @@ def rng_for(*parts):
     return np.random.default_rng(int(hashlib.sha256("|".join(map(str, (SEED,) + parts)).encode()).hexdigest()[:8], 16))
 
 
-def reference_probs(task: str, base: Path = None) -> pd.DataFrame:
-    """Run x class probabilities of a 5-seed ensemble in the reference layout, pooled over folds."""
+def reference_probs(task: str, base: Path = None, multitask: bool = False) -> pd.DataFrame:
+    """Run x class probabilities of a 5-seed ensemble in the reference layout, pooled over folds.
+    multitask=True reads one shared-network arm (<base>/seed<s>/fold<k>, npz key = task)."""
     base = base or REF_DIR
     parts = []
     for k in range(5):
-        dirs = [base / task / f"seed{s}" / f"fold{k}" for s in SEEDS]
+        dirs = ([base / f"seed{s}" / f"fold{k}" for s in SEEDS] if multitask
+                else [base / task / f"seed{s}" / f"fold{k}" for s in SEEDS])
         runs = [l.strip() for l in open(dirs[0] / "eval_runs.txt") if l.strip()]
         classes = json.load(open(dirs[0] / "label_classes.json"))[task]
         P = np.mean([np.load(d / "probs_last.npz")[task] for d in dirs], axis=0)
@@ -134,25 +136,35 @@ def main() -> int:
                     help="logistic-regression probabilities from another directory, as name=dir (Phase 4 step 4.2: the study-weighted fit)")
     ap.add_argument("--pair", action="append", default=[],
                     help="extra paired rows a:b (a minus b), besides reference minus every other model (e.g. step4_1:LogisticRegression_Bal)")
+    ap.add_argument("--splits", type=Path, default=SPLITS)
+    ap.add_argument("--plant-dir", type=Path, default=PLANT_DIR)
+    ap.add_argument("--ref-dir", type=Path, default=REF_DIR)
+    ap.add_argument("--ref-multitask", action="store_true",
+                    help="the reference is one shared-network arm (v17): <ref-dir>/seed<s>/fold<k>, npz key = task")
+    ap.add_argument("--base-dir", type=Path, default=BASE_DIR)
+    ap.add_argument("--tsv-model", action="append", default=[],
+                    help="extra models with probs_<name>_<task>.tsv in --base-dir (e.g. DIANA)")
     args = ap.parse_args()
     OUT = args.out
     OUT.mkdir(parents=True, exist_ok=True)
-    meta = pd.read_csv(SPLITS / "train_metadata.tsv", sep="\t", low_memory=False).set_index("Run_accession")
-    plantings = sorted(glob.glob(str(PLANT_DIR / args.pattern)))
+    meta = pd.read_csv(args.splits / "train_metadata.tsv", sep="\t", low_memory=False).set_index("Run_accession")
+    plantings = sorted(glob.glob(str(args.plant_dir / args.pattern)))
     if not plantings:
         raise SystemExit(f"no plantings match {args.pattern}")
     plants = [pd.read_csv(f, sep="\t").set_index("Run_accession") for f in plantings]
     rows, paired_rows, ff_rows = [], [], []
     for task in TASKS:
-        models = {"reference": reference_probs(task)}
+        models = {"reference": reference_probs(task, args.ref_dir, multitask=args.ref_multitask)}
         for e in args.extra:
             name, d = e.split("=", 1)
             models[name] = reference_probs(task, Path(d))
         for b in BASELINES:
             try:
-                models[b] = baseline_probs(b, task)
+                models[b] = baseline_probs(b, task, args.base_dir)
             except FileNotFoundError:
                 continue
+        for m in args.tsv_model:
+            models[m] = baseline_probs(m, task, args.base_dir)
         for e in args.extra_probs:
             name, d = e.split("=", 1)
             models[name] = baseline_probs("LogisticRegression_Bal", task, Path(d))

@@ -49,7 +49,7 @@ def main() -> int:
     bud = pd.read_csv(a.budgets, sep="\t").set_index("arm")
     spread, budgets = [], []
     for arm in a.arms.split(","):
-        task = arm
+      for task in (TASKS if arm == "multitask" else [arm]):
         eligible = set(elig_tbl[(elig_tbl.target == task) & elig_tbl.evaluable]["class"].astype(str))
         rows, per_seed = [], {s: [] for s in seeds}
         for k in range(N_FOLDS):
@@ -71,8 +71,9 @@ def main() -> int:
                                       f"{task}_true": [None if pd.isna(v) else str(v) for v in truth]}))
         oof = pd.concat(rows)
         oof.to_csv(a.out / f"oof_{arm}_{task}.tsv", sep="\t", index=False)
-        budgets.append({"arm": arm, "budget": int(bud.loc[arm, "budget"]), "peaked": True,
-                        "rule": f"ensemble of seeds {a.seeds} at the fixed budget"})
+        if task == (TASKS[0] if arm == "multitask" else arm):
+            budgets.append({"arm": arm, "budget": int(bud.loc[arm, "budget"]), "peaked": True,
+                            "rule": f"ensemble of seeds {a.seeds} at the fixed budget"})
         lab = oof[f"{task}_true"].notna()
         y = oof.loc[lab, f"{task}_true"].astype(str).to_numpy()
         ens = f1_elig(y, oof.loc[lab, f"{task}_pred"].astype(str).to_numpy(), eligible)

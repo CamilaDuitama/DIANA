@@ -84,6 +84,17 @@ PLOT_CONFIG = {
             'material': px.colors.qualitative.Vivid[3]        # Red
         },
         
+        # Model colors: one colour per model in every figure (as in 34_generate_generalisation_gap_plots.py)
+        'models': {
+            'DIANA': px.colors.qualitative.Vivid[0],
+            'LogReg': px.colors.qualitative.Vivid[1],
+            'RandomForest': px.colors.qualitative.Vivid[4],
+            'kNN': px.colors.qualitative.Vivid[5],
+            'Majority': '#aaaaaa',
+        },
+        'model_names': {'DIANA': 'DIANA', 'LogReg': 'Logistic regression', 'RandomForest': 'Random forest',
+                        'kNN': 'k-NN', 'Majority': 'Majority class'},
+
         # Dataset colors
         'train': px.colors.qualitative.Vivid[0],       # Blue
         'test': px.colors.qualitative.Vivid[1],        # Orange

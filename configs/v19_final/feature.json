@@ -1,0 +1,65 @@
+{
+ "features_path": "data/matrices/matrix_v17_train/unitigs.frac.mat",
+ "metadata_path": "data/splits_v19/train_metadata.tsv",
+ "train_ids_path": "data/splits_v19/train_accessions.txt",
+ "task_names": [
+  "feature"
+ ],
+ "task_types": {
+  "feature": "classification"
+ },
+ "random_seed": 42,
+ "hyperparameters": {
+  "model_params": {
+   "hidden_dims": [
+    64,
+    64,
+    64,
+    320
+   ],
+   "dropout": 0.41834728750679373,
+   "activation": "relu",
+   "use_batch_norm": false
+  },
+  "trainer_params": {
+   "learning_rate": 0.0011994943993048296,
+   "weight_decay": 4.661549555754808e-06,
+   "task_weights": {
+    "feature": 1.0
+   }
+  },
+  "batch_size": 64
+ },
+ "class_imbalance": {
+  "method": "logit_adjustment",
+  "logit_adjust_tau": 0.16790400193384108
+ },
+ "label_smoothing_per_task": {
+  "feature": 0.13501696673068428
+ },
+ "epochs": 359,
+ "_provenance": {
+  "protocol": "PROTOCOLS.md v19, C3-C4",
+  "search_trial": 50,
+  "rank": 2,
+  "five_seed_criterion_smoothed": 0.3811928426641587,
+  "cap": 400,
+  "selection": {
+   "epochs": 359,
+   "criterion_smoothed": 0.3811928426641587,
+   "criterion_raw": 0.37815187802116296,
+   "loss_cap_epoch": 381,
+   "epochs_uncapped": 359,
+   "capped": false,
+   "peaked": true,
+   "n_epochs_run": 400
+  },
+  "candidates": {
+   "0": 0.3667980504780729,
+   "1": 0.3375511378861361,
+   "2": 0.3811928426641587,
+   "3": 0.3306168264554007,
+   "4": 0.3741188944941618
+  }
+ }
+}

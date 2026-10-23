@@ -196,11 +196,11 @@ def assess_representation(fractions: np.ndarray) -> dict:
     }
 
 
-DEFAULT_MIN_CONFIDENCE = {"community_type": 0.35, "feature": 0.20, "sample_host": 0.25, "material": 0.20}
+DEFAULT_MIN_CONFIDENCE = {"community_type": 0.4131, "feature": 0.4473, "sample_host": 0.1879, "material": 0.3921}
 
 
 def load_abstention_config(path: Path | None) -> dict:
-    """The per-task no-call cutoffs, chosen on the grouped dev folds (configs/abstention_v9.json);
+    """The per-task no-call cutoffs, chosen on the grouped dev folds (configs/abstention_v19.json);
     falls back to the built-in copy of the same values."""
     if path and Path(path).exists():
         with open(path) as f:
@@ -355,7 +355,7 @@ def main():
         help='One no-call cutoff for every task, overriding the per-task defaults from --abstention-config')
     parser.add_argument(
         '--abstention-config', type=Path, default=None,
-        help='JSON with per-task min_confidence (default: the packaged configs/abstention_v9.json values)')
+        help='JSON with per-task min_confidence (default: the packaged configs/abstention_v19.json values)')
     parser.add_argument(
         '--stated-label', action='append', default=[], metavar='TASK=LABEL',
         help='A label on file to check, e.g. --stated-label material=tooth; repeatable. Output carries '

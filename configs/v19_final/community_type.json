@@ -1,0 +1,63 @@
+{
+ "features_path": "data/matrices/matrix_v17_train/unitigs.frac.mat",
+ "metadata_path": "data/splits_v19/train_metadata.tsv",
+ "train_ids_path": "data/splits_v19/train_accessions.txt",
+ "task_names": [
+  "community_type"
+ ],
+ "task_types": {
+  "community_type": "classification"
+ },
+ "random_seed": 42,
+ "hyperparameters": {
+  "model_params": {
+   "hidden_dims": [
+    64,
+    64
+   ],
+   "dropout": 0.27907421682544126,
+   "activation": "gelu",
+   "use_batch_norm": false
+  },
+  "trainer_params": {
+   "learning_rate": 0.006425147892124238,
+   "weight_decay": 3.0874564383427786e-05,
+   "task_weights": {
+    "community_type": 1.0
+   }
+  },
+  "batch_size": 64
+ },
+ "class_imbalance": {
+  "method": "logit_adjustment",
+  "logit_adjust_tau": 0.7493604946594842
+ },
+ "label_smoothing_per_task": {
+  "community_type": 0.07472599477359437
+ },
+ "epochs": 30,
+ "_provenance": {
+  "protocol": "PROTOCOLS.md v19, C3-C4",
+  "search_trial": 82,
+  "rank": 0,
+  "five_seed_criterion_smoothed": 0.5501431463882144,
+  "cap": 400,
+  "selection": {
+   "epochs": 30,
+   "criterion_smoothed": 0.5501431463882144,
+   "criterion_raw": 0.5401890700104877,
+   "loss_cap_epoch": 30,
+   "epochs_uncapped": 87,
+   "capped": true,
+   "peaked": true,
+   "n_epochs_run": 400
+  },
+  "candidates": {
+   "0": 0.5501431463882144,
+   "1": 0.5219365049965523,
+   "2": 0.4752245977364855,
+   "3": 0.5456124204123372,
+   "4": 0.46868211886552524
+  }
+ }
+}

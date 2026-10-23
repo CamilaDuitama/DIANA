@@ -83,6 +83,8 @@ def main() -> int:
     ap.add_argument("--metadata", type=Path, default=ROOT / "data/splits_v9/test_metadata.tsv")
     ap.add_argument("--eligibility", type=Path, default=ROOT / "data/splits_v9/class_eligibility.tsv")
     ap.add_argument("--out", type=Path, default=ROOT / "results/final_test_v9/scores")
+    ap.add_argument("--no-diana", action="store_true",
+                    help="score the baselines only (a baselines-only read, recorded in the ledger)")
     a = ap.parse_args()
     if (a.out / "classification.tsv").exists():
         raise SystemExit(f"{a.out} already holds a read; refusing to score the held-out set twice")
@@ -99,13 +101,13 @@ def main() -> int:
     cls_rows, cls_pairs, flag_rows, flag_pairs = [], [], [], []
     for task in TASKS:
         src = a.feature_from if (task == "feature" and a.feature_from is not None) else a.diana
-        models = {"DIANA": diana_probs(src, task)}
+        models = {} if a.no_diana else {"DIANA": diana_probs(src, task)}
         for b in BASELINES:
             try:
                 models[b] = baseline_probs(a.baselines, task, b)
             except (FileNotFoundError, KeyError):
                 continue
-        if "LogisticRegression_Bal" in models:
+        if "LogisticRegression_Bal" in models and "DIANA" in models:
             models["DIANA+LogReg average"] = average(models["DIANA"], models["LogisticRegression_Bal"])
         eligible = load_eligible_classes(a.eligibility, task)
         # LinearSVM_Bal: per-run stored predictions, classification only

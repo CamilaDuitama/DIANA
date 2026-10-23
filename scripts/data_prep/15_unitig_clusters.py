@@ -72,6 +72,7 @@ def main() -> int:
     ap.add_argument("--threshold", type=float, default=THRESHOLD)
     ap.add_argument("--max-occ", type=int, default=50)
     ap.add_argument("--out", type=Path, default=ROOT / "results/unitig_redundancy")
+    ap.add_argument("--fasta", type=Path, default=MAT / "unitigs.fa", help="unitig sequences (v19: matrix_v17_train)")
     a = ap.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     a.out.mkdir(parents=True, exist_ok=True)
@@ -80,7 +81,7 @@ def main() -> int:
                        "this must be disclosed if any result is quoted", a.threshold, THRESHOLD)
 
     seqs, cur = [], []
-    for line in open(MAT / "unitigs.fa"):
+    for line in open(a.fasta):
         if line.startswith(">"):
             if cur: seqs.append("".join(cur)); cur = []
         else: cur.append(line.strip())

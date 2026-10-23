@@ -47,6 +47,7 @@ from diana.data.loader import MatrixLoader
 from diana.data.validation_split import GROUP_COL, grouped_validation_split
 from diana.models.multitask_mlp import IGNORE_INDEX, MultiTaskMLP
 from diana.models.residual_linear import ResidualOnLinear
+from diana.training.active_classes import active_masks, masked_argmax, masked_softmax
 from diana.training.trainer import MultiTaskTrainer
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -56,7 +57,7 @@ N_FOLDS = 5
 PREDICT_BATCH = 512
 
 
-def parse_args() -> argparse.Namespace:
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     p.add_argument("config", type=Path, help="a configs/final_fixed_v9/<arm>.json")
     p.add_argument("--fold", type=int, required=True, help="dev fold held out for scoring (0-4)")
@@ -100,17 +101,24 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--heldout", type=Path, default=None,
                    help="FINAL TEST ONLY (ledger read, Camila's approval): fit on all training runs and predict this held-out "
                         "matrix (unitigs.frac.mat) for the runs in --heldout-ids with labels from --heldout-metadata; --fold is ignored")
-    p.add_argument("--heldout-ids", type=Path, default=Path("data/splits_v9/test_accessions.txt"))
-    p.add_argument("--heldout-metadata", type=Path, default=Path("data/splits_v9/test_metadata.tsv"))
+    p.add_argument("--heldout-ids", type=Path, default=None, help="required with --heldout")
+    p.add_argument("--heldout-metadata", type=Path, default=None, help="required with --heldout")
     p.add_argument("--resubstitution", action="store_true",
                    help="SELF-GRADING DEMO ONLY (PROTOCOLS.md 2026-10-05): train on all training runs and predict those same runs; --fold is ignored")
     p.add_argument("--adversarial-mode", choices=["reverse", "confusion"], default="reverse",
                    help="4.4: 'reverse' = gradient reversal (unbounded); 4.4b: 'confusion' = uniform-target cross-entropy, bounded")
     p.add_argument("--save-probs", action="store_true",
                    help="also save softmax probabilities of the last epoch run (X7b, seed ensembles)")
-    p.add_argument("--dev-folds", type=Path, default=Path("data/splits_v9/dev_folds.tsv"),
-                   help="the 5 BioProject-grouped dev folds of train")
-    return p.parse_args()
+    p.add_argument("--also-predict-train", action="store_true",
+                   help="v19 train-set gate: also save the last epoch's predictions on the fit rows "
+                        "(and their probabilities, train_probs.npz, with --save-probs)")
+    p.add_argument("--save-model", action="store_true",
+                   help="also save the fitted network (model.pt: weights, settings, classes, active classes) for diana-predict")
+    p.add_argument("--save-probs-by-epoch", action="store_true",
+                   help="v19 C4: also save the softmax probabilities after every epoch (float32)")
+    p.add_argument("--dev-folds", type=Path, required=True,
+                   help="the 5 BioProject-grouped dev folds of train (no default: the split is always named)")
+    return p.parse_args(argv)
 
 
 def load_train_matrix(config: dict) -> tuple[np.ndarray, pd.DataFrame]:
@@ -151,16 +159,22 @@ def fold_assignment(meta: pd.DataFrame, dev_folds: Path) -> np.ndarray:
     return meta.Run_accession.map(dev.set_index("Run_accession")["fold"]).to_numpy()
 
 
-def predict_argmax(model: MultiTaskMLP, X_eval: torch.Tensor, task_names: list[str], offsets: dict | None = None) -> dict:
+def predict(model: MultiTaskMLP, X_eval: torch.Tensor, task_names: list[str], active: dict,
+            offsets: dict | None = None, want_probs: bool = False) -> tuple[dict, dict | None]:
+    """Argmax (and optionally softmax) over the active classes only (C1)."""
     model.eval()
     out = {t: [] for t in task_names}
+    prob = {t: [] for t in task_names}
     with torch.no_grad():
         for i in range(0, len(X_eval), PREDICT_BATCH):
             logits = model(X_eval[i:i + PREDICT_BATCH])
             for t in task_names:
                 lg = logits[t] + offsets[t][i:i + PREDICT_BATCH] if offsets is not None else logits[t]
-                out[t].append(lg.argmax(dim=1).cpu().numpy().astype(np.int16))
-    return {t: np.concatenate(v) for t, v in out.items()}
+                out[t].append(masked_argmax(lg, active[t]).cpu().numpy().astype(np.int16))
+                if want_probs:
+                    prob[t].append(masked_softmax(lg, active[t]).cpu().numpy())
+    preds = {t: np.concatenate(v) for t, v in out.items()}
+    return preds, ({t: np.concatenate(v) for t, v in prob.items()} if want_probs else None)
 
 
 def load_offsets(offsets_dir: Path, fold: int, task_names: list[str], runs: np.ndarray, classes: dict) -> dict:
@@ -213,50 +227,75 @@ def depth_floor(X_fit: np.ndarray, labels: np.ndarray, pct: float = 5.0) -> np.n
     return lo
 
 
-def main() -> int:
-    args = parse_args()
-    config = json.load(open(args.config))
+def depth_floor_rows(X_fit: np.ndarray, labels_by_task: list[np.ndarray], pct: float = 5.0) -> np.ndarray:
+    """4.3 for any number of fields (shared network, 2026-10-21): per fit row, the largest class floor
+    (depth_floor) over its labelled fields; the global floor when no field is labelled. One field gives depth_floor."""
+    glob = np.float32(np.percentile((X_fit > 0).sum(axis=1), pct))
+    floors = np.stack([depth_floor(X_fit, lab, pct) for lab in labels_by_task])
+    labelled = np.stack([lab != IGNORE_INDEX for lab in labels_by_task])
+    lo = np.where(labelled, floors, -np.inf).max(axis=0)
+    return np.where(labelled.any(axis=0), lo, glob).astype(np.float32)
+
+
+def load_data(config: dict, dev_folds: Path) -> dict:
+    """Training matrix, encoded labels and dev folds; loaded once, reused across fits."""
+    task_names = list(config["task_names"])
+    X, meta = load_train_matrix(config)
+    y, classes = encode_labels(meta, task_names)
+    folds = fold_assignment(meta, dev_folds)
+    return {"X": X, "meta": meta, "y": y, "classes": classes, "folds": folds, "task_names": task_names}
+
+
+def load_heldout(args: argparse.Namespace, meta: pd.DataFrame) -> tuple[np.ndarray, pd.DataFrame]:
+    """Final test only: the held-out matrix rows for --heldout-ids, with their labels."""
+    if args.heldout_ids is None or args.heldout_metadata is None:
+        raise ValueError("--heldout needs --heldout-ids and --heldout-metadata")
+    loader = MatrixLoader(args.heldout)
+    Xh_all, meta_h = loader.load_with_metadata(metadata_path=args.heldout_metadata, align_to_matrix=True, require_all_metadata=True)
+    meta_h = meta_h.to_pandas()
+    ho_ids = {l.strip() for l in open(args.heldout_ids) if l.strip()}
+    hmask = meta_h["Run_accession"].isin(ho_ids).to_numpy()
+    Xh, meta_h = Xh_all[hmask], meta_h[hmask].reset_index(drop=True)
+    if len(meta_h) != len(ho_ids):
+        raise ValueError(f"{len(ho_ids)} held-out ids but {len(meta_h)} found in {args.heldout}")
+    if set(meta_h.Run_accession) & set(meta.Run_accession):
+        raise ValueError("held-out runs overlap the training runs")
+    if set(meta_h[GROUP_COL]) & set(meta[GROUP_COL]):
+        raise ValueError("held-out BioProjects overlap the training BioProjects")
+    logger.info("FINAL TEST: fitting on all %d training runs, predicting %d held-out runs from %s", len(meta), len(meta_h), args.heldout)
+    return Xh, meta_h
+
+
+def scored(labels: np.ndarray, active: np.ndarray) -> np.ndarray:
+    """Labelled rows whose class the model was fitted on (C2a)."""
+    lab = labels != IGNORE_INDEX
+    out = np.zeros(len(labels), dtype=bool)
+    out[lab] = active[labels[lab]]
+    return out
+
+
+def fit_fold(args: argparse.Namespace, config: dict, data: dict, heldout: tuple | None = None) -> dict:
+    """Fit one arm on the fit rows of one fold (or all training runs) and predict every epoch."""
     for key in ("sequence_encoder", "sequence_channel", "attention_pool"):
         if config.get(key):
             raise ValueError(f"{key} arms are out of scope for the epoch budget")
-    if not 0 <= args.fold < N_FOLDS:
-        raise ValueError(f"--fold must be in 0..{N_FOLDS - 1}")
-    args.out.mkdir(parents=True, exist_ok=True)
-    json.dump(config, open(args.out / "arm_config.json", "w"), indent=2)
-
     seed = int(args.seed if args.seed is not None else config.get("random_seed", 42))
     np.random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
 
-    task_names = list(config["task_names"])
+    task_names = data["task_names"]
     hp = config["hyperparameters"]
-    X, meta = load_train_matrix(config)
-    y, classes = encode_labels(meta, task_names)
-    folds = fold_assignment(meta, args.dev_folds)
+    X, meta, y, classes, folds = data["X"], data["meta"], data["y"], data["classes"], data["folds"]
 
-    heldout = None
     if args.resubstitution:
         eval_mask = np.zeros(len(meta), dtype=bool)
         logger.info("RESUBSTITUTION (self-grading demo): fitting on all %d runs and predicting the same runs", len(meta))
-    elif args.heldout is not None:
-        # final test: every training run fits, the evaluation rows come from the held-out matrix
-        loader = MatrixLoader(args.heldout)
-        Xh_all, meta_h = loader.load_with_metadata(metadata_path=args.heldout_metadata, align_to_matrix=True, require_all_metadata=True)
-        meta_h = meta_h.to_pandas()
-        ho_ids = {l.strip() for l in open(args.heldout_ids) if l.strip()}
-        hmask = meta_h["Run_accession"].isin(ho_ids).to_numpy()
-        Xh, meta_h = Xh_all[hmask], meta_h[hmask].reset_index(drop=True)
-        if len(meta_h) != len(ho_ids):
-            raise ValueError(f"{len(ho_ids)} held-out ids but {len(meta_h)} found in {args.heldout}")
-        if set(meta_h.Run_accession) & set(meta.Run_accession):
-            raise ValueError("held-out runs overlap the training runs")
-        if set(meta_h[GROUP_COL]) & set(meta[GROUP_COL]):
-            raise ValueError("held-out BioProjects overlap the training BioProjects")
-        heldout = (Xh, meta_h)
-        logger.info("FINAL TEST: fitting on all %d training runs, predicting %d held-out runs from %s", len(meta), len(meta_h), args.heldout)
+    elif heldout is not None:
         eval_mask = np.zeros(len(meta), dtype=bool)
     else:
+        if not 0 <= args.fold < N_FOLDS:
+            raise ValueError(f"--fold must be in 0..{N_FOLDS - 1}")
         eval_mask = folds == args.fold
     train_idx, eval_idx = np.where(~eval_mask)[0], np.where(eval_mask)[0]
     if args.resubstitution:
@@ -269,7 +308,7 @@ def main() -> int:
     if shared:
         logger.warning("WITHIN-STUDY folds (--allow-shared-projects): %d BioProjects on both sides of fold %d; "
                        "this is not an out-of-project evaluation", len(shared), args.fold)
-    logger.info("fold %d: %d train runs / %d eval runs, %d / %d projects, 0 shared",
+    logger.info("fold %s: %d train runs / %d eval runs, %d / %d projects, 0 shared",
                 args.fold, len(train_idx), len(eval_idx),
                 len(set(groups[train_idx])), len(set(groups[eval_idx])))
 
@@ -294,15 +333,19 @@ def main() -> int:
     device = "cuda" if torch.cuda.is_available() else "cpu"
     logger.info("device: %s", device)
     n_classes = {t: len(classes[t]) for t in task_names}
+    # C1: the network may learn and predict only the classes present in its fit rows.
+    active = active_masks({t: y[t][fit_idx] for t in task_names}, n_classes)
+    for t in task_names:
+        if not active[t].all():
+            logger.info("%s: %d of %d classes have no fit row and are inactive: %s", t, int((~active[t]).sum()),
+                        n_classes[t], [c for c, a in zip(classes[t], active[t]) if not a])
     model = MultiTaskMLP(input_dim=X.shape[1], num_classes=n_classes, **hp["model_params"])
     if args.linear_init_dir is not None:
         lin_init, lin_l2 = load_linear_init(args.linear_init_dir, args.fold, task_names, classes, X.shape[1])
         model = ResidualOnLinear(model, lin_init, lin_l2)
         logger.info("4.1: linear part initialised from %s, L2 %s", args.linear_init_dir, {t: f"{v:.3g}" for t, v in lin_l2.items()})
 
-    # Priors from the rows the model is fitted on, never from the eval fold: a class with
-    # no training rows in this fold keeps a zero count (see compute_class_priors in
-    # 01_train_multitask_single_fold.py for what a finite prior does to such a class).
+    # Priors from the rows the model is fitted on, never from the eval fold.
     tau = float((config.get("class_imbalance") or {}).get("logit_adjust_tau", 0.0) or 0.0)
     priors = None
     if tau > 0:
@@ -325,6 +368,7 @@ def main() -> int:
         adversarial=args.adversarial, n_studies=n_studies_fit if args.adversarial > 0 else 0,
         adv_in_dim=hp["model_params"]["hidden_dims"][-1] if args.adversarial > 0 else 0,
         adversarial_mode=args.adversarial_mode,
+        active_classes=active,
     )
 
     offsets = None
@@ -333,22 +377,17 @@ def main() -> int:
         logger.info("X9a: logit offsets loaded from %s for %d runs", args.offsets_dir, len(meta))
     extras = []
     if args.study_weights:
-        if len(task_names) != 1:
-            raise ValueError("--study-weights is defined for single-task arms")
-        w = study_weights(groups[fit_idx], y[task_names[0]][fit_idx])
-        extras.append(torch.FloatTensor(w))
-        logger.info("4.2: study weights over %d studies, min %.3f max %.3f (mean 1 over labelled rows)",
-                    len(set(groups[fit_idx][y[task_names[0]][fit_idx] != IGNORE_INDEX])), w[w > 0].min(), w.max())
+        # one weight column per task (multi-task: each task has its own labelled rows)
+        cols = [study_weights(groups[fit_idx], y[t][fit_idx]) for t in task_names]
+        extras.append(torch.FloatTensor(cols[0] if len(cols) == 1 else np.stack(cols, axis=1)))
+        for t, w in zip(task_names, cols):
+            logger.info("4.2: %s study weights over %d studies, min %.3f max %.3f (mean 1 over labelled rows)", t,
+                        len(set(groups[fit_idx][y[t][fit_idx] != IGNORE_INDEX])), w[w > 0].min(), w.max())
     if args.depth_augment > 0:
-        if len(task_names) != 1:
-            raise ValueError("--depth-augment is defined for single-task arms")
-        lo = depth_floor(X[fit_idx], y[task_names[0]][fit_idx])
+        lo = depth_floor_rows(X[fit_idx], [y[t][fit_idx] for t in task_names])
         extras.append(torch.FloatTensor(lo))
         logger.info("4.3: depth augmentation p=%.2f, class floors %d..%d non-zero unitigs", args.depth_augment, int(lo.min()), int(lo.max()))
-    n_studies = 0
     if args.mixup > 0 or args.adversarial > 0:
-        if len(task_names) != 1:
-            raise ValueError("--mixup and --adversarial are defined for single-task arms")
         codes = pd.factorize(pd.Series(groups[fit_idx]))[0]
         n_studies = len(set(codes))
         extras.append(torch.LongTensor(codes))
@@ -383,6 +422,8 @@ def main() -> int:
                     args.lr_schedule, args.ema or "off", args.early_stop)
 
     preds = {t: np.full((args.max_epochs, len(eval_runs)), -1, dtype=np.int16) for t in task_names}
+    probs_by_epoch = ({t: np.zeros((args.max_epochs, len(eval_runs), n_classes[t]), dtype=np.float32) for t in task_names}
+                      if args.save_probs_by_epoch else None)
     history = {"train_loss": [], "eval_macro_f1": {t: [] for t in task_names}, "lr": [],
                "val_macro_f1": [], "recipe": {"seed": seed, "lr": trainer.optimizer.param_groups[0]["lr"],
                                                "lr_schedule": args.lr_schedule, "ema": args.ema,
@@ -393,8 +434,10 @@ def main() -> int:
                                                "n_fit": int(len(fit_idx)), "n_val": int(len(val_idx)) if val_idx is not None else 0}}
     best_val, best_epoch, since_best, stopped_epoch = -1.0, None, 0, None
     pred_model = model
+    n_run = 0
     for epoch in range(args.max_epochs):
         tr = trainer.train_one_epoch(train_loader)
+        n_run = epoch + 1
         history["train_loss"].append(float(tr["loss"]))
         history["lr"].append(float(trainer.optimizer.param_groups[0]["lr"]))
         if scheduler is not None:
@@ -409,20 +452,23 @@ def main() -> int:
                     for b_e, b_m in zip(ema_model.buffers(), model.buffers()):
                         b_e.copy_(b_m)
             pred_model = ema_model
-        ep = predict_argmax(pred_model, X_eval, task_names, off_eval)
+        ep, pr = predict(pred_model, X_eval, task_names, active, off_eval, want_probs=probs_by_epoch is not None)
         for t in task_names:
             preds[t][epoch] = ep[t]
-            lab = y_eval[t] != IGNORE_INDEX
-            f1 = (f1_score(y_eval[t][lab], ep[t][lab], average="macro", zero_division=0)
-                  if lab.any() else float("nan"))
+            if probs_by_epoch is not None:
+                probs_by_epoch[t][epoch] = pr[t]
+            # Held-out predictions are never scored here: scoring them is the held-out read.
+            ok = scored(y_eval[t], active[t]) if heldout is None else np.zeros(len(eval_runs), dtype=bool)
+            f1 = (f1_score(y_eval[t][ok], ep[t][ok], average="macro", zero_division=0)
+                  if ok.any() else float("nan"))
             history["eval_macro_f1"][t].append(float(f1))
         if X_val is not None:
-            vp = predict_argmax(pred_model, X_val, task_names, off_val)
+            vp, _ = predict(pred_model, X_val, task_names, active, off_val)
             scores = []
             for t in task_names:
-                lab = y_val[t] != IGNORE_INDEX
-                if lab.any():
-                    scores.append(f1_score(y_val[t][lab], vp[t][lab], average="macro", zero_division=0))
+                ok = scored(y_val[t], active[t])
+                if ok.any():
+                    scores.append(f1_score(y_val[t][ok], vp[t][ok], average="macro", zero_division=0))
             v = float(np.mean(scores)) if scores else float("nan")
             history["val_macro_f1"].append(v)
             if v > best_val:
@@ -442,24 +488,61 @@ def main() -> int:
         history["selected_epoch"] = int(best_epoch + 1) if best_epoch is not None else None
         history["stopped_epoch"] = int(stopped_epoch or args.max_epochs)
         history["best_val_macro_f1"] = float(best_val)
+    result = {"preds": preds, "history": history, "eval_runs": eval_runs, "classes": classes,
+              "active_classes": {t: [c for c, a in zip(classes[t], active[t]) if a] for t in task_names},
+              "n_epochs_run": n_run}
+    if probs_by_epoch is not None:
+        result["probs_by_epoch"] = {t: v[:n_run] for t, v in probs_by_epoch.items()}
     if args.save_probs:
-        pred_model.eval()
-        probs = {}
-        with torch.no_grad():
-            for t in task_names:
-                parts = []
-                for i in range(0, len(X_eval), PREDICT_BATCH):
-                    lg = pred_model(X_eval[i:i + PREDICT_BATCH])[t]
-                    if off_eval is not None:
-                        lg = lg + off_eval[t][i:i + PREDICT_BATCH]
-                    parts.append(torch.softmax(lg, dim=1).cpu().numpy())
-                probs[t] = np.concatenate(parts).astype(np.float32)
-        np.savez_compressed(args.out / "probs_last.npz", **probs)
+        _, last = predict(pred_model, X_eval, task_names, active, off_eval, want_probs=True)
+        result["probs_last"] = {t: v.astype(np.float32) for t, v in last.items()}
+    if args.also_predict_train:
+        off_fit = {t: torch.FloatTensor(offsets[t][fit_idx]).to(device) for t in task_names} if offsets is not None else None
+        tp, tprob = predict(pred_model, torch.FloatTensor(X[fit_idx]).to(device), task_names, active, off_fit,
+                            want_probs=args.save_probs)
+        result["train_preds"] = tp
+        if tprob is not None:
+            result["train_probs"] = {t: v.astype(np.float32) for t, v in tprob.items()}
+        result["train_runs"] = meta.Run_accession.to_numpy()[fit_idx]
+    if args.save_model:
+        result["model"] = {"state_dict": {k: v.detach().cpu() for k, v in pred_model.state_dict().items()},
+                           "model_params": hp["model_params"], "input_dim": int(X.shape[1]), "num_classes": n_classes,
+                           "task_names": list(task_names), "classes": classes,
+                           "active_classes": result["active_classes"], "features_path": str(config["features_path"]),
+                           "n_fit_runs": int(len(fit_idx)), "seed": int(seed)}
+    return result
 
-    np.savez_compressed(args.out / "preds_by_epoch.npz", **preds)
-    (args.out / "eval_runs.txt").write_text("\n".join(eval_runs) + "\n")
-    json.dump(classes, open(args.out / "label_classes.json", "w"), indent=2)
-    json.dump(history, open(args.out / "history.json", "w"))
+
+def write_outputs(out: Path, config: dict, result: dict) -> None:
+    out.mkdir(parents=True, exist_ok=True)
+    json.dump(config, open(out / "arm_config.json", "w"), indent=2)
+    if "model" in result:
+        torch.save(result["model"], out / "model.pt")
+    if "probs_last" in result:
+        np.savez_compressed(out / "probs_last.npz", **result["probs_last"])
+    if "probs_by_epoch" in result:
+        np.savez_compressed(out / "probs_by_epoch.npz", **result["probs_by_epoch"])
+    np.savez_compressed(out / "preds_by_epoch.npz", **result["preds"])
+    if "train_preds" in result:
+        np.savez_compressed(out / "train_preds.npz", **result["train_preds"])
+        if "train_probs" in result:
+            np.savez_compressed(out / "train_probs.npz", **result["train_probs"])
+        (out / "train_runs.txt").write_text("\n".join(result["train_runs"]) + "\n")
+    (out / "eval_runs.txt").write_text("\n".join(result["eval_runs"]) + "\n")
+    json.dump(result["classes"], open(out / "label_classes.json", "w"), indent=2)
+    json.dump(result["active_classes"], open(out / "active_classes.json", "w"), indent=2)
+    json.dump(result["history"], open(out / "history.json", "w"))
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = parse_args(argv)
+    config = json.load(open(args.config))
+    if args.out.exists() and (args.out / "preds_by_epoch.npz").exists():
+        raise SystemExit(f"{args.out} already holds a fit; refusing to overwrite")
+    data = load_data(config, args.dev_folds)
+    heldout = load_heldout(args, data["meta"]) if args.heldout is not None else None
+    result = fit_fold(args, config, data, heldout)
+    write_outputs(args.out, config, result)
     logger.info("wrote %s", args.out)
     return 0
 

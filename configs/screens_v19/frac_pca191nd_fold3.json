@@ -1,0 +1,77 @@
+{
+ "features_path": "results/screens_v19/inputs/frac_pca191nd_fold3.npz",
+ "metadata_path": "data/splits_v19/train_metadata.tsv",
+ "train_ids_path": "data/splits_v19/train_accessions.txt",
+ "task_names": [
+  "community_type",
+  "feature",
+  "sample_host",
+  "material"
+ ],
+ "task_types": {
+  "community_type": "classification",
+  "feature": "classification",
+  "sample_host": "classification",
+  "material": "classification"
+ },
+ "random_seed": 42,
+ "hyperparameters": {
+  "model_params": {
+   "hidden_dims": [
+    384,
+    192,
+    448
+   ],
+   "dropout": 0.46266689441907644,
+   "activation": "leaky_relu",
+   "use_batch_norm": false
+  },
+  "trainer_params": {
+   "learning_rate": 0.0005045819899366223,
+   "weight_decay": 1.2910313383288595e-06,
+   "task_weights": {
+    "community_type": 1.1080914042504793,
+    "feature": 1.9940370436255197,
+    "sample_host": 0.733766915398405,
+    "material": 1.6051653798817112
+   }
+  },
+  "batch_size": 64
+ },
+ "class_imbalance": {
+  "method": "logit_adjustment",
+  "logit_adjust_tau": 0.6998417909947323
+ },
+ "label_smoothing_per_task": {
+  "community_type": 0.13113491416322826,
+  "feature": 0.0005512268712866454,
+  "sample_host": 0.08288409575688159,
+  "material": 0.015321589140639651
+ },
+ "epochs": 173,
+ "_provenance": {
+  "protocol": "PROTOCOLS.md v19, C3-C4",
+  "search_trial": 92,
+  "rank": 2,
+  "five_seed_criterion_smoothed": 0.46154017291365035,
+  "cap": 400,
+  "selection": {
+   "epochs": 173,
+   "criterion_smoothed": 0.46154017291365035,
+   "criterion_raw": 0.45981383737412607,
+   "loss_cap_epoch": 377,
+   "epochs_uncapped": 173,
+   "capped": false,
+   "peaked": true,
+   "n_epochs_run": 400
+  },
+  "candidates": {
+   "0": 0.44898457214293713,
+   "1": 0.45553458004302616,
+   "2": 0.46154017291365035,
+   "3": 0.4515827355891918,
+   "4": 0.44960509800913984
+  },
+  "screen": "v19 screen frac_pca191nd (PROTOCOLS.md 2026-10-21): configs/v19_final/multitask.json with this input, nothing else changed"
+ }
+}

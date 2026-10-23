@@ -196,17 +196,15 @@ class MatrixLoader:
                         sample_id = line.strip().split()[0]
                         sample_ids.append(sample_id)
                 
-                if len(sample_ids) == expected_count:
-                    logger.info(f"Sample IDs: {sample_ids[:3]}...")
-                    return np.array(sample_ids)
-                else:
-                    logger.warning(f"FOF has {len(sample_ids)} IDs but matrix has {expected_count} samples")
-        
-        # Fallback: generate placeholder IDs
-        logger.warning(f"kmtricks.fof not found, generating placeholder sample IDs")
-        sample_ids = np.array([f"sample_{i:03d}" for i in range(expected_count)])
-        logger.info(f"Sample IDs: {sample_ids[:3]}...")
-        return sample_ids
+                if len(sample_ids) != expected_count:
+                    raise ValueError(f"{fof_path} lists {len(sample_ids)} samples but the matrix has "
+                                     f"{expected_count} columns; sample IDs cannot be assigned")
+                logger.info(f"Sample IDs: {sample_ids[:3]}...")
+                return np.array(sample_ids)
+
+        # No placeholder IDs: an invented ID would silently pair features with the wrong labels.
+        raise FileNotFoundError(f"no kmtricks.fof next to {self.matrix_path} (looked in "
+                                f"{[str(f) for f in fof_candidates]}); the matrix columns cannot be named")
     
     def load_with_metadata(
         self,
