@@ -45,6 +45,11 @@ ADAPTED = {
     "adv_conf0.3": (None, "--adversarial 0.3 --adversarial-mode confusion"),
     "adv_conf1.0": (None, "--adversarial 1.0 --adversarial-mode confusion"),
 }
+# ADV2 (PROTOCOLS.md v19 amendment 2026-10-27): two adversary variants, scored against the network alone; arms_adv.tsv.
+ADV2 = {
+    "adv_cond0.3": (None, "--adversarial 0.3 --adversarial-mode confusion --adversarial-conditional"),
+    "adv_ct0.3": (None, "--adversarial 0.3 --adversarial-mode confusion --adversarial-layer community_type"),
+}
 
 
 def main() -> None:
@@ -66,7 +71,8 @@ def main() -> None:
     for arm, (cap, extra) in OPTION_ARMS.items():
         rows.append((arm, str(BASE.relative_to(ROOT)), cap or epochs, extra))
     adapted = [(arm, str(BASE.relative_to(ROOT)), cap or epochs, extra) for arm, (cap, extra) in ADAPTED.items()]
-    for name, table in (("arms.tsv", rows), ("arms_adapted.tsv", adapted)):
+    adv2 = [(arm, str(BASE.relative_to(ROOT)), cap or epochs, extra) for arm, (cap, extra) in ADV2.items()]
+    for name, table in (("arms.tsv", rows), ("arms_adapted.tsv", adapted), ("arms_adv.tsv", adv2)):
         with open(OUT / name, "w") as fh:
             for r in table:
                 fh.write("\t".join(map(str, r)) + "\n")

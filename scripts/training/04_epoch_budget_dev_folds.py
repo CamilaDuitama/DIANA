@@ -107,6 +107,10 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
                    help="SELF-GRADING DEMO ONLY (PROTOCOLS.md 2026-10-05): train on all training runs and predict those same runs; --fold is ignored")
     p.add_argument("--adversarial-mode", choices=["reverse", "confusion"], default="reverse",
                    help="4.4: 'reverse' = gradient reversal (unbounded); 4.4b: 'confusion' = uniform-target cross-entropy, bounded")
+    p.add_argument("--adversarial-conditional", action="store_true",
+                   help="ADV2: confusion target uniform over the studies sharing the run's labels on every field")
+    p.add_argument("--adversarial-layer", default=None,
+                   help="ADV2: the adversary reads this task head's hidden layer on detached backbone features")
     p.add_argument("--save-probs", action="store_true",
                    help="also save softmax probabilities of the last epoch run (X7b, seed ensembles)")
     p.add_argument("--also-predict-train", action="store_true",
@@ -235,6 +239,22 @@ def depth_floor_rows(X_fit: np.ndarray, labels_by_task: list[np.ndarray], pct: f
     labelled = np.stack([lab != IGNORE_INDEX for lab in labels_by_task])
     lo = np.where(labelled, floors, -np.inf).max(axis=0)
     return np.where(labelled.any(axis=0), lo, glob).astype(np.float32)
+
+
+def conditional_targets(codes: np.ndarray, labels_by_task: list[np.ndarray]) -> np.ndarray:
+    """ADV2 conditional adversary (PROTOCOLS.md 2026-10-27): per fit row, uniform over the studies whose fit rows
+    share its label on every field (an unlabelled field counting as a value); all zero for a row with no labelled
+    field or whose label combination occurs in a single study."""
+    Y = np.stack(labels_by_task, axis=1)
+    combo = pd.factorize(pd.Series([tuple(r) for r in Y]))[0]
+    T = np.zeros((len(codes), int(codes.max()) + 1), dtype=np.float32)
+    for c in np.unique(combo):
+        rows = np.flatnonzero(combo == c)
+        studies = np.unique(codes[rows])
+        if len(studies) >= 2:
+            T[np.ix_(rows, studies)] = 1.0 / len(studies)
+    T[(Y == IGNORE_INDEX).all(axis=1)] = 0.0
+    return T
 
 
 def load_data(config: dict, dev_folds: Path) -> dict:
@@ -366,8 +386,10 @@ def fit_fold(args: argparse.Namespace, config: dict, data: dict, heldout: tuple 
         sample_weighted=args.study_weights, depth_augment=args.depth_augment,
         uses_offsets=args.offsets_dir is not None, mixup=args.mixup,
         adversarial=args.adversarial, n_studies=n_studies_fit if args.adversarial > 0 else 0,
-        adv_in_dim=hp["model_params"]["hidden_dims"][-1] if args.adversarial > 0 else 0,
+        adv_in_dim=(0 if args.adversarial <= 0 else model.heads[args.adversarial_layer][0].out_features
+                    if args.adversarial_layer else hp["model_params"]["hidden_dims"][-1]),
         adversarial_mode=args.adversarial_mode,
+        adversarial_conditional=args.adversarial_conditional, adversarial_layer=args.adversarial_layer,
         active_classes=active,
     )
 
@@ -394,7 +416,14 @@ def fit_fold(args: argparse.Namespace, config: dict, data: dict, heldout: tuple 
         if args.mixup > 0:
             logger.info("4.5: mixup alpha=%.2f on half of each batch, same-class partners from other studies (%d studies)", args.mixup, n_studies)
         if args.adversarial > 0:
-            logger.info("4.4: study-adversarial head over %d studies, strength %.2f, mode %s", n_studies, args.adversarial, args.adversarial_mode)
+            logger.info("4.4: study-adversarial head over %d studies, strength %.2f, mode %s, layer %s", n_studies,
+                        args.adversarial, args.adversarial_mode, args.adversarial_layer or "shared")
+        if args.adversarial_conditional:
+            T = conditional_targets(codes, [y[t][fit_idx] for t in task_names])
+            extras.append(torch.FloatTensor(T))
+            has = T.sum(axis=1) > 0
+            logger.info("ADV2: conditional target for %d of %d fit rows (%d labelled)", int(has.sum()), len(T),
+                        int(np.any(np.stack([y[t][fit_idx] != IGNORE_INDEX for t in task_names]), axis=0).sum()))
     gen = torch.Generator().manual_seed(seed)
     train_ds = TensorDataset(torch.FloatTensor(X[fit_idx]),
                              *[torch.LongTensor(y[t][fit_idx]) for t in task_names],
@@ -430,6 +459,7 @@ def fit_fold(args: argparse.Namespace, config: dict, data: dict, heldout: tuple 
                                                "early_stop": args.early_stop, "val_split": args.val_split,
                                                "linear_init": str(args.linear_init_dir) if args.linear_init_dir else None,
                                                "study_weights": bool(args.study_weights), "depth_augment": args.depth_augment, "mixup": args.mixup, "adversarial": args.adversarial, "adversarial_mode": args.adversarial_mode,
+                                               "adversarial_conditional": args.adversarial_conditional, "adversarial_layer": args.adversarial_layer,
                                                "patience": args.patience,
                                                "n_fit": int(len(fit_idx)), "n_val": int(len(val_idx)) if val_idx is not None else 0}}
     best_val, best_epoch, since_best, stopped_epoch = -1.0, None, 0, None

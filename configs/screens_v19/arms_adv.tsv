@@ -1,0 +1,2 @@
+adv_cond0.3	configs/v19_final/multitask.json	173	--adversarial 0.3 --adversarial-mode confusion --adversarial-conditional
+adv_ct0.3	configs/v19_final/multitask.json	173	--adversarial 0.3 --adversarial-mode confusion --adversarial-layer community_type

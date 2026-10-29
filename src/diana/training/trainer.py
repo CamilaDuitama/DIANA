@@ -56,6 +56,8 @@ class MultiTaskTrainer:
                  n_studies: int = 0,
                  adv_in_dim: int = 0,
                  adversarial_mode: str = "reverse",
+                 adversarial_conditional: bool = False,
+                 adversarial_layer: Optional[str] = None,
                  active_classes: Optional[Dict[str, np.ndarray]] = None):
         """
         Initialize trainer.
@@ -106,6 +108,18 @@ class MultiTaskTrainer:
         if adversarial_mode not in ("reverse", "confusion"):
             raise ValueError("adversarial_mode must be 'reverse' (gradient reversal, unbounded) or 'confusion' (uniform-target cross-entropy, bounded)")
         self.adversarial_mode = adversarial_mode
+        # ADV2 (PROTOCOLS.md v19 amendment 2026-10-27), confusion form only: the target is a trailing per-row
+        # distribution over studies (conditional), and/or the head reads one task head's hidden layer on detached
+        # backbone features, so the adversary changes that layer only.
+        self.adversarial_conditional = bool(adversarial_conditional)
+        self.adversarial_layer = adversarial_layer
+        if (self.adversarial_conditional or adversarial_layer is not None) and (adversarial_mode != "confusion"
+                                                                               or self.adversarial <= 0.0):
+            raise ValueError("the conditional target and the head-layer adversary need adversarial > 0 in the confusion form")
+        if adversarial_layer is not None:
+            head = model.heads[adversarial_layer]
+            if len(head) != 4 or not isinstance(head[0], nn.Linear):
+                raise ValueError(f"{adversarial_layer} head is not Linear, activation, Dropout, Linear")
         self.adv_head = None
         if self.adversarial > 0.0:
             if n_studies < 2 or adv_in_dim < 1:
@@ -462,6 +476,17 @@ class MultiTaskTrainer:
         lam = torch.where(has, lam, torch.ones_like(lam))
         return lam[:, None] * x + (1.0 - lam[:, None]) * x[partner]
 
+    @staticmethod
+    def _confusion(logp: torch.Tensor, target: Optional[torch.Tensor]) -> torch.Tensor:
+        """4.4b confusion term: cross-entropy from the frozen head's study log-probabilities to the uniform
+        distribution over studies, or to a per-row target (ADV2 conditional), averaged over the rows that have one."""
+        if target is None:
+            return -logp.mean(dim=1).mean()
+        has = target.sum(dim=1) > 0
+        if not bool(has.any()):
+            return logp.sum() * 0.0
+        return -(target[has] * logp[has]).sum(dim=1).mean()
+
     def _train_epoch_from_loader(self, train_loader: DataLoader) -> Dict[str, float]:
         """Train for one epoch using a DataLoader."""
         self.model.train()
@@ -499,6 +524,9 @@ class MultiTaskTrainer:
             study = None
             if self.mixup > 0.0 or self.adv_head is not None:
                 study = batch[k].to(self.device); k += 1
+            adv_target = None
+            if self.adversarial_conditional:
+                adv_target = batch[k].to(self.device).float(); k += 1
             if self.mixup > 0.0:
                 batch_x = self._mixup(batch_x, torch.stack([batch_y[t] for t in self.task_names], dim=1), study)
             if k != len(batch):
@@ -518,10 +546,13 @@ class MultiTaskTrainer:
                     # 4.4b: the head learns the study from detached features; the backbone minimises the cross-entropy
                     # between the head's prediction (head parameters held fixed) and the uniform distribution over
                     # studies, which is bounded below by log K and cannot run away
-                    head_loss = nn.functional.cross_entropy(self.adv_head(features.detach()), study)
+                    adv_in = features
+                    if self.adversarial_layer is not None:
+                        adv_in = self.model.heads[self.adversarial_layer][:3](features.detach())
+                    head_loss = nn.functional.cross_entropy(self.adv_head(adv_in.detach()), study)
                     frozen = {k: v.detach() for k, v in self.adv_head.named_parameters()}
-                    logp = torch.log_softmax(functional_call(self.adv_head, frozen, (features,)), dim=1)
-                    conf_loss = -logp.mean(dim=1).mean()
+                    logp = torch.log_softmax(functional_call(self.adv_head, frozen, (adv_in,)), dim=1)
+                    conf_loss = self._confusion(logp, adv_target)
                     adv_loss = head_loss + self.adversarial * conf_loss
             else:
                 outputs = self.model(batch_x)
