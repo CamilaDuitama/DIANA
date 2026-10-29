@@ -118,6 +118,22 @@ def flag_scores(table: pd.DataFrame, P: pd.DataFrame) -> np.ndarray:
     return 1.0 - p
 
 
+def cl_scores(table: pd.DataFrame, P: pd.DataFrame) -> np.ndarray:
+    """Confident Learning (Northcutt et al. 2021; PROTOCOLS.md v19 amendment 2026-10-26): per-class threshold t_j = mean
+    P(j) over the pooled runs stated j; a run is an issue when the class with the highest P(j) among those with
+    P(j) >= t_j differs from its stated label. Score = issue + (1 - P(stated)): issues first, each group by self-confidence."""
+    base = flag_scores(table, P)
+    X = P.loc[table.index].to_numpy(dtype=float)
+    cols = list(P.columns)
+    stated = table.stated.to_numpy()
+    t = np.array([X[stated == c, j].mean() if (stated == c).any() else np.inf for j, c in enumerate(cols)])
+    cand = np.where(X >= t[None, :], X, -np.inf)
+    has = np.isfinite(cand).any(axis=1)
+    assigned = np.array(cols, dtype=object)[cand.argmax(axis=1)]
+    issue = has & (assigned != stated)
+    return issue.astype(float) + base
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--split-dir", type=Path, required=True)
@@ -126,6 +142,7 @@ def main() -> int:
     ap.add_argument("--pattern", required=True)
     ap.add_argument("--model", action="append", required=True, help="name=path template with {task}")
     ap.add_argument("--pair", action="append", default=[], help="a:b, a minus b")
+    ap.add_argument("--cl", action="append", default=[], help="model name whose flags use the Confident Learning score")
     ap.add_argument("--tasks", default=",".join(TASKS))
     ap.add_argument("--out", type=Path, required=True)
     a = ap.parse_args()
@@ -155,7 +172,7 @@ def main() -> int:
         P = {m: read_probs(p, task, folds) for m, p in models.items()}
         built = [pool(meta, pl, task, assessable) for pl in plantings]
         pools, left_out = [b[0] for b in built], [b[1] for b in built]
-        flags = {m: [flag_scores(t, P[m]) for t in pools] for m in P}
+        flags = {m: [(cl_scores if m in a.cl else flag_scores)(t, P[m]) for t in pools] for m in P}
         projects = np.unique(np.concatenate([t.project.to_numpy() for t in pools]))
         draws = S.project_draws(projects, f"flag|{task}", S.N_BOOT)
         draw_idx = []

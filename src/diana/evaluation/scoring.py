@@ -146,6 +146,77 @@ def paired_difference(runs_a: pd.Index, runs_b: pd.Index, y, pred_a, pred_b, gro
             "verdict": "a" if lo > 0 else ("b" if hi < 0 else "tie")}
 
 
+N_PERM = 10000
+
+
+def swap_patterns(n_groups: int, key: str, n_perm: int = N_PERM) -> tuple[np.ndarray, bool]:
+    """Rows = which BioProjects swap the two models' outputs. All 2^n patterns when 2^n <= n_perm (exact, the observed
+    all-False pattern included), else n_perm random patterns seeded by `key` (observed pattern not included)."""
+    if 2 ** n_groups <= n_perm:
+        pats = ((np.arange(2 ** n_groups)[:, None] >> np.arange(n_groups)[None, :]) & 1).astype(bool)
+        return pats, True
+    rng = np.random.default_rng(int(hashlib.sha256(key.encode()).hexdigest()[:16], 16))
+    return rng.random((n_perm, n_groups)) < 0.5, False
+
+
+def permutation_p(observed: float, permuted: np.ndarray, exact: bool) -> float:
+    """Two-sided p of a paired permutation test: share of patterns with |T| >= |observed| (exact enumeration), or
+    (1 + count) / (n + 1) for random patterns; NaN statistics are dropped."""
+    t = np.asarray(permuted, float)
+    t = t[np.isfinite(t)]
+    if not np.isfinite(observed) or not len(t):
+        return float("nan")
+    hits = int((np.abs(t) >= abs(observed) - 1e-12).sum())
+    return float(hits / len(t)) if exact else float((1 + hits) / (len(t) + 1))
+
+
+def paired_permutation_p(y, pred_a, pred_b, groups, eligible: set, key: str, metric=f1_macro_eligible,
+                         n_perm: int = N_PERM) -> float:
+    """BioProject permutation test of metric(a) - metric(b) on the same runs: each BioProject's predictions are swapped
+    between the two models with probability 1/2; the smallest reachable p is 2 / 2^k for k BioProjects."""
+    return permutation_p(*paired_permutation_null(y, pred_a, pred_b, groups, eligible, key, metric, n_perm))
+
+
+def paired_permutation_null(y, pred_a, pred_b, groups, eligible: set, key: str, metric=f1_macro_eligible,
+                            n_perm: int = N_PERM) -> tuple[float, np.ndarray, bool]:
+    """Observed metric(a) - metric(b), its values under the BioProject swap patterns, and whether these are exact."""
+    y = np.asarray(y).astype(str)
+    pa, pb = np.asarray(pred_a).astype(str), np.asarray(pred_b).astype(str)
+    g = np.asarray(groups).astype(str)
+    uniq = np.unique(g)
+    gi = np.searchsorted(uniq, g)
+    obs = metric(y, pa, eligible) - metric(y, pb, eligible)
+    pats, exact = swap_patterns(len(uniq), key, n_perm)
+    perm = []
+    for row in pats:
+        sw = row[gi]
+        qa, qb = np.where(sw, pb, pa), np.where(sw, pa, pb)
+        perm.append(metric(y, qa, eligible) - metric(y, qb, eligible))
+    return obs, np.asarray(perm), exact
+
+
+def nonsignificant_halfwidth(permuted: np.ndarray, exact: bool, threshold: float) -> float:
+    """Largest |difference| at which permutation_p stays above `threshold`: a difference is significant at that
+    threshold exactly when its absolute value exceeds this. inf when no difference can reach the threshold."""
+    t = np.sort(np.abs(np.asarray(permuted, float)[np.isfinite(permuted)]))
+    cand = np.unique(t)
+    p = np.array([permutation_p(v, t, exact) for v in cand])
+    above = cand[p > threshold]
+    if not len(above):
+        return 0.0
+    if above[-1] == cand[-1] and (exact or 1 / (len(t) + 1) > threshold):
+        return float("inf")
+    return float(above[-1])
+
+
+def sign_flip_p(contrib: np.ndarray, key: str, n_perm: int = N_PERM) -> float:
+    """Permutation p for a statistic that is a sum of per-BioProject contributions (T = sum_p c_p): swapping a
+    BioProject's outputs flips the sign of its contribution."""
+    c = np.asarray(contrib, float)
+    pats, exact = swap_patterns(len(c), key, n_perm)
+    return permutation_p(float(c.sum()), (np.where(pats, -1.0, 1.0) * c[None, :]).sum(1), exact)
+
+
 def bootstrap_p(draws) -> float:
     """Two-sided bootstrap p-value of a paired difference from its resampled values:
     2 * min(#(d <= 0) + 1, #(d >= 0) + 1) / (n + 1), capped at 1; NaN draws are dropped."""

@@ -86,9 +86,9 @@ PLOT_CONFIG = {
         
         # Model colors: one colour per model in every figure (as in 34_generate_generalisation_gap_plots.py)
         'models': {
-            'DIANA': px.colors.qualitative.Vivid[0],
-            'LogReg': px.colors.qualitative.Vivid[1],
-            'RandomForest': px.colors.qualitative.Vivid[4],
+            'DIANA': px.colors.qualitative.Vivid[7],         # blue (Camila 2026-10-23: new model colours, same palette)
+            'LogReg': px.colors.qualitative.Vivid[6],        # gold
+            'RandomForest': px.colors.qualitative.Vivid[8],  # purple
             'kNN': px.colors.qualitative.Vivid[5],
             'Majority': '#aaaaaa',
         },

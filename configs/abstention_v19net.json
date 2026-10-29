@@ -1,0 +1,11 @@
+{
+ "rule": "fixed coverage: per task, the largest top-probability cutoff at which at least 80% of the scored dev-fold runs (out-of-fold predictions) are answered, i.e. the (1 - coverage) quantile of the top probability",
+ "coverage": 0.8,
+ "min_confidence": {
+  "community_type": 0.3472,
+  "feature": 0.4472,
+  "sample_host": 0.1879,
+  "material": 0.3921
+ },
+ "source": "results/posthoc_v19net/abstention_v19_coverage80.json: out-of-fold predictions of the released DIANA (the shared network alone, PROTOCOLS.md v19 amendment 2026-10-26) on the five v19 dev folds (cutoffs rounded down to 4 decimals)"
+}

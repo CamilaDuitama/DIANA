@@ -33,6 +33,13 @@ def verdict(row) -> str:
 
 
 def main() -> None:
+    global SCORES
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--scores", type=Path, default=None, help="scores folder (default results/screens_v19/scores)")
+    ap.add_argument("--out", type=Path, default=None, help="verdict table (default <scores>/../verdicts.tsv)")
+    a = ap.parse_args()
+    SCORES = a.scores or SCORES
     rows = []
     for d in sorted(p for p in SCORES.iterdir() if p.is_dir()):
         c = pd.read_csv(d / "classification_paired.tsv", sep="\t")
@@ -47,7 +54,7 @@ def main() -> None:
                          "f1_high": r.ci_high_f1, "f1_verdict": r.verdict_f1})
     v = pd.DataFrame(rows)
     v["rule"] = v.apply(verdict, axis=1)
-    v.to_csv(SCORES.parent / "verdicts.tsv", sep="\t", index=False)
+    v.to_csv(a.out or SCORES.parent / "verdicts.tsv", sep="\t", index=False)
     pd.set_option("display.width", 250)
     print(v.round(3).to_string(index=False))
     print("\nwins under the rule:")

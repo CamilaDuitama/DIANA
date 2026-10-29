@@ -99,6 +99,8 @@ def load_unitig_fractions(fraction_file: Path, expected_dim: int | None = None) 
 def model_input_dim(predictor) -> int | None:
     """Input width of the checkpoint's first linear layer, or None if unreadable."""
     import torch.nn as nn
+    if getattr(predictor, "input_dim", None):
+        return predictor.input_dim
     model = getattr(predictor, "model", None)
     if model is None:
         return None
@@ -196,11 +198,13 @@ def assess_representation(fractions: np.ndarray) -> dict:
     }
 
 
-DEFAULT_MIN_CONFIDENCE = {"community_type": 0.4131, "feature": 0.4473, "sample_host": 0.1879, "material": 0.3921}
+# Cutoffs on the uncorrected top probability (configs/abstention_v19net.json); used only for a released folder without
+# confidence.json, whose cutoffs apply to the corrected confidence (configs/abstention_v19net_prior.json).
+DEFAULT_MIN_CONFIDENCE = {"community_type": 0.3472, "feature": 0.4472, "sample_host": 0.1879, "material": 0.3921}
 
 
 def load_abstention_config(path: Path | None) -> dict:
-    """The per-task no-call cutoffs, chosen on the grouped dev folds (configs/abstention_v19.json);
+    """The per-task no-call cutoffs, chosen on the grouped dev folds (configs/abstention_v19net.json);
     falls back to the built-in copy of the same values."""
     if path and Path(path).exists():
         with open(path) as f:
@@ -229,7 +233,7 @@ def apply_decision_policy(formatted: dict, class_names: dict, min_confidence: di
         if float(entry.get("confidence", 1.0)) < cut:
             entry["call"] = "no call"
             entry["suggestion"] = entry.pop("predicted_class")
-            entry["note"] = (f"top probability {entry['confidence']:.2f} is below the task cutoff {cut:.2f} "
+            entry["note"] = (f"confidence {entry['confidence']:.2f} is below the task cutoff {cut:.2f} "
                              "(chosen on the cross-validation folds); treat the suggestion as unverified")
         else:
             entry["call"] = "answered"
@@ -318,7 +322,7 @@ def main():
         '--model',
         type=Path,
         required=True,
-        help='Path to trained model checkpoint (.pth file)'
+        help='Path to trained model checkpoint (.pth file) or released-model folder'
     )
     
     parser.add_argument(
@@ -355,7 +359,7 @@ def main():
         help='One no-call cutoff for every task, overriding the per-task defaults from --abstention-config')
     parser.add_argument(
         '--abstention-config', type=Path, default=None,
-        help='JSON with per-task min_confidence (default: the packaged configs/abstention_v19.json values)')
+        help='JSON with per-task min_confidence (default: confidence.json of the released model folder)')
     parser.add_argument(
         '--stated-label', action='append', default=[], metavar='TASK=LABEL',
         help='A label on file to check, e.g. --stated-label material=tooth; repeatable. Output carries '
@@ -380,10 +384,12 @@ def main():
     # Load features
     features = load_unitig_fractions(args.input, expected_dim=model_input_dim(predictor))
     
-    # Load class names from label encoders if provided
-    class_names = None
+    # Class names: carried by released checkpoints, otherwise from label encoders if provided
+    class_names = getattr(predictor, 'class_names', None)
     regression_bounds = None
-    if args.label_encoders and args.label_encoders.exists():
+    if class_names is not None:
+        logger.info("Class names from the model checkpoint")
+    elif args.label_encoders and args.label_encoders.exists():
         logger.info(f"Loading class names from {args.label_encoders}")
         class_names = load_class_names(args.label_encoders)
         regression_bounds = load_regression_bounds(args.label_encoders)
@@ -409,8 +415,21 @@ def main():
     formatted_preds = format_predictions(predictions, class_names=class_names,
                                          regression_bounds=regression_bounds)
     stated = dict(kv.split('=', 1) for kv in args.stated_label) if args.stated_label else {}
+    conf_cfg = getattr(predictor, 'confidence', None)
+    if conf_cfg is not None:
+        # reported confidence = probability of the predicted label with the training class frequencies added back
+        # (PROTOCOLS.md v19, 2026-10-26); labels and flag scores keep the uncorrected probabilities
+        corrected = predictor.predict_proba(features, corrected=True)
+        for task, entry in formatted_preds.items():
+            if isinstance(entry, dict) and 'predicted_class' in entry and task in corrected:
+                entry['confidence'] = float(corrected[task][0][class_names[task].index(entry['predicted_class'])])
+    elif args.abstention_config is None and args.min_confidence is None:
+        logger.warning("No confidence.json in the model folder: confidence is the uncorrected top probability, with the "
+                       "matching configs/abstention_v19net.json cutoffs")
     cuts = ({t: args.min_confidence for t in formatted_preds} if args.min_confidence is not None
-            else load_abstention_config(args.abstention_config))
+            else load_abstention_config(args.abstention_config) if args.abstention_config is not None
+            else dict(conf_cfg['min_confidence']) if conf_cfg is not None
+            else dict(DEFAULT_MIN_CONFIDENCE))
     formatted_preds = apply_decision_policy(formatted_preds, class_names or {}, cuts, stated)
     
     output = {
@@ -444,7 +463,9 @@ def main():
             else:
                 logger.info(f"  Predicted (normalised): {pred['normalized_value']:.3f}")
             continue
-        logger.info(f"  Predicted: {pred['predicted_class']} (confidence: {pred.get('confidence', 'N/A'):.3f})")
+        # a no-call moves predicted_class to suggestion (apply_decision_policy)
+        label = pred.get('predicted_class', f"no call (suggestion: {pred.get('suggestion')})")
+        logger.info(f"  Predicted: {label} (confidence: {pred.get('confidence', 'N/A'):.3f})")
         if 'probabilities' in pred:
             logger.info("  Probabilities:")
             for class_name, prob in pred['probabilities'].items():

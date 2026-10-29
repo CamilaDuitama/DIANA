@@ -3,13 +3,16 @@
   results_classification_grid.png  per field and class group (many-, medium-, few-shot), DIANA against each
                                    baseline, macro-F1 and balanced accuracy: the cell takes the colour of the model that is
                                    better after Benjamini-Hochberg over all cells of the figure (grey: no significant difference) and shows DIANA minus the
-                                   baseline (results/multiplicity_v19/refit_classification_heldout/paired.tsv; released DIANA, read 5); cells of rows
+                                   baseline (results/multiplicity_v19/net_classification_heldout/paired.tsv; released DIANA, read 5); cells of rows
                                    with fewer than 5 held-out BioProjects carrying the group's classes are hatched
   results_detection_grid.png       the same for the share of planted mislabels caught at 5 % false flags
-                                   (results/multiplicity_v19/refit_regime_single_paired.tsv)
+                                   (results/multiplicity_v19/net_regime_single_paired.tsv)
   results_reliability_<field>.png      DIANA's reliability curve on the held-out set
-                                       (results/heldout_v19/diana_refit/reliability_test.tsv)
-  results_real_mislabels.png       real corrections replayed (results/heldout_v19/real_mislabels_refit_cov80/replay.tsv): per model,
+                                       (results/heldout_v19/diana_net_prior/reliability_test.tsv; confidence with the class prior added back)
+  results_performance.png          DIANA minus each baseline in held-out balanced accuracy per field, with the band of differences
+                                   the BioProject permutation test does not call significant after Benjamini-Hochberg
+                                   (results/multiplicity_v19/net_classification_heldout/figure3_bands.tsv, 87_)
+  results_real_mislabels.png       real corrections replayed (results/heldout_v19/real_mislabels_net_prior/replay.tsv): per model,
                                    corrections flagged at 5 / 10 / 20 % false flags (of those whose superseded label is a training
                                    class) and corrections whose predicted label is the corrected one; counts, no interval (two studies)
 Intervals: 95 % over 2,000 paired resamples of held-out BioProjects. Written to results/paper_v19/.
@@ -37,6 +40,13 @@ REGIMES = ["many", "medium", "few"]
 FONT = dict(size=14, color="#333333")
 
 
+def lighten(colour: str, w: float = 0.65) -> str:
+    """Blend a colour (#rrggbb or rgb(r, g, b)) with white; w is the white share."""
+    c = colour.strip()
+    rgb = [int(c[i:i + 2], 16) for i in (1, 3, 5)] if c.startswith("#") else [int(x) for x in c[c.index("(") + 1:-1].split(",")]
+    return "rgb({}, {}, {})".format(*[round(v + (255 - v) * w) for v in rgb])
+
+
 GROUPS = {"many": "many-shot", "medium": "medium-shot", "few": "few-shot"}   # whole-field values are in Tables 1 and 2
 TIE = "#e6e6e6"
 
@@ -54,14 +64,16 @@ def heldout_studies() -> dict:
     return out
 
 
-def winner_grid(d: pd.DataFrame, cols: list[tuple[str, str, str]], out: Path, studies: dict, min_studies: int = 5) -> None:
+def winner_grid(d: pd.DataFrame, cols: list[tuple[str, str, str]], out: Path, studies: dict, min_studies: int = 0) -> None:
     """Rows: field x class group; columns: (metric, baseline, header). Benjamini-Hochberg over every cell of the figure;
     a cell is coloured with the better model when its adjusted p-value is below 0.05 (grey otherwise) and shows DIANA
-    minus the baseline. Cells of rows with fewer than `min_studies` held-out studies are hatched."""
+    minus the baseline. Cells of rows with fewer than `min_studies` held-out studies are hatched and left grey (no verdict);
+    they stay in the Benjamini-Hochberg family."""
     rows = [(t, g) for t in FIELDS for g in GROUPS if ((d.task == t) & (d.regime == g)).any()]
     order = ["tie", "DIANA", "LogReg", "RandomForest", "kNN"]
     colours = [TIE] + [C[m] for m in order[1:]]
-    scale = [[k / len(order), c] for i, c in enumerate(colours) for k in (i, i + 1)]
+    colours += [lighten(c) for c in colours]       # light versions for rows resting on fewer than min_studies studies
+    scale = [[k / len(colours), c] for i, c in enumerate(colours) for k in (i, i + 1)]
     cells = {}
     for t, g in rows:
         for metric, b, _ in cols:
@@ -79,16 +91,17 @@ def winner_grid(d: pd.DataFrame, cols: list[tuple[str, str, str]], out: Path, st
                 zr.append(None); tr.append("")
                 continue
             r = cells[k]
-            win = "tie" if not q[k] < 0.05 else ("DIANA" if r.delta > 0 else b)
+            win = "tie" if not q[k] < 0.05 or studies[(t, g)] < min_studies else ("DIANA" if r.delta > 0 else b)   # hatched rows: no verdict
             v = f"{r.delta:+.2f}"
-            zr.append(order.index(win)); tr.append("0.00" if v in ("+0.00", "-0.00") else v)
+            light = len(order) if studies[(t, g)] < min_studies else 0
+            zr.append(order.index(win) + light); tr.append("0.00" if v in ("+0.00", "-0.00") else v)
         z.append(zr); text.append(tr)
     labels = [f"{FIELDS[t]}, {GROUPS[g]} ({studies[(t, g)]})" for t, g in rows]
     xs, ys = list(range(len(cols))), list(range(len(rows)))
-    fig = go.Figure(go.Heatmap(z=z, x=xs, y=ys, colorscale=scale, zmin=-0.5, zmax=len(order) - 0.5, showscale=False,
+    fig = go.Figure(go.Heatmap(z=z, x=xs, y=ys, colorscale=scale, zmin=-0.5, zmax=len(colours) - 0.5, showscale=False,
                                xgap=3, ygap=3, hoverinfo="skip"))
     few = [i for i, (t, g) in enumerate(rows) if studies[(t, g)] < min_studies]
-    hatch = dict(shape="/", fgcolor="#7a7a7a", bgcolor="rgba(0,0,0,0)", size=9, solidity=0.15)
+    hatch = dict(shape="/", fgcolor="#a6a6a6", bgcolor="rgba(0,0,0,0)", size=9, solidity=0.12)
     px, py = [], []                            # diagonal hatching on rows resting on fewer than min_studies held-out studies
     for i in few:
         for j in xs:
@@ -104,7 +117,7 @@ def winner_grid(d: pd.DataFrame, cols: list[tuple[str, str, str]], out: Path, st
                         marker=dict(symbol="square", size=14, color=TIE if m == "tie" else C[m]))
     if few:
         fig.add_scatter(x=[-5, -4, -4, -5, -5], y=[-5, -5, -4, -4, -5], mode="lines", fill="toself", line=dict(width=0),
-                        fillcolor=TIE, fillpattern=dict(hatch, bgcolor=TIE), name=f"fewer than {min_studies} held-out studies")
+                        fillcolor=lighten(TIE), fillpattern=dict(hatch, bgcolor=lighten(TIE)), name=f"fewer than {min_studies} held-out BioProjects")
     fig.update_layout(template=PLOT_CONFIG["template"], width=290 + 150 * len(cols), height=150 + 34 * len(rows), font=FONT,
                       xaxis=dict(side="top", showgrid=False, zeroline=False, tickangle=0, tickvals=xs, ticktext=[c[2] for c in cols],
                                  range=[-0.5, len(cols) - 0.5]),
@@ -125,7 +138,7 @@ def reliability(rel: pd.DataFrame) -> None:
                         marker=dict(color=C["DIANA"], size=[max(6, min(18, 3 * np.sqrt(n))) for n in r.runs]),
                         line=dict(color=C["DIANA"], width=2), text=[f"{int(n)} runs" for n in r.runs], showlegend=False)
         fig.update_layout(template=PLOT_CONFIG["template"], title=title, width=420, height=420, font=FONT,
-                          xaxis=dict(title="mean predicted probability (top class)", range=[0, 1]),
+                          xaxis=dict(title="mean confidence (predicted label)", range=[0, 1]),
                           yaxis=dict(title="observed accuracy", range=[0, 1]), margin=dict(l=70, r=20, t=60, b=60))
         fig.write_image(OUT / f"results_reliability_{task}.png", scale=2)
 
@@ -152,21 +165,51 @@ def real_corrections(rep: pd.DataFrame) -> None:
     fig.write_image(OUT / "results_real_mislabels.png", scale=2)
 
 
+def performance(bands: pd.DataFrame) -> None:
+    """DIANA minus each baseline in held-out balanced accuracy per field (whole field). Bar: the differences the
+    BioProject permutation test does not call significant at the Benjamini-Hochberg threshold of the figure's 16
+    comparisons (87_); filled marker outside its bar = significant, open marker = not significant."""
+    baselines = ["LogReg", "RandomForest", "kNN", "Majority"]
+    d = bands.set_index(["task", "b"])
+    finite = d.halfwidth[np.isfinite(d.halfwidth)]
+    top = 1.1 * max(finite.max() if len(finite) else 0, d.delta.abs().max())
+    fig = go.Figure()
+    fig.add_hline(y=0, line=dict(color="#888888", dash="dash", width=1))
+    for i, b in enumerate(baselines):
+        x = [j + (i - 1.5) * 0.17 for j in range(len(FIELDS))]
+        r = d.loc[[(t, b) for t in FIELDS]]
+        for xi, h in zip(x, r.halfwidth):
+            h = min(h, top)
+            fig.add_scatter(x=[xi, xi], y=[-h, h], mode="lines", showlegend=False, opacity=0.35, line=dict(color=C[b], width=7))
+        fig.add_scatter(x=[None], y=[None], mode="markers", name=f"vs {N[b]}", marker=dict(color=C[b], size=11))
+        fig.add_scatter(x=x, y=r.delta, mode="markers", showlegend=False,
+                        marker=dict(color=[C[b] if v else "white" for v in r.significant], size=11, line=dict(color=C[b], width=2)))
+    for label, fill in (("significant", "#888888"), ("not significant", "white")):
+        fig.add_scatter(x=[None], y=[None], mode="markers", name=label, marker=dict(color=fill, size=11, line=dict(color="#888888", width=2)))
+    fig.add_scatter(x=[None], y=[None], mode="lines", name="not significant if inside", opacity=0.35, line=dict(color="#888888", width=7))
+    fig.update_layout(template=PLOT_CONFIG["template"], width=820, height=460, font=FONT,
+                      xaxis=dict(tickvals=list(range(len(FIELDS))), ticktext=list(FIELDS.values()), showgrid=False, zeroline=False),
+                      yaxis=dict(title="DIANA minus baseline, balanced accuracy", zeroline=False, range=[-top, top]),
+                      legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0), margin=dict(l=70, r=20, t=50, b=50))
+    fig.write_image(OUT / "results_performance.png", scale=2)
+
+
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     studies = heldout_studies()
     M = ROOT / "results/multiplicity_v19"
-    cls = pd.read_csv(M / "refit_classification_heldout/paired.tsv", sep="\t").rename(columns={"p_boot": "p"})
+    cls = pd.read_csv(M / "net_classification_heldout/paired.tsv", sep="\t").rename(columns={"p_perm": "p"})   # permutation test (PROTOCOLS.md 2026-10-26)
     short = {"LogReg": "logistic<br>regression", "RandomForest": "random<br>forest", "kNN": "k-NN"}
     cols = [(met, b, f"{lab}<br>vs {short[b]}") for met, lab in (("macro_f1", "Macro-F1"), ("balanced_accuracy", "Balanced accuracy"))
             for b in ("LogReg", "RandomForest", "kNN")]
     winner_grid(cls, cols, OUT / "results_classification_grid.png", studies)
-    det = pd.read_csv(M / "refit_regime_single_paired.tsv", sep="\t")
+    det = pd.read_csv(M / "net_regime_single_paired.tsv", sep="\t").drop(columns=["recall5_p_boot"]).rename(columns={"recall5_p_perm": "recall5_p_boot"})
     det = det[det.a == "DIANA"].rename(columns={"recall5_delta": "delta", "recall5_ci_low": "ci_low", "recall5_ci_high": "ci_high",
                                                 "recall5_p_boot": "p"}).assign(metric="recall5")
     winner_grid(det, [("recall5", b, f"vs {short[b]}") for b in ("LogReg", "RandomForest")], OUT / "results_detection_grid.png", studies)
-    reliability(pd.read_csv(ROOT / "results/heldout_v19/diana_refit/reliability_test.tsv", sep="\t"))
-    real_corrections(pd.read_csv(ROOT / "results/heldout_v19/real_mislabels_refit_cov80/replay.tsv", sep="\t"))
+    reliability(pd.read_csv(ROOT / "results/heldout_v19/diana_net_prior/reliability_test.tsv", sep="\t"))
+    performance(pd.read_csv(M / "net_classification_heldout/figure3_bands.tsv", sep="\t"))
+    real_corrections(pd.read_csv(ROOT / "results/heldout_v19/real_mislabels_net_prior/replay.tsv", sep="\t"))
 
 
 if __name__ == "__main__":

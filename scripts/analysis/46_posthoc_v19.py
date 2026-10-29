@@ -162,7 +162,11 @@ def main() -> None:
     ap.add_argument("step", choices=["temperature", "cutoffs", "coverage-cutoffs"])
     ap.add_argument("--calibrated-tasks", default="")
     ap.add_argument("--coverage", type=float, default=0.8)
+    ap.add_argument("--net", action="store_true", help="DIANA without logistic regression (PROTOCOLS.md v19 amendment 2026-10-26)")
     a = ap.parse_args()
+    global PROBS, OUT
+    if a.net:
+        PROBS, OUT = ROOT / "results/devfold_probs_v19net", ROOT / "results/posthoc_v19net"
     if a.step == "temperature":
         temperature()
     elif a.step == "coverage-cutoffs":

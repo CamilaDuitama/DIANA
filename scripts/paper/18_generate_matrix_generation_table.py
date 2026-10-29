@@ -42,7 +42,7 @@ def generate_matrix_generation_table(output_path: Path) -> None:
     lines.append(" & Minimum abundance & 2 \\\\")
     lines.append(" & Minimizer size & 15 \\\\")
     lines.append(" & Min. fraction present (-F) & 0.1 \\\\")
-    lines.append(" & Max. fraction absent (-f) & 0.1 \\\\")
+    lines.append(" & Min. fraction absent (-f) & 0.1 \\\\")
     lines.append(" & Initial k-mers & 436,456,132,058 \\\\")
     lines.append(" & Retained k-mers & 18,953,119 \\\\")
     lines.append("\\addlinespace")

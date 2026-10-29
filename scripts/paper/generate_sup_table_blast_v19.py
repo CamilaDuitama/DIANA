@@ -83,7 +83,7 @@ def table(s: dict) -> str:
                                                                      ("80-90", "80--90\\,\\%"), ("<80", "$<$80\\,\\%"))]
     rows += ["\\midrule", "\\multicolumn{2}{l}{\\textit{Most frequent species (best specific hit)}} \\\\"]
     rows += [f"\\textit{{{sp}}} & {n:,} \\\\" for sp, n in s["top_species"].items()]
-    return ("\\centering\n\\caption{megablast search of the 85,986 unitig features against NCBI nt (E-value $\\leq 10^{-5}$, up to 5 targets per unitig). Best hit: highest "
+    return ("\\centering\n\\caption{Megablast search of the 85,986 unitig features against NCBI nt (E-value $\\leq 10^{-5}$, up to 5 targets per unitig). Best hit: highest "
             "bitscore per unitig. Species: the best hit whose title names no non-specific term (metagenome, uncultured, unidentified, "
             "environmental, synthetic construct, vector).}\n\\label{tab:blast_summary}\n\\small\n\\begin{tabular}{lr}\n\\toprule\n"
             + "\n".join(rows) + "\n\\bottomrule\n\\end{tabular}\n")

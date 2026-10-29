@@ -51,7 +51,7 @@ def split_figure(task: str, tr: pd.DataFrame, te: pd.DataFrame) -> None:
     fig.add_bar(y=classes, x=[a.get(c, 0) * 100 for c in classes], orientation="h",
                 name=f"train (n={n_tr})", marker_color=TRAIN_C)
     fig.update_layout(barmode="group", bargap=0.25,
-                      title=f"{task}: class shares in train and held-out",
+                      title=f"{TITLES[task]}: class shares in train and held-out",
                       xaxis_title="share of the split's labelled runs (%)",
                       legend=dict(yanchor="bottom", y=0.02, xanchor="right", x=0.98))
     save(fig, f"sup_balance_split_{task}.png",
@@ -71,7 +71,7 @@ def folds_figure(tr: pd.DataFrame, folds: pd.DataFrame) -> None:
     fig = make_subplots(rows=len(TASKS), cols=1, shared_xaxes=True, vertical_spacing=0.04,
                         subplot_titles=[TITLES[t] for t in TASKS], row_heights=[len(p[2]) for p in panels])
     for r, (t, lab, order, st, n) in enumerate(panels, start=1):
-        names = [f"{c} ({st[c]} studies, {n[c]} runs)" for c in order]
+        names = [f"{c} ({st[c]} BioProjects, {n[c]} runs)" for c in order]
         for k in range(5):
             share = [100 * int(((lab[t] == c) & (lab.fold == k)).sum()) / n[c] for c in order]
             fig.add_bar(y=names, x=share, orientation="h", name=f"fold {k}", marker_color=COLORS["palette"][k],

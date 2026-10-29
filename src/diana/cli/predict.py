@@ -280,7 +280,9 @@ def predict_single_sample(
     kmer_size: int = 31,
     min_abundance: int = 2,
     threads: int = 10,
-    generate_plots: bool = True
+    generate_plots: bool = True,
+    min_confidence: float | None = None,
+    stated_labels: list | None = None
 ) -> dict:
     """
     Run inference on a single sample (single-end or paired-end).
@@ -301,7 +303,9 @@ def predict_single_sample(
         min_abundance: Minimum k-mer abundance
         threads: Number of threads
         generate_plots: Whether to generate plots
-    
+        min_confidence: One no-call cutoff for every task (None: per-task defaults)
+        stated_labels: TASK=LABEL strings to check against the predictions
+
     Returns:
         Dictionary with timing and results information
     """
@@ -422,7 +426,7 @@ def predict_single_sample(
         # ====================================================================
         # Step 3: Run model inference
         # ====================================================================
-        run_command_streaming([
+        inference_cmd = [
             sys.executable,
             _resolve_script("03_run_inference.py"),
             "--model", str(model_path),
@@ -430,7 +434,12 @@ def predict_single_sample(
             "--output", str(predictions_json),
             "--sample-id", sample_id,
             "--label-encoders", str(model_path.parent)
-        ], "Step 3: Running model inference")
+        ]
+        if min_confidence is not None:
+            inference_cmd += ["--min-confidence", str(min_confidence)]
+        for kv in stated_labels or []:
+            inference_cmd += ["--stated-label", kv]
+        run_command_streaming(inference_cmd, "Step 3: Running model inference")
         
         # ====================================================================
         # Step 4: Generate plots (optional)
@@ -577,7 +586,7 @@ Resource Requirements:
         '--model', '-m',
         type=Path,
         required=True,
-        help='Path to trained model checkpoint'
+        help='Path to trained model checkpoint, or a released-model folder (e.g. results/final_v19_weights)'
     )
     parser.add_argument(
         '--muset-matrix',
@@ -621,7 +630,7 @@ Resource Requirements:
     parser.add_argument(
         '--min-confidence', type=float, default=None,
         help='No-call cutoff applied to every task, overriding the per-task defaults chosen on the '
-             'cross-validation folds (configs/abstention_v19.json); predictions below it return call="no call"')
+             'cross-validation folds (confidence.json in the released model folder); predictions whose confidence is below it return call="no call"')
     parser.add_argument(
         '--stated-label', action='append', default=[], metavar='TASK=LABEL',
         help='Check a label on file, e.g. --stated-label material=tooth; repeatable. The output carries '

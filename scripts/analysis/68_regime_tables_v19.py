@@ -107,6 +107,26 @@ def flag_by_regime(pools, flags, regime_of, pool_draw, pair_budgets=(0.05,)) -> 
     return out
 
 
+def recall_contrib(pools, fa, fb, in_regime, budget: float) -> tuple[np.ndarray, list, int]:
+    """Per-BioProject contributions to the full-data paired recall difference (mean over the plantings where both models
+    attain `budget` and the regime has planted runs), with each model's threshold fixed on the full planting; swapping a
+    BioProject's flags between the models flips the sign of its contribution (PROTOCOLS.md v19 amendment 2026-10-26)."""
+    projects = sorted({p for t in pools for p in t.project})
+    pos = {p: i for i, p in enumerate(projects)}
+    total, used = np.zeros(len(projects)), 0
+    for k, t in enumerate(pools):
+        pl = t.planted.to_numpy()
+        if budget not in S.attainable_budgets(fa[k], pl) or budget not in S.attainable_budgets(fb[k], pl):
+            continue
+        sel = pl & in_regime[k]
+        if not sel.any() or not 0 < pl.sum() < len(pl):
+            continue
+        d = (fa[k][sel] >= threshold(fa[k], pl, budget)).astype(float) - (fb[k][sel] >= threshold(fb[k], pl, budget)).astype(float)
+        np.add.at(total, [pos[p] for p in t.project.to_numpy()[sel]], d / sel.sum())
+        used += 1
+    return (total / used if used else total), projects, used
+
+
 def recall_pair(ra: np.ndarray, rb: np.ndarray, t: str = "5") -> dict:
     """a - b over the plantings where both have a full-data value; interval over shared draws."""
     common = np.isfinite(ra[:, 0]) & np.isfinite(rb[:, 0])
@@ -174,7 +194,7 @@ def main() -> int:
         pool_pos = [{p: np.flatnonzero(t.project.to_numpy() == p) for p in projects} for t in pools]
         pool_draw = [[np.concatenate([pp[projects[i]] for i in d]) for d in draws] for pp in pool_pos]
         sources = {**{m: ("probs", p) for m, p in models.items()}, **{m: ("preds", p) for m, p in preds.items()}}
-        kept_pred, kept_flag = {}, {}
+        kept_pred, kept_flag, kept_raw = {}, {}, {}
         for m, (kind, tpl) in sources.items():
             if kind == "probs":
                 P = F.read_probs(tpl, task, None if a.heldout or a.train_fit else folds)
@@ -189,7 +209,7 @@ def main() -> int:
             pp = pred.loc[cls_runs].astype(str).to_numpy()
             flags = [F.flag_scores(t, P) for t in pools] if P is not None else None
             flag_res = flag_by_regime(pools, flags, regime_of, pool_draw, pair_budgets) if flags is not None else None
-            kept_pred[m], kept_flag[m] = pp, flag_res
+            kept_pred[m], kept_flag[m], kept_raw[m] = pp, flag_res, flags
             for reg in REGIMES:
                 cls = by_reg[reg] & set(yy)
                 if not cls:
@@ -218,6 +238,13 @@ def main() -> int:
                     if rp:
                         lo, hi = rp[f"recall{t}_ci_low"], rp[f"recall{t}_ci_high"]
                         row.update({**rp, f"recall{t}_verdict": ma if lo > 0 else (mb if hi < 0 else "tie")})
+                        if t == "5":
+                            in_reg = [tt.true.map(regime_of).eq(reg).to_numpy() for tt in pools]
+                            c, _, used = recall_contrib(pools, kept_raw[ma], kept_raw[mb], in_reg, b)
+                            if used:
+                                row["recall5_p_perm"] = S.sign_flip_p(c, f"permflag|{task}|{reg}|{ma}|{mb}")
+                                if abs(c.sum() - rp["recall5_delta"]) > 1e-9:
+                                    raise ValueError(f"{task}/{reg}: contributions do not add up to the recall difference")
                 pair_rows.append(row)
     out = pd.DataFrame(rows)
     a.out.parent.mkdir(parents=True, exist_ok=True)

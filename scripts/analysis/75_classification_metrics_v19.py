@@ -6,7 +6,8 @@ the Methods) and per-run accuracy (descriptive), on the stored predictions of th
 and 2 (--heldout) or of the dev folds; nothing is refitted. Intervals: 2,000 BioProject resamples with
 the same keys as 43_ (whole field: cls|<task>, pair|<task>) and 68_ (regime: cls|<task>|<regime>,
 regpair|<task>|<regime>), so the macro-F1 values reproduce those tables. Pairs: DIANA minus each
-other model. Writes <out>/scores.tsv and <out>/paired.tsv.
+other model. p_perm: paired BioProject permutation test (PROTOCOLS.md v19 amendment 2026-10-26), macro-F1 and
+balanced accuracy only. Writes <out>/scores.tsv and <out>/paired.tsv.
 
     ./env/bin/python scripts/analysis/75_classification_metrics_v19.py --heldout --out results/classification_metrics_v19/heldout
     ./env/bin/python scripts/analysis/75_classification_metrics_v19.py --out results/classification_metrics_v19/dev
@@ -81,8 +82,10 @@ def main() -> None:
                     if m == "DIANA":
                         continue
                     r = S.paired_difference(runs, runs, y, preds["DIANA"], preds[m], g, cls, pkey, metric=fn)
+                    pp = (S.paired_permutation_p(y, preds["DIANA"], preds[m], g, cls, f"perm|{pkey}|{metric}|{m}", metric=fn)
+                          if metric in ("macro_f1", "balanced_accuracy") else float("nan"))
                     pairs.append({"task": task, "regime": regime, "metric": metric, "a": "DIANA", "b": m, "delta": r["delta"],
-                                  "ci_low": r["ci_low"], "ci_high": r["ci_high"], "p_boot": r["p_boot"],
+                                  "ci_low": r["ci_low"], "ci_high": r["ci_high"], "p_boot": r["p_boot"], "p_perm": pp,
                                   "verdict": {"a": "DIANA", "b": m}.get(r["verdict"], "tie")})
     a.out.mkdir(parents=True, exist_ok=True)
     pd.DataFrame(rows).to_csv(a.out / "scores.tsv", sep="\t", index=False)

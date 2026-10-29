@@ -13,6 +13,7 @@ import logging
 
 from ..models.multitask_mlp import MultiTaskMLP, split_tasks
 from ..models.single_task_mlp import SingleTaskMLP
+from ..training.active_classes import masked_softmax
 
 logger = logging.getLogger(__name__)
 
@@ -39,17 +40,63 @@ class Predictor:
         Initialize predictor with trained model.
         
         Args:
-            model_path: Path to saved model checkpoint (.pth file).
+            model_path: Path to saved model checkpoint (.pth file), or a released-model
+                folder (seed*/model.pt networks, optional lr/<task>/model_*.joblib).
             device: Device to use ('cuda' or 'cpu'). Auto-detects if None.
         """
         self.model_path = Path(model_path)
         self.device = device or ('cuda' if torch.cuda.is_available() else 'cpu')
-        
+        # Released format only (model.pt): networks averaged, per-task class names,
+        # and logistic regressions blended in by class name.
+        self.networks = []
+        self.class_names = None
+        self.logreg = {}
+        self.confidence = None   # confidence.json of a released folder: class prior, tau and no-call cutoffs
+
         logger.info(f"Loading model from {self.model_path}")
         logger.info(f"Using device: {self.device}")
-        
-        self._load_model()
-        
+
+        if self.model_path.is_dir():
+            self._load_released(sorted(self.model_path.rglob('seed*/model.pt')))
+        else:
+            self._load_model()
+
+    def _load_released(self, paths: list, checkpoints: Optional[list] = None):
+        """Load released networks (model.pt: state_dict, model_params, classes, active_classes)
+        and, for a model folder, its lr/<task>/model_*.joblib logistic regressions."""
+        if not paths:
+            raise FileNotFoundError(f"No seed*/model.pt networks under {self.model_path}")
+        checkpoints = checkpoints or [torch.load(p, map_location=self.device, weights_only=False)
+                                      for p in paths]
+        first = checkpoints[0]
+        for p, ck in zip(paths, checkpoints):
+            if (ck['task_names'], ck['classes'], ck['active_classes'], ck['input_dim']) != (
+                    first['task_names'], first['classes'], first['active_classes'], first['input_dim']):
+                raise ValueError(f"{p}: tasks, classes or input width differ from {paths[0]}")
+            net = MultiTaskMLP(input_dim=ck['input_dim'], num_classes=ck['num_classes'], **ck['model_params'])
+            net.load_state_dict(ck['state_dict'])
+            self.networks.append(net.to(self.device).eval())
+        self.task_names = list(first['task_names'])
+        self.input_dim = int(first['input_dim'])
+        self.network_classes = {t: list(first['classes'][t]) for t in self.task_names}
+        self.active = {t: np.array([c in first['active_classes'][t] for c in first['classes'][t]])
+                       for t in self.task_names}
+        self.class_names = dict(self.network_classes)
+        if self.model_path.is_dir():
+            import joblib
+            for p in sorted(self.model_path.glob('lr/*/model_*.joblib')):
+                task = p.parent.name
+                if task not in self.task_names or task in self.logreg:
+                    raise ValueError(f"{p}: unknown task or a second logistic regression for {task}")
+                self.logreg[task] = joblib.load(p)
+                self.class_names[task] = sorted(set(self.class_names[task]) | set(map(str, self.logreg[task].classes_)))
+            conf = self.model_path / 'confidence.json'
+            if conf.exists():
+                with open(conf) as f:
+                    self.confidence = json.load(f)
+        self.model_type = 'released'
+        logger.info(f"Loaded {len(self.networks)} network(s){' + logistic regression for ' + ', '.join(self.logreg) if self.logreg else ''}")
+
     def _load_model(self):
         """Load model from checkpoint.
 
@@ -62,6 +109,8 @@ class Predictor:
         checkpoint = torch.load(self.model_path, map_location=self.device, weights_only=False)
 
         # Support both wrapped checkpoints and raw state dicts
+        if isinstance(checkpoint, dict) and 'state_dict' in checkpoint and 'model_params' in checkpoint:
+            return self._load_released([self.model_path], [checkpoint])
         if isinstance(checkpoint, dict) and 'model_state_dict' in checkpoint:
             model_state = checkpoint['model_state_dict']
         elif isinstance(checkpoint, dict) and all(
@@ -218,6 +267,14 @@ class Predictor:
             Dictionary with predictions for each target.
             If return_probabilities=True, includes probabilities for each class.
         """
+        if self.networks:
+            predictions = {}
+            for target, probs in self.predict_proba(features).items():
+                pred_class = int(np.argmax(probs[0]))
+                predictions[target] = ({'class': pred_class, 'probabilities': probs[0].tolist()}
+                                       if return_probabilities else pred_class)
+            return predictions
+
         with torch.no_grad():
             # Convert to tensor
             x = torch.FloatTensor(features).unsqueeze(0).to(self.device)
@@ -248,7 +305,50 @@ class Predictor:
                     predictions[target] = pred_class
 
             return predictions
-    
+
+    def predict_proba(self, features: np.ndarray, corrected: bool = False) -> Dict[str, np.ndarray]:
+        """Released model: per task, (n_samples, n_classes) probabilities in class_names order.
+
+        The networks' softmax over their active classes, averaged; on a task with a logistic
+        regression, 0.5 x that average + 0.5 x its probabilities, classes matched by name
+        (a class absent from one side counts 0 there). With corrected=True each component first gets the
+        training class frequencies back (P * pi^tau, renormalised; tau_network for the networks,
+        tau_logistic_regression for the logistic regression; confidence.json): the probabilities behind the
+        reported confidence. Labels and flag scores use corrected=False.
+        """
+        if corrected and self.confidence is None:
+            raise ValueError("corrected probabilities need confidence.json in the released model folder")
+        if not self.networks:
+            raise ValueError("predict_proba needs a released model (model.pt or a folder of them)")
+        X = np.atleast_2d(np.asarray(features, dtype=np.float32))
+        with torch.no_grad():
+            outputs = [net(torch.from_numpy(X).to(self.device)) for net in self.networks]
+        probs = {}
+        for t in self.task_names:
+            p_net = np.mean([masked_softmax(o[t], self.active[t]).cpu().numpy() for o in outputs], axis=0)
+            if corrected:
+                p_net = self._add_prior(p_net, t, self.network_classes[t], self.confidence['tau_network'])
+            if t not in self.logreg:
+                probs[t] = p_net
+                continue
+            lr, names = self.logreg[t], self.class_names[t]
+            p_lr = lr.predict_proba(X)
+            if corrected:
+                p_lr = self._add_prior(p_lr, t, [str(c) for c in lr.classes_], self.confidence['tau_logistic_regression'])
+            p = np.zeros((X.shape[0], len(names)))
+            p[:, [names.index(c) for c in self.network_classes[t]]] += 0.5 * p_net
+            p[:, [names.index(str(c)) for c in lr.classes_]] += 0.5 * p_lr
+            probs[t] = p
+        return probs
+
+    def _add_prior(self, p: np.ndarray, task: str, classes: list, tau: float) -> np.ndarray:
+        """P * pi^tau over `classes` (pi: training class shares from confidence.json, 0 if absent), renormalised."""
+        prior = self.confidence['class_prior'][task]
+        w = np.array([prior.get(c, 0.0) for c in classes]) ** tau
+        x = p * w[None, :]
+        s = x.sum(axis=1, keepdims=True)
+        return np.where(s > 0, x / np.where(s > 0, s, 1), p)
+
     def predict_batch(
         self,
         features_batch: np.ndarray,

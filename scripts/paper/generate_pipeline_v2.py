@@ -1,8 +1,7 @@
 """Pipeline figure v2 (main Figure 1), plotly, with the manuscript's Vivid palette and template
 (scripts/paper/config.py), per CLAUDE.md; panels a/b read downwards.
 
-Panel a: training corpus -> unitig fractions -> DIANA (one network shared by the four fields, and
-logistic regression averaged in for community type). Panel b: a new sample -> projection onto the
+Panel a: training corpus -> unitig fractions -> DIANA (one network shared by the four fields). Panel b: a new sample -> projection onto the
 training vocabulary -> DIANA -> label or "no call", flag or "cannot assess". Icons from the submitted
 Pipeline.png (results/paper_v2/pipeline_icons/). Same layout as the earlier matplotlib render.
 """
@@ -23,7 +22,8 @@ OUT = [ROOT / "results/paper_v2/Pipeline_v2.png",
        Path("/pasteur/helix/scratch/cduitama/EDID/Spinger-Nature-DIANA/figures/Pipeline_v2.png")]
 V = PLOT_CONFIG["colors"]["palette"]
 # (edge, fill): palette edges, white fills
-BLUE, GOLD, INDIGO = (V[7], "white"), (V[6], "white"), (V[1], "white")
+BLUE, INDIGO = (V[7], "white"), (V[1], "white")
+SAGE = (V[5], "white")    # data boxes (dark teal; grey sage was indistinguishable from teal under deuteranopia)
 ORANGE, TEAL, LIME, RED = (V[0], "white"), (V[2], "white"), (V[3], "white"), (V[9], "white")
 INK, GREYT, ARROW = "#333333", "#555555", "#444444"
 W, H = 1300, 920                     # pixels; written at scale 3
@@ -38,7 +38,7 @@ def box(fig, cx, cy, w, h, colors, r=0.02):
     ry = r * (W / XMAX) / (H / YMAX)          # same corner radius in pixels on both axes
     path = (f"M {x0 + r},{y0} L {x1 - r},{y0} Q {x1},{y0} {x1},{y0 + ry} L {x1},{y1 - ry} Q {x1},{y1} {x1 - r},{y1} "
             f"L {x0 + r},{y1} Q {x0},{y1} {x0},{y1 - ry} L {x0},{y0 + ry} Q {x0},{y0} {x0 + r},{y0} Z")
-    fig.add_shape(type="path", path=path, line=dict(color=edge, width=3), fillcolor=fill, layer="below")
+    fig.add_shape(type="path", path=path, line=dict(color=edge, width=6), fillcolor=fill, layer="below")
 
 
 def label(fig, cx, cy, lines, size=14, bold=False, color=INK, dy=0.052):
@@ -67,45 +67,42 @@ def icon_box(fig, cx, cy, w, h, colors, name, icon_h, lines):
     box(fig, cx, cy, w, h, colors)
     left, inset = cx - w / 2, 0.09
     icon(fig, name, left + inset, cy, icon_h)
-    label(fig, (left + 2 * inset + cx + w / 2) / 2, cy, lines)
+    label(fig, (left + 2 * inset + cx + w / 2) / 2, cy, lines, size=15, bold=True, dy=0.055)
 
 
 def panel_a(fig):
     label(fig, 0.02, 1.00, ["a  Training, once"], size=17, bold=True)
     fig.layout.annotations[-1].xanchor = "left"
-    icon_box(fig, 0.52, 0.88, 0.62, 0.13, BLUE, "database", 0.055, ["Training corpus", "2,775 runs, 67 studies"])
+    icon_box(fig, 0.52, 0.88, 0.72, 0.13, INDIGO, "database", 0.055, ["Training corpus", "2,775 runs, 67 BioProjects"])
     arrow(fig, (0.52, 0.815), (0.52, 0.755))
-    icon_box(fig, 0.52, 0.665, 0.78, 0.14, GOLD, "grid", 0.055, ["Unitig fractions 85,986 × 2,775", "+ curated labels"])
+    icon_box(fig, 0.52, 0.665, 0.86, 0.14, SAGE, "grid", 0.055, ["Unitig fractions of 85,986 unitigs", "+ curated labels"])
     arrow(fig, (0.52, 0.59), (0.52, 0.525))
-    box(fig, 0.52, 0.30, 0.88, 0.40, TEAL)                   # one DIANA box holding both components
-    label(fig, 0.46, 0.455, ["DIANA"], size=16, bold=True)
-    icon(fig, "robot", 0.61, 0.455, 0.05)
-    box(fig, 0.295, 0.30, 0.355, 0.15, INDIGO)
-    label(fig, 0.295, 0.30, ["1 network", "shared by 4 fields"], size=13, dy=0.048)
-    box(fig, 0.745, 0.30, 0.355, 0.15, ORANGE)
-    label(fig, 0.745, 0.30, ["Logistic regression", "Community type"], size=13, dy=0.048)
-    label(fig, 0.52, 0.155, ["Probabilities averaged for community type"], size=13, color=GREYT)
-    label(fig, 0.52, 0.015, ["All tuning on study-grouped folds", "inside the training corpus"], size=11, color=GREYT, dy=0.03)
+    box(fig, 0.52, 0.35, 0.62, 0.30, TEAL)                   # the DIANA box holding the network
+    label(fig, 0.46, 0.445, ["DIANA"], size=19, bold=True)
+    icon(fig, "robot", 0.61, 0.445, 0.05)
+    box(fig, 0.52, 0.31, 0.46, 0.14, BLUE)
+    label(fig, 0.52, 0.31, ["Shared network", "4 fields, 5 seeds"], size=15, bold=True, dy=0.05)
+    label(fig, 0.52, 0.015, ["All tuning on BioProject-grouped folds", "inside the training corpus"], size=13, color=GREYT, dy=0.03)
 
 
 def panel_b(fig):
     label(fig, B + 0.02, 1.00, ["b  A new sample (diana-predict)"], size=17, bold=True)
     fig.layout.annotations[-1].xanchor = "left"
-    icon_box(fig, B + 0.52, 0.88, 0.70, 0.13, BLUE, "document", 0.055, ["New sample or held-out run", "Reads or unitigs"])
+    icon_box(fig, B + 0.52, 0.88, 0.76, 0.13, INDIGO, "document", 0.055, ["New sample or held-out run", "Reads or unitigs"])
     arrow(fig, (B + 0.52, 0.815), (B + 0.52, 0.755))
-    icon_box(fig, B + 0.52, 0.665, 0.62, 0.14, GOLD, "sigma", 0.05, ["Projection onto the", "training vocabulary"])
+    icon_box(fig, B + 0.52, 0.665, 0.62, 0.14, SAGE, "sigma", 0.05, ["Projection onto the", "training vocabulary"])
     arrow(fig, (B + 0.52, 0.59), (B + 0.52, 0.525))
     box(fig, B + 0.52, 0.45, 0.34, 0.14, TEAL)
-    label(fig, B + 0.46, 0.45, ["DIANA"], size=16, bold=True)
+    label(fig, B + 0.46, 0.45, ["DIANA"], size=19, bold=True)
     icon(fig, "target", B + 0.615, 0.45, 0.05)
     arrow(fig, (B + 0.44, 0.375), (B + 0.27, 0.27))
     arrow(fig, (B + 0.60, 0.375), (B + 0.76, 0.27))
     box(fig, B + 0.26, 0.175, 0.44, 0.16, LIME)
-    label(fig, B + 0.26, 0.175, ["Label + confidence", "or “no call”"], size=13, dy=0.05)
+    label(fig, B + 0.26, 0.175, ["Label + confidence", "or “no call”"], size=16, bold=True, dy=0.055)
     box(fig, B + 0.765, 0.175, 0.44, 0.16, RED)
-    label(fig, B + 0.765, 0.175, ["Flag = 1 − P(label)", "or “cannot assess”"], size=13, dy=0.05)
-    label(fig, B + 0.52, 0.015, ["The 863 held-out runs from 35 unseen studies", "follow this path, scored once"],
-          size=11, color=GREYT, dy=0.03)
+    label(fig, B + 0.765, 0.175, ["Flag = 1 − P(label)", "or “cannot assess”"], size=16, bold=True, dy=0.055)
+    label(fig, B + 0.52, 0.015, ["The 863 held-out runs from 35 unseen BioProjects", "follow this path"],
+          size=13, color=GREYT, dy=0.03)
 
 
 def main():

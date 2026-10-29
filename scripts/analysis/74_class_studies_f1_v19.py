@@ -26,6 +26,12 @@ BINS, LABELS = [1, 2, 3, 5, 10, 1000], ["2", "3", "4-5", "6-10", ">10"]
 
 
 def main() -> None:
+    global OUT
+    import argparse as _ap
+    _p = _ap.ArgumentParser()
+    _p.add_argument("--net", action="store_true", help="DIANA without logistic regression (PROTOCOLS.md v19 amendment 2026-10-26)")
+    if _p.parse_known_args()[0].net:
+        MODELS["DIANA"] = "results/devfold_probs_v19net/probs_DIANA_{t}.tsv"; OUT = ROOT / "results/class_studies_v19net"
     meta = pd.read_csv(ROOT / "data/splits_v19/train_metadata.tsv", sep="\t", dtype=str).replace("", np.nan)
     rows = []
     for t in TASKS:
