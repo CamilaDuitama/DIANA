@@ -41,3 +41,22 @@ Our labels agree with AMD for every run of the eight studies (checked 2026-10-01
   community_type for teeth after 2020; a search for "community_type tooth" returns nothing.
 - No issue or PR number is attached to the changelog lines themselves; the trail is issues #33,
   #35, #36 and the v20.09 release.
+
+## Version of 2026-10-05: what is new and what I could verify
+
+- **New: Willmann 2018 (PRJNA302605, held-out).** Not checked by me (the paper PDF cited was
+  read by Camila); if 5 of 6 teeth carry oral pathogens and the bones are soil controls, this is
+  the reverse mismatch to Philips and the strongest single row in the table: both the keep-oral
+  and the move-to-skeletal decisions of August 2020 contradict the respective papers' content.
+  Confirmed: the Willmann runs (SRR5581849 etc., PRJNA302605) are in the v9 held-out split,
+  labelled skeletal tissue / tooth; the held-out tooth check already showed DIANA predicts all
+  three oral (p(oral) 0.38), which the paper's pathogen findings now support.
+- **New: the three-pair material table** (root, pulp chamber, whole tooth each labelled both
+  ways). Consistent with the sampling facts verified earlier; the display is Camila's.
+- **New: the "Does DIANA follow the content" section.** The per-run checks I had computed agree
+  where they overlap: Philips 85 % predicted skeletal and 0 of 88 zero-oral teeth called oral
+  (matches my 141/165-run table), Norris Farms dentine predicted oral, Neukamm teeth ~90 %
+  predicted oral, Ua6 predicted oral, Jackson KGH1-A not lower. The Philips correlation
+  (ρ = 0.59; 0.31 after depth) uses the supplement's per-tooth oral shares, which I have not
+  independently recomputed; `tooth_content_check_runs.tsv` is referenced but **not present in
+  results/label_check_v9/** — ask Camila to drop it in so the paper figure can be rebuilt.
