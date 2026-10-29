@@ -3,8 +3,8 @@
   results_classification_grid.png  per field and class group (many-, medium-, few-shot), DIANA against each
                                    baseline, macro-F1 and balanced accuracy: the cell takes the colour of the model that is
                                    better after Benjamini-Hochberg over all cells of the figure (grey: no significant difference) and shows DIANA minus the
-                                   baseline (results/multiplicity_v19/net_classification_heldout/paired.tsv; released DIANA, read 5); cells of rows
-                                   with fewer than 5 held-out BioProjects carrying the group's classes are hatched
+                                   baseline (results/multiplicity_v19/net_classification_heldout/paired.tsv; released DIANA, read 5); no row is hatched:
+                                   the five-BioProject rule was dropped with the permutation test (PROTOCOLS.md 2026-10-26)
   results_detection_grid.png       the same for the share of planted mislabels caught at 5 % false flags
                                    (results/multiplicity_v19/net_regime_single_paired.tsv)
   results_reliability_<field>.png      DIANA's reliability curve on the held-out set

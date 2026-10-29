@@ -21,7 +21,8 @@ The released DIANA (read 5) is the same recipe refitted with saved weights:
 (scripts/analysis/run_refit_scoring_v19.sbatch). Its logistic regression
 (results/final_v19_lr_unused/community_type/; moved out of the release when DIANA became the network alone,
 PROTOCOLS.md v19 amendment 2026-10-26) gives held-out probabilities identical to the
-read-1 table used here.
+read-1 table used here. The paper's DIANA (network alone) is that run's probs_Shared_<task>.tsv, copied to
+results/heldout_v19/diana_net/probs_DIANA_<task>.tsv by run_net_rescore_v19.sbatch.
 
     ./env/bin/python scripts/analysis/49_diana_heldout_v19.py
 """

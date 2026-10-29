@@ -14,7 +14,7 @@ the 5 BioProject-grouped dev folds. This script trains one arm on four folds for
 fixed number of epochs with NO inner split and records the argmax prediction for every
 run of the fifth fold after every epoch. `scripts/analysis/37_epoch_budget_select.py`
 pools the five folds, scores each epoch once over all training projects, and picks the
-budget. The final fit then trains on all 2,716 runs for that many epochs.
+budget. The final fit then trains on all training runs (2,716 on v9) for that many epochs.
 
 Fairness: the same rule, cap and criterion are applied to the multi-task net and to
 each single-task net. Hyperparameters, features, ids, seed, tau and label smoothing are
@@ -34,6 +34,7 @@ import argparse
 import copy
 import json
 import logging
+import os
 from pathlib import Path
 
 import numpy as np
@@ -303,6 +304,11 @@ def fit_fold(args: argparse.Namespace, config: dict, data: dict, heldout: tuple 
     np.random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
+    # Deterministic GPU kernels, so a refit with the same seed gives the same numbers (code review 2026-10-29: two
+    # refits of the final recipe agreed on 96-97 % of held-out top classes). Set before any CUDA call.
+    os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")
+    torch.backends.cudnn.deterministic, torch.backends.cudnn.benchmark = True, False
+    torch.use_deterministic_algorithms(True, warn_only=True)
 
     task_names = data["task_names"]
     hp = config["hyperparameters"]

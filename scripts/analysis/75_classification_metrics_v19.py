@@ -3,7 +3,8 @@
 
 Macro-F1 (as 43_/68_), balanced accuracy (mean recall over the eligible classes present; promised in
 the Methods) and per-run accuracy (descriptive), on the stored predictions of the held-out reads 1
-and 2 (--heldout) or of the dev folds; nothing is refitted. Intervals: 2,000 BioProject resamples with
+and 5 (--heldout) or of the dev folds; nothing is refitted. DIANA defaults to the released network alone
+(PROTOCOLS.md v19 amendment 2026-10-26); --diana points elsewhere. Intervals: 2,000 BioProject resamples with
 the same keys as 43_ (whole field: cls|<task>, pair|<task>) and 68_ (regime: cls|<task>|<regime>,
 regpair|<task>|<regime>), so the macro-F1 values reproduce those tables. Pairs: DIANA minus each
 other model. p_perm: paired BioProject permutation test (PROTOCOLS.md v19 amendment 2026-10-26), macro-F1 and
@@ -27,12 +28,12 @@ from diana.evaluation import scoring as S  # noqa: E402
 
 TASKS = ["community_type", "feature", "sample_host", "material"]
 SPLIT = ROOT / "data/splits_v19"
-HELDOUT = {"DIANA": "results/heldout_v19/diana/probs_DIANA_{task}.tsv",
+HELDOUT = {"DIANA": "results/heldout_v19/diana_net/probs_DIANA_{task}.tsv",
            "LogReg": "results/heldout_v19/baselines/{task}/probs_LogisticRegression_Bal.tsv",
            "RandomForest": "results/heldout_v19/baselines/{task}/probs_RandomForest_Bal.tsv",
            "kNN": "results/heldout_v19/baselines/{task}/probs_kNN.tsv",
            "Majority": "results/heldout_v19/baselines/{task}/probs_MajorityClass.tsv"}
-DEV = {"DIANA": "results/devfold_probs_v19/probs_DIANA_{task}.tsv",
+DEV = {"DIANA": "results/devfold_probs_v19net/probs_DIANA_{task}.tsv",
        "LogReg": "results/baselines_v19/{task}/oof_probs_LogisticRegression_Bal.tsv",
        "RandomForest": "results/baselines_v19/{task}/oof_probs_RandomForest_Bal.tsv",
        "kNN": "results/baselines_v19/{task}/oof_probs_kNN.tsv",

@@ -14,6 +14,15 @@ set -euo pipefail
 export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 KMP_INIT_AT_FORK=FALSE KMP_AFFINITY=disabled MPLBACKEND=Agg
 PY=./env/bin/python; DN=results/heldout_v19/diana_net; DV=results/devfold_probs_v19net; H=results/heldout_v19/baselines/{task}; B=results/baselines_v19/{task}
 M=results/multiplicity_v19
+# The network-only tables are the shared network's own tables (held-out: 49_ on the refit; dev folds: 42_), copied once,
+# never overwritten; an existing copy that differs stops the job.
+for t in community_type feature sample_host material; do
+    for pair in "results/heldout_v19/diana_refit/probs_Shared_$t.tsv $DN/probs_DIANA_$t.tsv" "results/devfold_probs_v19/probs_Shared_$t.tsv $DV/probs_DIANA_$t.tsv"; do
+        read -r SRC DST <<< "$pair"; mkdir -p "$(dirname "$DST")"
+        [ -e "$DST" ] || { cp "$SRC" "$DST.$SLURM_ARRAY_TASK_ID.tmp" && mv "$DST.$SLURM_ARRAY_TASK_ID.tmp" "$DST"; }
+        cmp -s "$SRC" "$DST" || { echo "$DST differs from $SRC" >&2; exit 1; }
+    done
+done
 HMODELS=(--model "DIANA=$DN/probs_DIANA_{task}.tsv" --model "LogReg=$H/probs_LogisticRegression_Bal.tsv"
          --model "RandomForest=$H/probs_RandomForest_Bal.tsv" --model "kNN=$H/probs_kNN.tsv" --model "Majority=$H/probs_MajorityClass.tsv")
 PAIRS=(--pair DIANA:LogReg --pair DIANA:RandomForest)
